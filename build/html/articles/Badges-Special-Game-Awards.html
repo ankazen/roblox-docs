@@ -1,0 +1,409 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Badges – Special Game Awards &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Restricted/Team Doors" href="Collision-Filtering-Team-Doors.html" />
+    <link rel="prev" title="2D 碰撞检测" href="2D-Collision-Detection.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Lobby.html">制作大厅</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Usage-of-dialogs.html">NPC 对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Teleporting-Between-Places.html">不同场景间的传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Spawns-and-Teams.html">角色生成与团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-an-Explosion-Course.html">制作爆炸赛道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shop-Dialogs.html">商店对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-to-teleport-within-a-Place.html">场景内玩家传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="in-game-solid-modeling.html">游戏内实体建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matchmaking.html">玩家匹配系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Player-Collisions.html">玩家间的碰撞控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setting-Parts-on-Fire-with-Events.html">通过事件让部件着火</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2D-Collision-Detection.html">2D 碰撞检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Basics-on-Roblox.html">添加团队</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Badges – Special Game Awards</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-badge">Creating a Badge</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-an-icon">Create an Icon</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#upload-the-badge">Upload the Badge</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#scripting-for-badges">Scripting for Badges</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#awarding-a-badge">Awarding a Badge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#getting-badge-info">Getting Badge Info</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Collision-Filtering-Team-Doors.html">Restricted/Team Doors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-VIP-Doors.html">创建 VIP 专用门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Random-Map-Chooser.html">随机地图选择器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roblox-avatars.html">Roblox 虚拟形象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Health-Pickups.html">回复用拾取物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Moving-NPCs-Between-Points.html">在点之间移动 NPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pathfinding.html">寻路</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Side-Scrolling-Camera-View.html">横向卷轴镜头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Tools.html">玩家工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="detecting-collisions.html">检测碰撞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weapons-kit.html">认可武器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="npc-kit.html">NPC 套组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vehicles-kit.html">载具工具包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="team-balancing.html">平衡团队构成</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/gameplay.html">游戏制作</a> &raquo;</li>
+        
+      <li>Badges – Special Game Awards</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Badges-Special-Game-Awards.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="badges-special-game-awards">
+<h1>Badges – Special Game Awards<a class="headerlink" href="#badges-special-game-awards" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p><strong>Badges</strong> let you create special awards for players who do something exceptional within your game. A badge might be awarded when a player:</p>
+<ul class="simple">
+<li><p>Collects 100 gold stars.</p></li>
+<li><p>Jumps across a challenging series of platforms over a poison swamp.</p></li>
+<li><p>Finds all 7 keys to unlock the kingdoms of Earth, Air, Lava, Ocean, Light, Shadow, and Dreams.</p></li>
+</ul>
+<div class="section" id="creating-a-badge">
+<h2>Creating a Badge<a class="headerlink" href="#creating-a-badge" title="Permalink to this headline">¶</a></h2>
+<p>It costs <img alt="https://developer.roblox.com/assets/blt60814f4e9ed61103/Robux-Icon.png" src="https://developer.roblox.com/assets/blt60814f4e9ed61103/Robux-Icon.png" /></p>
+<p>100 to create a badge. To begin:</p>
+<ol class="simple">
+<li><p>Go to the <a class="reference external" href="https://www.roblox.com/develop">Create</a> page on the Roblox website. Once there, make sure that <strong>Games</strong> is selected in the left column.</p></li>
+<li><p>Determine the game you want to create a badge for.</p></li>
+<li><p>In the settings drop-down menu on the right-hand side, select <strong>Create Badge</strong>.
+<img alt="https://developer.roblox.com/assets/blte6e47358ebd81561/Create-Badge.png" src="https://developer.roblox.com/assets/blte6e47358ebd81561/Create-Badge.png" /></p></li>
+</ol>
+<div class="section" id="create-an-icon">
+<h3>Create an Icon<a class="headerlink" href="#create-an-icon" title="Permalink to this headline">¶</a></h3>
+<p>Badge icons should be designed as follows:</p>
+<ol class="simple">
+<li><p>In an image editing application, design a <strong>circular</strong> badge (a template of 512×512 pixels is recommended). The final icon will be <strong>trimmed/cropped into a circular image</strong>, so you shouldn’t include important details outside the circular boundaries.</p></li>
+</ol>
+<p><img alt="https://developer.roblox.com/assets/blt40cecbc6b316187c/Circle-Y-L.png" src="https://developer.roblox.com/assets/blt40cecbc6b316187c/Circle-Y-L.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt2bcfa994647e6308/KeyMaster-Circular-Design.png" src="https://developer.roblox.com/assets/blt2bcfa994647e6308/KeyMaster-Circular-Design.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt773ada4ae8c71724/r-arrow.svg" src="https://developer.roblox.com/assets/blt773ada4ae8c71724/r-arrow.svg" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt79978052a378e1b0/KeyMaster-Circular-Result.png" src="https://developer.roblox.com/assets/blt79978052a378e1b0/KeyMaster-Circular-Result.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt38a47bcfd3586afb/Circle-N-L.png" src="https://developer.roblox.com/assets/blt38a47bcfd3586afb/Circle-N-L.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt04d2a0c31aaf78e9/KeyMaster-Square-Design.png" src="https://developer.roblox.com/assets/blt04d2a0c31aaf78e9/KeyMaster-Square-Design.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt773ada4ae8c71724/r-arrow.svg" src="https://developer.roblox.com/assets/blt773ada4ae8c71724/r-arrow.svg" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt38919c6f1290c360/KeyMaster-Square-Result.png" src="https://developer.roblox.com/assets/blt38919c6f1290c360/KeyMaster-Square-Result.png" /></p>
+<ol class="simple">
+<li><p>Save the badge image in .jpg, .gif, .png, .tga, or .bmp format.</p></li>
+</ol>
+</div>
+<div class="section" id="upload-the-badge">
+<h3>Upload the Badge<a class="headerlink" href="#upload-the-badge" title="Permalink to this headline">¶</a></h3>
+<p>The next step in the creation process is uploading the badge.</p>
+<ol class="simple">
+<li><p>Back on the Roblox website, click the small button next to <strong>Find your image</strong>.
+<img alt="https://developer.roblox.com/assets/bltbab22e91713f7bbe/Badge-Choose-File.png" src="https://developer.roblox.com/assets/bltbab22e91713f7bbe/Badge-Choose-File.png" /></p></li>
+<li><p>Find the badge image on your computer and confirm that you’d like to upload it.</p></li>
+<li><p>Type in a name and description for the badge. It’s a good idea to describe how the badge can be earned so players have a specific goal to reach for.</p></li>
+<li><p>Click <strong>Preview</strong>, review the details for the badge, and purchase when you’re ready. Once the purchase is complete, the badge will appear in the <strong>Game Badges</strong> section of the game’s main page.
+<img alt="https://developer.roblox.com/assets/blt2f593945660307c3/Badge-Created.png" src="https://developer.roblox.com/assets/blt2f593945660307c3/Badge-Created.png" /></p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="scripting-for-badges">
+<h2>Scripting for Badges<a class="headerlink" href="#scripting-for-badges" title="Permalink to this headline">¶</a></h2>
+<p>To take full advantage of badges, you’ll need to use scripting. Here are some common examples:</p>
+<div class="section" id="awarding-a-badge">
+<h3>Awarding a Badge<a class="headerlink" href="#awarding-a-badge" title="Permalink to this headline">¶</a></h3>
+<p>In the following server-side <code class="docutils literal notranslate"><span class="pre">Script</span></code>, the <code class="docutils literal notranslate"><span class="pre">awardBadge()</span></code> function can be called whenever it fits your game design. Using properties of the badge fetched via <code class="docutils literal notranslate"><span class="pre">BadgeService/GetBadgeInfoAsync|BadgeService:GetBadgeInfoAsync()</span></code>, it confirms that the badge can be awarded and does so using <code class="docutils literal notranslate"><span class="pre">BadgeService/AwardBadge|BadgeService:AwardBadge()</span></code>.</p>
+<p>服务器端脚本 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">BadgeService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;BadgeService&quot;</span><span class="p">)</span>
+
+<span class="n">local</span> <span class="n">function</span> <span class="n">awardBadge</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">badgeId</span><span class="p">)</span>
+	<span class="o">--</span> <span class="n">确认徽章可以被授予</span>
+	<span class="k">if</span> <span class="n">BadgeService</span><span class="p">:</span><span class="n">IsLegal</span><span class="p">(</span><span class="n">badgeId</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">BadgeService</span><span class="p">:</span><span class="n">IsDisabled</span><span class="p">(</span><span class="n">badgeId</span><span class="p">)</span> <span class="n">then</span>
+		<span class="o">--</span> <span class="n">授予徽章</span>
+		<span class="n">BadgeService</span><span class="p">:</span><span class="n">AwardBadge</span><span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">UserId</span><span class="p">,</span> <span class="n">badgeId</span><span class="p">)</span>
+	<span class="n">end</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>### Checking Earned Badges
+
+The following script waits for any player to enter the game and checks if they own a specific badge. This is useful for creating a `articles/Collision Filtering Team Doors|restricted area` or `articles/Teleporting Between Places|teleporter` that only works if a player owns a special badge.
+
+Checking Earned Badges ```    
+    
+    local BadgeService = game:GetService(&quot;BadgeService&quot;)
+    local Players = game:GetService(&quot;Players&quot;)
+    
+    local badgeID = 00000000  -- Change this to your badge ID
+    
+    local function onPlayerAdded(player)
+    	-- Check if the player has the badge
+    	local success, hasBadge = pcall(function()
+    		return BadgeService:UserHasBadgeAsync(player.UserId, badgeID)
+    	end)
+    
+    	-- If there&#39;s an error, issue a warning and exit the function
+    	if not success then
+    		warn(&quot;Error while checking if player has badge!&quot;)
+    		return
+    	end
+    
+    	if hasBadge then
+    		-- Handle player&#39;s badge ownership as needed
+    	end
+    end
+    
+    -- Connect &quot;PlayerAdded&quot; events to the &quot;onPlayerAdded()&quot; function
+    Players.PlayerAdded:Connect(onPlayerAdded)
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="getting-badge-info">
+<h3>Getting Badge Info<a class="headerlink" href="#getting-badge-info" title="Permalink to this headline">¶</a></h3>
+<p>To simply get info about a badge, use the <code class="docutils literal notranslate"><span class="pre">BadgeService/GetBadgeInfoAsync|BadgeService:GetBadgeInfoAsync()</span></code> function as illustrated in the following example.</p>
+<p>异步获取徽章信息 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>local BadgeService = game:GetService(&quot;BadgeService&quot;)
+
+-- 获取信息（需要一点时间）
+local info = BadgeService:GetBadgeInfoAsync(2124421311)
+
+-- 打印我们刚才获取的信息
+print(&quot;Badge: &quot; .. info.Name)
+print(&quot;Description: &quot; .. info.Description)
+print(&quot;Icon: rbxassetid://&quot; .. info.IconImageId)
+if info.IsEnabled then
+	print(&quot;Badge is enabled&quot;)
+else
+	print(&quot;Badge is disabled&quot;)
+end
+
+
+Badge: Dominator — 3 Victories
+Description: Win 3 matches.
+Icon: rbxassetid://2131632696
+Badge is enabled
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+
+***__Roblox官方链接__:[Badges – Special Game Awards](https://developer.roblox.com/zh-cn/articles/Badges-Special-Game-Awards)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Collision-Filtering-Team-Doors.html" class="btn btn-neutral float-right" title="Restricted/Team Doors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="2D-Collision-Detection.html" class="btn btn-neutral float-left" title="2D 碰撞检测" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

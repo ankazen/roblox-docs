@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>内容数据类型 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="导入地形数据" href="importing-terrain-data.html" />
+    <link rel="prev" title="实体建模：使用部件进行 3D 建模" href="3D-Modeling-with-Parts.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/creating.html">创建</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Building-a-Campfire.html">构建篝火</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Circle-With-Code.html">使用代码创建圆环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3D-Modeling-with-Parts.html">实体建模：使用部件进行 3D 建模</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">内容数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">内容格式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">协议</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rbxasset">rbxasset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rbxassetid">rbxassetid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rbxgameasset">rbxgameasset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rbxhttp">rbxhttp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rbxthumb">rbxthumb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#http-https">http / https</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="importing-terrain-data.html">导入地形数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importing-custom-rigs.html">导入自定义模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-ray-casting-laser-gun-in-Roblox.html">射线投射：创建激光枪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archiving-assets-and-games.html">将资源和游戏归档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="understanding-root-parts.html">根部件：概述与理解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Copyright-Guidance.html">内容版权与知识产权</a></li>
+<li class="toctree-l2"><a class="reference internal" href="managing-personal-information.html">关于 GDPR 和 CCPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="designing-for-multiplayer.html">设计多人游戏</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Create.html">合作式开发</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/creating.html">创建</a> &raquo;</li>
+        
+      <li>内容数据类型</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Content.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>内容数据类型<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>2  分钟</em></p>
+<p>在 Roblox 上，<strong>内容</strong>是一个指向资源（如图像、声音或网格）的特殊格式化字符串。出于安全原因，<code class="docutils literal notranslate"><span class="pre">ContentProvider</span></code> 服务会阻止加载指向<strong>非</strong>可信站点上的文件的链接。下图显示了过滤器的工作原理：</p>
+<p>读取链接</p>
+<p>检查链接</p>
+<p>由过滤器决定通过或阻止</p>
+<p>加载通过的内容</p>
+<div class="section" id="id2">
+<h2>内容格式<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>内容有多种格式，所有格式都指向联机文件或保存到客户端计算机的文件。基本结构是 <strong>protocol</strong>（协议）名称，后跟 ://，，然后是<strong>字符串</strong>，这取决于使用的协议。</p>
+<p>protocol://string</p>
+<p>协议 字符串 描述</p>
+<p><strong>rbxasset</strong>
+一个文件路径
+从 Roblox 内容文件夹中获取一个文件</p>
+<p><strong>rbxassetid</strong>
+一个有效的资源 ID
+从 Roblox 网站获取一个用户创建的资源</p>
+<p><strong>rbxgameasset</strong>
+文件夹/目录 + 资源名称
+获取一个通过游戏管理器上传的资源</p>
+<p><strong>rbxhttp</strong>
+一个 Roblox 网站上的路径
+从 Roblox 网站获取内容</p>
+<p><strong>rbxthumb</strong>
+有序的参数和值
+允许轻松加载缩略图</p>
+<p><strong>http / https</strong>
+网站 URL
+使用 URL 获取网站上的内容</p>
+</div>
+<div class="section" id="id3">
+<h2>协议<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="rbxasset">
+<h3>rbxasset<a class="headerlink" href="#rbxasset" title="Permalink to this headline">¶</a></h3>
+<p>指向用户电脑上的 Roblox 内容文件夹。</p>
+<p>rbxasset://textures/face.png</p>
+<p>以下是支持的操作系统中内容文件夹的位置：</p>
+<p><strong>Windows</strong> — <code class="docutils literal notranslate"><span class="pre">%localappdata%\Roblox\Versions\&lt;version&gt;\content</span></code><br /><strong>Mac</strong> — <code class="docutils literal notranslate"><span class="pre">Applications/RobloxStudio.app/Contents/Resources/content</span></code></p>
+</div>
+<div class="section" id="rbxassetid">
+<h3>rbxassetid<a class="headerlink" href="#rbxassetid" title="Permalink to this headline">¶</a></h3>
+<p>指向本站上的一个用户创建的资源。例如，以下 <strong>rbxassetid</strong> 指向一个 Roblox 创建的图片：</p>
+<p>rbxassetid://607948062</p>
+<p>以下为它的 URL 对等形式：</p>
+<p>https://www.roblox.com/asset/?id=607948062</p>
+</div>
+<div class="section" id="rbxgameasset">
+<h3>rbxgameasset<a class="headerlink" href="#rbxgameasset" title="Permalink to this headline">¶</a></h3>
+<p>指向一个通过<a class="reference external" href="/resources/studio/Game-Explorer">游戏管理器</a>上传的资源。这允许您使用用户友好的名称而不是 ID 来访问资源。因此如果您通过游戏管理器上传了一个名为 Potion.png 的图片，您可以用以下格式引用它：</p>
+<p>rbxgameasset://Images/Potion</p>
+<p>在上面的示例中，“Images” 是游戏管理器中的目录/文件夹，而 “Potion” 是资源的名称，除去其扩展名。</p>
+<p>注意 <strong>rbxgameasset</strong> 只对当前游戏生效。如果您将使用该资源的父对象粘贴到另一个游戏中，则该资源不会被加载（或者，如果您在那个游戏中上传了一个同名的资源，则会加载那个资源）。如果您需要一项资源跨多个游戏工作，请使用 <strong>rbxassetid</strong>，而不是 <strong>rbxgameasset</strong>。</p>
+</div>
+<div class="section" id="rbxhttp">
+<h3>rbxhttp<a class="headerlink" href="#rbxhttp" title="Permalink to this headline">¶</a></h3>
+<p>相当于 <code class="docutils literal notranslate"><span class="pre">ContentProvider/BaseUrl</span></code> 的简写。例如：</p>
+<p>rbxhttp://Thumbs/Avatar.ashx?x=100&amp;y;=100&amp;format;=png</p>
+<p>可以扩展为：</p>
+<p>https://www.roblox.com/Thumbs/Avatar.ashx?x=100&amp;y;=100&amp;format;=png</p>
+</div>
+<div class="section" id="rbxthumb">
+<h3>rbxthumb<a class="headerlink" href="#rbxthumb" title="Permalink to this headline">¶</a></h3>
+<p>这是一种允许轻松加载缩略图的内容格式，它适用于图片内容 ID 可以使用的任何地方，例如 <code class="docutils literal notranslate"><span class="pre">ImageLabel/Image</span></code> 或<code class="docutils literal notranslate"><span class="pre">ContentProvider/PreloadAsync|ContentProvider:PreloadAsync()</span></code>。</p>
+<p><strong>rbxthumb</strong> 的格式如下，<strong>参数顺序必须遵循</strong>。</p>
+<p>rbxthumb://type=[ThumbnailType]&amp;id;=[TargetId]&amp;w;=[Width]&amp;h;=[Height]</p>
+<p>例如：</p>
+<p>rbxthumb://type=Asset&amp;id;=24813339&amp;w;=150&amp;h;=150</p>
+<div class="section" id="id4">
+<h4>支持的类型和大小 »<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>类型 支持的尺寸</p>
+<p><strong>Asset（资源）</strong>
+150×150、420×420</p>
+<p><strong>Avatar（虚拟形象）</strong>
+100×100、352×352、720×720</p>
+<p><strong>AvatarHeadShot（虚拟形象头像）</strong>
+48×48、60×60、150×150</p>
+<p><strong>BadgeIcon（徽章图标）</strong>
+150×150</p>
+<p><strong>BundleThumbnail（捆绑包略缩图）</strong>
+150×150、420×420</p>
+<p><strong>GameIcon（游戏图标）</strong>
+50×50、150×150</p>
+<p><strong>GamePass（游戏通行证）</strong>
+150×150</p>
+<p><strong>GroupIcon（群组图标）</strong>
+150×150、420×420</p>
+<p><strong>Outfit（服装）</strong>
+150×150、420×420</p>
+</div>
+</div>
+<div class="section" id="http-https">
+<h3>http / https<a class="headerlink" href="#http-https" title="Permalink to this headline">¶</a></h3>
+<p>指向内容在互联网上的确切位置。只能用于 Roblox 允许的站点，若用于其它站点，则会出现错误。</p>
+<p>https://www.roblox.com/asset/?id=607948062</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Content">内容数据类型</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="importing-terrain-data.html" class="btn btn-neutral float-right" title="导入地形数据" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="3D-Modeling-with-Parts.html" class="btn btn-neutral float-left" title="实体建模：使用部件进行 3D 建模" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

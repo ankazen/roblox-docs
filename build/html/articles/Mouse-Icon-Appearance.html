@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>鼠标指针控制 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="设置文本动画" href="animating-text.html" />
+    <link rel="prev" title="镜头操控" href="Camera-manipulation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-GUIs.html">GUI 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI-Animations.html">GUI 动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fundamentals-of-Scripting-with-GUIs.html">GUI 脚本简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Chat-System.html">Lua 聊天系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Interactive-Surface-GUI.html">交互式表面 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-GUI-Buttons.html">创建 GUI 按钮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Radial-Menu.html">创建摇杆快速菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Grid-Menu.html">创建栅格菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using-Images-in-GUIs.html">在 GUI 中使用图像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text-and-Chat-Filtering.html">文本与聊天过滤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Camera-manipulation.html">镜头操控</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">鼠标指针控制</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">设置鼠标图标</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">隐藏鼠标图标</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">锁定鼠标位置</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="animating-text.html">设置文本动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar-emotes.html">Avatar Emotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chat-Modules.html">Chat Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Custom-Teleport-GUI.html">创建自定义传送屏幕</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Scrolling-Frame-GUI.html">创建滚动框架 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-the-camera.html">Customizing the Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Disabling-Parts-of-Game-Interface.html">禁用游戏界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-bindings.html">Roblox Input Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selection-Boxes.html">选择框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Three-Quarters-Camera-View.html">45 度镜头视角</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Unit-Frame.html">单元框：制作生命槽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewportframe-gui.html">ViewportFrame GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/user-interface.html">用户界面</a> &raquo;</li>
+        
+      <li>鼠标指针控制</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Mouse-Icon-Appearance.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>鼠标指针控制<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>这篇文章详细解释了如何自定义鼠标指针行为。</p>
+<div class="section" id="id2">
+<h2>设置鼠标图标<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>开发者可以在 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 中更换玩家的鼠标图标，只要将其 <code class="docutils literal notranslate"><span class="pre">Mouse/Icon|Icon</span></code> （图标）设置为一个自定义的 Roblox 资源 ID：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">Players</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">mouse</span> <span class="o">=</span> <span class="n">Players</span><span class="o">.</span><span class="n">LocalPlayer</span><span class="p">:</span><span class="n">GetMouse</span><span class="p">()</span>
+    <span class="n">mouse</span><span class="o">.</span><span class="n">Icon</span> <span class="o">=</span> <span class="s2">&quot;rbxassetid://3400146391&quot;</span>
+
+</pre></div>
+</div>
+<p>注意，由于图标是在 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 中设置的，因此每个玩家的图标可以不尽相同，开发者也可以让某个图标只在特定情况下出现（比如当某个能力处于冷却时间或将鼠标悬停于某个敌人目标上时）。</p>
+</div>
+<div class="section" id="id3">
+<h2>隐藏鼠标图标<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>可以使用 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">UserInputService/MouseIconEnabled</span></code> 打开或关闭鼠标图标的可见度。例如下列编码每隔两秒就会切换一次鼠标的可见状态：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">UserInputService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;UserInputService&quot;</span><span class="p">)</span>
+    
+    <span class="k">while</span> <span class="n">true</span> <span class="n">do</span>
+    	<span class="n">wait</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    	<span class="n">UserInputService</span><span class="o">.</span><span class="n">MouseIconEnabled</span> <span class="o">=</span> <span class="n">false</span>
+    	<span class="n">wait</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    	<span class="n">UserInputService</span><span class="o">.</span><span class="n">MouseIconEnabled</span> <span class="o">=</span> <span class="n">true</span>
+    <span class="n">end</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>锁定鼠标位置<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>可以使用值为 <code class="docutils literal notranslate"><span class="pre">enum/MouseBehavior|Enum.MouseBehavior.LockCurrentPosition</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">enum/MouseBehavior|Enum.MouseBehavior.LockCenter</span></code> 的 <code class="docutils literal notranslate"><span class="pre">UserInputService/MouseBehavior</span></code> 属性来将鼠标位置锁定在屏幕上。如果想解除鼠标锁定，则把此属性的值设定回 <code class="docutils literal notranslate"><span class="pre">enum/MouseBehavior|Enum.MouseBehavior.Default</span></code> 即可。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">UserInputService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;UserInputService&quot;</span><span class="p">)</span>
+    
+    <span class="n">wait</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">UserInputService</span><span class="o">.</span><span class="n">MouseBehavior</span> <span class="o">=</span> <span class="n">Enum</span><span class="o">.</span><span class="n">MouseBehavior</span><span class="o">.</span><span class="n">LockCurrentPosition</span>
+    
+    <span class="n">UserInputService</span><span class="o">.</span><span class="n">InputChanged</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">inputObject</span><span class="p">)</span>
+    	<span class="k">if</span> <span class="n">inputObject</span><span class="o">.</span><span class="n">UserInputType</span> <span class="o">==</span> <span class="n">Enum</span><span class="o">.</span><span class="n">UserInputType</span><span class="o">.</span><span class="n">MouseMovement</span> <span class="n">then</span>
+    		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mouse delta is (&quot;</span> <span class="o">..</span> <span class="n">tostring</span><span class="p">(</span><span class="n">inputObject</span><span class="o">.</span><span class="n">Delta</span><span class="o">.</span><span class="n">X</span><span class="p">)</span> <span class="o">..</span> <span class="s2">&quot;, &quot;</span> <span class="o">..</span>  <span class="n">tostring</span><span class="p">(</span><span class="n">inputObject</span><span class="o">.</span><span class="n">Delta</span><span class="o">.</span><span class="n">Y</span><span class="p">)</span> <span class="o">..</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
+    	<span class="n">end</span>
+    <span class="n">end</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>请注意，即使鼠标处于锁定状态，当玩家移动鼠标时，仍旧会触发 <code class="docutils literal notranslate"><span class="pre">UserInputService/InputChanged</span></code>，并传入鼠标已移动距离。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Mouse-Icon-Appearance">鼠标指针控制</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="animating-text.html" class="btn btn-neutral float-right" title="设置文本动画" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Camera-manipulation.html" class="btn btn-neutral float-left" title="镜头操控" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

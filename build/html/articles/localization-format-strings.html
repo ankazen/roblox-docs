@@ -1,0 +1,430 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>本地化格式字符串 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="本地化门户：扩展功能" href="localization-portal-additional-features.html" />
+    <link rel="prev" title="本地化简介" href="Introduction-to-Localization-on-Roblox.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/international.html">国际化</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Introduction-to-Localization-on-Roblox.html">本地化简介</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">本地化格式字符串</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">构造格式字符串</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">使用格式说明符</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">非本地化替换</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">本地化替换</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">数值替换</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">示例实现</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="localization-portal-additional-features.html">本地化门户：扩展功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Localization-Support-and-Troubleshooting.html">本地化常见问题和错误排查</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localizing-non-text-instances.html">本地化非文本实例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilizing-localization-apis.html">使用本地化 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Format-Strings.html">格式字符串</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/international.html">国际化</a> &raquo;</li>
+        
+      <li>本地化格式字符串</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/localization-format-strings.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>本地化格式字符串<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>如果在游戏过程中需要实时更新字符串，例如显示玩家名称或使用计时器时，可以将<strong>格式字符串</strong>用作本地化翻译中的占位符。</p>
+<p><img alt="https://developer.roblox.com/assets/bltd1f6fd7d58869347/Format-Strings-pt.jpg" src="https://developer.roblox.com/assets/bltd1f6fd7d58869347/Format-Strings-pt.jpg" /> 显示游戏中物品的数量。</p>
+<p><img alt="https://developer.roblox.com/assets/blt0ff6755149222f8c/Format-Strings-username.jpg" src="https://developer.roblox.com/assets/blt0ff6755149222f8c/Format-Strings-username.jpg" /> 在消息中显示玩家的 Roblox 用户名。</p>
+<p><img alt="https://developer.roblox.com/assets/blt9be06795530968f0/Format-Strings-score.jpg" src="https://developer.roblox.com/assets/blt9be06795530968f0/Format-Strings-score.jpg" /> 使用本地化分隔符显示高分。</p>
+<div class="section" id="id2">
+<h2>构造格式字符串<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>格式字符串由<strong>参数</strong>和可选的<strong>格式说明符</strong>组成，格式说明符控制参数值的输出/格式化方式。</p>
+<p><strong>{NumJewels</strong>
+<strong>:</strong>
+<strong>int}</strong></p>
+<p><img alt="https://developer.roblox.com/assets/blt520577ecaffd5e7d/u-arrow-blue.png" src="https://developer.roblox.com/assets/blt520577ecaffd5e7d/u-arrow-blue.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt520577ecaffd5e7d/u-arrow-blue.png" src="https://developer.roblox.com/assets/blt520577ecaffd5e7d/u-arrow-blue.png" /></p>
+<p>参数
+可选的格式说明符</p>
+<p>参数可以采用<strong>命名</strong>或<strong>编号</strong>风格。一个条目的所有参数必须使用相同的风格，不能同时使用命名和编号。</p>
+<p><img alt="https://developer.roblox.com/assets/blt2de4b75f8a635fad/Circle-Y.png" src="https://developer.roblox.com/assets/blt2de4b75f8a635fad/Circle-Y.png" /></p>
+<p>${1:fixed} cash and {2:int} jewels</p>
+<p><img alt="https://developer.roblox.com/assets/blt2de4b75f8a635fad/Circle-Y.png" src="https://developer.roblox.com/assets/blt2de4b75f8a635fad/Circle-Y.png" /></p>
+<p>${AmountCash:fixed} cash and {NumJewels:int} jewels</p>
+<p><img alt="https://developer.roblox.com/assets/blt31c7fd261f84f0cc/Circle-N.png" src="https://developer.roblox.com/assets/blt31c7fd261f84f0cc/Circle-N.png" /></p>
+<p>${1:fixed} cash and {NumJewels:int} jewels</p>
+</div>
+<div class="section" id="id3">
+<h2>使用格式说明符<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>如上所述，格式字符串中可以包含可选的<strong>格式说明符</strong>。下表列出了每个说明符及其预期用途。</p>
+<p>说明符 类型 描述 示例输出</p>
+<p><strong>translate</strong>
+字符串
+尝试在连接之前翻译参数（在同一上下文中）。这将只查找文本 **Source（源）**匹配，它不支持递归匹配。</p>
+<p><strong>int</strong>
+数值
+带有可选负号的整数； 没有千位分隔符。
+1234</p>
+<p><strong>fixed</strong>
+数值
+带小数指示符的两位小数，带可选的负号，无千位分隔符。
+1234.50</p>
+<p><strong>num</strong>
+数值
+带小数指示符的两位小数，带可选的负号和千位分隔符。
+1,234.50<br />1 234,50</p>
+<p><strong>HEX</strong>
+数值
+整数转换为十六进制；负数转换为 64 位二进制补码。
+3FF</p>
+<p><strong>hex</strong>
+数值
+与 <strong>HEX</strong> 相同，但为小写。
+3ff</p>
+<p><strong>datetime</strong>
+数值
+UTC 时间戳，作为通用的用户可读格式的数值。
+2017-10-10 13:38:10</p>
+<p><strong>iso8601</strong>
+数值
+UTC 时间戳，作为 ISO-8601格式 UTC 时间的数值。
+2017-10-12T22:02:38Z</p>
+<p><strong>shorttime</strong>
+数值
+本地“hour:minute”格式的 UTC 时间戳。
+1:45 PM<br />13:45</p>
+<p><strong>shortdatetime</strong>
+数值
+通用的日期+时间模式（短时间）的 UTC 时间戳。
+10/10/2017 1:45 PM</p>
+<p><strong>shortdate</strong>
+数值
+短日期模式的 UTC 时间戳。
+10/10/2017<br />2017-10-10</p>
+<div class="section" id="id4">
+<h3>非本地化替换<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>如果<strong>未</strong>包含格式说明符，则将完全按照给定的值显示参数值。这对于直接替换不会在语言之间更改的字符串（例如，专有名称、标题等）非常有用。</p>
+<p>C
+D
+E
+F</p>
+<p><strong>源</strong>
+示例
+<strong>es</strong></p>
+<p>Hello {Player_Name}!
+Hola {Player_Name}!</p>
+<p>My name is {NPC_Name}.
+Me llamo {NPC_Name}.</p>
+<p>示例输入 英语输出 西班牙语输出</p>
+<p>Hello new_storm!
+Hello new_storm!
+Hola new_storm!</p>
+<p>My name is Diva Dragonslayer.
+My name is Diva Dragonslayer.
+Me llamo Diva Dragonslayer.</p>
+</div>
+<div class="section" id="id5">
+<h3>本地化替换<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>当需要针对不同的区域设置直接翻译字符串时，<strong>translate</strong> 格式说明符将查找精确的参数匹配并替换翻译，前提是本地化门户中存在该翻译。</p>
+<p>C
+D
+E
+F</p>
+<p><strong>源</strong>
+示例
+<strong>es</strong></p>
+<p>I am from {Country_Name:translate}.
+Soy de {Country_Name:translate}.</p>
+<p>Brazil
+Brasil</p>
+<p>London
+Londres</p>
+<p>Germany
+Alemania</p>
+<p>示例输入 英语输出 西班牙语输出</p>
+<p>I am from Brazil.
+I am from Brazil.
+Soy de Brasil.</p>
+<p>I am from London.
+I am from London.
+Soy de Londres.</p>
+<p>I am from Germany.
+I am from Germany.
+Soy de Alemania.</p>
+</div>
+<div class="section" id="id6">
+<h3>数值替换<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>若要以特定格式输出变量数值，请使用诸如 <strong>int</strong>, <strong>fixed</strong>, or <strong>num</strong> 之类的说明符。</p>
+<p>C
+D
+E
+F</p>
+<p><strong>源</strong>
+示例
+<strong>es</strong></p>
+<p>{race_time:fixed} seconds
+{race_time:fixed} segundos</p>
+<p>${1:num} cash and {2:int} jewels
+${1:num} dinero y {2:int} joyas</p>
+<p>示例输输入 英语输出 西班牙语输出</p>
+<p>75.202844 seconds
+75.20 seconds
+75,20 segundos</p>
+<p>$2500.5 cash and 99.8 jewels
+$2,500.50 cash and 100 jewels
+$2.500,50 dinero y 100 joyas</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>示例实现<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>考虑采用多种语言显示可变数量珠宝的实际示例。若要在游戏中实现此功能：</p>
+<ol class="simple">
+<li><p>如<code class="docutils literal notranslate"><span class="pre">articles/localization</span> <span class="pre">portal</span> <span class="pre">additional</span> <span class="pre">features#localizing-with-csv-files|此处</span></code>所述，从本地化门户下载 .csv 电子表格。</p></li>
+<li><p>插入带有命名格式字符串的 <strong>Source</strong> 字符串，以及支持语言的翻译，如 <strong>es</strong>（西班牙语） and <strong>pt</strong>（葡萄牙语）。</p></li>
+</ol>
+<p>C
+D
+E
+F
+G</p>
+<p><strong>源</strong>
+示例
+<strong>es</strong>
+<strong>pt</strong></p>
+<p>{NumJewels} jewels
+{NumJewels} joyas
+{NumJewels} jóias</p>
+<p>翻译中使用的所有参数也必须出现 在**Source（源）**字符串中。如果没有，或者如果存在冲突的格式说明符，则该条目将不会用于翻译文本。 ****</p>
+<ol class="simple">
+<li><p>向游戏中添加一个 GUI 对象，例如<code class="docutils literal notranslate"><span class="pre">TextLabel/Text|Text</span></code> （文本）属性为 <strong>100 jewels</strong> 的 <code class="docutils literal notranslate"><span class="pre">TextLabel</span></code>。
+<img alt="https://developer.roblox.com/assets/blt83cc36a6081801ad/Format-Strings-en.jpg" src="https://developer.roblox.com/assets/blt83cc36a6081801ad/Format-Strings-en.jpg" /></p></li>
+</ol>
+<p>确保标签与 **Source（源）**字符串的“模式”相匹配。例如，格式字符串后面的文本应为区分大小写匹配，为 <strong>jewels</strong>，而不是 <strong>Jewels</strong> 或 <strong>JEWELS</strong>。 ****</p>
+<ol class="simple">
+<li><p>上传电子表格并按照<code class="docutils literal notranslate"><span class="pre">articles/localization</span> <span class="pre">portal</span> <span class="pre">additional</span> <span class="pre">features#upload-csv-file|此处</span></code>所述对游戏进行测试。翻译应该出现在游戏中的 GUI 实例上，包括变量 100。</p></li>
+</ol>
+<p><img alt="https://developer.roblox.com/assets/blte4ef6dfda3c2266c/Format-Strings-en-2.jpg" src="https://developer.roblox.com/assets/blte4ef6dfda3c2266c/Format-Strings-en-2.jpg" /> 英语</p>
+<p><img alt="https://developer.roblox.com/assets/bltf8ceb3372f5a5f7f/Format-Strings-es.jpg" src="https://developer.roblox.com/assets/bltf8ceb3372f5a5f7f/Format-Strings-es.jpg" /> 西班牙语</p>
+<p><img alt="https://developer.roblox.com/assets/bltd1f6fd7d58869347/Format-Strings-pt.jpg" src="https://developer.roblox.com/assets/bltd1f6fd7d58869347/Format-Strings-pt.jpg" /> 葡萄牙语</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/localization-format-strings">本地化格式字符串</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="localization-portal-additional-features.html" class="btn btn-neutral float-right" title="本地化门户：扩展功能" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Introduction-to-Localization-on-Roblox.html" class="btn btn-neutral float-left" title="本地化简介" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>开发者控制台 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="网络所有权" href="Network-Ownership.html" />
+    <link rel="prev" title="内存分析器" href="Memory-Analyzer.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Fighting-Against-Lag.html">减少延迟影响</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MicroProfiler.html">MicroProfiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Monitoring-Games-for-Crashes-and-Performance-Filtering.html">监控游戏崩溃与性能过滤功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Network-Simulation-Mode.html">网络模拟模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Thread-Scheduler.html">线程计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Memory-Analyzer.html">内存分析器</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">开发者控制台</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">打开控制台</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">控制台部分</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">日志</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">内存</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">网络</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Network-Ownership.html">网络所有权</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/optimization.html">性能优化</a> &raquo;</li>
+        
+      <li>开发者控制台</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Developer-Console.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>开发者控制台<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>测试游戏时，查看游戏产生的输出和错误非常有用。在 Roblox Studio 中运行时，<strong>输出</strong>窗口会显示这些消息，但在测试游戏的实时运行版本时，应使用<strong>开发者控制台</strong>访问输出消息和许多其他详细信息。</p>
+<div class="section" id="id2">
+<h2>打开控制台<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>根据平台的不同，可以按如下方式打开开发者控制台：</p>
+<p>平台 方法</p>
+<p>Windows / Mac
+按 F9 键。</p>
+<p>移动设备（手机或平板电脑）
+在聊天中输入 <code class="docutils literal notranslate"><span class="pre">/console</span></code> 或从游戏中的 <strong>Settings（设置）</strong> 菜单打开控制台。</p>
+</div>
+<div class="section" id="id3">
+<h2>控制台部分<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>控制台顶部是一个快捷栏，显示严重错误和警告的数量、客户端内存使用情况以及平均 ping 的时间。单击这些项目中的任何一个都将在控制台中显示相关的详细信息。</p>
+<p><img alt="https://developer.roblox.com/assets/bltb17e790bf8d5e8a1/Console-Summary-Bar.png" src="https://developer.roblox.com/assets/bltb17e790bf8d5e8a1/Console-Summary-Bar.png" /></p>
+<p>快捷栏下方有一系列选项卡，其中信息最丰富的是 <strong>Log</strong> （日志）、<strong>Memory</strong> （内存）和 <strong>Network</strong> （网络）。</p>
+<div class="section" id="id4">
+<h3>日志<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p><strong>Log</strong> （日志）部分显示游戏中的脚本的诊断消息，按 <strong>Client</strong> （客户端）或 <strong>Server</strong> （服务器）分类。</p>
+<p><img alt="https://developer.roblox.com/assets/blt0dd4dfd7840168b0/Console-Log-Client-Server-Toggle.png" src="https://developer.roblox.com/assets/blt0dd4dfd7840168b0/Console-Log-Client-Server-Toggle.png" /></p>
+<ul class="simple">
+<li><p>客户端上运行的 <code class="docutils literal notranslate"><span class="pre">LocalScript|LocalScripts</span></code> 的输出将显示在控制台的 <strong>Log</strong> （日志）→ <strong>Client</strong> （客户端）部分。运行游戏的任何人都可以查看这些本地输出消息。</p></li>
+<li><p>Roblox 的服务器上运行的 <code class="docutils literal notranslate"><span class="pre">Script|Scripts</span></code> （脚本）输出将显示在控制台的 <strong>Log</strong> （日志）→ <strong>Server</strong> （服务器）部分。只有游戏的所有者或具有编辑权限的团队成员才能访问此部分。</p></li>
+</ul>
+<p>通过切换以下复选框，还可以筛选日志中的输出消息：</p>
+<p><img alt="https://developer.roblox.com/assets/bltb3529923660dd862/Console-Filter-Options.png" src="https://developer.roblox.com/assets/bltb3529923660dd862/Console-Filter-Options.png" /></p>
+<p><strong>输出</strong>
+通过在游戏的脚本中调用 <code class="docutils literal notranslate"><span class="pre">print()</span></code> 语句生成的消息。</p>
+<p><strong>信息</strong>
+游戏生成的非错误或自定义输出语句的消息。</p>
+<p><strong>警告</strong>
+表示是潜在问题但不是关键问题的消息。</p>
+<p><strong>错误</strong>
+表示发生了严重事件的消息。</p>
+<p>最后，<strong>Log</strong> （日志）→ <strong>Server</strong> （服务器）部分包含一个<strong>命令栏</strong>，允许游戏的编辑器运行任意 Lua 代码。请注意，此命令栏具有与 <code class="docutils literal notranslate"><span class="pre">Script|Scripts</span></code> （脚本）和 <code class="docutils literal notranslate"><span class="pre">LocalScript|LocalScripts</span></code> 相同的安全限制，这意味着它与 Studio 中的命令栏不同，它无法运行受保护的函数。</p>
+<p><img alt="https://developer.roblox.com/assets/blt30a926434d64eac9/Console-Command-Bar.png" src="https://developer.roblox.com/assets/blt30a926434d64eac9/Console-Command-Bar.png" /></p>
+</div>
+<div class="section" id="id5">
+<h3>内存<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>模型、地形、部件、视觉效果、脚本、物理设备、音频等都会影响总内存使用。控制台的 <strong>Memory</strong> （内存）部分显示有关游戏内存使用情况的指标。</p>
+<p>在视图中，总内存分为三类：</p>
+<ul class="simple">
+<li><p><strong>CoreMemory</strong> — 由 Roblox 引擎内置的进程（如网络、虚拟角色、GUI 元素等）使用的内存。</p></li>
+<li><p><strong>PlaceMemory</strong> — 构建游戏时由于直接选择而扩展的内存。</p></li>
+<li><p><strong>UntrackedMemory</strong> — 未标记的任意内存分配。</p></li>
+</ul>
+<div class="section" id="id6">
+<h4>内存管理提示 »<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p><strong>PlaceMemory</strong> 分为几个子类别。下表提供了每个子类别的简要描述和减少内存使用的提示。</p>
+<p>类别 描述 内存管理提示</p>
+<p><strong>HttpCache</strong>
+从 Roblox 服务器加载的资源（图像、网格等）现在保存在内存的缓存中。
+加载更少或更小的资源。</p>
+<p><strong>Instances</strong>
+场景中的 <code class="docutils literal notranslate"><span class="pre">Instances</span></code>。
+如果可能，请减少 Instances（管理器窗口中的对象）的总数。</p>
+<p><strong>Signals</strong>
+在 Instances 之间触发的信号（在一个 Instance 上触发事件以在另一个 Instance 上触发事件）。
+在 Instances 之间使用较少的事件连接。</p>
+<p><strong>LuaHeap</strong>
+核心脚本（Roblox 客户端附带的脚本）和自定义脚本的堆内存。
+编写节省内存的脚本。</p>
+<p><strong>Script</strong>
+Lua 脚本。
+使用更少或更短的脚本。</p>
+<p><strong>PhysicsCollision</strong>
+物理模拟的碰撞数据。
+如果部件不需要移动，请将 <code class="docutils literal notranslate"><span class="pre">BasePart/Anchored|Anchored</span></code> 设置为 <strong>true</strong>。如果不需要与任何东西（包括玩家）碰撞，请将 <code class="docutils literal notranslate"><span class="pre">BasePart/CanCollide|CanCollide</span></code> 设置为 <strong>false</strong>。</p>
+<p><strong>PhysicsParts</strong>
+物理几何学和动力学。
+使用更简单、更小或更少的部件。</p>
+<p><strong>GraphicsSolidModels</strong>
+要呈现<code class="docutils literal notranslate"><span class="pre">articles/3D</span> <span class="pre">Modeling</span> <span class="pre">with</span> <span class="pre">Parts|实体模型</span></code>的物理数据
+使用更少/更简单的实体模型，或将它们的 <code class="docutils literal notranslate"><span class="pre">enum/RenderFidelity</span></code> 设置为<strong>自动</strong>。</p>
+<p><strong>GraphicsMeshParts</strong>
+<code class="docutils literal notranslate"><span class="pre">MeshPart|MeshParts</span></code> 的图形。
+使用更少/更简单的<code class="docutils literal notranslate"><span class="pre">articles/Mesh</span> <span class="pre">Parts|网格</span></code>。</p>
+<p><strong>GraphicsParticles</strong>
+粒子系统的图形。
+使用更少的粒子系统或产生更少的寿命较短的粒子。</p>
+<p><strong>GraphicsParts</strong>
+部件的图形。
+使用更少/更简单的部件。</p>
+<p><strong>GraphicsSpatialHash</strong>
+常规渲染。
+使用更少的部件、粒子和灯光（本质上是任何有助于渲染的内容）。</p>
+<p><strong>GraphicsTerrain</strong>
+地形的图形。
+使用更少的地形。</p>
+<p><strong>GraphicsTexture</strong>
+纹理内存。
+使用更少或更小的纹理。</p>
+<p><strong>GraphicsTextureCharacter</strong>
+角色的纹理内存。
+使用更少的独特角色外观。</p>
+<p><strong>Sounds</strong>
+内存中的声音。
+使用更少或更小的声音。</p>
+<p><strong>StreamingSounds</strong>
+流媒体声音。
+使用更少的流媒体声音。</p>
+<p><strong>TerrainVoxels</strong>
+地形体素。
+使用更少的地形。</p>
+<p><strong>TerrainPhysics</strong>
+地形物理学。
+对于靠近地形的对象，将 <code class="docutils literal notranslate"><span class="pre">BasePart/CanCollide|CanCollide</span></code> 设置为 <strong>false</strong> 和/或将 <code class="docutils literal notranslate"><span class="pre">BasePart/Anchored|Anchored</span></code> 设置为 <strong>true</strong>。</p>
+<p><strong>Gui</strong>
+通用 GUI 元素使用的内存。
+减少或优化你的 GUI 实例使用。</p>
+<p><strong>Animation</strong>
+用于动画数据的内存（姿势和 <code class="docutils literal notranslate"><span class="pre">KeyframeSequence</span></code> 缓存的数据），通常是虚拟角色动画。
+尽可能少使用不同的动画并优化动画。</p>
+<p><strong>Navigation</strong>
+<code class="docutils literal notranslate"><span class="pre">PathfindingService</span></code> 的支持结构使用的内存。
+优化使用并减少对 <code class="docutils literal notranslate"><span class="pre">PathfindingService</span></code> 的调用</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>网络<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>本部分揭示了游戏在运行时进行了多少次网络调用，包括通过 <code class="docutils literal notranslate"><span class="pre">HttpService</span></code> 进行的显式调用和由 Roblox 服务（如 DataStoreService）进行的网络请求。</p>
+<p>顶部附近是按类型分类的游戏网络调用 <strong>Summary（摘要）</strong>。每种类型都包含有关请求次数、请求失败次数和时间统计信息的详细信息。</p>
+<p>摘要下方是 **Details（详细信息）**部分，其中列出了每个单独的网络调用。每行显示 HTTP 方法（GET、POST 等） 以及状态代码、执行的时间、请求类型和请求 URL。单击列表中的任何行都会显示响应详细信息，例如：</p>
+<p><img alt="https://developer.roblox.com/assets/blt5fda94fb79527d74/Console-Network-Response-Detail.png" src="https://developer.roblox.com/assets/blt5fda94fb79527d74/Console-Network-Response-Detail.png" /></p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Developer-Console">开发者控制台</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Network-Ownership.html" class="btn btn-neutral float-right" title="网络所有权" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Memory-Analyzer.html" class="btn btn-neutral float-left" title="内存分析器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

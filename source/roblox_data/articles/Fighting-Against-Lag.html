@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <link rel="canonical" href="https://developer.roblox.com/articles/Fighting-Against-Lag"/>
+    <link rel="alternate" hreflang="x-default" href="https://developer.roblox.com/articles/Fighting-Against-Lag"/>
+    
+      <link rel="alternate" hreflang="en-us" href="https://developer.roblox.com/en-us/"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="https://developer.roblox.com/zh-cn/"/>
+    
+      
+        
+          <title> 减少延迟影响</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="zh-cn">
+
+
+
+<meta name="description" content="<p>通过玩 Laggy Cannons 游戏了解不同类型的延迟</p>">
+
+
+
+<meta name="keywords" content="">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="Fighting Against Lag">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>通过玩 Laggy Cannons 游戏了解不同类型的延迟</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="性能优化">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="https://browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/code-highlighting.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='https://dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('https://dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="/" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="/">主页</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">教程</h5>
+      <div>
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                <span>Studio 基础知识</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/creating">
+                <span>创建</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/international">
+                <span>国际化</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                <span>声效、光照与特效</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/marketing">
+                <span>市场营销</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/optimization">
+                <span>性能优化</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                <span>所有内容</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/analytics">
+                <span>数据分析</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                <span>用户界面</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/monetization">
+                <span>盈利</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                <span>编码与脚本</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                <span>跨平台发展</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/quick-start">
+                      <span>入门</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/learn-roblox/all-tutorials">
+                      <span>了解 Roblox</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/api-reference">
+                      <span>API 参考</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/resources">
+                      <span>资源</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com">
+                      <span>社区</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="搜索">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">关闭侧边栏</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">教程</h5>
+              <div>
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                      <span>Studio 基础知识</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/creating">
+                      <span>创建</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/international">
+                      <span>国际化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                      <span>声效、光照与特效</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/marketing">
+                      <span>市场营销</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/optimization">
+                      <span>性能优化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                      <span>所有内容</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/analytics">
+                      <span>数据分析</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                      <span>用户界面</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/monetization">
+                      <span>盈利</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                      <span>编码与脚本</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                      <span>跨平台发展</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/optimization">性能优化</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>减少延迟影响</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">隐藏内容索引</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">显示内容索引</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <div class="toc-content"><a href="javascript:void(0)">内容索引</a>
+        </div>
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/optimization">性能优化</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>减少延迟影响</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">15  分钟</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>网络游戏（例如 Roblox 上的游戏）都有令人沮丧的，不可避免的延迟问题。幸运的是，你可以使用两种策略来克服这种延迟，并将其优雅地集成到游戏的功能中。</p>
+<h2>延迟的根源</h2>
+<p>在学习一些隐藏延迟的策略之前，重要的是要有一个准确的心理模型来解释为什么延迟必须存在于远程调用的游戏中。</p>
+<p>假设你是我们在英国的用户之一。在这个游戏中，一个本地脚本允许你按“F”键发射大炮。开发人员认为炮弹对于客户端处理来说太重要了。因此，本地脚本对服务器进行远程调用，以便服务器可以是触发的服务器。当客户端检测到“F”键被按下时，它会联系服务器，服务器会发射加农炮，并且服务器会让客户端知道结果。但是，由于你的计算机在英国，而且 Roblox 服务器在美国，因此这需要在整个大西洋上传送信号。需要发送两次信号。这需要时间，而这一次是在按下“F”键和实际看到炮火之间的恼人延迟。</p>
+<h2>“Laggy Cannons”</h2>
+<p>为了使最后一个示例的假设少一些，本教程随附了一个简单的 Roblox 游戏，名为“Laggy Cannons”。<a href="http://www.Roblox.com/Laggy-Cannons-place?id=174999362">你可以在此处在线玩这个游戏</a>，也可以根据需要自行下载 Studio 版本。</p>
+<p>在 Laggy Cannons 中，有四门大炮对准四个移动目标。每个大炮目标对都受到相同的人为夸大的延迟时间的影响，但是每个大炮目标对都以稍微不同的方式解决了这一延迟。有些大炮目标对比其他大炮目标对更好地处理这种延迟。紫色大炮目标对比红色大炮目标对好，红色大炮目标对比橙色大炮目标对好，橙色大炮目标对比蓝色大炮目标对好。</p>
+<p><img src="/assets/blt0e00ededf5cf89cc/LaggyCannons_Gameplay.png" alt="在此处输入图像描述"></p>
+<p>在阅读本教程的其余部分之前，现在是一个很好的时间去玩 Laggy Cannons 游戏，看看你是否能感觉到这四种大炮之间的差异。若要玩 Laggy Cannons 游戏，请使用重生点附近的四个传送器传送到具有相应颜色的炮台。当你站在炮台上时，你可以按“F”来发射炮弹并尝试击中该大炮的移动目标。踏上炮台的彩色区域，返回传送炮台并尝试另一门大炮。你可以通过单击重生点附近控制板上的“+”和“-”按钮来操纵人为延迟的秒数。</p>
+<p>本教程的其余部分深入介绍了每种颜色的大炮或目标的行为方式以及原因。我们还将概括每对使用的策略，以便你可以更轻松地将它们应用于你的游戏。</p>
+<h3>蓝色大炮</h3>
+<p><img src="/assets/bltc662b5ee274f61ac/LaggyCannons_BlueCannon.png" alt="在此处输入图像描述"></p>
+<p>让我们从无法真正尝试的大炮开始：蓝色大炮。如果你按“F”键，你会立即看到和听到大炮开火的爆炸声，但你会很长一段时间看不到炮弹。以下是当你发射蓝色大炮时在本地脚本中调用的函数：</p>
+<pre class=“prettyprint linenums lang-lua”>
+--在本地脚本中
+local function badCannonStrategy()
+    Workspace.FireCannonEvent:FireServer(activeCannon)
+    createExplosion(activeCannon)
+end
+</pre>
+<p>此函数的第一行使用名为“FireCannonEvent”的一个 RemoteEvent 来请求服务器触发名为“activeCannon”的全局变量。当然，此处的 activeCannon 是蓝色大炮。FireCannonEvent 是对服务器的单向请求。在向服务器发送一条要求它发射蓝色大炮的消息后，这个本地脚本立即继续使用未显示的辅助函数“createExplosion”在屏幕上显示爆炸。</p>
+<p>此处没有做任何工作来处理 RemoteEvent 固有的延迟。消息已发送，爆炸已制造，然后我们等待服务器发射炮弹。</p>
+<h2>第 1 课：小心使用你的代码</h2>
+<p><code>badCannonStrategy()</code> 函数看起来很无辜。它发射大炮并制造爆炸，这不就是我们想要的吗？问题是它完全忽略了延迟，这很容易做到。如果你想制作出色的游戏，你必须注意到这里会有延迟。请继续读下去，了解你能对延迟做些什么。</p>
+<h3>橙色大炮</h3>
+<p><img src="/assets/blt1002ad22c65de0dd/LaggyCannons_OrangeCannon.png" alt="在此处输入图像描述"></p>
+<p>橙色大炮稍微修改了蓝色大炮的策略，以便使炮弹的发射与爆炸同步。触发橙色大炮的函数如下：</p>
+<pre class=“prettyprint linenums lang-lua”>
+--在本地脚本中
+local function okCannonStrategy()
+    local waitForResponse = Workspace.FireCannonFunction:InvokeServer(activeCannon)
+    createExplosion(activeCannon)
+end
+</pre>
+<p>你可以看到这里唯一的变化是函数的第一行。橙色大炮没有使用 RemoteEvent 来发射炮弹，而是使用一个名为“FireCannonFunction”的 RemoteFunction。你可能还记得<code>Articles/Remote Functions and Events|关于远程调用的教程</code>中讲述的内容，RemoteFunction 与 RemoteEvent 的不同之处在于它有一个返回值。RemoteEvent 只是从客户端向服务器发送的信号，而 RemoteFunction 不仅是从客户端向服务器发送的信号，而且还是从服务器向客户端返回的值。此外，由于客户端期望返回值，因此它实际上会等待该返回值出现，然后再在其本地脚本中继续。这正是橙色大炮脚本所利用的功能。这个稍微好一点的大炮发射函数等待服务器告知该大炮已经发射了一个炮弹，然后再继续创建伴随的爆炸。</p>
+<h2>第 2 课：同步体验</h2>
+<p>蓝色大炮没有意义，因为你在看到炮弹之前就已经看到了大炮爆炸。在现实世界中，爆炸和炮弹射击同时发生。为了让游戏充满乐趣和沉浸感，它不应该违背玩家对这类愚蠢事情的期望。遵循橙色大炮的示例，并使用 RemoteFunction 在客户端和服务器之间同步事件。</p>
+<h3>红色大炮</h3>
+<p><img src="/assets/bltbfe5032abc4c46ec/LaggyCannons_RedCannon.png" alt="在此处输入图像描述"></p>
+<p>虽然橙色大炮解决了炮弹和爆炸不同步的问题，但它实际上暴露了另一个延迟问题。当玩家按下“F”键开火时，在游戏完全响应之前会有明显的延迟。这被称为输入延迟，这是玩家最讨厌的事情之一。</p>
+<p>有一个简单的技巧可以用来消除输入延迟。你无法加快大炮发射的时间。无论如何，这都将花费一条消息从客户端到服务器再到客户端的往返时间。但是，你可以给玩家一些其他即时反馈，使他们觉得游戏正在响应他们的命令。</p>
+<p>红色大炮选择给的立即反馈是声音。当玩家按下“F”键时，红色大炮立即开始播放大炮引信燃烧的声音。此声音会一直播放到服务器响应 RemoteFunction。一旦服务器响应，红色大炮将关闭燃烧的引信声音，并伴随着服务器刚刚发射的炮弹产生爆炸。</p>
+<pre class=“prettyprint linenums lang-lua”>
+--在本地脚本中
+local function bestCannonStrategy()
+    Workspace.Sounds.BurningFuse:Play() 
+    local waitForResponse = Workspace.FireCannonFunction:InvokeServer(activeCannon)
+    Workspace.Sounds.BurningFuse:Stop()
+    createExplosion(activeCannon)
+end
+</pre>
+<p>如果使用红色大炮，应该感觉很自然。在按下“F”键和看到炮弹开火之间仍有一段延迟，但这是不可察觉的，因为大炮将这种延迟融入其工作方式中。</p>
+<h2>第 3 课：没有输入延迟！</h2>
+<p>玩家讨厌输入延迟。感到自己和游戏脱节是令人沮丧的。尽管可能需要对玩家输入做出延迟的响应，但你始终可以给玩家一些小的响应，以表明他们的请求已被听到。这可以是声音、变化的砖块颜色，甚至可以是任何东西。让玩家知道他们的请求已被听到，你的玩家会非常开心。</p>
+<h3>紫色目标</h3>
+<p><img src="/assets/blt506901afa31c58e8/LaggyCannons_PurpleTarget.png" alt="在此处输入图像描述"></p>
+<p>紫色大炮的工作方式和红色大炮完全一样。紫色平台和所有其他颜色的平台的区别在于移动目标的功能。</p>
+<p>当你击中蓝色、橙色或红色目标时，你会注意到在看到目标被击中与产生的“叮”声和分数更新之间存在延迟。例如，蓝色目标的“叮”声和分数更新由以下服务器函数执行：</p>
+<pre class=“prettyprint linenums lang-lua”>
+--服务器端脚本
+Workspace.Blue.Target.Face.Touched:connect(function(projectile)
+    wait(_G.artificialLag)    -- Laggy Cannons 游戏创造人为延迟的方法
+    --播放目标命中声效
+    Workspace.Sounds.TargetHit:Play()
+    --更新蓝色分数
+    blueScore = blueScore + 1
+    Workspace.Blue.Scoreboard.SurfaceGui.ScoreLabel.Text = blueScore
+end)
+</pre>
+<p>我们知道像玩家得分这样重要的事情必须由服务器来处理。因此，更新目标分数时必须有延迟。但是击中目标的声音呢？</p>
+<p>虽然最终由服务器决定目标是否被击中，但客户端完全能够立即播放目标击中的声音本身。最坏的情况是，如果客户端和服务器在目标是否被击中的问题上有一个罕见的分歧，玩家将体验到“叮”声和分数更新之间的差异。发生这种情况的概率是五千分之一，这是一个很值得给予玩家即时反馈的成本。因此，我们实际上可以将以前的服务器脚本拆分为服务器脚本和本地脚本：</p>
+<pre class=“prettyprint linenums lang-lua”>
+--服务器端脚本
+Workspace.Purple.Target.Face.Touched:connect(function(projectile)
+    wait(_G.artificialLag)    -–（Laggy Cannons 游戏创造人为延迟的方法）
+    --更新紫色分数
+    purpleScore = purpleScore + 1
+    Workspace.Purple.Scoreboard.SurfaceGui.ScoreLabel.Text = purpleScore
+end)
+
+--本地脚本
+Workspace.Purple.Target.Face.Touched:connect(function(projectile)
+    --播放目标命中声效
+    Workspace.Sounds.TargetHit:Play()
+end)
+</pre>
+<h2>第 4 课：拆分脚本</h2>
+<p>有时你必须在服务器上做一半的工作，在客户机上做一半的工作。不要害怕两次检测同一事件。本地检测给玩家提供反馈，服务器检测处理重要的游戏逻辑。</p>
+<h2>现实世界中的延迟</h2>
+<p>Laggy Cannons 的默认人为延迟为一秒。这是你玩 Roblox 游戏时机器自然遇到的任何延迟的基础。在我们的玩家群中，我们可以看到延迟 0.1 到 1.5 秒不等的玩家。平均延迟似乎徘徊在 0.3 秒左右。幸运的是，你现在已具备处理此延迟的工具。</p>
+<h2>在 Studio 中测试延迟</h2>
+<p>如果要在 Roblox Studio 中模拟延迟，则可以转到“File（文件）”-&gt;“Settings（设置）” -&gt;“Network（网络）” -&gt; IncomingReplicationLag 并调整 Studio 在运行测试服务器时模拟的延迟秒数。</p>
+
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">相关参考文章</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="/articles/Network-Simulation-Mode"><span class="related-article-img" style="background-image: url();"> </span></a>
+          <h3 data-toc-skip><a href="/articles/Network-Simulation-Mode">网络模拟模式</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="/articles/Collision-Filtering-Team-Doors"><span class="related-article-img" style="background-image: url();"> </span></a>
+          <h3 data-toc-skip><a href="/articles/Collision-Filtering-Team-Doors">Restricted/Team Doors</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>此网站如何使用 Cookie</h1>
+        <div class="privacy-content">
+          <p>此平台使用 Cookie 为您提供更好的体验、对内容进行个性化、提供社交媒体功能和分析网站流量。如需详细信息（包括有关如何在此平台上防止使用 Cookie 或对其进行管理的信息），请参阅我们的<a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私和 Cookie 政策</a>。</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">确定</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">你即将离开 Roblox 网站</div>
+        <p>请按下继续按钮前往： <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="" class="btn secondary-btn" data-dismiss="modal">返回</a>
+        <a href="" class="btn primary-btn continue-link" target="_blank">继续</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com" target="_self" class="footer-logo ptxl mbl">
+              <img src="https://dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2019 Roblox Corporation. 保留所有权利。</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>公司</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">关于 Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">招贤纳士</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">技术</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">服务条款</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私政策</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">家长</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>开发人员</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="/articles/Creating-Your-First-Game" target="_self">入门</a>
+                  </li>
+                
+                  <li>
+                    <a href="/learn-roblox/all-tutorials" target="_self">了解</a>
+                  </li>
+                
+                  <li>
+                    <a href="/api-reference" target="_self">API 参考</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com" target="_blank">社区</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">开发人员公告</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">搜索</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input"
+                        placeholder="搜索">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" href="#all" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            所有结果
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" href="#api-doc" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API 文档
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" href="#tutorial" role="tab"
+                            aria-selected="false" data-name="articles">
+                            教程
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" href="#recipe" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            代码参考
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" href="#video" role="tab"
+                            aria-selected="false" data-name="videos">
+                            视频
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+</html>

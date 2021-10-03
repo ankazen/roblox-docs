@@ -1,0 +1,410 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>BodyMovers &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="BodyPosition" href="How-To-Use-BodyPosition.html" />
+    <link rel="prev" title="匿名函数" href="Anonymous-Functions.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">BodyMovers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#shared-properties">Shared properties</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#force-maxtorque-and-maxforce">Force, MaxTorque, and MaxForce</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bodyforce">BodyForce</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bodyposition">BodyPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rocketpropulsion">RocketPropulsion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>BodyMovers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/BodyMover.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bodymovers">
+<h1>BodyMovers<a class="headerlink" href="#bodymovers" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>BodyMover: Code Sample 1</em></p>
+<p>Objects that inherit from the BodyMovers structure are used to move Parts against <code class="docutils literal notranslate"><span class="pre">gravity</span></code> and other forces.</p>
+<div class="section" id="shared-properties">
+<h2>Shared properties<a class="headerlink" href="#shared-properties" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="force-maxtorque-and-maxforce">
+<h3>Force, MaxTorque, and MaxForce<a class="headerlink" href="#force-maxtorque-and-maxforce" title="Permalink to this headline">¶</a></h3>
+<p>All BodyMovers objects have either a <code class="docutils literal notranslate"><span class="pre">Force</span></code>, <code class="docutils literal notranslate"><span class="pre">MaxTorque</span></code> or <strong>MaxForce</strong> property which function the same. These are Vector3 properties and depending on the amount of each axis (X,Y,Z) will be the maximum amount of force that can be applied to that axis.</p>
+<p>BodyMover: Code Sample 1 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BodyPosition</span><span class="o">.</span><span class="n">MaxForce</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">--</span><span class="n">no</span> <span class="n">movement</span> <span class="n">on</span> <span class="nb">any</span> <span class="n">axis</span> <span class="n">but</span> <span class="n">the</span> <span class="n">Y</span><span class="o">-</span><span class="n">axis</span><span class="o">.</span>
+
+
+<span class="mi">0</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>### P
+
+`P` is the amount of power used to reach a goal. The higher the P value, the faster it will move towards its goal and sometimes even surpass the goal. If set too low, the object might not even move.
+
+### D
+
+`D` is the amount of damping that will be used. Damping will stop the object from surpassing its goal and having to turn around. By setting a good D, it will start to slow down as it reaches its goal so that it does not go past it. The higher the D value, the more it will slow down.
+
+## BodyAngularVelocity
+
+`BodyAngularVelocity` is used to set a constant rotational velocity. This means it can be used to turn your part even without other forces acting upon it.
+
+The `BodyAngularVelocity/AngularVelocity` property controls rotation. Its direction is the axis which the part rotates around, and the magnitude is the speed in radians per second at which it does it.  
+![Angularvelocitydiagram.png](https://developer.roblox.com/assets/blt82602c5878a38942/Angularvelocitydiagram.png)
+
+
+
+## BodyVelocity
+
+`BodyVelocity` is used to set a constant velocity. This means that it can be used to move your part at a constant speed despite gravity.
+
+The `BodyVelocity/Velocity` property is the maximum _speed_ at which an object can go while being pushed by the BodyVelocity object.
+
+BodyMover: Code Sample 2 ```    
+    
+    BodyVelocity.Velocity = Vector3.new(0, 1000, 0)--sends the part at a constant speed upward
+    
+    
+    0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="bodyforce">
+<h2>BodyForce<a class="headerlink" href="#bodyforce" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">BodyForce</span></code> will push a part with the magnitude and direction of the <code class="docutils literal notranslate"><span class="pre">BodyForce/Force</span></code> property, in world coordinates.</p>
+<p>BodyMover: Code Sample 3 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">push</span> <span class="n">a</span> <span class="mi">4</span><span class="p">,</span><span class="mf">1.2</span><span class="p">,</span><span class="mi">2</span> <span class="n">part</span> <span class="n">upward</span><span class="p">,</span> <span class="n">regardless</span> <span class="n">of</span> <span class="n">orientation</span>
+<span class="n">BodyForce</span><span class="o">.</span><span class="n">Force</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1915.52</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+
+<span class="mi">0</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>## BodyThrust
+
+`BodyThrust` is similar to BodyForce, however, its force works in relation to the object. The `BodyThrust/Force` property defines the direction and magnitude the part should be pushed, in object coordinates. The `BodyThrust/Location` property defines the position where the thrust is being applied, once again in object coordinates.
+
+BodyMover: Code Sample 4 ```    
+    
+    -- push a 4,1.2,2 part upward, with the center of thrust at the underside of the part
+    BodyThrust.Location = Vector3.new(0, -0.6, 0)
+    BodyThrust.Force = Vector3.new(0, 1915.52, 0)
+    
+    
+    0
+</pre></div>
+</div>
+</div>
+<div class="section" id="bodyposition">
+<h2>BodyPosition<a class="headerlink" href="#bodyposition" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">BodyPosition</span></code> moves a brick towards a certain Vector3 point ignoring gravity. The <code class="docutils literal notranslate"><span class="pre">BodyPosition/Position</span></code> property defines the spot in which the part will attempt to move towards.</p>
+<p>BodyMover: Code Sample 5 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">Moves</span> <span class="n">part</span> <span class="n">towards</span> <span class="n">center</span> <span class="n">of</span> <span class="n">the</span> <span class="n">world</span>
+<span class="n">BodyPosition</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+
+<span class="mi">0</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>## BodyGyro
+
+`BodyGyro` attempts to keep a fixed orientation of the part relative to its `BodyGyro/CFrame` property. This means it will try to rotate the brick to match the rotation of the CFrame.
+
+BodyMover: Code Sample 6 ```    
+    
+    --Rotates the brick to stay at a rotation of CFrame.Angles(math.pi / 2, 0, 0)
+    BodyGyro.CFrame = CFrame.Angles(math.pi / 2, 0, 0)
+    
+    
+    0
+</pre></div>
+</div>
+</div>
+<div class="section" id="rocketpropulsion">
+<h2>RocketPropulsion<a class="headerlink" href="#rocketpropulsion" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">RocketPropulsion</span></code> is used to mimic the movement of a projectile. RocketPropulsion has a lot of unique properties that can be used for maximum results.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">RocketPropulsion/Target</span></code> is the Part that the RocketPropulsion is shooting at.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RocketPropulsion/TargetRadius</span></code> is the distance the part must be from its target to trigger its <code class="docutils literal notranslate"><span class="pre">RocketPropulsion/ReachedTarget</span></code> event.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RocketPropulsion/TargetOffset</span></code> is how far from the target to shoot.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RocketPropulsion/CartoonFactor</span></code> is how much the part points towards its target. 0 is pointing straight up away from the target, 1 is directly at the target. The default is 0.7 in order to counter the force of gravity.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RocketPropulsion/MaxSpeed</span></code> is a number that defines the maximum speed that the part is allowed to reach.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RocketPropulsion/TurnP</span></code> and <code class="docutils literal notranslate"><span class="pre">RocketPropulsion/TurnD</span></code> are the <code class="docutils literal notranslate"><span class="pre">P</span></code> and <code class="docutils literal notranslate"><span class="pre">D</span></code> properties that signify the turning Power and Dampening of the projectile.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RocketPropulsion/ThrustP</span></code> and <code class="docutils literal notranslate"><span class="pre">RocketPropulsion/ThrustD</span></code> are the <code class="docutils literal notranslate"><span class="pre">P</span></code> and <code class="docutils literal notranslate"><span class="pre">D</span></code> properties that signify the movement Power and Dampening of the projectile.</p></li>
+</ul>
+<p>BodyMover: Code Sample 7 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">shoots</span> <span class="n">the</span> <span class="n">projectile</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">direction</span> <span class="n">that</span> <span class="n">the</span> <span class="nb">object</span> <span class="ow">is</span> <span class="n">moving</span><span class="o">.</span>
+<span class="n">RocketPropulsion</span><span class="o">.</span><span class="n">TargetOffset</span> <span class="o">=</span> <span class="n">RocketPropulsion</span><span class="o">.</span><span class="n">Target</span><span class="o">.</span><span class="n">Velocity</span>
+
+
+<span class="mi">0</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+
+<span class="o">***</span><span class="n">__Roblox官方链接__</span><span class="p">:[</span><span class="n">BodyMovers</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">developer</span><span class="o">.</span><span class="n">roblox</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">zh</span><span class="o">-</span><span class="n">cn</span><span class="o">/</span><span class="n">articles</span><span class="o">/</span><span class="n">BodyMover</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="How-To-Use-BodyPosition.html" class="btn btn-neutral float-right" title="BodyPosition" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Anonymous-Functions.html" class="btn btn-neutral float-left" title="匿名函数" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

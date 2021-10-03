@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <link rel="canonical" href="https://developer.roblox.com/articles/Fundamentals-of-Scripting-with-GUIs"/>
+    <link rel="alternate" hreflang="x-default" href="https://developer.roblox.com/articles/Fundamentals-of-Scripting-with-GUIs"/>
+    
+      <link rel="alternate" hreflang="en-us" href="https://developer.roblox.com/en-us/"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="https://developer.roblox.com/zh-cn/"/>
+    
+      
+        
+          <title> GUI 脚本简介</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="zh-cn">
+
+
+
+<meta name="description" content="<p>学习如何为按钮、广告牌和滚动背景的图像和文本进行编码</p>">
+
+
+
+<meta name="keywords" content="">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="GUI 脚本简介">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>学习如何为按钮、广告牌和滚动背景的图像和文本进行编码</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="用户界面">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="https://browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/code-highlighting.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='https://dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('https://dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="/" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="/">主页</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">教程</h5>
+      <div>
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                <span>Studio 基础知识</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/creating">
+                <span>创建</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/international">
+                <span>国际化</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                <span>声效、光照与特效</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/marketing">
+                <span>市场营销</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/optimization">
+                <span>性能优化</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                <span>所有内容</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/analytics">
+                <span>数据分析</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                <span>用户界面</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/monetization">
+                <span>盈利</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                <span>编码与脚本</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                <span>跨平台发展</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/quick-start">
+                      <span>入门</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/learn-roblox/all-tutorials">
+                      <span>了解 Roblox</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/api-reference">
+                      <span>API 参考</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/resources">
+                      <span>资源</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com">
+                      <span>社区</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="搜索">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">关闭侧边栏</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">教程</h5>
+              <div>
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                      <span>Studio 基础知识</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/creating">
+                      <span>创建</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/international">
+                      <span>国际化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                      <span>声效、光照与特效</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/marketing">
+                      <span>市场营销</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/optimization">
+                      <span>性能优化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                      <span>所有内容</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/analytics">
+                      <span>数据分析</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                      <span>用户界面</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/monetization">
+                      <span>盈利</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                      <span>编码与脚本</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                      <span>跨平台发展</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/user-interface">用户界面</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>GUI 脚本简介</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">隐藏内容索引</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">显示内容索引</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <div class="toc-content"><a href="javascript:void(0)">内容索引</a>
+        </div>
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/user-interface">用户界面</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>GUI 脚本简介</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">15  分钟</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>关于 UDim2</h2>
+<p>UDim2 是调整 GUI 的大小并进行定位的系统。与 <code>Vector3</code> 不同，它用于定位部件。<code>UDim2/new</code> 函数接受四个参数：xScale、xOffset、yScale 和 yOffset。xScale 和 yScale 将返回相对于其父对象大小的值。如果 GUI 的父对象宽度为 100，则将 xScale 设置为 0.5 将返回 50，而将 xScale 设置为 1 将返回 100。高度和 yScale 也是如此。xOffset 是添加到 xScale 返回的任意数的像素数。例如，如果父对象宽度为 100，xScale 为 0.5，xOffset 为 25，则将返回 75 (100*0.5 + 25)。yOffset 和 yScale 也是如此。</p>
+<p>借助 UDim2，开发者可以在玩家屏幕上以编程方式调整 UI 元素的大小并进行定位。例如：</p>
+<pre class=“prettyprint linenums lang-lua”>
+local frame = Instance.new("Frame")
+frame.Position = UDim2.new(0.25, 0, 0.25, 0)
+frame.Size = UDim2.new(0.5, 0, 0.5, 0)
+</pre>
+<p>这样会创建定位在显示器中央的矩形 GUI，并覆盖 25% 的屏幕（一半宽度和一半高度）。</p>
+<div class="alert alert-warning" role="alert">注意：这些 2D GUI 使用的 XY 网格与 Roblox 其余部分使用的坐标不同。(0, 0) 位置位于 GUI 元素的左上角。在此网格中，右侧为 X 正方向，下侧是 Y 正方向。
+</div>
+<h2>GUI 类型</h2>
+<p>在 Roblox 中，所有 GUI 必须位于特殊容器内。有三种不同类型的容器用于显示 GUI。它们是：</p>
+<ul>
+<li><code>ScreenGui</code></li>
+<li><code>SurfaceGui</code></li>
+<li><code>BillboardGui</code></li>
+</ul>
+<p><img src="/assets/blt5c4ac4854c6270ae/GuiTypes.png" alt="GuiTypes.png"></p>
+<h3>ScreenGui</h3>
+<p><code>ScreenGui</code> 直接绘制到玩家屏幕（在游戏世界中没有位置）。这通常用于玩家旅行所需的 HUD、缩略图、任何信息或图形。ScreenGui 中的元素仅对拥有它们的玩家可见。要将 ScreenGui 添加到游戏中，可以将其置于 <code>StarterGui</code> 中（会将其复制到加入游戏的每位新玩家），也可以将其直接置于玩家的 <code>PlayerGui</code> 中（在这种情况下，仅对该玩家可见）。</p>
+<h3>SurfaceGui</h3>
+<p><code>SurfaceGui</code> 绘制在 <code>Part</code> 的表面上。这会粘在部件上，即使部件移动或旋转也是如此。要将 SurfaceGui 添加到游戏中，可以将其直接置于要在其上绘制的部件中（它会为所有玩家显示 GUI）。或者，可以将 SurfaceGui 置于 <code>StarterGui</code> 中（它会将其复制到加入游戏的每位新玩家），也可以将其直接置于玩家的 <code>PlayerGui</code> 中（在这种情况下，仅对该玩家可见）。如果将 SurfaceGui 置于 StarterGui 或 PlayerGui 中，则必须将 <code>SurfaceGui/Adornee</code> 设置为要显示 GUI 的部件。</p>
+<h3>BillboardGui</h3>
+<p><code>BillboardGui</code> 绘制在 <code>Part</code> 的位置上，但将始终面向玩家。如果部件移动，BillboardGui 也会随着一起移动。如果仅使用 <code>BillboardGui/Size</code> UDim2 的 Scale 组件设置 BillboardGui 的大小，则会根据与玩家的距离进行调整（即，玩家越近就会变得越大，玩家越远就会变得越小）。如果设置了 Size 的 Offset，则 BillboardGui 将保持相同大小，无论与玩家的距离为何。</p>
+<p>可以将 BillboardGui 直接置于要在其上绘制的部件中（它会为所有玩家显示 GUI）。或者，可以将 BillboardGui 置于 <code>StarterGui</code> 中（它会将其复制到加入游戏的每位新玩家），也可以将其直接置于玩家的 <code>PlayerGui</code> 中（在这种情况下，仅对该玩家可见）。如果将 BillboardGui 置于 StarterGui 或 PlayerGui 中，则必须将 <code>BillboardGui/Adornee</code> 设置为要显示 GUI 的部件。</p>
+<h2>GUI 对象</h2>
+<p>有多个 GUI 对象可用于创建用户界面，但所有 GUI 对象必须位于容器内（请参阅&lt;a href=&quot;#gui-types&gt;GUI 类型</a>）</p>
+<h3>Frame</h3>
+<p><code>Frame</code> 对象是最简单的 GUI 对象。创建 Frame 可制作带有背景颜色和边框颜色的箱子。当某个对象是 Frame 下的父对象时，该对象的位置将相对于父 Frame 的位置。</p>
+<pre class=“prettyprint linenums lang-lua”>
+--  StarterGui 的 LocalScript 中
+
+-- 创建 ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = script.Parent
+
+-- 创建 Frame
+local frame = Instance.new("Frame")
+frame.Parent = screenGui
+frame.Position = UDim2.new(0, 25, 0, 25)
+frame.Size = UDim2.new(0, 100, 0, 50)
+</pre>
+<p><img src="/assets/blt39b1d6bc88cf2d6d/FrameExample.png" alt="FrameExample.png"></p>
+<h3>ScrollingFrame</h3>
+<p><code>ScrollingFrame</code> 类似于 Frame，但可能大于绘制到屏幕上的容器。如果是这样，则滚动条将显示在侧边上（玩家可拖动该侧边来展现 ScrollingFrame 的其余部分）。</p>
+<p><img src="/assets/bltc4ce8d1f19ac09ae/ScrollingFrameExample.gif" alt="ScrollingFrameExample.gif"></p>
+<p>有关 ScrollingFrame 的详细信息，请参阅<code>Articles/Creating a Scrolling Frame GUI|滚动条框架教程</code></p>
+<h3>标签</h3>
+<p>标签用于显示静态对象。当前有两种类型的标签：<code>TextLabel</code> 和 <code>ImageLabel</code>。</p>
+<h4>TextLabel</h4>
+<p><code>TextLabel</code> 类似于 <code>Frame</code>，不同的是它可以显示文本。</p>
+<pre class=“prettyprint linenums lang-lua”>
+-- StarterGui 的 LocalScript 中：
+
+-- 创建 ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = script.Parent
+
+-- 创建 TextLabel
+local textLabel = Instance.new("TextLabel")
+textLabel.Parent = screenGui
+textLabel.Position = UDim2.new(0, 25, 0, 50)
+textLabel.Size = UDim2.new(0, 150, 0, 50)
+textLabel.BackgroundColor3 = BrickColor.White().Color
+textLabel.Text = "Hello Roblox!"
+</pre>
+<p><img src="/assets/blt405868c32b6d8c8e/TextLabelExample.png" alt="TextLabelExample.png"></p>
+<h4>ImageLabel</h4>
+<p><code>ImageLabel</code> 用于显示图像（需要作为 <code>Decal</code> 上传至 Roblox）。</p>
+<pre class=“prettyprint linenums lang-lua”>
+-- StarterGui 的 LocalScript 中：
+
+-- 创建 ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = script.Parent
+
+-- 创建 ImageLabel
+local imageLabel = Instance.new("ImageLabel")
+imageLabel.Parent = screenGui
+imageLabel.Position = UDim2.new(0, 25, 0, 50)
+imageLabel.Size = UDim2.new(0, 100, 0, 100)
+imageLabel.Image = "rbxassetid://133293265"
+</pre>
+<p><img src="/assets/blt577b856ac7d09e69/ImageLabelExample.png" alt="ImageLabelExample.png"></p>
+<h3>按钮</h3>
+<p>按钮的显示方式类似于标签的显示方式，但会添加多个事件来处理鼠标输入。请注意，必须在 <code>LocalScript</code> 中定义事件，因为服务器不知道玩家输入。</p>
+<h4>TextButton</h4>
+<p><code>TextButton</code> 的显示方式与 <code>TextLabel</code> 的显示方式相同，不同的是它会添加更多鼠标事件。</p>
+<pre class=“prettyprint linenums lang-lua”>
+-- StarterGui 的 LocalScript 中：
+
+-- 创建 ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = script.Parent
+ 
+-- 创建 TextButton
+local textButton = Instance.new("TextButton")
+textButton.Parent = screenGui
+textButton.Position = UDim2.new(0, 25, 0, 50)
+textButton.Size = UDim2.new(0, 150, 0, 50)
+textButton.BackgroundColor3 = BrickColor.White().Color
+textButton.Text = "Click Me!"
+ 
+-- 将函数绑定至单击按钮
+textButton.MouseButton1Down:connect(function()
+    textButton.Text = "I've been clicked!"
+end)
+</pre>
+<p><img src="/assets/blt6e1748eeb39c3aed/TextButtonExample.gif" alt="TextButtonExample.gif"></p>
+<h4>ImageButton</h4>
+<p><code>ImageButton</code> 的显示方式与 <code>ImageLabel</code> 的显示方式相同，不同的是它会添加更多鼠标事件。</p>
+<pre class=“prettyprint linenums lang-lua”>
+-- StarterGui 的 LocalScript 中：
+
+-- 创建 ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = script.Parent
+
+-- 创建 ImageButton
+local imageButton = Instance.new("ImageButton")
+imageButton.Parent = screenGui
+imageButton.Position = UDim2.new(0, 25, 0, 50)
+imageButton.Size = UDim2.new(0, 100, 0, 100)
+imageButton.Image = "rbxassetid://133293265"
+
+-- 创建 TextLabel 显示单击按钮后的情形
+local text = Instance.new("TextLabel")
+text.Parent = screenGui
+text.Position = UDim2.new(0, 25, 0, 50)
+text.Size = UDim2.new(0, 100, 0, 100)
+text.Text = "I've been clicked!"
+text.BackgroundTransparency = 1
+text.Visible = false
+
+-- 将函数绑定至单击按钮
+imageButton.MouseButton1Click:connect(function()
+    text.Visible = true
+end)
+</pre>
+<p><img src="/assets/blt9d769eec78c70983/ImageButtonExample.gif" alt="ImageButtonExample.gif"></p>
+<h3>TextBox</h3>
+<p><code>TextBox</code> 的显示方式与 <code>TextLabel</code> 的显示方式相同，不同的是它允许用户输入自定义文本。</p>
+<pre class=“prettyprint linenums lang-lua”>
+-- StarterGui 的 LocalScript 中：
+
+-- 创建 ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = script.Parent
+
+-- 创建 TextBox
+local textBox = Instance.new("TextBox")
+textBox.Parent = screenGui
+textBox.Position = UDim2.new(0, 25, 0, 50)
+textBox.Size = UDim2.new(0, 150, 0, 50)
+textBox.BackgroundColor3 = BrickColor.White().Color
+textBox.Text = "Type here"
+</pre>
+<p><img src="/assets/blt0f2e9c99c4d22099/TextBoxExample.gif" alt="TextBoxExample.gif"></p>
+<h2>操作 GUI</h2>
+<h3>定位元素</h3>
+<p>可以使用代码基于屏幕上的数值或比率将元素定位在某位玩家的屏幕上。要将元素定位在点 (100,100) 上，将使用以下代码。</p>
+<pre class=“prettyprint linenums lang-lua”>
+element.Position = UDim2.new(0, 100, 0, 100)
+</pre>
+<p>请注意，第一个和第三个参数是 Scale，而不是 Offset。Offset 是在考虑像素时要使用的参数。使用 Offset 不会生成计算机屏幕之间的差异。</p>
+<p>如果要按“屏幕”（而不是“像素”）定位元素（例如，将元素置于“屏幕”左下角四分之一处），则将使用 scale。</p>
+<pre class=“prettyprint linenums lang-lua”>
+element.Position = UDim2.new(0.25, 0, 0.25, 0)
+</pre>
+<p>请注意，使用 scale 将生成计算机屏幕之间的差异。如果您的屏幕较大，则其外观将与小计算机屏幕的外观不同。如果要将某个元素定位在屏幕中央，则使用此代码指示“我希望一半屏幕位于 X 和 Y 上，然后下调 50 像素”。这类似于将速度指示器定位在 VehicleSeat 上。</p>
+<pre class=“prettyprint linenums lang-lua”>
+element.Position = UDim2.new(0.5, 0, 0.5, -50)
+</pre>
+<p>另请注意，定位元素会相对于其父容器移动该元素。例如，假定游戏具有 Frame（本身在 ScreenGui 内）内的 TextLabel。更改 TextLabel 的位置会相对于 Frame 移动 TextLabel（在这种情况下，0,0 位于 Frame 的左上角），而更改 Frame 的位置会相对于 ScreenGui 移动 Frame 和 TextLabel。</p>
+<h3>调整元素的大小</h3>
+<p>要更改 GUI 元素的大小，请使用 <code>GuiObject/Size</code> 属性。例如，如果希望某个元素是其父对象宽度的的一半：</p>
+<pre class=“prettyprint linenums lang-lua”>
+element.Size = UDim2.new(0.5, 0, 0.5, 0)
+</pre>
+<p>您甚至可以使元素覆盖整个父对象（如果父对象是 ScreenGui，则元素将覆盖整个屏幕）。为此，请将 X 和 Y 中的 Size 的 scale 均设置为 1：</p>
+<pre class=“prettyprint linenums lang-lua”>
+element.Size = UDim2.new(1, 0, 1, 0)
+</pre>
+<p>有时，使用 GUI 元素的 scale 并不合适。例如，如果使用 <code>ImageLabel</code>，则在过度拉伸时可能会扭曲图像。在这种情况下，请考虑仅使用 Size 的 offset 组件：</p>
+<pre class=“prettyprint linenums lang-lua”>
+element.Size = UDim2.new(0, 64, 0, 64)
+</pre>
+<h3>将动作添加到元素</h3>
+<p>GUI 元素不必保持静态，可以在运行游戏时移动这些元素。例如，假定希望在玩家屏幕顶部滚动文本。可通过相对于当前位置更改元素位置来轻松实现此目的。以下代码位于 <code>StarterGui</code> 的 <code>LocalScript</code> 中时，将使 TextBox 在玩家屏幕顶部滚动：</p>
+<pre class=“prettyprint linenums lang-lua”>
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = game.Players.LocalPlayer.PlayerGui
+local textLabel = Instance.new("TextLabel")
+textLabel.Parent = screenGui
+textLabel.Text = "Hello " .. game.Players.LocalPlayer.Name
+textLabel.Size = UDim2.new(0, 100, 0, 30)
+
+local xPosition = 1
+local speed = 0.0025
+while true do
+    xPosition = xPosition - speed
+    textLabel.Position = UDim2.new(xPosition, 0, 0, 0)
+    if xPosition < -0.1 then
+        xPosition = 1
+    end
+    wait()
+end
+</pre>
+<p>请注意，TextLabel 位置的 xScale 组件从不显式设置为数字，而是使用随着时间的推移而发生变化的变量。</p>
+<p><img src="/assets/blt3acea11a456ec651/GUIMotionExample.gif" alt="GUIMotionExample.gif"></p>
+<p>有关高级动画和移动技术的详细信息，请参阅 <code>Tweening</code>。</p>
+<h2>输入</h2>
+<p>GUI 不只是用来为玩家显示内容，还可以是输入源。最为显著的情况是 GUI 元素的 Button 类型（<code>TextButton</code> 和 <code>ImageButton</code>）。要使用按钮处理鼠标事件，必须将函数连接到 <code>LocalScript</code> 中的事件。将以下 LocalScript 置于 <code>StarterGui</code> 中时，请予以考虑：</p>
+<pre class=“prettyprint linenums lang-lua”>
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = game.Players.LocalPlayer.PlayerGui
+local textButton = Instance.new("TextButton")
+textButton.Size = UDim2.new(0, 100, 0, 100)
+textButton.Parent = screenGui
+textButton.MouseButton1Down:connect(function()
+    print("clicked")
+    -- 此处可放置处理按钮点击事件的更多代码
+end)
+</pre>
+<p>此脚本将创建 ScreenGui 并将 TextButton 置于其中，然后将函数绑定到按钮的 <code>GuiButton/MouseButton1Down</code> 事件。可以将单击按钮时要运行的任何代码置于此函数中。请注意，此代码也适用于 <code>ImageButton</code>（在 Instance.new 调用中将 “TextButton” 替换为 “ImageButton”）。</p>
+<p>可在 GUI 元素中触发多个函数，即使在较简单的元素（例如 <code>Frame</code>）中也是如此。有关完整列表，请参阅 <code>GuiObject</code> 中的事件。TextButton 和 ImageButton 等按钮还有更多事件，可在 <code>GuiButton</code> 中的“事件”下查看所有这些事件。</p>
+<h2>练习</h2>
+<div class="card quest">
+<h5 class="card-header"><strong>支线任务</strong>：在 ScreenGUI 中创建按钮</h5>
+<div class="card-body">
+<p class="card-text">在 ScreenGUI 中创建用来在单击时重置（中止）角色的按钮。可随时使用任意所需图像！</p>
+<div class="text-center"><button type="button" class="btn btn-primary text-uppercase" data-toggle="collapse" href="#collapse-reveal-solution" aria-expanded="false" aria-controls="collapse-reveal-solution">显示任务解决方案</button></div>
+<div class="collapse" id="collapse-reveal-solution">
+<pre class="prettyprint linenums lang-lua">
+-- 在 StarterGui 的 LocalScript 中：
+<p>– 创建 ScreenGui<br>
+local screenGui = Instance.new(“ScreenGui”)<br>
+screenGui.Parent = script.Parent</p>
+<p>– 创建 TextButton<br>
+local textButton = Instance.new(“TextButton”)<br>
+textButton.Parent = screenGui<br>
+textButton.Position = UDim2.new(0, 50, 0, 50)<br>
+textButton.Size = UDim2.new(0, 140, 0, 60)<br>
+textButton.TextColor3 = BrickColor.White().Color<br>
+textButton.Style = 2<br>
+textButton.Text = “Reset Character”</p>
+<p>– 将函数绑定至按钮单击<br>
+textButton.MouseButton1Down:connect(function()<br>
+game.Players.LocalPlayer.Character.Humanoid.Health = 0<br>
+end)<br>
+</pre></p>
+</div></div></div>
+<br>
+<div class="card quest">
+<h5 class="card-header"><strong>支线任务</strong>：创建显示你的姓名的桌子</h5>
+<div class="card-body">
+<p class="card-text">使用 TextLabel 在 Surface GUI 中创建显示你的姓名的桌子（带有名称标记）。</p>
+<div class="text-center"><button type="button" class="btn btn-primary text-uppercase" data-toggle="collapse" href="#collapse-reveal-solution2" aria-expanded="false" aria-controls="collapse-reveal-solution2">显示任务解决方案</button></div>
+<div class="collapse" id="collapse-reveal-solution2">
+<p>此练习实际上并不需要编写脚本。有时，最好<a href="http://web.roblox.com/Desk-with-Customizable-Nametag-item?id=166354648">搜索工具箱</a>。毕竟，如果不需要，为何多此一举？</p>
+</div></div></div>
+
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">相关参考文章</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="/articles/Game-Icons-Tips"><span class="related-article-img" style="background-image: url(https://dk135eecbplh9.cloudfront.net/assets/blt582251e63c638522/Game-Icons-Thumbnail.jpg);"> </span></a>
+          <h3 data-toc-skip><a href="/articles/Game-Icons-Tips">设计游戏图标</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="/articles/Fighting-Against-Lag"><span class="related-article-img" style="background-image: url();"> </span></a>
+          <h3 data-toc-skip><a href="/articles/Fighting-Against-Lag">减少延迟影响</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>此网站如何使用 Cookie</h1>
+        <div class="privacy-content">
+          <p>此平台使用 Cookie 为您提供更好的体验、对内容进行个性化、提供社交媒体功能和分析网站流量。如需详细信息（包括有关如何在此平台上防止使用 Cookie 或对其进行管理的信息），请参阅我们的<a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私和 Cookie 政策</a>。</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">确定</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">你即将离开 Roblox 网站</div>
+        <p>请按下继续按钮前往： <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="" class="btn secondary-btn" data-dismiss="modal">返回</a>
+        <a href="" class="btn primary-btn continue-link" target="_blank">继续</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com" target="_self" class="footer-logo ptxl mbl">
+              <img src="https://dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2019 Roblox Corporation. 保留所有权利。</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>公司</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">关于 Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">招贤纳士</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">技术</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">服务条款</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私政策</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">家长</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>开发人员</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="/articles/Creating-Your-First-Game" target="_self">入门</a>
+                  </li>
+                
+                  <li>
+                    <a href="/learn-roblox/all-tutorials" target="_self">了解</a>
+                  </li>
+                
+                  <li>
+                    <a href="/api-reference" target="_self">API 参考</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com" target="_blank">社区</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">开发人员公告</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">搜索</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input"
+                        placeholder="搜索">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" href="#all" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            所有结果
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" href="#api-doc" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API 文档
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" href="#tutorial" role="tab"
+                            aria-selected="false" data-name="articles">
+                            教程
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" href="#recipe" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            代码参考
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" href="#video" role="tab"
+                            aria-selected="false" data-name="videos">
+                            视频
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+</html>

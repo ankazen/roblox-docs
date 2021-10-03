@@ -1,0 +1,386 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>对象浏览器 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="循环（Loop）" href="Loops.html" />
+    <link rel="prev" title="基础字符串模式" href="basic-string-patterns.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">对象浏览器</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">用法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">类面板</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">成员面板</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">属性、方法和事件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">详细信息面板</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">高级</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>对象浏览器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Object-browser.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>对象浏览器<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p>对象浏览器显示有关 Roblox 中可用的每个对象、类和枚举的信息。</p>
+<p><img alt="在此处输入图像描述" src="https://developer.roblox.com/assets/blt8b059675ebb8dcb5/Object_Browser.png" /></p>
+<div class="section" id="id2">
+<h2>用法<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>你可以通过转到 Roblox Studio 中的 <code class="docutils literal notranslate"><span class="pre">Help（帮助）&gt;</span> <span class="pre">Object</span> <span class="pre">Browser（对象浏览器）</span></code>来访问对象浏览器。</p>
+<p>单击此项后，将打开一个名为“Object Browser（对象浏览器）”的新选项卡。这个窗口包含一些非常重要的信息，是关于可以在 Roblox 中创建的对象类型的。这个窗口有三个面板：最左边的面板是类和枚举列表，右上方的面板是成员列表，右下方的面板是详细信息列表。</p>
+<div class="section" id="id3">
+<h3>类面板<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>类面板包含 Roblox 中所有可用类的列表。默认情况下，此面板列出所有可实例化的类和所有枚举类型。此列表按字母顺序排序，首先是类，然后是枚举类型。类由一个图标表示，该图标带有一个黄色的对角矩形和一个紫色和蓝色的菱形。枚举由一个带有两个黄色圆角矩形的图标表示。</p>
+<div class="section" id="id4">
+<h4>类<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>类是可以实例化的数据组。在 Roblox 中，Instance.new 函数用于创建对象。此函数可创建一个新对象，使其具有与你提供的类相同的类。此对象具有类的属性、方法和事件。这些属性、方法和事件与 Lua 脚本一起用于操作游戏。</p>
+</div>
+<div class="section" id="id5">
+<h4>枚举<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>Enums（枚举）（即 <code class="docutils literal notranslate"><span class="pre">Enumeration</span></code> 的缩写）只是一个值。通常，当对象可以具有一组特定、有限的不同值时，将使用枚举。要进行比较，部件的名称可以是任意字符序列。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>成员面板<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>成员面板列出类的所有属性、方法和事件，以及枚举的可用值。</p>
+</div>
+<div class="section" id="id7">
+<h3>属性、方法和事件<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>单击“类”面板中的类时，此面板中将显示可用属性、方法和事件的列表。这些成员按字母顺序列出并分组，首先是方法，其次是属性，最后是事件。方法用紫色菱形表示。属性用蓝色菱形表示。事件用黄色闪电球表示。</p>
+<div class="section" id="id8">
+<h4>枚举值<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<p>单击“类”面板中的枚举时，将显示与该枚举关联的值列表。枚举值由一个白色框表示，后面有一个黄色的圆角框。</p>
+</div>
+<div class="section" id="id9">
+<h4>其他注意事项<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<p>如果将视图级别设置为 RobloxScript，则会看到一些项目的图标左下角有一个黄色键。这表示该方法、属性或事件不能在脚本或 LocalScript 中使用，无论是用于读取值还是分配值。</p>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>详细信息面板<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>“详细信息”面板可能是三个面板中最重要的面板。“详细信息”面板提供有关选定类、枚举、方法、属性或事件的信息。</p>
+<div class="section" id="id11">
+<h4>类详细信息<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<p>在“类”面板中选择类时，有关该类的某些信息将显示在此面板中。首先，你将看到所选择的类的继承（即，该类是“由什么组成的”）。你将看到的第二条信息是 Summary（摘要）。摘要是对所选类的简要说明。让我们看一下 Part。当你选择 Part 时，你看到的第一行是 <code class="docutils literal notranslate"><span class="pre">Part-&gt;BasePart-&gt;PVInstance-&gt;Instance</span></code>。这意味着 Part 继承自 BasePart 类，BasePart 类又继承自 PVInstance 类，PVInstance 类最终继承自 Instance 类。</p>
+<p>当一个类继承另一个类时，这意味着该类包含所继承类的成员。在本例中，Part 包含 Touched 事件，它是 BasePart 类的一部分。这些“父”类在 Is-A 基础上与所选类关联。也就是说，Part Is-A BasePart、Is-A PVInstance 和 Is-A Instance。对于“Part”、“BasePart”、“PVInstance”和“Instance”这些值，对部件调用的 IsA 方法的返回值为 true。</p>
+<p>我个人喜欢把继承看作是矩形和正方形之间的关系。正方形继承了长方形。我们也可以口头解释为“正方形总是矩形，但矩形并不总是正方形”。这同样适用于部件。Part 始终是 BasePart，但 BasePart 并不总是 Part。</p>
+<p>继承是编程中的一个前沿课题，所以如果你现在还不理解它，也不要担心。</p>
+</div>
+<div class="section" id="id12">
+<h4>方法详细信息<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<p>从“成员”面板中选择方法时，此面板中将显示有关该方法的一些关键信息。你看到的第一行称为方法的签名。方法的签名定义其返回类型和参数类型。第二行告诉你方法的来源（即包含此方法的类）。最后对该方法进行了简要说明。让我们仔细查看 Part 类的 IsA 方法。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">IsA</span><span class="p">(</span><span class="n">string</span> <span class="n">className</span><span class="p">)</span>
+<span class="n">Member</span> <span class="n">of</span> <span class="n">Instance</span>
+
+<span class="n">Summary</span><span class="p">:</span> <span class="n">Returns</span> <span class="n">a</span> <span class="n">boolean</span> <span class="k">if</span> <span class="n">this</span> <span class="n">Instance</span> <span class="ow">is</span> <span class="n">of</span> <span class="nb">type</span> <span class="s1">&#39;className&#39;</span> <span class="ow">or</span> <span class="n">a</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">subclass</span> <span class="n">of</span> <span class="nb">type</span> <span class="s1">&#39;className&#39;</span><span class="o">.</span> <span class="n">If</span> <span class="s1">&#39;className&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">a</span> <span class="n">valid</span> <span class="k">class</span> <span class="nc">type</span> <span class="ow">in</span> <span class="n">Roblox</span><span class="p">,</span> <span class="n">this</span> <span class="n">function</span> <span class="n">will</span> <span class="n">always</span> <span class="k">return</span> <span class="n">false</span><span class="o">.</span> <span class="n">More</span> <span class="n">info</span>
+</pre></div>
+</div>
+<p>第一行 <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">IsA(string</span> <span class="pre">className)</span></code> 定义了方法的签名。这告诉你 IsA 方法返回 bool 值（布尔值的缩写），并在作为方法调用时将字符串作为唯一的参数。第二行是 <code class="docutils literal notranslate"><span class="pre">Member</span> <span class="pre">of</span> <span class="pre">Instance</span></code>，告诉你 <code class="docutils literal notranslate"><span class="pre">IsA</span></code> 方法实际上不属于 <code class="docutils literal notranslate"><span class="pre">Part</span></code> 类；它实际上属于 <code class="docutils literal notranslate"><span class="pre">Instance</span></code> 类。这意味着每个继承实例类的类都将包含 IsA 方法。最后，显示包含有关方法信息的摘要。</p>
+</div>
+<div class="section" id="id13">
+<h4>属性详细信息<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+<p>从“成员”面板中选择属性时，将显示有关选定属性的详细信息。属性详细信息只包含三个部分。第一部分是属性的值类型。第二部分显示属性属于哪个类，第三部分是属性的摘要。让我们仔细看下 Part 类的 Anchored 属性。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">Anchored</span>
+<span class="n">Member</span> <span class="n">of</span> <span class="n">BasePart</span>
+
+<span class="n">Summary</span><span class="p">:</span> <span class="n">Determines</span> <span class="n">whether</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">physics</span> <span class="n">acts</span> <span class="n">upon</span> <span class="n">the</span> <span class="n">Part</span><span class="o">.</span> <span class="n">If</span> <span class="n">true</span><span class="p">,</span> <span class="n">part</span> <span class="n">stays</span> <span class="n">Anchored</span> <span class="ow">in</span> <span class="n">space</span><span class="p">,</span> <span class="ow">not</span> <span class="n">moving</span> <span class="n">regardless</span> <span class="n">of</span> <span class="nb">any</span> <span class="n">collision</span><span class="o">/</span><span class="n">forces</span> <span class="n">acting</span> <span class="n">upon</span> <span class="n">it</span><span class="o">.</span> <span class="n">If</span> <span class="n">false</span><span class="p">,</span> <span class="n">physics</span> <span class="n">works</span> <span class="n">normally</span> <span class="n">on</span> <span class="n">the</span> <span class="n">part</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>第一行告诉我们，<code class="docutils literal notranslate"><span class="pre">DescendantAdded</span></code> 事件返回一个 <code class="docutils literal notranslate"><span class="pre">Instance</span></code> 或一个对象。第二行告诉我们这个事件属于 ‘Instance’ 类（同样，不是 Part 类）。然后，摘要将说明事件的作用和触发时间。</p>
+</div>
+<div class="section" id="id14">
+<h4>事件详细信息<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+<p>当你从“成员”面板中选择一个事件时，将显示有关该事件的信息。第一行告诉你事件返回的内容。第二行告诉你事件属于哪个类，最后给出事件的摘要。让我们来看看 Part 类的 DescendantAdded 事件。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">event</span> <span class="n">DescendantAdded</span><span class="p">(</span><span class="n">Instance</span> <span class="n">descendant</span><span class="p">)</span>
+<span class="n">Member</span> <span class="n">of</span> <span class="n">Instance</span>
+
+<span class="n">Summary</span><span class="p">:</span> <span class="n">Fired</span> <span class="n">after</span> <span class="n">an</span> <span class="n">Instance</span> <span class="ow">is</span> <span class="n">parented</span> <span class="n">to</span> <span class="n">this</span> <span class="nb">object</span><span class="p">,</span> <span class="ow">or</span> <span class="nb">any</span> <span class="n">of</span> <span class="n">this</span> <span class="nb">object</span><span class="s1">&#39;s descendants. The descendant argument is the Instance that is being added.</span>
+</pre></div>
+</div>
+<p>第一行告诉我们，<code class="docutils literal notranslate"><span class="pre">DescendantAdded</span></code> 事件返回一个 <code class="docutils literal notranslate"><span class="pre">Instance</span></code> 或一个对象。第二行告诉我们这个事件属于 ‘Instance’ 类（同样，不是 Part 类）。然后，摘要将说明事件的作用和触发时间。</p>
+<p>对于事件，返回的值将传递给调用函数。将函数连接到事件时，事件返回的任何值都将传递给连接的函数。如果我将以下函数连接到 DescendantAdded 事件：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">a</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>param 将成为添加的后代对象，它是 <code class="docutils literal notranslate"><span class="pre">DescendantAdded</span></code> 事件的返回值。</p>
+</div>
+<div class="section" id="id15">
+<h4>枚举详细信息<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<p>选择枚举时，此面板中显示的唯一内容是枚举的名称。此名称用于访问与选定枚举关联的枚举值。然后选择一个枚举值，显示的唯一内容是与该值关联的基于零的整数值和该值的名称（用冒号分隔）。如果选择 NormalId 枚举，则详细信息面板将包含 <code class="docutils literal notranslate"><span class="pre">NormalId</span></code>。如果选择 NormalId 枚举，然后选择 Top 枚举值，那么详细信息面板将包含 <code class="docutils literal notranslate"><span class="pre">1:Top</span></code>。</p>
+</div>
+<div class="section" id="id16">
+<h4>其他注意事项<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
+<p>如果启用了已弃用对象的视图并将视图级别设置为 RobloxScript，则你会注意到此面板中显示的一些其他信息。如果你选择了一个用删除线表示的已弃用的项目，一些漂亮的红色文字会向你解释，你选择的成员已弃用，不应该使用。这意味着 Roblox 不再支持此方法、属性或事件的使用，并且如果将来的更新损坏了它，它将不会被修复。如果你选择的项目图标左下角有一个黑色挂锁，这意味着你选择的项目是预备性的，应仅用于测试。一些漂亮的红色文字也会告知你这些是预备对象。</p>
+</div>
+</div>
+</div>
+<div class="section" id="id17">
+<h2>高级<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<p>通过编辑 Roblox 附带的 <code class="docutils literal notranslate"><span class="pre">ReflectionMetadata.xml</span></code> 文件，可以在 Roblox Studio 和对象浏览器中显示一些隐藏类。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Object-browser">对象浏览器</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Loops.html" class="btn btn-neutral float-right" title="循环（Loop）" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="basic-string-patterns.html" class="btn btn-neutral float-left" title="基础字符串模式" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

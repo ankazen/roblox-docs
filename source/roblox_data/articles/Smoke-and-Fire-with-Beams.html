@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <link rel="canonical" href="https://developer.roblox.com/articles/Smoke-and-Fire-with-Beams"/>
+    <link rel="alternate" hreflang="x-default" href="https://developer.roblox.com/articles/Smoke-and-Fire-with-Beams"/>
+    
+      <link rel="alternate" hreflang="en-us" href="https://developer.roblox.com/en-us/"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="https://developer.roblox.com/zh-cn/"/>
+    
+      
+        
+          <title> 使用光束创建冒烟和起火的效果</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="zh-cn">
+
+
+
+<meta name="description" content="<p>使用光束创建真实的冒烟和起火纹理</p>">
+
+
+
+<meta name="keywords" content="">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="Smoke and Fire with Beams">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>使用光束创建真实的冒烟和起火纹理</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="声效、光照与特效">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="/static/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="/static/images/favicon.ico?q=1544016445575
+" type="image/x-icon">
+<link rel="icon" href="/static/images/favicon.ico?q=1544016445575
+" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="https://browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="/static/css/prettify.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+<link href="/static/css/select2.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+<link href="/static/css/font-awesome.min.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+<link href="/static/css/main.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+
+<script src="/static/js/jquery-3.3.1.min.js?q=1544016445575
+"></script>
+<script src="/static/js/popper.min.js?q=1544016445575
+"></script>
+<script src="/static/js/jPages.js?q=1544016445575
+"></script>
+<script src="/static/js/bootstrap.min.js?q=1544016445575
+"></script>
+<script src="/static/js/bootstrap-toc.js?q=1544016445575
+"></script>
+<!-- <script src="/static/js/docs.min.js?q=1544016445575
+"></script> -->
+<script src="/static/js/prettify.js?q=1544016445575
+"></script>
+<script src="/static/js/lang-lua.js?q=1544016445575
+"></script>
+<script src="/static/js/select2.js?q=1544016445575
+"></script>
+<script src="/static/js/clipboard.min.js?q=1544016445575
+"></script>
+
+<script src="/static/js/autolinking.js?q=1544016445575
+"></script>
+<script src="/static/js/lightbox.js?q=1544016445575
+"></script>
+<script src="/static/js/half-sized.js?q=1544016445575
+"></script>
+<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="/static/js/jquery.cookie.js?q=1544016445575
+"></script>
+<script type="text/javascript" src="/static/js/encrypt-md5.js?q=1544016445575
+"></script>
+<!-- <script type="text/javascript" src="/static/js/gdpr.js?q=1544016445575
+"></script> -->
+
+<script src="/static/js/script.js?q=1544016445575
+"></script>
+<script src="/static/js/codesample-theme.js?q=1544016445575
+"></script>
+<script src="/static/js/code-highlighting.js?q=1544016445575
+"></script>
+<!-- <script src="/static/js/local-codesamples.js?q=1544016445575
+"></script> -->
+<script src="/static/js/language-dropdown.js?q=1544016445575
+"></script>
+
+<script src="/static/js/event_template_one.js?q=1544016445575
+"></script>
+
+<script type="text/javascript" src="/static/js/jquery.swiftype.autocomplete.js?q=1544016445575
+">
+</script>
+<script type='text/javascript' src='/static/js/jquery.ba-hashchange.min.js?q=1544016445575
+'></script>
+<script type="text/javascript" src="/static/js/jquery.swiftype.search.js?q=1544016445575
+"></script>
+<script type="text/javascript" src="/static/js/jquery.swiftype.livesearch.js?q=1544016445575
+">
+</script>
+
+<script type="text/javascript" src="/static/js/st.custom.search.js?q=1544016445575
+"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('https://dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="/" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="/">主页</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/quick-start">
+                      <span>入门</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/learn-roblox/all-tutorials">
+                      <span>了解 Roblox</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/api-reference">
+                      <span>API 参考</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/resources">
+                      <span>资源</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com">
+                      <span>社区</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="搜索">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">关闭侧边栏</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="/static/images/l-arrow.svg?q=1544016445575
+"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">教程</h5>
+              <div>
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                      <span>Studio 基础知识</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/creating">
+                      <span>创建</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/international">
+                      <span>国际化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                      <span>声效、光照与特效</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/marketing">
+                      <span>市场营销</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/optimization">
+                      <span>性能优化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                      <span>所有内容</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/analytics">
+                      <span>数据分析</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                      <span>用户界面</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/monetization">
+                      <span>盈利</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                      <span>编码与脚本</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                      <span>跨平台发展</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/sound-lighting-fx">声效、光照与特效</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>使用光束创建冒烟和起火的效果</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">隐藏内容索引</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">显示内容索引</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <div class="toc-content"><a href="javascript:void(0)">内容索引</a>
+        </div>
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/sound-lighting-fx">声效、光照与特效</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>使用光束创建冒烟和起火的效果</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">15  分钟</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>在本教程中，你将学习：</p>
+<ul>
+<li>如何使用 <code>Beam</code> 对象创建自己的火焰效果</li>
+<li>如何在 <code>Part</code> 上创建 <code>Attachment</code> 并设置其位置</li>
+<li>如何在整个光束上设置光束的 <code>Beam/Color</code> 和 <code>Beam/Transparency</code>。</li>
+<li><code>Beam/LightEmission</code> 如何在两个 Beam 对象上起作用</li>
+</ul>
+<p><img src="/assets/blt4217e95f14c2b6ca/FireBeamFinal.png" alt="Tutorial final product"></p>
+<h1>步骤</h1>
+<ol>
+<li>在“Insert（插入）”部分的“Home（主页）”选项卡下，插入一个 <code>Part</code>。<br>
+<img src="/assets/blt9d8d6a8b75616bbd/InsertPart.png" alt="Inserting a Part"><img src="/assets/blt594ca29a5b53c870/SelectedPart.png" alt="Selected part"></li>
+<li>在“Constraints（约束）”部分的“Model（模型）”选项卡下，选择 <code>Attachment</code>。在选中该工具的情况下，在游戏视图中两个不同的位置上单击你的 Part（部件）两次，可创建两个 Attachment（附件）对象。在“Explorer（管理器）”窗口中，观察这两个对象如何成为该 Part（部件）的父对象。<br>
+<img src="/assets/blta997e49199217d1f/CreateAttachment.png" alt="Creating an Attachment"><img src="/assets/blt36124a435b8fc831/NewAttachments.png" alt="Created Attachments"><img src="/assets/bltdc2a7a19e7bfe406/AttachmentsExplorer.png" alt="Attachments in the Explorer Window"></li>
+<li>将这两个附件重命名为 “Center” 和 “Top”。完成此操作的方法是，在“Explorer（管理器）”窗口中右键单击这两个附件，然后选择“Rename（重命名）”或按 F2。<br>
+<img src="/assets/bltd5bac421c190dd61/PartCenterTopAttachments.png" alt="Renamed Attachments in Explorer"></li>
+<li>选择 Center Attachment（中央附件）。在“Properties（属性）”窗口中，将其 <code>Attachment/Position</code> 设置为 0, 0, 0。将 Top Attachment （顶部附件）的 Position 设置为 0, 10, 0。Position（位置）会相对于 Part（部件）重定位附件。<br>
+<img src="/assets/blt845025e49f8b244e/AttachmentPosition.png" alt="Attachment Position in the Properties Window"></li>
+<li>选择该 Part（部件）。在“Effects（效果）”下拉列表中“Gameplay（游戏）”部分的“Model（模型）”选项卡下，插入一个 <code>Beam</code> 对象。<br>
+<img src="/assets/blt6b3526fa8e24c5aa/InsertBeam.png" alt="Inserting a Beam effect"><img src="/assets/blt42707ed26a9d7b4c/Beam.png" alt="Beam in the Explorer window"></li>
+<li>这个新的 Beam 将在插入时被选中。在“Properties（属性）”窗口中，在这个新的 Beam 被选中的情况下，将 <code>Beam/Attachment0</code> 属性设置为 Center Attachment（中央附件）并且将 <code>Beam/Attachment1</code> 属性设置为 Top Attachment（顶部附件）。<br>
+<strong>提示：</strong> 若要设置对象引用属性（例如 Attachment0 和 Attachment1），请单击该属性右侧的空格。然后，单击“Explorer（管理器）”窗口中的对象，或单击 X 以清除该属性。<br>
+设置这两个属性后，光束将在游戏视图中的部件上渲染。应该如下所示：<br>
+<img src="/assets/bltbb8337d1c91fdd12/FireBeam0.png" alt="Beam preview - step 6"></li>
+<li>将 Beam  的 <code>Beam/Texture</code> 属性设置为以下值：<br>
+<code>rbxassetid://1849531275</code> (<a href="https://i.imgur.com/I54FaUj.png">Preview</a>)<br>
+此纹理是 128 × 1024 重复的透明白色烟雾纹理。<br>
+<strong>提示：</strong> 你只需粘贴数字部分（资源 ID），Roblox Studio 会填写前缀。<br>
+设置后，光束将立即渲染纹理。由于 Beam 的 TextureSpeed 属性（默认情况下是，设置为 1），因此它还会向上移动。<br>
+<img src="/assets/blt6cec1fd894f5f40f/FireBeam1.png" alt="Beam preview - step 7"></li>
+<li>将 Beam 的 <code>Beam/Width0</code> 属性设置为 4，并将 <code>Beam/Width1</code> 属性设置为 8。这将使光束呈圆锥形渲染，在底部变细，在顶部变宽。<br>
+<img src="/assets/blt7287dcbef2a54652/FireBeam2.png" alt="Beam preview - step 8"></li>
+<li>接下来，在“Properties（属性）”窗口中选择 Beam 的 <code>Beam/Transparency</code> 属性。单击该属性，当你要输入数字时，请改为单击出现在字段右侧的 […]。<br>
+<img src="/assets/blt18e0c039589bf4a0/BeamTransparencyField.png" alt="Beam Transparency Field"><br>
+此时将出现一个折线图。这是用于 <code>DataType/NumberSequence</code> 类型字段的编辑器。对于 Transparency（透明度），X 轴代表从 Attachment0 到 Attachment1 渲染的光束中的位置。 Y 轴代表该位置处光束的 Transparency（透明度）。默认情况下，在整个 Beam 中该值为 0.5，如 0.5 处的水平线显示。<br>
+<img src="/assets/blt19c8e68c4a4c96bc/BeamTransparencyGraphConstant.png" alt="Beam Transparency Graph - Constant"><br>
+将鼠标悬停在左侧点（Time = 0 处）以将其选中。通过将它拖动到折线图的底部，将它的值设置为 0。将右侧点（Time = 1 处）的值设置为 1。这将导致 Beam（光束）在 Attachment0 附近完全不透明地渲染，并在 Attachment1 附近逐渐消失。该图现在应如下所示：<br>
+<img src="/assets/blt443b7094406af408/BeamTransparencyGraphLinear.png" alt="Beam Transparency Graph - Linear"><br>
+光束现在会像这样。注意 Attachment1 附近的光束顶部没有硬边。<br>
+<img src="/assets/blt5c580e0ff7fbd0da/FireBeam3.png" alt="Beam preview - step 9"></li>
+<li>选择光束的 <code>Beam/Color</code> 属性。与透明度非常相似，你可以在编辑时单击 […] 打开 <code>DataType/ColorSequence</code> 编辑器。与透明度类似，此图根据位置确定光束的 <code>Beam/Texture</code> 的颜色。<br>
+<img src="/assets/blt77eb559373dabcaa/BeamColorWhite.png" alt="Beam Color Graph"><br>
+我们希望光束从白色渐变为橙色再到红色。单击右侧的色块（Time = 1 处）以将其选中，然后单击 Color（颜色）将颜色更改为红色。对左侧的色块（Time = 0 处）进行相同的操作，将颜色更改为黄色。<br>
+<img src="/assets/blt409036ff45b2fab6/BeamColorGradient.png" alt="Beam Color Graph - Gradient"><br>
+现在，光束将从 Attachment0 到 Attachment1 从黄色混合为红色，中间为橙色。它看起来像这样：<br>
+<img src="/assets/blt464640f2aa2b8250/FireBeam4.png" alt="Beam preview - step 10"></li>
+<li>启用光束的 <code>Beam/FaceCamera</code> 属性。这将导致在 Attachment0-Attachment1 行上旋转光束的 2D 面，以使光束始终面向 <code>Camera</code>。尝试从不同的镜头角度查看光束，以了解此属性的工作方式。</li>
+<li>将光束的 <code>Beam/LightEmission</code> 属性更改为 1。光束会显得稍微亮一些，因为 LightEmission 导致光束使用 [加法混合] (<a href="https://en.wikipedia.org/wiki/Blend_modes#Addition">https://en.wikipedia.org/wiki/Blend_modes#Addition</a>) 进行渲染。<br>
+<img src="/assets/blt9c1947391da0330f/BeamLightEmissionTextureSpeed.png" alt="Beam LightEmission and TextureSpeed in Properties window"></li>
+<li>将光束的 <code>Beam/TextureSpeed</code> 更改为 0.4 并将光束重命名为 BeamA。按 CTRL+D 复制该光束并将副本重命名为 BeamB。将 BeamB 的 TextureSpeed 更改为 0.8。现在，该部件的外观将明显变亮，因为有两个使用了加法混合的光束。BeamB 的纹理移动速度比 BeamA 的快，因此当纹理的颜色混合时，它们会产生一种烟雾效果。<br>
+<img src="/assets/bltbbc54333c259be9c/FireBeam5.png" alt="Beam preview - Step 13"></li>
+<li>在选中该部件的情况下，添加一个 <code>Smoke</code> 对象（通过“Gameplay（游戏）”部分的“Model（模型）”选项卡下的“Effects（效果）”菜单）：<br>
+<img src="/assets/blt5ab023c5d7e6b687/InsertSmoke.png" alt="Inserting a Smoke object"></li>
+<li>对于 Smoke 对象，将 <code>Smoke/RiseVelocity</code> 设置为 5，将 Opacity 设置为 0.2 并将 <code>Smoke/Color</code> 设置为黑色。这将对比 Beam 对象的明亮颜色。<br>
+<img src="/assets/bltc17afcb031ff63ab/FireBeam6.png" alt="Beam preview - step 15"></li>
+<li>现在开始创造吧！开始摆弄在前面步骤中设置的属性。这里有一些想法。
+<ol>
+<li>尝试在 0, 15, 0 处创建一个名为 Top2 的新 <code>Attachment</code> 并将 BeamB 的 Attachment1 设置为这个新附件。这将导致一些火焰升得更高。</li>
+<li>将 Part 的 <code>BasePart/Transparency</code> 设置为 1 以便它不可见。注意底部的硬边。尝试设置 Transparency 以便光束在 Attachment0 附近消失。<br>
+<img src="/assets/blt0c492617d513b817/BeamTransparencyGraphCustom.png" alt="A customized Transparency graph"></li>
+<li>在选中 Center Attachment 的情况下，在“Effects（效果）”下添加一个 <code>PointLight</code> 对象。将它的 <code>PointLight/Color</code> 设置为橙色，将它的 Range 设置为 12。<br>
+<img src="/assets/blt11a4320b31f96251/InsertPointLight.png" alt="Inserting a PointLight"></li>
+<li>尝试不同的 <code>Beam/Texture</code>！下面是一缕透明的白色烟雾。将 BeamB 的 TextureLength 设置为 1.25，将它的 Texture 设置为以下值：<br>
+<code>rbxassetid://1525327413</code> (<a href="https://i.imgur.com/wZza97B.png">Preview</a>)</li>
+</ol>
+</li>
+<li>下面是执行上述步骤时效果的免费模型链接：<a href="https://www.roblox.com/library/1880281999">Final Product</a></li>
+</ol>
+<p>这是我玩了几分钟后想出的光束发射效果的一种变化。看看你是否可以重新创建它。<br>
+<strong>提示：</strong> 每次你改变内容时都要复制你的效果。这样你可以回到一个更基本的效果版本。<br>
+<img src="/assets/blt852194554d15fe8d/PinkFireBeamExample.png" alt="Pink fire Beam effect - try recreating me!"></p>
+
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+            
+            
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>此网站如何使用 Cookie</h1>
+        <div class="privacy-content">
+          <p>此平台使用 Cookie 为您提供更好的体验、对内容进行个性化、提供社交媒体功能和分析网站流量。如需详细信息（包括有关如何在此平台上防止使用 Cookie 或对其进行管理的信息），请参阅我们的<a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私和 Cookie 政策</a>。</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">确定</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">你即将离开 Roblox 网站</div>
+        <p>请按下继续按钮前往： <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="" class="btn secondary-btn" data-dismiss="modal">返回</a>
+        <a href="" class="btn primary-btn continue-link" target="_blank">继续</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com" target="_self" class="footer-logo ptxl mbl">
+              <img src="https://dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2019 Roblox Corporation. 保留所有权利。</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>公司</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">关于 Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">招贤纳士</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">技术</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">服务条款</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私政策</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">家长</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>开发人员</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="/articles/Creating-Your-First-Game" target="_self">入门</a>
+                  </li>
+                
+                  <li>
+                    <a href="/learn-roblox/all-tutorials" target="_self">了解</a>
+                  </li>
+                
+                  <li>
+                    <a href="/api-reference" target="_self">API 参考</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com" target="_blank">社区</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">开发人员公告</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">搜索</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input"
+                        placeholder="搜索">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" href="#all" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            所有结果
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" href="#api-doc" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API 文档
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" href="#tutorial" role="tab"
+                            aria-selected="false" data-name="articles">
+                            教程
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" href="#recipe" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            代码参考
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" href="#video" role="tab"
+                            aria-selected="false" data-name="videos">
+                            视频
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+</html>

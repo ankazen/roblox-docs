@@ -1,0 +1,411 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Developer Products – In‑Game Purchases &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="获取利润" href="Earning-Commissions.html" />
+    <link rel="prev" title="Premium 收益系统" href="premium-payouts.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/monetization.html">盈利</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="premium-payouts.html">Premium 收益系统</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Developer Products – In‑Game Purchases</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-developer-product">Creating a Developer Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scripting-for-developer-products">Scripting for Developer Products</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#getting-a-games-developer-products">Getting a Game’s Developer Products</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#getting-product-info">Getting Product Info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#prompting-a-purchase">Prompting a Purchase</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Earning-Commissions.html">获取利润</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Passes-One-Time-Purchases.html">Game Passes – One‑Time Purchases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-VIP-Server-on-Roblox.html">VIP 服务器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Advertising.html">游戏与物品广告</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-economics.html">开发者经济运作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-to-Make-Shirts-and-Pants-for-Roblox-Characters.html">制作虚拟形象服装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar-inspect-menu.html">虚拟形象观察菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtual-items-policy.html">虚拟物品政策</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/monetization.html">盈利</a> &raquo;</li>
+        
+      <li>Developer Products – In‑Game Purchases</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Developer-Products-In-Game-Purchases.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="developer-products-ingame-purchases">
+<h1>Developer Products – In‑Game Purchases<a class="headerlink" href="#developer-products-ingame-purchases" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p><strong>Developer products</strong> are items which players can buy more than once, making them perfect for in-game currency, ammo, or similar purchases.</p>
+<p>For items or abilities that a player might purchase just <strong>once</strong>, such as a special weapon or a permanent power-up, please refer to <code class="docutils literal notranslate"><span class="pre">Articles/Game</span> <span class="pre">Passes</span> <span class="pre">One</span> <span class="pre">Time</span> <span class="pre">Purchases|Game</span> <span class="pre">Passes</span></code>.</p>
+<div class="section" id="creating-a-developer-product">
+<h2>Creating a Developer Product<a class="headerlink" href="#creating-a-developer-product" title="Permalink to this headline">¶</a></h2>
+<p>To create a new developer product:</p>
+<ol class="simple">
+<li><p>In Roblox Studio, click on the <strong>Game Settings</strong> button from the <strong>Home</strong> tab.
+<img alt="https://developer.roblox.com/assets/bltd6af44e38b951d0a/Game-Settings.png" src="https://developer.roblox.com/assets/bltd6af44e38b951d0a/Game-Settings.png" /></p></li>
+<li><p>Select the <strong>Monetization</strong> tab.</p></li>
+<li><p>Next to <strong>Developer Products</strong>, click the <strong>Create</strong> button.
+<img alt="https://developer.roblox.com/assets/blt0a372e91f5852e99/Developer-Product-Create.png" src="https://developer.roblox.com/assets/blt0a372e91f5852e99/Developer-Product-Create.png" /></p></li>
+<li><p>For the new placeholder product, click the <img alt="https://developer.roblox.com/assets/blt173a1a863c7190a4/PlayFab-Dots-Icon.png" src="https://developer.roblox.com/assets/blt173a1a863c7190a4/PlayFab-Dots-Icon.png" /></p></li>
+</ol>
+<p>button and select <strong>Edit</strong>.
+<img alt="https://developer.roblox.com/assets/bltae98cda6a17b56b1/Developer-Product-Edit.png" src="https://developer.roblox.com/assets/bltae98cda6a17b56b1/Developer-Product-Edit.png" /></p>
+<ol class="simple">
+<li><p>Specify the product’s name and the price.</p></li>
+<li><p>Click the <strong>Save</strong> button.</p></li>
+</ol>
+<p>After creating a developer product, Roblox assigns it a unique ID and all products are neatly listed in the <strong>Monetization</strong> tab.</p>
+<p><img alt="https://developer.roblox.com/assets/blt77098ed66bd4f813/Dev-Product-Listing.png" src="https://developer.roblox.com/assets/blt77098ed66bd4f813/Dev-Product-Listing.png" /></p>
+</div>
+<div class="section" id="scripting-for-developer-products">
+<h2>Scripting for Developer Products<a class="headerlink" href="#scripting-for-developer-products" title="Permalink to this headline">¶</a></h2>
+<p>To take full advantage of developer products, you’ll need to use scripting. Here are some common examples:</p>
+<div class="section" id="getting-a-games-developer-products">
+<h3>Getting a Game’s Developer Products<a class="headerlink" href="#getting-a-games-developer-products" title="Permalink to this headline">¶</a></h3>
+<p>To gather data for all of the developer products in a game, use the <code class="docutils literal notranslate"><span class="pre">MarketplaceService/GetDeveloperProductsAsync|GetDeveloperProductsAsync()</span></code> method. This returns a <code class="docutils literal notranslate"><span class="pre">Pages</span></code> object that you can inspect and filter to build an in-game store, product list GUI, etc.</p>
+</div>
+<div class="section" id="getting-product-info">
+<h3>Getting Product Info<a class="headerlink" href="#getting-product-info" title="Permalink to this headline">¶</a></h3>
+<p>To get information (price, name, image, etc.) for a specific product, use the <code class="docutils literal notranslate"><span class="pre">MarketplaceService/GetProductInfo|GetProductInfo()</span></code> function with a second argument:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">MarketplaceService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;MarketplaceService&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">productID</span> <span class="o">=</span> <span class="mi">0000000</span>  <span class="o">--</span> <span class="n">Change</span> <span class="n">this</span> <span class="n">to</span> <span class="n">your</span> <span class="n">developer</span> <span class="n">product</span> <span class="n">ID</span>
+    
+    <span class="n">local</span> <span class="n">productInfo</span> <span class="o">=</span> <span class="n">MarketplaceService</span><span class="p">:</span><span class="n">GetProductInfo</span><span class="p">(</span><span class="n">productID</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">InfoType</span><span class="o">.</span><span class="n">Product</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="prompting-a-purchase">
+<h3>Prompting a Purchase<a class="headerlink" href="#prompting-a-purchase" title="Permalink to this headline">¶</a></h3>
+<p>You can prompt a player to purchase one of your developer products with the <code class="docutils literal notranslate"><span class="pre">MarketplaceService/PromptProductPurchase|PromptProductPurchase()</span></code> method of <code class="docutils literal notranslate"><span class="pre">MarketplaceService</span></code>. In the following code, the <code class="docutils literal notranslate"><span class="pre">promptPurchase()</span></code> function can be called when the player presses a <code class="docutils literal notranslate"><span class="pre">Articles/Creating</span> <span class="pre">GUI</span> <span class="pre">Buttons|button</span></code>, talks to a vendor NPC, or whatever fits your game design.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">MarketplaceService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;MarketplaceService&quot;</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">Players</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">productID</span> <span class="o">=</span> <span class="mi">0000000</span>  <span class="o">--</span> <span class="n">Change</span> <span class="n">this</span> <span class="n">to</span> <span class="n">your</span> <span class="n">developer</span> <span class="n">product</span> <span class="n">ID</span>
+    
+    <span class="o">--</span> <span class="n">Function</span> <span class="n">to</span> <span class="n">prompt</span> <span class="n">purchase</span> <span class="n">of</span> <span class="n">the</span> <span class="n">developer</span> <span class="n">product</span>
+    <span class="n">local</span> <span class="n">function</span> <span class="n">promptPurchase</span><span class="p">()</span>
+    	<span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">Players</span><span class="o">.</span><span class="n">LocalPlayer</span>
+    	<span class="n">MarketplaceService</span><span class="p">:</span><span class="n">PromptProductPurchase</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">productID</span><span class="p">)</span>
+    <span class="n">end</span>
+
+</pre></div>
+</div>
+<p>After a purchase is made, it’s your responsibility to handle and record the transaction. This can be done through a <code class="docutils literal notranslate"><span class="pre">Script</span></code> within <code class="docutils literal notranslate"><span class="pre">ServerScriptService</span></code> using the <code class="docutils literal notranslate"><span class="pre">MarketplaceService/ProcessReceipt|ProcessReceipt</span></code> callback. The function you define will be called repetitively until it returns <code class="docutils literal notranslate"><span class="pre">Enum.ProductPurchaseDecision.PurchaseGranted</span></code>.</p>
+<p>ProcessReceipt 回调函数 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>local MarketplaceService = game:GetService(&quot;MarketplaceService&quot;)
+local DataStoreService = game:GetService(&quot;DataStoreService&quot;)
+local Players = game:GetService(&quot;Players&quot;)
+
+-- 此数据存储用于跟踪已成功处理的购买流程
+local purchaseHistoryStore = DataStoreService:GetDataStore(&quot;PurchaseHistory&quot;)
+
+-- 表格相关设置，含有产品 ID 和处理购买操作的函数
+local productFunctions = {}
+-- ProductId 123123 的产品可以为玩家补满生命值
+productFunctions[123123] = function(receipt, player)
+	-- 玩家购买生命值回复所需的逻辑或编码（非固定）
+	if player.Character and player.Character:FindFirstChild(&quot;Humanoid&quot;) then
+		-- 将玩家的生命值补满
+		player.Character.Humanoid.Health = player.Character.Humanoid.MaxHealth
+		-- 标识购买成功
+		return true
+	end
+end
+-- ProductId 456456 的产品将为玩家提供 100 金币
+productFunctions[456456] = function(receipt, player)
+	-- 玩家购买 100 金币的逻辑或编码（非固定）
+	local stats = player:FindFirstChild(&quot;leaderstats&quot;)
+	local gold = stats and stats:FindFirstChild(&quot;Gold&quot;)
+	if gold then
+		gold.Value = gold.Value + 100
+		-- 标识购买成功
+		return true
+	end
+end
+
+-- 核心 ‘ProcessReceipt’ 回调函数
+local function processReceipt(receiptInfo)
+
+	-- 检查数据存储，判断产品是否已经发放  
+	local playerProductKey = receiptInfo.PlayerId .. &quot;_&quot; .. receiptInfo.PurchaseId
+	local purchased = false
+	local success, errorMessage = pcall(function()
+		purchased = purchaseHistoryStore:GetAsync(playerProductKey)
+	end)
+	-- 如果购买流程被记录下来，则说明产品已发放
+	if success and purchased then
+		return Enum.ProductPurchaseDecision.PurchaseGranted
+	elseif not success then
+		error(&quot;Data store error:&quot; .. errorMessage)
+	end
+
+	-- 找到服务器中进行购买的玩家
+	local player = Players:GetPlayerByUserId(receiptInfo.PlayerId)
+	if not player then
+		-- 玩家可能离开了游戏
+		-- 玩家返回游戏时将会再次调用回调函数
+		return Enum.ProductPurchaseDecision.NotProcessedYet
+	end
+	
+	-- 从上面的 ‘productFunctions’ 表格中查找处理函数
+	local handler = productFunctions[receiptInfo.ProductId]
+
+	-- 调用处理函数并捕捉错误
+	local success, result = pcall(handler, receiptInfo, player)
+	if not success or not result then
+		warn(&quot;Error occurred while processing a product purchase&quot;)
+		print(&quot;\nProductId:&quot;, receiptInfo.ProductId)
+		print(&quot;\nPlayer:&quot;, player)
+		return Enum.ProductPurchaseDecision.NotProcessedYet
+	end
+
+	-- 在数据存储中记录好交易内容，确保同样的产品不会被再次发放
+	local success, errorMessage = pcall(function()
+		purchaseHistoryStore:SetAsync(playerProductKey, true)
+	end)
+	if not success then
+		error(&quot;Cannot save purchase data:&quot; .. errorMessage)
+	end
+
+	-- 重要：告知 Roblox 购买流程已被成功处理
+	return Enum.ProductPurchaseDecision.PurchaseGranted
+end
+
+-- 设置回调函数，这个设置只能由服务器上的一个脚本进行一次！ 
+MarketplaceService.ProcessReceipt = processReceipt
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Roblox itself does **not** record the purchase history of developer products by specific players, although you can view overall daily/monthly stats as outlined `articles/Developer Stats|here`. If you want to track player-specific purchase history, it&#39;s your responsibility to store the data, typically with `Articles/Data store|data stores`. See the `MarketplaceService/ProcessReceipt|ProcessReceipt` reference for a code example which includes data store usage. 
+
+The `receiptInfo` table passed to the `processReceipt()` callback function contains detailed info on the purchase. See the `MarketplaceService/ProcessReceipt|ProcessReceipt` reference for a list of keys and descriptions. 
+
+
+
+***__Roblox官方链接__:[Developer Products – In‑Game Purchases](https://developer.roblox.com/zh-cn/articles/Developer-Products-In-Game-Purchases)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Earning-Commissions.html" class="btn btn-neutral float-right" title="获取利润" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="premium-payouts.html" class="btn btn-neutral float-left" title="Premium 收益系统" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

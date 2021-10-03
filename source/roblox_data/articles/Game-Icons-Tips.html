@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <link rel="canonical" href="https://developer.roblox.com/articles/Game-Icons-Tips"/>
+    <link rel="alternate" hreflang="x-default" href="https://developer.roblox.com/articles/Game-Icons-Tips"/>
+    
+      <link rel="alternate" hreflang="en-us" href="https://developer.roblox.com/en-us/"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="https://developer.roblox.com/zh-cn/"/>
+    
+      
+        
+          <title> 设计游戏图标</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="zh-cn">
+
+
+
+<meta name="description" content="<p>创建吸睛游戏图标的提示和最佳实践</p>">
+
+
+
+<meta name="keywords" content="">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="游戏图标 - 提示">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>创建吸睛游戏图标的提示和最佳实践</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="市场营销">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="false">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="/static/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="/static/images/favicon.ico?q=1544016445575
+" type="image/x-icon">
+<link rel="icon" href="/static/images/favicon.ico?q=1544016445575
+" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="https://browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="/static/css/prettify.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+<link href="/static/css/select2.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+<link href="/static/css/font-awesome.min.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+<link href="/static/css/main.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+
+<script src="/static/js/jquery-3.3.1.min.js?q=1544016445575
+"></script>
+<script src="/static/js/popper.min.js?q=1544016445575
+"></script>
+<script src="/static/js/jPages.js?q=1544016445575
+"></script>
+<script src="/static/js/bootstrap.min.js?q=1544016445575
+"></script>
+<script src="/static/js/bootstrap-toc.js?q=1544016445575
+"></script>
+<!-- <script src="/static/js/docs.min.js?q=1544016445575
+"></script> -->
+<script src="/static/js/prettify.js?q=1544016445575
+"></script>
+<script src="/static/js/lang-lua.js?q=1544016445575
+"></script>
+<script src="/static/js/select2.js?q=1544016445575
+"></script>
+<script src="/static/js/clipboard.min.js?q=1544016445575
+"></script>
+
+<script src="/static/js/autolinking.js?q=1544016445575
+"></script>
+<script src="/static/js/lightbox.js?q=1544016445575
+"></script>
+<script src="/static/js/half-sized.js?q=1544016445575
+"></script>
+<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="/static/js/jquery.cookie.js?q=1544016445575
+"></script>
+<script type="text/javascript" src="/static/js/encrypt-md5.js?q=1544016445575
+"></script>
+<!-- <script type="text/javascript" src="/static/js/gdpr.js?q=1544016445575
+"></script> -->
+
+<script src="/static/js/script.js?q=1544016445575
+"></script>
+<script src="/static/js/codesample-theme.js?q=1544016445575
+"></script>
+<script src="/static/js/code-highlighting.js?q=1544016445575
+"></script>
+<!-- <script src="/static/js/local-codesamples.js?q=1544016445575
+"></script> -->
+<script src="/static/js/language-dropdown.js?q=1544016445575
+"></script>
+
+<script src="/static/js/event_template_one.js?q=1544016445575
+"></script>
+
+<script type="text/javascript" src="/static/js/jquery.swiftype.autocomplete.js?q=1544016445575
+">
+</script>
+<script type='text/javascript' src='/static/js/jquery.ba-hashchange.min.js?q=1544016445575
+'></script>
+<script type="text/javascript" src="/static/js/jquery.swiftype.search.js?q=1544016445575
+"></script>
+<script type="text/javascript" src="/static/js/jquery.swiftype.livesearch.js?q=1544016445575
+">
+</script>
+
+<script type="text/javascript" src="/static/js/st.custom.search.js?q=1544016445575
+"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('https://dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="/" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="/">主页</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/quick-start">
+                      <span>入门</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/learn-roblox/all-tutorials">
+                      <span>了解 Roblox</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/api-reference">
+                      <span>API 参考</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/resources">
+                      <span>资源</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com">
+                      <span>社区</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="搜索">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">关闭侧边栏</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="/static/images/l-arrow.svg?q=1544016445575
+"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">教程</h5>
+              <div>
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                      <span>Studio 基础知识</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/creating">
+                      <span>创建</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/international">
+                      <span>国际化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                      <span>声效、光照与特效</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/marketing">
+                      <span>市场营销</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/optimization">
+                      <span>性能优化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                      <span>所有内容</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/analytics">
+                      <span>数据分析</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                      <span>用户界面</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/monetization">
+                      <span>盈利</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                      <span>编码与脚本</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                      <span>跨平台发展</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/marketing">市场营销</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>设计游戏图标</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">隐藏内容索引</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">显示内容索引</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <div class="toc-content"><a href="javascript:void(0)">内容索引</a>
+        </div>
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/marketing">市场营销</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>设计游戏图标</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">10  分钟</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>游戏图标是开发者所挑选的正方形图像，需要能够快速并准确地传达其所代表游戏的含义与风格。下列建议或许能帮助你做出美观且能吸引玩家的<span class="text-nowrap">抢眼</span>图标。</p>
+<h2>图标尺寸</h2>
+<p>游戏图标需为正方形，其最大尺寸需为 512×512 像素。图标上传后将在 Roblox 网站与应用程序中缩放至更小的尺寸。举例来说，<a href="https://www.roblox.com/games/" target="_new">Games（游戏）</a>页面会以 150×150 像素或更小尺寸显示游戏图标。</p>
+<div class="alert alert-warning" role="alert">
+图标缩小显示后可能会无法体现某些细节，尤其需要注意的是文本。建议在使用图标前对其以 128&times;128 等更小尺寸进行预览，以确保所有细节都能显示清晰。
+</div>
+<h2>图标构图</h2>
+<p>图标将会是大多数玩家对游戏的第一印象，也因此成为了极为重要的营销工具。下列精心制作的图标示例都表达了其特定的主题氛围：</p>
+<div class="container">
+<div class="row">
+<div class="col-5 mr-4 px-0">
+<figure class="figure">
+<img src="/assets/blt83f05a81aa5e0f01/Game-Icon-Example-1.jpg" class="img-fluid mt-3 mb-3">
+<figcaption class="figure-caption text-center">此图标代表了一款有趣的<span class="text-nowrap">快节奏</span>游戏。不仅在构图前方强调了游戏的动态元素，远景中还出现了更多过山车轨道。</figcaption>
+</figure>
+</div>
+<div class="col-5 ml-4 px-0">
+<figure class="figure">
+<img src="/assets/bltd790f91ee8e33411/Game-Icon-Example-2.jpg" class="img-fluid mt-3 mb-3">
+<figcaption class="figure-caption text-center">此图标代表了一款<span class="text-nowrap">节奏更慢</span>的游戏。玩家可以与好友一同探索游戏内未来感十足的美丽世界。</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-5 mr-4 px-0">
+<figure class="figure">
+<img src="/assets/bltcc8072feb38c5e8b/Game-Icon-Example-3.jpg" class="img-fluid mt-3 mb-3">
+<figcaption class="figure-caption text-center">此图标代表了一款<span class="text-nowrap">动作类</span>超级英雄题材游戏。多名玩家可以共同在现代风格的大都市中穿梭飞行。</figcaption>
+</figure>
+</div>
+<div class="col-5 ml-4 px-0">
+<figure class="figure">
+<img src="/assets/bltfc40e42dc7285685/Game-Icon-Example-4.jpg" class="img-fluid mt-3 mb-3">
+<figcaption class="figure-caption text-center">此图标上显示了冬日中温馨暖和的小屋。玩家可以在家中与好友畅谈玩乐，也可以在篝火边烤棉花糖吃。</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<h2>图标颜色</h2>
+<p>为图标使用正确的颜色后，表达游戏的核心氛围将会是小菜一碟。</p>
+<h3>饱和度</h3>
+<p>高饱和度的颜色可以让游戏图标看起来<span class="text-nowrap">如梦似幻</span>，而低饱和度的图标则适合表达更为阴郁的氛围。</p>
+<div class="container">
+<div class="row">
+<div class="col-4 mr-4 px-0">
+<figure class="figure">
+<img src="/assets/bltebe27a300c73ffdf/Game-Icon-Saturation-A.jpg" class="img-fluid mt-2 mb-1">
+</figure>
+</div>
+<div class="col-4 ml-4 px-0">
+<figure class="figure">
+<img src="/assets/blt0dea561381af5922/Game-Icon-Saturation-B.jpg" class="img-fluid mt-2 mb-1">
+</figure>
+</div>
+</div>
+</div>
+<h3>对比度</h3>
+<p>在调节对比度时，应该选择让游戏图标看起来最为舒适清晰的状态。当饱和度过低时图像经常看起来有“褪色感”，而当饱和度过高时图像看起来过于虚假，毫无吸引力。</p>
+<div class="container">
+<div class="row">
+<div class="col-4 mr-4 px-0">
+<figure class="figure">
+<img src="/assets/blt60a1a0a6b1895319/Game-Icon-Contrast-A.jpg" class="img-fluid mt-2 mb-1">
+</figure>
+</div>
+<div class="col-4 ml-4 px-0">
+<figure class="figure">
+<img src="/assets/blt10676c440da65d01/Game-Icon-Contrast-B.jpg" class="img-fluid mt-2 mb-1">
+</figure>
+</div>
+</div>
+</div>
+<h3>收尾处理</h3>
+<p>图像处理（又称“滤镜处理”）是一种能够实现特定氛围的全局效果。使用滤镜后，图标可以大幅改变玩家对游戏的感受。</p>
+<div class="container">
+<div class="row">
+<div class="col-3 mr-4 px-0">
+<figure class="figure">
+<img src="/assets/blt47f957424ffcf22f/Game-Icon-Treatment-A.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption text-center">奇幻</figcaption>
+</figure>
+</div>
+<div class="col-3 mx-4 px-0">
+<figure class="figure">
+<img src="/assets/bltbdac7ce47b8f77e3/Game-Icon-Treatment-B.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption text-center">复古</figcaption>
+</figure>
+</div>
+<div class="col-3 ml-4 px-0">
+<figure class="figure">
+<img src="/assets/blt647caed0015ba557/Game-Icon-Treatment-C.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption text-center">恐怖</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<h2>图标字体</h2>
+<p>字体在游戏中十分重要，有时甚至会成为游戏代表性的一方面。在选择图标字体时请参考下列建议：</p>
+<ul>
+<li>为图标文本选择正确的字体将使整体构成对玩家更具吸引力。</li>
+<li>全小写字体会给玩家更为舒适的印象，而全大写字体看起来更为直接，就像是在大声喊一样。</li>
+<li><strong>加粗</strong>字体通常用于进一步强调和吸引注意力。</li>
+<li>创意性地变换字体粗细、字号和样式可以增加游戏图标的吸引力。</li>
+</ul>
+<h2>建议避免的行为</h2>
+<p>开发者在进行图标创建时应当避免下列行为，以确保图标成品遵循 Roblox 标准与服务条款。</p>
+<div class="container">
+<div class="row">
+<div class="col-2 mr-2 mb-2 px-0">
+<img src="/assets/blt6ea3ac09cec47364/Game-Icon-Discouraged-A.jpg" class="img-fluid mt-2 mb-1">
+</div>
+<div class="col-9 py-2">
+<h4 class="mb-1">受版权保护的商业标识</h4>
+为了避免图标被移除，请<b>务必不要</b>在图标中包括 Roblox 品牌或其他<span class="text-nowrap">受法律保护的品牌</span>材料。
+</div>
+</div>
+<div class="row">
+<div class="col-2 mr-2 mb-2 px-0">
+<img src="/assets/blt94d078b2e4ac8481/Game-Icon-Discouraged-B.jpg" class="img-fluid mt-2 mb-1">
+</div>
+<div class="col-9 py-2">
+<h4 class="mb-1">游戏更新</h4>
+请避免在图标上显示游戏的最新更新信息；此类信息应当被放入游戏的详情页面或缩略图中。
+</div>
+</div>
+<div class="row">
+<div class="col-2 mr-2 mb-2 px-0">
+<img src="/assets/bltf215670097522008/Game-Icon-Discouraged-C.jpg" class="img-fluid mt-2 mb-1">
+</div>
+<div class="col-9 py-2">
+<h4 class="mb-1">广告标识</h4>
+与上一条建议类似，请避免在图标上显示游戏内正在进行的促销、特价或折扣信息；此类信息应当被放入游戏的详情页面中。
+</div>
+</div>
+<div class="row">
+<div class="col-2 mr-2 mb-2 px-0">
+<img src="/assets/bltfc7859dc862ad5c6/Game-Icon-Discouraged-D.jpg" class="img-fluid mt-2 mb-1">
+</div>
+<div class="col-9 py-2">
+<h4 class="mb-1">意义不明的图案</h4>
+玩家很难理解这些意义不明的图案。除非玩家与该图案有特定联系，将不会知道开发者想要表达的意思。
+</div>
+</div>
+<div class="row">
+<div class="col-2 mr-2 mb-2 px-0">
+<img src="/assets/blt44abda287dd9cc75/Game-Icon-Discouraged-E.jpg" class="img-fluid mt-2 mb-1">
+</div>
+<div class="col-9 py-2">
+<h4 class="mb-1">尺寸过大的文本标语</h4>
+过度使用文本可导致图标被遮盖，破坏了游戏图标的本质。同时此类行为也常会使游戏的<span class="text-nowrap">自我推销</span>性质过于明显，从而导致玩家的反感。
+</div>
+</div>
+<div class="row">
+<div class="col-2 mr-2 mb-2 px-0">
+<img src="/assets/blt17d45bc0a2cd45b0/Game-Icon-Discouraged-F.jpg" class="img-fluid mt-2 mb-1">
+</div>
+<div class="col-9 py-2">
+<h4 class="mb-1">图标上出现游戏描述</h4>
+玩家通常不会花费精力阅读游戏图标上的长段文字。当图标以较小尺寸显示时，文字也可能会变得模糊不清，无法辨认。
+</div>
+</div>
+</div>
+<hr>
+<p>请尽情享受制作游戏图标的乐趣并遵循上述建议。为了找出效果最好的版本多加实践吧！</p>
+
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">相关参考文章</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="/articles/Promoting-Your-Roblox-Game"><span class="related-article-img" style="background-image: url(https://dk135eecbplh9.cloudfront.net/assets/bltb6a10e437d605da8/Promoting-Game-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="/articles/Promoting-Your-Roblox-Game">推广你的游戏</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="/articles/Thumbnail"><span class="related-article-img" style="background-image: url(https://dk135eecbplh9.cloudfront.net/assets/blt380ecdb911d4ede3/Game-Thumbnails-Thumbnail.jpg);"> </span></a>
+          <h3 data-toc-skip><a href="/articles/Thumbnail">游戏缩略图和视频</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>此网站如何使用 Cookie</h1>
+        <div class="privacy-content">
+          <p>此平台使用 Cookie 为您提供更好的体验、对内容进行个性化、提供社交媒体功能和分析网站流量。如需详细信息（包括有关如何在此平台上防止使用 Cookie 或对其进行管理的信息），请参阅我们的<a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私和 Cookie 政策</a>。</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">确定</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">你即将离开 Roblox 网站</div>
+        <p>请按下继续按钮前往： <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="" class="btn secondary-btn" data-dismiss="modal">返回</a>
+        <a href="" class="btn primary-btn continue-link" target="_blank">继续</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com" target="_self" class="footer-logo ptxl mbl">
+              <img src="https://dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2019 Roblox Corporation. 保留所有权利。</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>公司</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">关于 Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">招贤纳士</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">技术</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">服务条款</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私政策</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">家长</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>开发人员</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="/articles/Creating-Your-First-Game" target="_self">入门</a>
+                  </li>
+                
+                  <li>
+                    <a href="/learn-roblox/all-tutorials" target="_self">了解</a>
+                  </li>
+                
+                  <li>
+                    <a href="/api-reference" target="_self">API 参考</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com" target="_blank">社区</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">开发人员公告</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">搜索</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input"
+                        placeholder="搜索">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" href="#all" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            所有结果
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" href="#api-doc" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API 文档
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" href="#tutorial" role="tab"
+                            aria-selected="false" data-name="articles">
+                            教程
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" href="#recipe" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            代码参考
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" href="#video" role="tab"
+                            aria-selected="false" data-name="videos">
+                            视频
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+</html>

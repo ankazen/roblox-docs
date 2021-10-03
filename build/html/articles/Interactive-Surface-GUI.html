@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>交互式表面 GUI &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="创建 GUI 按钮" href="Creating-GUI-Buttons.html" />
+    <link rel="prev" title="Lua 聊天系统" href="Lua-Chat-System.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-GUIs.html">GUI 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI-Animations.html">GUI 动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fundamentals-of-Scripting-with-GUIs.html">GUI 脚本简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Chat-System.html">Lua 聊天系统</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">交互式表面 GUI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">创建按钮列</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">创建表面 GUI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">将 GUI 连接到该列</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">添加图像按钮</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">更改 GUI 外观</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">自定义按钮</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">连接本地脚本</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-GUI-Buttons.html">创建 GUI 按钮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Radial-Menu.html">创建摇杆快速菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Grid-Menu.html">创建栅格菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using-Images-in-GUIs.html">在 GUI 中使用图像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text-and-Chat-Filtering.html">文本与聊天过滤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Camera-manipulation.html">镜头操控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mouse-Icon-Appearance.html">鼠标指针控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animating-text.html">设置文本动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar-emotes.html">Avatar Emotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chat-Modules.html">Chat Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Custom-Teleport-GUI.html">创建自定义传送屏幕</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Scrolling-Frame-GUI.html">创建滚动框架 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-the-camera.html">Customizing the Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Disabling-Parts-of-Game-Interface.html">禁用游戏界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-bindings.html">Roblox Input Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selection-Boxes.html">选择框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Three-Quarters-Camera-View.html">45 度镜头视角</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Unit-Frame.html">单元框：制作生命槽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewportframe-gui.html">ViewportFrame GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/user-interface.html">用户界面</a> &raquo;</li>
+        
+      <li>交互式表面 GUI</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Interactive-Surface-GUI.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gui">
+<h1>交互式表面 GUI<a class="headerlink" href="#gui" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>15  分钟</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Articles/Creating</span> <span class="pre">Surface</span> <span class="pre">GUI|表面</span> <span class="pre">GUI</span></code>教程介绍了如何创建基本的表面 GUI。开发者可以籍此在 Roblox 游戏中展示标志、插图和其他对象。但现在我们将对其进行进一步学习，探讨如何制作能够作为游戏中按钮、键盘、面板等内容的_交互式_表面对象。</p>
+<div class="section" id="id1">
+<h2>创建按钮列<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>与任何表面 GUI 一样，你需要一个基本的部件来连接它。</p>
+<ol class="simple">
+<li><p>创建一个正好 2 个格宽和 2 个格深的块。</p></li>
+</ol>
+<p><img alt="https://developer.roblox.com/assets/bltd4573db09a00d644/Create-ButtonColumn-1.png" src="https://developer.roblox.com/assets/bltd4573db09a00d644/Create-ButtonColumn-1.png" /></p>
+<p>对于此演示，块是 2 个格宽和 2 个格深，这一点非常重要。如有必要 ，在 **Properties（属性）**窗口中，检查 <strong>Part（部件）</strong> → **Size（大小）**值。</p>
+<ol class="simple">
+<li><p>在管理器窗口中，将部件重命名为 <em>ButtonColumn</em>。
+<img alt="https://developer.roblox.com/assets/blt857e71864aec72e6/Rename-ButtonColumn.png" src="https://developer.roblox.com/assets/blt857e71864aec72e6/Rename-ButtonColumn.png" /></p></li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2>创建表面 GUI<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>现在，为该列创建一个表面 GUI。这次，我们不是将其直接添加到 <strong>ButtonColumn</strong> 部件，而是将其添加到 <strong>StarterGui</strong> 对象（记住，当每个玩家加入游戏时，这会将 GUI 复制到他们的本地游戏会话中）。</p>
+<ol class="simple">
+<li><p>在管理器窗口中，将鼠标悬停在 <strong>StarterGui</strong> 上，然后单击其圆形的 circle ⊕ 按钮。</p></li>
+<li><p>从弹出菜单中选择 <strong>SurfaceGui</strong>。</p></li>
+</ol>
+<p><img alt="https://developer.roblox.com/assets/blt0bd2675a19205554/Create-SurfaceGUI-A-2.png" src="https://developer.roblox.com/assets/blt0bd2675a19205554/Create-SurfaceGUI-A-2.png" /></p>
+</div>
+<div class="section" id="id3">
+<h2>将 GUI 连接到该列<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>这个新的表面 GUI 空间是 <strong>StarterGui</strong> 对象的一部分，但它没有连接部件，它只是在空间中漂浮着。若要将此表面 GUI 连接到部件，你必须设置它的 <strong>Adornee</strong> 属性。</p>
+<ol class="simple">
+<li><p>在管理器窗口中选择 <strong>SurfaceGui</strong> 对象。</p></li>
+<li><p>在“Properties（属性）”窗口中，单击 <strong>Adornee</strong> 属性。这会将你在 Studio 中的光标更改为一个小的选择箭头。</p></li>
+</ol>
+<p><img alt="https://developer.roblox.com/assets/blt2c20fe3985cd2143/Set-Adornee-1.png" src="https://developer.roblox.com/assets/blt2c20fe3985cd2143/Set-Adornee-1.png" /></p>
+<ol class="simple">
+<li><p>在 3D 游戏编辑器窗口中，单击按钮列部分，将其设置为 GUI 的装饰物。
+<img alt="https://developer.roblox.com/assets/blt2f755d99abded8aa/Set-Adornee-2.png" src="https://developer.roblox.com/assets/blt2f755d99abded8aa/Set-Adornee-2.png" /></p></li>
+</ol>
+</div>
+<div class="section" id="id4">
+<h2>添加图像按钮<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>现在，让我们向表面 GUI 中添加一个图像按钮。这些步骤与 <code class="docutils literal notranslate"><span class="pre">articles/Creating</span> <span class="pre">GUI</span> <span class="pre">Buttons</span></code> 中的步骤类似，因此如有必要，请查看该指南。</p>
+<ol class="simple">
+<li><p>在管理器窗口中，找到要添加到 <strong>StarterGui</strong> 的 <strong>SurfaceGui</strong> 对象，然后插入一个 <code class="docutils literal notranslate"><span class="pre">ImageButton</span></code> 对象。
+<img alt="https://developer.roblox.com/assets/blt4e313d906cf97b91/Add-ImageButton-1.png" src="https://developer.roblox.com/assets/blt4e313d906cf97b91/Add-ImageButton-1.png" /></p></li>
+<li><p>选择该按钮并在“Properties（属性）”窗口中单击其 <strong>Image</strong> 属性。将下面的 <code class="docutils literal notranslate"><span class="pre">ControlButton.png</span></code> 图像上传到你的游戏中（右键单击并选择 **Save Image As…（将图像另存为…）**将其保存到你的计算机）。
+<img alt="https://developer.roblox.com/assets/blta5b1b36f74d831b0/ControlButton.png" src="https://developer.roblox.com/assets/blta5b1b36f74d831b0/ControlButton.png" /></p></li>
+</ol>
+<p>当图像上传完成后，你应该会在前角看到一个小按钮：</p>
+<p><img alt="https://developer.roblox.com/assets/blt6939f7fb03a02d2c/Add-ImageButton-SurfaceGUI-2.png" src="https://developer.roblox.com/assets/blt6939f7fb03a02d2c/Add-ImageButton-SurfaceGUI-2.png" /></p>
+<p>根据你的镜头视图，你可能没有看到 GUI 所在的列的表面。如果你看不到按钮，请移动你的镜头，直到你看到它。</p>
+</div>
+<div class="section" id="id5">
+<h2>更改 GUI 外观<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>如你所见，表面 GUI 被放置在部件的_前_表面。这并不总是你想要的 GUI，所以让我们改变它。</p>
+<ol class="simple">
+<li><p>选择 <strong>SurfaceGui</strong> 对象（而不是其中的图像按钮）。</p></li>
+<li><p>在“Properties（属性）”窗口中，找到 <strong>Face</strong> 属性并从下拉列表中选择 <strong>Top</strong>。现在表面 GUI 以及其中的按钮都将位于此列的顶部。
+<img alt="https://developer.roblox.com/assets/bltb93c40199aa7e997/Interactive-Surface-GUI-Change-GUI-Face-1.png" src="https://developer.roblox.com/assets/bltb93c40199aa7e997/Interactive-Surface-GUI-Change-GUI-Face-1.png" /></p></li>
+</ol>
+<p>虽然按钮现在在顶部表面上，但它太小了，它藏在一个角落里，甚至不像图像那样完美的圆形！</p>
+<p>请记住，将表面 GUI 的<strong>画布大小</strong>设置为它所在表面的相同比例。因为我们把它移到了顶部表面，所以我们需要改变画布大小来与之匹配。</p>
+<ol class="simple">
+<li><p>确保 <strong>SurfaceGui</strong> 对象仍处于选中状态。</p></li>
+<li><p>请记住，比较方便的做法是，将画布大小在每个方向上设置为表面的格长度的 100 倍。由于顶部表面是 2 × 2 格，因此将 <strong>CanvasSize</strong> 的 <strong>X</strong> 和 <strong>Y</strong> 更改为 200。
+<img alt="https://developer.roblox.com/assets/bltc65bb09f3316d4b3/Interactive-Surface-GUI-Change-GUI-Face-2.png" src="https://developer.roblox.com/assets/bltc65bb09f3316d4b3/Interactive-Surface-GUI-Change-GUI-Face-2.png" /></p></li>
+</ol>
+<div class="section" id="id6">
+<h3>自定义按钮<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>此时，按钮仍然不像玩家所期望的那样。它仍然藏在表面的一个角落里，没有朝着正确的方向。下面就让我们来修复所有这些以及更多问题吧！</p>
+<ol class="simple">
+<li><p>选择图像按钮，并将 <strong>AnchorPoint</strong> 属性都设置为 0.5。
+<img alt="https://developer.roblox.com/assets/blt79da1b8589ced425/Customize-SurfaceGUI-TextLabel-1.png" src="https://developer.roblox.com/assets/blt79da1b8589ced425/Customize-SurfaceGUI-TextLabel-1.png" /></p></li>
+<li><p>将 <strong>BackgroundTransparency</strong> 改为 1 让背景可见。</p></li>
+<li><p>将 <strong>Position（位置）</strong> → <strong>X</strong> → **Scale（比例）**和 <strong>Y</strong> → **Scale（比例）**都设置为 0.5。这将使标签在表面 GUI 的边界内居中。</p></li>
+</ol>
+<p><img alt="https://developer.roblox.com/assets/bltc34cb8d3c21f6141/Interactive-Surface-GUI-Customize-SurfaceGUI-TextLabel-2.png" src="https://developer.roblox.com/assets/bltc34cb8d3c21f6141/Interactive-Surface-GUI-Customize-SurfaceGUI-TextLabel-2.png" /></p>
+<ol class="simple">
+<li><p>对于 <strong>Size（大小）</strong>，将 <strong>X</strong> → **Offset（偏移）**和 <strong>Y</strong> → **Offset（偏移）**都设置为 150。
+<img alt="https://developer.roblox.com/assets/blt723f9c53501cc3e7/Interactive-Surface-GUI-Customize-SurfaceGUI-TextLabel-3.png" src="https://developer.roblox.com/assets/blt723f9c53501cc3e7/Interactive-Surface-GUI-Customize-SurfaceGUI-TextLabel-3.png" /></p></li>
+<li><p>将 **Rotation（旋转）**设置为 -90 以使按钮朝向正确的方向（从列的前面朝向后面）。
+<img alt="https://developer.roblox.com/assets/blt9fed8377b49cd452/Interactive-Surface-GUI-Customize-SurfaceGUI-TextLabel-4.png" src="https://developer.roblox.com/assets/blt9fed8377b49cd452/Interactive-Surface-GUI-Customize-SurfaceGUI-TextLabel-4.png" /></p></li>
+</ol>
+</div>
+<div class="section" id="id7">
+<h3>连接本地脚本<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>最后一个任务是将一个函数连接到按钮的 <code class="docutils literal notranslate"><span class="pre">GuiButton/Activated|Activated</span></code> （已激活）事件。对于本指南，该函数仅用于将布尔变量设置为 <code class="docutils literal notranslate"><span class="pre">true</span></code> 或 <code class="docutils literal notranslate"><span class="pre">false</span></code>。在真正的游戏中，按下按钮可能会打开一扇密门或打开一个交互式的屏幕 GUI。</p>
+<ol class="simple">
+<li><p>在管理器窗口中，将鼠标悬停在 <strong>ImageButton</strong> 对象上，然后插入 <strong>LocalScript</strong>。
+<img alt="https://developer.roblox.com/assets/bltfbfd37470bd9d33a/New-LocalScript.png" src="https://developer.roblox.com/assets/bltfbfd37470bd9d33a/New-LocalScript.png" /></p></li>
+<li><p>在新脚本中，删除任何现有代码，然后复制并粘贴到这些新行中：</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">button</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+<span class="n">local</span> <span class="n">toggled</span> <span class="o">=</span> <span class="n">false</span>
+ 
+<span class="n">local</span> <span class="n">function</span> <span class="n">onButtonActivated</span><span class="p">()</span>
+	<span class="k">if</span> <span class="n">toggled</span> <span class="o">==</span> <span class="n">false</span> <span class="n">then</span>
+		<span class="n">toggled</span> <span class="o">=</span> <span class="n">true</span>
+		<span class="o">--</span> <span class="n">当按钮开启时进行操作</span>
+		<span class="o">--</span>
+	<span class="k">else</span>    
+		<span class="n">toggled</span> <span class="o">=</span> <span class="n">false</span>
+		<span class="o">--</span> <span class="n">当按钮关闭时进行操作</span>
+		<span class="o">--</span>
+	<span class="n">end</span>
+<span class="n">end</span>
+ 
+<span class="n">button</span><span class="o">.</span><span class="n">Activated</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">onButtonActivated</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>除了一个简单的按钮，你还能想到什么其他的想法？挑战自己，创建一个打开密门的按钮，甚至是一台打开一个大型交互式 <code class="docutils literal notranslate"><span class="pre">articles/Intro</span> <span class="pre">to</span> <span class="pre">GUIs|屏幕</span> <span class="pre">GUI</span></code> 显示屏的触摸屏计算机。选项无穷无尽！</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Interactive-Surface-GUI">交互式表面 GUI</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Creating-GUI-Buttons.html" class="btn btn-neutral float-right" title="创建 GUI 按钮" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Lua-Chat-System.html" class="btn btn-neutral float-left" title="Lua 聊天系统" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

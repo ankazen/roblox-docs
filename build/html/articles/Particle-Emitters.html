@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>粒子发射器 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="音效与音乐" href="sounds-and-music.html" />
+    <link rel="prev" title="昼夜循环和路灯" href="Day-Night-Cycles-and-Street-Lights.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="atmosphere.html">Atmosphere（氛围）掌控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro-to-beams.html">Beam（光束）简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-Fireworks.html">Creating Fireworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-Fireworks.html#steps">Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Portal.html">创建传送门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Portal.html#id2">步骤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fog-Overview-and-Settings.html">Fog – Overview and Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glowing-dynamic-lights.html">闪烁的动态光源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Smoke-and-Fire-with-Beams.html">使用光束创建冒烟和起火的效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Smoke-and-Fire-with-Beams.html#id2">步骤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Day-Night-Cycles-and-Street-Lights.html">昼夜循环和路灯</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">粒子发射器</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">创建粒子发射器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">自定义粒子</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#texture">Texture（纹理）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">颜色</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#size">Size（尺寸）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lifetime">Lifetime（持续时间）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rate">Rate（速率）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">其他属性</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">发射器示例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sounds-and-music.html">音效与音乐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="force-field-material.html">力场材质</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Basics-on-Roblox.html">添加团队</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a> &raquo;</li>
+        
+      <li>粒子发射器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Particle-Emitters.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>粒子发射器<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p><strong>粒子发射器</strong>通过结合使用 2D 图像以及颜色、尺寸等属性来创建例如火焰、烟雾和火花等特殊效果。</p>
+<p><img alt="https://developer.roblox.com/assets/blt6991707a4e36929e/Particle-Hero.jpg" src="https://developer.roblox.com/assets/blt6991707a4e36929e/Particle-Hero.jpg" /></p>
+<div class="section" id="id2">
+<h2>创建粒子发射器<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>所有粒子发射器的父项都必须为 <code class="docutils literal notranslate"><span class="pre">BasePart</span></code> 类对象，例如 <code class="docutils literal notranslate"><span class="pre">Part</span></code> 或 <code class="docutils literal notranslate"><span class="pre">MeshPart</span></code> 等。</p>
+<p>若希望创造粒子发射器，请遵循以下步骤：</p>
+<p>在 Explorer（管理器）窗口中选中对象，并使用 <img alt="https://developer.roblox.com/assets/blt0dd97240c2a0db2a/Explorer-Plus-Icon.png" src="https://developer.roblox.com/assets/blt0dd97240c2a0db2a/Explorer-Plus-Icon.png" /></p>
+<p>图标插入一个 <strong>ParticleEmitter</strong>。</p>
+<p><img alt="https://developer.roblox.com/assets/bltd43b6a485fbbc039/Insert-Emitter.png" src="https://developer.roblox.com/assets/bltd43b6a485fbbc039/Insert-Emitter.png" /></p>
+<p>创建完毕后，粒子发射器将在该部件的区域中发射粒子。发射器的父对象决定了其发射的方向和旋转度。</p>
+<p><img alt="https://developer.roblox.com/assets/blt4fbfddc496139cd8/Emitter-Small-Area.png" src="https://developer.roblox.com/assets/blt4fbfddc496139cd8/Emitter-Small-Area.png" /></p>
+<p>小面积压实颗粒</p>
+<p><img alt="https://developer.roblox.com/assets/blta9d4206b80ade0ab/Emitter-Large-Area.png" src="https://developer.roblox.com/assets/blta9d4206b80ade0ab/Emitter-Large-Area.png" /></p>
+<p>大面积散布颗粒</p>
+<p><img alt="https://developer.roblox.com/assets/blt4ac07eb4e38017b0/Emitter-Part-Rotation.png" src="https://developer.roblox.com/assets/blt4ac07eb4e38017b0/Emitter-Part-Rotation.png" /></p>
+<p>部件旋转改变方向</p>
+<ol class="simple">
+<li><p>如果希望更改粒子效果的方向而不重新定位其父部件，请使用发射器的 <strong>EmissionDirection</strong> 属性。</p></li>
+</ol>
+<p><img alt="https://developer.roblox.com/assets/bltfd0976c6ec655fcc/Emission-Direction-Front.png" src="https://developer.roblox.com/assets/bltfd0976c6ec655fcc/Emission-Direction-Front.png" /></p>
+<p><strong>前方</strong> EmissionDirection</p>
+<p><img alt="https://developer.roblox.com/assets/blt85d42ebf7a240424/Emission-Direction-Bottom.png" src="https://developer.roblox.com/assets/blt85d42ebf7a240424/Emission-Direction-Bottom.png" /></p>
+<p><strong>下方</strong> EmissionDirection</p>
+</div>
+<div class="section" id="id3">
+<h2>自定义粒子<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>添加发射器后，你可以通过其属性修改粒子发射效果。以下是粒子发射器的一些常见属性：</p>
+<div class="section" id="texture">
+<h3>Texture（纹理）<a class="headerlink" href="#texture" title="Permalink to this headline">¶</a></h3>
+<p>更改粒子使用的图像。若要导入粒子图像，请参阅<code class="docutils literal notranslate"><span class="pre">/articles/game</span> <span class="pre">assets#images|游戏资源</span></code>一文。</p>
+<p><img alt="https://developer.roblox.com/assets/blt31fac640c3547982/Emitter-Texture.jpg" src="https://developer.roblox.com/assets/blt31fac640c3547982/Emitter-Texture.jpg" /> 具有不同纹理的相同粒子设置</p>
+<p>建议使用具有透明度的 PNG 图像。如果你的纹理是没有 Alpha 通道的灰度图像，请尝试将发射器的 <strong>LightEmission</strong> 属性设置为 <strong>1</strong> 以隐藏较暗的区域。</p>
+</div>
+<div class="section" id="id4">
+<h3>颜色<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>此属性将粒子纹理着色为特定的颜色。可以通过三种方式选择颜色：</p>
+<p><img alt="https://developer.roblox.com/assets/bltfc52c3e1b3c2a119/Emitter-Color-Options.png" src="https://developer.roblox.com/assets/bltfc52c3e1b3c2a119/Emitter-Color-Options.png" /></p>
+<p><strong>A</strong></p>
+<p>单击颜色方块，打开颜色选择器。</p>
+<p><strong>B</strong></p>
+<p>输入代表 RGB 颜色值的三个数字。</p>
+<p><strong>C</strong></p>
+<p>创建颜色序列，让粒子颜色随时间变化而变色。</p>
+<p><img alt="https://developer.roblox.com/assets/blt47f0892faf4cec8a/Emitter-Color-Single.jpg" src="https://developer.roblox.com/assets/blt47f0892faf4cec8a/Emitter-Color-Single.jpg" /> 单一颜色</p>
+<p><img alt="https://developer.roblox.com/assets/blt124f0cd1fbec118c/Emitter-Color-Sequence.jpg" src="https://developer.roblox.com/assets/blt124f0cd1fbec118c/Emitter-Color-Sequence.jpg" /> 颜色序列</p>
+<div class="section" id="id5">
+<h4>创建颜色序列 »<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>若要修改某个序列：</p>
+<ul class="simple">
+<li><p>单击现有的标记箭头以选择该序列中的一个点。
+<img alt="https://developer.roblox.com/assets/bltb5c22e501d9ba16e/Emitter-Color-Sequence-1.png" src="https://developer.roblox.com/assets/bltb5c22e501d9ba16e/Emitter-Color-Sequence-1.png" /></p></li>
+<li><p>选择标记后，即可更改颜色。
+<img alt="https://developer.roblox.com/assets/blt204f5a8babe31396/Emitter-Color-Sequence-2.png" src="https://developer.roblox.com/assets/blt204f5a8babe31396/Emitter-Color-Sequence-2.png" /></p></li>
+<li><p>可以通过单击时间轴上的一个点来插入其他标记。可以通过左右拖动来移动这些标记，也可以通过单击 **Delete（删除）**按钮将其删除。
+<img alt="https://developer.roblox.com/assets/bltf9f296113c018a09/Emitter-Color-Sequence-3.png" src="https://developer.roblox.com/assets/bltf9f296113c018a09/Emitter-Color-Sequence-3.png" /></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="size">
+<h3>Size（尺寸）<a class="headerlink" href="#size" title="Permalink to this headline">¶</a></h3>
+<p>粒子的尺寸以格为单位。开发者可以通过两种方式定义粒子尺寸：</p>
+<p><img alt="https://developer.roblox.com/assets/bltc52998a7fe52f122/Emitter-Size-Options.png" src="https://developer.roblox.com/assets/bltc52998a7fe52f122/Emitter-Size-Options.png" /></p>
+<p><strong>A</strong></p>
+<p>输入代表恒定尺寸的数字。</p>
+<p><strong>B</strong></p>
+<p>创建一个尺寸序列，使粒子尺寸随时间流逝进行改变。</p>
+<div class="section" id="id6">
+<h4>创建尺寸序列 »<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p>使用序列，粒子尺寸可以随时间变化。序列从 0 开始，即发射开始，到 1 发射结束，1 就是粒子的生存时间。</p>
+<ul class="simple">
+<li><p>若要更改某个点处的尺寸，请单击标记并将其向上或向下拖动。也可以在 **Value（值）**字段中输入值来指定该标记处的尺寸。
+<img alt="https://developer.roblox.com/assets/blt7d4dcafc7e48cc45/Emitter-Size-Sequence-1.png" src="https://developer.roblox.com/assets/blt7d4dcafc7e48cc45/Emitter-Size-Sequence-1.png" /></p></li>
+<li><p>若要插入新标记，请单击图形中的任意一点。
+<img alt="https://developer.roblox.com/assets/blt0596a9e7001a36ad/Emitter-Size-Sequence-2.png" src="https://developer.roblox.com/assets/blt0596a9e7001a36ad/Emitter-Size-Sequence-2.png" /></p></li>
+<li><p>若要增加尺寸的随机范围，请单击任意标记并上下拖动包络线。届时，粒子尺寸将成为红色包络线之间的随机尺寸。
+<img alt="https://developer.roblox.com/assets/blt5fbf8c9d1b3148bf/Emitter-Size-Sequence-3.png" src="https://developer.roblox.com/assets/blt5fbf8c9d1b3148bf/Emitter-Size-Sequence-3.png" /></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="lifetime">
+<h3>Lifetime（持续时间）<a class="headerlink" href="#lifetime" title="Permalink to this headline">¶</a></h3>
+<p>粒子的持续时间以秒为单位进行定义。该持续时间可以是一个恒定值，也可以是格式为 <strong>Min</strong> （最小值）、<strong>Max</strong> （最大值）的最小值/最大值范围。粒子的最长持续时间为 20 秒。</p>
+</div>
+<div class="section" id="rate">
+<h3>Rate（速率）<a class="headerlink" href="#rate" title="Permalink to this headline">¶</a></h3>
+<p>此属性指定了每秒创建的粒子数。一个发射器每秒可以产生多达 500 个粒子。</p>
+<p>为了在 PC 和移动设备上获得最佳性能，请尝试将粒子速率保持在尽可能低的水平。对粒子纹理的大小、发射粒子的大小和其他属性进行实验，以最大程度减少粒子的数量，同时仍能达到所需的视觉效果。</p>
+</div>
+<div class="section" id="id7">
+<h3>其他属性<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>下面是一些用于进一步自定义粒子的属性。</p>
+<p>属性 描述</p>
+<p><code class="docutils literal notranslate"><span class="pre">ParticleEmitter/Acceleration|Acceleration</span></code>（加速）
+确定粒子的加速方向。这可以用于创建诸如受风影响的粒子的效果。</p>
+<p><code class="docutils literal notranslate"><span class="pre">ParticleEmitter/Drag|Drag</span></code>（阻碍）
+粒子损失一半速度的速率（以秒为单位）。</p>
+<p><code class="docutils literal notranslate"><span class="pre">ParticleEmitter/Rotation|Rotation</span></code>（旋转）
+新创建的粒子的旋转角度。单个数字将以该角度创建粒子。使用两个数字（最小值和最大值）将为每个粒子设置随机旋转。</p>
+<p><code class="docutils literal notranslate"><span class="pre">ParticleEmitter/RotSpeed|RotSpeed</span></code>（旋转速度）
+创建时粒子的旋转速度。这可以是单个数字，也可以是代表随机速度的数字范围。负值会导致粒子逆时针旋转。</p>
+<p><code class="docutils literal notranslate"><span class="pre">ParticleEmitter/Speed|Speed</span></code>（速度）
+粒子运动的速度（以格为单位）。这可以是单个数字，也可以是代表随机速度的数字范围。负值会导致粒子反向移动。</p>
+<p><code class="docutils literal notranslate"><span class="pre">ParticleEmitter/Transparency|Transparency</span></code>（透明度）
+所有活动粒子在其各自生存时间中的透明度。这可以是介于 0 和 1 之间的数字，也可以是类似于尺寸序列的某个定义序列。</p>
+<p><code class="docutils literal notranslate"><span class="pre">ParticleEmitter/ZOffset|ZOffset</span></code>（Z 偏移）
+控制粒子渲染方式的向前/向后位置（以格为单位）。这对于同一区域中有多个粒子发射器的情况非常有用。</p>
+<p>有关发射器属性的完整列表，请参见 <code class="docutils literal notranslate"><span class="pre">ParticleEmitter</span></code> API 页面。</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>发射器示例<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>可以通过创建新的 <code class="docutils literal notranslate"><span class="pre">ParticleEmitter</span></code> 并将列出的属性更改为突出显示的值来实现以下发射器。</p>
+<p><img alt="https://developer.roblox.com/assets/bltb68c79a706d0ee35/Emitter-Example-Book.jpg" src="https://developer.roblox.com/assets/bltb68c79a706d0ee35/Emitter-Example-Book.jpg" /></p>
+<p>属性 - ParticleEmitter “ParticleEmitter”</p>
+<p>LightEmission（发光）
+0.5</p>
+<p>Texture（纹理）
+rbxhttp://asset/?id=3909691881</p>
+<p>Drag（阻碍）
+1</p>
+<p>Lifetime（持续时间）
+5</p>
+<p>RotSpeed（旋转速度）
+-100, 100</p>
+<p><img alt="https://developer.roblox.com/assets/blt521f52c08be9f0b3/Emitter-Example-Barrel.jpg" src="https://developer.roblox.com/assets/blt521f52c08be9f0b3/Emitter-Example-Barrel.jpg" /></p>
+<p>属性 - ParticleEmitter “ParticleEmitter”</p>
+<p>Color（颜色）
+<img alt="https://developer.roblox.com/assets/bltfdef723117a1c35f/Studio-Color-Box-Sequence1.png" src="https://developer.roblox.com/assets/bltfdef723117a1c35f/Studio-Color-Box-Sequence1.png" /></p>
+<p><ColorSequence>（颜色序列）<img alt="https://developer.roblox.com/assets/blt96267d1d59a99d09/Emitter-Example-Graph-Color.png" src="https://developer.roblox.com/assets/blt96267d1d59a99d09/Emitter-Example-Graph-Color.png" /></p>
+<p>LightEmission（发光）
+0.7</p>
+<p>Size（尺寸）</p>
+<p><NumberSequence><img alt="https://developer.roblox.com/assets/blt91df64ef5cc05e0a/Emitter-Example-Graph-Size.png" src="https://developer.roblox.com/assets/blt91df64ef5cc05e0a/Emitter-Example-Graph-Size.png" /></p>
+<p>Texture（纹理）
+rbxhttp://asset/?id=3916143220</p>
+<p>Transparency（透明度）</p>
+<p><NumberSequence>（数字序列）<img alt="https://developer.roblox.com/assets/blt9e9bad80c5db9abe/Emitter-Example-Graph-Transparency-2.png" src="https://developer.roblox.com/assets/blt9e9bad80c5db9abe/Emitter-Example-Graph-Transparency-2.png" /></p>
+<p>Lifetime（持续时间）
+3</p>
+<p>Rate（速率）
+10</p>
+<p><img alt="https://developer.roblox.com/assets/blt3bf45668559ebecb/Emitter-Example-Portal.jpg" src="https://developer.roblox.com/assets/blt3bf45668559ebecb/Emitter-Example-Portal.jpg" /></p>
+<p>属性 - ParticleEmitter “ParticleEmitter”</p>
+<p>Color（颜色）
+<img alt="https://developer.roblox.com/assets/blt0dfc85cdbdd2c9fe/Studio-Color-Box-Scarlet.png" src="https://developer.roblox.com/assets/blt0dfc85cdbdd2c9fe/Studio-Color-Box-Scarlet.png" /></p>
+<p>[255, 74, 29]</p>
+<p>LightEmission（发光）
+0.8</p>
+<p>Size（尺寸）
+5</p>
+<p>Texture（纹理）
+rbxhttp://asset/?id=3916186365</p>
+<p>Transparency（透明度）</p>
+<p><NumberSequence>（数字序列）<img alt="https://developer.roblox.com/assets/blt555dd00adb22f329/Emitter-Example-Graph-Transparency.png" src="https://developer.roblox.com/assets/blt555dd00adb22f329/Emitter-Example-Graph-Transparency.png" /></p>
+<p>Lifetime（持续时间）
+2</p>
+<p>Rate（速率）
+5</p>
+<p>Rotation（旋转）
+0, 360</p>
+<p>RotSpeed（旋转速度）
+100</p>
+<p>Speed（速度）
+0</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Particle-Emitters">粒子发射器</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sounds-and-music.html" class="btn btn-neutral float-right" title="音效与音乐" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Day-Night-Cycles-and-Street-Lights.html" class="btn btn-neutral float-left" title="昼夜循环和路灯" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

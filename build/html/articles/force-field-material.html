@@ -1,0 +1,288 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>力场材质 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="添加团队" href="Team-Basics-on-Roblox.html" />
+    <link rel="prev" title="音效与音乐" href="sounds-and-music.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="atmosphere.html">Atmosphere（氛围）掌控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro-to-beams.html">Beam（光束）简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-Fireworks.html">Creating Fireworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-Fireworks.html#steps">Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Portal.html">创建传送门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Portal.html#id2">步骤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fog-Overview-and-Settings.html">Fog – Overview and Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glowing-dynamic-lights.html">闪烁的动态光源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Smoke-and-Fire-with-Beams.html">使用光束创建冒烟和起火的效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Smoke-and-Fire-with-Beams.html#id2">步骤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Day-Night-Cycles-and-Street-Lights.html">昼夜循环和路灯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Particle-Emitters.html">粒子发射器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sounds-and-music.html">音效与音乐</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">力场材质</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">力场边框</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">纹理动画</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">顶点绘制</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Basics-on-Roblox.html">添加团队</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a> &raquo;</li>
+        
+      <li>力场材质</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/force-field-material.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>力场材质<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em></em></p>
+<p>力场材质可以被用来创建各种特殊效果，不管是闪闪发光的护盾还是光芒刺眼的利刃都不在话下。</p>
+<div class="section" id="id2">
+<h2>力场边框<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>如果立场材质的部件与其它部件出现了重叠，那么重叠的边框将会被显示出来。</p>
+<p><img alt="https://developer.roblox.com/assets/blt430f480bd0925c04/forceFieldSeperate.jpg" src="https://developer.roblox.com/assets/blt430f480bd0925c04/forceFieldSeperate.jpg" /> <img alt="https://developer.roblox.com/assets/blt435245970bc26809/forceFieldOverlapping.jpg" src="https://developer.roblox.com/assets/blt435245970bc26809/forceFieldOverlapping.jpg" /></p>
+</div>
+<div class="section" id="id3">
+<h2>纹理动画<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>通过同时应用力场与纹理，可以创造各种各样的视觉效果。只有使用自定义纹理的 MeshPart 才能添加动画效果。当设计纹理时，纹理图像 <strong>RGB</strong> 通道的<strong>红色</strong>分量决定了所显示的重叠部分。具体的移动动画为随机决定，无法直接进行操控。</p>
+<p>下面列举了部分示例纹理以及其所导致的力场：</p>
+<p>RGB 纹理 红色分量 动画</p>
+<p><img alt="https://developer.roblox.com/assets/blt9ed5a981465c401d/forceField-textureExamples-hexColor.jpg" src="https://developer.roblox.com/assets/blt9ed5a981465c401d/forceField-textureExamples-hexColor.jpg" />
+<img alt="https://developer.roblox.com/assets/bltb4aee6c67663d12f/forceField-textureExamples-hexR.jpg" src="https://developer.roblox.com/assets/bltb4aee6c67663d12f/forceField-textureExamples-hexR.jpg" />
+<img alt="https://developer.roblox.com/assets/blt417b2efe41cd980b/forceField-hexPattern.gif" src="https://developer.roblox.com/assets/blt417b2efe41cd980b/forceField-hexPattern.gif" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt1dcab1ce4e5777bf/forceField-textureExamples-gradientColor.jpg" src="https://developer.roblox.com/assets/blt1dcab1ce4e5777bf/forceField-textureExamples-gradientColor.jpg" />
+<img alt="https://developer.roblox.com/assets/blt9a17b4ea4c8765ad/forceField-textureExamples-gradientR.jpg" src="https://developer.roblox.com/assets/blt9a17b4ea4c8765ad/forceField-textureExamples-gradientR.jpg" />
+<img alt="https://developer.roblox.com/assets/blt727aea95e2edfbe6/forceField-gradient.gif" src="https://developer.roblox.com/assets/blt727aea95e2edfbe6/forceField-gradient.gif" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt600362fb6366eb42/forceField-textureExamples-symbolColor.jpg" src="https://developer.roblox.com/assets/blt600362fb6366eb42/forceField-textureExamples-symbolColor.jpg" />
+<img alt="https://developer.roblox.com/assets/blt41f5f3ad89706763/forceField-textureExamples-symbolR.jpg" src="https://developer.roblox.com/assets/blt41f5f3ad89706763/forceField-textureExamples-symbolR.jpg" />
+<img alt="https://developer.roblox.com/assets/bltea4b68ca60a488fc/forceField-unique.gif" src="https://developer.roblox.com/assets/bltea4b68ca60a488fc/forceField-unique.gif" /></p>
+</div>
+<div class="section" id="id4">
+<h2>顶点绘制<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>通过使用 3D 建模应用程序改变网格的顶点 Alpha 轮廓，可以修改力场的边框。顶点颜色的 Alpha 通道控制了边框的不透明度。值为 1 时无强制着色，为 0 时为全强制着色。</p>
+<p><img alt="https://developer.roblox.com/assets/blte1f38428ee96a496/forceField_texturePaint_setup.jpg" src="https://developer.roblox.com/assets/blte1f38428ee96a496/forceField_texturePaint_setup.jpg" /></p>
+<p><img alt="https://developer.roblox.com/assets/bltf010950c6ebed4b3/forceField_texturePaint_example.jpg" src="https://developer.roblox.com/assets/bltf010950c6ebed4b3/forceField_texturePaint_example.jpg" /></p>
+<p>同时，顶点颜色染色可以用来影响力场上所显示的颜色。</p>
+<p><img alt="https://developer.roblox.com/assets/bltde577e9c37fcb949/forceField_paintColor_setup.jpg" src="https://developer.roblox.com/assets/bltde577e9c37fcb949/forceField_paintColor_setup.jpg" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt438a56657a6a823c/forceField_paintColor_example.jpg" src="https://developer.roblox.com/assets/blt438a56657a6a823c/forceField_paintColor_example.jpg" /></p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/force-field-material">力场材质</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Team-Basics-on-Roblox.html" class="btn btn-neutral float-right" title="添加团队" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sounds-and-music.html" class="btn btn-neutral float-left" title="音效与音乐" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,389 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>游戏内实体建模 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="玩家匹配系统" href="Matchmaking.html" />
+    <link rel="prev" title="场景内玩家传送" href="How-to-teleport-within-a-Place.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Lobby.html">制作大厅</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Usage-of-dialogs.html">NPC 对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Teleporting-Between-Places.html">不同场景间的传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Spawns-and-Teams.html">角色生成与团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-an-Explosion-Course.html">制作爆炸赛道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shop-Dialogs.html">商店对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-to-teleport-within-a-Place.html">场景内玩家传送</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">游戏内实体建模</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#api">实体建模 API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#unionasync">UnionAsync()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subtractasync">SubtractAsync()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">基本演示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">实体建模游乐场</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">旋转的窗户</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Matchmaking.html">玩家匹配系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Player-Collisions.html">玩家间的碰撞控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setting-Parts-on-Fire-with-Events.html">通过事件让部件着火</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2D-Collision-Detection.html">2D 碰撞检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Basics-on-Roblox.html">添加团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Badges-Special-Game-Awards.html">Badges – Special Game Awards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Collision-Filtering-Team-Doors.html">Restricted/Team Doors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-VIP-Doors.html">创建 VIP 专用门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Random-Map-Chooser.html">随机地图选择器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roblox-avatars.html">Roblox 虚拟形象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Health-Pickups.html">回复用拾取物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Moving-NPCs-Between-Points.html">在点之间移动 NPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pathfinding.html">寻路</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Side-Scrolling-Camera-View.html">横向卷轴镜头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Tools.html">玩家工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="detecting-collisions.html">检测碰撞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weapons-kit.html">认可武器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="npc-kit.html">NPC 套组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vehicles-kit.html">载具工具包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="team-balancing.html">平衡团队构成</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/gameplay.html">游戏制作</a> &raquo;</li>
+        
+      <li>游戏内实体建模</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/in-game-solid-modeling.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>游戏内实体建模<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>无论是在 Studio 中还是游戏进行时，开发者都可以通过使用 <strong>Union</strong> （联合）和 <strong>Negate</strong> （忽略）工具来创建充满细节的<code class="docutils literal notranslate"><span class="pre">Articles/3D</span> <span class="pre">Modeling</span> <span class="pre">with</span> <span class="pre">Parts|实体模型</span></code>。这可以用来创建一些十分独特的游戏概念。</p>
+<div class="section" id="api">
+<h2>实体建模 API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="unionasync">
+<h3>UnionAsync()<a class="headerlink" href="#unionasync" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">BasePart/UnionAsync|UnionAsync()</span></code> 函数必须在 <code class="docutils literal notranslate"><span class="pre">BasePart</span></code> 上调用。此函数需要一个数组（由一个或多个部件（<code class="docutils literal notranslate"><span class="pre">otherParts</span></code>）组成）与调用的 <code class="docutils literal notranslate"><span class="pre">BasePart</span></code> 组合。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    local part = workspace.Part1
+    local otherParts = {workspace.Part2, workspace.Part3, workspace.Part4}
+    
+    -- 进行 union（联合）操作
+    local newUnion = part:UnionAsync(otherParts)
+
+</pre></div>
+</div>
+<p><img alt="https://developer.roblox.com/assets/blta80b0e04d8611992/In-Game-CSG-Union.png" src="https://developer.roblox.com/assets/blta80b0e04d8611992/In-Game-CSG-Union.png" /></p>
+</div>
+<div class="section" id="subtractasync">
+<h3>SubtractAsync()<a class="headerlink" href="#subtractasync" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">BasePart/SubtractAsync|SubtractAsync()</span></code> 函数也需要将一个数组（由一个或多个部件组成）从调用的 <code class="docutils literal notranslate"><span class="pre">BasePart</span></code> 中减除。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    local part = workspace.Part1
+    local otherParts = {workspace.Part2, workspace.Part3, workspace.Part4}
+    
+    -- 进行 union（联合）操作
+    local newUnion = part:SubtractAsync(otherParts)
+
+</pre></div>
+</div>
+<p><img alt="https://developer.roblox.com/assets/blta2d35b0a0ba54157/In-Game-CSG-Subtract.png" src="https://developer.roblox.com/assets/blta2d35b0a0ba54157/In-Game-CSG-Subtract.png" /></p>
+<p>游戏中实体建模是<strong>异步</strong>操作，这意味着它可能会占用一定资源。为了获得最佳的游戏性能，开发者不应同时执行大量此类 API 调用。</p>
+<p>调用部件的以下属性将应用于结果部件：</p>
+<ul class="simple">
+<li><p><strong>Color</strong></p></li>
+<li><p><strong>Material</strong></p></li>
+<li><p><strong>Reflectance</strong></p></li>
+<li><p><strong>Transparency</strong></p></li>
+<li><p><strong>Anchored</strong></p></li>
+<li><p><strong>CanCollide</strong></p></li>
+<li><p><strong>Density</strong></p></li>
+<li><p><strong>Friction</strong></p></li>
+<li><p><strong>Elasticity</strong></p></li>
+<li><p><strong>FrictionWeight</strong></p></li>
+<li><p><strong>ElasticityWeight</strong></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>基本演示<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>让我们用一个简单的演示脚本来测试游戏中的实体模型吧！将其复制并粘贴到 <strong>ServerScriptService</strong> 中的 <code class="docutils literal notranslate"><span class="pre">Script</span></code> 中或任何方便的位置即可。</p>
+<p>实体建模 API 仅在<strong>服务器端</strong>起作用（在 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 中不起作用）。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">创建基础的窗户部件</span>
+    <span class="n">local</span> <span class="n">window</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Part&quot;</span><span class="p">)</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">Material</span> <span class="o">=</span> <span class="s2">&quot;Glass&quot;</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">BrickColor</span> <span class="o">=</span> <span class="n">BrickColor</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Persimmon&quot;</span><span class="p">)</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">Reflectance</span> <span class="o">=</span> <span class="mf">0.2</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">Transparency</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">Anchored</span> <span class="o">=</span> <span class="n">true</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span>
+    
+    <span class="o">--</span> <span class="n">创建一个将从窗户中减去的部件</span>
+    <span class="n">local</span> <span class="n">subBlock</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Part&quot;</span><span class="p">)</span>
+    <span class="n">subBlock</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">subBlock</span><span class="o">.</span><span class="n">Material</span> <span class="o">=</span> <span class="s2">&quot;SmoothPlastic&quot;</span>
+    <span class="n">subBlock</span><span class="o">.</span><span class="n">CanCollide</span> <span class="o">=</span> <span class="n">false</span>
+    <span class="n">subBlock</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">subBlock</span><span class="o">.</span><span class="n">Anchored</span> <span class="o">=</span> <span class="n">true</span>
+    <span class="n">subBlock</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span>
+    
+    <span class="n">wait</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">从窗户中删减去较小的部件</span>
+    <span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">newUnion</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    	<span class="k">return</span> <span class="n">window</span><span class="p">:</span><span class="n">SubtractAsync</span><span class="p">({</span><span class="n">subBlock</span><span class="p">})</span>
+    <span class="n">end</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">success</span> <span class="ow">and</span> <span class="n">newUnion</span> <span class="n">then</span>
+    	<span class="n">newUnion</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">Position</span>
+    	<span class="n">newUnion</span><span class="o">.</span><span class="n">Anchored</span> <span class="o">=</span> <span class="n">true</span>
+    	<span class="n">newUnion</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span>
+    	<span class="o">--</span> <span class="n">移除原始部件</span>
+    	<span class="n">window</span><span class="p">:</span><span class="n">Destroy</span><span class="p">()</span>
+    	<span class="n">subBlock</span><span class="p">:</span><span class="n">Destroy</span><span class="p">()</span>
+    <span class="n">end</span>
+
+</pre></div>
+</div>
+<p>本脚本中，操作的基本顺序是：</p>
+<ol class="simple">
+<li><p>在场景中央创建一扇红色玻璃窗（第 2-10 行） 。</p></li>
+<li><p>在窗户部件中央创建一个较小的块（第 13-19 行） 。</p></li>
+<li><p>在 2 秒后，对窗户调用 <code class="docutils literal notranslate"><span class="pre">BasePart/SubtractAsync|SubtractAsync()</span></code>，将较小的块作为要删减的部件。</p></li>
+</ol>
+<p>数个原因可能导致游戏内实体建模操作失败（参见 API 文档）。因此，请始终使用 <code class="docutils literal notranslate"><span class="pre">pcall()</span></code> 以捕获意外错误。</p>
+<ol class="simple">
+<li><p>如果成功，将返回名为 <strong>Union</strong> （联合）的结果部件。此实例<strong>不会</strong>设为工作区父项，所以您必须手动将其设为父项使其返回游戏世界。</p></li>
+</ol>
+<p>原始部件仍留在游戏中，包括操作调用的实例（<code class="docutils literal notranslate"><span class="pre">window</span></code>）和从中添加或删减的部件（<code class="docutils literal notranslate"><span class="pre">subBlock</span></code>）。因此，在成功完成建模操作后，这些部件将被显式销毁（第 33-34行）。</p>
+</div>
+<div class="section" id="id3">
+<h2>实体建模游乐场<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>现在您已经了解了基础游戏实体建模，那就进入到<a class="reference external" href="https://www.roblox.com/games/2309627316/Rotating-Windows">示例场景来体验一下吧</a>。</p>
+<p><img alt="https://developer.roblox.com/assets/blt5a9c2e3521e643da/In-Game-CSG-Playground1.jpg" src="https://developer.roblox.com/assets/blt5a9c2e3521e643da/In-Game-CSG-Playground1.jpg" /></p>
+<div class="section" id="id4">
+<h3><a class="reference external" href="https://www.roblox.com/games/2309627316/Rotating-Windows">旋转的窗户</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>从旋转的窗户中炸出碎片，或将新材料熔合在上面。其中包括一个帮助程序模块脚本，该脚本可以重建带有约束和附件的装置！</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/in-game-solid-modeling">游戏内实体建模</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Matchmaking.html" class="btn btn-neutral float-right" title="玩家匹配系统" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="How-to-teleport-within-a-Place.html" class="btn btn-neutral float-left" title="场景内玩家传送" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,306 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>针对移动设备进行开发 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="设备方向" href="Device-Orientation-for-Mobile-Roblox-Games.html" />
+    <link rel="prev" title="跨平台开发" href="cross-platform-development.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cross-platform-development.html">跨平台开发</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">针对移动设备进行开发</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">移动设备游戏的最佳实践</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">开发时需要考虑的因素</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">通用平台与目标平台游戏</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">通用平台</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">目标平台</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Device-Orientation-for-Mobile-Roblox-Games.html">设备方向</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gamepad-Haptic-Feedback.html">游戏手柄触觉反馈</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Virtual-Reality-Best-Practices.html">Virtual Reality – Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ContextActionService-Creating-Mobile-Buttons.html">创建移动端按钮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gamepad-Input.html">游戏手柄输入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-game-controls.html">自定义游戏控制</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/cross-platform.html">跨平台发展</a> &raquo;</li>
+        
+      <li>针对移动设备进行开发</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Developing-for-Mobile-Devices-on-Roblox.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>针对移动设备进行开发<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>在为游戏选择平台时，需要仔细考虑该平台所带来的约束与特殊用例。Roblox 所指的“移动设备”通常为平板电脑与智能手机。</p>
+<p>PC 移动设备</p>
+<p>输入类型
+鼠标 + 键盘
+触屏输入</p>
+<p>输入精度
+高精度
+低精度</p>
+<p>屏幕尺寸
+中等尺寸
+小型尺寸</p>
+<p>屏幕距离
+1 - 2 英尺
+10 英寸左右</p>
+<p>游戏每场长度
+大约 30 分钟
+大约 5 分钟</p>
+<p>为游戏选择合适的平台后，在设计游戏体验时，请牢记以上的几点特性。</p>
+<div class="section" id="id2">
+<h2>移动设备游戏的最佳实践<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>了解平台限制之后，我们建议在设计游戏内交互时牢记以下几点：</p>
+<ul class="simple">
+<li><p><strong>简单的交互</strong> - 玩家只有两只手，这限制了他们可以同时进行的互动次数。许多成功的移动设备游戏限制了镜头控制或角色移动，将常见的动作从三个降低到两个或一个。</p></li>
+<li><p><strong>最小的 HUD 界面</strong> – 在移动设备上，屏幕空间要小得多，这使得屏幕上的内容变得更加重要。在屏幕上仅向玩家提供游戏最重要的信息。如果还有其他信息或菜单，我们建议将其放在全屏菜单上，以便在游戏操作时提供尽可能多的屏幕可见性。</p></li>
+<li><p><strong>对应指尖大小的 UI 元素</strong> – 建议的触摸目标大小为 44-48px 正方形（有关更多 UI 设计指南，请参见下面的参考资料）</p></li>
+<li><p><strong>UI 应该使用相对空间</strong>（而不是绝对空间） – 移动设备有各种不同的屏幕分辨率，相对空间会允许 UI 符合不同的大小。</p></li>
+<li><p><strong>限制基于聊天的游戏元素</strong> – 在移动设备上聊天与在电脑上聊天是完全不同的体验。请记住，键盘将会占用移动设备屏幕空间的 60-80％，因此会干扰玩家的游戏。尽管添加聊天环境或许是个不错的选择，但它不应成为游戏体验的重点（除非你的游戏机制/焦点就是聊天）。</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>开发时需要考虑的因素<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>内存使用</strong> - 为移动设备开发游戏时最为重要的一点。内存是导致移动平台上大多数崩溃的原因。当游戏使用大量零件或加载大量纹理、在 Lua 中存储大型数据结构等时，内存使用量可能会增加。由于移动设备的不同，不可能为目标指定特定的内存使用量，但要记住内存使用很重要。</p></li>
+<li><p><strong>自动筛选游戏</strong> - 由于许多游戏的高崩溃率（请参见上文），Roblox 会自动过滤掉此类游戏，从而为 App 用户创建高质量的体验。</p></li>
+<li><p><strong>优化关卡大小</strong> - 所有设备的制造方式都不相同；手机和平板电脑不如 PC 强大。在较小的设备上很难运行较大的关卡。要考虑到这一点来设计游戏关卡。不过只要你遵循简洁紧凑的移动设备游戏开发原则，一般都不会使用过多内存。</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>通用平台与目标平台游戏<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>开发游戏时，最好时刻能顾及到游戏是否会兼容多种设备。最好在开始开发之前考虑游戏将会兼容的平台，因为这会影响你在游戏设计时所作出的决定。Roblox 提供了大量的基础功能来适应各种屏幕大小和输入类型，但并不是每种类型的游戏都能在所有这些组合中很好地运行。</p>
+<p>举例来说，为移动设备游戏添加 PC 版本比为 PC 游戏添加移动设备版本要简单得多。这是因为其出发点就是简单和有限的空间，在进行 PC 版开发时有充足的机会可以对其进行补充修整。但从 PC 移植至移动设备则更加复杂，因为要使相同的元素在更小的屏幕上做出同等表现可能会导致优先项变更与简化游戏元素等大型更改。</p>
+<p><img alt="TargetingMobile.png" src="https://developer.roblox.com/assets/bltee997d6098cdda0c/TargetingMobile.png" /></p>
+<div class="section" id="id5">
+<h3>通用平台<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>意为需要构建一个可以随设备不同而进行改变的场景，从而能够在 Roblox 支持的所有平台上正常工作。游戏要能够在所有场景过渡和运行。通常需要一些专门的代码来针对不同的输入类型和屏幕分辨率。</p>
+</div>
+<div class="section" id="id6">
+<h3>目标平台<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>意为游戏将只能在特定平台上进行运转。影响因素为：输入方式（手势）、镜头控制、玩家移动、图形用户界面等。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Developing-for-Mobile-Devices-on-Roblox">针对移动设备进行开发</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Device-Orientation-for-Mobile-Roblox-Games.html" class="btn btn-neutral float-right" title="设备方向" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cross-platform-development.html" class="btn btn-neutral float-left" title="跨平台开发" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

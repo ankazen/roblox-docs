@@ -1,0 +1,495 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>数据储存 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="游戏计时" href="keeping-time.html" />
+    <link rel="prev" title="循环（Loop）" href="Loops.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">数据储存</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">结构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">数据存储访问</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">管理数据储存</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">设置数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">读取数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">数据增量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">更新数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">删除数据</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">有序数据存储</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">限制、排队和错误处理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#studio">在 Studio 中使用数据储存</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>数据储存</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Data-store.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>数据储存<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>15  分钟</em></p>
+<p><strong>Data Store</strong>（数据存储）是 Roblox 为游戏提供的存储功能，可以用来保存需要在玩家退出游戏后仍然留存的数据，包括玩家物品栏中的物品、当前经验值或几乎任何其他需要保留的数据。</p>
+<p>数据存储在<strong>单个游戏</strong>中是共享的，因此游戏中的任何场景，包括不同服务器上的场景，都可以访问和更改相同的数据。</p>
+<div class="section" id="id2">
+<h2>结构<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>数据存储本质上是一个字典，就像 Lua 表格一样。数据存储中的每个值都可以通过唯一的键进行索引，比如使用玩家的 <code class="docutils literal notranslate"><span class="pre">Player/UserId|UserId</span></code>：</p>
+<p>键 值</p>
+<p>Player_1234
+50</p>
+<p>Player_2345
+20</p>
+<p>Player_7462
+78000</p>
+<p>Player_8934
+1200</p>
+<p>Player_10345
+0</p>
+</div>
+<div class="section" id="id3">
+<h2>数据存储访问<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>数据存储由 <code class="docutils literal notranslate"><span class="pre">DataStoreService</span></code> 管理，因此开发者编写的脚本必须先获取该服务，然后才能执行其他操作。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">DataStoreService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;DataStoreService&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>将 <code class="docutils literal notranslate"><span class="pre">DataStoreService</span></code> 写入脚本之后，就可以使用 <code class="docutils literal notranslate"><span class="pre">DataStoreService/GetDataStore|GetDataStore()</span></code> 函数并用数据储存的<strong>名称</strong>对其进行访问。例如：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">DataStoreService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;DataStoreService&quot;</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">experienceStore</span> <span class="o">=</span> <span class="n">DataStoreService</span><span class="p">:</span><span class="n">GetDataStore</span><span class="p">(</span><span class="s2">&quot;PlayerExperience&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>数据储存只能由服务器通过 <code class="docutils literal notranslate"><span class="pre">Script|Script</span></code> 访问。尝试从客户端通过 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 访问会导致错误。</p>
+</div>
+<div class="section" id="id4">
+<h2>管理数据储存<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h3>设置数据<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">GlobalDataStore/SetAsync|SetAsync()</span></code> 可以设置新的数据储存条目的值。此函数需要条目的<strong>键名</strong>和要设置的<strong>值</strong>。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">DataStoreService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;DataStoreService&quot;</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">experienceStore</span> <span class="o">=</span> <span class="n">DataStoreService</span><span class="p">:</span><span class="n">GetDataStore</span><span class="p">(</span><span class="s2">&quot;PlayerExperience&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    	<span class="n">experienceStore</span><span class="p">:</span><span class="n">SetAsync</span><span class="p">(</span><span class="s2">&quot;Player_1234&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+    <span class="n">end</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">success</span> <span class="n">then</span>
+    	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Success!&quot;</span><span class="p">)</span>
+    <span class="n">end</span>
+
+</pre></div>
+</div>
+<p>诸如 <code class="docutils literal notranslate"><span class="pre">GlobalDataStore/SetAsync|SetAsync()</span></code> 等通过网络访问数据储存内容的调用有时会失败。正如我们前面说的，建议将这些调用打包在 <code class="docutils literal notranslate"><span class="pre">pcall()</span></code> 中，以捕获和处理所有错误。</p>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">GlobalDataStore/SetAsync|SetAsync()</span></code> 拥有一定的潜在的风险，因为其会覆盖任何条目中的当前值。如果开发者想要更新一个已有的条目，推荐使用 <code class="docutils literal notranslate"><span class="pre">GlobalDataStore/UpdateAsync|UpdateAsync()</span></code>，因为此函数在进行更改前会考虑旧值。</p>
+</div>
+<div class="section" id="id6">
+<h3>读取数据<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">GlobalDataStore/GetAsync|GetAsync()</span></code> 函数可以通过数据储存条目的键名来获取该条目的值。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">DataStoreService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;DataStoreService&quot;</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">experienceStore</span> <span class="o">=</span> <span class="n">DataStoreService</span><span class="p">:</span><span class="n">GetDataStore</span><span class="p">(</span><span class="s2">&quot;PlayerExperience&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">currentExperience</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    	<span class="k">return</span> <span class="n">experienceStore</span><span class="p">:</span><span class="n">GetAsync</span><span class="p">(</span><span class="s2">&quot;Player_1234&quot;</span><span class="p">)</span>
+    <span class="n">end</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">success</span> <span class="n">then</span>
+    	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current Experience:&quot;</span><span class="p">,</span> <span class="n">currentExperience</span><span class="p">)</span>
+    <span class="n">end</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>数据增量<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">GlobalDataStore/IncrementAsync|IncrementAsync()</span></code> 可以更改数据存储中的一个<strong>数字值</strong>。此函数需要条目的键名和数值增量。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">DataStoreService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;DataStoreService&quot;</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">experienceStore</span> <span class="o">=</span> <span class="n">DataStoreService</span><span class="p">:</span><span class="n">GetDataStore</span><span class="p">(</span><span class="s2">&quot;PlayerExperience&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">newExperience</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    	<span class="k">return</span> <span class="n">experienceStore</span><span class="p">:</span><span class="n">IncrementAsync</span><span class="p">(</span><span class="s2">&quot;Player_1234&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">end</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">success</span> <span class="n">then</span>
+    	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New Experience:&quot;</span><span class="p">,</span> <span class="n">newExperience</span><span class="p">)</span>
+    <span class="n">end</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>更新数据<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">GlobalDataStore/UpdateAsync|UpdateAsync()</span></code> 可以更改数据存储中存储的任何值。此函数需要条目的键名以及一个定义条目更新方式的<strong>函数</strong>。此函数根据您定义的逻辑获取当前值并返回新值。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">DataStoreService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;DataStoreService&quot;</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">nicknameStore</span> <span class="o">=</span> <span class="n">DataStoreService</span><span class="p">:</span><span class="n">GetDataStore</span><span class="p">(</span><span class="s2">&quot;Nicknames&quot;</span><span class="p">)</span>
+     
+    <span class="n">local</span> <span class="n">function</span> <span class="n">makeNameUpper</span><span class="p">(</span><span class="n">currentName</span><span class="p">)</span>
+    	<span class="n">local</span> <span class="n">newName</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">upper</span><span class="p">(</span><span class="n">currentName</span><span class="p">)</span>
+    	<span class="k">return</span> <span class="n">newName</span>
+    <span class="n">end</span>
+     
+    <span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">newName</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    	<span class="k">return</span> <span class="n">nicknameStore</span><span class="p">:</span><span class="n">UpdateAsync</span><span class="p">(</span><span class="s2">&quot;Player_1234&quot;</span><span class="p">,</span> <span class="n">makeNameUpper</span><span class="p">)</span>
+    <span class="n">end</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">success</span> <span class="n">then</span>
+    	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Uppercase Name:&quot;</span><span class="p">,</span> <span class="n">newName</span><span class="p">)</span>
+    <span class="n">end</span>
+
+</pre></div>
+</div>
+<p>传递给 <code class="docutils literal notranslate"><span class="pre">GlobalDataStore/UpdateAsync|UpdateAsync()</span></code> 的函数<strong>不</strong>允许暂停，也就是说其不能包含任何例如 <code class="docutils literal notranslate"><span class="pre">wait()</span></code> 的暂停函数。</p>
+</div>
+<div class="section" id="id9">
+<h3>删除数据<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">GlobalDataStore/RemoveAsync|RemoveAsync()</span></code> 可以删除任何一条条目，且返回该键对应的值。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">DataStoreService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;DataStoreService&quot;</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">nicknameStore</span> <span class="o">=</span> <span class="n">DataStoreService</span><span class="p">:</span><span class="n">GetDataStore</span><span class="p">(</span><span class="s2">&quot;Nicknames&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">nickname</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    	<span class="k">return</span> <span class="n">nicknameStore</span><span class="p">:</span><span class="n">RemoveAsync</span><span class="p">(</span><span class="s2">&quot;Player_1234&quot;</span><span class="p">)</span>
+    <span class="n">end</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">success</span> <span class="n">then</span>
+    	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Removed Nickname:&quot;</span><span class="p">,</span> <span class="n">nickname</span><span class="p">)</span>
+    <span class="n">end</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>有序数据存储<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>常规数据存储不会对其内容进行排序。大多数游戏并不需要这种功能，但有时以有序的方式获取数据也是有用的，比如排行榜的统计数据。</p>
+<p><code class="docutils literal notranslate"><span class="pre">OrderedDataStore</span></code>（有序数据存储）是一种特殊类型的数据存储，它可以：</p>
+<ul class="simple">
+<li><p>轻松按排序返回内容。</p></li>
+<li><p>一次请求返回多条记录（常规数据存储一次只能请求一个条目)。</p></li>
+</ul>
+<p>有序数据存储使用与常规数据存储相同的函数，包括 <code class="docutils literal notranslate"><span class="pre">GlobalDataStore/GetAsync|GetAsync()</span></code>、<code class="docutils literal notranslate"><span class="pre">GlobalDataStore/SetAsync|SetAsync()</span></code>、<code class="docutils literal notranslate"><span class="pre">GlobalDataStore/UpdateAsync|UpdateAsync()</span></code> 等。此外，它还提供了 <code class="docutils literal notranslate"><span class="pre">OrderedDataStore/GetSortedAsync|GetSortedAsync()</span></code> 函数，该函数接受几个参数：返回的 <code class="docutils literal notranslate"><span class="pre">DataStorePages</span></code> 对象的“分页大小”、排序顺序和最小/最大值。</p>
+<p>假设有一个由五个角色及其年龄填充的有序数据存储，此示例将数据按降序排序到每页 3 个条目的页面中，然后循环遍历这些页面并输出每个角色的姓名/年龄。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    local DataStoreService = game:GetService(&quot;DataStoreService&quot;)
+    local characterAgeStore = DataStoreService:GetOrderedDataStore(&quot;CharacterAges&quot;)
+    
+    -- 填充有序数据存储
+    characterAgeStore:SetAsync(&quot;Mars&quot;, 19)
+    characterAgeStore:SetAsync(&quot;Janus&quot;, 20)
+    characterAgeStore:SetAsync(&quot;Diana&quot;, 18)
+    characterAgeStore:SetAsync(&quot;Venus&quot;, 25)
+    characterAgeStore:SetAsync(&quot;Neptune&quot;, 62)
+    
+    -- 将数据排列到每页三个条目的页面中（降序）
+    local pages = characterAgeStore:GetSortedAsync(false, 3)
+    
+    while true do
+    	-- 获取当前（第一个）页面
+    	local data = pages:GetCurrentPage()
+    	-- 遍历页面上的所有键值对
+    	for _, entry in pairs(data) do
+    		print(entry.key .. &quot;:&quot; .. tostring(entry.value))
+    	end
+    	-- 检查是否已经到达最后一页
+    	if pages.IsFinished then
+    		break
+    	else
+    		print(&quot;----------------&quot;)
+    		-- 进行下一页
+    		pages:AdvanceToNextPageAsync()
+    	end
+    end
+    
+    
+    Neptune: 62
+    Venus: 25
+    Janus: 20
+    ----------------
+    Mars: 19
+    Diana: 18
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h2>限制、排队和错误处理<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>像所有网络调用一样，对数据存储的请求有时可能由于连接不良或其他问题而失败。正如在整篇文章中所看到的那样，将数据储存命令打包到 <code class="docutils literal notranslate"><span class="pre">pcall()</span></code> 中以处理任何错误是很有必要的。开发者可以将返回的带有错误代码的数据储存消息和<code class="docutils literal notranslate"><span class="pre">Articles/Datastore</span> <span class="pre">Errors|数据存储错误和限制</span></code>中的表格进行交叉比对。</p>
+<p>此外，数据存储模型也有应用的限制。如果游戏超出这些限制，Roblox 引擎将自动限制游戏的数据存储使用，导致数据请求花费更长时间。这些请求会被放入队列中，这将在 <code class="docutils literal notranslate"><span class="pre">Articles/Datastore</span> <span class="pre">Errors</span></code> 文章中进一步描述。</p>
+</div>
+<div class="section" id="studio">
+<h2>在 Studio 中使用数据储存<a class="headerlink" href="#studio" title="Permalink to this headline">¶</a></h2>
+<p>默认情况下，Studio 中模拟的场景没有数据储存的访问权限，所以在 Studio 中调用 <code class="docutils literal notranslate"><span class="pre">GlobalDataStore/SetAsync|SetAsync()</span></code> 或 <code class="docutils literal notranslate"><span class="pre">GlobalDataStore/GetAsync|GetAsync()</span></code> 这样的请求函数都会导致错误。</p>
+<p>如果需要，开发者<strong>可以</strong>在 Studio 中启用数据存储，如下所示：</p>
+<p>1.在 <strong>Home</strong>（主页）选项卡中，打开 <strong>Game Settings</strong>（游戏设置）窗口。</p>
+<p><img alt="https://developer.roblox.com/assets/bltd6af44e38b951d0a/Game-Settings.png" src="https://developer.roblox.com/assets/bltd6af44e38b951d0a/Game-Settings.png" /></p>
+<p>2.在 <strong>Options</strong>（选项）部分，启用 <strong>Enable Studio Access to API Services</strong>（允许 Studio 访问 API 服务）。<br />3.单击 <strong>Save</strong>（保存）应用更改。</p>
+<p>访问 Studio 中的数据存储对于实时游戏来说可能很危险，因为 Studio 访问的数据存储与客户端应用程序相同。为避免覆盖制作数据，开发者<strong>不应</strong>为实时游戏启用此设置，而应为游戏的单独测试版本启用此设置。</p>
+<p>如果开发者并非通过 Roblox 网站编辑场景（例如使用本地的 <code class="docutils literal notranslate"><span class="pre">.rbxl</span></code> 文件等)，则需要在<strong>命令栏</strong>中调用<code class="docutils literal notranslate"><span class="pre">DataModel/SetPlaceId|SetPlaceId()</span></code>，然后 Studio 中的游戏才能访问数据存储。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Data-store">数据储存</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="keeping-time.html" class="btn btn-neutral float-right" title="游戏计时" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Loops.html" class="btn btn-neutral float-left" title="循环（Loop）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

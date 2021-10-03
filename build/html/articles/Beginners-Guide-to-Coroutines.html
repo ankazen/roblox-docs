@@ -1,0 +1,542 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>协同程序初学者指南 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="CFrame 数学运算" href="CFrame-Math-Operations.html" />
+    <link rel="prev" title="Roblox 主从架构" href="Roblox-Client-Server-Model.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">协同程序初学者指南</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">协同程序的创建</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">输出结果：</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">输出结果：</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#coroutine-wrap">coroutine.wrap()</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">输出结果：</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">输出结果：</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">协同程序的用途</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">输出结果：</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">协同程序的扩展</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#coroutine-yield">coroutine.yield()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#coroutine-status">coroutine.status()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#coroutine-running">coroutine.running()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">与线程计划程序的交互</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id14">输出：</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">另请参阅</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>协同程序初学者指南</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Beginners-Guide-to-Coroutines.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>协同程序初学者指南<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p>协同程序是 Lua 语言中最为有趣实用的组成部分之一，但同时也是 Lua 脚本编写中最容易被误解的概念之一。创建新的协同程序与在场景中创建新的脚本有些相似。在 Roblox 环境中，创建新脚本和新协同程序间最大的不同处之一在于创建新脚本时无需对其上下文进行创建。此区别在部分情况下能够节省执行时间。</p>
+<p>Lua 的这些特性允许了多个线程的并行运行，无需创建单独的脚本实例或等待当前运行的代码块完成。</p>
+<div class="section" id="id2">
+<h2>协同程序的创建<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>协同程序的创建其实较为简单，只需一个函数与 <code class="docutils literal notranslate"><span class="pre">coroutine.create()</span></code> 即可开始创建。其中，<code class="docutils literal notranslate"><span class="pre">coroutine.create()</span></code> 的参数即为需要进行运行的函数。请参考下列示例：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">newThread</span> <span class="o">=</span> <span class="n">coroutine</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hola&quot;</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>遵循以上示例，你应该已经创建了属于自己的第一个协同程序，并启动了新的线程。但如果想要其开始工作，仍然需要对其进行运行：只需使用 <code class="docutils literal notranslate"><span class="pre">coroutine.resume()</span></code> 即可，其参数将为你所创建的线程。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">newThread</span> <span class="o">=</span> <span class="n">coroutine</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hola&quot;</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+
+<span class="n">coroutine</span><span class="o">.</span><span class="n">resume</span><span class="p">(</span><span class="n">newThread</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="id3">
+<h3>输出结果：<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hola</span>
+</pre></div>
+</div>
+<p>当想要在协同程序中调用参数时，需要以如下方式使用 <code class="docutils literal notranslate"><span class="pre">coroutine.resume()</span></code>：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">newThread</span> <span class="o">=</span> <span class="n">coroutine</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+
+<span class="n">coroutine</span><span class="o">.</span><span class="n">resume</span><span class="p">(</span><span class="n">newThread</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>输出结果：<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">21</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="coroutine-wrap">
+<h2>coroutine.wrap()<a class="headerlink" href="#coroutine-wrap" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">coroutine.wrap()</span></code> 可以用来替代 <code class="docutils literal notranslate"><span class="pre">coroutine.resume()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">coroutine.create()</span></code>。在函数上使用 <code class="docutils literal notranslate"><span class="pre">coroutine.wrap()</span></code> 的方法与 <code class="docutils literal notranslate"><span class="pre">coroutine.create()</span></code> 类似，但你将像函数一样使用为其分配的变量。可以将 <code class="docutils literal notranslate"><span class="pre">coroutine.wrap()</span></code> 视为一个其中包含协同程序的函数。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">newThread</span> <span class="o">=</span> <span class="n">coroutine</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+
+<span class="n">newThread</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="section" id="id5">
+<h3>输出结果：<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Hola</span>
+</pre></div>
+</div>
+<p>当需要添加参数时，可以参照向函数添加参数的方法。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">newThread</span> <span class="o">=</span> <span class="n">coroutine</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+
+<span class="n">newThread</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>输出结果：<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">17</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>协同程序的用途<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>学习上述协同程序函数后，接下来让我们浅谈其具体用途。协同程序最为突出的用途之一就是让循环与函数同时运行。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">h</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Hint&quot;</span><span class="p">,</span> <span class="n">workspace</span><span class="p">);</span>
+<span class="n">local</span> <span class="n">m</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Message&quot;</span><span class="p">,</span> <span class="n">workspace</span><span class="p">);</span>
+
+<span class="n">local</span> <span class="n">changeHint</span> <span class="o">=</span> <span class="n">coroutine</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="n">do</span>
+       <span class="n">wait</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+       <span class="n">h</span><span class="o">.</span><span class="n">Text</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="n">end</span>
+<span class="n">end</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">changeMessage</span> <span class="o">=</span> <span class="n">coroutine</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="n">do</span>
+        <span class="n">wait</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">Text</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="n">end</span>
+<span class="n">end</span><span class="p">)</span>
+
+<span class="n">changeHint</span><span class="p">()</span>
+<span class="n">changeMessage</span><span class="p">()</span>
+<span class="n">code</span>
+</pre></div>
+</div>
+<p>如你所见，消息和提示文本都会对其文本进行更改，但其更改速度不同。</p>
+<p>同时，<code class="docutils literal notranslate"><span class="pre">coroutine.resume()</span></code> 可以像 <code class="docutils literal notranslate"><span class="pre">pcall</span></code> 一样返回错误信息：<code class="docutils literal notranslate"><span class="pre">coroutine.resume()</span></code> 会返回一个表明其是否成功的布尔值，当未成功时将会返回一个错误消息字符串。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">errorMessage</span> <span class="o">=</span> <span class="n">coroutine</span><span class="o">.</span><span class="n">resume</span><span class="p">(</span><span class="n">coroutine</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    <span class="n">ppprint</span><span class="p">(</span><span class="s2">&quot;HI&quot;</span><span class="p">)</span>
+<span class="n">end</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">success</span> <span class="n">then</span> <span class="o">--</span> <span class="n">检查是否发生错误</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There was an error:&quot;</span><span class="p">,</span> <span class="n">errorMessage</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<div class="section" id="id8">
+<h3>输出结果：<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">There</span> <span class="n">was</span> <span class="n">an</span> <span class="n">error</span><span class="p">:</span> <span class="n">Script</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span> <span class="n">attempt</span> <span class="n">to</span> <span class="n">call</span> <span class="k">global</span> <span class="n">ppprint</span> <span class="p">(</span><span class="n">a</span> <span class="n">nil</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>协同程序的扩展<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="coroutine-yield">
+<h3>coroutine.yield()<a class="headerlink" href="#coroutine-yield" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">coroutine.yield()</span></code> 会将你的协同程序置于挂起模式。在该模式下，协同程序将停止并等待，直到其再次被调用为止。<code class="docutils literal notranslate"><span class="pre">coroutine.yield()</span></code> 不能包含元方法，C 函数或迭代器（对上述项尚未了解的开发者一般无需担心对其进行误用）。放入 <code class="docutils literal notranslate"><span class="pre">coroutine.yield()</span></code> 中的任何多余内容都将直接进入 <code class="docutils literal notranslate"><span class="pre">coroutine.resume()</span></code>。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">new_thread</span><span class="o">=</span><span class="n">coroutine</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
+  <span class="n">local</span> <span class="n">resumedWith</span> <span class="o">=</span> <span class="n">coroutine</span><span class="o">.</span><span class="k">yield</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Resumed with: &quot;</span> <span class="o">..</span> <span class="n">resumedWith</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span> 
+<span class="n">new_thread</span><span class="p">(</span><span class="s2">&quot;Hola mis amigos!&quot;</span><span class="p">)</span>
+<span class="n">new_thread</span><span class="p">(</span><span class="s2">&quot;This was retrieved with yield()&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="id10">
+<h4>输出结果：<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Hola mis amigos!
+Resumed with: This was retrieved with yield()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="coroutine-status">
+<h3>coroutine.status()<a class="headerlink" href="#coroutine-status" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">coroutine.status()</span></code> 将会以字符串形式返回协同程序目前处于的状态：Dead（中止）、Suspended（挂起）、Running（运行中）或 Normal（正常）。下面让我们来看看这些状态的含义：</p>
+<ul class="simple">
+<li><p>Running（正在运行）表示协同程序当前处于工作状态，并正在使用其代码。</p></li>
+<li><p>Dead（中止）表示协同程序已停止运行，目前处于中止状态。</p></li>
+<li><p>Suspended（挂起）表示 <code class="docutils literal notranslate"><span class="pre">coroutine.yield()</span></code> 已运行，协同程序正在等待再次启动。</p></li>
+</ul>
+<p>开发者可以按照下列示例对 <code class="docutils literal notranslate"><span class="pre">coroutine.status()</span></code> 进行使用：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">core</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hola&quot;</span><span class="p">)</span>
+<span class="n">end</span>
+
+<span class="n">new_thread</span><span class="o">=</span><span class="n">coroutine</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">core</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">coroutine</span><span class="o">.</span><span class="n">status</span><span class="p">(</span><span class="n">new_thread</span><span class="p">))</span>
+
+<span class="n">coroutine</span><span class="o">.</span><span class="n">resume</span><span class="p">(</span><span class="n">new_thread</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">coroutine</span><span class="o">.</span><span class="n">status</span><span class="p">(</span><span class="n">new_thread</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="section" id="id11">
+<h4>输出结果：<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">suspended</span>
+<span class="n">hola</span>
+<span class="n">dead</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="coroutine-running">
+<h3>coroutine.running()<a class="headerlink" href="#coroutine-running" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">coroutine.running()</span></code> 将会返回正在运行的当前线程。请看下列示例：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">new_thread</span><span class="o">=</span><span class="n">coroutine</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hola&quot;</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">coroutine</span><span class="o">.</span><span class="n">running</span><span class="p">())</span>
+<span class="n">end</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">coroutine</span><span class="o">.</span><span class="n">running</span><span class="p">())</span>
+<span class="n">coroutine</span><span class="o">.</span><span class="n">resume</span><span class="p">(</span><span class="n">new_thread</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="id12">
+<h4>输出结果：<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">thread</span><span class="p">:</span> <span class="n">XXXXXXXX</span>
+<span class="n">hola</span>
+<span class="n">thread</span><span class="p">:</span> <span class="n">YYYYYYYY</span>
+</pre></div>
+</div>
+<p>请注意：<code class="docutils literal notranslate"><span class="pre">XXXXXXXX</span></code> 和 <code class="docutils literal notranslate"><span class="pre">YYYYYYYY</span></code> 不仅会进行变换，而且会与彼此相异。这是因为在对 <code class="docutils literal notranslate"><span class="pre">coroutine.running()</span></code> 的调用间当前正在运行的协同程序产生了改变。</p>
+</div>
+</div>
+</div>
+<div class="section" id="id13">
+<h2>与线程计划程序的交互<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<p>Roblox 的<code class="docutils literal notranslate"><span class="pre">Articles/Thread</span> <span class="pre">scheduler|线程计划程序</span></code>由 <a class="reference external" href="Built-in-Functions-and-Variables/Roblox#spawn">spawn()</a>、<a class="reference external" href="Built-in-Functions-and-Variables/Roblox#wait">wait()</a> 和 <a class="reference external" href="Built-in-Functions-and-Variables/Roblox#delay">delay()</a> 三个函数进行展现。而这三个函数都是基于协同程序进行运转的。</p>
+<ul>
+<li><p>当在线程计划程序（或线程顶层）的函数中使用 <code class="docutils literal notranslate"><span class="pre">coroutine.yield(...)</span></code> 时，其行为行为类似于没有参数的 <code class="docutils literal notranslate"><span class="pre">wait()</span></code>。</p></li>
+<li><p>用于构建协同程序的函数中的 <code class="docutils literal notranslate"><span class="pre">wait()</span></code> 将会在线程计划程序中把该协同程序放入运行队列。但协同程序可被立刻恢复，导致意外结果</p>
+<p>local coro = coroutine.wrap(function(arg)
+print(“C start”, arg)
+print(“C yield”, coroutine.yield(“Y1”))
+print(“C wait”, wait(2))
+print(“C yield”, coroutine.yield(“Y2”))
+print(“C end”)
+end)</p>
+<p>print(“M start”)
+– R1 会处于 arg 中
+print(“M resume”, coro(“R1”))
+– 从 coroutine.yield 返回 R2
+print(“M resume”, coro(“R2”))
+– 从 wait 返回 R3！
+print(“M resume”, coro(“R3”))
+print(“M end”)</p>
+</li>
+</ul>
+<div class="section" id="id14">
+<h3>输出：<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="n">start</span>
+<span class="n">C</span> <span class="n">start</span> <span class="n">R1</span>
+<span class="n">M</span> <span class="n">resume</span> <span class="n">Y1</span>
+<span class="n">C</span> <span class="k">yield</span> <span class="n">R2</span>
+<span class="n">M</span> <span class="n">resume</span>
+<span class="n">C</span> <span class="n">wait</span> <span class="n">R3</span>
+<span class="n">M</span> <span class="n">resume</span> <span class="n">Y2</span>
+<span class="n">M</span> <span class="n">end</span>
+<span class="n">C</span> <span class="k">yield</span> <span class="mf">2.0028280779259</span> <span class="mf">3.0923760618118</span>
+<span class="n">C</span> <span class="n">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id15">
+<h2>另请参阅<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.lua.org/pil/9.html">在 Lua 中编程：协同程序</a></p></li>
+<li><p><a class="reference external" href="http://www.lua.org/manual/5.1/manual.html#2.11">Lua 5.1 参考手册：协同程序</a></p></li>
+<li><p><a class="reference external" href="http://www.lua.org/manual/5.1/manual.html#5.2">Lua 5.1 参考手册：协同程序操作</a></p></li>
+<li><p><a class="reference external" href="http://lua-users.org/wiki/CoroutinesTutorial">Lua 用户有关协同程序的 Wiki 页面</a></p></li>
+</ul>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Beginners-Guide-to-Coroutines">协同程序初学者指南</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CFrame-Math-Operations.html" class="btn btn-neutral float-right" title="CFrame 数学运算" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Roblox-Client-Server-Model.html" class="btn btn-neutral float-left" title="Roblox 主从架构" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

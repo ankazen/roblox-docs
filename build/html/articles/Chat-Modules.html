@@ -1,0 +1,613 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Chat Modules &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="创建自定义传送屏幕" href="Creating-a-Custom-Teleport-GUI.html" />
+    <link rel="prev" title="Avatar Emotes" href="avatar-emotes.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-GUIs.html">GUI 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI-Animations.html">GUI 动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fundamentals-of-Scripting-with-GUIs.html">GUI 脚本简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Chat-System.html">Lua 聊天系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Interactive-Surface-GUI.html">交互式表面 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-GUI-Buttons.html">创建 GUI 按钮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Radial-Menu.html">创建摇杆快速菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Grid-Menu.html">创建栅格菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using-Images-in-GUIs.html">在 GUI 中使用图像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text-and-Chat-Filtering.html">文本与聊天过滤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Camera-manipulation.html">镜头操控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mouse-Icon-Appearance.html">鼠标指针控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animating-text.html">设置文本动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar-emotes.html">Avatar Emotes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Chat Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#purpose">Purpose</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#prerequisites">Prerequisites:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementing-new-commands">Implementing New Commands</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#binding-a-command">Binding a command</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#example-commands">Example commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quick-start-module">Quick-Start Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Custom-Teleport-GUI.html">创建自定义传送屏幕</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Scrolling-Frame-GUI.html">创建滚动框架 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-the-camera.html">Customizing the Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Disabling-Parts-of-Game-Interface.html">禁用游戏界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-bindings.html">Roblox Input Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selection-Boxes.html">选择框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Three-Quarters-Camera-View.html">45 度镜头视角</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Unit-Frame.html">单元框：制作生命槽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewportframe-gui.html">ViewportFrame GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/user-interface.html">用户界面</a> &raquo;</li>
+        
+      <li>Chat Modules</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Chat-Modules.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="chat-modules">
+<h1>Chat Modules<a class="headerlink" href="#chat-modules" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>Admin Command Module: Code Sample 1</em></p>
+<div class="section" id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<p>An admin command is a common feature in Roblox games where a player can type a command into the chat window which will trigger a game action. This library allows for easy implementation of admin commands on top of the Roblox chat system.</p>
+<p>This library uses ChatModules to allow you to easily link behaviors that you write to chattable commands. ChatModules listen to incoming messages on the server and can execute actions based on whatever criteria is desired.</p>
+<div class="section" id="prerequisites">
+<h3>Prerequisites:<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
+<p>Familiarity with:</p>
+<ul class="simple">
+<li><p>Roblox Studio</p></li>
+<li><p>Intermediate Roblox lua</p></li>
+<li><p>Scripts, functions, variables, tables</p></li>
+<li><p>Parent-child hierarchy</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code></p></li>
+<li><p>The Chat system</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>Whenever a Roblox place loads it checks if the Chat service is empty. If it does not find the components it needs, the place will insert the latest version of those components. This means that overwriting or making changes to these components in a game will prevent them from being updated.</p>
+<p>The first step in setting up the admin commands library is to add a new Chat Module to the Chat service. It is strongly recommended that you read the Created an Admin Command tutorial as it explains the basics of working with the Roblox chat system. The library in this tutorial takes care of the heavy lifting done by a Chat Module so the only object you need to add to the Chat service is a new <code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code>. The name of your module script can be anything, but I suggest something intuitive like AdminCommands.</p>
+</div>
+<div class="section" id="implementing-new-commands">
+<h2>Implementing New Commands<a class="headerlink" href="#implementing-new-commands" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="binding-a-command">
+<h3>Binding a command<a class="headerlink" href="#binding-a-command" title="Permalink to this headline">¶</a></h3>
+<p>Rather than implementing most of the Chat Module logic you will simply require the library module that does a bulk of the work and adds extra functionality. The simplest way to add the library into your module is to require it by its assetId at the top of your script.</p>
+<p>Admin Command Module: Code Sample 1 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>​local AdminCommands = require(1163352238)
+
+
+0
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>This Module returns a table of functions (the complete list can be seen below ). The most important of these functions is the Run function. The library has a Run function for its Chat module. It is important that AdminCommands returns this Run function to the Chat Service. The function is indexed by its name, Run, and you can return the following as if Run was a property of our AdminCommands table representation:
+
+管理命令模块：代码示例 2 ```    
+    
+    return AdminCommands.Run
+
+</pre></div>
+</div>
+<p>Between these two lines of code is where you will be implementing your own commands and any necessary helper functions.</p>
+<p><img alt="AdminCommandsLongform1.PNG" src="https://developer.roblox.com/assets/blte986f5bc62175798/AdminCommandsLongform1.PNG" /></p>
+<p>In order to bind a function to the library, you will use the BindCommand function of AdminCommands. When binding a command you will need to specify a table of keywords that, when spoken, will trigger the command, the function that will be triggered, a priority level, and optionally, a description of the command. If you do not specify a privilege level it will default to 0. Priority levels are numerical values used by the AdminCommands library to assign a hierarchy of permission amongst users with corresponding levels of granted privilege. When executing a command the speaker must have a privilege level that is greater than or equal to that of the command Permission Library.</p>
+<p>Admin Command Module: Code Sample 3 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AdminCommands</span><span class="p">:</span><span class="n">BindCommand</span><span class="p">({</span><span class="s2">&quot;keyword1&quot;</span><span class="p">,</span> <span class="s2">&quot;keyword2&quot;</span><span class="p">},</span> <span class="n">commandName</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Optional description&quot;</span><span class="p">)</span>
+
+
+<span class="mi">0</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>To unbind you would likewise use UnbindCommand and specify a keyword to unbind.
+
+Admin Command Module: Code Sample 4 ```    
+    
+    AdminCommands:UnbindCommand({&quot;keyword1&quot;})
+    
+    
+    0
+</pre></div>
+</div>
+<p>Altogether, the content of your AdminCommands script should look like the following:</p>
+<p>Admin Command Module: Code Sample 5 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">AdminCommands</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="mi">1163352238</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">Utilities</span> <span class="o">=</span> <span class="n">AdminCommands</span><span class="o">.</span><span class="n">Utilities</span>
+
+<span class="n">function</span> <span class="n">commandFunction</span><span class="p">(</span><span class="n">commandData</span><span class="p">)</span>
+	<span class="o">//</span> <span class="n">Command</span> <span class="n">code</span> <span class="n">here</span>
+	<span class="o">--</span> <span class="n">Returns</span> <span class="n">true</span> <span class="k">if</span> <span class="n">successful</span> <span class="ow">and</span> <span class="n">false</span> <span class="n">otherwise</span>
+<span class="n">end</span>
+
+<span class="n">AdminCommands</span><span class="p">:</span><span class="n">BindCommand</span><span class="p">({</span><span class="s2">&quot;keyword1&quot;</span><span class="p">,</span> <span class="s2">&quot;keyword2&quot;</span><span class="p">},</span> <span class="n">commandFunction</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Optional description&quot;</span><span class="p">)</span>
+
+<span class="k">return</span> <span class="n">AdminCommands</span><span class="o">.</span><span class="n">Run</span>
+
+
+<span class="mi">0</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>You may notice that the example function takes a parameter named commandData. This parameter is a table argument passed along to all bound admin command functions when executed by the library. The table contains useful information about the command that was spoken and the player who spoke it. It has the following fields:
+
+  * Speaker: `ChatSpeaker`
+  * Message: `DataType/string`
+  * ChannelName: `DataType/string`
+  * Command: `DataType/string`
+
+It is important to always expect commandData as a parameter of command functions. For example, if you have a command named “explode’, which requires a player parameter to be specified, the function would look like explode(commandData, player).
+
+![AdminCommandsLongform2.PNG](https://developer.roblox.com/assets/blt5e1b801d2fa3c9e8/AdminCommandsLongform2.PNG)
+
+Every command function is passed commandData as the parameter. If you are using any other number of parameters it is still important to pass commandData first, even if you are just using the other parameters. 
+
+Function Parameters Return
+
+**Commands:**
+
+BindCommand()
+table functionIDs, function functionToExecute, number minimumPermissionLevel, string description
+bool
+
+UnbindCommand()
+table functionIDs
+bool
+
+GetCommands()
+table
+
+### Utilities
+
+The library already has a few built-in helper functions called Utilities that you can use. Store AdminCommand.Utilities in a variable or reference it directly.
+
+Admin Command Module: Code Sample 6 ```    
+    
+    local Utilities = AdminCommands.Utilities
+    
+    
+    0
+</pre></div>
+</div>
+<p>Current utility functions are:</p>
+<p>Function Parameters Return</p>
+<p><strong>Chat window messages:</strong></p>
+<p>SendSystemMessage()
+table commandData, string content, table extraData
+bool</p>
+<p>SendSystemSuccessMessage()
+table commandData, string content
+bool</p>
+<p>SendSystemWarningMessage()
+table commandData, string content
+bool</p>
+<p>SendSystemErrorMessage()
+table commandData, string content
+bool</p>
+<p><strong>Error handlers:</strong></p>
+<p>NoPlayerSpecified()
+table commandData
+bool</p>
+<p>NotEnoughSpecified()
+table commandData
+bool</p>
+<p>IncorrectValueType()
+table commandData, string given, string expected</p>
+<p><strong>Object lookups:</strong></p>
+<p><strong>Data conversion:</strong></p>
+<p>ToTupple(parameter)
+string parameter
+array</p>
+<p>ToBoolean()
+string parameter
+bool</p>
+<p>ValidateData()
+string expectedType, …
+bool</p>
+</div>
+</div>
+<div class="section" id="example-commands">
+<h2>Example commands<a class="headerlink" href="#example-commands" title="Permalink to this headline">¶</a></h2>
+<p>A useful command to have would be one that prints a list of all optional commands that users have available. This command outputs each command bound to the library and a few of its properties.</p>
+<p>Admin Command Module: Code Sample 7 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>​-- Prints a list of all bound commands
+
+function listCommand(commandData)
+
+	Utilities:SendSystemMessage(commandData, &quot;The following commands are available:&quot;)
+
+	-- Iterate through the every command and print it out
+
+	for id, command in pairs(PublicAPI:GetCommands()) do
+
+		Utilities:SendSystemMessage(commandData, string.format(&quot;&#39;/s&#39; requires permission s.&quot;, id, command.Permission))
+
+	end
+
+	return true
+
+end, 1)
+
+
+
+AdminCommands:BindCommand({&quot;list&quot;}, listCommand, 0, &quot;Prints a list of commands.&quot;)
+
+
+0
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Another helpful command allows users to give themselves sparkles. This command requires one parameter when spoken – the targeted player’s name. If the player exists, the command will create a Sparkles object in the HumanoidRootPart of that player.
+
+Admin Command Module: Code Sample 8 ```    
+    
+    -- Gives a specified player&#39;s character sparkles
+    function sparklesCommand(commandData)
+    	 -- Error if no parameters are given/spoken
+    	if #commandData.Parameters == 0 then
+    		return Utilities:NoPlayerSpecified(commandData)
+    	end
+    	-- Loop through the parameters (execute on every given player&#39;s name)
+    	for index = 1, #commandData.Parameters do
+    		local parameter = commandData.Parameters[index]
+    		if (parameter == &quot;me&quot; or parameter == &quot;&quot;) then parameter = commandData.Speaker.Name end -- If the parameter is me then the user must be refering to his/herself
+    	
+    		-- Use a helper function to find the player&#39;s character and add the sparkles
+    		local character = Utilities:GetCharacter(parameter)
+    		if character then
+    			local sparkles = Instance.new(&quot;Sparkles&quot;)
+    			sparkles.Parent = character:FindFirstChild(&quot;HumanoidRootPart&quot;)
+    			
+    			Utilities:SendSystemSuccessMessage(commandData, string.format(commandData.Speaker.Name .. &quot;added sparkles to &quot; .. parameter))
+    		else
+    			Utilities:SendSystemErrorMessage(commandData, string.format(&quot;&#39;s&#39; is not a valid player.&quot;, parameter))
+    			return false
+    		end
+    	end	
+    	return true
+    
+    end
+    
+    AdminCommands:BindCommand({&quot;sparkles&quot;}, sparklesCommand, 1, &quot;Gives the specified player sparkles&quot;)
+    
+    
+    0
+</pre></div>
+</div>
+<p>You can also include an explosion command from the Created an Admin Command tutorial. This command also takes a player’s name as a parameter.</p>
+<p>Admin Command Module: Code Sample 9 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">Verifies</span> <span class="n">that</span> <span class="n">the</span> <span class="n">given</span> <span class="n">model</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">Character</span> <span class="ow">and</span> <span class="n">adds</span> <span class="n">an</span> <span class="n">explosion</span> <span class="n">to</span> <span class="n">its</span> <span class="n">HumanoidRootPart</span>
+<span class="n">local</span> <span class="n">function</span> <span class="n">makeExplosion</span><span class="p">(</span><span class="n">character</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">character</span> <span class="ow">and</span> <span class="n">character</span><span class="p">:</span><span class="n">FindFirstChild</span><span class="p">(</span><span class="s2">&quot;HumanoidRootPart&quot;</span><span class="p">)</span> <span class="n">then</span>
+			<span class="n">local</span> <span class="n">explosion</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Explosion&quot;</span><span class="p">)</span>
+			<span class="n">explosion</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">character</span><span class="o">.</span><span class="n">HumanoidRootPart</span><span class="o">.</span><span class="n">Position</span>
+			<span class="n">explosion</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">character</span><span class="o">.</span><span class="n">HumanoidRootPart</span>
+			<span class="k">return</span> <span class="n">true</span>
+	<span class="n">end</span>
+	<span class="k">return</span> <span class="n">false</span>
+<span class="n">end</span>
+
+<span class="o">--</span> <span class="n">Makes</span> <span class="n">a</span> <span class="n">specified</span> <span class="n">player</span><span class="s1">&#39;s character explode</span>
+<span class="n">function</span> <span class="n">explodeCommand</span><span class="p">(</span><span class="n">commandData</span><span class="p">)</span>
+	 <span class="o">--</span> <span class="n">Error</span> <span class="k">if</span> <span class="n">no</span> <span class="n">parameters</span> <span class="n">are</span> <span class="n">given</span><span class="o">/</span><span class="n">spoken</span>
+	<span class="k">if</span> <span class="c1">#commandData.Parameters == 0 then</span>
+		<span class="k">return</span> <span class="n">Utilities</span><span class="p">:</span><span class="n">NoPlayerSpecified</span><span class="p">(</span><span class="n">commandData</span><span class="p">)</span>
+	<span class="n">end</span>
+	<span class="k">for</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">#commandData.Parameters do</span>
+		<span class="n">local</span> <span class="n">parameter</span> <span class="o">=</span> <span class="n">tostring</span><span class="p">(</span><span class="n">commandData</span><span class="o">.</span><span class="n">Parameters</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">parameter</span> <span class="o">==</span> <span class="s2">&quot;me&quot;</span> <span class="ow">or</span> <span class="n">parameter</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="n">then</span> <span class="n">parameter</span> <span class="o">=</span> <span class="n">commandData</span><span class="o">.</span><span class="n">Speaker</span><span class="o">.</span><span class="n">Name</span> <span class="n">end</span> <span class="o">--</span> <span class="n">If</span> <span class="n">the</span> <span class="n">parameter</span> <span class="ow">is</span> <span class="n">me</span> <span class="n">then</span> <span class="n">the</span> <span class="n">user</span> <span class="n">must</span> <span class="n">be</span> <span class="n">refering</span> <span class="n">to</span> <span class="n">his</span><span class="o">/</span><span class="n">herself</span>
+		
+		<span class="o">--</span> <span class="n">Use</span> <span class="n">a</span> <span class="n">helper</span> <span class="n">function</span> <span class="n">to</span> <span class="n">find</span> <span class="n">the</span> <span class="n">player</span><span class="s1">&#39;s character and add the explosion</span>
+		<span class="n">local</span> <span class="n">character</span> <span class="o">=</span> <span class="n">Utilities</span><span class="p">:</span><span class="n">GetCharacter</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
+		
+		<span class="n">local</span> <span class="n">success</span> <span class="o">=</span> <span class="n">makeExplosion</span><span class="p">(</span><span class="n">character</span><span class="p">)</span>
+		
+		<span class="k">if</span> <span class="n">success</span> <span class="n">then</span>
+			<span class="n">Utilities</span><span class="p">:</span><span class="n">sendSystemSuccessMessage</span><span class="p">(</span><span class="n">commandData</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">commandData</span><span class="o">.</span><span class="n">Speaker</span><span class="o">.</span><span class="n">Name</span> <span class="o">..</span> <span class="s2">&quot; made&quot;</span> <span class="o">..</span> <span class="n">parameter</span> <span class="o">..</span> <span class="s2">&quot; explode.&quot;</span><span class="p">))</span>
+		<span class="k">else</span>
+			<span class="n">Utilities</span><span class="p">:</span><span class="n">SendSystemErrorMessage</span><span class="p">(</span><span class="n">commandData</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;&#39;s&#39; is not a valid player.&quot;</span><span class="p">,</span> <span class="n">parameter</span><span class="p">))</span>
+			<span class="k">return</span> <span class="n">false</span>
+		<span class="n">end</span>
+	<span class="n">end</span>	
+	<span class="k">return</span> <span class="n">true</span>
+<span class="n">end</span>
+
+<span class="n">AdminCommands</span><span class="p">:</span><span class="n">BindCommand</span><span class="p">({</span><span class="s2">&quot;explode&quot;</span><span class="p">},</span> <span class="n">explodeCommand</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Makes the specified player explode.&quot;</span><span class="p">)</span>
+
+
+<span class="mi">0</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>![ExplosionCommand.gif](https://developer.roblox.com/assets/bltec7502ffd4a9e450/ExplosionCommand.gif)
+
+## Permission Library
+
+If a non-admin tries to speak a command like this, which has a higher permission level than 0, it will not be triggered. The command system uses a separate Permission library, to which the game creator is automatically given the permission level math.huge. Admins can be added using the following functions on your AdminCommands module object. More functions can be found by looking at the library’s [source code](https://www.roblox.com/library/1163351226/Permission-Module|):
+
+Admin Command Module: Code Sample 10 ```    
+    
+    SetUserPermission(number requesterUserId, number targetUserId, permissionLevel) -&gt; bool
+    SetGroupRankPermission(number requesterUserId, number targetGroupId, number targetRankId, permissionLevel) -&gt; bool
+    
+    
+    0
+</pre></div>
+</div>
+<p>Function Parameters Return</p>
+<p><strong>Permission</strong></p>
+<p>GetAdmins()
+table</p>
+<p>SetUserPermission()
+number requesterUserId, number targetUserId, permissionLevel
+bool</p>
+<p>GetUserPermission()
+number userId
+number</p>
+<p>GetGroups()
+table</p>
+<p>SetGroupRankPermission()
+number requesterUserId, number targetGroupId, number targetRankId, permissionLevel
+bool</p>
+<p>GetGroupRankPermission()
+targetGroupId, targetRankId
+int</p>
+<p>GetUserGroupRankPermission()
+number userId
+int</p>
+</div>
+<div class="section" id="quick-start-module">
+<h2>Quick-Start Module<a class="headerlink" href="#quick-start-module" title="Permalink to this headline">¶</a></h2>
+<p>For easier setup you can also use this <a class="reference external" href="https://www.roblox.com/library/1163353653/Quick-Start-Admin-Commands%7C">Quick Start</a>, which is a module that has already implemented the Admin Commands library. The model is a module with the same format as described above. Additionally, the module has a few commands already included so that you do not have to re-implement.</p>
+<p>Command/Binding Spoken Parameter</p>
+<p>“list”, “commands”
+username</p>
+<p>“sparkles”
+username</p>
+<p>“sparkles”
+username</p>
+<p>“unforcefield”, “unff”
+username</p>
+<p>“explode”
+username</p>
+<p>“respawn”
+username</p>
+<p>“part”
+Path (i.e. game.Workspace)</p>
+<p>“freeze”
+username</p>
+<p>“unfreeze”
+username</p>
+<p>“add”
+username</p>
+<p>“remove”
+username</p>
+<p>“kick”
+username</p>
+<p>“setuserpermission”, “sup”
+userId, permission</p>
+<p>“setgrouprankpermission”, “sgrp”
+groupid, rankId, permission</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Chat-Modules">Chat Modules</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Creating-a-Custom-Teleport-GUI.html" class="btn btn-neutral float-right" title="创建自定义传送屏幕" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="avatar-emotes.html" class="btn btn-neutral float-left" title="Avatar Emotes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

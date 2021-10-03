@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>游戏安全 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="防抖动：使用时机及原因说明" href="Debounce.html" />
+    <link rel="prev" title="插件简介" href="Intro-to-Plugins.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">游戏安全</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">检查免费模型与插件的使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">服务器端验证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loadstring">禁用 “loadstring()”</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>游戏安全</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Game-Security.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>游戏安全<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>客户端与服务器</em></p>
+<p>Roblox 开发者在进行游戏开发时，可能需要注意游戏安全方面的问题。虽然绝大部分 Roblox 玩家在游玩时会遵守使用条款，但仍然有部分玩家会试图通过破坏数据存储、添加模型等方式来破坏游戏规则。</p>
+<p>我们将在本文中介绍几个保障游戏安全性的方法。</p>
+<div class="section" id="id2">
+<h2>检查免费模型与插件的使用<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Roblox 为开发者提供大量的免费模型与插件素材，但即使是最为热门的素材，在使用前也应对其进行详细检查。当使用免费模型或插件素材时：</p>
+<ol class="simple">
+<li><p>检查其是否包含任何<strong>脚本</strong>（<code class="docutils literal notranslate"><span class="pre">Script</span></code> 或 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code>）。</p></li>
+<li><p>若是，则请仔细检查脚本，分辨其中是否存在不合常理的内容，如添加模型、访问之前从未听说过的服务等。</p></li>
+<li><p>如果无法分辨代码用途，请尝试对其进行研究或调查。无法独自进行分辨时，可前往 Roblox <a class="reference external" href="https://devforum.roblox.com">社区</a>，寻求各位活跃成员的帮助。</p></li>
+<li><p>即使你认为代码中并不存在安全漏洞，无论是在 Studio 中还是发布到 Roblox 后，都请对游戏进行认真测试。如果游戏在添加免费模型或插件后产生预期外的行为，请先删除新添加的模型或插件，再查看问题是否仍然存在。</p></li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h2>服务器端验证<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Articles/Remote</span> <span class="pre">Functions</span> <span class="pre">and</span> <span class="pre">Events|远程函数和事件</span></code>是客户端与服务器之间的通讯的最佳选择，但其安全性并非毫无漏洞。部分十分狡猾的黑客可能会伪造远程事件或对事件传递的值进行更改。因此在收到请求时，开发者应当使用基本的服务器端验证来确认其真实性。</p>
+<p>举例来说，游戏中存在供玩家进行购买的商店系统。玩家购买物品时将与客户端侧的界面交互（例如包含“购买”按钮的<code class="docutils literal notranslate"><span class="pre">Articles/Intro</span> <span class="pre">to</span> <span class="pre">GUIs|屏显</span> <span class="pre">GUI</span></code>）。玩家按下按钮后，客户端将向服务器发送远程事件，请求购买。但<strong>服务器</strong>这一最可靠的游戏管理者必须检查玩家是否有足够的货币完成此次购买行为。</p>
+<p><img alt="https://developer.roblox.com/assets/blt5fcdc8ffa5581b4b/RemoteEvent-Flow.png" src="https://developer.roblox.com/assets/blt5fcdc8ffa5581b4b/RemoteEvent-Flow.png" /></p>
+</div>
+<div class="section" id="loadstring">
+<h2>禁用 “loadstring()”<a class="headerlink" href="#loadstring" title="Permalink to this headline">¶</a></h2>
+<p>在绝大多数情况下，开发者应当<strong>禁用</strong> Lua 语言中的 <code class="docutils literal notranslate"><span class="pre">loadstring()</span></code> 函数（默认即为禁用）。虽然此函数功能强大，但也可能会破坏游戏的安全性：该函数允许在运行时执行任意和动态代码。禁用此函数后，服务器上的任何 <code class="docutils literal notranslate"><span class="pre">Script</span></code> 在尝试调用 <code class="docutils literal notranslate"><span class="pre">loadstring()</span></code> 时都会报错。</p>
+<p>此设置可在 <strong>LoadStringEnabled</strong> 下的 <code class="docutils literal notranslate"><span class="pre">ServerScriptService</span></code> 属性中找到。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Game-Security">游戏安全</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Debounce.html" class="btn btn-neutral float-right" title="防抖动：使用时机及原因说明" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Intro-to-Plugins.html" class="btn btn-neutral float-left" title="插件简介" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

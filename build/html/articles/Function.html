@@ -1,0 +1,485 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>函数 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="HumanoidDescription 系统" href="humanoiddescription-system.html" />
+    <link rel="prev" title="For 循环" href="For-Loops.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">函数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">定义函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">调用函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">函数参数</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>函数</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Function.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>函数<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p><strong>函数</strong>是可以在脚本中多次使用的指令集。定义后，可以通过命令执行函数，也可以通过<code class="docutils literal notranslate"><span class="pre">/articles/events|事件</span></code>触发函数。</p>
+<div class="section" id="id2">
+<h2>定义函数<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>基本函数声明包括 <code class="docutils literal notranslate"><span class="pre">function</span></code> 关键字，后跟<strong>函数名</strong>和一对圆括号 (<code class="docutils literal notranslate"><span class="pre">()</span></code>)。由于函数的主体是一个代码块，因此必须用 <code class="docutils literal notranslate"><span class="pre">end</span></code> 关键字将其关闭。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">function</span> <span class="n">addNumbers</span><span class="p">()</span>
+    
+    <span class="n">end</span>
+
+</pre></div>
+</div>
+<p>在 <code class="docutils literal notranslate"><span class="pre">()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">end</span></code> 之间是命令和其他代码组成函数<strong>主体</strong>。这些命令将在调用函数时执行：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">function</span> <span class="n">addNumbers</span><span class="p">()</span>
+    	<span class="o">--</span> <span class="n">Function</span> <span class="n">body</span>
+    	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Function called!&quot;</span><span class="p">)</span>
+    <span class="n">end</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>调用函数<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>定义函数之后，便可以通过<strong>调用</strong>来执行（函数不会自己执行）。若要调用函数，只需键入其名称，后跟括号 (<code class="docutils literal notranslate"><span class="pre">()</span></code>) 即可：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    local function addNumbers()
+    	-- Function body
+    	print(&quot;Function called!&quot;)
+    end
+    
+    addNumbers()
+    
+    
+    Function called!
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>函数参数<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>函数可以利用<strong>参数</strong>传递数据。声明函数时，可以在括号中包含一个或多个参数名：</p>
+<p>Function Example 2 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">num1</span> <span class="ow">and</span> <span class="n">num2</span> <span class="n">are</span> <span class="n">the</span> <span class="n">parameters</span>
+<span class="n">function</span> <span class="n">add</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">)</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="p">)</span> 
+<span class="n">end</span>
+ 
+<span class="o">--</span> <span class="mi">3</span> <span class="ow">and</span> <span class="mi">4</span> <span class="n">are</span> <span class="n">the</span> <span class="n">arguments</span>
+<span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+
+<span class="mi">7</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>调用带有参数的函数时，请指定应传递给函数的**值**。例如，以下函数接受每次调用期间传入的两个数字，将它们相加，并输出结果：
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">function</span> <span class="n">addNumbers</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">result</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">num1</span> <span class="o">..</span> <span class="s2">&quot; + &quot;</span> <span class="o">..</span> <span class="n">num2</span> <span class="o">..</span> <span class="s2">&quot; = &quot;</span> <span class="o">..</span> <span class="n">result</span><span class="p">)</span>
+<span class="n">end</span>
+
+<span class="n">addNumbers</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">addNumbers</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">addNumbers</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+
+<span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="mi">4</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">=</span> <span class="mf">4.5</span>
+<span class="mi">1000</span> <span class="o">+</span> <span class="mi">500</span> <span class="o">=</span> <span class="mi">1500</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>函数参数始终是函数的本地参数，仅在函数的`/articles/Scope|作用域`及其下级作用域中使用。 
+
+如果调用的 Lua 函数的参数比预期的多，多余的参数将被忽略。相反，如果函数期望的参数比你提供的多，则值 `nil` 将用于所有缺少的参数。 
+
+## 返回值
+
+除了接受参数外，函数还可以**返回**（发回）数据给调用命令。这是通过 `return` 值完成的。根据上面的例子，下面的函数**返回**总和，而不是输出：
+
+Function Example 3 ```    
+    
+    function add(num1, num2)
+    	print(&quot;Finding sum.&quot;) 
+    	return num1 + num2 
+    	--print(&quot;Sum found&quot;) 
+    end
+     
+    x = add(5, 2) 
+    print(x)
+    
+    
+    Finding sum.
+    7
+</pre></div>
+</div>
+<p>不要在 <code class="docutils literal notranslate"><span class="pre">return</span></code> 命令之后放置任何命令，因为这样做将生成错误。</p>
+<p>当一个函数返回一个值时，它可以被分配给一个变量，或者在任何可以使用变量的地方使用。以下代码说明了这一概念：</p>
+<p>Function Example 4 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">addNumbers</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span>
+<span class="n">end</span>
+ 
+<span class="n">a</span> <span class="o">=</span> <span class="n">addNumbers</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+
+<span class="mi">8</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>与某些编程语言不同，Lua 甚至允许你从函数返回多个值：
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">function</span> <span class="n">addAndSubtract</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">)</span>
+	<span class="n">local</span> <span class="nb">sum</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span>
+	<span class="n">local</span> <span class="n">difference</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">-</span> <span class="n">num2</span>
+	<span class="k">return</span> <span class="nb">sum</span><span class="p">,</span> <span class="n">difference</span>
+<span class="n">end</span>
+
+<span class="n">local</span> <span class="nb">sum</span><span class="p">,</span> <span class="n">difference</span> <span class="o">=</span> <span class="n">addAndSubtract</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">difference</span><span class="p">)</span>
+
+
+<span class="mi">5</span>
+<span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>## 其他函数技巧
+
+### 事件触发的函数
+
+函数并不总是需要用命令调用，它们也可以通过**事件**调用。有关详细信息，请参阅`/articles/events|处理事件`一文。
+
+### 匿名函数
+
+函数可以**匿名**创建，也就是说，不需要为它们分配名称。当需要从另一个函数或事件的结果调用函数时，这非常有用，例如 `delay()` 调用或 `/Players/PlayerAdded|PlayerAdded` 事件连接：
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">delay</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">function</span><span class="p">(</span><span class="n">exactTimeElapsed</span><span class="p">)</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">exactTimeElapsed</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+
+
+<span class="mf">2.0064592329945</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">Players</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span>
+
+<span class="n">Players</span><span class="o">.</span><span class="n">PlayerAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">Name</span> <span class="o">..</span> <span class="s2">&quot; joined the game!&quot;</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>请注意，匿名函数仍然需要在包含的函数或事件的结束符 `)` 之前先闭合 `end`，例如 `delay()` 或 `:Connect()`。 
+
+### 表中的函数
+
+由于函数是 Lua 数据类型，因此可以将它们存储在表中。 此技巧通常用于 `ModuleScript|ModuleScripts`，其中模块的表包含各种函数：
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">MathModule</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">function</span> <span class="n">MathModule</span><span class="o">.</span><span class="n">addNumbers</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">)</span>
+	<span class="n">local</span> <span class="nb">sum</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span>
+	<span class="k">return</span> <span class="nb">sum</span>
+<span class="n">end</span>
+
+<span class="n">function</span> <span class="n">MathModule</span><span class="o">.</span><span class="n">subtractNumbers</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">difference</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">-</span> <span class="n">num2</span>
+	<span class="k">return</span> <span class="n">difference</span>
+<span class="n">end</span>
+
+<span class="k">return</span> <span class="n">MathModule</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>一旦包含在模块的表中，这些函数就可以被任何通过 `require()` 访问 `ModuleScript` 的脚本调用：
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
+
+<span class="o">--</span> <span class="n">Require</span> <span class="n">module</span>
+<span class="n">local</span> <span class="n">MathModule</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;MathModule&quot;</span><span class="p">))</span>
+
+<span class="n">local</span> <span class="nb">sum</span> <span class="o">=</span> <span class="n">MathModule</span><span class="o">.</span><span class="n">addNumbers</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">difference</span> <span class="o">=</span> <span class="n">MathModule</span><span class="o">.</span><span class="n">subtractNumbers</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">difference</span><span class="p">)</span>
+
+
+<span class="mi">5</span>
+<span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+
+<span class="o">***</span><span class="n">__Roblox官方链接__</span><span class="p">:[</span><span class="n">函数</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">developer</span><span class="o">.</span><span class="n">roblox</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">zh</span><span class="o">-</span><span class="n">cn</span><span class="o">/</span><span class="n">articles</span><span class="o">/</span><span class="n">Function</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="humanoiddescription-system.html" class="btn btn-neutral float-right" title="HumanoidDescription 系统" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="For-Loops.html" class="btn btn-neutral float-left" title="For 循环" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

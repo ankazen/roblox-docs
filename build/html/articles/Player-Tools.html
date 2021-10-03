@@ -1,0 +1,477 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>玩家工具 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="检测碰撞" href="detecting-collisions.html" />
+    <link rel="prev" title="横向卷轴镜头" href="Side-Scrolling-Camera-View.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Lobby.html">制作大厅</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Usage-of-dialogs.html">NPC 对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Teleporting-Between-Places.html">不同场景间的传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Spawns-and-Teams.html">角色生成与团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-an-Explosion-Course.html">制作爆炸赛道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shop-Dialogs.html">商店对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-to-teleport-within-a-Place.html">场景内玩家传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="in-game-solid-modeling.html">游戏内实体建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matchmaking.html">玩家匹配系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Player-Collisions.html">玩家间的碰撞控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setting-Parts-on-Fire-with-Events.html">通过事件让部件着火</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2D-Collision-Detection.html">2D 碰撞检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Basics-on-Roblox.html">添加团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Badges-Special-Game-Awards.html">Badges – Special Game Awards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Collision-Filtering-Team-Doors.html">Restricted/Team Doors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-VIP-Doors.html">创建 VIP 专用门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Random-Map-Chooser.html">随机地图选择器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roblox-avatars.html">Roblox 虚拟形象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Health-Pickups.html">回复用拾取物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Moving-NPCs-Between-Points.html">在点之间移动 NPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pathfinding.html">寻路</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Side-Scrolling-Camera-View.html">横向卷轴镜头</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">玩家工具</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">创建一个新的工具</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">自定义工具几何</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">无手柄工具</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">装备工具</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">丢弃工具</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">动作栏外观</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">工具脚本基础知识</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#script-localscript">Script 对 LocalScript</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">事件</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">创建魔杖工具</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id11">获取鼠标输入</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">创建部件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">在 Script 和 LocalScript 之间通信</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="detecting-collisions.html">检测碰撞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weapons-kit.html">认可武器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="npc-kit.html">NPC 套组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vehicles-kit.html">载具工具包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="team-balancing.html">平衡团队构成</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/gameplay.html">游戏制作</a> &raquo;</li>
+        
+      <li>玩家工具</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Player-Tools.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>玩家工具<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>15  分钟</em></p>
+<p>Tool（工具）是用于在 Roblox 中实现武器、魔杖和其他交互式对象的特殊实例。在本文中您将学到如何创建工具、如何让玩家能够装备工具，以及如何赋予工具能力和技能。</p>
+<div class="section" id="id2">
+<h2>创建一个新的工具<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>工具是一个容器示例，就像 Model（模型）一样。要创建一个新的工具，请在 <strong>Workspace</strong>（工作区）中右键单击，选择 <strong>Insert Object</strong>（插入对象），然后选择 <strong>Tool</strong>（工具）。</p>
+<p><img alt="Tool_Image01.png" src="https://developer.roblox.com/assets/blt42c7cc38f5a4a41e/Tool_Image01.png" /></p>
+<p>再次提醒您，工具只是一个容器，所以如果它是空的，就不会显示在 3D 视图中。右键单击该工具并插入新的<strong>部件</strong>。该工具现在将显示在 3D 视图中。为了能被拾取，工具里需要有一个叫做 <em>Handle</em>（手柄）的部件。将工具中的部件重命名为 “Handle”。现在，如果您运行游戏，您的角色将能够拿起该工具。</p>
+<p><img alt="Tool_Image09.png" src="https://developer.roblox.com/assets/bltfc64f6e99bf1fd31/Tool_Image09.png" /></p>
+</div>
+<div class="section" id="id3">
+<h2>自定义工具几何<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>一个工具可以包含任意多个部件。但请记住，只有一个部件能被命名为 Handle，因为该部件是工具将附加到角色的手的位置。这里有几个构建工具的小贴士：</p>
+<ul class="simple">
+<li><p>当您完成构建时，请确保所有部件都没有锚固。如果工具的任何部分被锚固，工具将无法移动，角色在拿起它时将被卡住。</p></li>
+<li><p>只命名一个部件为 <em>Handle</em>。如果有多个称为 Handle 的部件，工具将随意选择其中一个作为与手的连接点。</p></li>
+<li><p>在创建工具时，请不要使用 Surface（表面）接合，这一点非常重要。用表面接合构造的工具在装备时会散开。当您将具有兼容表面（例如 Smooth/Weld 或 Inlet/Stud）的两个部件合并在一起时，会创建表面接合。您应将连接行为更改为 <strong>Always</strong>（始终），并确保所有部件的表面是 <strong>Smooth</strong> 或 <strong>SmoothNoOutlines</strong>。</p></li>
+</ul>
+<p><img alt="Tool_Image07.png" src="https://developer.roblox.com/assets/blt99e2639bbb0079b7/Tool_Image07.png" /></p>
+<p><img alt="Tool_Image06.png" src="https://developer.roblox.com/assets/blt13eae73cbbf73ab5/Tool_Image06.png" /></p>
+<p>由多个部件构建的工具示例：</p>
+<p><img alt="Tool_Image02.png" src="https://developer.roblox.com/assets/blte89e54e43c2656dd/Tool_Image02.png" /></p>
+<p>在上面的示例中，白色部分是 Handle，其他部件使用接合连接在一起。</p>
+</div>
+<div class="section" id="id4">
+<h2>无手柄工具<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>您可以制作没有手柄或任何几何体的工具。在这种情况下，该工具就成为玩家输入的接口，而没有 3D 视图中的任何视觉表示。要制作这样的工具，只需关闭该工具的 <strong>RequiresHandle</strong> 属性。例如一个魔法物品，当它被拥有时，会给玩家一个通过键盘输入激活的特殊能力。</p>
+<p><img alt="Tool_Image05.png" src="https://developer.roblox.com/assets/blta8237906d5679c00/Tool_Image05.png" /></p>
+</div>
+<div class="section" id="id5">
+<h2>装备工具<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>工具可以通过多种方式装备。最简单的方法是将该工具放在工作区中，并在玩家与其发生碰撞时装备该工具。当这种情况发生时，该工具会自动添加到玩家的背包中。如果玩家当前没有任何装备，该工具将自动装备自己。请注意，这仅在工具的 <strong>RequiresHandle</strong> 属性设置为 true 时才有效。</p>
+<p><img alt="Tool_Image04.png" src="https://developer.roblox.com/assets/bltcf11873bbc170628/Tool_Image04.png" /></p>
+<p>您也可以使用 <strong>StarterPack</strong> 给玩家工具。每当玩家出生时，StarterPack 的所有内容都会被复制到玩家的背包中。如果您想确保所有玩家都使用相同的装备开始游戏，StarterPack 是实现此目的的最佳方式。</p>
+<p>您还可以使用 Script（脚本）将工具提供给某个玩家，该脚本可以将该工具（或该工具的副本）放入玩家的背包中。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">copy</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">Tool</span><span class="p">:</span><span class="n">Clone</span><span class="p">()</span>
+<span class="n">copy</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">Player1</span><span class="o">.</span><span class="n">Backpack</span>
+</pre></div>
+</div>
+<p>您还可以通过将工具设置为玩家角色的子对象来强制玩家装备工具。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">copy</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">Tool</span><span class="p">:</span><span class="n">Clone</span><span class="p">()</span>
+<span class="n">copy</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">Player1</span><span class="o">.</span><span class="n">Character</span>
+</pre></div>
+</div>
+<p>使用脚本将工具给予角色时要小心！如果一个玩家已经装备了一个工具，而你强迫他们装备另一个，则两个工具可能会同时被装备，或许会导致意想不到的行为。</p>
+</div>
+<div class="section" id="id6">
+<h2>丢弃工具<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>默认情况下，玩家可以按 ← Backspace 键（在 OSX 上为 Delete）丢弃工具。 您可以将工具的 <strong>CanBeDropped</strong> 设为 false 来禁用此行为。</p>
+<p><img alt="Tools_Image00.png" src="https://developer.roblox.com/assets/bltfda1da60a66d248f/Tools_Image00.png" /></p>
+</div>
+<div class="section" id="id7">
+<h2>动作栏外观<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>当一个工具在玩家的背包里时，同时会出现在玩家屏幕底部的动作栏中。您可以自定义此栏中工具的工具提示和图标。可以通过编辑工具的 <strong>Tooltip</strong> 属性来设置工具提示。</p>
+<p><img alt="Tool_Image08.png" src="https://developer.roblox.com/assets/blte3682b69958c834e/Tool_Image08.png" /></p>
+<p>您可以使用 <strong>TextureId</strong> 属性设置该工具的图标，可以像为贴花设置图像一样设置此属性的图像。</p>
+</div>
+<div class="section" id="id8">
+<h2>工具脚本基础知识<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>技术层面上，工具的目的是为玩家输入提供接口，因此有许多与它们相关的函数和事件可供开发人员与之交互。工具也是独一无二的，因为它们既可以运行常规脚本，也可以运行本地脚本。但是，由于它们与脚本的复杂关系，了解如何使用工具编写脚本的基础知识非常重要。</p>
+<div class="section" id="script-localscript">
+<h3>Script 对 LocalScript<a class="headerlink" href="#script-localscript" title="Permalink to this headline">¶</a></h3>
+<p>Script 和 LocalScript 都可以监听相同的事件并调用工具上的相同函数。那么什么时候该使用哪一种呢？以下是一些一般指导原则：</p>
+<p>代码符合下列条件时，应该使用 <strong>Script</strong>：</p>
+<ul class="simple">
+<li><p>导致游戏世界发生变化（例如更改玩家健康状况、创建部件等)</p></li>
+</ul>
+<p>代码符合下列条件时，应该使用 <strong>LocalScript</strong>：</p>
+<ul class="simple">
+<li><p>依赖玩家输入（如鼠标或触摸输入）</p></li>
+<li><p>需要只向拿着工具的玩家展示一些东西</p></li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h3>事件<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>脚本可以监听四个工具特有的事件：</p>
+<ul class="simple">
+<li><p><strong>Activated</strong>：当玩家开始激活工具时（单击、触摸或按游戏手柄上的 A 键）。</p></li>
+<li><p><strong>Deactivated</strong>：玩家释放激活输入时。</p></li>
+<li><p><strong>Equipped</strong>：玩家从背包中选择工具。</p></li>
+<li><p><strong>Unequipped</strong>：玩家丢弃或切换工具时。</p></li>
+</ul>
+<p>请记住，Script 和 LocalScript 都可以监听这些事件。下面是两个脚本连接到这些事件的代码：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-- 此代码假定脚本直接位于工具内部。如果脚本位于其他位置，则必须更改下一个变量所指向的路径。
+local tool = script.Parent
+
+local function onEquip()  
+end
+
+local function onUnequip()
+end
+
+local function onActivate()
+end
+
+local function onDeactivate()
+end
+
+tool.Equipped:connect(onEquip)
+tool.Unequipped:connect(onUnequip)
+tool.Activated:connect(onActivate)
+tool.Deactivated:connect(onDeactivate)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>创建魔杖工具<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>在本例中，我们将演示如何制作一个简单的工具，该工具在持有者单击鼠标时会创建部件。我们将同时使用 Script 和 LocalScript 来说明它们分别的职责。</p>
+<div class="section" id="id11">
+<h3>获取鼠标输入<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>每当用户单击鼠标时，都会触发 <strong>Activated</strong> 事件，但它不包含有关鼠标的信息。我们希望工具在用户单击的地方创建一个部件，因此知道该单击发生在空间中的哪个位置对我们来说很重要。要获得鼠标位置，我们需要使用 LocalScript，因为常规 Script 在服务器上运行，而服务器不知道任何有关用户鼠标的信息。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">本地</span> <span class="n">Script</span>
+<span class="n">local</span> <span class="n">tool</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+<span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">LocalPlayer</span>
+<span class="n">local</span> <span class="n">mouse</span> <span class="o">=</span> <span class="n">player</span><span class="p">:</span><span class="n">GetMouse</span><span class="p">()</span>
+
+<span class="n">local</span> <span class="n">function</span> <span class="n">onActivate</span><span class="p">()</span>
+  <span class="n">local</span> <span class="n">clickLocation</span> <span class="o">=</span> <span class="n">mouse</span><span class="o">.</span><span class="n">Hit</span>
+<span class="n">end</span>
+
+<span class="n">tool</span><span class="o">.</span><span class="n">Activated</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">onActivate</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>我们先为工具、玩家和玩家的鼠标创建了变量，然后在 <em>onActivate</em> 函数中，我们将单击的位置存储在了一个变量中。</p>
+</div>
+<div class="section" id="id12">
+<h3>创建部件<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>现在我们知道了玩家单击的位置，我们需要创建一个部件。哪个脚本应该处理此问题？在获得 LocalScript 中的位置后立即创建部件似乎是最简单的，然而这样做的问题是，LocalScript 仅在玩家的机器上运行，如果游戏中的 Experimental Mode（实验模式）处于关闭状态（这是默认设置），则由该 LocalScript 创建的任何部件都不会复制到服务器，则其他人不会看到您创建的部件！我们希望所有其他玩家都能够看到这些新的部件并与之交互，因此我们必须使用 Script 在服务器上创建该部件。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">服务器端</span> <span class="n">Script</span>
+<span class="n">local</span> <span class="n">function</span> <span class="n">createPart</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
+  <span class="n">local</span> <span class="n">part</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Part&quot;</span><span class="p">)</span>
+  <span class="n">part</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">location</span>
+  <span class="n">part</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">workspace</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>在 Script 和 LocalScript 之间通信<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>我们现在可以获取鼠标单击的位置，也可以在任意位置创建新部件，但是这些是用不同的脚本写的！我们需要让Script 和 LocalScript 之间能互相通信，以便其协同工作。为此，我们将使用前面创建的 RemoteEvent。</p>
+<p>RemoteEvent 是可用于在 Script 和 LocalScript 之间发送信息的特殊对象。每个脚本都有一个事件侦听器，注册后就可以在事件触发时调用函数。我们也有一些函数可用于触发事件。</p>
+<p>让我们从服务器 Script 上的侦听器开始。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">服务器端</span> <span class="n">Script</span>
+<span class="n">local</span> <span class="n">tool</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+<span class="n">local</span> <span class="n">clickEvent</span> <span class="o">=</span> <span class="n">tool</span><span class="o">.</span><span class="n">ClickEvent</span>
+<span class="n">local</span> <span class="n">clickEventConnection</span>
+ 
+<span class="n">local</span> <span class="n">function</span> <span class="n">createPart</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
+  <span class="n">local</span> <span class="n">part</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Part&quot;</span><span class="p">)</span>
+  <span class="n">part</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">location</span>
+  <span class="n">part</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">workspace</span>
+<span class="n">end</span>
+ 
+<span class="n">local</span> <span class="n">function</span> <span class="n">onClick</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">clickLocation</span><span class="p">)</span>
+  <span class="n">createPart</span><span class="p">(</span><span class="n">clickLocation</span><span class="p">)</span>
+<span class="n">end</span>
+ 
+<span class="n">local</span> <span class="n">function</span> <span class="n">onEquip</span><span class="p">()</span>
+  <span class="n">clickEventConnection</span> <span class="o">=</span> <span class="n">clickEvent</span><span class="o">.</span><span class="n">OnServerEvent</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">onClick</span><span class="p">)</span>
+<span class="n">end</span>
+ 
+<span class="n">local</span> <span class="n">function</span> <span class="n">onUnequip</span><span class="p">()</span>
+  <span class="n">clickEventConnection</span><span class="p">:</span><span class="n">disconnect</span><span class="p">()</span>
+<span class="n">end</span>
+ 
+<span class="n">tool</span><span class="o">.</span><span class="n">Equipped</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">onEquip</span><span class="p">)</span>
+<span class="n">tool</span><span class="o">.</span><span class="n">Unequipped</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">onUnequip</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>我们已经添加了相当多的内容，下面将进行逐步分解。首先，我们为工具和 RemoteEvent 声明了变量。我们还创建了变量 <em>clickEventConnection</em>，将使用它来存储事件连接。</p>
+<p>然后，我们声明了函数 <em>onClick</em>，当侦听器听到事件触发时将调用该函数。该函数有两个参数，触发事件的玩家和玩家单击的位置（稍后将从 LocalScript 传入）。</p>
+<p>在 <em>onEquip</em> 函数中，我们将 <em>onClick</em> 函数连接到 RemoteEvent 的 OnServerEvent 事件。这样，每当 RemoteEvent 触发时，它都会调用 <em>onclick</em>。最后，我们在 <em>onUnequip</em> 函数中的 <em>clickEventConnection</em> 上调用 disconnect，这样当玩家没有拿出工具时就不会触发该事件。</p>
+<p>您可能已经注意到，我们将玩家传入了 <em>onClick</em> 函数，但我们从未实际使用过该变量。当您将函数绑定到 OnServerEvent 时，总是首先传入玩家参数，因此我们需要确保为它准备一个变量。</p>
+<p>现在我们已经设置了 Script，我们只需要稍微修改一下 LocalScript，让它触发 RemoteEvent 即可。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">本地</span> <span class="n">Script</span>
+<span class="n">local</span> <span class="n">tool</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+<span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">LocalPlayer</span>
+<span class="n">local</span> <span class="n">mouse</span> <span class="o">=</span> <span class="n">player</span><span class="p">:</span><span class="n">GetMouse</span><span class="p">()</span>
+<span class="n">local</span> <span class="n">clickEvent</span> <span class="o">=</span> <span class="n">tool</span><span class="o">.</span><span class="n">ClickEvent</span>
+ 
+<span class="n">local</span> <span class="n">function</span> <span class="n">onActivate</span><span class="p">()</span>
+  <span class="n">local</span> <span class="n">clickLocation</span> <span class="o">=</span> <span class="n">mouse</span><span class="o">.</span><span class="n">Hit</span>
+  <span class="n">clickEvent</span><span class="p">:</span><span class="n">FireServer</span><span class="p">(</span><span class="n">clickLocation</span><span class="p">)</span>
+<span class="n">end</span>
+ 
+<span class="n">tool</span><span class="o">.</span><span class="n">Activated</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">onActivate</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>为了让 LocalScript 触发 RemoteEvent，我们调用 <code class="docutils literal notranslate"><span class="pre">FireServer</span></code>。此函数可以接受我们想要的任意数量的参数。在本例中，我们只想传递玩家单击的位置。</p>
+<p>现在，当我们装备好工具时，就可以通过单击来创建部件了！</p>
+<p><img alt="Tool_Image10.png" src="https://developer.roblox.com/assets/blt7fa963a29b7e1a0d/Tool_Image10.png" /></p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Player-Tools">玩家工具</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="detecting-collisions.html" class="btn btn-neutral float-right" title="检测碰撞" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Side-Scrolling-Camera-View.html" class="btn btn-neutral float-left" title="横向卷轴镜头" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

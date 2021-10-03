@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Avatar Emotes &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chat Modules" href="Chat-Modules.html" />
+    <link rel="prev" title="设置文本动画" href="animating-text.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-GUIs.html">GUI 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI-Animations.html">GUI 动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fundamentals-of-Scripting-with-GUIs.html">GUI 脚本简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Chat-System.html">Lua 聊天系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Interactive-Surface-GUI.html">交互式表面 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-GUI-Buttons.html">创建 GUI 按钮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Radial-Menu.html">创建摇杆快速菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Grid-Menu.html">创建栅格菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using-Images-in-GUIs.html">在 GUI 中使用图像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text-and-Chat-Filtering.html">文本与聊天过滤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Camera-manipulation.html">镜头操控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mouse-Icon-Appearance.html">鼠标指针控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animating-text.html">设置文本动画</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Avatar Emotes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#controlling-the-emotes-menu">Controlling the Emotes Menu</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#customizing-the-menu">Customizing the Menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opening-closing-the-menu">Opening/Closing the Menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disabling-the-menu">Disabling the Menu</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#playing-emotes">Playing Emotes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Chat-Modules.html">Chat Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Custom-Teleport-GUI.html">创建自定义传送屏幕</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Scrolling-Frame-GUI.html">创建滚动框架 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-the-camera.html">Customizing the Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Disabling-Parts-of-Game-Interface.html">禁用游戏界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-bindings.html">Roblox Input Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selection-Boxes.html">选择框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Three-Quarters-Camera-View.html">45 度镜头视角</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Unit-Frame.html">单元框：制作生命槽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewportframe-gui.html">ViewportFrame GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/user-interface.html">用户界面</a> &raquo;</li>
+        
+      <li>Avatar Emotes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/avatar-emotes.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="avatar-emotes">
+<h1>Avatar Emotes<a class="headerlink" href="#avatar-emotes" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>opt-in</em></p>
+<p>In addition to the default <code class="docutils literal notranslate"><span class="pre">articles/Lua</span> <span class="pre">Chat</span> <span class="pre">System|chat</span></code> and opt-in <code class="docutils literal notranslate"><span class="pre">articles/Avatar</span> <span class="pre">Context</span> <span class="pre">Menu|Avatar</span> <span class="pre">Context</span> <span class="pre">Menu</span></code>, Roblox players can express what they’re feeling through <strong>emotes</strong>.</p>
+<p>Uh oh! Your browser doesn’t appear to support embedded videos! Here is a <a class="reference external" href="/zh-cn/assets/blt51bf60023e6396b7/Emotes.mp4">direct link</a> to the video instead.</p>
+<p>Depending on the platform, the emote menu can be opened as follows:</p>
+<p>Platform Method</p>
+<p>PC / Mobile
+Click/tap the <img alt="https://developer.roblox.com/assets/blt2ee60d0984800c91/Emotes-Menu-Icon.png" src="https://developer.roblox.com/assets/blt2ee60d0984800c91/Emotes-Menu-Icon.png" /></p>
+<p>button from the top menu bar.</p>
+<p>Console
+Access it from the radial menu.</p>
+<div class="section" id="controlling-the-emotes-menu">
+<h2>Controlling the Emotes Menu<a class="headerlink" href="#controlling-the-emotes-menu" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="customizing-the-menu">
+<h3>Customizing the Menu<a class="headerlink" href="#customizing-the-menu" title="Permalink to this headline">¶</a></h3>
+<p>The emotes menu can be customized by loading and “equipping” emotes from the <a class="reference external" href="https://www.roblox.com/catalog/?Category=12&amp;Subcategory=39">catalog</a>. In a script, this can be done by calling <code class="docutils literal notranslate"><span class="pre">HumanoidDescription/SetEmotes|SetEmotes()</span></code> on a player’s <code class="docutils literal notranslate"><span class="pre">HumanoidDescription</span></code> object. Once set, specific emotes can be equipped via the <code class="docutils literal notranslate"><span class="pre">HumanoidDescription/SetEquippedEmotes|SetEquippedEmotes()</span></code> API.</p>
+<p>Consider the following example which may be placed in a <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> within <code class="docutils literal notranslate"><span class="pre">StarterCharacterScripts</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">Players</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">humanoid</span> <span class="o">=</span> <span class="n">Players</span><span class="o">.</span><span class="n">LocalPlayer</span><span class="o">.</span><span class="n">Character</span><span class="o">.</span><span class="n">Humanoid</span>
+    <span class="n">local</span> <span class="n">humanoidDescription</span> <span class="o">=</span> <span class="n">humanoid</span><span class="o">.</span><span class="n">HumanoidDescription</span>
+    
+    <span class="o">--</span> <span class="n">加载自定义表情</span>
+    <span class="n">local</span> <span class="n">emoteTable</span> <span class="o">=</span> <span class="p">{</span>
+    	<span class="p">[</span><span class="s2">&quot;Hello&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3576686446</span><span class="p">},</span>
+    	<span class="p">[</span><span class="s2">&quot;Stadium&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3360686498</span><span class="p">},</span>
+    	<span class="p">[</span><span class="s2">&quot;Tilt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3360692915</span><span class="p">},</span>
+    	<span class="p">[</span><span class="s2">&quot;Shrug&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3576968026</span><span class="p">},</span>
+    	<span class="p">[</span><span class="s2">&quot;Salute&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3360689775</span><span class="p">},</span>
+    	<span class="p">[</span><span class="s2">&quot;Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3576823880</span><span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">humanoidDescription</span><span class="p">:</span><span class="n">SetEmotes</span><span class="p">(</span><span class="n">emoteTable</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">以指定顺序装备表情</span>
+    <span class="n">local</span> <span class="n">equippedEmotes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot;Stadium&quot;</span><span class="p">,</span> <span class="s2">&quot;Tilt&quot;</span><span class="p">,</span> <span class="s2">&quot;Shrug&quot;</span><span class="p">,</span> <span class="s2">&quot;Salute&quot;</span><span class="p">,</span> <span class="s2">&quot;Point&quot;</span><span class="p">}</span>
+    <span class="n">humanoidDescription</span><span class="p">:</span><span class="n">SetEquippedEmotes</span><span class="p">(</span><span class="n">equippedEmotes</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<div class="section" id="id1">
+<h4>设置说明<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">emoteTable</span></code> 内的 <code class="docutils literal notranslate"><span class="pre">[&quot;Shrug&quot;]</span></code> 或 <code class="docutils literal notranslate"><span class="pre">[&quot;Salute&quot;]</span></code> 等键名称是可以自定义的。当玩家浏览菜单选项时，这些键名称将出现在表情菜单的中心。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">equippedEmotes</span></code> 表中键名称的顺序定义了菜单中表情的显示顺序，从第一个位置（轮盘顶部）开始按顺时针顺序排列。</p></li>
+<li><p>表情菜单包含 8 个位置。如果您没有 8 个要加载的自定义表情，请考虑重复一些键，用总共 8 个条目填充 <code class="docutils literal notranslate"><span class="pre">equippedEmotes</span></code> 表，以确保菜单中没有空位。</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="opening-closing-the-menu">
+<h3>Opening/Closing the Menu<a class="headerlink" href="#opening-closing-the-menu" title="Permalink to this headline">¶</a></h3>
+<p>To forcibly open or close the emotes menu, call <code class="docutils literal notranslate"><span class="pre">GuiService/SetEmotesMenuOpen|GuiService:SetEmotesMenuOpen()</span></code> with a boolean value of <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">打开表情菜单</span>
+    <span class="n">local</span> <span class="n">GuiService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;GuiService&quot;</span><span class="p">)</span>
+    <span class="n">GuiService</span><span class="p">:</span><span class="n">SetEmotesMenuOpen</span><span class="p">(</span><span class="n">true</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>If you need to detect whether the emotes menu is open, call <code class="docutils literal notranslate"><span class="pre">GuiService/GetEmotesMenuOpen|GuiService:GetEmotesMenuOpen()</span></code>. This will return a boolean indicating the menu’s current state.</p>
+</div>
+<div class="section" id="disabling-the-menu">
+<h3>Disabling the Menu<a class="headerlink" href="#disabling-the-menu" title="Permalink to this headline">¶</a></h3>
+<p>The emotes menu can be disabled via the <code class="docutils literal notranslate"><span class="pre">StarterGui/SetCoreGuiEnabled|StarterGui:SetCoreGuiEnabled()</span></code> API. Note, however, that disabling the menu will <strong>not</strong> prevent emotes from being performed with an <code class="docutils literal notranslate"><span class="pre">articles/Lua</span> <span class="pre">Chat</span> <span class="pre">System|admin</span> <span class="pre">command</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">StarterGui</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;StarterGui&quot;</span><span class="p">)</span>
+    <span class="n">StarterGui</span><span class="p">:</span><span class="n">SetCoreGuiEnabled</span><span class="p">(</span><span class="n">Enum</span><span class="o">.</span><span class="n">CoreGuiType</span><span class="o">.</span><span class="n">EmotesMenu</span><span class="p">,</span> <span class="n">false</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h4>禁用用户表情<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>除了禁用菜单外，您还可以通过关闭 <strong>StarterPlayer</strong> → <strong>Character</strong> 中的 <strong>UserEmotesEnabled</strong> 选项来禁用<strong>用户已拥有</strong>表情的加载。请注意，此属性只能在 Studio 中设置，不能在运行时由脚本设置，但它可以由脚本读取。</p>
+</div>
+</div>
+</div>
+<div class="section" id="playing-emotes">
+<h2>Playing Emotes<a class="headerlink" href="#playing-emotes" title="Permalink to this headline">¶</a></h2>
+<p>To explicitly play an emote that a character has in its <code class="docutils literal notranslate"><span class="pre">HumanoidDescription</span></code>, call the <code class="docutils literal notranslate"><span class="pre">Humanoid/PlayEmote|Humanoid:PlayEmote()</span></code> API, passing the string name of the emote. This call will return <code class="docutils literal notranslate"><span class="pre">true</span></code> to indicate that the emote was played successfully, or <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">Players</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">humanoid</span> <span class="o">=</span> <span class="n">Players</span><span class="o">.</span><span class="n">LocalPlayer</span><span class="o">.</span><span class="n">Character</span><span class="o">.</span><span class="n">Humanoid</span>
+    
+    <span class="n">humanoid</span><span class="p">:</span><span class="n">PlayEmote</span><span class="p">(</span><span class="s2">&quot;Shrug&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/avatar-emotes">Avatar Emotes</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Chat-Modules.html" class="btn btn-neutral float-right" title="Chat Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="animating-text.html" class="btn btn-neutral float-left" title="设置文本动画" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

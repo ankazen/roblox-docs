@@ -1,0 +1,736 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CFrame 数学运算 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Table（表）" href="Table.html" />
+    <link rel="prev" title="协同程序初学者指南" href="Beginners-Guide-to-Coroutines.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">CFrame 数学运算</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">CFrame 的分量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cframe-cframe">CFrame * CFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cframe-vector3">CFrame * Vector3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">CFrame + / - Vector3</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">CFrame 的逆运算</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">还原为初始值</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">门的旋转</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">亲自尝试：接合</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">CFrame 方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cframe-toobjectspace">CFrame:ToObjectSpace()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cframe-toworldspace">CFrame:ToWorldSpace()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cframe-pointtoobjectspace">CFrame:PointToObjectSpace()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cframe-pointtoworldspace">CFrame:PointToWorldSpace()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cframe-vectortoobjectspace">CFrame:VectorToObjectSpace()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cframe-vectortoworldspace">CFrame:VectorToWorldSpace()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>CFrame 数学运算</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/CFrame-Math-Operations.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cframe">
+<h1>CFrame 数学运算<a class="headerlink" href="#cframe" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>15  分钟</em></p>
+<p>阅读本文章前需要具备较为深厚的向量和向量数学知识。请刚接触 CFrame 的开发者先从<code class="docutils literal notranslate"><span class="pre">articles/Understanding</span> <span class="pre">CFrame|了解</span> <span class="pre">CFrames</span></code>一文开始阅读。</p>
+<div class="section" id="id1">
+<h2>CFrame 的分量<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>每个 CFrame 都由 12 个单独的数字组成，我们称其为分量。当需要获取这些数字时，只需调用能够将其作为结果返回的 <code class="docutils literal notranslate"><span class="pre">CFrame:components()</span></code> 方法即可。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">m11</span><span class="p">,</span> <span class="n">m12</span><span class="p">,</span> <span class="n">m13</span><span class="p">,</span> <span class="n">m21</span><span class="p">,</span> <span class="n">m22</span><span class="p">,</span> <span class="n">m23</span><span class="p">,</span> <span class="n">m31</span><span class="p">,</span> <span class="n">m32</span><span class="p">,</span> <span class="n">m33</span> <span class="o">=</span> <span class="n">cf</span><span class="p">:</span><span class="n">components</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>当定义 CFrame 时，开发者也可以直接输入这 12 个数字。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">cf</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">m11</span><span class="p">,</span> <span class="n">m12</span><span class="p">,</span> <span class="n">m13</span><span class="p">,</span> <span class="n">m21</span><span class="p">,</span> <span class="n">m22</span><span class="p">,</span> <span class="n">m23</span><span class="p">,</span> <span class="n">m31</span><span class="p">,</span> <span class="n">m32</span><span class="p">,</span> <span class="n">m33</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>12 个数字中的前三个分别为 CFrame 的 x、y 和 z 分量，也就是其中包含的坐标位置。剩余的数字组成了 CFrame 的旋转方位。这些数字看上去可能有些复杂，但当我们对其换个方式稍加整理就会发现，这些数列分别代表的是 rightVector、upVector 和负 lookVector。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">cf</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">m11</span><span class="p">,</span> <span class="n">m12</span><span class="p">,</span> <span class="n">m13</span><span class="p">,</span> <span class="n">m21</span><span class="p">,</span> <span class="n">m22</span><span class="p">,</span> <span class="n">m23</span><span class="p">,</span> <span class="n">m31</span><span class="p">,</span> <span class="n">m32</span><span class="p">,</span> <span class="n">m33</span> <span class="o">=</span> <span class="n">cf</span><span class="p">:</span><span class="n">components</span><span class="p">()</span>
+
+<span class="o">--</span> <span class="n">m11</span><span class="p">,</span> <span class="n">m12</span><span class="p">,</span> <span class="n">m13</span><span class="p">,</span>
+<span class="o">--</span> <span class="n">m21</span><span class="p">,</span> <span class="n">m22</span><span class="p">,</span> <span class="n">m23</span><span class="p">,</span>
+<span class="o">--</span> <span class="n">m31</span><span class="p">,</span> <span class="n">m32</span><span class="p">,</span> <span class="n">m33</span>
+
+<span class="n">local</span> <span class="n">right</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">m11</span><span class="p">,</span> <span class="n">m21</span><span class="p">,</span> <span class="n">m31</span><span class="p">)</span> <span class="o">--</span> <span class="n">与</span> <span class="n">cf</span><span class="o">.</span><span class="n">rightVector</span> <span class="n">相同</span>
+<span class="n">local</span> <span class="n">up</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">m12</span><span class="p">,</span> <span class="n">m22</span><span class="p">,</span> <span class="n">m32</span><span class="p">)</span> <span class="o">--</span> <span class="n">与</span> <span class="n">cf</span><span class="o">.</span><span class="n">upVector</span> <span class="n">相同</span>
+<span class="n">local</span> <span class="n">back</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">m13</span><span class="p">,</span> <span class="n">m23</span><span class="p">,</span> <span class="n">m33</span><span class="p">)</span> <span class="o">--</span> <span class="n">与</span> <span class="o">-</span><span class="n">cf</span><span class="o">.</span><span class="n">lookVecto</span> <span class="n">相同</span>
+</pre></div>
+</div>
+<p>对这些向量进行视觉化后，我们将可以更轻易地体会 CFrame 旋转数值的实际效果。从下图中可以看到这些数字代表的是三个正交向量，它们共同描绘了一个 3D 球体状旋转范围。</p>
+<p><img alt="CFrame Axes" src="https://developer.roblox.com/assets/blt0d5070611917410a/CFrameMath_rotationVectors-compressor.gif" /></p>
+</div>
+<div class="section" id="cframe-cframe">
+<h2>CFrame * CFrame<a class="headerlink" href="#cframe-cframe" title="Permalink to this headline">¶</a></h2>
+<p>CFrame 实际上是采用以下形式的 4x4 矩阵：</p>
+<p><img alt="CFrameMath_cf4x4.png" src="https://developer.roblox.com/assets/blt13db5c99d3faf61f/CFrameMath_cf4x4.png" /></p>
+<p>也就是说，我们只需将两个 4x4 的矩阵相乘，就能轻松地将两个 CFrame 相乘！</p>
+<p><img alt="CFrameMath_cf4x4Multiply2.png" src="https://developer.roblox.com/assets/bltd549ef4a34baeda7/CFrameMath_cf4x4Multiply2.png" /></p>
+<p>这样我们就能编写出用于将两个 CFrame 相乘的函数！</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">function</span> <span class="n">multiplyCFrame</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">ax</span><span class="p">,</span> <span class="n">ay</span><span class="p">,</span> <span class="n">az</span><span class="p">,</span> <span class="n">a11</span><span class="p">,</span> <span class="n">a12</span><span class="p">,</span> <span class="n">a13</span><span class="p">,</span> <span class="n">a21</span><span class="p">,</span> <span class="n">a22</span><span class="p">,</span> <span class="n">a23</span><span class="p">,</span> <span class="n">a31</span><span class="p">,</span> <span class="n">a32</span><span class="p">,</span> <span class="n">a33</span> <span class="o">=</span> <span class="n">a</span><span class="p">:</span><span class="n">components</span><span class="p">()</span>
+	<span class="n">local</span> <span class="n">bx</span><span class="p">,</span> <span class="n">by</span><span class="p">,</span> <span class="n">bz</span><span class="p">,</span> <span class="n">b11</span><span class="p">,</span> <span class="n">b12</span><span class="p">,</span> <span class="n">b13</span><span class="p">,</span> <span class="n">b21</span><span class="p">,</span> <span class="n">b22</span><span class="p">,</span> <span class="n">b23</span><span class="p">,</span> <span class="n">b31</span><span class="p">,</span> <span class="n">b32</span><span class="p">,</span> <span class="n">b33</span> <span class="o">=</span> <span class="n">b</span><span class="p">:</span><span class="n">components</span><span class="p">()</span>
+	<span class="n">local</span> <span class="n">m11</span> <span class="o">=</span> <span class="n">a11</span><span class="o">*</span><span class="n">b11</span><span class="o">+</span><span class="n">a12</span><span class="o">*</span><span class="n">b21</span><span class="o">+</span><span class="n">a13</span><span class="o">*</span><span class="n">b31</span>
+	<span class="n">local</span> <span class="n">m12</span> <span class="o">=</span> <span class="n">a11</span><span class="o">*</span><span class="n">b12</span><span class="o">+</span><span class="n">a12</span><span class="o">*</span><span class="n">b22</span><span class="o">+</span><span class="n">a13</span><span class="o">*</span><span class="n">b32</span>
+	<span class="n">local</span> <span class="n">m13</span> <span class="o">=</span> <span class="n">a11</span><span class="o">*</span><span class="n">b13</span><span class="o">+</span><span class="n">a12</span><span class="o">*</span><span class="n">b23</span><span class="o">+</span><span class="n">a13</span><span class="o">*</span><span class="n">b33</span>
+	<span class="n">local</span> <span class="n">x</span> <span class="o">=</span> <span class="n">a11</span><span class="o">*</span><span class="n">bx</span><span class="o">+</span><span class="n">a12</span><span class="o">*</span><span class="n">by</span><span class="o">+</span><span class="n">a13</span><span class="o">*</span><span class="n">bz</span><span class="o">+</span><span class="n">ax</span>
+	<span class="n">local</span> <span class="n">m21</span> <span class="o">=</span> <span class="n">a21</span><span class="o">*</span><span class="n">b11</span><span class="o">+</span><span class="n">a22</span><span class="o">*</span><span class="n">b21</span><span class="o">+</span><span class="n">a23</span><span class="o">*</span><span class="n">b31</span>
+	<span class="n">local</span> <span class="n">m22</span> <span class="o">=</span> <span class="n">a21</span><span class="o">*</span><span class="n">b12</span><span class="o">+</span><span class="n">a22</span><span class="o">*</span><span class="n">b22</span><span class="o">+</span><span class="n">a23</span><span class="o">*</span><span class="n">b32</span>
+	<span class="n">local</span> <span class="n">m23</span> <span class="o">=</span> <span class="n">a21</span><span class="o">*</span><span class="n">b13</span><span class="o">+</span><span class="n">a22</span><span class="o">*</span><span class="n">b23</span><span class="o">+</span><span class="n">a23</span><span class="o">*</span><span class="n">b33</span>
+	<span class="n">local</span> <span class="n">y</span> <span class="o">=</span> <span class="n">a21</span><span class="o">*</span><span class="n">bx</span><span class="o">+</span><span class="n">a22</span><span class="o">*</span><span class="n">by</span><span class="o">+</span><span class="n">a23</span><span class="o">*</span><span class="n">bz</span><span class="o">+</span><span class="n">ay</span>
+	<span class="n">local</span> <span class="n">m31</span> <span class="o">=</span> <span class="n">a31</span><span class="o">*</span><span class="n">b11</span><span class="o">+</span><span class="n">a32</span><span class="o">*</span><span class="n">b21</span><span class="o">+</span><span class="n">a33</span><span class="o">*</span><span class="n">b31</span>
+	<span class="n">local</span> <span class="n">m32</span> <span class="o">=</span> <span class="n">a31</span><span class="o">*</span><span class="n">b12</span><span class="o">+</span><span class="n">a32</span><span class="o">*</span><span class="n">b22</span><span class="o">+</span><span class="n">a33</span><span class="o">*</span><span class="n">b32</span>
+	<span class="n">local</span> <span class="n">m33</span> <span class="o">=</span> <span class="n">a31</span><span class="o">*</span><span class="n">b13</span><span class="o">+</span><span class="n">a32</span><span class="o">*</span><span class="n">b23</span><span class="o">+</span><span class="n">a33</span><span class="o">*</span><span class="n">b33</span>
+	<span class="n">local</span> <span class="n">z</span> <span class="o">=</span> <span class="n">a31</span><span class="o">*</span><span class="n">bx</span><span class="o">+</span><span class="n">a32</span><span class="o">*</span><span class="n">by</span><span class="o">+</span><span class="n">a33</span><span class="o">*</span><span class="n">bz</span><span class="o">+</span><span class="n">az</span>
+	<span class="k">return</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">m11</span><span class="p">,</span> <span class="n">m12</span><span class="p">,</span> <span class="n">m13</span><span class="p">,</span> <span class="n">m21</span><span class="p">,</span> <span class="n">m22</span><span class="p">,</span> <span class="n">m23</span><span class="p">,</span> <span class="n">m31</span><span class="p">,</span> <span class="n">m32</span><span class="p">,</span> <span class="n">m33</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>我们还可以通过循环到达同样的结果：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">function</span> <span class="n">multiply4x4</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">16</span> <span class="n">do</span>
+		<span class="n">out</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="n">local</span> <span class="n">r</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+		<span class="n">local</span> <span class="n">p</span> <span class="o">=</span> <span class="n">i</span><span class="o">%</span><span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="mi">4</span> <span class="ow">or</span> <span class="n">i</span><span class="o">%</span><span class="mi">4</span>
+		<span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span> <span class="n">do</span>
+			<span class="n">local</span> <span class="n">ai</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="o">+</span><span class="n">j</span>
+			<span class="n">local</span> <span class="n">bi</span> <span class="o">=</span> <span class="n">p</span><span class="o">+</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span>
+			<span class="n">out</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="n">ai</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="n">bi</span><span class="p">]</span>
+		<span class="n">end</span>
+	<span class="n">end</span>
+	<span class="k">return</span> <span class="n">out</span>
+<span class="n">end</span>
+ 
+<span class="n">local</span> <span class="n">function</span> <span class="n">multiplyCFrame</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">ax</span><span class="p">,</span> <span class="n">ay</span><span class="p">,</span> <span class="n">az</span><span class="p">,</span> <span class="n">a11</span><span class="p">,</span> <span class="n">a12</span><span class="p">,</span> <span class="n">a13</span><span class="p">,</span> <span class="n">a21</span><span class="p">,</span> <span class="n">a22</span><span class="p">,</span> <span class="n">a23</span><span class="p">,</span> <span class="n">a31</span><span class="p">,</span> <span class="n">a32</span><span class="p">,</span> <span class="n">a33</span> <span class="o">=</span> <span class="n">a</span><span class="p">:</span><span class="n">components</span><span class="p">()</span>
+	<span class="n">local</span> <span class="n">bx</span><span class="p">,</span> <span class="n">by</span><span class="p">,</span> <span class="n">bz</span><span class="p">,</span> <span class="n">b11</span><span class="p">,</span> <span class="n">b12</span><span class="p">,</span> <span class="n">b13</span><span class="p">,</span> <span class="n">b21</span><span class="p">,</span> <span class="n">b22</span><span class="p">,</span> <span class="n">b23</span><span class="p">,</span> <span class="n">b31</span><span class="p">,</span> <span class="n">b32</span><span class="p">,</span> <span class="n">b33</span> <span class="o">=</span> <span class="n">b</span><span class="p">:</span><span class="n">components</span><span class="p">()</span>
+	<span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="n">a11</span><span class="p">,</span> <span class="n">a12</span><span class="p">,</span> <span class="n">a13</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">a21</span><span class="p">,</span> <span class="n">a22</span><span class="p">,</span> <span class="n">a23</span><span class="p">,</span> <span class="n">ay</span><span class="p">,</span> <span class="n">a31</span><span class="p">,</span> <span class="n">a32</span><span class="p">,</span> <span class="n">a33</span><span class="p">,</span> <span class="n">az</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span>
+	<span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="n">b11</span><span class="p">,</span> <span class="n">b12</span><span class="p">,</span> <span class="n">b13</span><span class="p">,</span> <span class="n">bx</span><span class="p">,</span> <span class="n">b21</span><span class="p">,</span> <span class="n">b22</span><span class="p">,</span> <span class="n">b23</span><span class="p">,</span> <span class="n">by</span><span class="p">,</span> <span class="n">b31</span><span class="p">,</span> <span class="n">b32</span><span class="p">,</span> <span class="n">b33</span><span class="p">,</span> <span class="n">bz</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span>
+	<span class="n">local</span> <span class="n">m11</span><span class="p">,</span> <span class="n">m12</span><span class="p">,</span> <span class="n">m13</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">m21</span><span class="p">,</span> <span class="n">m22</span><span class="p">,</span> <span class="n">m23</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">m31</span><span class="p">,</span> <span class="n">m32</span><span class="p">,</span> <span class="n">m33</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="n">multiply4x4</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+	<span class="k">return</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">m11</span><span class="p">,</span> <span class="n">m12</span><span class="p">,</span> <span class="n">m13</span><span class="p">,</span> <span class="n">m21</span><span class="p">,</span> <span class="n">m22</span><span class="p">,</span> <span class="n">m23</span><span class="p">,</span> <span class="n">m31</span><span class="p">,</span> <span class="n">m32</span><span class="p">,</span> <span class="n">m33</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>最后让我们来进行验证测试</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">cf</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">14</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">72</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">));</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cf</span><span class="o">*</span><span class="n">cf</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">multiplyCFrame</span><span class="p">(</span><span class="n">cf</span><span class="p">,</span> <span class="n">cf</span><span class="p">))</span>
+
+
+
+<span class="mf">4.44273901</span><span class="p">,</span> <span class="mf">3.34623194</span><span class="p">,</span> <span class="mf">2.4210279</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.849777162</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0723331869</span><span class="p">,</span> <span class="mf">0.522155881</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.316965073</span><span class="p">,</span> <span class="mf">0.861586094</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.396487743</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.421203077</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.502431393</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.755083263</span>
+<span class="mf">4.44273901</span><span class="p">,</span> <span class="mf">3.34623194</span><span class="p">,</span> <span class="mf">2.4210279</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.849777162</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0723331869</span><span class="p">,</span> <span class="mf">0.522155941</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.316965073</span><span class="p">,</span> <span class="mf">0.861586154</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.396487743</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.421203077</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.502431393</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.755083263</span>
+</pre></div>
+</div>
+<p>进行 CFrame 相乘时有一点十分重要：CFrame 的乘数是不能互换的。换而言之，a * b 并不一定等于 b * a。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">cf1</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">14</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">72</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">))</span>
+<span class="n">local</span> <span class="n">cf2</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">90</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="o">-</span><span class="mi">28</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="o">-</span><span class="mi">86</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cf1</span><span class="o">*</span><span class="n">cf2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cf2</span><span class="o">*</span><span class="n">cf1</span><span class="p">)</span>
+
+
+
+<span class="mf">5.09500504</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.92827415</span><span class="p">,</span> <span class="mf">7.54646206</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.937961817</span><span class="p">,</span> <span class="mf">0.220474482</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.26761657</span><span class="p">,</span> <span class="mf">0.0239842981</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.728708208</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.684404194</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.345908046</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.64836365</span><span class="p">,</span> <span class="mf">0.678212643</span>
+<span class="mf">0.514770269</span><span class="p">,</span> <span class="o">-</span><span class="mf">13.618248</span><span class="p">,</span> <span class="mf">5.1419487</span><span class="p">,</span> <span class="mf">0.162701935</span><span class="p">,</span> <span class="mf">0.975506902</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.148035079</span><span class="p">,</span> <span class="mf">0.94501543</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.197204709</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.260875672</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.283679247</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0974504724</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.953954697</span>
+</pre></div>
+</div>
+<p>这项规则也有几种例外情况，其中一种是逆运算，我们稍后再做讨论，而另一种就是我们现在要谈到的身份识别 CFrame。</p>
+<p>身份识别 CFrame 如下所示：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">identityCFrame</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">note</span><span class="p">:</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>如果我们自前或自后用 CFrame 乘以身份识别 CFrame，我们只会得到原来的 CFrame，就像从未进行过乘法运算一样。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">cf</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">14</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">72</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cf</span><span class="o">*</span><span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">()</span><span class="o">*</span><span class="n">cf</span><span class="p">)</span>
+
+
+
+<span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.262061268</span><span class="p">,</span> <span class="mf">0.163754046</span><span class="p">,</span> <span class="mf">0.95105654</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.319058299</span><span class="p">,</span> <span class="mf">0.944782019</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0747579709</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.910783052</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.283851326</span><span class="p">,</span> <span class="mf">0.299837857</span>
+<span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.262061268</span><span class="p">,</span> <span class="mf">0.163754046</span><span class="p">,</span> <span class="mf">0.95105654</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.319058299</span><span class="p">,</span> <span class="mf">0.944782019</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0747579709</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.910783052</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.283851326</span><span class="p">,</span> <span class="mf">0.299837857</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cframe-vector3">
+<h2>CFrame * Vector3<a class="headerlink" href="#cframe-vector3" title="Permalink to this headline">¶</a></h2>
+<p>我们已经知道 CFrame 实际上是 4x4 的矩阵，那么下面就让我们来看看如何将其与向量相乘。CFrame 与 Vector3 的乘法运算用矩阵形式表现是这样的。</p>
+<p><img alt="CFrameMath_cfv3Multiply.png" src="https://developer.roblox.com/assets/bltf1a4d51278a9ac43/CFrameMath_cfv3Multiply.png" /></p>
+<p>因此我们可以编写下列函数</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">function</span> <span class="n">multiplycfv3</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">m11</span><span class="p">,</span> <span class="n">m12</span><span class="p">,</span> <span class="n">m13</span><span class="p">,</span> <span class="n">m21</span><span class="p">,</span> <span class="n">m22</span><span class="p">,</span> <span class="n">m23</span><span class="p">,</span> <span class="n">m31</span><span class="p">,</span> <span class="n">m32</span><span class="p">,</span> <span class="n">m33</span> <span class="o">=</span> <span class="n">a</span><span class="p">:</span><span class="n">components</span><span class="p">()</span>
+	<span class="n">local</span> <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span><span class="p">,</span> <span class="n">vz</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">z</span>
+	<span class="n">local</span> <span class="n">nx</span> <span class="o">=</span> <span class="n">m11</span><span class="o">*</span><span class="n">vx</span><span class="o">+</span><span class="n">m12</span><span class="o">*</span><span class="n">vy</span><span class="o">+</span><span class="n">m13</span><span class="o">*</span><span class="n">vz</span><span class="o">+</span><span class="n">x</span>
+	<span class="n">local</span> <span class="n">ny</span> <span class="o">=</span> <span class="n">m21</span><span class="o">*</span><span class="n">vx</span><span class="o">+</span><span class="n">m22</span><span class="o">*</span><span class="n">vy</span><span class="o">+</span><span class="n">m23</span><span class="o">*</span><span class="n">vz</span><span class="o">+</span><span class="n">y</span>
+	<span class="n">local</span> <span class="n">nz</span> <span class="o">=</span> <span class="n">m31</span><span class="o">*</span><span class="n">vx</span><span class="o">+</span><span class="n">m32</span><span class="o">*</span><span class="n">vy</span><span class="o">+</span><span class="n">m33</span><span class="o">*</span><span class="n">vz</span><span class="o">+</span><span class="n">z</span>
+	<span class="k">return</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">nz</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>下面让我们再次来进行测试。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">cf</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">14</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">72</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">))</span>
+<span class="n">local</span> <span class="n">v3</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cf</span><span class="o">*</span><span class="n">v3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">multiplycfv3</span><span class="p">(</span><span class="n">cf</span><span class="p">,</span> <span class="n">v3</span><span class="p">))</span>
+
+
+
+<span class="o">-</span><span class="mf">8.11984825</span><span class="p">,</span> <span class="mf">6.97049618</span><span class="p">,</span> <span class="o">-</span><span class="mf">6.85507774</span>
+<span class="o">-</span><span class="mf">8.11984825</span><span class="p">,</span> <span class="mf">6.97049618</span><span class="p">,</span> <span class="o">-</span><span class="mf">6.85507774</span>
+</pre></div>
+</div>
+<p>与 CFrame 间互乘不同，CFrame * Vector3 的乘法可以拆分为更加直观的形式。让我们来对表示法稍作调整。</p>
+<p><img alt="CFrameMath_cfv3Multiply2.png" src="https://developer.roblox.com/assets/bltf6737a3183a6d02e/CFrameMath_cfv3Multiply2.png" /></p>
+<p>是否注意到我们用来与 vx、vy 和 vz 相乘的向量？它们就是我们早些时候学习到的 right、up 和 back 向量！下面让我们来重写函数，反应这一知识。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">function</span> <span class="n">multiplycfv3</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="n">p</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">x</span><span class="o">*</span><span class="n">a</span><span class="o">.</span><span class="n">rightVector</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">y</span><span class="o">*</span><span class="n">a</span><span class="o">.</span><span class="n">upVector</span> <span class="o">-</span> <span class="n">b</span><span class="o">.</span><span class="n">z</span><span class="o">*</span><span class="n">a</span><span class="o">.</span><span class="n">lookVector</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>这也有助于我们将运算的实际意义以视觉化方式呈现。</p>
+<p><img alt="CFrameMath_cfv3MultiplyVisual.png" src="https://developer.roblox.com/assets/blt7538fe0aca619bb2/CFrameMath_cfv3MultiplyVisual.png" /></p>
+</div>
+<div class="section" id="id2">
+<h2>CFrame + / - Vector3<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在 CFrame 上加上或减去 Vector3 是十分直观的运算。我们只需在 CFrame x、y 和 z 上加/减向量 x、y 和 z，而旋转方位则保持不变。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">function</span> <span class="n">addcfv3</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">m11</span><span class="p">,</span> <span class="n">m12</span><span class="p">,</span> <span class="n">m13</span><span class="p">,</span> <span class="n">m21</span><span class="p">,</span> <span class="n">m22</span><span class="p">,</span> <span class="n">m23</span><span class="p">,</span> <span class="n">m31</span><span class="p">,</span> <span class="n">m32</span><span class="p">,</span> <span class="n">m33</span> <span class="o">=</span> <span class="n">a</span><span class="p">:</span><span class="n">components</span><span class="p">()</span>
+	<span class="k">return</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">m11</span><span class="p">,</span> <span class="n">m12</span><span class="p">,</span> <span class="n">m13</span><span class="p">,</span> <span class="n">m21</span><span class="p">,</span> <span class="n">m22</span><span class="p">,</span> <span class="n">m23</span><span class="p">,</span> <span class="n">m31</span><span class="p">,</span> <span class="n">m32</span><span class="p">,</span> <span class="n">m33</span><span class="p">);</span>
+<span class="n">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>当然也需要进行测试。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">cf</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">14</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">72</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">))</span>
+<span class="n">local</span> <span class="n">v3</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cf</span> <span class="o">+</span> <span class="n">v3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">addcfv3</span><span class="p">(</span><span class="n">cf</span><span class="p">,</span> <span class="n">v3</span><span class="p">))</span>
+
+
+
+<span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="mf">0.262061268</span><span class="p">,</span> <span class="mf">0.163754046</span><span class="p">,</span> <span class="mf">0.95105654</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.319058299</span><span class="p">,</span> <span class="mf">0.944782019</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0747579709</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.910783052</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.283851326</span><span class="p">,</span> <span class="mf">0.299837857</span>
+<span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="mf">0.262061268</span><span class="p">,</span> <span class="mf">0.163754046</span><span class="p">,</span> <span class="mf">0.95105654</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.319058299</span><span class="p">,</span> <span class="mf">0.944782019</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0747579709</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.910783052</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.283851326</span><span class="p">,</span> <span class="mf">0.299837857</span>
+</pre></div>
+</div>
+<div class="section" id="id3">
+<h3>CFrame 的逆运算<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>CFrame 的逆运算对于大多数人来说都有一定难度。我们将不会在本文中介绍具体如何进行逆运算，而是会着重解说逆运算的使用方法。</p>
+<p>我们在 CFrame 互乘章节最后曾提到，乘法的乘数并非总是能够互换。对于乘以派生于自身 CFrame 的 CFrame 逆运算来说，这一条并<strong>不</strong>适用。无论开发者自前还是自后用 CFrame 乘以其逆运算，<strong>始终</strong>都会返回身份识别 CFrame！</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">cf</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cf</span><span class="o">*</span><span class="n">cf</span><span class="p">:</span><span class="n">inverse</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cf</span><span class="p">:</span><span class="n">inverse</span><span class="p">()</span><span class="o">*</span><span class="n">cf</span><span class="p">)</span>
+
+
+
+<span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>运用 CFrame 逆运算的窍门就是写出等式，然后运用我们所掌握的身份识别 CFrame 和 CFrame 乘数不可互换属性等相关知识。让我们来看几个示例。</p>
+</div>
+<div class="section" id="id4">
+<h3>还原为初始值<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>假设我们有两个 CFrame，并将其相乘得出一个新的 CFrame。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">cf1</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">cf2</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">7.2</span><span class="p">)</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">local</span> <span class="n">cf</span> <span class="o">=</span> <span class="n">cf1</span> <span class="o">*</span> <span class="n">cf2</span>
+</pre></div>
+</div>
+<p>假设仅给定了 cf 和 cf1，而我们希望求出 cf2。要如何才能做到？要着手解决该问题，我们就要看一下 cf 的等式。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cf</span> <span class="o">=</span> <span class="n">cf1</span> <span class="o">*</span> <span class="n">cf2</span>
+</pre></div>
+</div>
+<p>然后我们就可以应用自己掌握的逆运算知识来求得 cf2。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cf</span> <span class="o">=</span> <span class="n">cf1</span> <span class="o">*</span> <span class="n">cf2</span>
+<span class="n">cf1</span><span class="p">:</span><span class="n">inverse</span><span class="p">()</span> <span class="o">*</span> <span class="n">cf</span> <span class="o">=</span> <span class="n">cf1</span><span class="p">:</span><span class="n">inverse</span><span class="p">()</span> <span class="o">*</span> <span class="n">cf1</span> <span class="o">*</span> <span class="n">cf2</span> <span class="o">--</span> <span class="n">自前以</span> <span class="n">cf1</span><span class="p">:</span><span class="n">inverse</span><span class="p">()</span> <span class="n">相乘等式两边</span>
+<span class="n">cf1</span><span class="p">:</span><span class="n">inverse</span><span class="p">()</span> <span class="o">*</span> <span class="n">cf</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">()</span> <span class="o">*</span> <span class="n">cf2</span> <span class="o">--</span> <span class="n">注意</span> <span class="n">cf</span><span class="p">:</span><span class="n">inverse</span><span class="p">()</span> <span class="o">*</span> <span class="n">cf</span> <span class="o">=</span> <span class="n">identityCFrame</span>
+<span class="n">cf1</span><span class="p">:</span><span class="n">inverse</span><span class="p">()</span> <span class="o">*</span> <span class="n">cf</span> <span class="o">=</span> <span class="n">cf2</span> <span class="o">--</span> <span class="n">注意</span> <span class="n">identityCFrame</span> <span class="o">*</span> <span class="n">cf</span> <span class="o">=</span> <span class="n">cf</span>
+</pre></div>
+</div>
+<p>毫无疑问，我们能通过测试验证这一结果。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">cf1</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">cf2</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">7.2</span><span class="p">)</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">local</span> <span class="n">cf</span> <span class="o">=</span> <span class="n">cf1</span><span class="o">*</span><span class="n">cf2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cf2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cf1</span><span class="p">:</span><span class="n">inverse</span><span class="p">()</span> <span class="o">*</span> <span class="n">cf</span><span class="p">)</span>
+
+
+
+<span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">7.19999981</span><span class="p">,</span> <span class="mf">0.450484395</span><span class="p">,</span> <span class="mf">0.780261934</span><span class="p">,</span> <span class="mf">0.433883756</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.866025448</span><span class="p">,</span> <span class="mf">0.49999997</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.216941863</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.375754386</span><span class="p">,</span> <span class="mf">0.90096885</span>
+<span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mf">5.00000143</span><span class="p">,</span> <span class="mf">7.19999933</span><span class="p">,</span> <span class="mf">0.450484395</span><span class="p">,</span> <span class="mf">0.780261934</span><span class="p">,</span> <span class="mf">0.433883697</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.866025507</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.98023224e-08</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.216941863</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.375754386</span><span class="p">,</span> <span class="mf">0.90096879</span>
+</pre></div>
+</div>
+<p><em>请注意，输出结果中的细微变化是由于浮点数学运算的误差所导致</em></p>
+<p>假设我们已知 cf2 和 cf，但 cf1 未知。要求解该问题，我们也可以采用相似的步骤。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cf</span> <span class="o">=</span> <span class="n">cf1</span> <span class="o">*</span> <span class="n">cf2</span>
+<span class="n">cf</span> <span class="o">*</span> <span class="n">cf2</span><span class="p">:</span><span class="n">inverse</span><span class="p">()</span> <span class="o">=</span> <span class="n">cf1</span> <span class="o">*</span> <span class="n">cf2</span> <span class="o">*</span> <span class="n">cf2</span><span class="p">:</span><span class="n">inverse</span><span class="p">()</span> <span class="o">--</span> <span class="n">自后以</span> <span class="n">cf2</span><span class="p">:</span><span class="n">inverse</span><span class="p">()</span> <span class="n">相乘等式两边</span>
+<span class="n">cf</span> <span class="o">*</span> <span class="n">cf2</span><span class="p">:</span><span class="n">inverse</span><span class="p">()</span> <span class="o">=</span> <span class="n">cf1</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">()</span> <span class="o">--</span> <span class="n">注意</span> <span class="n">cf</span> <span class="o">*</span> <span class="n">cf</span><span class="p">:</span><span class="n">inverse</span><span class="p">()</span> <span class="o">=</span> <span class="n">identityCFrame</span>
+<span class="n">cf</span> <span class="o">*</span> <span class="n">cf2</span><span class="p">:</span><span class="n">inverse</span><span class="p">()</span> <span class="o">=</span> <span class="n">cf1</span> <span class="o">--</span> <span class="n">注意</span> <span class="n">cf</span> <span class="o">*</span> <span class="n">identityCFrame</span> <span class="o">=</span> <span class="n">cf</span>
+</pre></div>
+</div>
+<p>再次进行验证测试。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">cf1</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">cf2</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">7.2</span><span class="p">)</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">local</span> <span class="n">cf</span> <span class="o">=</span> <span class="n">cf1</span><span class="o">*</span><span class="n">cf2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cf1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cf</span> <span class="o">*</span> <span class="n">cf2</span><span class="p">:</span><span class="n">inverse</span><span class="p">())</span>
+
+
+
+<span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.866025388</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.433012724</span><span class="p">,</span> <span class="mf">0.49999997</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.75</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.249999985</span><span class="p">,</span> <span class="mf">0.866025448</span><span class="p">,</span> <span class="mf">0.433012664</span>
+<span class="mf">1.00000048</span><span class="p">,</span> <span class="mf">2.00000048</span><span class="p">,</span> <span class="mf">3.00000095</span><span class="p">,</span> <span class="mf">0.866025329</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.98023224e-08</span><span class="p">,</span> <span class="mf">0.49999997</span><span class="p">,</span> <span class="mf">0.433012664</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.75</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25000003</span><span class="p">,</span> <span class="mf">0.866025507</span><span class="p">,</span> <span class="mf">0.433012664</span>
+</pre></div>
+</div>
+<p><em>请注意，结果中的细微变化是由于浮点数学运算的误差所导致</em></p>
+<p>或许开发者心中会有这样的疑问：自前与自后相乘究竟为何如此重要？要得知原因所在，让我们来有意识地逐步研究 cf 自前乘以 cf2:inverse() 的整个运算过程，并观察最终的结果。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cf = cf1 * cf2
+cf2:inverse() * cf = cf2:inverse() * cf1 * cf2
+-- 由于不知道 cf2:inverse() * cf1 = ??? 的答案，所以
+cf2:inverse() * cf = ???
+</pre></div>
+</div>
+<p>最终的结论就是，顺序是十分重要的，而且我们对等式一侧的处理也必须应用于另一侧，不管是否自前或自后相乘都包括在内！</p>
+</div>
+<div class="section" id="id5">
+<h3>门的旋转<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>假设我们希望通过 CFrame 实现门的开合。这对于部分学习 CFrame 的人来说可能会十分困难，因为当我们对某一部件的 CFrame 使用 <code class="docutils literal notranslate"><span class="pre">CFrame.Angles</span></code> 函数并更新时，它会从中心开始转动。</p>
+<p><img alt="CFrameMath_doorRotate1.gif" src="https://developer.roblox.com/assets/blt68965f7f24226d28/CFrameMath_doorRotate1.gif" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">door</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">Door</span>
+
+<span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;RunService&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">Heartbeat</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+	<span class="n">door</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">door</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="mi">60</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>理想情况下，我们自然希望门能围绕某种铰链转动。也就是说，我们需要寻找一种方法来将我们的铰链作为旋转的中心。我们知道自己能够以类似早先旋转门的方式来旋转铰链。</p>
+<p><img alt="CFrameMath_doorRotate2.gif" src="https://developer.roblox.com/assets/blt68e0693617dbe134/CFrameMath_doorRotate2.gif" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">door</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">Door</span>
+<span class="n">local</span> <span class="n">hinge</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">Hinge</span>
+
+<span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;RunService&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">Heartbeat</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+	<span class="n">hinge</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">hinge</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="mi">60</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>如果我们能设法计算出门相对于未旋转铰链的偏移值，就可以将该偏移值应用到旋转的铰链，并得出旋转门的 CFrame。换言之，我们必须在以下运算中求得偏移值：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hinge</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">*</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">door</span><span class="o">.</span><span class="n">CFrame</span>
+</pre></div>
+</div>
+<p>求得偏移值的关键之处，就是使用逆运算！切记，我们对等式一侧的处理也必须应用于另一侧。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>hinge.CFrame * offset = door.CFrame -- want to get rid of hinge.CFrame on left side
+hinge.CFrame:inverse() * hinge.CFrame * offset = hinge.CFrame:inverse() * door.CFrame -- 因为乘数无法互换，进行自前相乘
+CFrame.new() * offset = hinge.CFrame:inverse() * door.CFrame -- cf:inverse() * cf = CFrame.new()
+offset = hinge.CFrame:inverse() * door.CFrame -- CFrame.new() * cf = cf
+</pre></div>
+</div>
+<p>求出偏移值后，让我们将其应用到旋转铰链上吧！</p>
+<p><img alt="CFrameMath_doorRotate3-compressor.gif" src="https://developer.roblox.com/assets/blt6bf5320f1c4ca507/CFrameMath_doorRotate3-compressor.gif" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">door</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">Door</span>
+<span class="n">local</span> <span class="n">hinge</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">Hinge</span>
+
+<span class="n">local</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">hinge</span><span class="o">.</span><span class="n">CFrame</span><span class="p">:</span><span class="n">inverse</span><span class="p">()</span> <span class="o">*</span> <span class="n">door</span><span class="o">.</span><span class="n">CFrame</span><span class="p">;</span> <span class="o">--</span> <span class="n">旋转前首先进行偏移</span>
+<span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;RunService&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">Heartbeat</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+	<span class="n">hinge</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">hinge</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="mi">60</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">--</span> <span class="n">旋转铰链</span>
+	<span class="n">door</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">hinge</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">*</span> <span class="n">offset</span> <span class="o">--</span> <span class="n">将偏移应用至旋转铰链</span>
+<span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>亲自尝试：接合<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>接合会受到以下条件约束。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">weld</span><span class="o">.</span><span class="n">Part0</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">*</span> <span class="n">weld</span><span class="o">.</span><span class="n">C0</span> <span class="o">=</span> <span class="n">weld</span><span class="o">.</span><span class="n">Part1</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">*</span> <span class="n">weld</span><span class="o">.</span><span class="n">C1</span>
+</pre></div>
+</div>
+<p>请运用我们之前掌握的逆运算知识，尝试求出 Weld.C0 和 Weld.C1。完成自我测试前尽量不要参考答案。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>--解决方法：Weld.C0:
+weld.Part0.CFrame * weld.C0 = weld.Part1.CFrame * weld.C1 
+weld.Part0.CFrame:inverse() * weld.Part0.CFrame * weld.C0 = weld.Part0.CFrame:inverse() * weld.Part1.CFrame * weld.C1 
+CFrame.new() * weld.C0 = weld.Part0.CFrame:inverse() * weld.Part1.CFrame * weld.C1 
+weld.C0 = weld.Part0.CFrame:inverse() * weld.Part1.CFrame * weld.C1 
+
+--解决方法：C1:
+weld.Part0.CFrame * weld.C0 = weld.Part1.CFrame * weld.C1 
+weld.Part1.CFrame:inverse() * weld.Part0.CFrame * weld.C0 = weld.Part1.CFrame:inverse() * weld.Part1.CFrame * weld.C1 
+weld.Part1.CFrame:inverse() * weld.Part0.CFrame * weld.C0 = CFrame.new() * weld.C1 
+weld.Part1.CFrame:inverse() * weld.Part0.CFrame * weld.C0 = weld.C1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>CFrame 方法<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>在最后一节中，我们将探讨每种变换方法及对这些方法的部分直观理解。</p>
+<div class="section" id="cframe-toobjectspace">
+<h3>CFrame:ToObjectSpace()<a class="headerlink" href="#cframe-toobjectspace" title="Permalink to this headline">¶</a></h3>
+<p>等同于 <code class="docutils literal notranslate"><span class="pre">CFrame:inverse()</span> <span class="pre">*</span> <span class="pre">cf</span></code></p>
+<p>其实之前尝试实现门的旋转时，我们就已经从求取偏移值的过程中了解到了该方法的作用。此方法能计算出 CFrame 需要从 <code class="docutils literal notranslate"><span class="pre">CFrame</span></code> 中取得的偏移值，用以求出 <code class="docutils literal notranslate"><span class="pre">cf</span></code></p>
+<p>开发者可以通过以下函数轻松对其进行验证：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CFrame</span> <span class="o">*</span> <span class="n">CFrame</span><span class="p">:</span><span class="n">toObjectSpace</span><span class="p">(</span><span class="n">cf</span><span class="p">)</span>
+<span class="n">CFrame</span> <span class="o">*</span> <span class="n">CFrame</span><span class="p">:</span><span class="n">inverse</span><span class="p">()</span> <span class="o">*</span> <span class="n">cf</span>
+<span class="n">identityCFrame</span> <span class="o">*</span> <span class="n">cf</span>
+<span class="n">cf</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cframe-toworldspace">
+<h3>CFrame:ToWorldSpace()<a class="headerlink" href="#cframe-toworldspace" title="Permalink to this headline">¶</a></h3>
+<p>等同于 <code class="docutils literal notranslate"><span class="pre">CFrame</span> <span class="pre">*</span> <span class="pre">cf</span></code></p>
+<p>此方法只是进行 CFrame 乘法，可能会让人觉得有些平凡无奇。不过，该方法的名称可能有助于我们更为直观地理解乘法运算的实际概念。我们在 <code class="docutils literal notranslate"><span class="pre">CFrame:toObjectSpace(cf)</span></code> 方法中看到，它返回的是两个 CFrame 之间的偏移值。我们还注意到，当我们用 <code class="docutils literal notranslate"><span class="pre">CFrame</span></code> 乘以偏移值后，最终结果是 <code class="docutils literal notranslate"><span class="pre">cf</span></code>。那么，我们将两个 CFrame 相乘时，实际上就是将第二个 CFrame 当做了偏移值。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>local cf = CFrame.new(1, 2, 3) * CFrame.Angles(math.rad(14), math.rad(72), math.rad(-32))
+local offset = CFrame.new(0, 0, -10) -- 向前 10 格偏移
+
+print(cf:toWorldSpace(offset)) -- 向前 10 格偏移。记住 cf 的前方为 cf.lookVector
+
+
+
+-8.51056576, 2.74757957, 0.00162148476, 0.262061268, 0.163754046, 0.95105654, -0.319058299, 0.944782019, -0.0747579709, -0.910783052, -0.283851326, 0.299837857
+</pre></div>
+</div>
+</div>
+<div class="section" id="cframe-pointtoobjectspace">
+<h3>CFrame:PointToObjectSpace()<a class="headerlink" href="#cframe-pointtoobjectspace" title="Permalink to this headline">¶</a></h3>
+<p>等同于 <code class="docutils literal notranslate"><span class="pre">CFrame:inverse()</span> <span class="pre">*</span> <span class="pre">v3</span></code></p>
+<p><img alt="CFrameMath_pointToObjectSpace.gif" src="https://developer.roblox.com/assets/bltf5bc4f61e31171d3/CFrameMath_pointToObjectSpace.gif" /></p>
+<p>此方法会在 3D 空间当中取特定点并使之与 <code class="docutils literal notranslate"><span class="pre">CFrame.p</span></code> 相对应，然后将其换算为偏移值。</p>
+<p>此方法的替代方法为 <code class="docutils literal notranslate"><span class="pre">(CFrame</span> <span class="pre">-</span> <span class="pre">CFrame.p):inverse()</span> <span class="pre">*</span> <span class="pre">(v3</span> <span class="pre">-</span> <span class="pre">CFrame.p)</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">cf</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">14</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">72</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">))</span>
+<span class="n">local</span> <span class="n">v3</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cf</span><span class="p">:</span><span class="n">pointToObjectSpace</span><span class="p">(</span><span class="n">v3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">cf</span> <span class="o">-</span> <span class="n">cf</span><span class="o">.</span><span class="n">p</span><span class="p">):</span><span class="n">inverse</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="n">v3</span> <span class="o">-</span> <span class="n">cf</span><span class="o">.</span><span class="n">p</span><span class="p">))</span>
+
+
+
+<span class="o">-</span><span class="mf">11.123312</span><span class="p">,</span> <span class="mf">5.62582684</span><span class="p">,</span> <span class="mf">11.5594997</span>
+<span class="o">-</span><span class="mf">11.123312</span><span class="p">,</span> <span class="mf">5.62582684</span><span class="p">,</span> <span class="mf">11.5594997</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cframe-pointtoworldspace">
+<h3>CFrame:PointToWorldSpace()<a class="headerlink" href="#cframe-pointtoworldspace" title="Permalink to this headline">¶</a></h3>
+<p>等同于 <code class="docutils literal notranslate"><span class="pre">CFrame</span> <span class="pre">*</span> <span class="pre">v3</span></code></p>
+<p>由于我们早已探讨过了 <code class="docutils literal notranslate"><span class="pre">CFrame</span> <span class="pre">*</span> <span class="pre">v3</span></code> 的直观效果，因此除去已知内容外并无太多内容需要赘述。但需要再次进行提醒的是：此方法相当于在没有旋转方位的情况下应用偏移值。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">cf</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">14</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">72</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">))</span>
+<span class="n">local</span> <span class="n">v3</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cf</span> <span class="o">*</span> <span class="n">cf</span><span class="p">:</span><span class="n">pointToObjectSpace</span><span class="p">(</span><span class="n">v3</span><span class="p">))</span>
+
+
+
+<span class="mf">10.000001</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">15.0000019</span>
+</pre></div>
+</div>
+<p><em>请注意，结果中的细微变化是由于浮点数学运算的误差所导致</em></p>
+</div>
+<div class="section" id="cframe-vectortoobjectspace">
+<h3>CFrame:VectorToObjectSpace()<a class="headerlink" href="#cframe-vectortoobjectspace" title="Permalink to this headline">¶</a></h3>
+<p>等同于 <code class="docutils literal notranslate"><span class="pre">(CFrame-CFrame.p):inverse()</span> <span class="pre">*</span> <span class="pre">v3</span></code></p>
+<p>此方法十分类似于 <code class="docutils literal notranslate"><span class="pre">CFrame:pointObjectSpace(v3)</span></code> 方法的替代形式。最主要的区别就是 <code class="docutils literal notranslate"><span class="pre">v3</span></code> 不再减去 <code class="docutils literal notranslate"><span class="pre">CFrame.p</span></code>。换而言之，两者步骤非常相似，唯一的区别就是不会使 <code class="docutils literal notranslate"><span class="pre">v3</span></code> 与 <code class="docutils literal notranslate"><span class="pre">CFrame.p</span></code> 相对应，而是默认之前所输入的 v3 已为相对数值。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">cf</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">14</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">72</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cf</span><span class="p">:</span><span class="n">vectorToObjectSpace</span><span class="p">(</span><span class="n">cf</span><span class="o">.</span><span class="n">rightVector</span><span class="p">))</span>
+
+
+
+<span class="mf">1.00000012</span><span class="p">,</span> <span class="mf">2.98023224e-08</span><span class="p">,</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p><em>请注意，结果中的细微变化是由于浮点数学运算的误差所导致</em></p>
+<p>我们可以看到，其结果等于或约等于 Vector3.new(1, 0, 0)，即 identityCFrame 的 rightVector。理想情况下，这两者完全相等，但正如上文所提到的，产生细微区别的原因是由于浮点数学运算的误差。</p>
+</div>
+<div class="section" id="cframe-vectortoworldspace">
+<h3>CFrame:VectorToWorldSpace()<a class="headerlink" href="#cframe-vectortoworldspace" title="Permalink to this headline">¶</a></h3>
+<p>等同于 <code class="docutils literal notranslate"><span class="pre">(CFrame-CFrame.p)</span> <span class="pre">*</span> <span class="pre">v3</span></code></p>
+<p>此方法的替代形式是 <code class="docutils literal notranslate"><span class="pre">CFrame</span> <span class="pre">*</span> <span class="pre">v3</span> <span class="pre">-</span> <span class="pre">CFrame.p</span></code>。也就是说，此方法其实与 <code class="docutils literal notranslate"><span class="pre">CFrame:pointWorldSpace(v3)</span></code> 相差无几，但并不会添加 CFrame.p（如我们在 CFrame * v3 一节中所学到的）。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">cf</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">14</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">72</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cf</span><span class="p">:</span><span class="n">vectorToWorldSpace</span><span class="p">(</span><span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cf</span> <span class="o">*</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">cf</span><span class="o">.</span><span class="n">p</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cf</span><span class="o">.</span><span class="n">rightVector</span><span class="p">)</span>
+
+
+
+<span class="mf">0.262061268</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.319058299</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.910783052</span>
+<span class="mf">0.262061238</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.319058299</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.910783052</span>
+<span class="mf">0.262061268</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.319058299</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.910783052</span>
+</pre></div>
+</div>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/CFrame-Math-Operations">CFrame 数学运算</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Table.html" class="btn btn-neutral float-right" title="Table（表）" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Beginners-Guide-to-Coroutines.html" class="btn btn-neutral float-left" title="协同程序初学者指南" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

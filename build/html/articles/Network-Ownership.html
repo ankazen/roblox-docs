@@ -1,0 +1,389 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>网络所有权 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="数据分析" href="../tutorials/analytics.html" />
+    <link rel="prev" title="开发者控制台" href="Developer-Console.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Fighting-Against-Lag.html">减少延迟影响</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MicroProfiler.html">MicroProfiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Monitoring-Games-for-Crashes-and-Performance-Filtering.html">监控游戏崩溃与性能过滤功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Network-Simulation-Mode.html">网络模拟模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Thread-Scheduler.html">线程计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Memory-Analyzer.html">内存分析器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Developer-Console.html">开发者控制台</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">网络所有权</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">示例1：投射物</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">问题</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">解决方案</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">示例2：车辆</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">问题</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">解决方案</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">示例3：控制锁定</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">问题</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">解决方案</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">锚固部件</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/optimization.html">性能优化</a> &raquo;</li>
+        
+      <li>网络所有权</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Network-Ownership.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>网络所有权<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p>Roblox 引擎会对游戏中所有未锚固的部件进行“物理特性模拟”。简单来说，这些部件将可以进行掉落、弹跳、漂浮在水中等动作。由于 Roblox 会对物理模拟进行自动处理，开发者将无需亲自编写物理引擎。</p>
+<p>Roblox 游戏的运行<code class="docutils literal notranslate"><span class="pre">Articles/Roblox</span> <span class="pre">Client</span> <span class="pre">Server</span> <span class="pre">Model|会涉及多台电脑/装置</span></code>。为了分割计算物理特性的工作，Roblox 会自动将部件指派给服务器或客户端。一般来说，如果一个部件位于游戏内玩家角色的附近，其物理特性将交由该玩家使用的设备进行计算，而剩余部件将由服务器进行计算。在任一情况下，我们都会将计算该部件物理特性的服务器或客户端称之为其<strong>所有者</strong>。</p>
+<p>由于物理特性的更新必须通过网络进行发送，从所有者进行物理特性改动到其他装置看到这些改动，这期间会有一点延迟。通常来说这种延迟并不明显，但若在延迟期间部件的所有权发生改变，则可能会出现问题。</p>
+<div class="section" id="id2">
+<h2>示例1：投射物<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在本示例中，我们将会探讨玩家 1 向玩家 2 投射物体对象时可能会出现的问题。</p>
+<div class="section" id="id3">
+<h3>问题<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>随着物体在空中飞行并逐渐远离玩家 1，其所有权将会从玩家 1 移交给服务器。但当物体靠近玩家 2 时，其所有权又会从服务器移交给玩家 2。即使在网络连接质量良好的情况下，这个过程也可能会出现微小的延迟，从而导致物体所有权变更时的“跳跃”现象。</p>
+</div>
+<div class="section" id="id4">
+<h3>解决方案<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>利用 <code class="docutils literal notranslate"><span class="pre">BasePart/SetNetworkOwner|SetNetworkOwner()</span></code> 手动将该投射物的所有者设定为<strong>服务器</strong>。这样可以保证所有者<strong>不会</strong>变更，防止产生可见的“跳跃”现象。</p>
+<p>以下代码会监听玩家的键盘输入并向服务器触发 <code class="docutils literal notranslate"><span class="pre">RemoteEvent</span></code>。此操作会创建一个投射物并设置其所有权。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-- LocalScript（客户端） 
+game:GetService(&quot;ContextActionService&quot;):BindAction(&quot;Throw&quot;, function(actionName, state, object)
+	if state == Enum.UserInputState.Begin then
+		game.ReplicatedStorage.RemoteEvent:FireServer()
+	end
+end, false, &quot;h&quot;)
+
+
+
+ 
+-- Script（服务器） 
+game.ReplicatedStorage.RemoteEvent.OnServerEvent:Connect(function(player)
+	-- 获取玩家面向的方向
+	local direction = player.Character.Torso.CFrame.lookVector * 5
+
+	-- 创建投射物并向玩家面对的方向为其施加速度
+	local projectile = game.ServerStorage.Projectile:Clone()
+	projectile.Parent = game.Workspace
+	projectile:MakeJoints()
+	projectile.PrimaryPart.CFrame = CFrame.new(player.Character.Torso.Position + direction + Vector3.new(0,2,0))
+	projectile.PrimaryPart.Velocity = direction * 40 + Vector3.new(0,40,0)
+
+	-- 将服务器设为投射物的所有者
+	projectile.PrimaryPart:SetNetworkOwner(nil)
+end)
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">BasePart/SetNetworkOwner|SetNetworkOwner()</span></code> 及其对应函数 <code class="docutils literal notranslate"><span class="pre">BasePart/GetNetworkOwner|GetNetworkOwner()</span></code> 必须在<strong>服务器</strong>端进行设置。这是因为客户端无法在 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 中更改所有权设定。</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>示例2：车辆<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>在本示例中，我们将会探讨一辆拥有 <code class="docutils literal notranslate"><span class="pre">VehicleSeat</span></code> 驾驶席和 <code class="docutils literal notranslate"><span class="pre">Seat</span></code> 乘客席的车辆在搭乘两名玩家时可能出现的问题。</p>
+<div class="section" id="id6">
+<h3>问题<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>在默认所有权规则下，如果一位玩家先坐进 <code class="docutils literal notranslate"><span class="pre">Seat</span></code>（乘客席），而另一位玩家随后坐进 <code class="docutils literal notranslate"><span class="pre">VehicleSeat</span></code>（驾驶席），则_乘客席上的玩家_会优先取得该车辆的物理所有权。在这种情况下，驾驶席上的玩家则需要等待数次网络数据交换才能获得其输入的响应。</p>
+</div>
+<div class="section" id="id7">
+<h3>解决方案<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>手动将车辆的网络所有权设置给驾驶员。当玩家坐下时，<code class="docutils literal notranslate"><span class="pre">VehicleSeat/Occupant</span></code> 会被设定为坐在上面的人形对象。开发者将可以监听座位的 <code class="docutils literal notranslate"><span class="pre">Instance/Changed</span></code> 事件。此时，该人形对象的父项应该是该玩家角色（除非人形对象为 NPC）。开发者可以利用这一点来决定获得车辆网络所有权的玩家。</p>
+<p>当驾驶员离开座位时，空车的所有权将不再重要，因此可以将该车辆的网络所有权重新设置为自动（<code class="docutils literal notranslate"><span class="pre">BasePart/SetNetworkOwnershipAuto|SetNetworkOwnershipAuto()</span></code>）。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">VehicleSeat</span> <span class="n">中的脚本</span> 
+<span class="n">local</span> <span class="n">VehicleSeat</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+
+<span class="n">VehicleSeat</span><span class="o">.</span><span class="n">Changed</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">prop</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">prop</span> <span class="o">==</span> <span class="s2">&quot;Occupant&quot;</span> <span class="n">then</span>
+		<span class="n">local</span> <span class="n">humanoid</span> <span class="o">=</span> <span class="n">VehicleSeat</span><span class="o">.</span><span class="n">Occupant</span>
+		<span class="k">if</span> <span class="n">humanoid</span> <span class="n">then</span>
+			<span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">):</span><span class="n">GetPlayerFromCharacter</span><span class="p">(</span><span class="n">humanoid</span><span class="o">.</span><span class="n">Parent</span><span class="p">)</span>
+			<span class="k">if</span> <span class="n">player</span> <span class="n">then</span>
+				<span class="n">VehicleSeat</span><span class="p">:</span><span class="n">SetNetworkOwner</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+			<span class="n">end</span>
+		<span class="k">else</span>
+			<span class="n">VehicleSeat</span><span class="p">:</span><span class="n">SetNetworkOwnershipAuto</span><span class="p">()</span>
+		<span class="n">end</span>
+	<span class="n">end</span>
+<span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>示例3：控制锁定<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>部分 Roblox 游戏拥有让玩家控制并非其角色模型对象的游戏机制。在默认情况下，应当受到玩家控制的对象会遵从自动网络所有权规则（其所有权将会为距离最近的玩家角色所有）。</p>
+<div class="section" id="id9">
+<h3>问题<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>在某些情况下，操控此类对象的玩家可能并非离该对象最近的玩家角色。即使是这种情况下，操控对象的玩家仍应拥有其网络所有权，以便在操控时获得即时反馈。</p>
+<p>举例来说，玩家可以通过按下键盘上的特定按键来控制地面上的球进行移动。若想获得即时反馈，此球型对象的 <code class="docutils literal notranslate"><span class="pre">BodyForce</span></code> 需要在 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 中通过键盘输入事件进行设置。但当其他玩家角色离球型对象过近时，就会获得对象的物理所有权，而控制玩家也就无法对其施加任何推力了。</p>
+</div>
+<div class="section" id="id10">
+<h3>解决方案<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>将球型对象的网络所有权指定给其控制玩家，以便 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 对推力的改动立即生效。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-- LocalScript（客户端） 
+local Sphere = game.Workspace.Part
+local SphereForce = Sphere.BodyForce
+
+local ContextActionService = game:GetService(&quot;ContextActionService&quot;)
+
+local function pushBall(actionName, inputState, inputObject)
+	if inputState == Enum.UserInputState.End then
+		SphereForce.force = Vector3.new(0,0,0)
+	else
+		if actionName == &quot;Left&quot; then
+			SphereForce.force = Vector3.new(-100,0,0)
+		end
+		if actionName == &quot;Right&quot; then
+			SphereForce.force = Vector3.new(100,0,0)
+		end
+	end
+end
+
+ContextActionService:BindAction(&quot;Left&quot;, pushBall, false, &quot;j&quot;)
+ContextActionService:BindAction(&quot;Right&quot;, pushBall, false, &quot;l&quot;)
+
+
+
+ 
+-- Script（服务器） 
+game.Players.PlayerAdded:Connect(function(player)
+	game.Workspace.Part:SetNetworkOwner(player)
+end)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h2>锚固部件<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>由于锚固部件不会进行物理模拟，其网络所有权也无法进行设置。在锚固的部件上调用 <code class="docutils literal notranslate"><span class="pre">BasePart/SetNetworkOwner|SetNetworkOwner()</span></code> 会导致脚本错误，但即使在这种情况下，锚固部件与网络所有权也不是毫无关系的。</p>
+<p>为属于内部无锚固部件机构的集合设定所有权时，将会为整个机构中所有部件的所有权进行统一设置。如果该集合随后被锚固，则机构中未锚固的其他集合所有权将保持不变。解除之前集合的锚固后，会使其恢复先前设置的所有权。</p>
+<p>如果集合是该机制中的唯一成员，则锚固该集合会使集合中所有部件的网络所有权重置为“自动”。此时再解除该集合的锚固时，集合所有权会遵从自动规则并忽略先前的所有权设置。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Network-Ownership">网络所有权</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../tutorials/analytics.html" class="btn btn-neutral float-right" title="数据分析" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Developer-Console.html" class="btn btn-neutral float-left" title="开发者控制台" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

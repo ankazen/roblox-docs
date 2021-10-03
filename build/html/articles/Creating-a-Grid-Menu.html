@@ -1,0 +1,652 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>创建栅格菜单 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="在 GUI 中使用图像" href="Using-Images-in-GUIs.html" />
+    <link rel="prev" title="创建摇杆快速菜单" href="Creating-a-Radial-Menu.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-GUIs.html">GUI 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI-Animations.html">GUI 动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fundamentals-of-Scripting-with-GUIs.html">GUI 脚本简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Chat-System.html">Lua 聊天系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Interactive-Surface-GUI.html">交互式表面 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-GUI-Buttons.html">创建 GUI 按钮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Radial-Menu.html">创建摇杆快速菜单</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">创建栅格菜单</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">打开菜单</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">导航物品栏栅格</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">项目源代码</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Using-Images-in-GUIs.html">在 GUI 中使用图像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text-and-Chat-Filtering.html">文本与聊天过滤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Camera-manipulation.html">镜头操控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mouse-Icon-Appearance.html">鼠标指针控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animating-text.html">设置文本动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar-emotes.html">Avatar Emotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chat-Modules.html">Chat Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Custom-Teleport-GUI.html">创建自定义传送屏幕</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Scrolling-Frame-GUI.html">创建滚动框架 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-the-camera.html">Customizing the Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Disabling-Parts-of-Game-Interface.html">禁用游戏界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-bindings.html">Roblox Input Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selection-Boxes.html">选择框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Three-Quarters-Camera-View.html">45 度镜头视角</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Unit-Frame.html">单元框：制作生命槽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewportframe-gui.html">ViewportFrame GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/user-interface.html">用户界面</a> &raquo;</li>
+        
+      <li>创建栅格菜单</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Creating-a-Grid-Menu.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>创建栅格菜单<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>15  分钟</em></p>
+<p>在创建带有游戏手柄控件的菜单系统时必须特别小心。使用常规界面，用户可以轻松单击或点选要选择的位置。对于简单快捷的菜单，<code class="docutils literal notranslate"><span class="pre">Articles/Creating</span> <span class="pre">a</span> <span class="pre">Radial</span> <span class="pre">Menu|摇杆快速菜单</span></code>很适合游戏手柄，但是对于更复杂和传统的菜单，用户必须通过在元素之间移动选择器来导航菜单。<code class="docutils literal notranslate"><span class="pre">GuiService</span></code> 会自动尝试确定用户要使用游戏手柄选择的元素，但有时需要额外的配置才能使菜单正常工作。</p>
+<p>本教程将使用 GuiService 和 <code class="docutils literal notranslate"><span class="pre">ContextActionService</span></code> 来实现一个简单的设备管理菜单系统。</p>
+<div class="section" id="id2">
+<h2>概述<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>本教程中的代码创建了设备管理系统的框架：首先在屏幕上创建一个按钮，如果用户在选中该按钮的情况下按 A，则游戏会弹出一个模型菜单，其中显示了简单的角色模型和物品栅格。</p>
+<p><img alt="GamepadGrid_Image00.png" src="https://developer.roblox.com/assets/blt6878b1384d7603d3/GamepadGrid_Image00.png" /></p>
+<p><img alt="GamepadGrid_Image04.png" src="https://developer.roblox.com/assets/blt6ddc57d871cb6bd9/GamepadGrid_Image04.png" /></p>
+<p><img alt="GamepadGrid_Image03.png" src="https://developer.roblox.com/assets/bltdf5323e2df741820/GamepadGrid_Image03.png" /></p>
+</div>
+<div class="section" id="id3">
+<h2>设置<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>该代码要做的第一件事是创建菜单。游戏中的菜单当然可以事先创建和存储，但在本例中，菜单元素是在脚本中独立创建的。</p>
+<p><img alt="GamepadGrid_Image01.png" src="https://developer.roblox.com/assets/bltc1e521564b56469a/GamepadGrid_Image01.png" /></p>
+<p>关于菜单最为重要的就是将在定义选择群组时使用的层次结构。角色栏位的所有按钮都是 <code class="docutils literal notranslate"><span class="pre">CharacterFrame</span></code> 的子级，所有栅格按钮都是 <code class="docutils literal notranslate"><span class="pre">ScrollingFrame</span></code> 的子级</p>
+<p><img alt="GamepadGrid_Image02.png" src="https://developer.roblox.com/assets/blt05cb0e09fb8e6ba4/GamepadGrid_Image02.png" /></p>
+</div>
+<div class="section" id="id4">
+<h2>打开菜单<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>定义菜单布局后，代码将绑定输入以打开和关闭菜单。Gui 按钮（例如 <code class="docutils literal notranslate"><span class="pre">ImageButton</span></code> 和 <code class="docutils literal notranslate"><span class="pre">TextButton</span></code>）都可以接受游戏手柄输入。如果玩家在选中按钮的情况下按下 A 按钮，则会触发 <code class="docutils literal notranslate"><span class="pre">GuiButton/MouseButton1Click</span></code> 事件。</p>
+<p>创建栅格菜单 代码示例 1 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-- 关闭装备菜单
+local function closeEquipmentMenu()
+	-- 播放关闭动画
+	menuFrame:TweenPosition(MENU_CLOSED_POSITION, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.25, false, function(status)
+		-- 当动画播放完毕时，取消关闭函数绑定，重设 Gui 选择		
+		ContextActionService:UnbindAction(CLOSE_EQUIPMENT_MENU_BINDING)
+		GuiService.SelectedObject = nil
+		GuiService.AutoSelectGuiEnabled = oldAutoSelectGuiEnabled
+	end)
+end
+
+-- 打开装备菜单
+local function openEquipmentMenu()
+	-- 存储先前的 AutoSelectEnabled 值，然后设置为 false
+	oldAutoSelectGuiEnabled = GuiService.AutoSelectGuiEnabled
+	GuiService.AutoSelectGuiEnabled = false
+	
+	-- 播放打开动画
+	menuFrame:TweenPosition(MENU_OPEN_POSITION, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.25, false, function(status)
+		-- 当动画播放完毕时，绑定 closeEquipmentMenu 至 B 按键
+		ContextActionService:BindAction(CLOSE_EQUIPMENT_MENU_BINDING, function(actionName, inputState, inputObject)
+			if inputState == Enum.UserInputState.Begin then
+				closeEquipmentMenu()
+			end
+		end, false, Enum.KeyCode.ButtonB)
+		-- 默认选择躯干
+		GuiService.SelectedObject = torsoFrame
+	end)
+end
+
+-- 输入绑定
+equipmentButton.MouseButton1Click:Connect(openEquipmentMenu)
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>该代码定义了两个函数：`openEquipmentMenu` 和 `closeEquipmentMenu`。`openEquipmentMenu` 绑定到屏幕左上角的 `equipmentButton`。调用该函数时，将禁用 `GuiService/AutoSelectGuiEnabled` 并存储该值以供以后使用。启用此属性时，按下选择按钮，游戏将自动选择一个元素。需要在打开菜单之前执行此操作，以便可以激活设备按钮，但是当玩家处于菜单中时，应将其禁用。
+
+`GuiObject/TweenPosition` 用于设置菜单打开和关闭的动画。该函数的最后一个参数是动画完成后调用的自定义回调函数。完成打开动画时，使用此函数将 B 按钮绑定到 `closeEquipmentMenu` 并将所选内容移动到躯干按钮。在 `closeEquipmentMenu` 中，播放结束动画后，B 按钮将被解除绑定，所选内容将被清除，并且将恢复 AutoSelectGuiEnabled 的原始值。
+
+## 导航角色栏位
+
+Roblox 具有自动行为，可帮助用户通过游戏手柄导航 GUI 元素。当用户按下游戏手柄上的“Select（选择）”按钮时，游戏将围绕一个启用 `GuiObject/Selectable` 的可见 GUI 元素创建一个选择内容。当用户按下左操纵杆或 dpad 时，游戏将试图在被推的方向上找到另一个 GUI 元素并将选择内容移动到那里。如果此方向上没有元素，则选择内容将不会更改。
+
+菜单右侧的栅格在此系统上运行良好（因为元素始终在彼此的基本方向上），但是角色框中的元素在默认系统上不能很好地运行。`GuiObject` 有几个属性可以用来指定要切换到哪个元素（例如，`GuiObject/NextSelectionDown`）。使用这些属性，可以按照如下所示设置每个角色栏位的方向：
+
+![GamepadGrid_Image05.png](https://developer.roblox.com/assets/blt03a451e9d6d734f4/GamepadGrid_Image05.png)
+
+
+    
+    
+    headFrame.NextSelectionDown = torsoFrame
+    headFrame.NextSelectionLeft = rightArmFrame
+    headFrame.NextSelectionRight = leftArmFrame
+    
+    torsoFrame.NextSelectionUp = headFrame
+    torsoFrame.NextSelectionLeft = rightArmFrame
+    torsoFrame.NextSelectionRight = leftArmFrame
+    torsoFrame.NextSelectionDown = rightLegFrame
+    
+    rightArmFrame.NextSelectionUp = headFrame
+    rightArmFrame.NextSelectionRight = torsoFrame
+    rightArmFrame.NextSelectionDown = rightLegFrame
+    
+    leftArmFrame.NextSelectionUp = headFrame
+    leftArmFrame.NextSelectionLeft = torsoFrame
+    leftArmFrame.NextSelectionDown = leftLegFrame
+    
+    rightLegFrame.NextSelectionUp = torsoFrame
+    rightLegFrame.NextSelectionRight = leftLegFrame
+    rightLegFrame.NextSelectionLeft = rightArmFrame
+    
+    leftLegFrame.NextSelectionUp = torsoFrame
+    leftLegFrame.NextSelectionRight = leftArmFrame
+    leftLegFrame.NextSelectionLeft = rightLegFrame
+    
+
+请注意，以上代码中有几个未定义的边缘。例如，该代码未定义从左臂向右移动的行为。如果用户选择了左臂并按下右键，因为该行为没有用 `GuiObject/NextSelectionRight` 明确定义，因此游戏将试图在右侧找到一个可选择的 GUI 元素。这是我们不希望的行为，因为在菜单的该部分中时，用户应被限制在角色栏位中。尽管可以通过将值设置为 nil 来定义，但更简单的方法是使用选择群组。
+
+在 GuiService 中，选择群组是可以在之间导航的一组 GUI 元素。有两种定义选择群组的方法：`GuiService/AddSelectionParent` 和 `GuiService/AddSelectionTuple`。AddSelectionParent 具有两个参数，所选内容的名称以及 GuiObject。在这种选择群组中，只能在之间导航在 GuiObject 中传递的子级。对于另一个函数 AddSelectionTuple，你只需传入要加入群组的所有 GuiObject。在这种情况下，由于所有角色栏位都是 `characterFrame` 的子级，因此可使用较简单的函数 AddSelectionParent。
+    
+    
+    GuiService:AddSelectionParent(&quot;CharacterMenu&quot;, characterFrame)
+    
+
+现在，当用户通过 `openEquipmentMenu` 进入菜单时，他们只能在 `characterFrame` 的子级之间导航。
+
+接下来，必须绑定角色栏位按钮才能将所选内容移动到物品栏栅格：
+
+创建栅格菜单 代码示例 2 ```    
+    
+    -- 将选择从物品菜单移回到角色菜单
+    local function exitInventoryMenu()
+    	ContextActionService:UnbindAction(EXIT_INVENTORY_MENU_BINDING)
+    	GuiService.SelectedObject = currentEquipmentSlot
+    end
+    
+    -- 玩家 &quot;点击了&quot; 角色栏位。选择移动至物品菜单
+    local function onCharacterSlotClicked()
+    	-- 存储当前的角色栏位
+    	currentEquipmentSlot = GuiService.SelectedObject
+    	-- 将 exitInventoryMenu 绑定至 B 按键
+    	ContextActionService:BindAction(EXIT_INVENTORY_MENU_BINDING, function(actionName, inputState, inputObject)
+    		if inputState == Enum.UserInputState.Begin then
+    			exitInventoryMenu()
+    		end
+    	end , false, Enum.KeyCode.ButtonB)
+    	-- 默认为选择物品格中的第一格
+    	GuiService.SelectedObject = firstCell
+    end
+    
+    for _, child in pairs(characterFrame:GetChildren()) do
+    	child.MouseButton1Click:Connect(onCharacterSlotClicked)
+    end
+
+</pre></div>
+</div>
+<p>同样，使用 MouseButton1Click 来检测用户何时在选择了一个角色栏位的情况下按下 A 按钮。触发此事件时，将调用 <code class="docutils literal notranslate"><span class="pre">onCharacterSlotClicked</span></code>。此函数首先存储选择供以后使用的角色栏位，然后绑定 B 按钮来调用 <code class="docutils literal notranslate"><span class="pre">exitInventoryMenu</span></code>，最后在物品栏菜单中选择第一个栅格单元。<code class="docutils literal notranslate"><span class="pre">exitInventoryMenu</span></code> 只是解除了对 <code class="docutils literal notranslate"><span class="pre">onCharacterSlotClicked</span></code> 设置的 B 绑定的绑定，并将选择内容移回到之前选择的物品栏栏位。</p>
+</div>
+<div class="section" id="id5">
+<h2>导航物品栏栅格<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>物品栏栅格比角色框导航简单得多，因为默认的游戏手柄选择代码在栅格中运行得非常好。唯一需要为物品栏栅格设置的是选择群组以及用户在选中一个单元格的情况下按 A 时的事件。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>GuiService:AddSelectionParent(&quot;InventoryMenu&quot;, inventoryScroll)
+
+-- 玩家“单击”了物品栏槽位。如果想要使用 currentEquipmentSlot 和
+-- SelectedObject 进行操作则需在此处放置相关代码
+local function onInventorySlotClicked()
+	print(&quot;角色栏位：&quot;, currentEquipmentSlot)
+	print(&quot;物品栏位：&quot;, GuiService.SelectedObject)
+	-- 在此处放置你的代码！
+	exitInventoryMenu()
+end
+
+for _, child in pairs(inventoryScroll:GetChildren()) do
+	child.MouseButton1Click:connect(onInventorySlotClicked)
+end
+</pre></div>
+</div>
+<p>再次使用 AddSelectionParent 设置选择群组。尽管默认的游戏手柄选择代码将有助于在网格中移动选择，但此函数仍然需要确保选择不会移动到网格之外。</p>
+<p>对于栅格中的每个单元格，<code class="docutils literal notranslate"><span class="pre">onInventorySlotClicked</span></code> 都绑定到 MouseButton1Click。你可以修改此函数以执行任何自定义代码，例如，装备用户选择的物品。在此函数的末尾调用 <code class="docutils literal notranslate"><span class="pre">exitInventoryMenu</span></code> 将选择内容移回角色框。</p>
+<p>一旦绑定此函数，菜单系统的框架也就完成了。</p>
+</div>
+<div class="section" id="id6">
+<h2>项目源代码<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>下面是本文概述的菜单的完整源代码。要正常运作，必须将其插入到位于 <code class="docutils literal notranslate"><span class="pre">StarterPlayerScripts</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 中。</p>
+<p>创建栅格菜单 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-- 常量
+local INVENTORY_CELL_WIDTH = 0.2
+local INVENTORY_CELL_X_MARGIN = 0.04
+local INVENTORY_CELL_HEIGHT = 0.1
+local INVENTORY_CELL_Y_MARGIN = 0.02
+
+local INVENTORY_COLUMNS = 3
+local INVENTORY_ROWS = 7
+
+local CHARACTERFRAME_Y_SCALE = 1/8
+local CHARACTERFRAME_X_SCALE = 1/8
+
+local MENU_OPEN_POSITION = UDim2.new(0.05, 0, 0.05, 0)
+local MENU_CLOSED_POSITION = UDim2.new(0.05, 0, -.9, -36)
+
+local CLOSE_EQUIPMENT_MENU_BINDING = &quot;CloseEquipmentMenu&quot;
+local EXIT_INVENTORY_MENU_BINDING = &quot;ExitInventoryMenu&quot;
+
+-- 服务
+local GuiService = game:GetService(&quot;GuiService&quot;)
+local ContextActionService = game:GetService(&quot;ContextActionService&quot;)
+
+-- 变量
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild(&quot;PlayerGui&quot;)
+
+local firstCell = nil
+local currentEquipmentSlot = nil
+
+local oldAutoSelectGuiEnabled = GuiService.AutoSelectGuiEnabled
+
+-- 创建菜单
+-- 主要 screenGui
+local screenGui = Instance.new(&quot;ScreenGui&quot;, playerGui)
+
+-- 屏幕上的装备按钮
+local equipmentButton = Instance.new(&quot;TextButton&quot;, screenGui)
+equipmentButton.Name = &quot;EquipmentButton&quot;
+equipmentButton.Text = &quot;Equipment&quot;
+equipmentButton.Size = UDim2.new(0, 300, 0, 75)
+equipmentButton.Font = Enum.Font.SourceSans
+equipmentButton.FontSize = Enum.FontSize.Size60
+
+-- 菜单框架
+local menuFrame = Instance.new(&quot;Frame&quot;, screenGui)
+menuFrame.Size = UDim2.new(0.9, 0, 0.9, 0)
+menuFrame.Position = MENU_CLOSED_POSITION
+menuFrame.BackgroundTransparency = 1
+
+-- 角色栏框架
+local characterFrame = Instance.new(&quot;Frame&quot;, menuFrame)
+characterFrame.Name = &quot;CharacterFrame&quot;
+characterFrame.Size = UDim2.new(0.5, 0, 1, 0)
+
+local headFrame = Instance.new(&quot;ImageButton&quot;, characterFrame)
+headFrame.Name = &quot;Head&quot;
+headFrame.Size = UDim2.new(CHARACTERFRAME_X_SCALE, 0, CHARACTERFRAME_Y_SCALE, 0)
+headFrame.Position = UDim2.new(0.5 - CHARACTERFRAME_X_SCALE/2, 0, CHARACTERFRAME_Y_SCALE, 0)
+
+local torsoFrame = Instance.new(&quot;ImageButton&quot;, characterFrame)
+torsoFrame.Name = &quot;Torso&quot;
+torsoFrame.Size = UDim2.new(2 * CHARACTERFRAME_X_SCALE, 0, 2 * CHARACTERFRAME_Y_SCALE, 0)
+torsoFrame.Position = UDim2.new(0.5 - CHARACTERFRAME_X_SCALE, 0, 2.5 * CHARACTERFRAME_Y_SCALE, 0)
+
+local leftArmFrame = Instance.new(&quot;ImageButton&quot;, characterFrame)
+leftArmFrame.Name = &quot;LeftArm&quot;
+leftArmFrame.Size = UDim2.new(CHARACTERFRAME_X_SCALE, 0, 2 * CHARACTERFRAME_Y_SCALE, 0)
+leftArmFrame.Position = UDim2.new(0.5 + 1.5 * CHARACTERFRAME_X_SCALE, 0, 2.5 * CHARACTERFRAME_Y_SCALE, 0)
+
+local rightArmFrame = Instance.new(&quot;ImageButton&quot;, characterFrame)
+rightArmFrame.Name = &quot;RightArm&quot;
+rightArmFrame.Size = UDim2.new(CHARACTERFRAME_X_SCALE, 0, 2 * CHARACTERFRAME_Y_SCALE, 0)
+rightArmFrame.Position = UDim2.new(0.5 - 2.5 * CHARACTERFRAME_X_SCALE, 0, 2.5 * CHARACTERFRAME_Y_SCALE, 0)
+
+local leftLegFrame = Instance.new(&quot;ImageButton&quot;, characterFrame)
+leftLegFrame.Name = &quot;LeftLeg&quot;
+leftLegFrame.Size = UDim2.new(CHARACTERFRAME_X_SCALE, 0, 2 * CHARACTERFRAME_Y_SCALE, 0)
+leftLegFrame.Position = UDim2.new(0.5 + .5 * CHARACTERFRAME_X_SCALE, 0, 5 * CHARACTERFRAME_Y_SCALE, 0)
+
+local rightLegFrame = Instance.new(&quot;ImageButton&quot;, characterFrame)
+rightLegFrame.Name = &quot;RightLeg&quot;
+rightLegFrame.Size = UDim2.new(CHARACTERFRAME_X_SCALE, 0, 2 * CHARACTERFRAME_Y_SCALE, 0)
+rightLegFrame.Position = UDim2.new(0.5 - 1.5 * CHARACTERFRAME_X_SCALE, 0, 5 * CHARACTERFRAME_Y_SCALE, 0)
+
+-- 覆盖选择边缘
+headFrame.NextSelectionDown = torsoFrame
+headFrame.NextSelectionLeft = rightArmFrame
+headFrame.NextSelectionRight = leftArmFrame
+
+torsoFrame.NextSelectionUp = headFrame
+torsoFrame.NextSelectionLeft = rightArmFrame
+torsoFrame.NextSelectionRight = leftArmFrame
+torsoFrame.NextSelectionDown = rightLegFrame
+
+rightArmFrame.NextSelectionUp = headFrame
+rightArmFrame.NextSelectionRight = torsoFrame
+rightArmFrame.NextSelectionDown = rightLegFrame
+
+leftArmFrame.NextSelectionUp = headFrame
+leftArmFrame.NextSelectionLeft = torsoFrame
+leftArmFrame.NextSelectionDown = leftLegFrame
+
+rightLegFrame.NextSelectionUp = torsoFrame
+rightLegFrame.NextSelectionRight = leftLegFrame
+rightLegFrame.NextSelectionLeft = rightArmFrame
+
+leftLegFrame.NextSelectionUp = torsoFrame
+leftLegFrame.NextSelectionRight = leftArmFrame
+leftLegFrame.NextSelectionLeft = rightLegFrame
+
+-- 物品栅格框架
+local inventoryFrame = Instance.new(&quot;Frame&quot;, menuFrame)
+inventoryFrame.Name = &quot;InventoryFrame&quot;
+inventoryFrame.Size = UDim2.new(0.5, 0, 1, 0)
+inventoryFrame.Position = UDim2.new(0.5, 0, 0, 0)
+
+local inventoryScroll = Instance.new(&quot;ScrollingFrame&quot;, inventoryFrame)
+inventoryScroll.Size = UDim2.new(0.9, 0, 0.9, 0)
+inventoryScroll.CanvasSize = UDim2.new(0.9, 0, 1.8, 0)
+inventoryScroll.Position = UDim2.new(0.05, 0, 0.05, 0)
+inventoryScroll.Selectable = false
+inventoryScroll.ScrollBarThickness = 0
+
+-- 创建物品格里的各小格
+for y = 0, INVENTORY_ROWS do
+	for x = 0, INVENTORY_COLUMNS do
+		local inventoryCell = Instance.new(&quot;ImageButton&quot;, inventoryScroll)
+		inventoryCell.Image = &quot;rbxassetid://133293265&quot;
+		inventoryCell.Name = &quot;InventoryCell(&quot; .. x .. &quot;,&quot; .. y .. &quot;)&quot;
+		if not firstCell then firstCell = inventoryCell end
+		inventoryCell.Size = UDim2.new(INVENTORY_CELL_WIDTH, 0, INVENTORY_CELL_HEIGHT, 0)
+		inventoryCell.Position = UDim2.new(INVENTORY_CELL_X_MARGIN + INVENTORY_CELL_X_MARGIN * x + INVENTORY_CELL_WIDTH * x, 0,
+										 INVENTORY_CELL_Y_MARGIN + INVENTORY_CELL_Y_MARGIN * y + INVENTORY_CELL_HEIGHT * y, 0)
+		
+	end
+end
+
+-- 为菜单的两部分添加选择群组
+GuiService:AddSelectionParent(&quot;CharacterMenu&quot;, characterFrame)
+GuiService:AddSelectionParent(&quot;InventoryMenu&quot;, inventoryScroll)
+
+-- 关闭装备菜单
+local function closeEquipmentMenu()
+	-- 播放关闭动画
+	menuFrame:TweenPosition(MENU_CLOSED_POSITION, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.25, false, function(status)
+		-- 动画完成时，取消绑定关闭函数并重设 Gui 选择		
+		ContextActionService:UnbindAction(CLOSE_EQUIPMENT_MENU_BINDING)
+		GuiService.SelectedObject = nil
+		GuiService.AutoSelectGuiEnabled = oldAutoSelectGuiEnabled
+	end)
+end
+
+-- 打开装备菜单
+local function openEquipmentMenu()
+	-- 保存先前的 AutoSelectEnabled 值并设置为 false
+	oldAutoSelectGuiEnabled = GuiService.AutoSelectGuiEnabled
+	GuiService.AutoSelectGuiEnabled = false
+	
+	-- 播放打开动画
+	menuFrame:TweenPosition(MENU_OPEN_POSITION, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.25, false, function(status)
+		-- 动画播放完成时，绑定 closeEquipmentMenu 至 B 按键
+		ContextActionService:BindAction(CLOSE_EQUIPMENT_MENU_BINDING, function(actionName, inputState, inputObject)
+			if inputState == Enum.UserInputState.Begin then
+				closeEquipmentMenu()
+			end
+		end, false, Enum.KeyCode.ButtonB)
+		-- 默认选择躯干
+		GuiService.SelectedObject = torsoFrame
+	end)
+end
+
+-- 将选择从物品菜单移回到角色菜单
+local function exitInventoryMenu()
+	ContextActionService:UnbindAction(EXIT_INVENTORY_MENU_BINDING)
+	GuiService.SelectedObject = currentEquipmentSlot
+end
+
+-- 玩家 &quot;点击了&quot; 一个角色栏位。将选择移动到物品菜单
+local function onCharacterSlotClicked()
+	-- 储存当前的角色栏
+	currentEquipmentSlot = GuiService.SelectedObject
+	-- 绑定 exitInventoryMenu 至 B 按键
+	ContextActionService:BindAction(EXIT_INVENTORY_MENU_BINDING, function(actionName, inputState, inputObject)
+		if inputState == Enum.UserInputState.Begin then
+			exitInventoryMenu()
+		end
+	end , false, Enum.KeyCode.ButtonB)
+	-- 默认选择物品格中的第一格
+	GuiService.SelectedObject = firstCell
+end
+
+-- 玩家 &quot;点击了&quot; 一个物品栏位。您写在这里的代码将会通过
+-- currentEquipmentSlot 和 SelectedObject 来发挥作用
+local function onInventorySlotClicked()
+	print(&quot;Character slot:&quot;, currentEquipmentSlot)
+	print(&quot;Inventory cell:&quot;, GuiService.SelectedObject)
+	
+	-- 将您的代码写在这里！
+	
+	exitInventoryMenu()
+end
+
+-- 输入绑定
+equipmentButton.MouseButton1Click:Connect(openEquipmentMenu)
+
+for _, child in pairs(characterFrame:GetChildren()) do
+	child.MouseButton1Click:Connect(onCharacterSlotClicked)
+end
+
+for _, child in pairs(inventoryScroll:GetChildren()) do
+	child.MouseButton1Click:Connect(onInventorySlotClicked)
+end
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+
+<span class="o">***</span><span class="n">__Roblox官方链接__</span><span class="p">:[</span><span class="n">创建栅格菜单</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">developer</span><span class="o">.</span><span class="n">roblox</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">zh</span><span class="o">-</span><span class="n">cn</span><span class="o">/</span><span class="n">articles</span><span class="o">/</span><span class="n">Creating</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">Grid</span><span class="o">-</span><span class="n">Menu</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Using-Images-in-GUIs.html" class="btn btn-neutral float-right" title="在 GUI 中使用图像" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Creating-a-Radial-Menu.html" class="btn btn-neutral float-left" title="创建摇杆快速菜单" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

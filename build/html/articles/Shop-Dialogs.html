@@ -1,0 +1,343 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>商店对话框 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="场景内玩家传送" href="How-to-teleport-within-a-Place.html" />
+    <link rel="prev" title="制作爆炸赛道" href="Making-an-Explosion-Course.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Lobby.html">制作大厅</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Usage-of-dialogs.html">NPC 对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Teleporting-Between-Places.html">不同场景间的传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Spawns-and-Teams.html">角色生成与团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-an-Explosion-Course.html">制作爆炸赛道</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">商店对话框</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">初始设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">创建商店</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">卖家</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">商店</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">使商店运作</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="How-to-teleport-within-a-Place.html">场景内玩家传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="in-game-solid-modeling.html">游戏内实体建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matchmaking.html">玩家匹配系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Player-Collisions.html">玩家间的碰撞控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setting-Parts-on-Fire-with-Events.html">通过事件让部件着火</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2D-Collision-Detection.html">2D 碰撞检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Basics-on-Roblox.html">添加团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Badges-Special-Game-Awards.html">Badges – Special Game Awards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Collision-Filtering-Team-Doors.html">Restricted/Team Doors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-VIP-Doors.html">创建 VIP 专用门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Random-Map-Chooser.html">随机地图选择器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roblox-avatars.html">Roblox 虚拟形象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Health-Pickups.html">回复用拾取物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Moving-NPCs-Between-Points.html">在点之间移动 NPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pathfinding.html">寻路</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Side-Scrolling-Camera-View.html">横向卷轴镜头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Tools.html">玩家工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="detecting-collisions.html">检测碰撞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weapons-kit.html">认可武器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="npc-kit.html">NPC 套组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vehicles-kit.html">载具工具包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="team-balancing.html">平衡团队构成</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/gameplay.html">游戏制作</a> &raquo;</li>
+        
+      <li>商店对话框</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Shop-Dialogs.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>商店对话框<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Dialog</span></code> 商店非常易于创建，且可以设为出售各种不同的物品（如武器、汽车或升级服务等）。这类商店也可以在各种不同的游戏（从冒险游戏到 RPG）中使用。本教程将介绍如何制作武器商店。</p>
+<div class="section" id="id2">
+<h2>初始设置<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>我们将会建立一个出售武器的商店，因此需要至少选择一个能够出售的武器。“Toolbox（工具箱）” 的 “Tools &amp; Weapons（工具与武器）” 类别中有一些非常棒的武器。</p>
+<p>有了武器，我们就可以开始了。武器应位于 <code class="docutils literal notranslate"><span class="pre">Workspace</span></code> 中，并且我们需要将所有武器都放入 <code class="docutils literal notranslate"><span class="pre">ReplicatedStorage</span></code> 中。将武器重命名为 “Weapon1”；如果有多个武器，则按以下方式对其进行命名：“Weapon1”、“Weapon2” 等。此时，<code class="docutils literal notranslate"><span class="pre">ReplicatedStorage</span></code> 应如下所示（如果有多个武器，则会稍有不同）：</p>
+<p><img alt="Creating-A-Dialogue-Shop-Tree-0.png" src="https://developer.roblox.com/assets/blta2051edd9466bc5a/Creating-A-Dialogue-Shop-Tree-0.png" /></p>
+</div>
+<div class="section" id="id3">
+<h2>创建商店<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>卖家<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>在实体商店里，柜台后面始终有人随时为你提供帮助，我们现在也需要设立这样一位人员。开发者可以在这位卖家上尽情发挥自己的创意。在本教程中，我们将使用 <code class="docutils literal notranslate"><span class="pre">Model</span></code> 内的一个基本 <code class="docutils literal notranslate"><span class="pre">Part</span></code>。现在，我们需要将 <code class="docutils literal notranslate"><span class="pre">Dialog</span></code> 插入这位卖家中，并确保你插入的目标部件名为 “Head”（头部）。接下来，我们需要将 <code class="docutils literal notranslate"><span class="pre">Humanoid</span></code> 插入这位卖家的 <code class="docutils literal notranslate"><span class="pre">Model</span></code> 中。</p>
+<p>要插入 <code class="docutils literal notranslate"><span class="pre">Dialog</span></code>，请前往 <em>Insert（插入）-&gt; Object（对象）-&gt; Dialog（对话框）</em> 。</p>
+</div>
+<div class="section" id="id5">
+<h3>商店<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>设置好卖家与可以出售武器的武器后，下一步就是创建商店了。创建商店时，我们将使用 <code class="docutils literal notranslate"><span class="pre">DialogChoice</span></code> 和 <code class="docutils literal notranslate"><span class="pre">DialogChoice/ResponseDialog</span></code> 来询问各种问题并给出答案。</p>
+<p>首先请选择所创建的 <code class="docutils literal notranslate"><span class="pre">Dialog</span></code>，然后在属性窗口中，将 <code class="docutils literal notranslate"><span class="pre">Dialog/Purpose</span></code> 值更改为 “Shop”（商店）。然后将属性窗口中的 <code class="docutils literal notranslate"><span class="pre">Dialog/InitialPrompt</span></code> 值更改为当玩家开始与店主交谈时店主会说的话，本示例中将会使用 “Welcome to my shop!”（欢迎光临我的商店！）。</p>
+<p>接下来，我们会为顾客添加可选择的选项，以便向卖家进行询问。该操作可通过将 <code class="docutils literal notranslate"><span class="pre">DialogChoice</span></code> 插入 <code class="docutils literal notranslate"><span class="pre">Dialog</span></code> 中来完成。要插入 <code class="docutils literal notranslate"><span class="pre">DialogChoice</span></code>，请前往</p>
+<p><em>Insert（插入）-&gt; Object（对象）- &gt; DialogChoice</em> 。</p>
+<p>在属性窗口中，将 <code class="docutils literal notranslate"><span class="pre">DialogChoice/UserDialog</span></code> 值更改为 “May I browse your goods?”（我可以浏览你的商品吗？），并将 <code class="docutils literal notranslate"><span class="pre">DialogChoice/ResponseDialog</span></code> 值更改为 “Sure!”（当然可以！）。</p>
+<p>**注意：**上面所列举的所有对话文本都可以进行更改，并不会影响商店本身。</p>
+<p>下一步，我们需要将更多 DialogChoice 插入刚刚创建的 <code class="docutils literal notranslate"><span class="pre">DialogChoice</span></code> 中，需要插入的 DialogChoice 数目应等同于出售武器的数目。可以从 “ChoiceA” 开始对其进行重命名，使其等同于出售的武器数目。举例来说，如果商店将会出售三个武器，则命名应为 “ChoiceA” 至 “ChoiceC”。</p>
+<p>对话框现在应如下所示：<br /><img alt="Creating-A-Dialogue-Shop-Tree.png" src="https://developer.roblox.com/assets/blt3915fe064436adca/Creating-A-Dialogue-Shop-Tree.png" /></p>
+</div>
+<div class="section" id="id6">
+<h3>使商店运作<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>要使商店运作起来，需要将 <code class="docutils literal notranslate"><span class="pre">Script</span></code> 插入卖家头部的 <code class="docutils literal notranslate"><span class="pre">Dialog</span></code> 中。在脚本中，复制以下代码：</p>
+<p><strong>注意:</strong> 下面的代码使用了一个 <code class="docutils literal notranslate"><span class="pre">&quot;Leaderboard</span></code> 。</p>
+<p>Creating a Dialog Shop: Code Sample 1 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">dialog</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+<span class="n">dialog</span><span class="o">.</span><span class="n">DialogChoiceSelected</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">choice</span><span class="p">)</span>
+    <span class="o">--</span> <span class="n">Check</span> <span class="n">the</span> <span class="n">player</span> <span class="n">has</span> <span class="n">a</span> <span class="n">stats</span> <span class="nb">object</span>
+    <span class="n">local</span> <span class="n">stats</span> <span class="o">=</span> <span class="n">player</span><span class="p">:</span><span class="n">FindFirstChild</span><span class="p">(</span><span class="s1">&#39;leaderstats&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">stats</span> <span class="n">then</span> <span class="k">return</span> <span class="n">end</span>
+
+    <span class="o">--</span> <span class="n">And</span> <span class="n">that</span> <span class="n">the</span> <span class="n">stats</span> <span class="nb">object</span> <span class="n">contains</span> <span class="n">a</span> <span class="n">gold</span> <span class="n">member</span>
+    <span class="n">local</span> <span class="n">gold</span> <span class="o">=</span> <span class="n">stats</span><span class="p">:</span><span class="n">FindFirstChild</span><span class="p">(</span><span class="s1">&#39;Gold&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">gold</span> <span class="n">then</span> <span class="k">return</span> <span class="n">end</span>
+
+    <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">DialogChoice</span><span class="o">.</span><span class="n">ChoiceA</span> <span class="n">then</span>
+        <span class="k">if</span> <span class="n">gold</span><span class="o">.</span><span class="n">Value</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="n">then</span> <span class="o">--</span> <span class="mi">5</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">amount</span> <span class="n">of</span> <span class="n">gold</span> <span class="n">you</span> <span class="n">need</span> <span class="n">to</span> <span class="n">purchase</span> <span class="n">this</span> <span class="n">weapon</span>
+            <span class="n">game</span><span class="o">.</span><span class="n">ReplicatedStorage</span><span class="o">.</span><span class="n">Weapon1</span><span class="p">:</span><span class="n">Clone</span><span class="p">()</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">Backpack</span>
+            <span class="n">gold</span><span class="o">.</span><span class="n">Value</span> <span class="o">=</span> <span class="n">gold</span><span class="o">.</span><span class="n">Value</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">--</span> <span class="n">subtract</span> <span class="n">the</span> <span class="n">amount</span> <span class="n">of</span> <span class="n">gold</span> <span class="n">you</span> <span class="n">need</span> <span class="n">to</span> <span class="n">purchase</span>
+        <span class="n">end</span>
+    <span class="n">elseif</span> <span class="n">choice</span> <span class="o">==</span> <span class="n">dialog</span><span class="o">.</span><span class="n">DialogChoice</span><span class="o">.</span><span class="n">ChoiceB</span> <span class="n">then</span>
+        <span class="k">if</span> <span class="n">gold</span><span class="o">.</span><span class="n">Value</span> <span class="o">&gt;=</span> <span class="mi">10</span> <span class="n">then</span>
+            <span class="n">game</span><span class="o">.</span><span class="n">ReplicatedStorage</span><span class="o">.</span><span class="n">Weapon2</span><span class="p">:</span><span class="n">Clone</span><span class="p">()</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">Backpack</span>
+            <span class="n">gold</span><span class="o">.</span><span class="n">Value</span> <span class="o">=</span> <span class="n">gold</span><span class="o">.</span><span class="n">Value</span> <span class="o">-</span> <span class="mi">10</span>
+        <span class="n">end</span>
+    <span class="n">elseif</span> <span class="n">choice</span> <span class="o">==</span> <span class="n">dialog</span><span class="o">.</span><span class="n">DialogChoice</span><span class="o">.</span><span class="n">ChoiceC</span> <span class="n">then</span>
+        <span class="k">if</span> <span class="n">gold</span><span class="o">.</span><span class="n">Value</span> <span class="o">&gt;=</span> <span class="mi">15</span> <span class="n">then</span>
+            <span class="n">game</span><span class="o">.</span><span class="n">ReplicatedStorage</span><span class="o">.</span><span class="n">Weapon3</span><span class="p">:</span><span class="n">Clone</span><span class="p">()</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">Backpack</span>
+            <span class="n">gold</span><span class="o">.</span><span class="n">Value</span> <span class="o">=</span> <span class="n">gold</span><span class="o">.</span><span class="n">Value</span> <span class="o">-</span> <span class="mi">15</span>
+        <span class="n">end</span>
+    <span class="n">end</span>
+<span class="n">end</span><span class="p">)</span>
+
+
+<span class="mi">0</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+
+<span class="o">***</span><span class="n">__Roblox官方链接__</span><span class="p">:[</span><span class="n">商店对话框</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">developer</span><span class="o">.</span><span class="n">roblox</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">zh</span><span class="o">-</span><span class="n">cn</span><span class="o">/</span><span class="n">articles</span><span class="o">/</span><span class="n">Shop</span><span class="o">-</span><span class="n">Dialogs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="How-to-teleport-within-a-Place.html" class="btn btn-neutral float-right" title="场景内玩家传送" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Making-an-Explosion-Course.html" class="btn btn-neutral float-left" title="制作爆炸赛道" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

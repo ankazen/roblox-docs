@@ -1,0 +1,550 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>载具工具包 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="平衡团队构成" href="team-balancing.html" />
+    <link rel="prev" title="NPC 套组" href="npc-kit.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Lobby.html">制作大厅</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Usage-of-dialogs.html">NPC 对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Teleporting-Between-Places.html">不同场景间的传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Spawns-and-Teams.html">角色生成与团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-an-Explosion-Course.html">制作爆炸赛道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shop-Dialogs.html">商店对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-to-teleport-within-a-Place.html">场景内玩家传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="in-game-solid-modeling.html">游戏内实体建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matchmaking.html">玩家匹配系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Player-Collisions.html">玩家间的碰撞控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setting-Parts-on-Fire-with-Events.html">通过事件让部件着火</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2D-Collision-Detection.html">2D 碰撞检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Basics-on-Roblox.html">添加团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Badges-Special-Game-Awards.html">Badges – Special Game Awards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Collision-Filtering-Team-Doors.html">Restricted/Team Doors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-VIP-Doors.html">创建 VIP 专用门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Random-Map-Chooser.html">随机地图选择器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roblox-avatars.html">Roblox 虚拟形象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Health-Pickups.html">回复用拾取物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Moving-NPCs-Between-Points.html">在点之间移动 NPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pathfinding.html">寻路</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Side-Scrolling-Camera-View.html">横向卷轴镜头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Tools.html">玩家工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="detecting-collisions.html">检测碰撞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weapons-kit.html">认可武器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="npc-kit.html">NPC 套组</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">载具工具包</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">载具结构</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">密度分布</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">座位和提示系统</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">载具控制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">相关参考文章</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">认可武器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#npc">NPC 套组</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="team-balancing.html">平衡团队构成</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/gameplay.html">游戏制作</a> &raquo;</li>
+        
+      <li>载具工具包</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/vehicles-kit.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>载具工具包<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>20  分钟</em></p>
+<p><img alt="https://developer.roblox.com/assets/blt57fb33293bc6967e/Endorsed-Vehicles-Banner.jpg" src="https://developer.roblox.com/assets/blt57fb33293bc6967e/Endorsed-Vehicles-Banner.jpg" /></p>
+<p>为了帮开发者创建乐趣十足的驾驶、竞速以及飞行体验，在任何游戏中都会提供几个<strong>认可 载具</strong>供开发者使用，所有的载具都完全基于约束且使用真实的物理规则来模拟驾驶体验。</p>
+<p>在开发者的游戏中使用认可载具的方法是：</p>
+<ol class="simple">
+<li><p>选择下列其中之一：</p></li>
+</ol>
+<p><img alt="https://developer.roblox.com/assets/blta3452699c82eda13/Endorsed-Vehicle-Sports-Car.jpg" src="https://developer.roblox.com/assets/blta3452699c82eda13/Endorsed-Vehicle-Sports-Car.jpg" /><a class="reference external" href="CATALOG_URL_SPORTS_CAR"> VEHICLE_NAME</a></p>
+<p><img alt="https://developer.roblox.com/assets/blt05fd5c2401db688c/Endorsed-Vehicle-Sedan.jpg" src="https://developer.roblox.com/assets/blt05fd5c2401db688c/Endorsed-Vehicle-Sedan.jpg" /><a class="reference external" href="CATALOG_URL_SEDAN"> VEHICLE_NAME</a></p>
+<p><img alt="https://developer.roblox.com/assets/blt8d658bbcc623d3e4/Endorsed-Vehicle-High-End-Sports-Car.jpg" src="https://developer.roblox.com/assets/blt8d658bbcc623d3e4/Endorsed-Vehicle-High-End-Sports-Car.jpg" /><a class="reference external" href="CATALOG_URL_HIGH_END_SPORTS_CAR"> VEHICLE_NAME</a></p>
+<p><img alt="https://developer.roblox.com/assets/blt6454a961dde43855/Endorsed-Vehicle-SUV.jpg" src="https://developer.roblox.com/assets/blt6454a961dde43855/Endorsed-Vehicle-SUV.jpg" /><a class="reference external" href="CATALOG_URL_SUV"> VEHICLE_NAME</a></p>
+<p><img alt="https://developer.roblox.com/assets/bltdcadea1946008537/Endorsed-Vehicle-Light-Utility.jpg" src="https://developer.roblox.com/assets/bltdcadea1946008537/Endorsed-Vehicle-Light-Utility.jpg" /><a class="reference external" href="CATALOG_URL_LIGHT_UTILITY"> VEHICLE_NAME</a></p>
+<p><img alt="https://developer.roblox.com/assets/blt396c82a542974813/Endorsed-Vehicle-Police-Car.jpg" src="https://developer.roblox.com/assets/blt396c82a542974813/Endorsed-Vehicle-Police-Car.jpg" /><a class="reference external" href="CATALOG_URL_POLICE_CAR"> VEHICLE_NAME</a></p>
+<p><img alt="https://developer.roblox.com/assets/bltbcefb6fc0b347ac0/Endorsed-Vehicle-Pickup-Truck.jpg" src="https://developer.roblox.com/assets/bltbcefb6fc0b347ac0/Endorsed-Vehicle-Pickup-Truck.jpg" /><a class="reference external" href="CATALOG_URL_PICKUP_TRUCK"> VEHICLE_NAME</a></p>
+<p><img alt="https://developer.roblox.com/assets/bltca1fb2eb9e1b7d24/Endorsed-Vehicle-Dune-Buggy.jpg" src="https://developer.roblox.com/assets/bltca1fb2eb9e1b7d24/Endorsed-Vehicle-Dune-Buggy.jpg" /><a class="reference external" href="CATALOG_URL_DUNE_BUGGY"> VEHICLE_NAME</a></p>
+<p><img alt="https://developer.roblox.com/assets/blt413844ce9442d052/Endorsed-Vehicle-Van.jpg" src="https://developer.roblox.com/assets/blt413844ce9442d052/Endorsed-Vehicle-Van.jpg" /><a class="reference external" href="CATALOG_URL_VAN"> VEHICLE_NAME</a></p>
+<p><img alt="https://developer.roblox.com/assets/bltdd09578ccf1b987b/Endorsed-Vehicle-Motorcycle.jpg" src="https://developer.roblox.com/assets/bltdd09578ccf1b987b/Endorsed-Vehicle-Motorcycle.jpg" /><a class="reference external" href="CATALOG_URL_MOTORCYCLE"> VEHICLE_NAME</a></p>
+<p><img alt="https://developer.roblox.com/assets/blt3946160512b6056b/Endorsed-Vehicle-Scooter.jpg" src="https://developer.roblox.com/assets/blt3946160512b6056b/Endorsed-Vehicle-Scooter.jpg" /><a class="reference external" href="CATALOG_URL_SCOOTER"> VEHICLE_NAME</a></p>
+<p><img alt="https://developer.roblox.com/assets/blt0e0094c1a812b258/Endorsed-Vehicle-Bicycle.jpg" src="https://developer.roblox.com/assets/blt0e0094c1a812b258/Endorsed-Vehicle-Bicycle.jpg" /><a class="reference external" href="CATALOG_URL_BICYCLE"> VEHICLE_NAME</a></p>
+<p><img alt="https://developer.roblox.com/assets/blt3fdd188003a5519f/Endorsed-Vehicle-Helicopter.jpg" src="https://developer.roblox.com/assets/blt3fdd188003a5519f/Endorsed-Vehicle-Helicopter.jpg" /><a class="reference external" href="CATALOG_URL_HELICOPTER"> VEHICLE_NAME</a></p>
+<p><img alt="https://developer.roblox.com/assets/blt5dc4f130267fe635/Endorsed-Vehicle-Plane.jpg" src="https://developer.roblox.com/assets/blt5dc4f130267fe635/Endorsed-Vehicle-Plane.jpg" /><a class="reference external" href="CATALOG_URL_PLANE"> VEHICLE_NAME</a></p>
+<p><img alt="https://developer.roblox.com/assets/blt41383e8d87bdc307/Endorsed-Vehicle-Semi-Truck.jpg" src="https://developer.roblox.com/assets/blt41383e8d87bdc307/Endorsed-Vehicle-Semi-Truck.jpg" /><a class="reference external" href="CATALOG_URL_SEMI_TRUCK"> VEHICLE_NAME</a></p>
+<p><img alt="https://developer.roblox.com/assets/blte034a1594e17950f/Endorsed-Vehicle-Front-End-Loader.jpg" src="https://developer.roblox.com/assets/blte034a1594e17950f/Endorsed-Vehicle-Front-End-Loader.jpg" /><a class="reference external" href="CATALOG_URL_FRONT_END_LOADER"> VEHICLE_NAME</a></p>
+<ol class="simple">
+<li><p>在载具的物品页面，点击绿色的 <strong>Get</strong>（获取）按钮来确认交易。</p></li>
+<li><p>在 Roblox Studio 中打开工具箱（<strong>View</strong>（视图） → <strong>Toolbox</strong>（工具箱））。</p></li>
+<li><p>选择开发者工具箱中的 <strong>Inventory</strong>（物品栏）部分。
+<img alt="https://developer.roblox.com/assets/blt7d482aecd878107e/Toolbox-Select-Inventory.png" src="https://developer.roblox.com/assets/blt7d482aecd878107e/Toolbox-Select-Inventory.png" /></p></li>
+<li><p>找到并点击载具，将其添加到场景中。</p></li>
+</ol>
+<div class="section" id="id2">
+<h2>载具结构<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>每一个认可载具的结构如下所示，但请注意载具的模型可能不会包括所有列出对象。</p>
+<p>[Vehicle] (<code class="docutils literal notranslate"><span class="pre">Model</span></code>)</p>
+<p>Animations (<code class="docutils literal notranslate"><span class="pre">Folder</span></code>) — 用来存储那些坐在载具中使用的动画资源。</p>
+<p>Configuration (<code class="docutils literal notranslate"><span class="pre">Folder</span></code>) — 存储着载具的配置项，注意每辆载具并不一定包括所有这些属性。</p>
+<p><strong><em>地面载具和直升机</em></strong></p>
+<p>BrakingTorque (<code class="docutils literal notranslate"><span class="pre">NumberValue</span></code>) — 当使用制动器或者在前进和倒退间切换时所施加的扭矩系数，这个数值越高，减速效果就越快。</p>
+<p>DrivingTorque (<code class="docutils literal notranslate"><span class="pre">NumberValue</span></code>) — 在加速时施加的扭矩系数；在所有的 <code class="docutils literal notranslate"><span class="pre">CylindricalConstraint|CylindricalConstraint</span></code>上面设置 <code class="docutils literal notranslate"><span class="pre">CylindricalConstraint/MotorMaxTorque|MotorMaxTorque</span></code> 属性。数值越高，加速度越大。</p>
+<p>MaxSpeed (<code class="docutils literal notranslate"><span class="pre">NumberValue</span></code>) — 载具前进时的最高速度。</p>
+<p>MaxSteer (<code class="docutils literal notranslate"><span class="pre">NumberValue</span></code>) — 限制<code class="docutils literal notranslate"><span class="pre">PrismaticConstraint</span></code> 由一侧到另一侧的转向距离。值越低说明急转弯能力越差。</p>
+<p>ReverseSpeed (<code class="docutils literal notranslate"><span class="pre">NumberValue</span></code>) — 载具倒退行进时的最高速度。</p>
+<p>StrutSpringDampingFront (<code class="docutils literal notranslate"><span class="pre">NumberValue</span></code>) — 前支柱 <code class="docutils literal notranslate"><span class="pre">SpringConstraint|SpringConstraint</span></code> 的阻尼值。</p>
+<p>StrutSpringDampingRear (<code class="docutils literal notranslate"><span class="pre">NumberValue</span></code>) — 后支柱 <code class="docutils literal notranslate"><span class="pre">SpringConstraint|SpringConstraint</span></code> 的阻尼值。</p>
+<p>StrutSpringStiffnessFront (<code class="docutils literal notranslate"><span class="pre">NumberValue</span></code>) — 前支柱 <code class="docutils literal notranslate"><span class="pre">SpringConstraint|SpringConstraint</span></code> 的刚度值。</p>
+<p>StrutSpringStiffnessRear (<code class="docutils literal notranslate"><span class="pre">NumberValue</span></code>) — 后支柱 <code class="docutils literal notranslate"><span class="pre">SpringConstraint|SpringConstraint</span></code> 的刚度值。</p>
+<p>TakeOffAccessories (<code class="docutils literal notranslate"><span class="pre">BoolValue</span></code>) — 如果值为 <strong>true</strong>，玩家的 <strong>RightFoot</strong>、<strong>RightLowerLeg</strong>、<strong>LeftFoot</strong> 以及 <strong>LeftLowerLeg</strong> 就会在进入载具后变成全透明状态，其他那些与 <strong>BodyBackAttachment</strong>、 <strong>WaistBackAttachment</strong> 以及 <strong>HatAttachment</strong> 相关的饰品也会变成全透明。</p>
+<p>TorsionSpringDamping (<code class="docutils literal notranslate"><span class="pre">NumberValue</span></code>) — 所有的 4 个扭力杆 <code class="docutils literal notranslate"><span class="pre">SpringConstraint|SpringConstraint</span></code> 的阻尼值。</p>
+<p>TorsionSpringStiffness (<code class="docutils literal notranslate"><span class="pre">NumberValue</span></code>) — 所有 4 个扭力杆 <code class="docutils literal notranslate"><span class="pre">SpringConstraint|SpringConstraint</span></code> 的刚度值。</p>
+<p>WheelFriction (<code class="docutils literal notranslate"><span class="pre">NumberValue</span></code>) — 被包含时覆盖车轮摩擦的默认值。</p>
+<p><strong><em>飞机</em></strong></p>
+<p>AngleOfAttack (<code class="docutils literal notranslate"><span class="pre">NumberValue</span></code>) — 外力的倍数因子，该外力用于帮助飞机升空且受到航向矢量、速度矢量、以及飞机速度的平方影响，然后会与此因子相乘。</p>
+<p>BaseThrottle (<code class="docutils literal notranslate"><span class="pre">NumberValue</span></code>) — 施加于飞机来自引擎的外力。</p>
+<p>Drag (<code class="docutils literal notranslate"><span class="pre">NumberValue</span></code>) — 拖拽的系数。力与飞机速度的平方成比例。</p>
+<p>Lift (<code class="docutils literal notranslate"><span class="pre">NumberValue</span></code>) — 抬升的系数，力与飞机前进速度的平方成比例。</p>
+<p>PitchSpeed (<code class="docutils literal notranslate"><span class="pre">NumberValue</span></code>) — 基准俯仰速度的倍数因子。基准速度由速度矢量与飞机前进矢量的相似度来决定。</p>
+<p>RollSpeed (<code class="docutils literal notranslate"><span class="pre">NumberValue</span></code>) — 基准翻滚速度的倍数因子，它和 PitchSpeed 不同，不受矢量相似度的影响。</p>
+<p>TakeOffAccessories (<code class="docutils literal notranslate"><span class="pre">BoolValue</span></code>) — 如果值为 <strong>true</strong>，玩家的<strong>RightFoot</strong>、 <strong>RightLowerLeg</strong>、 <strong>LeftFoot</strong> 和 <strong>LeftLowerLeg</strong> 将会在进入飞机之后变成全透明状态，就连那些与 <strong>BodyBackAttachment</strong>、 <strong>WaistBackAttachment</strong> 和 <strong>HatAttachment</strong> 相关的饰品也会一并变成全透明。</p>
+<p>Torque (<code class="docutils literal notranslate"><span class="pre">NumberValue</span></code>) — 拖拽力的旋转倍数因子，用来设置俯仰、偏航或者翻滚的强度。值越低说明飞机越不容易因为惯性而转身，而值越高则说明更容易因为惯性而转身。如果这个值因为飞机的重量而过低，那么转身的速度可能会受到影响。</p>
+<p>YawSpeed (<code class="docutils literal notranslate"><span class="pre">NumberValue</span></code>) — 基准偏航速度的倍数因子。和 PitchSpeed 类似，它的基准速度由速度矢量和飞机前进矢量的相似度来决定。</p>
+<p>Constraints (<code class="docutils literal notranslate"><span class="pre">Folder</span></code>) — 含有可以驱动载具底架的物理约束。</p>
+<p>Effects (<code class="docutils literal notranslate"><span class="pre">Folder</span></code>) — 用来存储 <code class="docutils literal notranslate"><span class="pre">Sound|Sound</span></code>、<code class="docutils literal notranslate"><span class="pre">ParticleEmitter|ParticleEmitter</span></code>、<code class="docutils literal notranslate"><span class="pre">Trail|Trail</span></code> 以及其他效果。</p>
+<p>Remotes (<code class="docutils literal notranslate"><span class="pre">Folder</span></code>) — 存储用于处理座位的远程事件和函数。</p>
+<p>Scripts (<code class="docutils literal notranslate"><span class="pre">Folder</span></code>)</p>
+<p>Vehicle (<code class="docutils literal notranslate"><span class="pre">Script</span></code>) — 处理下列内容：</p>
+<ul class="simple">
+<li><p>确保在加入游戏时玩家可以得到 SeatLocatorScreenGui 和 SeatLocator 脚本的副本（位于玩家的 <code class="docutils literal notranslate"><span class="pre">PlayerGui</span></code> 中）。</p></li>
+<li><p>执行记载于上述 TakeOffAccessories 中的过程。</p></li>
+<li><p>当玩家进入载具时，为玩家显示用于驾驶控制的 <code class="docutils literal notranslate"><span class="pre">ScreenGui</span></code>（VehicleGui）。</p></li>
+<li><p>使用 VehicleSeating 模块脚本来登记驾驶座位和乘客座位。</p></li>
+</ul>
+<p>Driver (<code class="docutils literal notranslate"><span class="pre">LocalScript</span></code>) — 当玩家进入驾驶员座位时就会将其传递给玩家，它用于解释执行载具动作（包括驾驶、进入载具、离开载具）所需的输入。此脚本还会对镜头进行配置，并从 Chassis 脚本中调用函数来根据输入更新每一帧的约束。</p>
+<p>Passenger (<code class="docutils literal notranslate"><span class="pre">LocalScript</span></code>) — 当玩家进入乘客座位时就会将其传递给玩家，它只描述用于上车和下车的输入，同时为乘客配置镜头。</p>
+<p>SeatLocator (<code class="docutils literal notranslate"><span class="pre">LocalScript</span></code>) — 与其他脚本一起用在座位和提示系统中。</p>
+<p>Chassis (<code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code>) — 唯一的一个直接与 Constraints 文件夹中的约束对象进行交互的脚本。对约束值的初始化基于在 Configuration 文件夹中设置的配置值和当前的重力设置。</p>
+<p>Effects (<code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code>) — 管理存储在 Effects 文件夹中的载具效果。</p>
+<p>InputImageLibrary (<code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code>) — 和其子项一起处理屏幕上的 GUI 图像，用于接收各种手柄输入。</p>
+<p>Keymap (<code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code>) — 用来定义各个动作对应的键位或者按钮配置。动作中的每个条目都是一个独立的字典，需要一个 <code class="docutils literal notranslate"><span class="pre">enum/KeyCode|KeyCode</span></code> 来接收按下的键或者手柄按钮，还有一个轴用于模拟输入。注意在这里定义的动作必须在 Driver 或者 Passenger 脚本中实现。</p>
+<p>LocalVehicleGui (<code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code>) — 包含 VehicleGui 的 <code class="docutils literal notranslate"><span class="pre">ScreenGui</span></code>，用于显示屏幕上的载具控制信息。</p>
+<p>LocalVehicleSeating (<code class="docutils literal notranslate"><span class="pre">LocalScript</span></code>) — 与其他脚本一起用于座位和提示系统中。</p>
+<p>VehicleSeating (<code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code>) — 与其他脚本一起用于 座位和提示系统中。</p>
+<p>Body (<code class="docutils literal notranslate"><span class="pre">Model</span></code>) — 包含所有的非必须网格和装饰部件（这些网格和装饰部件组成了载具的可视化外形），可以对它们进行移除或者自定义，但注意下面的密度分布。</p>
+<p>Chassis (<code class="docutils literal notranslate"><span class="pre">Model</span></code>) — 此载具功能部件用于处理驾驶相关事宜，它含有与物理约束相连接的所有底架部件，座位部件和权重来平衡载具的前端和后端。底架经过调整，可以适用于默认的 <code class="docutils literal notranslate"><span class="pre">Workspace/Gravity|Gravity</span></code> 值（35） 、同时也适用于 “Action” 重力设置值（75），但如果游戏使用极端重力设置，要想让底架正常工作可能就需要额外再对它进行调整。</p>
+<div class="section" id="id3">
+<h3>密度分布<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Most of a vehicle’s mass is isolated in the “weight” parts and other parts of its <strong>Chassis</strong> model. This keeps the center of mass low and reduces the chances of the vehicle tipping or flipping. In contrast, the parts within the <strong>Body</strong> model are kept as light as possible so they have minimal impact on driving behavior.</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>座位和提示系统<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>每辆载具只能有一个驾驶员座位，但可以有无数个乘客座位（具体数量由开发者决定）。</p>
+<ul>
+<li><p>驾驶员座位必须是名为 <strong>VehicleSeat</strong> 的 <code class="docutils literal notranslate"><span class="pre">VehicleSeat</span></code> 对象，它应该是载具 <strong>Chassis</strong> 模型的直接子项并被准确放置在开发者想让驾驶员所坐的位置。<strong>记住驾驶员座位只能有一个</strong>。</p></li>
+<li><p>乘客座位必须是 <code class="docutils literal notranslate"><span class="pre">Seat</span></code> 对象，每一个乘客座位都应该是拥有唯一名称的 <strong>Chassis</strong> 模型子项。在 Scripts/Chassis <code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code> 中按照下列方式将每个乘客座位添加到 <code class="docutils literal notranslate"><span class="pre">Chassis.passengerSeats</span></code> 数组中，其中 <code class="docutils literal notranslate"><span class="pre">[SeatName]</span></code> 就是 <code class="docutils literal notranslate"><span class="pre">Seat</span></code> 对象的名称：</p>
+<p>Chassis.passengerSeats = {
+Chassis.root:FindFirstChild(“[SeatName]”),
+– 额外的乘客座位，如果存在的话
+}</p>
+</li>
+</ul>
+<p>在内部，座位和提示系统由三个高亮脚本处理：</p>
+<p>Scripts (<code class="docutils literal notranslate"><span class="pre">Folder</span></code>)</p>
+<p>Vehicle (<code class="docutils literal notranslate"><span class="pre">Script</span></code>)</p>
+<p>Driver (<code class="docutils literal notranslate"><span class="pre">LocalScript</span></code>)</p>
+<p>Passenger (<code class="docutils literal notranslate"><span class="pre">LocalScript</span></code>)</p>
+<p>SeatLocator (<code class="docutils literal notranslate"><span class="pre">LocalScript</span></code>)</p>
+<ul class="simple">
+<li><p>每隔给定时间间隔（0.1 秒）就去寻找距离玩家最近的座位（该时间间隔可以更改，只需要修改脚本顶部的 <code class="docutils literal notranslate"><span class="pre">SEAT_POLL_INTERVAL</span></code> 常量即可）。</p></li>
+<li><p>通知 LocalVehicleSeating 脚本去显示提示信息，这样每次当一个新座位成为距离玩家最近的座位时就会显示坐上座位的提示。</p></li>
+</ul>
+<p>Chassis (<code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code>)</p>
+<p>Effects (<code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code>)</p>
+<p>InputImageLibrary (<code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code>)</p>
+<p>Keymap (<code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code>)</p>
+<p>LocalVehicleGui (<code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code>)</p>
+<p>LocalVehicleSeating (<code class="docutils literal notranslate"><span class="pre">LocalScript</span></code>)</p>
+<ul class="simple">
+<li><p>存有 <code class="docutils literal notranslate"><span class="pre">ShowPrompt()</span></code> 函数，该函数的作用是当玩家离身边最近的座位足够近时，函数就会显示进入驾驶员座位或者乘客座位的图标、如果载具被翻转则函数就会显示翻转图标。开发者可以在此脚本的顶端修改 <code class="docutils literal notranslate"><span class="pre">MIN_FLIP_ANGLE</span></code> 常量来更改载具需要被翻多少度才会被定义为翻转过来。</p></li>
+<li><p>监听玩家的输入并作出恰当的响应，根据最后的输入类型（键盘、游戏手柄、触摸设备）来更改在提示中该显示哪个图标来进入或者翻转载具，如果玩家通过正确输入激活当前显示的提示，此文件将会告诉服务器如何处理，并在玩家进入载具时为玩家播放相应的动画效果。</p></li>
+</ul>
+<p>VehicleSeating (<code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code>)</p>
+<ul class="simple">
+<li><p>当玩家进入或者离开载具时，处理将玩家放入座位或者让玩家脱离座位。</p></li>
+<li><p>让门迅速打开和关闭。</p></li>
+<li><p>登记 FlipSeat 远程事件的 <code class="docutils literal notranslate"><span class="pre">RemoteEvent/OnServerEvent|OnServerEvent</span></code> 回调函数，该回调函数通知底架在玩家触发它时将车翻转。</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>载具控制<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>个人电脑 移动设备 主机</p>
+<p><strong>地面载具</strong></p>
+<p>动作 键 / 控制</p>
+<p>加速 / 前进
+W 或者 ↑</p>
+<p>制动 / 倒行
+S 或者 ↓</p>
+<p>左转
+A 或者 ←</p>
+<p>右转
+D 或者 →</p>
+<p>紧急制动 / 漂移
+空格键</p>
+<p>进入 / 离开 / 翻转
+E</p>
+<p><strong>直升机</strong></p>
+<p>动作 键 / 控制</p>
+<p>驾驶操纵
+移动鼠标（镜头控制）</p>
+<p>加速 / 前进
+W 或者 ↑</p>
+<p>减速 / 倒退
+S 或者 ↓</p>
+<p>向左平移
+A 或者 ←</p>
+<p>向右平移
+D 或者 →</p>
+<p>上升
+Q 或者 Shift</p>
+<p>下降
+Z 或者 Ctrl</p>
+<p>进入 / 离开 / 翻转
+E</p>
+<p><strong>飞机</strong></p>
+<p>动作 键 / 控制</p>
+<p>驾驶操纵
+移动鼠标（镜头控制）</p>
+<p>加速 / 前进
+W 或者 ↑</p>
+<p>减速 / 停止
+S 或者 ↓</p>
+<p>向左翻滚
+A 或者 ←</p>
+<p>向右翻滚
+D 或者 →</p>
+<p>进入 / 离开 / 翻转
+E</p>
+<p><strong>地面载具</strong></p>
+<p>动作 按钮 / 控制</p>
+<p>加速 / 前进
+跳跃按钮 （视觉变动）</p>
+<p>制动 / 倒退
+<strong>加速</strong> 按钮左侧的更小的按钮</p>
+<p>向左转/向右转
+移动摇杆</p>
+<p>紧急制动 / 漂移
+在最大转弯时出现</p>
+<p>进入 / 翻转
+载具上方的按钮提示</p>
+<p>离开
+<strong>加速</strong>按钮上方的更小按钮</p>
+<p><strong>直升飞机</strong></p>
+<p>动作 按钮 / 控制</p>
+<p>驾驶操纵
+触摸屏（镜头控制）</p>
+<p>加速 / 前进
+向前推摇杆</p>
+<p>减速 / 后退
+向后推摇杆</p>
+<p>向左平移/向右平移
+向左推摇杆/向右推摇杆</p>
+<p>上升
+跳跃按钮（视觉改变）</p>
+<p>下降
+<strong>上升</strong>按钮左侧的更小按钮</p>
+<p>进入 / 翻转
+直升机上方的按钮提示</p>
+<p>离开
+<strong>上升</strong>按钮上方的更小的按钮</p>
+<p><strong>飞机</strong></p>
+<p>动作 按钮 / 控制</p>
+<p>驾驶操纵
+移动摇杆</p>
+<p>加速 / 前进
+跳跃按钮（视觉改变）</p>
+<p>减速 / 停止
+<strong>加速</strong>按钮左侧的更小的按钮</p>
+<p>进入 / 翻转
+飞机上方的按钮提示</p>
+<p>离开
+<strong>加速</strong>按钮上方的更小按钮</p>
+<p><strong>地面载具</strong></p>
+<p>动作 按钮 / 控制</p>
+<p>加速 / 前进
+RT</p>
+<p>制动 / 倒行
+LT</p>
+<p>向左转/向右转
+将左摇杆向左推/向右推</p>
+<p>电子制动 / 漂移</p>
+<p>X</p>
+<p>进入 / 离开 / 翻转</p>
+<p>Y</p>
+<p><strong>直升机</strong></p>
+<p>动作 按钮 / 控制</p>
+<p>驾驶操纵
+右模拟杆（镜头控制）</p>
+<p>加速 / 前进
+将左摇杆往前推</p>
+<p>减速 / 后退
+将左摇杆往后推</p>
+<p>向左平移/向右平移
+将左摇杆向左推/向右推</p>
+<p>上升
+RT</p>
+<p>下降
+LT</p>
+<p>进入 / 离开 / 翻转</p>
+<p>Y</p>
+<p><strong>飞机</strong></p>
+<p>动作 按钮 / 控制</p>
+<p>驾驶操纵
+右摇杆（镜头控制）</p>
+<p>加速 / 前进
+RT</p>
+<p>减速 / 停止
+LT</p>
+<p>向左翻滚/向右翻滚
+将左摇杆向左推/向右推</p>
+<p>进入 / 离开 / 翻转</p>
+<p>Y</p>
+</div>
+<div class="section" id="id6">
+<h2>相关参考文章<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="weapons-kit.html"><span class="doc"> </span></a></p>
+<div class="section" id="id7">
+<h3><a class="reference internal" href="weapons-kit.html"><span class="doc">认可武器</span></a><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="npc-kit.html"><span class="doc"> </span></a></p>
+</div>
+<div class="section" id="npc">
+<h3><a class="reference internal" href="npc-kit.html"><span class="doc">NPC 套组</span></a><a class="headerlink" href="#npc" title="Permalink to this headline">¶</a></h3>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/vehicles-kit">载具工具包</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="team-balancing.html" class="btn btn-neutral float-right" title="平衡团队构成" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="npc-kit.html" class="btn btn-neutral float-left" title="NPC 套组" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

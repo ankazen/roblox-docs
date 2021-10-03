@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>创建滚动框架 GUI &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Customizing the Camera" href="customizing-the-camera.html" />
+    <link rel="prev" title="创建自定义传送屏幕" href="Creating-a-Custom-Teleport-GUI.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-GUIs.html">GUI 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI-Animations.html">GUI 动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fundamentals-of-Scripting-with-GUIs.html">GUI 脚本简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Chat-System.html">Lua 聊天系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Interactive-Surface-GUI.html">交互式表面 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-GUI-Buttons.html">创建 GUI 按钮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Radial-Menu.html">创建摇杆快速菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Grid-Menu.html">创建栅格菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using-Images-in-GUIs.html">在 GUI 中使用图像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text-and-Chat-Filtering.html">文本与聊天过滤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Camera-manipulation.html">镜头操控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mouse-Icon-Appearance.html">鼠标指针控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animating-text.html">设置文本动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar-emotes.html">Avatar Emotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chat-Modules.html">Chat Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Custom-Teleport-GUI.html">创建自定义传送屏幕</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">创建滚动框架 GUI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">自定义滚动条</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">示例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-the-camera.html">Customizing the Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Disabling-Parts-of-Game-Interface.html">禁用游戏界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-bindings.html">Roblox Input Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selection-Boxes.html">选择框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Three-Quarters-Camera-View.html">45 度镜头视角</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Unit-Frame.html">单元框：制作生命槽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewportframe-gui.html">ViewportFrame GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/user-interface.html">用户界面</a> &raquo;</li>
+        
+      <li>创建滚动框架 GUI</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Creating-a-Scrolling-Frame-GUI.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gui">
+<h1>创建滚动框架 GUI<a class="headerlink" href="#gui" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p><img alt="ScrollingFrameExample.gif" src="https://developer.roblox.com/assets/bltc4ce8d1f19ac09ae/ScrollingFrameExample.gif" /></p>
+<p><code class="docutils literal notranslate"><span class="pre">ScrollingFrame</span></code> 的设置方式与常规 <code class="docutils literal notranslate"><span class="pre">Frame</span></code> 的设置方式相同。将 <code class="docutils literal notranslate"><span class="pre">ScreenGui</span></code> 添加到场景中的 <code class="docutils literal notranslate"><span class="pre">StarterGui</span></code> 中，然后插入一个 ScrollingFrame。</p>
+<p><img alt="ExplorerScrollingFrame.png" src="https://developer.roblox.com/assets/blt2e713b2033cdc5c7/ExplorerScrollingFrame.png" /></p>
+<ul class="simple">
+<li><p>ScrollingFrame 的位置通过其 Position 属性设置，该属性为 <code class="docutils literal notranslate"><span class="pre">DataType/UDim2</span></code>。</p></li>
+<li><p>同样，在 Size 属性中设置 ScrollingFrame 的大小，该属性也为 <code class="docutils literal notranslate"><span class="pre">DataType/UDim2</span></code>。请注意，ScrollingFrame 可能会有一个占用此部分尺寸的滚动条</p></li>
+<li><p>如果需要知道 ScrollingFrame 中的实际查看区域有多大，可以使用只读属性 <code class="docutils literal notranslate"><span class="pre">ScrollingFrame/AbsoluteWindowSize</span></code> 来获取。</p></li>
+<li><p>如果显示滚动条，则其厚度由 <code class="docutils literal notranslate"><span class="pre">ScrollingFrame/ScrollBarThickness</span></code> 属性确定。</p></li>
+<li><p>ScrollingFrame 内的区域称为画布。CanvasSize 属性确定整个画布的大小。如果画布的某个尺寸比 ScrollingFrame 的尺寸宽，则会显示相应的滚动条。否则滚动条将隐藏。</p></li>
+<li><p>CanvasPosition 定义显示框架时滚动条的默认位置（以像素为单位）。请注意，如果未显示滚动条，则此属性不会执行任何操作。</p></li>
+</ul>
+<div class="section" id="id1">
+<h2>自定义滚动条<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>可以自定义 ScrollerFrame 中的滚动条。滚动条本身由三个图像组成：顶部、中间和底部。水平滚动条和垂直滚动条使用相同的图像（水平滚动条将垂直滚动条的图像逆时针旋转 90 度）。</p>
+<p>滚动条中的图像根据 ScrollBarThickness 属性进行缩放。顶部图像和底部图像始终是正方形，其宽度和高度均等于滚动条的厚度。中间图像将始终具有滚动条的厚度，但是长度将根据框架尺寸和画布尺寸进行缩放。</p>
+<p>滚动条可以按比例缩放，因此滚动条的长度与槽的长度之比等于画布大小与框架大小之比。</p>
+<p>若要使用自定义图像，请上传要用作贴花的三个图像。建议使用缩放效果好的图像，尤其是需要拉伸的中间图像。然后，在 ScrollingFrame 的 Properties 中，将 BottomImage、MidImage 和 TopImage 更改为相应的 url。</p>
+<p><img alt="ScrollingFrameProperties.png" src="https://developer.roblox.com/assets/blt0c4b23339d01e492/ScrollingFrameProperties.png" /></p>
+</div>
+<div class="section" id="id2">
+<h2>示例<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>本例将创建一个包含四个 <code class="docutils literal notranslate"><span class="pre">ImageLabel</span></code>（每个角上一个）的 ScrollingFrame。请注意，它是如何使用滚动条的自定义资源的：</p>
+<p>ScrollingFrame Creation ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">In</span> <span class="n">a</span> <span class="n">LocalScript</span> <span class="ow">in</span> <span class="n">StarterGui</span><span class="p">:</span>
+
+<span class="o">--</span> <span class="n">Create</span> <span class="n">ScreenGui</span>
+<span class="n">local</span> <span class="n">screenGui</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;ScreenGui&quot;</span><span class="p">)</span>
+<span class="n">screenGui</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+ 
+<span class="o">--</span> <span class="n">Create</span> <span class="n">ScrollingFrame</span>
+<span class="n">local</span> <span class="n">scrollingFrame</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;ScrollingFrame&quot;</span><span class="p">)</span>
+<span class="n">scrollingFrame</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">scrollingFrame</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">scrollingFrame</span><span class="o">.</span><span class="n">CanvasSize</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">scrollingFrame</span><span class="o">.</span><span class="n">BackgroundColor3</span> <span class="o">=</span> <span class="n">BrickColor</span><span class="o">.</span><span class="n">White</span><span class="p">()</span><span class="o">.</span><span class="n">Color</span>
+<span class="n">scrollingFrame</span><span class="o">.</span><span class="n">BottomImage</span> <span class="o">=</span> <span class="s2">&quot;rbxassetid://156476249&quot;</span>
+<span class="n">scrollingFrame</span><span class="o">.</span><span class="n">MidImage</span> <span class="o">=</span> <span class="s2">&quot;rbxassetid://156476256&quot;</span>
+<span class="n">scrollingFrame</span><span class="o">.</span><span class="n">TopImage</span> <span class="o">=</span> <span class="s2">&quot;rbxassetid://156476261&quot;</span>
+<span class="n">scrollingFrame</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">screenGui</span>
+
+<span class="o">--</span> <span class="n">Create</span> <span class="n">images</span> <span class="n">to</span> <span class="n">put</span> <span class="ow">in</span> <span class="n">ScrollingFrame</span>
+<span class="n">local</span> <span class="n">topLeftImage</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;ImageLabel&quot;</span><span class="p">)</span>
+<span class="n">topLeftImage</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">topLeftImage</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">topLeftImage</span><span class="o">.</span><span class="n">BackgroundColor3</span> <span class="o">=</span> <span class="n">Color3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">255</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span> <span class="mi">162</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span> <span class="mi">116</span><span class="o">/</span><span class="mi">255</span><span class="p">)</span>
+<span class="n">topLeftImage</span><span class="o">.</span><span class="n">ZIndex</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">topLeftImage</span><span class="o">.</span><span class="n">ImageTransparency</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">topLeftImage</span><span class="o">.</span><span class="n">Image</span> <span class="o">=</span> <span class="s2">&quot;rbxassetid://133293265&quot;</span>
+<span class="n">topLeftImage</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">scrollingFrame</span>
+
+<span class="n">local</span> <span class="n">topRightImage</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;ImageLabel&quot;</span><span class="p">)</span>
+<span class="n">topRightImage</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">topRightImage</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">topRightImage</span><span class="o">.</span><span class="n">BackgroundColor3</span> <span class="o">=</span> <span class="n">Color3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">255</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span> <span class="mi">190</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span> <span class="mi">216</span><span class="o">/</span><span class="mi">255</span><span class="p">)</span>
+<span class="n">topRightImage</span><span class="o">.</span><span class="n">ZIndex</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">topRightImage</span><span class="o">.</span><span class="n">ImageTransparency</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">topRightImage</span><span class="o">.</span><span class="n">Image</span> <span class="o">=</span> <span class="s2">&quot;rbxassetid://133293265&quot;</span>
+<span class="n">topRightImage</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">scrollingFrame</span>
+
+<span class="n">local</span> <span class="n">bottomLeftImage</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;ImageLabel&quot;</span><span class="p">)</span>
+<span class="n">bottomLeftImage</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">bottomLeftImage</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">bottomLeftImage</span><span class="o">.</span><span class="n">BackgroundColor3</span> <span class="o">=</span> <span class="n">Color3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">28</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span> <span class="mi">180</span><span class="o">/</span><span class="mi">255</span><span class="p">)</span>
+<span class="n">bottomLeftImage</span><span class="o">.</span><span class="n">ZIndex</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">bottomLeftImage</span><span class="o">.</span><span class="n">ImageTransparency</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">bottomLeftImage</span><span class="o">.</span><span class="n">Image</span> <span class="o">=</span> <span class="s2">&quot;rbxassetid://133293265&quot;</span>
+<span class="n">bottomLeftImage</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">scrollingFrame</span>
+
+<span class="n">local</span> <span class="n">bottomRightImage</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;ImageLabel&quot;</span><span class="p">)</span>
+<span class="n">bottomRightImage</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">bottomRightImage</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">bottomRightImage</span><span class="o">.</span><span class="n">BackgroundColor3</span> <span class="o">=</span> <span class="n">Color3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">28</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span> <span class="mi">69</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="o">/</span><span class="mi">255</span><span class="p">)</span>
+<span class="n">bottomRightImage</span><span class="o">.</span><span class="n">ZIndex</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">bottomRightImage</span><span class="o">.</span><span class="n">ImageTransparency</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">bottomRightImage</span><span class="o">.</span><span class="n">Image</span> <span class="o">=</span> <span class="s2">&quot;rbxassetid://133293265&quot;</span>
+<span class="n">bottomRightImage</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">scrollingFrame</span>
+
+
+<span class="mi">0</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+
+<span class="o">***</span><span class="n">__Roblox官方链接__</span><span class="p">:[</span><span class="n">创建滚动框架</span> <span class="n">GUI</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">developer</span><span class="o">.</span><span class="n">roblox</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">zh</span><span class="o">-</span><span class="n">cn</span><span class="o">/</span><span class="n">articles</span><span class="o">/</span><span class="n">Creating</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">Scrolling</span><span class="o">-</span><span class="n">Frame</span><span class="o">-</span><span class="n">GUI</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="customizing-the-camera.html" class="btn btn-neutral float-right" title="Customizing the Camera" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Creating-a-Custom-Teleport-GUI.html" class="btn btn-neutral float-left" title="创建自定义传送屏幕" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

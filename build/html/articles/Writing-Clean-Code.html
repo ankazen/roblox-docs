@@ -1,0 +1,505 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>代码编写简洁化 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="可变参函数" href="Variadic-Functions.html" />
+    <link rel="prev" title="Scope（作用域）" href="Scope.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">代码编写简洁化</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">代码缩进</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">易懂的变量名称</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">加入注释</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for">使用 for 循环</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">布尔值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">数学运算</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>代码编写简洁化</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Writing-Clean-Code.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>代码编写简洁化<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p>开发者你好！今天我们来讨论一下如何编写更为高效与职业化的代码吧。</p>
+<p>代码编写的简洁化十分重要，而且能够让他人更为轻易地阅读与调试你的代码。（但并不是说你所编写的代码就一定会出错喔。）</p>
+<div class="section" id="id2">
+<h2>代码缩进<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>良好的代码编写习惯中最为重要的条目之一就是进行缩进。缩进听起来虽然好像有些困难的样子，但其实就是在每一层深度的代码块前多加一个制表符（Tab 键）。每个 if、while、for、funcion、repeat 等后都需要进行添加。也就是说，出现类似上述关键词时，下一行开始时都要再添加一个制表符（Tab 键）。养成代码缩进的习惯后，可以非常清晰地看到代码块的起始和结束行。而且这样一来就很不容易忘掉 “end” 语句了。</p>
+<p>下面我们来看一段十分混乱的代码吧。由于缺失一个 end，这段代码无法运行，而且缺失的地方也很不好找：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">powerLevel</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6</span>
+<span class="n">function</span> <span class="n">fancyFunction</span><span class="p">()</span>
+<span class="n">powerLevel</span> <span class="o">=</span> <span class="n">powerLevel</span> <span class="o">+</span><span class="mi">1</span>
+<span class="n">end</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">10</span> <span class="n">do</span>
+<span class="k">if</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span> <span class="n">then</span>
+<span class="n">fancyFunction</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">powerLevel</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>如果对这段代码进行缩进，就可以轻松地看到 end 应该放置在什么地方，且代码中有没有语句缺失了：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>local powerLevel = -6
+function fancyFunction()
+	powerLevel = powerLevel +1
+end
+for i = 1, 10 do
+	if 1 + 1 == 2 then
+		fancyFunction()
+	print(powerLevel) --这里看起来似乎有些不对喔！
+end
+</pre></div>
+</div>
+<p>我们可以轻易看到函数与 for 循环的 end 语句都没有问题，但 if 语句似乎缺失了 end。那么就让我们将其加入，修复代码吧：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">powerLevel</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6</span>
+<span class="n">function</span> <span class="n">fancyFunction</span><span class="p">()</span>
+	<span class="n">powerLevel</span> <span class="o">=</span> <span class="n">powerLevel</span> <span class="o">+</span><span class="mi">1</span>
+<span class="n">end</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span> <span class="n">do</span>
+	<span class="k">if</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span> <span class="n">then</span>
+		<span class="n">fancyFunction</span><span class="p">()</span>
+	<span class="n">end</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">powerLevel</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>由于 Lua 解释器将会忽略空白符，对代码进行缩进时将<strong>不会</strong>影响脚本运行速度。</p>
+</div>
+<div class="section" id="id3">
+<h2>易懂的变量名称<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>另外一个重要的习惯就是在命名变量时一定要使其清晰易懂。</p>
+<p>如果你的变量都使用了 “mj90_z” 这种混乱且毫无意义的名称，那么其他人将很难读懂你的代码。由于这些名称难以记忆，有时连你本人都会难以回忆起一段时间前自己到底想要用这段代码做些什么。</p>
+<p>下列代码中的变量名称并没有遵循清晰易懂的规则，让人无法记起其意义：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">epic1337</span> <span class="o">=</span> <span class="n">false</span>
+<span class="n">georgewin</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">epic1337</span> <span class="n">then</span>
+    <span class="n">georgewin</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>虽然这段代码并不长，但让我觉得十分难懂。不知你感觉如何？</p>
+<p>这段代码的名称好像是“上直升飞机的脚本！”，但我却完全无法对其进行理解。</p>
+<p>如果能够对变量进行重命名，或许就能理解这段代码的用途了：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">atChopper</span> <span class="o">=</span> <span class="n">false</span>
+<span class="n">peopleAtChopper</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">atChopper</span> <span class="n">then</span>
+	<span class="n">peopleAtChopper</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>原来如此。如果你的角色不在直升飞机处，那么在直升飞机处的人数将为 0。现在这段代码非常容易理解，我们也因此能对其作用进行了解。</p>
+</div>
+<div class="section" id="id4">
+<h2>加入注释<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>如果你正在和几个朋友一起制作非常大的游戏，每个人都需要编写与共享脚本时该怎么处理呢？</p>
+<p>虽然<strong>可以</strong>希望自己与好友们心有灵犀，在他们添加你的脚本时知道脚本的意图，但更为有效的方法是在代码上添加注释，让他们通过阅读注释了解代码的功能。</p>
+<p>下面让我们来看看这段难以理解的代码吧：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">codeIsConfusing</span> <span class="o">=</span> <span class="n">true</span>
+<span class="k">if</span> <span class="n">codeIsConfusing</span> <span class="n">then</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;这代码好难懂喔。&quot;</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>不知你怎么认为，但我觉得这段代码真的很难懂。</p>
+<p>但通过对代码添加注释，可以让人更为轻易地对其进行理解。如果只需写一行注释，请使用 – 。在此符号之后的所有文本都将成为注释。</p>
+<p>但如果需要写一大篇注释，可以使用 <code class="docutils literal notranslate"><span class="pre">\--[[</span></code> （开始注释）和 <code class="docutils literal notranslate"><span class="pre">]]</span></code> （结束注释）将文本嵌套起来，其中就是需要注释的内容了。</p>
+<p>下面让我们来为之前十分难懂的代码添加注释，帮助一起制作游戏的朋友们吧：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>--[[
+	此代码的作用为检查代码的难懂程度。
+	如果代码难懂，则将 CodeIsConfusing 设为 true，反之则设为 false。
+]]
+CodeIsConfusing = true --此代码是否难懂的布尔值
+if CodeIsConfusing then --当代码难懂时…
+	print(&quot;这代码好难懂喔。&quot;) --输出文本。
+end --结束 if 语句。
+</pre></div>
+</div>
+<p>这样一起做游戏的朋友们也能看懂上面的代码了。</p>
+<p>–难懂的代码真的很难懂。</p>
+</div>
+<div class="section" id="for">
+<h2>使用 for 循环<a class="headerlink" href="#for" title="Permalink to this headline">¶</a></h2>
+<p>下列这种为逐渐淡出的门所编写的代码，你有没有见过？</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">script</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">Transparency</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">wait</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">script</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">Transparency</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">wait</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">script</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">Transparency</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">wait</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">script</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">Transparency</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="n">wait</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">script</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">Transparency</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">wait</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">script</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">Transparency</span> <span class="o">=</span> <span class="mf">0.6</span>
+<span class="n">wait</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">script</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">Transparency</span> <span class="o">=</span> <span class="mf">0.7</span>
+<span class="n">wait</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">script</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">Transparency</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="n">wait</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">script</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">Transparency</span> <span class="o">=</span> <span class="mf">0.9</span>
+<span class="n">wait</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">script</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">Transparency</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">wait</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>如果能在此处使用 for 循环，就可以节省许多时间和内存消耗。</p>
+<p>简单来说，我们可以将部件的透明度设为循环中的索引变量。</p>
+<p>举例来说：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span> <span class="n">do</span>
+	<span class="n">script</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">Transparency</span> <span class="o">=</span> <span class="n">i</span><span class="o">/</span><span class="mi">10</span>
+	<span class="n">wait</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>不过，即使是这么简单的代码也可以继续简化！没错！</p>
+<p>通过使用循环的第三个参数，也就是其增量（increment），我们可以让循环每次增加 0.1 而不是 1。这样一来就不需要 /10 这个部分了。</p>
+<p>请看以下示例：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">transparency</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span> <span class="n">do</span>
+	<span class="n">script</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">Transparency</span> <span class="o">=</span> <span class="n">transparency</span>
+	<span class="n">wait</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>这个小技巧十分好用，在添加动画或创建物体时能够帮你省下不少时间。</p>
+<p>–来此之人必心生希望。循环即是未来！</p>
+</div>
+<div class="section" id="id5">
+<h2>布尔值<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>在编写代码时，当出现 true 或 false 值时，或许会有使用 if value == true/false then 进行操作的习惯。</p>
+<p>先不要着急，这里还可以进行优化！Roblox 的长处之一就是可以将 if 语句中的值转化为 true 或 false。</p>
+<p>简单来说，如果值存在则会转化为 true，如果值为 nil 则会转化为 false。</p>
+<p>这样一来，我们就能写出不使用 == true/false 的精简代码了。具体方法为：</p>
+<p>只要删除 == true/false 即可。怎么样，是不是很简单？</p>
+<p>下面先来看看这个反面代码示例：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cake</span> <span class="o">=</span> <span class="n">Workspace</span><span class="p">:</span><span class="n">FindFirstChild</span><span class="p">(</span><span class="s2">&quot;Cake&quot;</span><span class="p">)</span>
+<span class="n">yummy</span> <span class="o">=</span> <span class="n">true</span>
+<span class="k">if</span> <span class="n">cake</span> <span class="o">~=</span> <span class="n">nil</span> <span class="n">then</span>
+	<span class="k">if</span> <span class="n">yummy</span> <span class="o">==</span> <span class="n">true</span> <span class="n">then</span>
+		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;蛋糕存在，而且很好吃。&quot;</span><span class="p">)</span>
+	<span class="n">end</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>将 == true/false 和 ~= true/false 移除后是这样的：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cake</span> <span class="o">=</span> <span class="n">Workspace</span><span class="p">:</span><span class="n">FindFirstChild</span><span class="p">(</span><span class="s2">&quot;Cake&quot;</span><span class="p">)</span>
+<span class="n">yummy</span> <span class="o">=</span> <span class="n">true</span>
+<span class="k">if</span> <span class="n">cake</span> <span class="n">then</span>
+	<span class="k">if</span> <span class="n">yummy</span> <span class="n">then</span>
+		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;蛋糕存在，而且很好吃。&quot;</span><span class="p">)</span>
+	<span class="n">end</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>其功能完全相同，而且更为有效简洁。并且使用 Roblox 提供的语句更为容易理解，就像是在说“if（如果） cake then（则）进行此操作”，而不是“if（如果）cake 等同于 true，then（则）进行此操作”。</p>
+<p>但如果我们想要让这个事件在蛋糕（cake）并不存在而且不好吃时触发，该怎么处理呢？</p>
+<p>这时可以使用 “not” 将布尔值进行反转！太简单了！</p>
+<p>举例来说：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cake</span> <span class="o">=</span> <span class="n">Workspace</span><span class="p">:</span><span class="n">FindFirstChild</span><span class="p">(</span><span class="s2">&quot;Cake&quot;</span><span class="p">)</span>
+<span class="n">yummy</span> <span class="o">=</span> <span class="n">true</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">cake</span> <span class="n">then</span>
+	<span class="k">if</span> <span class="ow">not</span> <span class="n">yummy</span> <span class="n">then</span>
+		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;蛋糕并不存在，而且肯定也不好吃。&quot;</span><span class="p">)</span>
+	<span class="n">end</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>–如果蛋糕真的是个谎言，我们概不负责喔。</p>
+</div>
+<div class="section" id="id6">
+<h2>数学运算<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>其实你在脚本中编写数学运算式时的语法对于脚本的可读性与可修改性也大有关联。</p>
+<p>如果你在学校还没学到运算顺序，简单来说就是这样：</p>
+<ul class="simple">
+<li><p>数学运算中括号里的内容永远最先计算</p></li>
+<li><p>括号之后先对幂进行计算</p></li>
+<li><p>第三位进行计算的是乘法和除法</p></li>
+<li><p>最后进行计算的是加法和减法。</p></li>
+</ul>
+<p>但我们应该怎样利用运算顺序让脚本变得更简洁呢？</p>
+<p>让我们首先来看看不少人在编写数学运算式时的情形吧：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">6</span> <span class="o">/</span> <span class="mi">3</span>
+</pre></div>
+</div>
+<p>这行代码看起来就像是数字和符号堆积在一起，虽然也不是看不懂，但如果简化一下会更好。</p>
+<p>简化的方式有很多种，下面列举的是我个人喜欢使用的方法。</p>
+<ul>
+<li><p>不要在乘除运算中使用空格。</p>
+<p>5*2, 6/3</p>
+</li>
+<li><p>在加减运算中需要使用空格。</p>
+<p>2 + 6, 10 - 4</p>
+</li>
+<li><p>可用时就用上括号。</p>
+<p>(5*2), (6/3)</p>
+</li>
+</ul>
+<p>利用你所喜欢的数学运算写法可以让代码的运行更加一目了然。<br />对之前的代码进行简洁化后是这样的：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">6</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>不知道你怎么想，我个人认为现在的运算式比之前的要易懂很多。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Writing-Clean-Code">代码编写简洁化</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Variadic-Functions.html" class="btn btn-neutral float-right" title="可变参函数" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Scope.html" class="btn btn-neutral float-left" title="Scope（作用域）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

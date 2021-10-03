@@ -1,0 +1,377 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>单元框：制作生命槽 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ViewportFrame GUI" href="viewportframe-gui.html" />
+    <link rel="prev" title="45 度镜头视角" href="Three-Quarters-Camera-View.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-GUIs.html">GUI 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI-Animations.html">GUI 动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fundamentals-of-Scripting-with-GUIs.html">GUI 脚本简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Chat-System.html">Lua 聊天系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Interactive-Surface-GUI.html">交互式表面 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-GUI-Buttons.html">创建 GUI 按钮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Radial-Menu.html">创建摇杆快速菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Grid-Menu.html">创建栅格菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using-Images-in-GUIs.html">在 GUI 中使用图像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text-and-Chat-Filtering.html">文本与聊天过滤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Camera-manipulation.html">镜头操控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mouse-Icon-Appearance.html">鼠标指针控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animating-text.html">设置文本动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar-emotes.html">Avatar Emotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chat-Modules.html">Chat Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Custom-Teleport-GUI.html">创建自定义传送屏幕</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Scrolling-Frame-GUI.html">创建滚动框架 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-the-camera.html">Customizing the Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Disabling-Parts-of-Game-Interface.html">禁用游戏界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-bindings.html">Roblox Input Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selection-Boxes.html">选择框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Three-Quarters-Camera-View.html">45 度镜头视角</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">单元框：制作生命槽</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">添加框架</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#localscript">添加 LocalScript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">玩家虚拟形象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">玩家名称</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">玩家生命值</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="viewportframe-gui.html">ViewportFrame GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/user-interface.html">用户界面</a> &raquo;</li>
+        
+      <li>单元框：制作生命槽</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Making-a-Unit-Frame.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>单元框：制作生命槽<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>尽管在默认情况下 Roblox 提供了一个生命条，但如果它不太适合你的游戏的视觉风格，那么你可以自己制作一个生命条。 在本教程中，我们将介绍如何使用 UDim2 的 Scale 属性制作一个显示玩家姓名、虚拟角色和生命值的单位框架。</p>
+<div class="section" id="id2">
+<h2>添加框架<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>让我们从单元框架的容器开始。在你的 <strong>ScreenGui</strong> 中，插入一个新的 <strong>Frame</strong> 并将其命名为 <em>UnitFrame</em>。若要将其从屏幕边缘移开一点，请将 position 设置为 {0, 10,},{0, 10}。将 size 设置为 {0.3, 0},{0.15, 0}。现在，我们在左上角有一个框，这是我们的单位框架将要出现的位置：</p>
+<p><img alt="UnitFrame_Frame.png" src="https://developer.roblox.com/assets/bltb83712f481dbb8df/UnitFrame_Frame.png" /></p>
+<p>以原始像素为单位设置 size 是很有诱惑力的，就像我们对屏幕边缘的边距所做的那样。但我们必须考虑我们游戏的玩家和他们使用的设备。考虑下面的示例。</p>
+<p>这是我们将在本教程中制作的单位框架，就像在普通笔记本电脑上看到的一样。 通过偏移将单位框架的大小设置为 410px x 115px：</p>
+<p><img alt="enter image description here" src="https://developer.roblox.com/assets/blt49c058efbdedb234/UnitFrameScaleiPhone6.png" /></p>
+<p>在你看到它在 iPhone6 上的外观之前，看起来尺寸相当不错：</p>
+<p><img alt="enter image description here" src="https://developer.roblox.com/assets/blt49c058efbdedb234/UnitFrameScaleiPhone6.png" /></p>
+<p>现在，单位框架占据了屏幕的大部分！几乎没有空间真正看到任何东西，更不用说玩家的大拇指会遮住下角。如果通过缩放将单位框架的大小设置为 .3 x.15（屏幕宽度的 30%，高度的 15%），则单位框架看起来与在笔记本电脑上完全相同，在 iPhone 上看起来更好：</p>
+<p><img alt="enter image description here" src="https://developer.roblox.com/assets/blt49c058efbdedb234/UnitFrameScaleiPhone6.png" /></p>
+</div>
+<div class="section" id="localscript">
+<h2>添加 LocalScript<a class="headerlink" href="#localscript" title="Permalink to this headline">¶</a></h2>
+<p>在我们继续之前，让我们添加一个 LocalScript，这样我们就可以继续向框架中添加功能。在 <em>UnitFrame</em> 中插入一个 <strong>LocalScript</strong>。在该脚本中，让我们为玩家和框架本身声明变量，这两个变量都将在稍后使用。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">LocalPlayer</span>
+<span class="n">local</span> <span class="n">unitFrame</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>玩家虚拟形象<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>现在，让我们在 UnitFrame 中插入一个 <strong>ImageLabel</strong> 并将其命名为 <em>Avatar</em>。该标签将用于玩家的虚拟形象。同样，因为我们希望我们的单位框架能够很好地缩放，所以我们将只使用 Size 的 Scale 组件。将 ImageLabel 的 Size 设置为 {0.25, 0},{0.9, 0}。在此处，重要的是要知道 Scale 属性根据父元素的大小设置尺寸。到目前为止，我们添加的所有 2D 元素的父元素都是 ScreenGui，因此设置 scale 将缩放这些元素相对于屏幕的比例。但是，在本例中，我们将 ImageLabel 的宽度设置为 .25，这意味着它将是我们插入的 Frame 宽度的 25%。</p>
+<p>若要将 ImageLabel 移到框架的右侧，请将其位置设置为 {0.75, 0}, {0,0}。我们知道 ImageLabel 将是 Frame 宽度的 25%，因此将位置设置为 75% 会将其一直移到框架的右侧。</p>
+<p><img alt="UnitFrame_ImageLabel.png" src="https://developer.roblox.com/assets/blt8dcb025ca8acdc5d/UnitFrame_ImageLabel.png" /></p>
+<p>我们应该为 ImageLabel 使用什么图像呢？使用加入我们游戏的任何玩家的实际虚拟形象，将非常不错。由于我们无法提前知道玩家，因此我们将向脚本中添加代码来获取玩家的虚拟形象缩略图并将其放入 ImageLabel 中。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">LocalPlayer</span>
+<span class="n">local</span> <span class="n">unitFrame</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+
+<span class="n">unitFrame</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;Avatar&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">Image</span> <span class="o">=</span> <span class="s2">&quot;http://www.roblox.com/Thumbs/Avatar.ashx?x=100&amp;y=100&amp;username=&quot;</span> <span class="o">..</span> <span class="n">player</span><span class="o">.</span><span class="n">Name</span>
+</pre></div>
+</div>
+<p>注意我们如何使用 <code class="docutils literal notranslate"><span class="pre">WaitForChild</span></code> 访问 <code class="docutils literal notranslate"><span class="pre">Avatar</span></code>。当 Roblox 游戏启动时，StarterGui 的所有内容都将复制到玩家的 PlayerGui 中。这种复制不是立即发生，也不是同时发生。此 LocalScript 完全有可能在其他 GuiElement 复制之前复制并开始执行。</p>
+<p>这种问题的解决方案是 WaitForChild。该函数将暂停，直到子对象实际存在。请记住，你不必在每次访问 GUI 元素时都使用此函数，但是它对于在脚本首次运行时执行的代码非常有用。</p>
+</div>
+<div class="section" id="id4">
+<h2>玩家名称<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>若要显示玩家的名称，请在 <em>UnitFrame</em> 中插入一个 <strong>TextLabel</strong>。将此标签命名为 <em>PlayerName</em>。可以将此标签保留在框架的左侧，因此 Position 可以保持在 {0, 0},{0, 0}。我们确实想拉伸标签，以使其充满框架中的其余空间，因此请将 Size 设置为 {0.75, 0},{0.9, 0}。另外，将标签的 <strong>TextScaled</strong> 属性设置为 <em>true</em>，以便文本也可以拉伸。</p>
+<p><img alt="UnitFrame_NameLabel.png" src="https://developer.roblox.com/assets/blt9d41cfde212ceb85/UnitFrame_NameLabel.png" /></p>
+<p>在我们的 LocalScript 中，我们添加一行代码来用玩家的名称填充 TextLabel。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">LocalPlayer</span>
+<span class="n">local</span> <span class="n">unitFrame</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+
+<span class="n">unitFrame</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;Avatar&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">Image</span> <span class="o">=</span> <span class="s2">&quot;http://www.roblox.com/Thumbs/Avatar.ashx?x=100&amp;y=100&amp;username=&quot;</span> <span class="o">..</span> <span class="n">player</span><span class="o">.</span><span class="n">Name</span>
+<span class="n">unitFrame</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;PlayerName&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">Text</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">Name</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>玩家生命值<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>我们需要做的最后一件事是为生命条和代码设置元素，以使其发生变化。在 <em>UnitFrame</em> 中插入一个新的 <strong>Frame</strong> 并将其命名为 <em>HealthBarContainer</em>。将 Position 设置为 {0, 0},{0.9, 0} 并将 Size 设置为 {1, 0},{0.1, 0}。若要确保它超出 TextLabel 的边框，请将 HealthBarContainer 的 <strong>ZIndex</strong> 设置为 <em>2</em>。</p>
+<p>在 <em>HealthBarContainer</em> 中插入另一个新的 <strong>Frame</strong> 并将其命名为 <em>HealthBar</em>。将 size 更改为 {1, 0},{1, 0} 以便它完全填满 HealthBarContainer（注意将 Scale 设置为 1 表示父元素大小的 100%）。确保 Healthbar 的 <strong>ZIndex</strong> 也设置为 <em>2</em>。若要更改 HealthBar 的颜色，请单击 <strong>BackgroundColor3</strong> 并从选择器中选择一个颜色。</p>
+<p><img alt="UnitFrame_HealthBar.png" src="https://developer.roblox.com/assets/blt09744f39383d4d46/UnitFrame_HealthBar.png" /></p>
+<p>现在我们必须添加代码，以便在玩家的生命值发生变化时更改生命条的宽度。在我们的脚本中，为 HealthBar 添加一个变量。然后，然后，我们将一个函数绑定到玩家的 CharacterAdded 事件。每当玩家重生一个角色并将角色模型传递到绑定函数时，就会触发此事件，然后我们就可以获取该角色的人形生物。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">LocalPlayer</span>
+<span class="n">local</span> <span class="n">unitFrame</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+
+<span class="n">unitFrame</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;Avatar&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">Image</span> <span class="o">=</span> <span class="s2">&quot;http://www.roblox.com/Thumbs/Avatar.ashx?x=100&amp;y=100&amp;username=&quot;</span> <span class="o">..</span> <span class="n">player</span><span class="o">.</span><span class="n">Name</span>
+<span class="n">unitFrame</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;PlayerName&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">Text</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">Name</span>
+
+<span class="n">local</span> <span class="n">healthBar</span> <span class="o">=</span> <span class="n">unitFrame</span><span class="o">.</span><span class="n">HealthBarContainer</span><span class="o">.</span><span class="n">HealthBar</span>
+
+<span class="n">player</span><span class="o">.</span><span class="n">CharacterAdded</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">character</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">humanoid</span> <span class="o">=</span> <span class="n">character</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="o">**</span><span class="n">Humanoid</span><span class="o">**</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>现在，我们可以将一个函数绑定到该人形生物的 HealthChanged 事件。在此函数中，我们可以通过将当前生命值除以最大生命值来得出角色的生命值百分比。然后，我们可以使用该百分比作为生命条的大小，因为 Scale 组件按百分比工作。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">LocalPlayer</span>
+<span class="n">local</span> <span class="n">unitFrame</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+
+<span class="n">unitFrame</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;Avatar&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">Image</span> <span class="o">=</span> <span class="s2">&quot;http://www.roblox.com/Thumbs/Avatar.ashx?x=100&amp;y=100&amp;username=&quot;</span> <span class="o">..</span> <span class="n">player</span><span class="o">.</span><span class="n">Name</span>
+<span class="n">unitFrame</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;PlayerName&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">Text</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">Name</span>
+
+<span class="n">local</span> <span class="n">healthBar</span> <span class="o">=</span> <span class="n">unitFrame</span><span class="o">.</span><span class="n">HealthBarContainer</span><span class="o">.</span><span class="n">HealthBar</span>
+
+<span class="n">player</span><span class="o">.</span><span class="n">CharacterAdded</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">character</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">humanoid</span> <span class="o">=</span> <span class="n">character</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="o">**</span><span class="n">Humanoid</span><span class="o">**</span><span class="p">)</span>
+	<span class="n">humanoid</span><span class="o">.</span><span class="n">HealthChanged</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">health</span><span class="p">)</span>
+		<span class="n">local</span> <span class="n">healthPercentage</span> <span class="o">=</span> <span class="n">health</span> <span class="o">/</span> <span class="n">character</span><span class="o">.</span><span class="n">Humanoid</span><span class="o">.</span><span class="n">MaxHealth</span>
+		<span class="n">healthBar</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">healthPercentage</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+	<span class="n">end</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>最后，我们还可以禁用 Core Gui 中的默认生命条，因为我们不再需要它：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">LocalPlayer</span>
+<span class="n">local</span> <span class="n">unitFrame</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+
+<span class="n">unitFrame</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;Avatar&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">Image</span> <span class="o">=</span> <span class="s2">&quot;http://www.roblox.com/Thumbs/Avatar.ashx?x=100&amp;y=100&amp;username=&quot;</span> <span class="o">..</span> <span class="n">player</span><span class="o">.</span><span class="n">Name</span>
+<span class="n">unitFrame</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;PlayerName&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">Text</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">Name</span>
+
+<span class="n">local</span> <span class="n">healthBar</span> <span class="o">=</span> <span class="n">unitFrame</span><span class="o">.</span><span class="n">HealthBarContainer</span><span class="o">.</span><span class="n">HealthBar</span>
+
+<span class="n">player</span><span class="o">.</span><span class="n">CharacterAdded</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">character</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">humanoid</span> <span class="o">=</span> <span class="n">character</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="o">**</span><span class="n">Humanoid</span><span class="o">**</span><span class="p">)</span>
+	<span class="n">humanoid</span><span class="o">.</span><span class="n">HealthChanged</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">health</span><span class="p">)</span>
+		<span class="n">local</span> <span class="n">healthPercentage</span> <span class="o">=</span> <span class="n">health</span> <span class="o">/</span> <span class="n">character</span><span class="o">.</span><span class="n">Humanoid</span><span class="o">.</span><span class="n">MaxHealth</span>
+		<span class="n">healthBar</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">healthPercentage</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+	<span class="n">end</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+
+<span class="n">game</span><span class="o">.</span><span class="n">StarterGui</span><span class="p">:</span><span class="n">SetCoreGuiEnabled</span><span class="p">(</span><span class="n">Enum</span><span class="o">.</span><span class="n">CoreGuiType</span><span class="o">.</span><span class="n">Health</span><span class="p">,</span> <span class="n">false</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>现在，我们有了一个功能性的单位框架，我们可以进一步对其进行自定义，以适应我们的游戏风格！</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Making-a-Unit-Frame">单元框：制作生命槽</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="viewportframe-gui.html" class="btn btn-neutral float-right" title="ViewportFrame GUI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Three-Quarters-Camera-View.html" class="btn btn-neutral float-left" title="45 度镜头视角" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

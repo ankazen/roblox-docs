@@ -1,0 +1,480 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>了解 CFrame &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="保存玩家数据" href="Saving-Player-Data.html" />
+    <link rel="prev" title="Table（表）" href="Table.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">了解 CFrame</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">CFrame 基础知识</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">CFrame 定位</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">CFrame 旋转</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">面向指定位置点</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">偏移 CFrame</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">动态 CFrame 朝向</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">相对位置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">相对旋转</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">使指定表面朝向特定点</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">找到两点之间的特定位置点</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>了解 CFrame</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Understanding-CFrame.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cframe">
+<h1>了解 CFrame<a class="headerlink" href="#cframe" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>0, 0, 0</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">datatype/CFrame</span></code> 为 **Coordinate Frame（坐标框架）**的缩写，是一种用于旋转和定位 3D 对象的数据类型。CFrame 同时为对象属性和独立单位，其中包含全局 <strong>X</strong>、<strong>Y</strong> 和 <strong>Z</strong> 坐标以及各轴上的旋转数据。除此之外， CFrames 还含括在 3D 空间中处理对象所需的有用函数。</p>
+<p>以下为在游戏中应用 CFrame 的几个示例：</p>
+<ul class="simple">
+<li><p>为子弹或弓箭等投射武器寻找远处的目标位置，例如被玩家激光爆能枪所瞄准敌人的位置。</p></li>
+<li><p>在玩家与特定 NPC （非玩家角色）互动时移动镜头，使其聚焦于该 NPC。</p></li>
+<li><p>当玩家获取麻痹、加速、中毒等状态时在其头顶放置相应的状态指示器。</p></li>
+</ul>
+<div class="section" id="id1">
+<h2>CFrame 基础知识<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>CFrame 定位<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>开发者可以通过 <code class="docutils literal notranslate"><span class="pre">datatype/CFrame|CFrame.new()</span></code> 在游戏世界中的默认位置 <strong>0</strong>, <strong>0</strong>, <strong>0</strong> 创建一个空白 CFrame。但若希望将 CFrame 定位到指定位置点，则需为 <code class="docutils literal notranslate"><span class="pre">CFrame.new()</span></code> 函数提供 <strong>X</strong>、<strong>Y</strong>、<strong>Z</strong> 参数。在以下示例中，我们将使用存储在 <code class="docutils literal notranslate"><span class="pre">newCFrame</span></code> 中的值对 <code class="docutils literal notranslate"><span class="pre">redBlock</span></code> 对象的 CFrame 属性进行覆盖，使其重定位至 <strong>-2</strong>, <strong>2</strong>, <strong>4</strong> 位置。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">redBlock</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">RedBlock</span>
+    
+    <span class="o">--</span> <span class="n">创建新</span> <span class="n">CFrame</span>
+    <span class="n">local</span> <span class="n">newCFrame</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">用新的</span> <span class="n">CFrame</span> <span class="n">覆盖红色方块的当前</span> <span class="n">CFrame</span>
+    <span class="n">redBlock</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">newCFrame</span>
+
+</pre></div>
+</div>
+<p><img alt="https://developer.roblox.com/assets/blt0a2965ab605115c7/CFrame-Strict-Position-A.png" src="https://developer.roblox.com/assets/blt0a2965ab605115c7/CFrame-Strict-Position-A.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt442e40504909e1fa/CFrame-Strict-Position-B.png" src="https://developer.roblox.com/assets/blt442e40504909e1fa/CFrame-Strict-Position-B.png" /></p>
+<p>除此之外，开发者也可以通过为 <code class="docutils literal notranslate"><span class="pre">CFrame.new()</span></code> 提供新的 <code class="docutils literal notranslate"><span class="pre">datatype/Vector3</span></code> 位置以获取相同结果：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">redBlock</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">RedBlock</span>
+    
+    <span class="o">--</span> <span class="n">创建新</span> <span class="n">CFrame</span>
+    <span class="n">local</span> <span class="n">newVector3</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">newCFrame</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">newVector3</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">用新的</span> <span class="n">CFrame</span> <span class="n">覆盖红色方块的当前</span> <span class="n">CFrame</span>
+    <span class="n">redBlock</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">newCFrame</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>CFrame 旋转<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>当需要创建带有旋转角度的 CFrame 时，请通过 <code class="docutils literal notranslate"><span class="pre">datatype/CFrame|CFrame.Angles()</span></code> 构造函数为需要旋转的轴提供旋转角度，以弧度（Radian）为单位：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">redBlock</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">RedBlock</span> 
+    
+    <span class="o">--</span> <span class="n">创建旋转后的新</span> <span class="n">CFrame</span>
+    <span class="n">local</span> <span class="n">newCFrame</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">45</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">用新的</span> <span class="n">CFrame</span> <span class="n">覆盖红色方块的当前</span> <span class="n">CFrame</span>
+    <span class="n">redBlock</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">newCFrame</span>
+
+</pre></div>
+</div>
+<p><img alt="https://developer.roblox.com/assets/blteb98af1431d42902/CFrame-Strict-Rotation-A.png" src="https://developer.roblox.com/assets/blteb98af1431d42902/CFrame-Strict-Rotation-A.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/bltd10d764204c799d5/CFrame-Strict-Rotation-B.png" src="https://developer.roblox.com/assets/bltd10d764204c799d5/CFrame-Strict-Rotation-B.png" /></p>
+<p>如上所述， <code class="docutils literal notranslate"><span class="pre">CFrame.Angles()</span></code> 的参数应以<strong>弧度</strong>为单位，而非角度。开发者可通过上个示例中的 <code class="docutils literal notranslate"><span class="pre">math.rad()</span></code> 转换器将角度转换为弧度。</p>
+</div>
+<div class="section" id="id4">
+<h3>面向指定位置点<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">CFrame.new()</span></code> 最强大的用途之一为使 CFrame 的前方指向游戏世界中的特定点。在以下示例中，我们会将 <code class="docutils literal notranslate"><span class="pre">redBlock</span></code> 部件定位至 <strong>0</strong>, <strong>3</strong>, <strong>0</strong>，并使其前方（白色圆圈所标记的一面）面向 <code class="docutils literal notranslate"><span class="pre">blueCube</span></code> 部件：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">redBlock</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">RedBlock</span>
+    <span class="n">local</span> <span class="n">blueCube</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">BlueCube</span>
+    
+    <span class="o">--</span> <span class="n">为初始位置和目标位置各创建一个</span> <span class="n">Vector3</span>
+    <span class="n">local</span> <span class="n">startPosition</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">targetPosition</span> <span class="o">=</span> <span class="n">blueCube</span><span class="o">.</span><span class="n">Position</span>
+    
+    <span class="o">--</span> <span class="n">将红色方块放至</span> <span class="s1">&#39;startPosition&#39;</span> <span class="n">并使其前方面向</span> <span class="s1">&#39;targetPosition&#39;</span>
+    <span class="n">redBlock</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">startPosition</span><span class="p">,</span> <span class="n">targetPosition</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p><img alt="https://developer.roblox.com/assets/blt72d8472377a49d6a/CFrame-Front-Face-Pointing-A.png" src="https://developer.roblox.com/assets/blt72d8472377a49d6a/CFrame-Front-Face-Pointing-A.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt73df55f9f1d48c13/CFrame-Front-Face-Pointing-B.png" src="https://developer.roblox.com/assets/blt73df55f9f1d48c13/CFrame-Front-Face-Pointing-B.png" /></p>
+</div>
+<div class="section" id="id5">
+<h3>偏移 CFrame<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>在特定情况下，开发者或者需要将对象从当前位置偏移指定格数。这时只需向位于对象位置的新建 CFrame 增加或削减 Vector3 值即可。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">redBlock</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">RedBlock</span>
+    
+    <span class="n">redBlock</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">redBlock</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span> <span class="o">+</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p><img alt="https://developer.roblox.com/assets/blt5e1879b28774407e/CFrame-Self-Offset-A.png" src="https://developer.roblox.com/assets/blt5e1879b28774407e/CFrame-Self-Offset-A.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt53a1de299d94e8df/CFrame-Self-Offset-B.png" src="https://developer.roblox.com/assets/blt53a1de299d94e8df/CFrame-Self-Offset-B.png" /></p>
+<p>如上方代码所示，当需要获取正确格式的对象 Vector3 位置并将其作为 <code class="docutils literal notranslate"><span class="pre">CFrame.new()</span></code> 参数时，可使用对象的 <strong>Position</strong> 属性（在此示例中为 <code class="docutils literal notranslate"><span class="pre">redBlock.Position</span></code>），非常便捷。</p>
+<p>当使一个对象从另一个对象所在的位置偏移时，也可以使用同样的技巧。但在此情况下，我们需要将 Vector3 值添加至在蓝色方块（而不是红色方块）位置新建的 CFrame，如下所示：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">redBlock</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">RedBlock</span>
+    <span class="n">local</span> <span class="n">blueCube</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">BlueCube</span>
+    
+    <span class="n">redBlock</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">blueCube</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span> <span class="o">+</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p><img alt="https://developer.roblox.com/assets/bltebba6931e2a1fcca/CFrame-Other-Part-Offset-A.png" src="https://developer.roblox.com/assets/bltebba6931e2a1fcca/CFrame-Other-Part-Offset-A.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/bltecec911e4056ffa2/CFrame-Other-Part-Offset-B.png" src="https://developer.roblox.com/assets/bltecec911e4056ffa2/CFrame-Other-Part-Offset-B.png" /></p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>动态 CFrame 朝向<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">CFrame.new()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">CFrame.Angles()</span></code> 构造函数虽然功能强大，但其应用情况的要求也较为严格：只能将对象定位或旋转至游戏世界中的特定方向。虽然这些功能在许多状况下十分有用，但当无法依赖固定的世界位置或旋转角度时，又该如何进行处理呢？举例来说：</p>
+<ul class="simple">
+<li><p>在世界中任意位置及任意朝向的玩家面前生成漂浮的宝物。</p></li>
+<li><p>在玩家的右肩上方生成一个魔法精灵。</p></li>
+</ul>
+<p>上述情况更适合使用 CFrame <strong>函数</strong>，而非要求严格的构造函数。</p>
+<div class="section" id="id7">
+<h3>相对位置<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">datatype/CFrame|CFrame:ToWorldSpace()</span></code> 函数可以将对象的局部朝向 CFrame 转换为新的<strong>全局</strong>朝向。因此，这个函数非常适合用来使部件相对自身或其他对象进行偏移，无需在意对象当前的位置或旋转。</p>
+<p>在以下代码和图像示例中，请注意红色方块在向上偏移 2 格时所使用的是蓝色方块的 <strong>Y</strong> 轴（穿过蓝色方块的绿色箭头），而<strong>并未使用</strong>指向正上方的全局 <strong>Y</strong> 轴。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">redBlock</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">RedBlock</span>
+    <span class="n">local</span> <span class="n">blueCube</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">BlueCube</span>
+    
+    <span class="n">local</span> <span class="n">offsetCFrame</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">redBlock</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">blueCube</span><span class="o">.</span><span class="n">CFrame</span><span class="p">:</span><span class="n">ToWorldSpace</span><span class="p">(</span><span class="n">offsetCFrame</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p><img alt="https://developer.roblox.com/assets/blt9dd6d0186dbb8d4f/CFrame-Other-Part-Relative-Position-A.png" src="https://developer.roblox.com/assets/blt9dd6d0186dbb8d4f/CFrame-Other-Part-Relative-Position-A.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt009c402c0ef6ab75/CFrame-Other-Part-Relative-Position-B.png" src="https://developer.roblox.com/assets/blt009c402c0ef6ab75/CFrame-Other-Part-Relative-Position-B.png" /></p>
+</div>
+<div class="section" id="id8">
+<h3>相对旋转<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">CFrame:ToWorldSpace()</span></code> 也可以用来使对象相对自身进行旋转。举例来说：使对象相对当前 <strong>Y</strong> 轴逆时针旋转 70 度并相对当前 <strong>Z</strong> 轴顺时针旋转 20 度。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">redBlock</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">RedBlock</span>
+    
+    <span class="n">local</span> <span class="n">rotatedCFrame</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">70</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+    <span class="n">redBlock</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">redBlock</span><span class="o">.</span><span class="n">CFrame</span><span class="p">:</span><span class="n">ToWorldSpace</span><span class="p">(</span><span class="n">rotatedCFrame</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p><img alt="https://developer.roblox.com/assets/blt52904f5c2fdf1177/CFrame-Self-Rotate-A.png" src="https://developer.roblox.com/assets/blt52904f5c2fdf1177/CFrame-Self-Rotate-A.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt1374580558ae6595/CFrame-Self-Rotate-B.png" src="https://developer.roblox.com/assets/blt1374580558ae6595/CFrame-Self-Rotate-B.png" /></p>
+</div>
+<div class="section" id="id9">
+<h3>使指定表面朝向特定点<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>如前例所示，开发者可以通过为 <code class="docutils literal notranslate"><span class="pre">CFrame.new()</span></code> 提供 Vector3 点作为第二参数来使对象“面向”另一个对象。但此操作的局限性在于其只与移动对象的<strong>前方</strong>表面关联。</p>
+<p>当希望将对象的任意表面朝向 Vector3 点时，可以使用相对旋转功能。以下示例由两个连续 CFrame 操作构成：</p>
+<ol class="simple">
+<li><p>将对象的<strong>前</strong>面（白色圆圈所标记的一面）指向目标。</p></li>
+<li><p>旋转 CFrame，使其<strong>顶</strong>面（黑色圆圈所标记的一面）指向目标。</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    local redBlock = game.Workspace.RedBlock
+    local blueCube = game.Workspace.BlueCube
+    
+    -- 为目标位置创建一个 Vector3
+    local targetPosition = blueCube.Position
+    
+    -- 使红色方块的前方面向 &#39;targetPosition&#39;
+    redBlock.CFrame = CFrame.new(redBlock.Position, targetPosition)
+    
+    -- 以红色方块自身为轴心旋转其 CFrame，使其顶面（而非前面）面向目标
+    local rotatedCFrame = CFrame.Angles(math.rad(-90), 0, 0)
+    redBlock.CFrame = redBlock.CFrame:ToWorldSpace(rotatedCFrame)
+
+</pre></div>
+</div>
+<p><img alt="https://developer.roblox.com/assets/bltafd0efe0526112fd/CFrame-Top-Face-Pointing-A.png" src="https://developer.roblox.com/assets/bltafd0efe0526112fd/CFrame-Top-Face-Pointing-A.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt5e07a6edca9396a7/CFrame-Top-Face-Pointing-B.png" src="https://developer.roblox.com/assets/blt5e07a6edca9396a7/CFrame-Top-Face-Pointing-B.png" /></p>
+</div>
+<div class="section" id="id10">
+<h3>找到两点之间的特定位置点<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>开发者可以通过名为 <strong>Linear Interpolation</strong>（也就是线性插值，常被简称为 <strong>Lerp</strong>）的方法将 CFrame 定位至两点之间的特定位置。举例来说，以下代码将会使用值 <code class="docutils literal notranslate"><span class="pre">0.7</span></code> 将 <code class="docutils literal notranslate"><span class="pre">redBlock</span></code> 放置在 <code class="docutils literal notranslate"><span class="pre">greenCube</span></code> 与 <code class="docutils literal notranslate"><span class="pre">cyanCube</span></code> 部件之间，该值将会使其绿色和红色部件之间的距离为总距离的 70%。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">redBlock</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">RedBlock</span>
+    <span class="n">local</span> <span class="n">greenCube</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">GreenCube</span>
+    <span class="n">local</span> <span class="n">cyanCube</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">CyanCube</span>
+    
+    <span class="n">redBlock</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">greenCube</span><span class="o">.</span><span class="n">CFrame</span><span class="p">:</span><span class="n">Lerp</span><span class="p">(</span><span class="n">cyanCube</span><span class="o">.</span><span class="n">CFrame</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p><img alt="https://developer.roblox.com/assets/bltb789de58c08eb890/CFrame-Lerp-A.png" src="https://developer.roblox.com/assets/bltb789de58c08eb890/CFrame-Lerp-A.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/bltd29b3ab2aedada4c/CFrame-Lerp-B.png" src="https://developer.roblox.com/assets/bltd29b3ab2aedada4c/CFrame-Lerp-B.png" /></p>
+<hr class="docutils" />
+<p>学习以上要领之后，开发者将可以顺利通过 CFrame 构造函数和函数对于游戏世界中的对象进行定向。完全理解本文概念的开发者可以考虑参阅<code class="docutils literal notranslate"><span class="pre">articles/CFrame</span> <span class="pre">Math</span> <span class="pre">Operations|CFrame</span> <span class="pre">数学运算</span></code>一文，进一步探索更为高级的 CFrame 操作。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Understanding-CFrame">了解 CFrame</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Saving-Player-Data.html" class="btn btn-neutral float-right" title="保存玩家数据" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Table.html" class="btn btn-neutral float-left" title="Table（表）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

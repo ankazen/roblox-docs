@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <link rel="canonical" href="https://developer.roblox.com/articles/Table" />
+    <link rel="alternate" hreflang="x-default" href="https://developer.roblox.com/articles/Table" />
+    <link rel="alternate" hreflang="en-us" href="https://developer.roblox.com/en-us/" />
+    <link rel="alternate" hreflang="zh-cn" href="https://developer.roblox.com/zh-cn/" />
+    <title> Table（表）</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta class="swiftype" name="locale" data-type="string" content="zh-cn">
+    <meta name="description" content="<p>Table（表）的定义及其在 Lua 代码中的用法</p>">
+    <meta name="keywords" content="">
+    <meta name="author" content="Roblox">
+    <meta class="swiftype" name="title" data-type="string" content="Table（表）">
+    <meta class="swiftype" name="summary" data-type="string" content="<p>Table（表）的定义及其在 Lua 代码中的用法</p>">
+    <meta class="swiftype" name="segment" data-type="string" content="articles">
+    <meta class="swiftype" name="category" data-type="string" content="编码与脚本">
+    <meta class="swiftype" name="hide_from_search" data-type="string" content="">
+</head>
+
+<body>
+    <!-- Evidon Tag Management -->
+    <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+    <!-- Sentry.io -->
+    <script src="https://browser.sentry-cdn.com/5.12.1/bundle.min.js" integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+    </script>
+    <link href="https://dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+    <link href="https://dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+    <link href="https://dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+    <script src="https://dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+    <script src="https://dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+    <script src="https://dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+    <script src="https://dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+    <script src="https://dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+    <!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+    <script src="https://dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+    <script src="https://dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+    <script src="https://dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+    <script src="https://dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+    <script src="https://dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+    <script src="https://dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+    <script src="https://dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+    <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+    <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+    <!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+    <script src="https://dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+    <script src="https://dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+    <script src="https://dk135eecbplh9.cloudfront.net/public/js/code-highlighting.js"></script>
+    <!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+    <script src="https://dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+    <script src="https://dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+    <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+    </script>
+    <script type='text/javascript' src='https://dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+    <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+    <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+    </script>
+    <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js" engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+    <span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+    <div class="main-container learn-roblox-pages sub-pages">
+        <div class="header-wrap clearfix no-print">
+            <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+                <div class="d-flex">
+                    <span class="d-lg-none toggler-icon">&#9776;</span>
+                </div>
+                <div class="logo">
+                    <a style="background-image: url('https://dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="/" target="_self">
+                    </a>
+                </div>
+                <div class="wrap">
+                    <div class="slide-overlay"></div>
+                    <div class="navbar-collapse">
+                        <div class="navbar-inner">
+                            <span class="d-lg-none closebtn">&times;</span>
+                            <div class="nav-wrap">
+                                <p class="d-lg-none home-link"><a href="/">主页</a></p>
+                                <ul class="navbar-nav bd-navbar-nav">
+                                    <div class="relevant-sidebar">
+                                        <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+                                            <span class="back-icon">
+                                                <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg" /></span>
+                                            </span>
+                                            <nav class="bd-links" id="bd-docs-nav">
+                                                <div class="bd-toc-item-wrap">
+                                                    <h5 class="bd-toc-heading">教程</h5>
+                                                    <div>
+                                                        <div class="bd-toc-item learn-roblox-tutorial">
+                                                            <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                                                                <span>Studio 基础知识</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="bd-toc-item learn-roblox-tutorial">
+                                                            <a class="bd-toc-link" href="/learn-roblox/creating">
+                                                                <span>创建</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="bd-toc-item learn-roblox-tutorial">
+                                                            <a class="bd-toc-link" href="/learn-roblox/international">
+                                                                <span>国际化</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="bd-toc-item learn-roblox-tutorial">
+                                                            <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                                                                <span>声效、光照与特效</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="bd-toc-item learn-roblox-tutorial">
+                                                            <a class="bd-toc-link" href="/learn-roblox/marketing">
+                                                                <span>市场营销</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="bd-toc-item learn-roblox-tutorial">
+                                                            <a class="bd-toc-link" href="/learn-roblox/optimization">
+                                                                <span>性能优化</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="bd-toc-item learn-roblox-tutorial">
+                                                            <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                                                                <span>所有内容</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="bd-toc-item learn-roblox-tutorial">
+                                                            <a class="bd-toc-link" href="/learn-roblox/analytics">
+                                                                <span>数据分析</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="bd-toc-item learn-roblox-tutorial">
+                                                            <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                                                                <span>用户界面</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="bd-toc-item learn-roblox-tutorial">
+                                                            <a class="bd-toc-link" href="/learn-roblox/monetization">
+                                                                <span>盈利</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="bd-toc-item learn-roblox-tutorial">
+                                                            <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                                                                <span>编码与脚本</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="bd-toc-item learn-roblox-tutorial">
+                                                            <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                                                                <span>跨平台发展</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <li class="nav-item">
+                                        <a class="nav-link" target="_self" href="/quick-start">
+                                            <span>入门</span>
+                                            <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg" />
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" target="_self" href="/learn-roblox/all-tutorials">
+                                            <span>了解 Roblox</span>
+                                            <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg" />
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" target="_self" href="/api-reference">
+                                            <span>API 参考</span>
+                                            <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg" />
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" target="_self" href="/resources">
+                                            <span>资源</span>
+                                            <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg" />
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" target="_blank" href="https://devforum.roblox.com">
+                                            <span>社区</span>
+                                            <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg" />
+                                        </a>
+                                    </li>
+                                </ul>
+                                <a class="dwd-link d-lg-none" target="_self" href="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="actions-wrap">
+                            <a class="dwd-link" target="_self" href="">
+                            </a>
+                            <span class="m-search-icon"></span>
+                            <div class="search-box">
+                                <form class="d-flex align-items-center" id="search-form">
+                                    <input class="form-control" name="s" type="search" id="st-search-input" placeholder="搜索">
+                                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                                </form>
+                                <a href="javascript:void(0)" class="search-close">&times;</a>
+                                <div id="searchDropdown" class="search-content">
+                                    <div class="search-content-inner">
+                                        <div class="inner-scroll">
+                                            <div class="categories">
+                                                <span class="lbl">Articles</span>
+                                                <ul>
+                                                    <li>Animation in player script</li>
+                                                    <li>Animation handler</li>
+                                                    <li>Bubbly Animation Package</li>
+                                                </ul>
+                                            </div>
+                                            <div class="categories">
+                                                <span class="lbl">API Refernce</span>
+                                                <ul>
+                                                    <li>animationController</li>
+                                                    <li>animationID</li>
+                                                    <li>Bubbly Animation Package</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container-fluid">
+            <div class="row flex-xl-nowrap">
+                <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+                    <div class="flex-wrapper">
+                        <span class="toggle-sidebar sm-toggle collapse-slide">
+                            <a href="javascript:void(0)" class="arrow-right">
+                                <i class="arrow arrow-r"></i>
+                            </a>
+                        </span>
+                        <div class="slide-sidebar">
+                            <span class="toggle-sidebar expanded-slide">
+                                <a href="javascript:void(0)" class="">
+                                    <i class="arrow arrow-l"></i>
+                                    <span class="txt">关闭侧边栏</span>
+                                </a>
+                            </span>
+                            <div class="bd-sidebar" data-swiftype-index='false'>
+                                <span class="back-icon">
+                                    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg" /></span>
+                                </span>
+                                <nav class="bd-links" id="bd-docs-nav">
+                                    <div class="bd-toc-item-wrap">
+                                        <h5 class="bd-toc-heading">教程</h5>
+                                        <div>
+                                            <div class="bd-toc-item learn-roblox-tutorial">
+                                                <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                                                    <span>Studio 基础知识</span>
+                                                </a>
+                                            </div>
+                                            <div class="bd-toc-item learn-roblox-tutorial">
+                                                <a class="bd-toc-link" href="/learn-roblox/creating">
+                                                    <span>创建</span>
+                                                </a>
+                                            </div>
+                                            <div class="bd-toc-item learn-roblox-tutorial">
+                                                <a class="bd-toc-link" href="/learn-roblox/international">
+                                                    <span>国际化</span>
+                                                </a>
+                                            </div>
+                                            <div class="bd-toc-item learn-roblox-tutorial">
+                                                <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                                                    <span>声效、光照与特效</span>
+                                                </a>
+                                            </div>
+                                            <div class="bd-toc-item learn-roblox-tutorial">
+                                                <a class="bd-toc-link" href="/learn-roblox/marketing">
+                                                    <span>市场营销</span>
+                                                </a>
+                                            </div>
+                                            <div class="bd-toc-item learn-roblox-tutorial">
+                                                <a class="bd-toc-link" href="/learn-roblox/optimization">
+                                                    <span>性能优化</span>
+                                                </a>
+                                            </div>
+                                            <div class="bd-toc-item learn-roblox-tutorial">
+                                                <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                                                    <span>所有内容</span>
+                                                </a>
+                                            </div>
+                                            <div class="bd-toc-item learn-roblox-tutorial">
+                                                <a class="bd-toc-link" href="/learn-roblox/analytics">
+                                                    <span>数据分析</span>
+                                                </a>
+                                            </div>
+                                            <div class="bd-toc-item learn-roblox-tutorial">
+                                                <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                                                    <span>用户界面</span>
+                                                </a>
+                                            </div>
+                                            <div class="bd-toc-item learn-roblox-tutorial">
+                                                <a class="bd-toc-link" href="/learn-roblox/monetization">
+                                                    <span>盈利</span>
+                                                </a>
+                                            </div>
+                                            <div class="bd-toc-item learn-roblox-tutorial">
+                                                <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                                                    <span>编码与脚本</span>
+                                                </a>
+                                            </div>
+                                            <div class="bd-toc-item learn-roblox-tutorial">
+                                                <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                                                    <span>跨平台发展</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100 d-md-none d-lg-none d-xl-none">
+                    <div class="m-heading">
+                        <ol class="breadcrumb" data-swiftype-index='false'>
+                            <li class="breadcrumb-item">
+                                <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href="/learn-roblox/coding-scripts">编码与脚本</a>
+                            </li>
+                        </ol>
+                        <h1 data-toc-skip>Table（表）</h1>
+                    </div>
+                </div>
+                <div class="d-xl-block bd-toc-wrap">
+                    <div class="bd-toc">
+                        <a href="javascript:void(0)" class="toggle-toc hide-toc">
+                            <i class="fa fa-angle-down"></i>
+                            <span class="toggle-txt">隐藏内容索引</span>
+                        </a>
+                        <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+                            <i class="fa fa-angle-down"></i>
+                            <span class="toggle-txt">显示内容索引</span>
+                        </a>
+                        <div class="toc-nav">
+                            <div class="inner-toc-nav">
+                                <div class="toc-content"><a href="javascript:void(0)">内容索引</a>
+                                </div>
+                                <nav id="toc">
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+                    <div class="l-content toc-scope">
+                        <div class="d-none d-md-block d-lg-block d-xl-block">
+                            <ol class="breadcrumb" data-swiftype-index='false'>
+                                <li class="breadcrumb-item">
+                                    <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="/learn-roblox/coding-scripts">编码与脚本</a>
+                                </li>
+                            </ol>
+                            <h1 data-toc-skip data-swiftype-index='false'>Table（表）</h1>
+                        </div>
+                        <p class="timestamp-wrap" data-swiftype-index='false'>
+                            <span class="time">10 分钟</span>
+                        </p>
+                        <div class="article-details">
+                            <div class="markdown-field-data">
+                                <style>
+                                    .code-render-blocker { content: ""; }
+</style>
+                                <p><strong>Table</strong>（表）为可以储存多个值的 Lua 数据类型，其中包括<code>/articles/Numbers|数字</code>、<code>/articles/Boolean|布尔值</code>、<code>/articles/String|字符串</code>、<code>/articles/Function|函数</code>等多种类型。表的构造使用中括号（<code>{}</code>），如下所示：</p>
+                            </div>
+                            <div class="code-block light-theme">
+                                <div class="top-panel">
+                                    <div class="nav nav-tabs" id="code-nav-1" role="tablist" style="border-bottom: 0px;">
+                                        <a class="nav-item nav-link active show " id="nav-code-tab-1" data-toggle="tab" href="#nav-code-1" role="tab" aria-controls="nav-code-1" aria-selected="true">
+                                            <span class="txt">代码示例</span>
+                                        </a>
+                                        <a class="nav-item nav-link " id="nav-output-tab-1" data-toggle="tab" href="#nav-output-1" role="tab" aria-controls="nav-output-1" aria-selected="false">
+                                            <span class="txt">预期输出</span>
+                                        </a>
+                                        <a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+                                            <span class="txt">展开</span>
+                                            <i class="expand-collapse-icon inline-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="nav-tabContent" style="border: 0px">
+                                    <div class="tab-pane active" id="nav-code-1" role="tabpanel" aria-labelledby="nav-code-tab-1">
+                                        <pre class="prettyprint  linenums:01 lang-lua">-- Construct an empty table assigned to variable "t"
+<span class='highlighted'>local t = {}</span>
+print(t)</pre>
+                                    </div>
+                                    <div class="tab-pane" id="nav-output-1" role="tabpanel" aria-labelledby="nav-output-tab-1">
+                                        <pre class="prettyprint  nocode">table: 0035AE18</pre>
+                                    </div>
+                                </div>
+                                <div class="actions-panel">
+                                    <a class="copy">
+                                        <i class="copy-icon inline-icon"></i>
+                                        <span class="txt">复制代码</span>
+                                    </a>
+                                    <a href="javascript:void(0)" class="theme-wrap">
+                                        <span class="theme-name">亮色模式</span>
+                                        <span class="theme-icons">
+                                            <i class="light-theme-icon icon" caption="亮色模式"></i>
+                                            <i class="dark-theme-icon icon" caption="深色模式"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="markdown-field-data">
+                                <p>表格在构建后即可用作<strong>数组</strong>或<strong>字典</strong>，如以下各部分中所述。</p>
+                                <h2>数组</h2>
+                                <p>数组是一组简单的有序值，可用于存储数据集合，例如一组拥有特殊权限的玩家。</p>
+                                <h3>创建数组</h3>
+                                <p>要使用 Lua 表格创建数组，只需按顺序存储各个值，并用逗号分隔这些值即可。数组值可以是任何<span class="text-nowrap">非 <code>nil</code></span> 类型（布尔值、数字、字符串、函数、用户数据，甚至是另一个表格）。</p>
+                            </div>
+                            <div class="code-block light-theme">
+                                <div class="top-panel">
+                                    <div class="nav nav-tabs" id="code-nav-2" role="tablist" style="border-bottom: 0px;">
+                                        <a class="nav-item nav-link hidden-elem" id="nav-output-tab-2" data-toggle="tab" href="#nav-output-2" role="tab" aria-controls="nav-output-2" aria-selected="false">
+                                            <span class="txt">预期输出</span>
+                                        </a>
+                                        <a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+                                            <span class="txt">展开</span>
+                                            <i class="expand-collapse-icon inline-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="nav-tabContent" style="border: 0px">
+                                    <div class="tab-pane active" id="nav-code-2" role="tabpanel" aria-labelledby="nav-code-tab-2">
+                                        <pre class="prettyprint  linenums:01 lang-lua">-- Construct an array with three items
+local testArray = {"A string", 3.14159, workspace.Part}</pre>
+                                    </div>
+                                    <div class="tab-pane" id="nav-output-2" role="tabpanel" aria-labelledby="nav-output-tab-2">
+                                        <pre class="prettyprint  nocode"></pre>
+                                    </div>
+                                </div>
+                                <div class="actions-panel">
+                                    <a class="copy">
+                                        <i class="copy-icon inline-icon"></i>
+                                        <span class="txt">复制代码</span>
+                                    </a>
+                                    <a href="javascript:void(0)" class="theme-wrap">
+                                        <span class="theme-name">亮色模式</span>
+                                        <span class="theme-icons">
+                                            <i class="light-theme-icon icon" caption="亮色模式"></i>
+                                            <i class="dark-theme-icon icon" caption="深色模式"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="markdown-field-data">
+                                <h3>从数组读取数据</h3>
+                                <p>要从数组中读取数据，请在其引用后添加一对方括号，并指定其中元素的索引号 (<code>[pos]</code>)：</p>
+                            </div>
+                            <div class="code-block light-theme">
+                                <div class="top-panel">
+                                    <div class="nav nav-tabs" id="code-nav-3" role="tablist" style="border-bottom: 0px;">
+                                        <a class="nav-item nav-link active show " id="nav-code-tab-3" data-toggle="tab" href="#nav-code-3" role="tab" aria-controls="nav-code-3" aria-selected="true">
+                                            <span class="txt">代码示例</span>
+                                        </a>
+                                        <a class="nav-item nav-link " id="nav-output-tab-3" data-toggle="tab" href="#nav-output-3" role="tab" aria-controls="nav-output-3" aria-selected="false">
+                                            <span class="txt">预期输出</span>
+                                        </a>
+                                        <a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+                                            <span class="txt">展开</span>
+                                            <i class="expand-collapse-icon inline-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="nav-tabContent" style="border: 0px">
+                                    <div class="tab-pane active" id="nav-code-3" role="tabpanel" aria-labelledby="nav-code-tab-3">
+                                        <pre class="prettyprint  linenums:01 lang-lua">-- Construct an array with three items
+local testArray = {"A string", 3.14159, workspace.Part}
+
+<span class='highlighted'>print(testArray[1])</span>
+<span class='highlighted'>print(testArray[2])</span>
+<span class='highlighted'>print(testArray[3])</span></pre>
+                                    </div>
+                                    <div class="tab-pane" id="nav-output-3" role="tabpanel" aria-labelledby="nav-output-tab-3">
+                                        <pre class="prettyprint  nocode">A string
+3.14159
+Part</pre>
+                                    </div>
+                                </div>
+                                <div class="actions-panel">
+                                    <a class="copy">
+                                        <i class="copy-icon inline-icon"></i>
+                                        <span class="txt">复制代码</span>
+                                    </a>
+                                    <a href="javascript:void(0)" class="theme-wrap">
+                                        <span class="theme-name">亮色模式</span>
+                                        <span class="theme-icons">
+                                            <i class="light-theme-icon icon" caption="亮色模式"></i>
+                                            <i class="dark-theme-icon icon" caption="深色模式"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="markdown-field-data">
+                                <div class="alert alert-warning mb-3" role="alert">
+                                    与某些语言不同，Lua 对数组使用<b class="text-nowrap">以 1 为基数的索引</b>，这意味着数组中的第一项是 <code>[1]</code>，而不是 <code>[0]</code>。
+                                </div>
+                                <h3>向数组写入数据</h3>
+                                <p>可以通过在方括号 (<code>[pos]</code>) 中指示索引号，并后跟 <code>=</code> 和值来定义或重写数组索引值：</p>
+                            </div>
+                            <div class="code-block light-theme">
+                                <div class="top-panel">
+                                    <div class="nav nav-tabs" id="code-nav-4" role="tablist" style="border-bottom: 0px;">
+                                        <a class="nav-item nav-link active show " id="nav-code-tab-4" data-toggle="tab" href="#nav-code-4" role="tab" aria-controls="nav-code-4" aria-selected="true">
+                                            <span class="txt">代码示例</span>
+                                        </a>
+                                        <a class="nav-item nav-link " id="nav-output-tab-4" data-toggle="tab" href="#nav-output-4" role="tab" aria-controls="nav-output-4" aria-selected="false">
+                                            <span class="txt">预期输出</span>
+                                        </a>
+                                        <a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+                                            <span class="txt">展开</span>
+                                            <i class="expand-collapse-icon inline-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="nav-tabContent" style="border: 0px">
+                                    <div class="tab-pane active" id="nav-code-4" role="tabpanel" aria-labelledby="nav-code-tab-4">
+                                        <pre class="prettyprint  linenums:01 lang-lua">local testArray = {"A string", 3.14159, workspace.Part}
+
+<span class='highlighted'>testArray[2] = 12345</span>
+<span class='highlighted'>testArray[4] = "New string"</span>
+
+print(testArray[2])
+print(testArray[4])</pre>
+                                    </div>
+                                    <div class="tab-pane" id="nav-output-4" role="tabpanel" aria-labelledby="nav-output-tab-4">
+                                        <pre class="prettyprint  nocode">12345
+New string</pre>
+                                    </div>
+                                </div>
+                                <div class="actions-panel">
+                                    <a class="copy">
+                                        <i class="copy-icon inline-icon"></i>
+                                        <span class="txt">复制代码</span>
+                                    </a>
+                                    <a href="javascript:void(0)" class="theme-wrap">
+                                        <span class="theme-name">亮色模式</span>
+                                        <span class="theme-icons">
+                                            <i class="light-theme-icon icon" caption="亮色模式"></i>
+                                            <i class="dark-theme-icon icon" caption="深色模式"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="markdown-field-data">
+                                <h3>循环访问数组</h3>
+                                <p>可以通过以下两种方式循环访问（循环遍历）数组：</p>
+                                <ul>
+                                    <li>在 <code>for</code> 循环中使用内置的 <code>ipairs()</code> 函数。</li>
+                                    <li>使用 <code><span class="code-render-blocker"></span>#</code> 运算符获取数组的长度，并从 <strong>1</strong> 一直循环到该长度值。</li>
+                                </ul>
+                            </div>
+                            <div class="code-block light-theme">
+                                <div class="top-panel">
+                                    <div class="nav nav-tabs" id="code-nav-5" role="tablist" style="border-bottom: 0px;">
+                                        <a class="nav-item nav-link active show " id="nav-code-tab-5" data-toggle="tab" href="#nav-code-5" role="tab" aria-controls="nav-code-5" aria-selected="true">
+                                            <span class="txt">代码示例</span>
+                                        </a>
+                                        <a class="nav-item nav-link " id="nav-output-tab-5" data-toggle="tab" href="#nav-output-5" role="tab" aria-controls="nav-output-5" aria-selected="false">
+                                            <span class="txt">预期输出</span>
+                                        </a>
+                                        <a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+                                            <span class="txt">展开</span>
+                                            <i class="expand-collapse-icon inline-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="nav-tabContent" style="border: 0px">
+                                    <div class="tab-pane active" id="nav-code-5" role="tabpanel" aria-labelledby="nav-code-tab-5">
+                                        <pre class="prettyprint  linenums:01 lang-lua">local testArray = {"A string", 3.14159, workspace.Part, "New string"}
+
+-- Loop using "ipairs()"
+<span class='highlighted'>for index, value in ipairs(testArray) do</span>
+  print(index, value)
+end
+
+-- Iterate using the array length operator (#)
+<span class='highlighted'>for index = 1, #testArray do</span>
+  print(index, testArray[index])
+end</pre>
+                                    </div>
+                                    <div class="tab-pane" id="nav-output-5" role="tabpanel" aria-labelledby="nav-output-tab-5">
+                                        <pre class="prettyprint  nocode">1 A string
+2 3.14159
+3 Part
+4 New string
+1 A string
+2 3.14159
+3 Part
+4 New string</pre>
+                                    </div>
+                                </div>
+                                <div class="actions-panel">
+                                    <a class="copy">
+                                        <i class="copy-icon inline-icon"></i>
+                                        <span class="txt">复制代码</span>
+                                    </a>
+                                    <a href="javascript:void(0)" class="theme-wrap">
+                                        <span class="theme-name">亮色模式</span>
+                                        <span class="theme-icons">
+                                            <i class="light-theme-icon icon" caption="亮色模式"></i>
+                                            <i class="dark-theme-icon icon" caption="深色模式"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="markdown-field-data">
+                                <h3>插入项目</h3>
+                                <p>可以通过以下两种方法之一向数组<strong>末尾</strong>插入项目：</p>
+                                <ul>
+                                    <li>将数组引用和项目值传递给 Lua 的 <code>table.insert()</code> 函数。</li>
+                                    <li>使用 <code>t[#t+1]</code> 语法将新项目添加到数组。</li>
+                                </ul>
+                            </div>
+                            <div class="code-block light-theme">
+                                <div class="top-panel">
+                                    <div class="nav nav-tabs" id="code-nav-6" role="tablist" style="border-bottom: 0px;">
+                                        <a class="nav-item nav-link active show " id="nav-code-tab-6" data-toggle="tab" href="#nav-code-6" role="tab" aria-controls="nav-code-6" aria-selected="true">
+                                            <span class="txt">代码示例</span>
+                                        </a>
+                                        <a class="nav-item nav-link " id="nav-output-tab-6" data-toggle="tab" href="#nav-output-6" role="tab" aria-controls="nav-output-6" aria-selected="false">
+                                            <span class="txt">预期输出</span>
+                                        </a>
+                                        <a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+                                            <span class="txt">展开</span>
+                                            <i class="expand-collapse-icon inline-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="nav-tabContent" style="border: 0px">
+                                    <div class="tab-pane active" id="nav-code-6" role="tabpanel" aria-labelledby="nav-code-tab-6">
+                                        <pre class="prettyprint  linenums:01 lang-lua">local testArray = {"A string", 3.14159}
+
+<span class='highlighted'>table.insert(testArray, "New string")</span>
+<span class='highlighted'>testArray[#testArray+1] = "Another new string"</span>
+
+print(testArray[3])
+print(testArray[4])</pre>
+                                    </div>
+                                    <div class="tab-pane" id="nav-output-6" role="tabpanel" aria-labelledby="nav-output-tab-6">
+                                        <pre class="prettyprint  nocode">New string
+Another new string</pre>
+                                    </div>
+                                </div>
+                                <div class="actions-panel">
+                                    <a class="copy">
+                                        <i class="copy-icon inline-icon"></i>
+                                        <span class="txt">复制代码</span>
+                                    </a>
+                                    <a href="javascript:void(0)" class="theme-wrap">
+                                        <span class="theme-name">亮色模式</span>
+                                        <span class="theme-icons">
+                                            <i class="light-theme-icon icon" caption="亮色模式"></i>
+                                            <i class="dark-theme-icon icon" caption="深色模式"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="markdown-field-data">
+                                <p>此外，也可以通过将位置值作为 <code>table.insert()</code> 的第二个参数，在开头和结尾之间插入项目。此方法将插入新项目，并将随后的项目上移一个索引位置。</p>
+                            </div>
+                            <div class="code-block light-theme">
+                                <div class="top-panel">
+                                    <div class="nav nav-tabs" id="code-nav-7" role="tablist" style="border-bottom: 0px;">
+                                        <a class="nav-item nav-link active show " id="nav-code-tab-7" data-toggle="tab" href="#nav-code-7" role="tab" aria-controls="nav-code-7" aria-selected="true">
+                                            <span class="txt">代码示例</span>
+                                        </a>
+                                        <a class="nav-item nav-link " id="nav-output-tab-7" data-toggle="tab" href="#nav-output-7" role="tab" aria-controls="nav-output-7" aria-selected="false">
+                                            <span class="txt">预期输出</span>
+                                        </a>
+                                        <a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+                                            <span class="txt">展开</span>
+                                            <i class="expand-collapse-icon inline-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="nav-tabContent" style="border: 0px">
+                                    <div class="tab-pane active" id="nav-code-7" role="tabpanel" aria-labelledby="nav-code-tab-7">
+                                        <pre class="prettyprint  linenums:01 lang-lua">local testArray = {"First item", "Next item"}
+
+<span class='highlighted'>table.insert(testArray, 2, "NEW ITEM #2")</span>
+
+print(testArray[1])
+print(testArray[2])
+print(testArray[3])</pre>
+                                    </div>
+                                    <div class="tab-pane" id="nav-output-7" role="tabpanel" aria-labelledby="nav-output-tab-7">
+                                        <pre class="prettyprint  nocode">First item
+NEW ITEM #2
+Next item</pre>
+                                    </div>
+                                </div>
+                                <div class="actions-panel">
+                                    <a class="copy">
+                                        <i class="copy-icon inline-icon"></i>
+                                        <span class="txt">复制代码</span>
+                                    </a>
+                                    <a href="javascript:void(0)" class="theme-wrap">
+                                        <span class="theme-name">亮色模式</span>
+                                        <span class="theme-icons">
+                                            <i class="light-theme-icon icon" caption="亮色模式"></i>
+                                            <i class="dark-theme-icon icon" caption="深色模式"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="markdown-field-data">
+                                <h3>移除项目</h3>
+                                <p>可以使用 Lua 的 <code>table.remove()</code> 函数从数组中移除项目。此方法将移除指定位置处的项目，并将随后的所有项目下移一个索引位置。</p>
+                            </div>
+                            <div class="code-block light-theme">
+                                <div class="top-panel">
+                                    <div class="nav nav-tabs" id="code-nav-8" role="tablist" style="border-bottom: 0px;">
+                                        <a class="nav-item nav-link active show " id="nav-code-tab-8" data-toggle="tab" href="#nav-code-8" role="tab" aria-controls="nav-code-8" aria-selected="true">
+                                            <span class="txt">代码示例</span>
+                                        </a>
+                                        <a class="nav-item nav-link " id="nav-output-tab-8" data-toggle="tab" href="#nav-output-8" role="tab" aria-controls="nav-output-8" aria-selected="false">
+                                            <span class="txt">预期输出</span>
+                                        </a>
+                                        <a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+                                            <span class="txt">展开</span>
+                                            <i class="expand-collapse-icon inline-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="nav-tabContent" style="border: 0px">
+                                    <div class="tab-pane active" id="nav-code-8" role="tabpanel" aria-labelledby="nav-code-tab-8">
+                                        <pre class="prettyprint  linenums:01 lang-lua">local testArray = {"First item", "Next item", "Last item"}
+
+<span class='highlighted'>table.remove(testArray, 2)</span>
+
+print(testArray[1])
+print(testArray[2])</pre>
+                                    </div>
+                                    <div class="tab-pane" id="nav-output-8" role="tabpanel" aria-labelledby="nav-output-tab-8">
+                                        <pre class="prettyprint  nocode">First item
+Last item</pre>
+                                    </div>
+                                </div>
+                                <div class="actions-panel">
+                                    <a class="copy">
+                                        <i class="copy-icon inline-icon"></i>
+                                        <span class="txt">复制代码</span>
+                                    </a>
+                                    <a href="javascript:void(0)" class="theme-wrap">
+                                        <span class="theme-name">亮色模式</span>
+                                        <span class="theme-icons">
+                                            <i class="light-theme-icon icon" caption="亮色模式"></i>
+                                            <i class="dark-theme-icon icon" caption="深色模式"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="markdown-field-data">
+                                <div class="alert alert-primary mt-4 mb-4" role="alert">
+                                    有关上述函数和其他<span class="text-nowrap">特定于数组的</span>方法的详细信息，请参阅 Lua <a href="/api-reference/lua-docs/table">表格库</a>文档。
+                                </div>
+                                <h2>字典</h2>
+                                <p>字典是对数组的扩展。数组存储一组有序的项目，而字典存储一组<b class="text-nowrap">键值对</b>。</p>
+                                <table class="table table-striped table-bordered w-50">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col" class="w-50">键</th>
+                                            <th scope="col" class="w-50">值</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td scope="row">FruitName</td>
+                                            <td scope="row">Lemon</td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">FruitColor</td>
+                                            <td scope="row">Yellow</td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">Sour</td>
+                                            <td scope="row">true</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <h3>创建字典</h3>
+                                <p>要创建字典表，请定义每个<strong>键</strong>，并后跟 <code>=</code> 和<strong>值</strong>。请记得用逗号分隔每个<span class="text-nowrap">键值</span>对：</p>
+                            </div>
+                            <div class="code-block light-theme">
+                                <div class="top-panel">
+                                    <div class="nav nav-tabs" id="code-nav-9" role="tablist" style="border-bottom: 0px;">
+                                        <a class="nav-item nav-link hidden-elem" id="nav-output-tab-9" data-toggle="tab" href="#nav-output-9" role="tab" aria-controls="nav-output-9" aria-selected="false">
+                                            <span class="txt">预期输出</span>
+                                        </a>
+                                        <a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+                                            <span class="txt">展开</span>
+                                            <i class="expand-collapse-icon inline-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="nav-tabContent" style="border: 0px">
+                                    <div class="tab-pane active" id="nav-code-9" role="tabpanel" aria-labelledby="nav-code-tab-9">
+                                        <pre class="prettyprint  linenums:01 lang-lua">local testDictionary = {
+  FruitName = "Lemon",
+  FruitColor = "Yellow",
+  Sour = true
+}</pre>
+                                    </div>
+                                    <div class="tab-pane" id="nav-output-9" role="tabpanel" aria-labelledby="nav-output-tab-9">
+                                        <pre class="prettyprint  nocode"></pre>
+                                    </div>
+                                </div>
+                                <div class="actions-panel">
+                                    <a class="copy">
+                                        <i class="copy-icon inline-icon"></i>
+                                        <span class="txt">复制代码</span>
+                                    </a>
+                                    <a href="javascript:void(0)" class="theme-wrap">
+                                        <span class="theme-name">亮色模式</span>
+                                        <span class="theme-icons">
+                                            <i class="light-theme-icon icon" caption="亮色模式"></i>
+                                            <i class="dark-theme-icon icon" caption="深色模式"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="markdown-field-data">
+                                <p>在创建字典时，键不仅限于字符串名称（如 <code>FruitColor</code>）；例如，键也可以是 <code>Instance</code>。在这种情况下，必须用方括号 (<code>[key]</code>) 声明键：</p>
+                            </div>
+                            <div class="code-block light-theme">
+                                <div class="top-panel">
+                                    <div class="nav nav-tabs" id="code-nav-10" role="tablist" style="border-bottom: 0px;">
+                                        <a class="nav-item nav-link hidden-elem" id="nav-output-tab-10" data-toggle="tab" href="#nav-output-10" role="tab" aria-controls="nav-output-10" aria-selected="false">
+                                            <span class="txt">预期输出</span>
+                                        </a>
+                                        <a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+                                            <span class="txt">展开</span>
+                                            <i class="expand-collapse-icon inline-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="nav-tabContent" style="border: 0px">
+                                    <div class="tab-pane active" id="nav-code-10" role="tabpanel" aria-labelledby="nav-code-tab-10">
+                                        <pre class="prettyprint  linenums:01 lang-lua">local part = Instance.new("Part")
+
+local testDictionary = {
+  PartType = "Block",
+<span class='highlighted'>  [part] = true</span>
+}</pre>
+                                    </div>
+                                    <div class="tab-pane" id="nav-output-10" role="tabpanel" aria-labelledby="nav-output-tab-10">
+                                        <pre class="prettyprint  nocode"></pre>
+                                    </div>
+                                </div>
+                                <div class="actions-panel">
+                                    <a class="copy">
+                                        <i class="copy-icon inline-icon"></i>
+                                        <span class="txt">复制代码</span>
+                                    </a>
+                                    <a href="javascript:void(0)" class="theme-wrap">
+                                        <span class="theme-name">亮色模式</span>
+                                        <span class="theme-icons">
+                                            <i class="light-theme-icon icon" caption="亮色模式"></i>
+                                            <i class="dark-theme-icon icon" caption="深色模式"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="markdown-field-data">
+                                <h3>从字典中读取数据</h3>
+                                <p>要从字典中读取数据，请在其引用后添加一对方括号并指定键名称：</p>
+                            </div>
+                            <div class="code-block light-theme">
+                                <div class="top-panel">
+                                    <div class="nav nav-tabs" id="code-nav-11" role="tablist" style="border-bottom: 0px;">
+                                        <a class="nav-item nav-link active show " id="nav-code-tab-11" data-toggle="tab" href="#nav-code-11" role="tab" aria-controls="nav-code-11" aria-selected="true">
+                                            <span class="txt">代码示例</span>
+                                        </a>
+                                        <a class="nav-item nav-link " id="nav-output-tab-11" data-toggle="tab" href="#nav-output-11" role="tab" aria-controls="nav-output-11" aria-selected="false">
+                                            <span class="txt">预期输出</span>
+                                        </a>
+                                        <a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+                                            <span class="txt">展开</span>
+                                            <i class="expand-collapse-icon inline-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="nav-tabContent" style="border: 0px">
+                                    <div class="tab-pane active" id="nav-code-11" role="tabpanel" aria-labelledby="nav-code-tab-11">
+                                        <pre class="prettyprint  linenums:01 lang-lua">local part = Instance.new("Part")
+
+local testDictionary = {
+  PartType = "Block",
+  [part] = true
+}
+
+<span class='highlighted'>print(testDictionary["PartType"])  -- Include quotes for string keys</span>
+<span class='highlighted'>print(testDictionary[part])  -- Omit quotes for non-string keys</span></pre>
+                                    </div>
+                                    <div class="tab-pane" id="nav-output-11" role="tabpanel" aria-labelledby="nav-output-tab-11">
+                                        <pre class="prettyprint  nocode">Block
+true</pre>
+                                    </div>
+                                </div>
+                                <div class="actions-panel">
+                                    <a class="copy">
+                                        <i class="copy-icon inline-icon"></i>
+                                        <span class="txt">复制代码</span>
+                                    </a>
+                                    <a href="javascript:void(0)" class="theme-wrap">
+                                        <span class="theme-name">亮色模式</span>
+                                        <span class="theme-icons">
+                                            <i class="light-theme-icon icon" caption="亮色模式"></i>
+                                            <i class="dark-theme-icon icon" caption="深色模式"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="markdown-field-data">
+                                <div class="alert alert-warning mb-3" role="alert">
+                                    如上面的代码注释中所述，请注意以下几点：
+                                    <ul class="mb-0">
+                                        <li>必须用引号将<b>字符串</b>键（例如 <code>PartType</code>）引起来，如 <code>testDictionary["PartType"]</code> 中的情况。</li>
+                                        <li><b>不</b>应使用引号将<b>非字符串</b>键（例如 <code>[part]</code>）引起来。</li>
+                                    </ul>
+                                </div>
+                                <h3>向字典写入数据</h3>
+                                <p>可以通过在方括号 (<code>[key]</code>) 中指示键名称并后跟 <code>=</code> 和值来定义新的或现有的字典键的值：</p>
+                            </div>
+                            <div class="code-block light-theme">
+                                <div class="top-panel">
+                                    <div class="nav nav-tabs" id="code-nav-12" role="tablist" style="border-bottom: 0px;">
+                                        <a class="nav-item nav-link active show " id="nav-code-tab-12" data-toggle="tab" href="#nav-code-12" role="tab" aria-controls="nav-code-12" aria-selected="true">
+                                            <span class="txt">代码示例</span>
+                                        </a>
+                                        <a class="nav-item nav-link " id="nav-output-tab-12" data-toggle="tab" href="#nav-output-12" role="tab" aria-controls="nav-output-12" aria-selected="false">
+                                            <span class="txt">预期输出</span>
+                                        </a>
+                                        <a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+                                            <span class="txt">展开</span>
+                                            <i class="expand-collapse-icon inline-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="nav-tabContent" style="border: 0px">
+                                    <div class="tab-pane active" id="nav-code-12" role="tabpanel" aria-labelledby="nav-code-tab-12">
+                                        <pre class="prettyprint  linenums:01 lang-lua">local testDictionary = {
+  FruitName = "Lemon",
+  Sour = true
+}
+
+-- Change value of existing keys
+<span class='highlighted'>testDictionary["FruitName"] = "Cherry"</span>
+<span class='highlighted'>testDictionary["Sour"] = false</span>
+
+-- Insert new key-value pair
+<span class='highlighted'>testDictionary["FruitCount"] = 10</span>
+
+print(testDictionary["FruitName"])
+print(testDictionary["Sour"])
+print(testDictionary["FruitCount"])</pre>
+                                    </div>
+                                    <div class="tab-pane" id="nav-output-12" role="tabpanel" aria-labelledby="nav-output-tab-12">
+                                        <pre class="prettyprint  nocode">Cherry
+false
+10</pre>
+                                    </div>
+                                </div>
+                                <div class="actions-panel">
+                                    <a class="copy">
+                                        <i class="copy-icon inline-icon"></i>
+                                        <span class="txt">复制代码</span>
+                                    </a>
+                                    <a href="javascript:void(0)" class="theme-wrap">
+                                        <span class="theme-name">亮色模式</span>
+                                        <span class="theme-icons">
+                                            <i class="light-theme-icon icon" caption="亮色模式"></i>
+                                            <i class="dark-theme-icon icon" caption="深色模式"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="markdown-field-data">
+                                <h3>循环访问字典</h3>
+                                <p>可以在 <code>for</code> 循环中使用<span class="text-nowrap">内置的</span> <code>pairs()</code> 函数对字典进行循环访问：</p>
+                            </div>
+                            <div class="code-block light-theme">
+                                <div class="top-panel">
+                                    <div class="nav nav-tabs" id="code-nav-13" role="tablist" style="border-bottom: 0px;">
+                                        <a class="nav-item nav-link active show " id="nav-code-tab-13" data-toggle="tab" href="#nav-code-13" role="tab" aria-controls="nav-code-13" aria-selected="true">
+                                            <span class="txt">代码示例</span>
+                                        </a>
+                                        <a class="nav-item nav-link " id="nav-output-tab-13" data-toggle="tab" href="#nav-output-13" role="tab" aria-controls="nav-output-13" aria-selected="false">
+                                            <span class="txt">预期输出</span>
+                                        </a>
+                                        <a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+                                            <span class="txt">展开</span>
+                                            <i class="expand-collapse-icon inline-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="nav-tabContent" style="border: 0px">
+                                    <div class="tab-pane active" id="nav-code-13" role="tabpanel" aria-labelledby="nav-code-tab-13">
+                                        <pre class="prettyprint  linenums:01 lang-lua">local testDictionary = {
+  FruitName = "Lemon",
+  FruitColor = "Yellow",
+  Sour = true
+}
+
+<span class='highlighted'>for key, value in pairs(testDictionary) do</span>
+  print(key, value)
+end</pre>
+                                    </div>
+                                    <div class="tab-pane" id="nav-output-13" role="tabpanel" aria-labelledby="nav-output-tab-13">
+                                        <pre class="prettyprint  nocode">FruitName Lemon
+Sour true
+FruitColor Yellow</pre>
+                                    </div>
+                                </div>
+                                <div class="actions-panel">
+                                    <a class="copy">
+                                        <i class="copy-icon inline-icon"></i>
+                                        <span class="txt">复制代码</span>
+                                    </a>
+                                    <a href="javascript:void(0)" class="theme-wrap">
+                                        <span class="theme-name">亮色模式</span>
+                                        <span class="theme-icons">
+                                            <i class="light-theme-icon icon" caption="亮色模式"></i>
+                                            <i class="dark-theme-icon icon" caption="深色模式"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="markdown-field-data">
+                                <div class="alert alert-warning mb-3" role="alert">
+                                    与对数组使用 <code>ipairs()</code> 不同，通过 <code>pairs()</code> 循环访问字典时不一定会按照项目在字典中的相同声明顺序返回这些项目。
+                                </div>
+                                <h3>移除键值对</h3>
+                                <p>要从字典中移除键值对，只需将其值设置为 <code>nil</code> 即可，这会从字典中完全删除<span class="text-nowrap">键值</span>对，如下面的 <code>pairs()</code> 循环输出中所示：</p>
+                            </div>
+                            <div class="code-block light-theme">
+                                <div class="top-panel">
+                                    <div class="nav nav-tabs" id="code-nav-14" role="tablist" style="border-bottom: 0px;">
+                                        <a class="nav-item nav-link active show " id="nav-code-tab-14" data-toggle="tab" href="#nav-code-14" role="tab" aria-controls="nav-code-14" aria-selected="true">
+                                            <span class="txt">代码示例</span>
+                                        </a>
+                                        <a class="nav-item nav-link " id="nav-output-tab-14" data-toggle="tab" href="#nav-output-14" role="tab" aria-controls="nav-output-14" aria-selected="false">
+                                            <span class="txt">预期输出</span>
+                                        </a>
+                                        <a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+                                            <span class="txt">展开</span>
+                                            <i class="expand-collapse-icon inline-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="nav-tabContent" style="border: 0px">
+                                    <div class="tab-pane active" id="nav-code-14" role="tabpanel" aria-labelledby="nav-code-tab-14">
+                                        <pre class="prettyprint  linenums:01 lang-lua">local testDictionary = {
+  FruitName = "Lemon",
+  FruitColor = "Yellow",
+  Sour = true
+}
+
+<span class='highlighted'>testDictionary["Sour"] = nil</span>
+
+for key, value in pairs(testDictionary) do
+  print(key, value)
+end</pre>
+                                    </div>
+                                    <div class="tab-pane" id="nav-output-14" role="tabpanel" aria-labelledby="nav-output-tab-14">
+                                        <pre class="prettyprint  nocode">FruitName Lemon
+FruitColor Yellow</pre>
+                                    </div>
+                                </div>
+                                <div class="actions-panel">
+                                    <a class="copy">
+                                        <i class="copy-icon inline-icon"></i>
+                                        <span class="txt">复制代码</span>
+                                    </a>
+                                    <a href="javascript:void(0)" class="theme-wrap">
+                                        <span class="theme-name">亮色模式</span>
+                                        <span class="theme-icons">
+                                            <i class="light-theme-icon icon" caption="亮色模式"></i>
+                                            <i class="dark-theme-icon icon" caption="深色模式"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="markdown-field-data">
+                                <h2>将表作为引用</h2>
+                                <p>如果将表存储在新变量中，则不会创建该表的副本。该变量将成为原始表的<strong>引用</strong>（指针）。这意味着对原始表的任何更改都将反映在任何引用中：</p>
+                            </div>
+                            <div class="code-block light-theme">
+                                <div class="top-panel">
+                                    <div class="nav nav-tabs" id="code-nav-15" role="tablist" style="border-bottom: 0px;">
+                                        <a class="nav-item nav-link active show " id="nav-code-tab-15" data-toggle="tab" href="#nav-code-15" role="tab" aria-controls="nav-code-15" aria-selected="true">
+                                            <span class="txt">代码示例</span>
+                                        </a>
+                                        <a class="nav-item nav-link " id="nav-output-tab-15" data-toggle="tab" href="#nav-output-15" role="tab" aria-controls="nav-output-15" aria-selected="false">
+                                            <span class="txt">预期输出</span>
+                                        </a>
+                                        <a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+                                            <span class="txt">展开</span>
+                                            <i class="expand-collapse-icon inline-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="nav-tabContent" style="border: 0px">
+                                    <div class="tab-pane active" id="nav-code-15" role="tabpanel" aria-labelledby="nav-code-tab-15">
+                                        <pre class="prettyprint  linenums:01 lang-lua"><span class='highlighted'>local originalArray = {10, 20}</span>
+
+<span class='highlighted'>local arrayReference = originalArray</span>
+
+print("Original:", originalArray[1], originalArray[2])
+print("Reference:", arrayReference[1], arrayReference[2])
+
+-- Change values in original array
+<span class='highlighted'>originalArray[1] = 1000</span>
+<span class='highlighted'>originalArray[2] = 2000</span>
+
+print("Reference:", arrayReference[1], arrayReference[2])</pre>
+                                    </div>
+                                    <div class="tab-pane" id="nav-output-15" role="tabpanel" aria-labelledby="nav-output-tab-15">
+                                        <pre class="prettyprint  nocode">Original: 10 20
+Reference: 10 20
+Reference: 1000 2000</pre>
+                                    </div>
+                                </div>
+                                <div class="actions-panel">
+                                    <a class="copy">
+                                        <i class="copy-icon inline-icon"></i>
+                                        <span class="txt">复制代码</span>
+                                    </a>
+                                    <a href="javascript:void(0)" class="theme-wrap">
+                                        <span class="theme-name">亮色模式</span>
+                                        <span class="theme-icons">
+                                            <i class="light-theme-icon icon" caption="亮色模式"></i>
+                                            <i class="dark-theme-icon icon" caption="深色模式"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="related-articles" data-swiftype-index='false'>
+                            <h2 data-toc-skip class="text-center mbl">相关参考文章</h2>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <a href="/articles/Cloning-tables"><span class="related-article-img" style="background-image: url(https://dk135eecbplh9.cloudfront.net/assets/blt97389dca0adba86b/code-sample-icon.png);"> </span></a>
+                                    <h3 data-toc-skip><a href="/articles/Cloning-tables">表的复制（Clone）</a></h3>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="/articles/Linked-list"><span class="related-article-img" style="background-image: url();"> </span></a>
+                                    <h3 data-toc-skip><a href="/articles/Linked-list">链表</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h1>此网站如何使用 Cookie</h1>
+                        <div class="privacy-content">
+                            <p>此平台使用 Cookie 为您提供更好的体验、对内容进行个性化、提供社交媒体功能和分析网站流量。如需详细信息（包括有关如何在此平台上防止使用 Cookie 或对其进行管理的信息），请参阅我们的<a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私和 Cookie 政策</a>。</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="javascript:void(0)" class="btn" data-dismiss="modal">确定</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-header-text">你即将离开 Roblox 网站</div>
+                        <p>请按下继续按钮前往： <span class="link"></span></p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="" class="btn secondary-btn" data-dismiss="modal">返回</a>
+                        <a href="" class="btn primary-btn continue-link" target="_blank">继续</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer no-print" data-swiftype-index='false'>
+            <div class="footer-info">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+                        <div class="info">
+                            <a href="https://www.roblox.com" target="_self" class="footer-logo ptxl mbl">
+                                <img src="https://dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+                            </a>
+                            <p>© 2019 Roblox Corporation. 保留所有权利。</p>
+                            <p class="mtxl mbl">
+                            </p>
+                            <ul class="social-links pbxl">
+                                <li>
+                                    <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                                        <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                                        <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                                        <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                                        <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                                        <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                                        <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg" />
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="language-dropdown">
+                                <div class="input-group-btn" id="input-group-btn">
+                                    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+                                        <span class="icon-globe" id="icon-globe"></span>
+                                        <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+                                        <span class="icon-down-16x16"></span>
+                                    </button>
+                                    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+                                        <li><a class="locale-option" data-locale="en-us">English</a></li>
+                                        <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+                        <h5 data-toc-skip>公司</h5>
+                        <ul class="links-list">
+                            <li>
+                                <a href="https://corp.roblox.com/" target="_blank">关于 Roblox</a>
+                            </li>
+                            <li>
+                                <a href="https://corp.roblox.com/careers/" target="_blank">招贤纳士</a>
+                            </li>
+                            <li>
+                                <a href="https://corp.roblox.com/technology/" target="_self">技术</a>
+                            </li>
+                            <li>
+                                <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">服务条款</a>
+                            </li>
+                            <li>
+                                <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私政策</a>
+                            </li>
+                            <li>
+                                <a href="https://corp.roblox.com/parents/" target="_self">家长</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+                        <h5 data-toc-skip>开发人员</h5>
+                        <ul class="links-list">
+                            <li>
+                                <a href="/articles/Creating-Your-First-Game" target="_self">入门</a>
+                            </li>
+                            <li>
+                                <a href="/learn-roblox/all-tutorials" target="_self">了解</a>
+                            </li>
+                            <li>
+                                <a href="/api-reference" target="_self">API 参考</a>
+                            </li>
+                            <li>
+                                <a href="https://devforum.roblox.com" target="_blank">社区</a>
+                            </li>
+                            <li>
+                                <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">开发人员公告</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header d-flex align-items-stretch">
+                    <label class="sr-only" for="st-live-search-input">搜索</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input" placeholder="搜索">
+                    </div>
+                    <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="all-results-tab" data-toggle="tab" href="#all" role="tab" aria-selected="true" data-name="all_results">
+                                所有结果
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" href="#api-doc" role="tab" aria-selected="false" data-name="api_reference">
+                                API 文档
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" href="#tutorial" role="tab" aria-selected="false" data-name="articles">
+                                教程
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="recipe-results-tab" data-toggle="tab" href="#recipe" role="tab" aria-selected="false" data-name="recipes">
+                                代码参考
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="video-results-tab" data-toggle="tab" href="#video" role="tab" aria-selected="false" data-name="videos">
+                                视频
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="live-search-result-tab-content">
+                        <div class="search-container live-search-result mt-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    </script>
+    <style>
+    </style>
+</body>
+
+</html>

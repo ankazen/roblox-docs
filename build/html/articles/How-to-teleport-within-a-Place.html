@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>场景内玩家传送 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="游戏内实体建模" href="in-game-solid-modeling.html" />
+    <link rel="prev" title="商店对话框" href="Shop-Dialogs.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Lobby.html">制作大厅</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Usage-of-dialogs.html">NPC 对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Teleporting-Between-Places.html">不同场景间的传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Spawns-and-Teams.html">角色生成与团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-an-Explosion-Course.html">制作爆炸赛道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shop-Dialogs.html">商店对话框</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">场景内玩家传送</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cframe-moveto">Cframe 对 MoveTo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">传送全部玩家</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">传送效果</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="in-game-solid-modeling.html">游戏内实体建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matchmaking.html">玩家匹配系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Player-Collisions.html">玩家间的碰撞控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setting-Parts-on-Fire-with-Events.html">通过事件让部件着火</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2D-Collision-Detection.html">2D 碰撞检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Basics-on-Roblox.html">添加团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Badges-Special-Game-Awards.html">Badges – Special Game Awards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Collision-Filtering-Team-Doors.html">Restricted/Team Doors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-VIP-Doors.html">创建 VIP 专用门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Random-Map-Chooser.html">随机地图选择器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roblox-avatars.html">Roblox 虚拟形象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Health-Pickups.html">回复用拾取物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Moving-NPCs-Between-Points.html">在点之间移动 NPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pathfinding.html">寻路</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Side-Scrolling-Camera-View.html">横向卷轴镜头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Tools.html">玩家工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="detecting-collisions.html">检测碰撞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weapons-kit.html">认可武器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="npc-kit.html">NPC 套组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vehicles-kit.html">载具工具包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="team-balancing.html">平衡团队构成</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/gameplay.html">游戏制作</a> &raquo;</li>
+        
+      <li>场景内玩家传送</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/How-to-teleport-within-a-Place.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>场景内玩家传送<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>“传送”一词用于描述将一组部件（通常是玩家的角色）移至某一坐标的动作。在 Roblox 中，设置一个部件的 <code class="docutils literal notranslate"><span class="pre">Position</span></code> 属性会断开该部件与任何其他相连部件的连接，从而破坏模型。因此，不可使用以下方法传送玩家，因为这会将躯干与头部断开。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">Player</span><span class="o">.</span><span class="n">Torso</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>要在不消灭玩家的情况下正确传送玩家，必须使用 Cframe 属性并改用 <code class="docutils literal notranslate"><span class="pre">Articles/Understanding</span> <span class="pre">CFrame|CFrame</span></code> 数据类型。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">Player</span><span class="o">.</span><span class="n">HumanoidRootPart</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="section" id="cframe-moveto">
+<h2>Cframe 对 MoveTo<a class="headerlink" href="#cframe-moveto" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Humanoid/MoveTo|MoveTo</span></code> 可用于设置模型中的一块砖的 Cframe。仅当 Parent 属性为 Workspace 时，MoveTo 才会更改模型中部件的 Position/CFrame。</p>
+</div>
+<div class="section" id="id2">
+<h2>传送全部玩家<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>可通过迭代每一玩家角色并相应设置 Cframe 传送游戏中的全部玩家。</p>
+<p>同时传送一组玩家时要小心：偏移目标位置，以免各玩家躯干重叠。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">target</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">--</span><span class="n">可能会是在砖块旁边或新的区域内</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">player</span> <span class="ow">in</span> <span class="n">ipairs</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="p">:</span><span class="n">GetChildren</span><span class="p">())</span> <span class="n">do</span>
+   <span class="o">--</span><span class="n">确保角色及其</span> <span class="n">HumanoidRootPart</span> <span class="n">存在</span>
+   <span class="k">if</span> <span class="n">player</span><span class="o">.</span><span class="n">Character</span> <span class="ow">and</span> <span class="n">player</span><span class="o">.</span><span class="n">Character</span><span class="p">:</span><span class="n">FindFirstChild</span><span class="p">(</span><span class="s2">&quot;HumanoidRootPart&quot;</span><span class="p">)</span> <span class="n">then</span>
+       <span class="o">--</span><span class="n">为每个角色添加值为</span> <span class="mi">5</span> <span class="n">的偏移</span>
+      <span class="n">player</span><span class="o">.</span><span class="n">Character</span><span class="o">.</span><span class="n">HumanoidRootPart</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">target</span> <span class="o">+</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+   <span class="n">end</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>上述代码会将每个玩家传送至位置（0,50,0），为其提供最大为 5 的偏移，以免其重叠。显然，将玩家向上偏移有助于避免相互碰撞，但如果玩家正在被传送至建筑物或房间中，则可能最终会将玩家放置于天花板或房顶上。在创建传送逻辑时要耐心谨慎，以免出现此类逾越边界情况。</p>
+</div>
+<div class="section" id="id3">
+<h2>传送效果<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>可使用 <code class="docutils literal notranslate"><span class="pre">Articles/For</span> <span class="pre">Loops|for</span> <span class="pre">循环</span></code> 逐步增加肢体的透明度，从而加入淡出效果。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>player = game.Players.Player --或许需要在这里进行改变……
+target = Vector3.new(20, 10, 20) --……还有这里
+
+function fadeTo(a, b, c)
+    for transparency = a, b, c do
+    --从 a 到 b，以 c 为计
+        for _, part in pairs(player.Character:GetChildren()) do
+        --对于此角色中的每一个对象
+
+            if part:IsA(&quot;BasePart&quot;) then
+            --都需要检查其是否为部件
+
+                part.Transparency = transparency
+                --若是则设置其透明度
+            end
+        end
+        wait(0.1)
+    end
+end
+
+fadeTo(0, 1, 0.1) --淡出
+player.Character.HumanoidRootPart.CFrame = target --传送玩家
+fadeTo(1, 0, -0.1) --淡入
+</pre></div>
+</div>
+<p>其他效果可包括：更改 <code class="docutils literal notranslate"><span class="pre">BasePart/Reflectance</span></code> 以让玩家从地面腾空而起、闪闪发光，或使用 <code class="docutils literal notranslate"><span class="pre">BodyAngularVelocity</span></code> 让玩家旋转。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/How-to-teleport-within-a-Place">场景内玩家传送</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="in-game-solid-modeling.html" class="btn btn-neutral float-right" title="游戏内实体建模" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Shop-Dialogs.html" class="btn btn-neutral float-left" title="商店对话框" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

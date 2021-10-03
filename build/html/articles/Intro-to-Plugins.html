@@ -1,0 +1,451 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>插件简介 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="游戏安全" href="Game-Security.html" />
+    <link rel="prev" title="布尔值" href="Boolean.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">插件简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">查找和管理插件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">创建新插件</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">添加工具栏按钮</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">修改插件行为</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">支持撤销/重做</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">共享插件</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">本地共享</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#roblox">发布至 Roblox</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">其他插件示例</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id10">插入空文件夹</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>插件简介</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Intro-to-Plugins.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>插件简介<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p><strong>Plugin</strong>（插件）为 Studio 的自定义加载项，用于添加一般情况下未包含的新行为与功能。开发者可以安装 Roblox 社区创作的插件，也可以自行创作插件使用。</p>
+<div class="section" id="id2">
+<h2>查找和管理插件<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>开发者可以在 Studio 的 <a class="reference external" href="/resources/studio/Toolbox">Toolbox</a>（工具箱）中查找新的 Studio 插件。安装插件后，可以通过 <strong>Plugins</strong> （插件）选项卡中的 **Manage Plugins（管理插件）**按钮对已安装的插件进行管理与更新。</p>
+<p><img alt="https://developer.roblox.com/assets/bltea914415df398088/Plugin-Manage-Plugins-1.png" src="https://developer.roblox.com/assets/bltea914415df398088/Plugin-Manage-Plugins-1.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/bltcd91725bac69494c/Plugin-Manage-Plugins.png" src="https://developer.roblox.com/assets/bltcd91725bac69494c/Plugin-Manage-Plugins.png" /></p>
+<p><strong>A</strong></p>
+<p><strong>Update（更新）</strong>— 获取最新版本的插件。</p>
+<p><strong>B</strong></p>
+<p><strong>激活状态</strong>— 切换插件是否处于激活状态。</p>
+<p><strong>C</strong></p>
+<p><strong>详细信息与移除</strong>— 打开用来查看插件详细信息或卸载插件的菜单。</p>
+</div>
+<div class="section" id="id3">
+<h2>创建新插件<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>开发者不仅能够使用预建插件，更可以根据自身需求创建用于各种目的的插件。在此段落中，我们将创建一个简单的插件，该插件不会运行默认的 “Hello world!” 打印函数，但可以将新的脚本插入到 <code class="docutils literal notranslate"><span class="pre">ServerScriptService</span></code> 中。</p>
+<ol class="simple">
+<li><p>创建新插件时需要创建新的 <code class="docutils literal notranslate"><span class="pre">Script</span></code>。请在 <code class="docutils literal notranslate"><span class="pre">ServerStorage</span></code> 内创建新脚本实例。</p></li>
+<li><p>将脚本命名为 <strong>EmptyScriptAdder</strong>。
+<img alt="https://developer.roblox.com/assets/blt73ad22e9667cbfd0/Plugin-Empty-Script-Adder.png" src="https://developer.roblox.com/assets/blt73ad22e9667cbfd0/Plugin-Empty-Script-Adder.png" /></p></li>
+<li><p>右键单击脚本并选择 <strong>Save as Local Plugin（另存为本地插件）</strong>。
+<img alt="https://developer.roblox.com/assets/blt18d7324025e3f2ec/Save-Local-Plugin.png" src="https://developer.roblox.com/assets/blt18d7324025e3f2ec/Save-Local-Plugin.png" /></p></li>
+<li><p>单击 <strong>Save（保存）</strong>，将插件放入插件文件夹中。</p></li>
+</ol>
+<p>此时，<strong>Output</strong>（输出）窗口将显示已成功保存插件的消息，注意 “Hello world!” 也将显示在窗口中： <img alt="https://developer.roblox.com/assets/blt7f64617cff9bae7d/Plugin-Hello-World-Output.png" src="https://developer.roblox.com/assets/blt7f64617cff9bae7d/Plugin-Hello-World-Output.png" /></p>
+<p>这实际上就是插件的第一次运行。每当使用这种方式保存插件时，插件都会刷新并运行。</p>
+<div class="section" id="id4">
+<h3>添加工具栏按钮<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>通常情况下，为插件设置 Studio 工具栏按钮能够使其运行更为方便。为此，我们将需要使用 <code class="docutils literal notranslate"><span class="pre">Plugin/CreateToolbar|Plugin:CreateToolbar()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">PluginToolbar/CreateButton|PluginToolbar:CreateButton()</span></code> 函数。</p>
+<ol class="simple">
+<li><p>打开 <strong>EmptyScriptAdder</strong> 脚本并删除 <code class="docutils literal notranslate"><span class="pre">print(&quot;Hello</span> <span class="pre">world!&quot;)</span></code>。</p></li>
+<li><p>将以下代码复制并粘贴到脚本中：</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">创建名为</span> <span class="s2">&quot;Custom Script Tools&quot;</span> <span class="n">的工具栏区域</span>
+    <span class="n">local</span> <span class="n">toolbar</span> <span class="o">=</span> <span class="n">plugin</span><span class="p">:</span><span class="n">CreateToolbar</span><span class="p">(</span><span class="s2">&quot;Custom Script Tools&quot;</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">添加名为</span> <span class="s2">&quot;Create Empty Script&quot;</span> <span class="n">的工具栏按钮</span>
+    <span class="n">local</span> <span class="n">newScriptButton</span> <span class="o">=</span> <span class="n">toolbar</span><span class="p">:</span><span class="n">CreateButton</span><span class="p">(</span><span class="s2">&quot;Create Empty Script&quot;</span><span class="p">,</span> <span class="s2">&quot;Create an empty script&quot;</span><span class="p">,</span> <span class="s2">&quot;rbxassetid://4458901886&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>按照前述步骤保存插件（右键单击脚本并选择 <strong>Save as Local Plugin（另存为本地插件）</strong>）。完成后，新的按钮将会出现在 Studio 的 **Plugins（插件）**选项卡中。
+<img alt="https://developer.roblox.com/assets/blta9a06ee7c5a3bd18/Plugin-Toolbar-Button.png" src="https://developer.roblox.com/assets/blta9a06ee7c5a3bd18/Plugin-Toolbar-Button.png" /></p></li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h3>修改插件行为<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>之前创建的插件目前还没有任何功能，需要对其添加代码，使其能够创建 <code class="docutils literal notranslate"><span class="pre">Script</span></code> 实例且将示例的 <code class="docutils literal notranslate"><span class="pre">Script/Source</span></code> 属性设置为空字符串：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">创建名为</span> <span class="s2">&quot;Custom Script Tools&quot;</span> <span class="n">的工具栏部分</span>
+    <span class="n">local</span> <span class="n">toolbar</span> <span class="o">=</span> <span class="n">plugin</span><span class="p">:</span><span class="n">CreateToolbar</span><span class="p">(</span><span class="s2">&quot;Custom Script Tools&quot;</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">添加名为</span> <span class="s2">&quot;Create Empty Script&quot;</span> <span class="n">的工具栏按钮</span>
+    <span class="n">local</span> <span class="n">newScriptButton</span> <span class="o">=</span> <span class="n">toolbar</span><span class="p">:</span><span class="n">CreateButton</span><span class="p">(</span><span class="s2">&quot;Create Empty Script&quot;</span><span class="p">,</span> <span class="s2">&quot;Create an empty script&quot;</span><span class="p">,</span> <span class="s2">&quot;rbxassetid://4458901886&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">function</span> <span class="n">onNewScriptButtonClicked</span><span class="p">()</span>
+    	<span class="n">local</span> <span class="n">newScript</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Script&quot;</span><span class="p">)</span>
+    	<span class="n">newScript</span><span class="o">.</span><span class="n">Source</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    	<span class="n">newScript</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ServerScriptService&quot;</span><span class="p">)</span>
+    <span class="n">end</span>
+    <span class="n">newScriptButton</span><span class="o">.</span><span class="n">Click</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">onNewScriptButtonClicked</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>再次通过 **Save as Local Plugin（另存为本地插件）**来保存插件。如果现在单击 **Create Empty Script（创建空脚本）**插件按钮，就可以将新建 <code class="docutils literal notranslate"><span class="pre">Script</span></code> 插入到 <strong>ServerScriptService</strong> 中。</p>
+<p><img alt="https://developer.roblox.com/assets/bltd9dd1fcdc0e69a37/Plugin-Inserted-Script.png" src="https://developer.roblox.com/assets/bltd9dd1fcdc0e69a37/Plugin-Inserted-Script.png" /></p>
+</div>
+<div class="section" id="id6">
+<h3>支持撤销/重做<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Studio 中的撤销和重做由 <code class="docutils literal notranslate"><span class="pre">ChangeHistoryService</span></code> 中的 <strong>Waypoint</strong>（航点）进行管理。在 Studio 中执行每个操作之后（例入用户拖动部件或插入新对象后），Studio 会自动添加新航点。对操作进行撤销后，Studio 会返回到上一个航点并撤消该航点之后发生的所有操作。</p>
+<p>需要注意的是，在默认情况下使用插件将<strong>不会</strong>添加任何新航点。如果用户在插件对场景进行更改后单击 <strong>Undo（撤销）</strong>，则 Studio 将会撤销上一个非插件操作<strong>以及</strong>其后插件所执行的所有操作。</p>
+<p>为了确保 Studio 可以只撤销插件的操作，请参考下列步骤：</p>
+<ol class="simple">
+<li><p>添加名为 <code class="docutils literal notranslate"><span class="pre">ChangeHistoryService</span></code> 的 <code class="docutils literal notranslate"><span class="pre">ChangeHistoryService</span></code> 本地变量。</p></li>
+<li><p>在 <code class="docutils literal notranslate"><span class="pre">onNewScriptButtonClicked()</span></code> 函数的最后一行中调用 <code class="docutils literal notranslate"><span class="pre">ChangeHistoryService/SetWaypoint|SetWaypoint()</span></code>。</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">ChangeHistoryService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ChangeHistoryService&quot;</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">创建名为</span> <span class="s2">&quot;Custom Script Tools&quot;</span> <span class="n">的工具栏部分</span>
+    <span class="n">local</span> <span class="n">toolbar</span> <span class="o">=</span> <span class="n">plugin</span><span class="p">:</span><span class="n">CreateToolbar</span><span class="p">(</span><span class="s2">&quot;Custom Script Tools&quot;</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">添加名为</span> <span class="s2">&quot;Create Empty Script&quot;</span> <span class="n">的工具栏按钮</span>
+    <span class="n">local</span> <span class="n">newScriptButton</span> <span class="o">=</span> <span class="n">toolbar</span><span class="p">:</span><span class="n">CreateButton</span><span class="p">(</span><span class="s2">&quot;Create Empty Script&quot;</span><span class="p">,</span> <span class="s2">&quot;Create an empty script&quot;</span><span class="p">,</span> <span class="s2">&quot;rbxassetid://4458901886&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">function</span> <span class="n">onNewScriptButtonClicked</span><span class="p">()</span>
+    	<span class="n">local</span> <span class="n">newScript</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Script&quot;</span><span class="p">)</span>
+    	<span class="n">newScript</span><span class="o">.</span><span class="n">Source</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    	<span class="n">newScript</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ServerScriptService&quot;</span><span class="p">)</span>
+    	<span class="n">ChangeHistoryService</span><span class="p">:</span><span class="n">SetWaypoint</span><span class="p">(</span><span class="s2">&quot;Added new empty script&quot;</span><span class="p">)</span>
+    <span class="n">end</span>
+    <span class="n">newScriptButton</span><span class="o">.</span><span class="n">Click</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">onNewScriptButtonClicked</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>需要时开发者可以设置多个航点，让插件逐步撤回改动。为此，只需在每个允许用户撤销的步骤后调用 <code class="docutils literal notranslate"><span class="pre">ChangeHistoryService/SetWaypoint|SetWaypoint()</span></code> 即可。</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>共享插件<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>有两种方式可与其他人共享插件：向其发送 Lua 脚本文件或将插件发布到 Roblox。</p>
+<div class="section" id="id8">
+<h3>本地共享<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>通过 **Save as Local Plugin（另存为本地插件）**来保存插件时，Studio 会自动将其保存至 <strong>Plugins</strong>（插件）文件夹。单击 <strong>Plugins Folder</strong>（插件文件夹）按钮，即可访问该文件夹：</p>
+<p><img alt="https://developer.roblox.com/assets/blt69975887711dde53/Plugin-Plugins-Folder.png" src="https://developer.roblox.com/assets/blt69975887711dde53/Plugin-Plugins-Folder.png" /></p>
+<p>打开文件夹后，开发者可以复制插件的脚本文件并进行分享。获取脚本文件后，将其置于本地 <strong>Plugins</strong> 文件夹中即可使用。</p>
+</div>
+<div class="section" id="roblox">
+<h3>发布至 Roblox<a class="headerlink" href="#roblox" title="Permalink to this headline">¶</a></h3>
+<p>开发者可以将插件发布至 Roblox（和场景与模型一样），以便轻松共享和安装。要发布插件，请执行以下操作：</p>
+<ol class="simple">
+<li><p>右键单击 Studio 中的插件脚本并选择 <strong>Publish as Plugin（发布为插件）</strong>。
+<img alt="https://developer.roblox.com/assets/blt294f75c47ef1b021/Publish-As-Plugin.png" src="https://developer.roblox.com/assets/blt294f75c47ef1b021/Publish-As-Plugin.png" /></p></li>
+<li><p>发布到新栏位或更新现有插件之一。</p></li>
+<li><p>输入插件的名称和描述。</p></li>
+<li><p>单击 <strong>Finish（完成）</strong>。完成发布后，开发者将会获取该插件的链接，以便与想要使用插件的其他开发者分享。</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>其他插件示例<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id10">
+<h3>插入空文件夹<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>插件可以使用 <code class="docutils literal notranslate"><span class="pre">Selection</span></code> 服务找到用户所选中的对象。以下脚本引入了一个新的工具栏按钮，该按钮可检查用户是否选中任何对象，若是则将新的 <code class="docutils literal notranslate"><span class="pre">Folder</span></code>（文件夹）添加至该对象。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">ChangeHistoryService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ChangeHistoryService&quot;</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">Selection</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Selection&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">toolbar</span> <span class="o">=</span> <span class="n">plugin</span><span class="p">:</span><span class="n">CreateToolbar</span><span class="p">(</span><span class="s2">&quot;Folder Tools&quot;</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">createFolderButton</span> <span class="o">=</span> <span class="n">toolbar</span><span class="p">:</span><span class="n">CreateButton</span><span class="p">(</span><span class="s2">&quot;Create Folder&quot;</span><span class="p">,</span> <span class="s2">&quot;Create a new folder&quot;</span><span class="p">,</span> <span class="s2">&quot;rbxassetid://4459262762&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">function</span> <span class="n">onCreateFolder</span><span class="p">()</span>
+    	<span class="n">local</span> <span class="n">selectedObjects</span> <span class="o">=</span> <span class="n">Selection</span><span class="p">:</span><span class="n">Get</span><span class="p">()</span>
+    	<span class="n">local</span> <span class="n">parent</span> <span class="o">=</span> <span class="n">workspace</span>
+    	<span class="k">if</span> <span class="c1">#selectedObjects &gt; 0 then</span>
+    		<span class="n">local</span> <span class="n">firstSelection</span> <span class="o">=</span> <span class="n">selectedObjects</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    		<span class="n">parent</span> <span class="o">=</span> <span class="n">firstSelection</span>
+    	<span class="n">end</span>
+    
+    	<span class="n">local</span> <span class="n">newFolder</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Folder&quot;</span><span class="p">)</span>
+    	<span class="n">newFolder</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">parent</span>
+    
+    	<span class="n">Selection</span><span class="p">:</span><span class="n">Set</span><span class="p">({</span><span class="n">newFolder</span><span class="p">})</span>
+    
+    	<span class="n">ChangeHistoryService</span><span class="p">:</span><span class="n">SetWaypoint</span><span class="p">(</span><span class="s2">&quot;Added new folder&quot;</span><span class="p">)</span>
+    <span class="n">end</span>
+    <span class="n">createFolderButton</span><span class="o">.</span><span class="n">Click</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">onCreateFolder</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Intro-to-Plugins">插件简介</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Game-Security.html" class="btn btn-neutral float-right" title="游戏安全" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Boolean.html" class="btn btn-neutral float-left" title="布尔值" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Game Passes – One‑Time Purchases &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="VIP 服务器" href="Creating-a-VIP-Server-on-Roblox.html" />
+    <link rel="prev" title="获取利润" href="Earning-Commissions.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/monetization.html">盈利</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="premium-payouts.html">Premium 收益系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Developer-Products-In-Game-Purchases.html">Developer Products – In‑Game Purchases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Earning-Commissions.html">获取利润</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Game Passes – One‑Time Purchases</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-game-pass">Creating a Game Pass</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-an-icon">Create an Icon</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#upload-the-pass">Upload the Pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-the-pass">Configure the Pass</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#giving-game-passes-an-effect">Giving Game Passes an Effect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prompting-in-game-purchases">Prompting In-Game Purchases</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#server-side-code">Server-Side Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#client-side-code">Client-Side Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-VIP-Server-on-Roblox.html">VIP 服务器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Advertising.html">游戏与物品广告</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-economics.html">开发者经济运作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-to-Make-Shirts-and-Pants-for-Roblox-Characters.html">制作虚拟形象服装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar-inspect-menu.html">虚拟形象观察菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtual-items-policy.html">虚拟物品政策</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/monetization.html">盈利</a> &raquo;</li>
+        
+      <li>Game Passes – One‑Time Purchases</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Game-Passes-One-Time-Purchases.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="game-passes-onetime-purchases">
+<h1>Game Passes – One‑Time Purchases<a class="headerlink" href="#game-passes-onetime-purchases" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p><strong>Game passes</strong> let you create special items that can only be bought once per player using Robux (<img alt="https://developer.roblox.com/assets/blt924b50fb6c9e0995/Robux-Icon-NoRightMargin.png" src="https://developer.roblox.com/assets/blt924b50fb6c9e0995/Robux-Icon-NoRightMargin.png" /></p>
+<p>). Examples are special access to a <code class="docutils literal notranslate"><span class="pre">articles/Collision</span> <span class="pre">Filtering</span> <span class="pre">Team</span> <span class="pre">Doors|restricted</span> <span class="pre">area</span></code>, an in-game avatar item, or a permanent power-up.</p>
+<p>For items that a player might purchase <strong>multiple</strong> times, such as potions, temporary power-ups, or in-game currency, please refer to <a class="reference internal" href="Developer-Products-In-Game-Purchases.html"><span class="doc">Developer Products</span></a>.</p>
+<div class="section" id="creating-a-game-pass">
+<h2>Creating a Game Pass<a class="headerlink" href="#creating-a-game-pass" title="Permalink to this headline">¶</a></h2>
+<p>To make a new game pass, go to the <a class="reference external" href="https://www.roblox.com/develop">Create</a> page on the Roblox website. Once there, make sure that the <strong>My Creations</strong> tab is selected and that <strong>Games</strong> is selected in the left column.</p>
+<p><img alt="https://developer.roblox.com/assets/bltc5b09b208db3e46a/My-Creations-Tab.png" src="https://developer.roblox.com/assets/bltc5b09b208db3e46a/My-Creations-Tab.png" /></p>
+<p>Now follow these steps to create a game pass:</p>
+<ol class="simple">
+<li><p>Determine the game you want to create a pass for.</p></li>
+<li><p>In the settings drop-down menu on the right-hand side, select <strong>Create Game Pass</strong>.
+<img alt="https://developer.roblox.com/assets/bltde41a9e5d7d7d278/Create-Game-Pass-2.png" src="https://developer.roblox.com/assets/bltde41a9e5d7d7d278/Create-Game-Pass-2.png" /></p></li>
+</ol>
+<div class="section" id="create-an-icon">
+<h3>Create an Icon<a class="headerlink" href="#create-an-icon" title="Permalink to this headline">¶</a></h3>
+<p>Game pass icons should be designed as follows:</p>
+<ol class="simple">
+<li><p>In an image editing application, design a <strong>circular</strong> game pass (a template of 512×512 pixels is recommended). The final icon will be <strong>trimmed/cropped into a circular image</strong>, so you shouldn’t include important details outside the circular boundaries.</p></li>
+</ol>
+<p><img alt="https://developer.roblox.com/assets/blt40cecbc6b316187c/Circle-Y-L.png" src="https://developer.roblox.com/assets/blt40cecbc6b316187c/Circle-Y-L.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt0895054f0b32e2e7/SlimeShield-Circular-Design.png" src="https://developer.roblox.com/assets/blt0895054f0b32e2e7/SlimeShield-Circular-Design.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt773ada4ae8c71724/r-arrow.svg" src="https://developer.roblox.com/assets/blt773ada4ae8c71724/r-arrow.svg" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt825910f454de69fe/SlimeShield-Circular-Result.png" src="https://developer.roblox.com/assets/blt825910f454de69fe/SlimeShield-Circular-Result.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt38a47bcfd3586afb/Circle-N-L.png" src="https://developer.roblox.com/assets/blt38a47bcfd3586afb/Circle-N-L.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt6332a1c24391100e/SlimeShield-Square-Design.png" src="https://developer.roblox.com/assets/blt6332a1c24391100e/SlimeShield-Square-Design.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt773ada4ae8c71724/r-arrow.svg" src="https://developer.roblox.com/assets/blt773ada4ae8c71724/r-arrow.svg" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt972d49d21cf7bd07/SlimeShield-Square-Result.png" src="https://developer.roblox.com/assets/blt972d49d21cf7bd07/SlimeShield-Square-Result.png" /></p>
+<ol class="simple">
+<li><p>Save the game pass image in .jpg, .gif, .png, .tga, or .bmp format.</p></li>
+</ol>
+</div>
+<div class="section" id="upload-the-pass">
+<h3>Upload the Pass<a class="headerlink" href="#upload-the-pass" title="Permalink to this headline">¶</a></h3>
+<p>The next step in the creation process is uploading the pass:</p>
+<ol class="simple">
+<li><p>Back on the Roblox website, click the small button next to <strong>Find your image</strong>.
+<img alt="https://developer.roblox.com/assets/bltc099f654a0619d87/Game-Pass-Choose-File.png" src="https://developer.roblox.com/assets/bltc099f654a0619d87/Game-Pass-Choose-File.png" /></p></li>
+<li><p>Find the game pass image on your computer and confirm that you’d like to upload it.</p></li>
+<li><p>Type in a name and description for the game pass. Remember that players will see this on your game’s page, so be creative and accurately describe what the pass does.</p></li>
+<li><p>When you’re ready, click <strong>Preview</strong>. On the next screen, review the details for the game pass and click <strong>Verify Upload</strong>.</p></li>
+</ol>
+</div>
+<div class="section" id="configure-the-pass">
+<h3>Configure the Pass<a class="headerlink" href="#configure-the-pass" title="Permalink to this headline">¶</a></h3>
+<p>Once you’ve created the game pass, it will appear on the same page, slightly further down. The final step is configuring the pass so players can buy it.</p>
+<ol class="simple">
+<li><p>Select <strong>Configure</strong> from the right-side pull down menu for the new pass.
+<img alt="https://developer.roblox.com/assets/bltf2d629757ea59a30/Configure-Game-Pass-1.png" src="https://developer.roblox.com/assets/bltf2d629757ea59a30/Configure-Game-Pass-1.png" /></p></li>
+<li><p>On the configuration page, click the <strong>Sales</strong> tab.
+<img alt="https://developer.roblox.com/assets/bltc19c086d4acd0b56/Configure-Game-Pass-Sales-Tab.png" src="https://developer.roblox.com/assets/bltc19c086d4acd0b56/Configure-Game-Pass-Sales-Tab.png" /></p></li>
+<li><p>Click the <strong>Item for Sale</strong> toggle switch to make the pass available to players.
+<img alt="https://developer.roblox.com/assets/blt8a4432af462bd86a/Configure-Game-Pass-Sale-Toggle.png" src="https://developer.roblox.com/assets/blt8a4432af462bd86a/Configure-Game-Pass-Sale-Toggle.png" /></p></li>
+<li><p>Set the price (in Robux) for players. Notice that the price affects how many Robux you will earn for each sale.
+<img alt="https://developer.roblox.com/assets/blt3cd5787645c3534e/Configure-Game-Pass-Set-Price.png" src="https://developer.roblox.com/assets/blt3cd5787645c3534e/Configure-Game-Pass-Set-Price.png" /></p></li>
+<li><p>Click the <strong>Save</strong> button to confirm your settings.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="giving-game-passes-an-effect">
+<h2>Giving Game Passes an Effect<a class="headerlink" href="#giving-game-passes-an-effect" title="Permalink to this headline">¶</a></h2>
+<p>Once a player buys a game pass, they will naturally expect to get its special ability or bonus when they start playing. This does <strong>not</strong> happen automatically, so you must check which players already own the pass and assign the ability/bonus to them.</p>
+<p>This example script checks when any player enters the game and then checks if they own the game pass with the matching ID set in the variable <code class="docutils literal notranslate"><span class="pre">gamePassID</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">MarketplaceService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;MarketplaceService&quot;</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">Players</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">gamePassID</span> <span class="o">=</span> <span class="mi">0000000</span>  <span class="o">--</span> <span class="n">Change</span> <span class="n">this</span> <span class="n">to</span> <span class="n">your</span> <span class="n">game</span> <span class="k">pass</span> <span class="n">ID</span>
+    
+    <span class="n">local</span> <span class="n">function</span> <span class="n">onPlayerAdded</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+    
+    	<span class="n">local</span> <span class="n">hasPass</span> <span class="o">=</span> <span class="n">false</span>
+    
+    	<span class="o">--</span> <span class="n">Check</span> <span class="k">if</span> <span class="n">the</span> <span class="n">player</span> <span class="n">already</span> <span class="n">owns</span> <span class="n">the</span> <span class="n">game</span> <span class="k">pass</span>
+    	<span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    		<span class="n">hasPass</span> <span class="o">=</span> <span class="n">MarketplaceService</span><span class="p">:</span><span class="n">UserOwnsGamePassAsync</span><span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">UserId</span><span class="p">,</span> <span class="n">gamePassID</span><span class="p">)</span>
+    	<span class="n">end</span><span class="p">)</span>
+    
+    	<span class="o">--</span> <span class="n">If</span> <span class="n">there</span><span class="s1">&#39;s an error, issue a warning and exit the function</span>
+    	<span class="k">if</span> <span class="ow">not</span> <span class="n">success</span> <span class="n">then</span>
+    		<span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Error while checking if player has pass: &quot;</span> <span class="o">..</span> <span class="n">tostring</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+    		<span class="k">return</span>
+    	<span class="n">end</span>
+    
+    	<span class="k">if</span> <span class="n">hasPass</span> <span class="o">==</span> <span class="n">true</span> <span class="n">then</span>
+    		<span class="nb">print</span><span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">Name</span> <span class="o">..</span> <span class="s2">&quot; owns the game pass with ID &quot;</span> <span class="o">..</span> <span class="n">gamePassID</span><span class="p">)</span>
+    		<span class="o">--</span> <span class="n">Assign</span> <span class="n">this</span> <span class="n">player</span> <span class="n">the</span> <span class="n">ability</span> <span class="ow">or</span> <span class="n">bonus</span> <span class="n">related</span> <span class="n">to</span> <span class="n">the</span> <span class="n">game</span> <span class="k">pass</span>
+    		<span class="o">--</span>
+    	<span class="n">end</span>
+    <span class="n">end</span>
+    
+    <span class="o">--</span> <span class="n">Connect</span> <span class="s2">&quot;PlayerAdded&quot;</span> <span class="n">events</span> <span class="n">to</span> <span class="n">the</span> <span class="s2">&quot;onPlayerAdded()&quot;</span> <span class="n">function</span>
+    <span class="n">Players</span><span class="o">.</span><span class="n">PlayerAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">onPlayerAdded</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>To find the ID of a game pass, inspect the URL in your web browser which will look similar to one of these, depending on whether you’re configuring or viewing the pass:</p>
+<p>https://www.roblox.com/game-pass/configure?id=0123456</p>
+<p>https://www.roblox.com/game-pass/0123456/Slime-Shield</p>
+<p>The game pass ID is the number within the URL, for example <strong>0123456</strong> as shown here. Simply use that ID on line 4 of the code example above.</p>
+<p>This code should be located in a <code class="docutils literal notranslate"><span class="pre">Script</span></code> object (not a <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code>) within <code class="docutils literal notranslate"><span class="pre">ServerScriptService</span></code> so the server can handle the ability or bonus given to the player.</p>
+</div>
+<div class="section" id="prompting-in-game-purchases">
+<h2>Prompting In-Game Purchases<a class="headerlink" href="#prompting-in-game-purchases" title="Permalink to this headline">¶</a></h2>
+<p>Players can buy game passes directly from your game’s main page by clicking the <strong>Store</strong> tab and browsing the game passes you’ve made available to them:</p>
+<p><img alt="https://developer.roblox.com/assets/blt47dd099817c55e22/Game-Pass-Listing.png" src="https://developer.roblox.com/assets/blt47dd099817c55e22/Game-Pass-Listing.png" /></p>
+<p>However, it’s also a great idea to offer <strong>in-game purchases</strong> to players through a shop or vendor NPC within the game. The following scripts are a basic model for prompting players to buy a game pass.</p>
+<div class="section" id="server-side-code">
+<h3>Server-Side Code<a class="headerlink" href="#server-side-code" title="Permalink to this headline">¶</a></h3>
+<p>This code should be located in a <code class="docutils literal notranslate"><span class="pre">Script</span></code> object (not a <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code>) within <code class="docutils literal notranslate"><span class="pre">ServerScriptService</span></code> so the server can handle the ability or bonus given to the player.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">MarketplaceService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;MarketplaceService&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">gamePassID</span> <span class="o">=</span> <span class="mi">0000000</span>  <span class="o">--</span> <span class="n">Change</span> <span class="n">this</span> <span class="n">to</span> <span class="n">your</span> <span class="n">game</span> <span class="k">pass</span> <span class="n">ID</span>
+    
+    <span class="o">--</span> <span class="n">Function</span> <span class="n">to</span> <span class="n">handle</span> <span class="n">a</span> <span class="n">completed</span> <span class="n">prompt</span> <span class="ow">and</span> <span class="n">purchase</span>
+    <span class="n">local</span> <span class="n">function</span> <span class="n">onPromptGamePassPurchaseFinished</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">purchasedPassID</span><span class="p">,</span> <span class="n">purchaseSuccess</span><span class="p">)</span>
+    
+    	<span class="k">if</span> <span class="n">purchaseSuccess</span> <span class="o">==</span> <span class="n">true</span> <span class="ow">and</span> <span class="n">purchasedPassID</span> <span class="o">==</span> <span class="n">gamePassID</span> <span class="n">then</span>
+    		<span class="nb">print</span><span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">Name</span> <span class="o">..</span> <span class="s2">&quot; purchased the game pass with ID &quot;</span> <span class="o">..</span> <span class="n">gamePassID</span><span class="p">)</span>
+    		<span class="o">--</span> <span class="n">Assign</span> <span class="n">this</span> <span class="n">player</span> <span class="n">the</span> <span class="n">ability</span> <span class="ow">or</span> <span class="n">bonus</span> <span class="n">related</span> <span class="n">to</span> <span class="n">the</span> <span class="n">game</span> <span class="k">pass</span>
+    		<span class="o">--</span>
+    	<span class="n">end</span>
+    <span class="n">end</span>
+    
+    <span class="o">--</span> <span class="n">Connect</span> <span class="s2">&quot;PromptGamePassPurchaseFinished&quot;</span> <span class="n">events</span> <span class="n">to</span> <span class="n">the</span> <span class="s2">&quot;onPromptGamePassPurchaseFinished()&quot;</span> <span class="n">function</span>
+    <span class="n">MarketplaceService</span><span class="o">.</span><span class="n">PromptGamePassPurchaseFinished</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">onPromptGamePassPurchaseFinished</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="client-side-code">
+<h3>Client-Side Code<a class="headerlink" href="#client-side-code" title="Permalink to this headline">¶</a></h3>
+<p>This code can be placed in a <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> and the <code class="docutils literal notranslate"><span class="pre">promptPurchase()</span></code> function can be called when the player presses a <code class="docutils literal notranslate"><span class="pre">Articles/Creating</span> <span class="pre">GUI</span> <span class="pre">Buttons|button</span></code>, when their character touches a part, or whatever fits your game design.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">MarketplaceService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;MarketplaceService&quot;</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">Players</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">gamePassID</span> <span class="o">=</span> <span class="mi">0000000</span>  <span class="o">--</span> <span class="n">Change</span> <span class="n">this</span> <span class="n">to</span> <span class="n">your</span> <span class="n">game</span> <span class="k">pass</span> <span class="n">ID</span>
+    
+    <span class="o">--</span> <span class="n">Function</span> <span class="n">to</span> <span class="n">prompt</span> <span class="n">purchase</span> <span class="n">of</span> <span class="n">the</span> <span class="n">game</span> <span class="k">pass</span>
+    <span class="n">local</span> <span class="n">function</span> <span class="n">promptPurchase</span><span class="p">()</span>
+    
+    	<span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">Players</span><span class="o">.</span><span class="n">LocalPlayer</span>
+    	<span class="n">local</span> <span class="n">hasPass</span> <span class="o">=</span> <span class="n">false</span>
+    
+    	<span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    		<span class="n">hasPass</span> <span class="o">=</span> <span class="n">MarketplaceService</span><span class="p">:</span><span class="n">UserOwnsGamePassAsync</span><span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">UserId</span><span class="p">,</span> <span class="n">gamePassID</span><span class="p">)</span>
+    	<span class="n">end</span><span class="p">)</span>
+    
+    	<span class="k">if</span> <span class="ow">not</span> <span class="n">success</span> <span class="n">then</span>
+    		<span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Error while checking if player has pass: &quot;</span> <span class="o">..</span> <span class="n">tostring</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+    		<span class="k">return</span>
+    	<span class="n">end</span>
+    
+    	<span class="k">if</span> <span class="n">hasPass</span> <span class="n">then</span>
+    		<span class="o">--</span> <span class="n">Player</span> <span class="n">already</span> <span class="n">owns</span> <span class="n">the</span> <span class="n">game</span> <span class="k">pass</span><span class="p">;</span> <span class="n">tell</span> <span class="n">them</span> <span class="n">somehow</span>
+    	<span class="k">else</span>
+    		<span class="o">--</span> <span class="n">Player</span> <span class="n">does</span> <span class="n">NOT</span> <span class="n">own</span> <span class="n">the</span> <span class="n">game</span> <span class="k">pass</span><span class="p">;</span> <span class="n">prompt</span> <span class="n">them</span> <span class="n">to</span> <span class="n">purchase</span>
+    		<span class="n">MarketplaceService</span><span class="p">:</span><span class="n">PromptGamePassPurchase</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">gamePassID</span><span class="p">)</span>
+    	<span class="n">end</span>
+    <span class="n">end</span>
+
+</pre></div>
+</div>
+<p>Roblox itself does <strong>not</strong> record the purchase history of game passes by specific players, although you can view overall daily/monthly stats as outlined <code class="docutils literal notranslate"><span class="pre">articles/Get</span> <span class="pre">and</span> <span class="pre">Analyze</span> <span class="pre">Revenue</span> <span class="pre">Data|here</span></code>. If you want to track player-specific purchase history, it’s your responsibility to store the data, typically with <code class="docutils literal notranslate"><span class="pre">Articles/Data</span> <span class="pre">store|data</span> <span class="pre">stores</span></code>.</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Game-Passes-One-Time-Purchases">Game Passes – One‑Time Purchases</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Creating-a-VIP-Server-on-Roblox.html" class="btn btn-neutral float-right" title="VIP 服务器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Earning-Commissions.html" class="btn btn-neutral float-left" title="获取利润" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

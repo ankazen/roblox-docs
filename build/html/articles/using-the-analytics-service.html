@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>使用 PlayFab 分析 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="分析游戏数据" href="Developer-Stats.html" />
+    <link rel="prev" title="在 Roblox 中使用 Google Analytics" href="Using-Google-Analytics.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction-to-analytics.html">数据分析简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="measuring-engagement.html">衡量参与度</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using-Google-Analytics.html">在 Roblox 中使用 Google Analytics</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">使用 PlayFab 分析</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">PlayFab 设置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#api-key">获取 API Key（接口秘钥）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">添加用户</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#analyticsservice">AnalyticsService 设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">发送事件</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Developer-Stats.html">分析游戏数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="designing-for-engagement.html">提升游戏参与度</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/analytics.html">数据分析</a> &raquo;</li>
+        
+      <li>使用 PlayFab 分析</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/using-the-analytics-service.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="playfab">
+<h1>使用 PlayFab 分析<a class="headerlink" href="#playfab" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>游戏发行后，开发者可以轻易通过<code class="docutils literal notranslate"><span class="pre">articles/introduction</span> <span class="pre">to</span> <span class="pre">analytics|分析工具</span></code>中的内置 <code class="docutils literal notranslate"><span class="pre">AnalyticsService</span></code> 和 <a class="reference external" href="https://developer.rblx.playfab.com/en-US/sign-up">PlayFab</a> 对其进行持续监控与改进。</p>
+<div class="section" id="id1">
+<h2>PlayFab 设置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="api-key">
+<h3>获取 API Key（接口秘钥）<a class="headerlink" href="#api-key" title="Permalink to this headline">¶</a></h3>
+<p>参与 PlayFab 内测的开发者会收到含有注册账号链接的邮件。注册完毕后登陆至 PlayFab 仪表板，游戏的 API key 就在其标题下方。</p>
+<p><img alt="https://developer.roblox.com/assets/blt487d66f618a48946/PlayFab-Key.png" src="https://developer.roblox.com/assets/blt487d66f618a48946/PlayFab-Key.png" /></p>
+</div>
+<div class="section" id="id2">
+<h3>添加用户<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>若想从 PlayFab 仪表板中添加更多用户，请遵循以下步骤：</p>
+<ol class="simple">
+<li><p>前往仪表板主页。</p></li>
+<li><p>单击 Studio 名称右侧的 <img alt="https://developer.roblox.com/assets/blt173a1a863c7190a4/PlayFab-Dots-Icon.png" src="https://developer.roblox.com/assets/blt173a1a863c7190a4/PlayFab-Dots-Icon.png" /></p></li>
+</ol>
+<p>图标，从下拉框中选择 <strong>Users</strong>（用户）。
+3. 在下一页中单击 <strong>ADD USER</strong>（添加用户）。
+<img alt="https://developer.roblox.com/assets/blt0f2defb295f8b6e7/PlayFab-Add-User.png" src="https://developer.roblox.com/assets/blt0f2defb295f8b6e7/PlayFab-Add-User.png" /></p>
+</div>
+</div>
+<div class="section" id="analyticsservice">
+<h2>AnalyticsService 设置<a class="headerlink" href="#analyticsservice" title="Permalink to this headline">¶</a></h2>
+<p>在开始使用 <code class="docutils literal notranslate"><span class="pre">AnalyticsService</span></code> 之前，开发者须按下列步骤设置 API Key：</p>
+<ol class="simple">
+<li><p>在 Roblox Studio 中，从<strong>View</strong>（视图）选项卡中打开<strong>Command Bar</strong>（命令栏）。</p></li>
+<li><p>键入下列指令来设置 <code class="docutils literal notranslate"><span class="pre">AnalyticsService/ApiKey|AnalyticsService.ApiKey</span></code> 属性（用开发者的唯一 API Key 取代命令中的 <code class="docutils literal notranslate"><span class="pre">API_KEY</span></code> ）。完成后秘钥将会被储存并与未来所有事件一起发送。</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">AnalyticsService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;AnalyticsService&quot;</span><span class="p">)</span>
+    <span class="n">AnalyticsService</span><span class="o">.</span><span class="n">ApiKey</span> <span class="o">=</span> <span class="s2">&quot;API_KEY&quot;</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>发送事件<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">AnalyticsService</span></code> 允许开发者汇报自定义游戏中事件，包括用户选择自己最喜爱的战场或使用某件物品/对象的频率等。</p>
+<p>要将某个自定义事件汇报给 PlayFab，可以从 <code class="docutils literal notranslate"><span class="pre">Script</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code> 中使用 <code class="docutils literal notranslate"><span class="pre">AnalyticsService/FireEvent|FireEvent()</span></code> 方法，指定一个<strong>类别</strong>和<strong>值</strong>。注意传递过去的值可以是字符串、数字或存有多个值的表格。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">AnalyticsService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;AnalyticsService&quot;</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">事件参数</span>
+    <span class="n">local</span> <span class="n">eventCategory</span> <span class="o">=</span> <span class="s2">&quot;ItemPurchased&quot;</span>
+    <span class="n">local</span> <span class="n">eventValue</span> <span class="o">=</span> <span class="p">{</span>
+    	<span class="n">ItemName</span> <span class="o">=</span> <span class="s2">&quot;Ice Wand&quot;</span><span class="p">,</span>
+    	<span class="n">ItemPrice</span> <span class="o">=</span> <span class="mi">50</span>
+    <span class="p">}</span>
+    <span class="o">--</span> <span class="n">触发事件</span>
+    <span class="n">AnalyticsService</span><span class="p">:</span><span class="n">FireEvent</span><span class="p">(</span><span class="n">eventCategory</span><span class="p">,</span> <span class="n">eventValue</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>为了方便开发者的工作，部分基础的玩家周期数据会自动汇报给 PlayFab，包括新玩家加入游戏的时间等。</p>
+<p>为了更方便的管理分析数据，开发者可以考虑使用 <code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code>，将其转换为在游戏每个场景中都能快速进行更新的<code class="docutils literal notranslate"><span class="pre">articles/roblox</span> <span class="pre">packages|套装</span></code>。</p>
+<hr class="docutils" />
+<p>如本文所述，分析数据可以帮助开发者监控玩家行为并微调游戏体验。在了解如何连接 PlayFab 后，请查看下列文章，加深对基础概念的理解。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/using-the-analytics-service">使用 PlayFab 分析</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Developer-Stats.html" class="btn btn-neutral float-right" title="分析游戏数据" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Using-Google-Analytics.html" class="btn btn-neutral float-left" title="在 Roblox 中使用 Google Analytics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,347 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>任务计划程序 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="对象空间与世界空间" href="object-world-space.html" />
+    <link rel="prev" title="保存数据：简介" href="saving-data-introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">任务计划程序</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#frame">Frame（帧）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#runservice">RunService</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">计划程序的优先级</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">指南规则</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>任务计划程序</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/task-scheduler.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>任务计划程序<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p><strong>任务计划程序</strong>负责在游戏运行时协调每帧中所有需要进行的工作，即使在游戏暂停时也不例外。其所协调的工作中包含侦测玩家输入、应用角色动画、 更新物理模拟及恢复处于 <code class="docutils literal notranslate"><span class="pre">wait()</span></code> 状态的脚本运行等。请一定要注意不要让任务计划程序超载，尤其是进行以下操作时：</p>
+<ul class="simple">
+<li><p>使用自定义人物模型或输入方案时</p></li>
+<li><p>自行为部件添加动画效果时（不使用 <code class="docutils literal notranslate"><span class="pre">Animator</span></code> 的情况下）</p></li>
+<li><p>大量使用精准物理时</p></li>
+<li><p>频繁复制对象时</p></li>
+</ul>
+<div class="section" id="frame">
+<h2>Frame（帧）<a class="headerlink" href="#frame" title="Permalink to this headline">¶</a></h2>
+<p><strong>帧</strong>是游戏逻辑中的传输单元，每一帧中都会完成一定量的工作。在游戏中每秒内可发生多个帧，通常来讲，<strong>每秒帧数</strong>（FPS）越高，游戏性能也就越好。每帧内完成工作的效率越高，每秒内能够发生的帧数也就越多，而玩家体验也会因此提升。</p>
+</div>
+<div class="section" id="runservice">
+<h2>RunService<a class="headerlink" href="#runservice" title="Permalink to this headline">¶</a></h2>
+<p>向游戏添加每帧任务最直接的方法为使用 <code class="docutils literal notranslate"><span class="pre">RunService</span></code> 的下列成员：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">RunService/BindToRenderStep|RunService:BindToRenderStep()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RunService/RenderStepped</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RunService/Stepped</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RunService/Heartbeat</span></code></p></li>
+</ul>
+<p>在选择需要使用的成员时，一定要多加斟酌。</p>
+</div>
+<div class="section" id="id2">
+<h2>计划程序的优先级<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>任务计划程序将任务通过下列顺序进行分类与完成。有的任务在一帧中可能不会完成任何工作，而其它任务可能会在一帧中多次完成工作：</p>
+<ol class="simple">
+<li><p><strong>用户输入</strong> — 输入（<code class="docutils literal notranslate"><span class="pre">UserInputService</span></code>）事件和绑定函数（<code class="docutils literal notranslate"><span class="pre">ContextActionService/BindAction|ContextActionService:BindAction()</span></code>）将被优先处理。例：按下键盘键、鼠标移动、屏幕触控、手柄震动等。</p></li>
+<li><p><strong>渲染</strong>
+1. <code class="docutils literal notranslate"><span class="pre">RunService/BindToRenderStep|RunService:BindToRenderStep()</span></code> — 所有以这种方式进行绑定的函数将会以优先级顺序被调用。在内置 PlayerModule 中，镜头与角色控制脚本将按照 <code class="docutils literal notranslate"><span class="pre">enum/RenderPriority</span></code> 决定的优先级顺序对回调进行绑定。
+2. <code class="docutils literal notranslate"><span class="pre">RunService/RenderStepped</span></code> 事件被触发后，将会和所有事件一样调用连接函数，从最新连接的回调起开始运行。
+3. <strong>屏幕绘制</strong> — 此时，游戏状态将会进行并行渲染。此后的更改将在下一帧进行渲染。</p></li>
+<li><p><strong>复制对象获取任务</strong> — 对传入属性变更与事件触发进行应用。</p></li>
+<li><p><strong>恢复等待状态</strong> — 此时，任何当前处于 <code class="docutils literal notranslate"><span class="pre">wait()</span></code> 状态的运行中脚本将会在等待时间结束后进行恢复。等待恢复时间的下限为 0.03 秒，就是三十分之一秒。传递至 <code class="docutils literal notranslate"><span class="pre">spawn()</span></code> 与 <code class="docutils literal notranslate"><span class="pre">delay()</span></code> 的函数也会在此处运行。如果有线程需要在 0.1 秒后恢复，则会在之后的帧中进行恢复。</p></li>
+<li><p><strong>Lua 垃圾收集器</strong></p></li>
+<li><p><strong>模拟任务</strong>（如果游戏暂停则略过此步）
+1. <strong>内部旧版步骤</strong></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Explosion|Explosion</span></code> 可造成地形破坏、击退及关节破坏。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BodyMover|BodyMover</span></code> 例：<code class="docutils literal notranslate"><span class="pre">BodyPosition</span></code>、<code class="docutils literal notranslate"><span class="pre">RocketPropulsion</span></code>、<code class="docutils literal notranslate"><span class="pre">BodyGyro</span></code>等。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Humanoid</span></code> 发生状态更新，例：移动或死亡。</p></li>
+<li><p><strong>Internal Animation Step</strong> — Animator 对 <code class="docutils literal notranslate"><span class="pre">Motor6D/Transform</span></code> 进行更新。将不会移动部件或更新已应用的关节偏移。
+2. <code class="docutils literal notranslate"><span class="pre">RunService/Stepped</span></code> 事件被触发。
+3. <strong>内部物理步骤</strong></p></li>
+<li><p><strong>Motor6D</strong> — 对使用 <code class="docutils literal notranslate"><span class="pre">Motor6D</span></code> 连接部件的相对位置进行更新。</p></li>
+<li><p><strong>世界步骤</strong> — 更新部件接触并解决接触与约束。由于物理效果每 240 Hz 进行更新，所以每帧中可能会多次发生此步骤。所有世界步骤完成后，将会触发 <code class="docutils literal notranslate"><span class="pre">BasePart/Touched</span></code> 及相关物理事件。</p></li>
+<li><p><strong>插值网络集合</strong> — 对无所有者的体位置进行插值。例：<code class="docutils literal notranslate"><span class="pre">BasePart/SetNetworkOwner|BasePart:SetNetworkOwner()</span></code>。</p></li>
+</ol>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RunService/Heartbeat</span></code> 事件被触发。</p></li>
+<li><p><strong>复制对象发送任务</strong> — 对传出属性变更与事件触发进行发送。不会每帧执行。</p></li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h2>指南规则<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>如果想要创建高性能效率的游戏，请参照以下准则：</p>
+<ul class="simple">
+<li><p>除非必要，不要将函数绑定至渲染步骤（<code class="docutils literal notranslate"><span class="pre">BindToRenderStep/RenderStepped</span></code>）。此种行为将会延迟渲染线程，从而减少游戏的 FPS。只有输入后渲染前需要进行的任务才应该放置于此，例如镜头移动等。如果想要对顺序进行更为严格的控制，请使用 <code class="docutils literal notranslate"><span class="pre">RunService/BindToRenderStep|BindToRenderStep()</span></code> 而非 <code class="docutils literal notranslate"><span class="pre">RunService/RenderStepped|RenderStepped</span></code>。</p></li>
+<li><p>无论任何时刻，尽量减少使用 <code class="docutils literal notranslate"><span class="pre">wait()</span></code> 的脚本数量。请避免使用 <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">wait()</span> <span class="pre">do</span> <span class="pre">end</span></code> 或 <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">true</span> <span class="pre">do</span> <span class="pre">wait()</span> <span class="pre">end</span></code>，因为此两种构造并不能确保每帧或每个游戏步骤都会运行。可以使用 <code class="docutils literal notranslate"><span class="pre">RunService/Stepped|Stepped</span></code> 或 <code class="docutils literal notranslate"><span class="pre">RunService/Heartbeat|Heartbeat</span></code> 等事件进行替代，这些事件会对核心任务计划程序循环进行严格遵循。同理，请避免使用 <code class="docutils literal notranslate"><span class="pre">spawn()</span></code> 或 <code class="docutils literal notranslate"><span class="pre">delay()</span></code>，因为其所使用的内部机制与 <code class="docutils literal notranslate"><span class="pre">wait()</span></code> 相同（使用 <code class="docutils literal notranslate"><span class="pre">spawn()</span></code> 时与<a class="reference external" href="/api-reference/lua-docs/coroutine">协同程序</a>库中的 <code class="docutils literal notranslate"><span class="pre">coroutine.wrap()</span></code> 与 <code class="docutils literal notranslate"><span class="pre">coroutine.resume()</span></code> 结合，效果更好）。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RunService/Stepped|Stepped</span></code> 在物理效果<strong>前</strong>发生，而 <code class="docutils literal notranslate"><span class="pre">RunService/Heartbeat|Heartbeat</span></code> 在物理效果<strong>后</strong>发生。因此，对物理状态产生<strong>影响</strong>的游戏逻辑应该在 <code class="docutils literal notranslate"><span class="pre">RunService/Stepped|Stepped</span></code> 中完成，例如设置部件的<code class="docutils literal notranslate"><span class="pre">BasePart/Velocity|速度</span></code>等。与此相反，对物理状态进行<strong>依赖</strong>或<strong>反应</strong>的游戏逻辑应该在 <code class="docutils literal notranslate"><span class="pre">RunService/Heartbeat|Heartbeat</span></code> 中进行处理，例如读取部件<code class="docutils literal notranslate"><span class="pre">BasePart/Position|位置</span></code>以侦测其是否进入定义区域等。</p></li>
+<li><p>如果想要更改 <code class="docutils literal notranslate"><span class="pre">Motor6D/Transform</span></code> ，则需在 <code class="docutils literal notranslate"><span class="pre">RunService/Stepped|Stepped</span></code> 对此进行处理。如果放置至其它步骤，则下一帧的 <code class="docutils literal notranslate"><span class="pre">Animator|Animator</span></code> 将会对更改进行覆盖。即使 <code class="docutils literal notranslate"><span class="pre">Animator</span></code>不存在时，<code class="docutils literal notranslate"><span class="pre">RunService/Stepped|Stepped</span></code> 也是 <code class="docutils literal notranslate"><span class="pre">Motor6D/Transform</span></code> 应用至部件位置前最后触发的 Lua 事件。</p></li>
+</ul>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/task-scheduler">任务计划程序</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="object-world-space.html" class="btn btn-neutral float-right" title="对象空间与世界空间" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="saving-data-introduction.html" class="btn btn-neutral float-left" title="保存数据：简介" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

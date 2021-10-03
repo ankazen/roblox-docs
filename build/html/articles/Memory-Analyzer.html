@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>内存分析器 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="开发者控制台" href="Developer-Console.html" />
+    <link rel="prev" title="线程计划程序" href="Thread-Scheduler.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Fighting-Against-Lag.html">减少延迟影响</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MicroProfiler.html">MicroProfiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Monitoring-Games-for-Crashes-and-Performance-Filtering.html">监控游戏崩溃与性能过滤功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Network-Simulation-Mode.html">网络模拟模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Thread-Scheduler.html">线程计划程序</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">内存分析器</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">分析工具</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">开发者控制台</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Developer-Console.html">开发者控制台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Network-Ownership.html">网络所有权</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/optimization.html">性能优化</a> &raquo;</li>
+        
+      <li>内存分析器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Memory-Analyzer.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>内存分析器<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">me</span> <span class="o">=</span> <span class="s2">&quot;Brandon&quot;</span>
+<span class="o">--</span> <span class="n">注释可引用本地</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">function</span> <span class="n">namedFunction</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
+<span class="n">end</span>
+<span class="n">namedFunction</span><span class="p">(</span><span class="n">me</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>如果想要你的 Roblox 游戏大获成功，就应当让其在包括移动设备及平板电脑等各种支持平台上运行顺畅。提升游戏性能的关键因素之一是对内存使用的有效管理。内存对于移动设备来说格外重要。如果游戏在手机上运行的游戏时消耗过多内存，就会导致游戏崩溃。</p>
+<p>地形、部件、图形效果、脚本、物理模拟以及声效等各种因素都能够造成内存消耗。Studio 的 Performance（性能）控件可以显示场景的内存消耗指标。通过这些指标，我们可以识别效果过多内存的场景。</p>
+<div class="section" id="id2">
+<h2>分析工具<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>如果想要对游戏的内存消耗进行监测，可以使用以下两个工具：第一个是可以在 Studio 和客户端中打开的 Developer Console（开发者控制台）。第二个是 Studio 的 Performance（性能）控件。</p>
+<div class="section" id="id3">
+<h3>开发者控制台<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>开发者控制台可以在其 Memory（内存）选项卡中显示正在运行场景的当前内存消耗：</p>
+<p><img alt="MemoryAnalyzerDevConsole.png" src="https://developer.roblox.com/assets/bltad9006e34b3cb630/MemoryAnalyzerDevConsole.png" /></p>
+<p>在 Mac 和 PC 设备上（客户端和 Studio 中）按下 F9 键即可打开控制台。</p>
+<p>平台 开发者控制台的打开方式</p>
+<p>Mac 和 PC（Studio 和客户端中）
+按 F9 键</p>
+<p>移动设备（平板电脑和手机）
+在聊天系统中键入信息 “/console”</p>
+<p>游戏主机
+在游戏内的设置菜单中选择开发者控制台</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Memory-Analyzer">内存分析器</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Developer-Console.html" class="btn btn-neutral float-right" title="开发者控制台" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Thread-Scheduler.html" class="btn btn-neutral float-left" title="线程计划程序" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>随机地图选择器 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Roblox 虚拟形象" href="roblox-avatars.html" />
+    <link rel="prev" title="创建 VIP 专用门" href="Creating-VIP-Doors.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Lobby.html">制作大厅</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Usage-of-dialogs.html">NPC 对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Teleporting-Between-Places.html">不同场景间的传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Spawns-and-Teams.html">角色生成与团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-an-Explosion-Course.html">制作爆炸赛道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shop-Dialogs.html">商店对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-to-teleport-within-a-Place.html">场景内玩家传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="in-game-solid-modeling.html">游戏内实体建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matchmaking.html">玩家匹配系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Player-Collisions.html">玩家间的碰撞控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setting-Parts-on-Fire-with-Events.html">通过事件让部件着火</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2D-Collision-Detection.html">2D 碰撞检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Basics-on-Roblox.html">添加团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Badges-Special-Game-Awards.html">Badges – Special Game Awards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Collision-Filtering-Team-Doors.html">Restricted/Team Doors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-VIP-Doors.html">创建 VIP 专用门</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">随机地图选择器</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">管理器设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#replicatedstorage-serverstorage">存储地图：ReplicatedStorage 和 ServerStorage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="roblox-avatars.html">Roblox 虚拟形象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Health-Pickups.html">回复用拾取物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Moving-NPCs-Between-Points.html">在点之间移动 NPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pathfinding.html">寻路</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Side-Scrolling-Camera-View.html">横向卷轴镜头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Tools.html">玩家工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="detecting-collisions.html">检测碰撞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weapons-kit.html">认可武器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="npc-kit.html">NPC 套组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vehicles-kit.html">载具工具包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="team-balancing.html">平衡团队构成</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/gameplay.html">游戏制作</a> &raquo;</li>
+        
+      <li>随机地图选择器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Random-Map-Chooser.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>随机地图选择器<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>2  分钟</em></p>
+<p>如果你曾经玩过 Roblox 回合游戏，那么你可能已经注意到，它们提供了多种地图，并且游戏似乎是随机选择的。你可能想知道这是如何实现的，但实际上却很简单！本文将介绍可用于循环游戏中地图的一些基本技巧，以及如何使游戏中的玩家获得流畅的体验。</p>
+<div class="section" id="id2">
+<h2>管理器设置<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>典型的设置可能如下所示：</p>
+<p><img alt="MapChooser_Explorer.png" src="https://developer.roblox.com/assets/blt9051fd7f7c744ff9/MapChooser_Explorer.png" /></p>
+<p>使用此设置，游戏中可用的每个地图都存储在 <code class="docutils literal notranslate"><span class="pre">ReplicatedStorage</span></code> 中名为 <strong>Maps</strong> 的 <code class="docutils literal notranslate"><span class="pre">Folder</span></code> 中。<br />下面是一些示例函数，你可以使用此设置将随机地图加载到世界中（之后再将其卸载）。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>local replicatedStorage = game:GetService(&quot;ReplicatedStorage&quot;)
+local maps = replicatedStorage:WaitForChild(&quot;Maps&quot;)
+
+local function pickMap()
+	local mapList = maps:GetChildren() -- Declares a table of the maps inside of the Maps folder.
+	local selectedIndex = math.random(1,#maps) -- Choose a random number between 1, and the number of maps available.
+	local map = mapList[selectedIndex]:Clone() -- Create a clone of the map we selected.
+	map.Parent = workspace -- Parent it to the workspace.
+	map.Name = &quot;Map&quot; -- Rename the map so that we can use the unloadMap() function later to remove it.
+	return mapList[selectedIndex].Name -- Return the name of the map we selected, in case we want to display it.
+end
+
+local function unloadMap()
+	if workspace:FindFirstChild(&quot;Map&quot;) then -- If there is a model in the Workspace named &quot;Map&quot;
+		workspace.Map:Destroy() -- Destroy it!
+	end
+end
+
+local h = Instance.new(&quot;Hint&quot;)
+h.Parent = workspace
+
+while true do
+	h.Text = &quot;Picking new map...&quot;
+	wait(3)
+	local mapName = selectMap()
+	h.Text = &quot;Selected map: &quot;..mapName
+	wait(3)
+	h.Text = &quot;Unloading map...&quot;
+	unloadMap()
+	wait(3)
+end
+</pre></div>
+</div>
+</div>
+<div class="section" id="replicatedstorage-serverstorage">
+<h2>存储地图：ReplicatedStorage 和 ServerStorage<a class="headerlink" href="#replicatedstorage-serverstorage" title="Permalink to this headline">¶</a></h2>
+<p>在上面的示例中，<em>Maps</em> 存储在 ReplicatedStorage 中。选择将其存储在 ReplicatedStorage 中，还是存储在 ServerStorage 中，都取决于你。在决定使用哪种技巧时，需要牢记以下几点：</p>
+<ul class="simple">
+<li><p>如果你的地图是静态的并且没有更改，那么你只需在要加载地图时将其移到工作区中，然后在完成之后再将其移回到 <em>Maps</em> 文件夹中即可。</p>
+<ul>
+<li><p>这种技巧非常有用，因为服务器只在一个时间将地图的内容发送给玩家：就是在他们加入游戏时！</p></li>
+</ul>
+</li>
+<li><p>如果你的地图具有移动的组件，并且重复使用它可能不会很好地工作，那么你可能希望将其存储在 ServerStorage 中。</p>
+<ul>
+<li><p>与其将模型移到工作区中，不如将其<code class="docutils literal notranslate"><span class="pre">Instance/克隆</span></code>到工作区中。</p></li>
+<li><p>这样可以加快加入时间，但会导致玩家在通过网络复制地图时遇到一些延迟。</p></li>
+</ul>
+</li>
+</ul>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Random-Map-Chooser">随机地图选择器</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="roblox-avatars.html" class="btn btn-neutral float-right" title="Roblox 虚拟形象" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Creating-VIP-Doors.html" class="btn btn-neutral float-left" title="创建 VIP 专用门" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

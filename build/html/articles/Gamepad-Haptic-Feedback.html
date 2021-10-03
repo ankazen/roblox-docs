@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>游戏手柄触觉反馈 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Virtual Reality – Best Practices" href="Virtual-Reality-Best-Practices.html" />
+    <link rel="prev" title="设备方向" href="Device-Orientation-for-Mobile-Roblox-Games.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cross-platform-development.html">跨平台开发</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Developing-for-Mobile-Devices-on-Roblox.html">针对移动设备进行开发</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Device-Orientation-for-Mobile-Roblox-Games.html">设备方向</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">游戏手柄触觉反馈</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">检查振动支持</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">打开电机</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Virtual-Reality-Best-Practices.html">Virtual Reality – Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ContextActionService-Creating-Mobile-Buttons.html">创建移动端按钮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gamepad-Input.html">游戏手柄输入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-game-controls.html">自定义游戏控制</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/cross-platform.html">跨平台发展</a> &raquo;</li>
+        
+      <li>游戏手柄触觉反馈</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Gamepad-Haptic-Feedback.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>游戏手柄触觉反馈<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>Xbox One 控制器和其他一些 USB 游戏手柄控制器内置有提供触觉反馈的电机。增加隆隆声和振动可以极大地增强游戏的体验，并提供难以通过视觉或听觉传达的微妙反馈。Roblox 向开发者提供了一项名为 <code class="docutils literal notranslate"><span class="pre">HapticService</span></code> 的服务来处理触觉反馈。</p>
+<div class="section" id="id2">
+<h2>检查振动支持<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>并非所有的控制器都支持振动，因此在尝试使用 ClassLink|HapticService 之前检查插入的控制器是否具有振动支持很重要。若要检查给定的控制器是否完全支持隆隆声，可以调用 <code class="docutils literal notranslate"><span class="pre">HapticService/IsVibrationSupported</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">HapticService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;HapticService&quot;</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">isVibrationSupported</span> <span class="o">=</span> <span class="n">HapticService</span><span class="p">:</span><span class="n">IsVibrationSupported</span><span class="p">(</span><span class="n">Enum</span><span class="o">.</span><span class="n">UserInputType</span><span class="o">.</span><span class="n">Gamepad1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>检查游戏手柄是否支持振动之后，你也应该检查它是否支持你要使用的电机。在 XBox One 上，控制器有 4 个电机：</p>
+<ul class="simple">
+<li><p>大：在控制器的左侧。适合一般隆隆声。</p></li>
+<li><p>小：在控制器的右侧。适用于更细微的隆隆声（轮胎打滑、触电等）。</p></li>
+<li><p>左触发器：在左触发器下面。适用于刹车、枪械重装等。</p></li>
+<li><p>右触发器：在右触发器下面。适用于反冲、加速等。</p></li>
+</ul>
+<p>在 PC 上，你无法保证用户拥有什么样的控制器。很多控制器仅支持大小电机（没有触发器）。你可以使用 <code class="docutils literal notranslate"><span class="pre">HapticService/IsMotorSupported</span></code> 查看用户的控制器是否支持你要使用的电机。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">HapticService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;HapticService&quot;</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">isVibrationSupported</span> <span class="o">=</span> <span class="n">HapticService</span><span class="p">:</span><span class="n">IsVibrationSupported</span><span class="p">(</span><span class="n">Enum</span><span class="o">.</span><span class="n">UserInputType</span><span class="o">.</span><span class="n">Gamepad1</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">largeSupported</span> <span class="o">=</span> <span class="n">false</span>
+<span class="k">if</span> <span class="n">isVibrationSupported</span> <span class="n">then</span>
+	<span class="n">largeSupported</span> <span class="o">=</span> <span class="n">HapticService</span><span class="p">:</span><span class="n">IsMotorSupported</span><span class="p">(</span><span class="n">Enum</span><span class="o">.</span><span class="n">UserInputType</span><span class="o">.</span><span class="n">Gamepad1</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">VibrationMotor</span><span class="o">.</span><span class="n">Large</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>打开电机<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>确认用户的游戏手柄支持振动之后，你便可以开始使用游戏手柄电机了。你可以使用 <code class="docutils literal notranslate"><span class="pre">HapticService/SetMotor</span></code> 打开游戏手柄上的特定电机。此函数将游戏手柄和振动振幅作为参数。振幅可以是 0 到 1 之间的任意值（0 表示无振动，1 表示最大振动）。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">HapticService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;HapticService&quot;</span><span class="p">)</span>
+<span class="n">HapticService</span><span class="p">:</span><span class="n">SetMotor</span><span class="p">(</span><span class="n">Enum</span><span class="o">.</span><span class="n">UserInputType</span><span class="o">.</span><span class="n">Gamepad1</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">VibrationMotor</span><span class="o">.</span><span class="n">Large</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>你也可以使用 <code class="docutils literal notranslate"><span class="pre">HapticService/GetMotor</span></code> 来获取给定电机的当前振动振幅。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">HapticService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;HapticService&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">HapticService</span><span class="p">:</span><span class="n">GetMotor</span><span class="p">(</span><span class="n">Enum</span><span class="o">.</span><span class="n">UserInputType</span><span class="o">.</span><span class="n">Gamepad1</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">VibrationMotor</span><span class="o">.</span><span class="n">Large</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Vehicle Haptic Feedback ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-- Services
+local HapticService = game:GetService(&quot;HapticService&quot;)
+local Players = game:GetService(&quot;Players&quot;)
+local RunService = game:GetService(&quot;RunService&quot;)
+
+-- Make sure we are running in a LocalScript.
+local player = Players.LocalPlayer
+assert(player,&quot;This should be running in a LocalScript!&quot;)
+
+-- Setup Haptic Feedback Listener
+local function updateHapticFeedback()
+	-- Check if we currently have a character.
+	local character = player.Character
+	if character then
+		-- Do we have a Humanoid?
+		local humanoid = character:FindFirstChildOfClass(&quot;Humanoid&quot;)
+		if humanoid then
+			-- Are we in a vehicle seat?
+			local seatPart = humanoid.SeatPart
+			if seatPart and seatPart:IsA(&quot;VehicleSeat&quot;) then
+				-- Measure the current speed of the vehicle by taking the magnitude of the seat&#39;s velocity.
+				local speed = seatPart.Velocity.Magnitude 
+				
+				-- Measure the current throttle from the user.
+				local throttle = math.abs(seatPart.ThrottleFloat)
+				
+				-- Compute how much the controller should be vibrating.
+				local vibrationScale = math.min(1, (speed * throttle) / seatPart.MaxSpeed)
+				
+				-- Apply the vibration.
+				HapticService:SetMotor(Enum.UserInputType.Gamepad1, Enum.VibrationMotor.Small, vibrationScale)
+				
+				-- Return so the motor doesn&#39;t get reset.
+				return
+			end
+		end
+	end
+	
+	-- If nothing is happening, turn off the motor.
+	HapticService:SetMotor(Enum.UserInputType.Gamepad1, Enum.VibrationMotor.Small, 0)
+end
+
+-- Connect our haptic feedback listener to be updated 60 times a second.
+RunService.Heartbeat:Connect(updateHapticFeedback)
+
+
+0
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+
+<span class="o">***</span><span class="n">__Roblox官方链接__</span><span class="p">:[</span><span class="n">游戏手柄触觉反馈</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">developer</span><span class="o">.</span><span class="n">roblox</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">zh</span><span class="o">-</span><span class="n">cn</span><span class="o">/</span><span class="n">articles</span><span class="o">/</span><span class="n">Gamepad</span><span class="o">-</span><span class="n">Haptic</span><span class="o">-</span><span class="n">Feedback</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Virtual-Reality-Best-Practices.html" class="btn btn-neutral float-right" title="Virtual Reality – Best Practices" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Device-Orientation-for-Mobile-Roblox-Games.html" class="btn btn-neutral float-left" title="设备方向" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

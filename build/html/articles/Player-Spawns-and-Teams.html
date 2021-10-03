@@ -1,0 +1,354 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>角色生成与团队 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="制作爆炸赛道" href="Making-an-Explosion-Course.html" />
+    <link rel="prev" title="不同场景间的传送" href="Teleporting-Between-Places.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Lobby.html">制作大厅</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Usage-of-dialogs.html">NPC 对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Teleporting-Between-Places.html">不同场景间的传送</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">角色生成与团队</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">插入生成点</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">隐藏生成地块</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">停用力场</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#team">实现 Team（团队）</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#teams">添加 Teams 服务</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">添加新队伍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">配置生成点</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">分配玩家</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Making-an-Explosion-Course.html">制作爆炸赛道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shop-Dialogs.html">商店对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-to-teleport-within-a-Place.html">场景内玩家传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="in-game-solid-modeling.html">游戏内实体建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matchmaking.html">玩家匹配系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Player-Collisions.html">玩家间的碰撞控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setting-Parts-on-Fire-with-Events.html">通过事件让部件着火</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2D-Collision-Detection.html">2D 碰撞检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Basics-on-Roblox.html">添加团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Badges-Special-Game-Awards.html">Badges – Special Game Awards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Collision-Filtering-Team-Doors.html">Restricted/Team Doors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-VIP-Doors.html">创建 VIP 专用门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Random-Map-Chooser.html">随机地图选择器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roblox-avatars.html">Roblox 虚拟形象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Health-Pickups.html">回复用拾取物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Moving-NPCs-Between-Points.html">在点之间移动 NPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pathfinding.html">寻路</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Side-Scrolling-Camera-View.html">横向卷轴镜头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Tools.html">玩家工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="detecting-collisions.html">检测碰撞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weapons-kit.html">认可武器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="npc-kit.html">NPC 套组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vehicles-kit.html">载具工具包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="team-balancing.html">平衡团队构成</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/gameplay.html">游戏制作</a> &raquo;</li>
+        
+      <li>角色生成与团队</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Player-Spawns-and-Teams.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>角色生成与团队<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p>在 Roblox 中，<code class="docutils literal notranslate"><span class="pre">SpawnLocation</span></code> 对象用于确定玩家角色开始游戏时或被击败后重生时出现的地点。同时也可以用于将隶属不同队伍的玩家角色生成在特定的不同位置。</p>
+<div class="section" id="id2">
+<h2>插入生成点<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>若希望在 Studio 中插入生成点，请选择 **Model（模型）**选项卡，单击 **Spawn（生成）**按钮：</p>
+<p><img alt="https://developer.roblox.com/assets/blta6b81380d6f6d389/Create-SpawnLocation.png" src="https://developer.roblox.com/assets/blta6b81380d6f6d389/Create-SpawnLocation.png" /></p>
+<div class="section" id="id3">
+<h3>隐藏生成地块<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>如有需求，开发者可以按照以下步骤“隐藏” <code class="docutils literal notranslate"><span class="pre">SpawnLocation</span></code> 对象：</p>
+<ol class="simple">
+<li><p>将 SpawnLocation 对象的 <strong>Transparency</strong> 属性设置为 <strong>1</strong>，让其不可见。</p></li>
+<li><p>关闭该对象的 <strong>CanCollide</strong> 属性，让玩家角色不会看起来悬浮在半空中。</p></li>
+<li><p>删除其子 <strong>Decal</strong> 对象。</p></li>
+</ol>
+</div>
+<div class="section" id="id4">
+<h3>停用力场<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>默认情况下，角色生成时带有时长为 10 秒的 <code class="docutils literal notranslate"><span class="pre">ForceField</span></code>（力场），可以保护其不会在生成点被恶意杀死。不过此内置防护机制仅限于防范 <code class="docutils literal notranslate"><span class="pre">Explosion|Explosion</span></code>（爆炸）和 <code class="docutils literal notranslate"><span class="pre">Humanoid/TakeDamage|Humanoid:TakeDamage()</span></code> 所造成的伤害，<strong>并不能</strong>阻止脚本直接减少玩家的 <code class="docutils literal notranslate"><span class="pre">Humanoid/Health</span></code>。</p>
+<p>若希望完全停用力场，请将生成点的 <strong>Forcefield</strong> → <strong>Duration</strong> 属性设为 <strong>0</strong>。</p>
+</div>
+</div>
+<div class="section" id="team">
+<h2>实现 Team（团队）<a class="headerlink" href="#team" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Teams</span></code> 服务不但可以用来添加队伍功能，还与玩家的角色生成密切相关。队伍名称、队伍颜色以及队伍中所有玩家等信息都可以在游戏中的 <code class="docutils literal notranslate"><span class="pre">articles/Leaderboards|排行榜</span></code>上看到。</p>
+<div class="section" id="teams">
+<h3>添加 Teams 服务<a class="headerlink" href="#teams" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Teams</span></code> 服务并未默认包含至游戏中，需要开发者自行添加：</p>
+<ol class="simple">
+<li><p>选中 <strong>Model</strong>（模型）选项卡，单击 <strong>Advanced</strong>（高级）区域中的 <strong>Service</strong>（服务）按钮（<img alt="https://developer.roblox.com/assets/bltd84657899c051ea0/Service-Icon.png" src="https://developer.roblox.com/assets/bltd84657899c051ea0/Service-Icon.png" /></p></li>
+</ol>
+<p>）。
+2. 选择 <strong>Teams</strong>（团队）后单击 <strong>Insert</strong>（插入）。完成操作后，管理器会获得一个名为 <strong>Teams</strong> 的新对象。
+<img alt="https://developer.roblox.com/assets/bltd7764f2b5904de10/Explorer-Teams-Object.png" src="https://developer.roblox.com/assets/bltd7764f2b5904de10/Explorer-Teams-Object.png" /></p>
+</div>
+<div class="section" id="id5">
+<h3>添加新队伍<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>添加 <code class="docutils literal notranslate"><span class="pre">Teams</span></code> 服务后就可以创建新队伍了。将鼠标指针悬停于 <strong>Teams</strong> 对象上，单击 <img alt="https://developer.roblox.com/assets/blt0dd97240c2a0db2a/Explorer-Plus-Icon.png" src="https://developer.roblox.com/assets/blt0dd97240c2a0db2a/Explorer-Plus-Icon.png" /></p>
+<p>图标后选择 <strong>Team</strong>（队伍）。</p>
+<p><img alt="https://developer.roblox.com/assets/bltba4c76aede1f1ba6/New-Team-Object.png" src="https://developer.roblox.com/assets/bltba4c76aede1f1ba6/New-Team-Object.png" /></p>
+<p>添加队伍之后：</p>
+<ol class="simple">
+<li><p>将队伍的 <strong>Name</strong>（名称）改成一个合适的值。
+<img alt="https://developer.roblox.com/assets/bltc6de1106c5d988f5/Change-Team-Name.png" src="https://developer.roblox.com/assets/bltc6de1106c5d988f5/Change-Team-Name.png" /></p></li>
+<li><p>给队伍分配唯一的 <strong>TeamColor</strong>，该设置可以和 <code class="docutils literal notranslate"><span class="pre">SpawnLocation</span></code> 对象一起使用。
+<img alt="https://developer.roblox.com/assets/blt678b45eb6caedd01/Set-TeamColor.png" src="https://developer.roblox.com/assets/blt678b45eb6caedd01/Set-TeamColor.png" /></p></li>
+</ol>
+<p>队伍 <strong>Name</strong>（名称）和选定的 <strong>TeamColor</strong>（队伍颜色）都会在游戏的<code class="docutils literal notranslate"><span class="pre">articles/Leaderboards|排行榜</span></code>中出现，因此需要对其进行合理设置。在此示例中，“蓝队”就被分配了极为适合队名的颜色：“Really blue”（深蓝色）。</p>
+</div>
+<div class="section" id="id6">
+<h3>配置生成点<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>在默认情况下，生成点为**中立*，允许任何玩家在此处生成。但在大多数游戏里，各个队伍都拥有独立的“领地”与生成点，或者被类似<code class="docutils literal notranslate"><span class="pre">articles/Collision</span> <span class="pre">Filtering</span> <span class="pre">Team</span> <span class="pre">Doors|队伍专用门</span></code>的物理屏障所分隔。</p>
+<p>若希望为特定队伍锁定专用生成点，请遵循以下步骤：</p>
+<ol class="simple">
+<li><p>选中 <code class="docutils literal notranslate"><span class="pre">SpawnLocation</span></code> 对象。</p></li>
+<li><p>在 Properties（属性）窗口中禁用其 <strong>Neutral</strong>（中立）属性。</p></li>
+<li><p>将其 <strong>TeamColor</strong> 属性设置为你所创建队伍的对应颜色。
+<img alt="https://developer.roblox.com/assets/blt29eb9250256e2382/Set-SpawnLocation-TeamColor.png" src="https://developer.roblox.com/assets/blt29eb9250256e2382/Set-SpawnLocation-TeamColor.png" /></p></li>
+</ol>
+<p>需要注意的是，生成点的 <strong>TeamColor</strong> 与其 <strong>BrickColor</strong> 或 <strong>Color</strong> 属性（这两个属性代表对象的外观颜色，与队伍并无关联）是不同的。</p>
+</div>
+<div class="section" id="id7">
+<h3>分配玩家<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>在默认情况下，Roblox 会将新玩家<strong>自动分配</strong>到目前人数最少的队伍中。若希望将玩家分配至你所配置的特定队伍与生成点，请遵循以下步骤：</p>
+<ol class="simple">
+<li><p>在 <strong>Teams</strong> 服务中选择每个 <code class="docutils literal notranslate"><span class="pre">Team</span></code> 对象并<strong>禁用</strong>其 <code class="docutils literal notranslate"><span class="pre">Team/AutoAssignable|AutoAssignable</span></code> 属性。
+<img alt="https://developer.roblox.com/assets/blt19df1cdc7ebc1f6f/Disable-Team-AutoAssignable.png" src="https://developer.roblox.com/assets/blt19df1cdc7ebc1f6f/Disable-Team-AutoAssignable.png" /></p></li>
+<li><p>要将玩家分配至指定团队，需要将该玩家的 <code class="docutils literal notranslate"><span class="pre">Player/Team</span></code> 属性改为队伍的名称，例如 <code class="docutils literal notranslate"><span class="pre">Teams[&quot;Blue</span> <span class="pre">Team&quot;]</span></code>。若想达成该目的，有几种不同的方法。举例来说，可以如下方 <a class="reference external" href="https://www.roblox.com/games/3705707230/Team-Picker">Team Picker</a>（队伍选择器）示例所示，使用选择队伍的 GUI。同时也可以创建含有多个<code class="docutils literal notranslate"><span class="pre">articles/How</span> <span class="pre">to</span> <span class="pre">teleport</span> <span class="pre">within</span> <span class="pre">a</span> <span class="pre">Place|传送器</span></code>的大厅，将玩家分配至不同队伍。</p></li>
+</ol>
+<p><img alt="https://developer.roblox.com/assets/blt11c40ad39c14f32e/TeamPicker.jpg" src="https://developer.roblox.com/assets/blt11c40ad39c14f32e/TeamPicker.jpg" /></p>
+<div class="section" id="team-picker">
+<h4><a class="reference external" href="https://www.roblox.com/games/3705707230/Team-Picker">Team Picker（队伍选择器）示例</a><a class="headerlink" href="#team-picker" title="Permalink to this headline">¶</a></h4>
+<p>从 GUI 选择器所显示的 4 个队伍中选中 1 个，并从该队伍对应的生成点进行角色生成。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Player-Spawns-and-Teams">角色生成与团队</a></p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Making-an-Explosion-Course.html" class="btn btn-neutral float-right" title="制作爆炸赛道" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Teleporting-Between-Places.html" class="btn btn-neutral float-left" title="不同场景间的传送" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

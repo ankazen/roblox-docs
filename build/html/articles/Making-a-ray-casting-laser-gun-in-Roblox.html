@@ -1,0 +1,528 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>射线投射：创建激光枪 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="将资源和游戏归档" href="archiving-assets-and-games.html" />
+    <link rel="prev" title="导入自定义模型" href="importing-custom-rigs.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/creating.html">创建</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Building-a-Campfire.html">构建篝火</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Circle-With-Code.html">使用代码创建圆环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3D-Modeling-with-Parts.html">实体建模：使用部件进行 3D 建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Content.html">内容数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importing-terrain-data.html">导入地形数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importing-custom-rigs.html">导入自定义模型</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">射线投射：创建激光枪</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">教程</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">设置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">框架</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">射线投射</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">创建激光束</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">伤害对象</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">最终产品</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="archiving-assets-and-games.html">将资源和游戏归档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="understanding-root-parts.html">根部件：概述与理解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Copyright-Guidance.html">内容版权与知识产权</a></li>
+<li class="toctree-l2"><a class="reference internal" href="managing-personal-information.html">关于 GDPR 和 CCPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="designing-for-multiplayer.html">设计多人游戏</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Create.html">合作式开发</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/creating.html">创建</a> &raquo;</li>
+        
+      <li>射线投射：创建激光枪</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Making-a-ray-casting-laser-gun-in-Roblox.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>射线投射：创建激光枪<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p>Roblox 中的射线投射功能可用于检测某个部件是否与某条线段相交。本教程介绍如何使用射线投射功能创建激光枪。</p>
+<div class="section" id="id2">
+<h2>教程<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>设置<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p><img alt="PaintballGunInToolbox.png" src="https://developer.roblox.com/assets/blt2696396188d4757e/PaintballGunInToolbox.png" /></p>
+<p>要创建激光枪，玩家需要手握一个工具。请前往工具箱，选择 <strong>Roblox Sets</strong> （Roblox 集合），然后选择 <em>Weapons</em> （武器）集合。单击彩弹枪，并在系统提示时将它放入 StarterPack 中。打开 StarterPack 并移除名为 Handle 的部件之外的所有内容。然后，将 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 插入工具。请确保它不是 <code class="docutils literal notranslate"><span class="pre">Script</span></code>，否则当你在线开始游戏时，该函数将不起作用！可以随意对该工具进行重命名，但不要更改部件名称！</p>
+</div>
+<div class="section" id="id4">
+<h3>框架<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>既然我们已经完成设置，现在该开始对我们的枪进行脚本处理了。我们先从一些变量开始：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">tool</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+<span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">LocalPlayer</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">tool</span></code> 变量用于引用工具，<code class="docutils literal notranslate"><span class="pre">player</span></code> 变量用于引用使用这把枪的玩家。现在，我们执行一些操作，通过连接至工具的 <code class="docutils literal notranslate"><span class="pre">Tool/Equipped</span></code> 事件来装备工具：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">tool</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+<span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">LocalPlayer</span>
+
+<span class="n">tool</span><span class="o">.</span><span class="n">Equipped</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">mouse</span><span class="p">)</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tool equipped!&quot;</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>现在，每当工具装备完毕，它就可以将 Tool equipped! 打印至“Output（输出）”窗口。你可能会注意到该函数的鼠标参数；即可用于响应玩家鼠标单击操作的 <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> 对象。连接至鼠标的 <code class="docutils literal notranslate"><span class="pre">Mouse/Button1Down</span></code> 事件，如下所示：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">tool</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+<span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">LocalPlayer</span>
+
+<span class="n">tool</span><span class="o">.</span><span class="n">Equipped</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">mouse</span><span class="p">)</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tool equipped!&quot;</span><span class="p">)</span>
+	
+	<span class="n">mouse</span><span class="o">.</span><span class="n">Button1Down</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mouse pressed!&quot;</span><span class="p">)</span>
+	<span class="n">end</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>现在，当你单击你的鼠标时，Mouse pressed! 将被打印至输出窗口。快试试吧！开始游戏、装备工具并按下几次鼠标，你应该会看到如下内容：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Mouse pressed!
+Mouse pressed!
+Mouse pressed!
+Tool equipped!
+Mouse pressed!
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>射线投射<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>既然我们已经完成框架设置，接下来我们开始投射射线。将此射线添加到鼠标下移函数：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">ray</span> <span class="o">=</span> <span class="n">Ray</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">tool</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">CFrame</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">Hit</span><span class="o">.</span><span class="n">p</span> <span class="o">-</span> <span class="n">toolHandle</span><span class="o">.</span><span class="n">CFrame</span><span class="o">.</span><span class="n">p</span><span class="p">)</span><span class="o">.</span><span class="n">unit</span> <span class="o">*</span> <span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>这将创建从工具手柄中央开始射出的射线 (<code class="docutils literal notranslate"><span class="pre">tool.Handle.CFrame.p</span></code>)，并朝鼠标的位置射出 300 格 (<code class="docutils literal notranslate"><span class="pre">(mouse.Hit.p</span> <span class="pre">-</span> <span class="pre">tool.Handle.CFrame.p).unit</span> <span class="pre">*</span> <span class="pre">300</span></code>)。但是就其自身而言，此操作不会检测是否有部件挡住射线，所以我们需要使用 <code class="docutils literal notranslate"><span class="pre">Workspace</span></code> 的 <code class="docutils literal notranslate"><span class="pre">Workspace/FindPartOnRay</span></code> 方法。FindPartOnRay 包含四个参数：检查部件时所用的射线、要忽略的对象、是否将所有地形单元格视为完整的立方体，以及是否忽略水。由于这是激光，我们希望忽略水，也希望玩家不要朝自己开枪，因此我们希望像下面这样调用激光：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">part</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="n">workspace</span><span class="p">:</span><span class="n">FindPartOnRay</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span> <span class="n">player</span><span class="o">.</span><span class="n">Character</span><span class="p">,</span> <span class="n">false</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">part</span></code> 是指被击中的部件（或是 type|nil，如果没有部件挡道），<code class="docutils literal notranslate"><span class="pre">position</span></code> 是指射线击中部件的位置。让我们将此射线添加到函数中吧。在 Button1Down 连接中，添加之前的线。你的脚本现在应该如下所示：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">tool</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+<span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">LocalPlayer</span>
+
+<span class="n">tool</span><span class="o">.</span><span class="n">Equipped</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">mouse</span><span class="p">)</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tool equipped!&quot;</span><span class="p">)</span>
+	
+	<span class="n">mouse</span><span class="o">.</span><span class="n">Button1Down</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mouse pressed!&quot;</span><span class="p">)</span>
+		<span class="n">local</span> <span class="n">ray</span> <span class="o">=</span> <span class="n">Ray</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">tool</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">CFrame</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">Hit</span><span class="o">.</span><span class="n">p</span> <span class="o">-</span> <span class="n">tool</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">CFrame</span><span class="o">.</span><span class="n">p</span><span class="p">)</span><span class="o">.</span><span class="n">unit</span> <span class="o">*</span> <span class="mi">300</span><span class="p">)</span>
+		<span class="n">local</span> <span class="n">part</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="n">workspace</span><span class="p">:</span><span class="n">FindPartOnRay</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span> <span class="n">player</span><span class="o">.</span><span class="n">Character</span><span class="p">,</span> <span class="n">false</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+	<span class="n">end</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>完成该操作后，你就可以创建激光束了！</p>
+</div>
+<div class="section" id="id6">
+<h3>创建激光束<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>能够看到挡住鼠标的对象后，我们可以在射线的起点（工具手柄中央）与射线击中的位置之间创建激光束。现在我们按如下所示创建激光束：</p>
+<p><img alt="RaycastingGunBeamExample.png" src="https://developer.roblox.com/assets/blt63cfa1ad4a7f75b9/RaycastingGunBeamExample.png" /></p>
+<p>要开始创建激光束，我们需要在 Button1Down 连接中创建一个部件，如下所示：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">beam</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Part&quot;</span><span class="p">,</span> <span class="n">workspace</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>但是此部件只是青砖，不是光束。要使其与我们的示例类似，需要执行以下几项操作：</p>
+<ul class="simple">
+<li><p>需要将其 <code class="docutils literal notranslate"><span class="pre">BasePart/BrickColor</span></code> 属性设置为“Bright red（亮红色）”。</p></li>
+<li><p>需要将其 <code class="docutils literal notranslate"><span class="pre">FormFactorPart/FormFactor</span></code> 属性设置为“Custom（自定义）”</p></li>
+<li><p>需要将其 <code class="docutils literal notranslate"><span class="pre">BasePart/Material</span></code> 属性设置为“Neon（氖气）”</p></li>
+<li><p>需要将其 <code class="docutils literal notranslate"><span class="pre">BasePart/Transparency</span></code> 属性设置为 0.25</p></li>
+<li><p>需要将其 <code class="docutils literal notranslate"><span class="pre">BasePart/Anchored</span></code> 和 <code class="docutils literal notranslate"><span class="pre">BasePart/Locked</span></code> 属性设置为 true，并将 <code class="docutils literal notranslate"><span class="pre">BasePart/CanCollide</span></code> 属性设置为 false。</p></li>
+</ul>
+<p>让我们执行这些操作吧！创建部件后，设置激光束的属性：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">beam</span><span class="o">.</span><span class="n">BrickColor</span> <span class="o">=</span> <span class="n">BrickColor</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Bright red&quot;</span><span class="p">)</span>
+<span class="n">beam</span><span class="o">.</span><span class="n">FormFactor</span> <span class="o">=</span> <span class="s2">&quot;Custom&quot;</span>
+<span class="n">beam</span><span class="o">.</span><span class="n">Material</span> <span class="o">=</span> <span class="s2">&quot;Neon&quot;</span>
+<span class="n">beam</span><span class="o">.</span><span class="n">Transparency</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="n">beam</span><span class="o">.</span><span class="n">Anchored</span> <span class="o">=</span> <span class="n">true</span>
+<span class="n">beam</span><span class="o">.</span><span class="n">Locked</span> <span class="o">=</span> <span class="n">true</span>
+<span class="n">beam</span><span class="o">.</span><span class="n">CanCollide</span> <span class="o">=</span> <span class="n">false</span>
+</pre></div>
+</div>
+<p>但是，如果将此激光束放在工作区中，它看起来就像一块红砖。我们需要修改其 <code class="docutils literal notranslate"><span class="pre">BasePart/Size</span></code> 和 <code class="docutils literal notranslate"><span class="pre">BasePart/CFrame</span></code> 属性，以便激光束在手柄和击中点之间延伸。为此，请使用以下脚本:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">distance</span> <span class="o">=</span> <span class="p">(</span><span class="n">tool</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">CFrame</span><span class="o">.</span><span class="n">p</span> <span class="o">-</span> <span class="n">position</span><span class="p">)</span><span class="o">.</span><span class="n">magnitude</span>
+<span class="n">beam</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">distance</span><span class="p">)</span>
+<span class="n">beam</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">tool</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">CFrame</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="n">position</span><span class="p">)</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">distance</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>现在，激光枪可以正常使用 - 它会射出可击中部件的射线光束。你甚至可以朝天空发射，它会在天上射出光束（即使天空中没有部件）。但是存在一个问题：光束无法移除。要移除光束，我们应使用 <code class="docutils literal notranslate"><span class="pre">Debris</span></code> 服务的 <code class="docutils literal notranslate"><span class="pre">Debris/AddItem</span></code> 方法。请将此方法添加到 Button1Down 连接的底部：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Debris&quot;</span><span class="p">):</span><span class="n">AddItem</span><span class="p">(</span><span class="n">beam</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>这意味着，在光束后添加了 0.1 (1/10) 秒，光束将被移除。你的脚本现在应如下所示：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">tool</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+<span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">LocalPlayer</span>
+
+<span class="n">tool</span><span class="o">.</span><span class="n">Equipped</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">mouse</span><span class="p">)</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tool equipped!&quot;</span><span class="p">)</span>
+	
+	<span class="n">mouse</span><span class="o">.</span><span class="n">Button1Down</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mouse pressed!&quot;</span><span class="p">)</span>
+		<span class="n">local</span> <span class="n">ray</span> <span class="o">=</span> <span class="n">Ray</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">tool</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">CFrame</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">Hit</span><span class="o">.</span><span class="n">p</span> <span class="o">-</span> <span class="n">tool</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">CFrame</span><span class="o">.</span><span class="n">p</span><span class="p">)</span><span class="o">.</span><span class="n">unit</span> <span class="o">*</span> <span class="mi">300</span><span class="p">)</span>
+		<span class="n">local</span> <span class="n">part</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="n">workspace</span><span class="p">:</span><span class="n">FindPartOnRay</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span> <span class="n">player</span><span class="o">.</span><span class="n">Character</span><span class="p">,</span> <span class="n">false</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+		
+		<span class="n">local</span> <span class="n">beam</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Part&quot;</span><span class="p">,</span> <span class="n">workspace</span><span class="p">)</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">BrickColor</span> <span class="o">=</span> <span class="n">BrickColor</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Bright red&quot;</span><span class="p">)</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">FormFactor</span> <span class="o">=</span> <span class="s2">&quot;Custom&quot;</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">Material</span> <span class="o">=</span> <span class="s2">&quot;Neon&quot;</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">Transparency</span> <span class="o">=</span> <span class="mf">0.25</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">Anchored</span> <span class="o">=</span> <span class="n">true</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">Locked</span> <span class="o">=</span> <span class="n">true</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">CanCollide</span> <span class="o">=</span> <span class="n">false</span>
+		
+		<span class="n">local</span> <span class="n">distance</span> <span class="o">=</span> <span class="p">(</span><span class="n">tool</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">CFrame</span><span class="o">.</span><span class="n">p</span> <span class="o">-</span> <span class="n">position</span><span class="p">)</span><span class="o">.</span><span class="n">magnitude</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">distance</span><span class="p">)</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">tool</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">CFrame</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="n">position</span><span class="p">)</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">distance</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+		
+		<span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Debris&quot;</span><span class="p">):</span><span class="n">AddItem</span><span class="p">(</span><span class="n">beam</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+	<span class="n">end</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>伤害对象<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>画出光束后，现在需要使其伤害玩家和其他具有 <code class="docutils literal notranslate"><span class="pre">Humanoid</span></code> 对象的部位。首先，我们需要在创建光束后使用 if 语句，以检查部件是否存在：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">part</span> <span class="n">then</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>有时，部位不存在，射线就找不到它，因此 <code class="docutils literal notranslate"><span class="pre">part</span></code> 将为零。我们需要将这种情况考虑在内，以免脚本出错。完成这些操作后，我们应查看两个位置以查找对象的人形：部位的父项（以防击中手臂或腿）和部位父项的父项（以防击中帽子或工具）。要查找该人形，请使用以下脚本：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">part</span> <span class="n">then</span>
+	<span class="n">local</span> <span class="n">humanoid</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">Parent</span><span class="p">:</span><span class="n">FindFirstChild</span><span class="p">(</span><span class="s2">&quot;Humanoid&quot;</span><span class="p">)</span>
+
+	<span class="k">if</span> <span class="ow">not</span> <span class="n">humanoid</span> <span class="n">then</span>
+		<span class="n">humanoid</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">Parent</span><span class="p">:</span><span class="n">FindFirstChild</span><span class="p">(</span><span class="s2">&quot;Humanoid&quot;</span><span class="p">)</span>
+	<span class="n">end</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>首先，我们检查部位的父项。如果未找到，则查看部位父项的父项。但愿我们能找到人形，但有时找不到，因此在尝试伤害它之前，我们需要确保存在人形。请将你的 if 语句更改为如下所示：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">part</span> <span class="n">then</span>
+	<span class="n">local</span> <span class="n">humanoid</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">Parent</span><span class="p">:</span><span class="n">FindFirstChild</span><span class="p">(</span><span class="s2">&quot;Humanoid&quot;</span><span class="p">)</span>
+	
+	<span class="k">if</span> <span class="ow">not</span> <span class="n">humanoid</span> <span class="n">then</span>
+		<span class="n">humanoid</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">Parent</span><span class="p">:</span><span class="n">FindFirstChild</span><span class="p">(</span><span class="s2">&quot;Humanoid&quot;</span><span class="p">)</span>
+	<span class="n">end</span>
+	
+	<span class="k">if</span> <span class="n">humanoid</span> <span class="n">then</span>
+		<span class="n">humanoid</span><span class="p">:</span><span class="n">TakeDamage</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+	<span class="n">end</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>现在我们将进行检查，以确保存在人形，然后使用 <code class="docutils literal notranslate"><span class="pre">Humanoid/TakeDamage</span></code> 方法对它造成 30 点伤害。TakeDamage 无法伤害受 <code class="docutils literal notranslate"><span class="pre">ForceField</span></code> 保护的人形。你的脚本现在应如下所示：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">tool</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+<span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">LocalPlayer</span>
+
+<span class="n">tool</span><span class="o">.</span><span class="n">Equipped</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">mouse</span><span class="p">)</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tool equipped!&quot;</span><span class="p">)</span>
+	
+	<span class="n">mouse</span><span class="o">.</span><span class="n">Button1Down</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mouse pressed!&quot;</span><span class="p">)</span>
+		<span class="n">local</span> <span class="n">ray</span> <span class="o">=</span> <span class="n">Ray</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">tool</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">CFrame</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">Hit</span><span class="o">.</span><span class="n">p</span> <span class="o">-</span> <span class="n">tool</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">CFrame</span><span class="o">.</span><span class="n">p</span><span class="p">)</span><span class="o">.</span><span class="n">unit</span> <span class="o">*</span> <span class="mi">300</span><span class="p">)</span>
+		<span class="n">local</span> <span class="n">part</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="n">workspace</span><span class="p">:</span><span class="n">FindPartOnRay</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span> <span class="n">player</span><span class="o">.</span><span class="n">Character</span><span class="p">,</span> <span class="n">false</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+		
+		<span class="n">local</span> <span class="n">beam</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Part&quot;</span><span class="p">,</span> <span class="n">workspace</span><span class="p">)</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">BrickColor</span> <span class="o">=</span> <span class="n">BrickColor</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Bright red&quot;</span><span class="p">)</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">FormFactor</span> <span class="o">=</span> <span class="s2">&quot;Custom&quot;</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">Material</span> <span class="o">=</span> <span class="s2">&quot;Neon&quot;</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">Transparency</span> <span class="o">=</span> <span class="mf">0.25</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">Anchored</span> <span class="o">=</span> <span class="n">true</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">Locked</span> <span class="o">=</span> <span class="n">true</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">CanCollide</span> <span class="o">=</span> <span class="n">false</span>
+		
+		<span class="n">local</span> <span class="n">distance</span> <span class="o">=</span> <span class="p">(</span><span class="n">tool</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">CFrame</span><span class="o">.</span><span class="n">p</span> <span class="o">-</span> <span class="n">position</span><span class="p">)</span><span class="o">.</span><span class="n">magnitude</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">distance</span><span class="p">)</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">tool</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">CFrame</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="n">position</span><span class="p">)</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">distance</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+		
+		<span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Debris&quot;</span><span class="p">):</span><span class="n">AddItem</span><span class="p">(</span><span class="n">beam</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+		
+		<span class="k">if</span> <span class="n">part</span> <span class="n">then</span>
+			<span class="n">local</span> <span class="n">humanoid</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">Parent</span><span class="p">:</span><span class="n">FindFirstChild</span><span class="p">(</span><span class="s2">&quot;Humanoid&quot;</span><span class="p">)</span>
+			
+			<span class="k">if</span> <span class="ow">not</span> <span class="n">humanoid</span> <span class="n">then</span>
+				<span class="n">humanoid</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">Parent</span><span class="p">:</span><span class="n">FindFirstChild</span><span class="p">(</span><span class="s2">&quot;Humanoid&quot;</span><span class="p">)</span>
+			<span class="n">end</span>
+			
+			<span class="k">if</span> <span class="n">humanoid</span> <span class="n">then</span>
+				<span class="n">humanoid</span><span class="p">:</span><span class="n">TakeDamage</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+			<span class="n">end</span>
+		<span class="n">end</span>
+	<span class="n">end</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>所有操作均已完成！尽情享受你的新激光枪吧！</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>最终产品<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p><img alt="RaycastingGunFinished.png" src="https://developer.roblox.com/assets/bltc5f175680683c96f/RaycastingGunFinished.png" /></p>
+<p>制作一把射线投射激光枪 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">tool</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+<span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">LocalPlayer</span>
+ 
+<span class="n">tool</span><span class="o">.</span><span class="n">Equipped</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">mouse</span><span class="p">)</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tool equipped!&quot;</span><span class="p">)</span>
+ 
+	<span class="n">mouse</span><span class="o">.</span><span class="n">Button1Down</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mouse pressed!&quot;</span><span class="p">)</span>
+		<span class="n">local</span> <span class="n">ray</span> <span class="o">=</span> <span class="n">Ray</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">tool</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">CFrame</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">Hit</span><span class="o">.</span><span class="n">p</span> <span class="o">-</span> <span class="n">tool</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">CFrame</span><span class="o">.</span><span class="n">p</span><span class="p">)</span><span class="o">.</span><span class="n">unit</span> <span class="o">*</span> <span class="mi">300</span><span class="p">)</span>
+		<span class="n">local</span> <span class="n">part</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="n">workspace</span><span class="p">:</span><span class="n">FindPartOnRay</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span> <span class="n">player</span><span class="o">.</span><span class="n">Character</span><span class="p">,</span> <span class="n">false</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+ 
+		<span class="n">local</span> <span class="n">beam</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Part&quot;</span><span class="p">,</span> <span class="n">workspace</span><span class="p">)</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">BrickColor</span> <span class="o">=</span> <span class="n">BrickColor</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Bright red&quot;</span><span class="p">)</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">FormFactor</span> <span class="o">=</span> <span class="s2">&quot;Custom&quot;</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">Material</span> <span class="o">=</span> <span class="s2">&quot;Neon&quot;</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">Transparency</span> <span class="o">=</span> <span class="mf">0.25</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">Anchored</span> <span class="o">=</span> <span class="n">true</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">Locked</span> <span class="o">=</span> <span class="n">true</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">CanCollide</span> <span class="o">=</span> <span class="n">false</span>
+ 
+		<span class="n">local</span> <span class="n">distance</span> <span class="o">=</span> <span class="p">(</span><span class="n">tool</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">CFrame</span><span class="o">.</span><span class="n">p</span> <span class="o">-</span> <span class="n">position</span><span class="p">)</span><span class="o">.</span><span class="n">magnitude</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">distance</span><span class="p">)</span>
+		<span class="n">beam</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">tool</span><span class="o">.</span><span class="n">Handle</span><span class="o">.</span><span class="n">CFrame</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="n">position</span><span class="p">)</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">distance</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+ 
+		<span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Debris&quot;</span><span class="p">):</span><span class="n">AddItem</span><span class="p">(</span><span class="n">beam</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+ 
+		<span class="k">if</span> <span class="n">part</span> <span class="n">then</span>
+			<span class="n">local</span> <span class="n">humanoid</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">Parent</span><span class="p">:</span><span class="n">FindFirstChild</span><span class="p">(</span><span class="s2">&quot;Humanoid&quot;</span><span class="p">)</span>
+ 
+			<span class="k">if</span> <span class="ow">not</span> <span class="n">humanoid</span> <span class="n">then</span>
+				<span class="n">humanoid</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">Parent</span><span class="p">:</span><span class="n">FindFirstChild</span><span class="p">(</span><span class="s2">&quot;Humanoid&quot;</span><span class="p">)</span>
+			<span class="n">end</span>
+ 
+			<span class="k">if</span> <span class="n">humanoid</span> <span class="n">then</span>
+				<span class="n">humanoid</span><span class="p">:</span><span class="n">TakeDamage</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+			<span class="n">end</span>
+		<span class="n">end</span>
+	<span class="n">end</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+
+***__Roblox官方链接__:[射线投射：创建激光枪](https://developer.roblox.com/zh-cn/articles/Making-a-ray-casting-laser-gun-in-Roblox)
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="archiving-assets-and-games.html" class="btn btn-neutral float-right" title="将资源和游戏归档" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="importing-custom-rigs.html" class="btn btn-neutral float-left" title="导入自定义模型" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

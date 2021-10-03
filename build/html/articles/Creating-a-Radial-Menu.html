@@ -1,0 +1,583 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>创建摇杆快速菜单 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="创建栅格菜单" href="Creating-a-Grid-Menu.html" />
+    <link rel="prev" title="创建 GUI 按钮" href="Creating-GUI-Buttons.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-GUIs.html">GUI 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI-Animations.html">GUI 动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fundamentals-of-Scripting-with-GUIs.html">GUI 脚本简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Chat-System.html">Lua 聊天系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Interactive-Surface-GUI.html">交互式表面 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-GUI-Buttons.html">创建 GUI 按钮</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">创建摇杆快速菜单</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">设置菜单</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">打开菜单</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">关闭菜单</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">完成代码</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Grid-Menu.html">创建栅格菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using-Images-in-GUIs.html">在 GUI 中使用图像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text-and-Chat-Filtering.html">文本与聊天过滤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Camera-manipulation.html">镜头操控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mouse-Icon-Appearance.html">鼠标指针控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animating-text.html">设置文本动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar-emotes.html">Avatar Emotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chat-Modules.html">Chat Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Custom-Teleport-GUI.html">创建自定义传送屏幕</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Scrolling-Frame-GUI.html">创建滚动框架 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-the-camera.html">Customizing the Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Disabling-Parts-of-Game-Interface.html">禁用游戏界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-bindings.html">Roblox Input Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selection-Boxes.html">选择框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Three-Quarters-Camera-View.html">45 度镜头视角</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Unit-Frame.html">单元框：制作生命槽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewportframe-gui.html">ViewportFrame GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/user-interface.html">用户界面</a> &raquo;</li>
+        
+      <li>创建摇杆快速菜单</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Creating-a-Radial-Menu.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>创建摇杆快速菜单<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>15  分钟</em></p>
+<p>摇杆快速菜单（Radial Menu）采用了模拟纵杆控制器，且易于使用，所以成为了主机游戏中经常出现的一种菜单形式。在摇杆快速菜单中，可将选项都置于一个圆环内。用户推动模拟杆时即可选择所推方向的选项。</p>
+<p>本教程内容涵盖操作摇杆快速菜单的方法。虽然鼠标/键盘或手机游戏也可使用相同的方法，但这里我们会重点讲解游戏手柄。</p>
+<div class="section" id="id2">
+<h2>设置菜单<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>可以手动或通过代码创建菜单。本教程采用代码，所以易于在各类游戏中应用：</p>
+<p>构建一个摇杆快速菜单 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">决定打开和关闭状态下菜单框架的位置和大小</span>
+<span class="n">local</span> <span class="n">menuOpenPosition</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">menuOpenSize</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">menuClosedPosition</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">menuClosedSize</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.005</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="o">--</span> <span class="n">决定菜单选项的元素</span>
+<span class="n">local</span> <span class="n">itemTemplate</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;TextButton&quot;</span><span class="p">)</span>
+<span class="n">itemTemplate</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">itemTemplate</span><span class="o">.</span><span class="n">AutoButtonColor</span> <span class="o">=</span> <span class="n">false</span>
+<span class="n">itemTemplate</span><span class="o">.</span><span class="n">TextScaled</span> <span class="o">=</span> <span class="n">true</span>
+
+<span class="o">--</span> <span class="n">为菜单创建屏幕和框架</span>
+<span class="n">local</span> <span class="n">menuScreen</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;ScreenGui&quot;</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;PlayerGui&quot;</span><span class="p">))</span>
+<span class="n">menuScreen</span><span class="o">.</span><span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;MenuScreen&quot;</span>
+<span class="n">local</span> <span class="n">menuFrame</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Frame&quot;</span><span class="p">,</span> <span class="n">menuScreen</span><span class="p">)</span>
+<span class="n">menuFrame</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">menuClosedSize</span>
+<span class="n">menuFrame</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">menuClosedPosition</span>
+<span class="n">menuFrame</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">false</span>
+<span class="n">menuFrame</span><span class="o">.</span><span class="n">BackgroundTransparency</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">menuFrame</span><span class="o">.</span><span class="n">BorderSizePixel</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">menuFrame</span><span class="o">.</span><span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;MenuFrame&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>摇杆快速菜单通常具有两种状态：打开和关闭。此代码首先会针对菜单的主框架定义位置和大小。有了当前值，打开状态的菜单将在屏幕上居中显示，宽和高占屏幕的一半。你可以调整 `menuOpenPosition` 和 `menuOpenSize`，用以调整菜单所占屏幕的比例以及在何处居中显示。
+
+接下来，脚本会为菜单项创建一个模板。在本例中，使用 `TextButton` 是因为非常简便。你应当将其更改为使用与游戏和界面相符的更复杂元素。请记住，代码将通过大小变化来动态呈现菜单的打开。因此 `TextButton/TextScaled` 可以确保文本能够随着按钮而动态改变大小。
+
+`AutoButtonColor` 被禁用，因为本教程着重于使用游戏手柄。如果将此代码改为使用鼠标，你应当启用此属性。
+
+最后，代码会创建 `ScreenGui` 和 `Frame`。框架的 `GuiObject/Size` 和 `GuiObject/Position` 将分别设置为 `menuClosedSize` 和 `menuClosedPosition`，因为菜单最初应当为隐藏状态。
+
+## 创建按钮
+
+设置完菜单屏幕和框架，然后脚本就会自动创建圆圈中放置的按钮。你可使用几个常量来配置要显示在圆圈中的按钮数量及其方向。
+
+创建摇杆快速菜单物品 ```    
+    
+    local RADIUS = .5
+    local NUM_OPTIONS = 6
+    local ANGLE_OFFSET = 90
+    local menuItems = {}
+    local function newMenuItem(name, angle, range)
+    	local newItem = {}
+    	local label = itemTemplate:Clone()
+    	label.Text = name
+    	label.Name = name
+    	local angleRadians = math.rad(ANGLE_OFFSET + angle)
+    	label.Position = UDim2.new(.5 + RADIUS * math.cos(angleRadians) - label.Size.X.Scale / 2, 0,
+    							 .5 - RADIUS * math.sin(angleRadians) - label.Size.Y.Scale / 2, 0)
+    	label.Parent = menuFrame
+    	newItem.Label = label
+    	newItem.Vector = Vector2.new(math.cos(angleRadians), math.sin(angleRadians))
+    	newItem.Range = range
+    	table.insert(menuItems, newItem)
+    end
+
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">newMenuItem</span></code> 函数用于创建新的菜单项，并将其添加到一表格中，随后在决定选择哪个项目时会用到表格和其中内容。该函数需要三个参数：<code class="docutils literal notranslate"><span class="pre">name</span></code> 表示选项的名称(也用于在 GUI 中标记它)，<code class="docutils literal notranslate"><span class="pre">angle</span></code> 设置选项在圆环转盘上的中心位置，<code class="docutils literal notranslate"><span class="pre">range</span></code> 设置输入弧的宽度。</p>
+<p><img alt="RadialMenu_Image01.png" src="https://developer.roblox.com/assets/blteede9255d5fdfdb5/RadialMenu_Image01.png" /></p>
+<p>该函数首先会创建一个先前创建好的 <code class="docutils literal notranslate"><span class="pre">itemTemplate</span></code> 的克隆副本。它还根据 <code class="docutils literal notranslate"><span class="pre">angle</span></code> 设置了按钮的位置。 该函数还存储了一个由输入的 <code class="docutils literal notranslate"><span class="pre">angle</span></code> 构成的 2D 向量。它将随后用于与用户输入进行比较，以确定哪个项目被选中。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">NUM_OPTIONS</span> <span class="n">do</span>
+	<span class="n">local</span> <span class="n">angle</span> <span class="o">=</span> <span class="p">(</span><span class="mi">360</span> <span class="o">/</span> <span class="n">NUM_OPTIONS</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Option&quot;</span> <span class="o">..</span> <span class="n">i</span>
+	<span class="n">newMenuItem</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="mi">360</span> <span class="o">/</span> <span class="n">NUM_OPTIONS</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>声明 <code class="docutils literal notranslate"><span class="pre">newMenuItem</span></code> 函数之后，代码会执行一个循环来创建菜单项。常量 <code class="docutils literal notranslate"><span class="pre">NUM_OPTIONS</span></code> 决定了要创建多少个菜单选项。每个项目的角度是通过将 360（圆中的度数）除以 <code class="docutils literal notranslate"><span class="pre">NUM_OPTIONS</span></code>，然后乘以当前选项来确定。另外，范围同样也是由 360 除以 <code class="docutils literal notranslate"><span class="pre">NUM_OPTIONS</span></code> 来确定。这些值都会被传递到 <code class="docutils literal notranslate"><span class="pre">newMenuItem</span></code> 中，用以创建按钮。</p>
+</div>
+<div class="section" id="id3">
+<h2>打开菜单<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>在此教程中，菜单可通过左操纵杆在打开和关闭之间切换。<code class="docutils literal notranslate"><span class="pre">ContextActionService</span></code> 可用于将此按钮绑定到能打开和关闭菜单的自定义函数。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-- 菜单和背包都使用左纵杆。禁用背包 UI 以防止冲突
+game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, false)
+
+local function toggleMenu(actionName, inputState)
+	if inputState == Enum.UserInputState.Begin then
+		openMenu()
+	elseif inputState == Enum.UserInputState.End then
+		closeMenu()
+	end
+end
+
+ContextActionService:BindAction(&quot;ToggleMenu&quot;, toggleMenu, false, Enum.KeyCode.ButtonL1)
+</pre></div>
+</div>
+<p>默认的 Roblox 控制脚本会将操纵杆与道具包中项之间的开关绑定。要将此输入重新绑定到摇杆快速菜单，则必须使用 <code class="docutils literal notranslate"><span class="pre">StarterGui/SetCoreGuiEnabled</span></code> 将背包 UI 禁用。如果针对摇杆快速菜单使用其他输入而非操纵杆，则应当注意 Roblox 的默认设置以避免发生冲突。</p>
+<p><code class="docutils literal notranslate"><span class="pre">toggleMenu</span></code> 函数使用 <code class="docutils literal notranslate"><span class="pre">ContextActionService/BindAction</span></code> 绑定到左操纵杆。<code class="docutils literal notranslate"><span class="pre">toggleMenu</span></code> 会查看 <code class="docutils literal notranslate"><span class="pre">inputState</span></code> 以了解操纵杆处于何种状态。如果是 Begin 状态，那么用户只需开始按操纵杆并打开菜单。否则，如果是 End 状态，则需要关闭菜单。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">function</span> <span class="n">openMenu</span><span class="p">()</span>
+	<span class="o">--</span> <span class="n">存储</span> <span class="n">GuiNavigationEnabled</span> <span class="n">和</span> <span class="n">AutoSelectGuiEnabled</span> <span class="n">然后将二者设置为</span> <span class="n">false</span>
+	<span class="n">wasGuiNavigationEnabled</span> <span class="o">=</span> <span class="n">GuiService</span><span class="o">.</span><span class="n">GuiNavigationEnabled</span>		
+	<span class="n">wasAutoSelectGuiEnabled</span> <span class="o">=</span> <span class="n">GuiService</span><span class="o">.</span><span class="n">AutoSelectGuiEnabled</span>
+	<span class="n">GuiService</span><span class="o">.</span><span class="n">GuiNavigationEnabled</span> <span class="o">=</span> <span class="n">false</span>
+	<span class="n">GuiService</span><span class="o">.</span><span class="n">AutoSelectGuiEnabled</span> <span class="o">=</span> <span class="n">false</span>
+	
+	<span class="o">--</span> <span class="n">绑定</span> <span class="n">onThumbstickMoved</span> <span class="n">函数</span>
+	<span class="n">ContextActionService</span><span class="p">:</span><span class="n">BindAction</span><span class="p">(</span><span class="s2">&quot;RadialMenu&quot;</span><span class="p">,</span> <span class="n">onThumbstickMoved</span><span class="p">,</span> <span class="n">false</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">KeyCode</span><span class="o">.</span><span class="n">Thumbstick1</span><span class="p">)</span>		
+	<span class="o">--</span> <span class="n">确定框架可见并播放打开动画</span>
+	<span class="n">menuFrame</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">true</span>
+	<span class="n">menuFrame</span><span class="p">:</span><span class="n">TweenSizeAndPosition</span><span class="p">(</span><span class="n">menuOpenSize</span><span class="p">,</span> <span class="n">menuOpenPosition</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">EasingDirection</span><span class="o">.</span><span class="n">Out</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">EasingStyle</span><span class="o">.</span><span class="n">Quart</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+	<span class="n">menuOpen</span> <span class="o">=</span> <span class="n">true</span>	
+<span class="n">end</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">openMenu</span></code> 函数需要执行几点事项。首先，需要禁用 <code class="docutils literal notranslate"><span class="pre">GuiService/GuiNavigationEnabled</span></code> 和 <code class="docutils literal notranslate"><span class="pre">GuiService/AutoSelectGuiEnabled</span></code>，并存储该值，这样能够便于稍后执行恢复。这些设置适用于<a class="reference external" href="http://wiki.roblox.com/index.php?title=Creating_a_Grid_Menu">其他菜单类型</a>，却不适合于摇杆快速菜单。</p>
+<p>你可能会注意到，代码只是除以传入矢量的大小值（操纵杆的位置），而不是除以项矢量的大小值。这是因为项矢量保证为单位矢量，是通过 <code class="docutils literal notranslate"><span class="pre">Vector2.new(math.cos(angle),</span> <span class="pre">math.sin(angle))</span></code> 计算得出的。单位矢量大小为 1，所以可以从除数中忽略不计。</p>
+<p>然后将矢量之间的角度与项范围值的一半做比较。如果小于此值，则表明操纵杆矢量位于针对该项定义的弧的某个位置。如果是这种情形，那么 <code class="docutils literal notranslate"><span class="pre">getButtonFromVector</span></code> 会返回项按钮。</p>
+<p>如果 <code class="docutils literal notranslate"><span class="pre">getButtonFromVector</span></code> 返回一个按钮，<code class="docutils literal notranslate"><span class="pre">onThumbstickMoved</span></code> 会将 <code class="docutils literal notranslate"><span class="pre">GuiService/SelectedObject</span></code> 设置到该按钮。这样会高亮显示按钮，用户就知道已经选择了此按钮。</p>
+<p>在 <code class="docutils literal notranslate"><span class="pre">onThumbstickMoved</span></code> 的末尾，如果操纵杆无法推过盲区，则会将 SelectedObject 设置为空，以便清除选项。</p>
+</div>
+<div class="section" id="id4">
+<h2>关闭菜单<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>菜单关闭后，如果存在已选项，代码需要基于该选项来调用一个函数。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-- 选择物品时将调用的函数。您应把自己的自定义代码放在此处
+-- 来实现您自己的菜单
+local function onMenuSelect(option)
+	print(option, &quot;selected&quot;)
+end
+
+local function closeMenu()
+	-- 恢复 GuiNavigationEnabled 和 AutoSelectGuiEnabled
+	GuiService.GuiNavigationEnabled	= wasGuiNavigationEnabled
+	GuiService.AutoSelectGuiEnabled = wasAutoSelectGuiEnabled	
+
+	-- 解除绑定 onThumbstickMoved 函数		
+	ContextActionService:UnbindAction(&quot;RadialMenu&quot;)
+	
+	if GuiService.SelectedObject then
+		-- 如果在菜单关闭时选择了一个选项，则认为该选项是用户想要的
+		onMenuSelect(GuiService.SelectedObject)
+	end
+	
+	-- 清除选择对象并播放关闭动画
+	GuiService.SelectedObject = nil
+	menuFrame:TweenSizeAndPosition(menuClosedSize, menuClosedPosition, Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .4, true,
+		function()
+			-- 动画结束时的回调函数。如果用户没有重新打开菜单，则隐藏它
+			if not menuOpen then
+				menuFrame.Visible = false
+			end
+		end)
+	menuOpen = false
+end
+</pre></div>
+</div>
+<p>鉴于游戏的剩余部分会依赖于这些设置，所以 <code class="docutils literal notranslate"><span class="pre">closeMenu</span></code> 函数首先会恢复 GuiNavigationEnabled 和 AutoSelectGuiEnabled。它还会解绑 <code class="docutils literal notranslate"><span class="pre">onThumbstickMoved</span></code>，便于操纵杆用于其他用途。然后，如果存在 SelectedObject，函数就会调用 <code class="docutils literal notranslate"><span class="pre">onMenuSelect</span></code>，作为参数传递给 SelectedObject。</p>
+<p><code class="docutils literal notranslate"><span class="pre">onMenuSelect</span></code> 表示你想要添加任意自定义代码的位置。根据传入的按钮，你可以在选定按钮的情况下，为需要生成的任何动作编写代码。</p>
+<p>调用 <code class="docutils literal notranslate"><span class="pre">onMenuSelect</span></code> 后，<code class="docutils literal notranslate"><span class="pre">closeMenu</span></code> 会清除当前选项，并播放动画来隐藏菜单。</p>
+</div>
+<div class="section" id="id5">
+<h2>完成代码<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>下面是所有实施上述摇杆快速菜单的代码。代码应当包含在 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 内，且位于 <code class="docutils literal notranslate"><span class="pre">StarterPlayerScripts</span></code> 或 <code class="docutils literal notranslate"><span class="pre">StarterGui</span></code> 中。</p>
+<p>创建摇杆快速菜单（完整代码） ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>local THUMBSTICK_DEADZONE = .4
+local RADIUS = .5
+local NUM_OPTIONS = 6
+local ANGLE_OFFSET = 90
+ 
+-- 服务
+local ContextActionService = game:GetService(&quot;ContextActionService&quot;)
+local GuiService = game:GetService(&quot;GuiService&quot;)
+ 
+-- 菜单和背包使用的都是左操纵杆。禁用背包 UI 以避免冲突
+game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, false)
+ 
+local player = game.Players.LocalPlayer
+local menuItems = {}
+ 
+-- 决定打开和关闭状态下菜单框架的位置和大小
+local menuOpenPosition = UDim2.new(0.25, 0, 0.25, 0)
+local menuOpenSize = UDim2.new(0.5, 0, 0.5, 0)
+local menuClosedPosition = UDim2.new(0.5, 0, 0.5, 0)
+local menuClosedSize = UDim2.new(0.005, 0, 0.005, 0)
+ 
+-- 决定菜单选项的元素
+local itemTemplate = Instance.new(&quot;TextButton&quot;)
+itemTemplate.Size = UDim2.new(0.3, 0, 0.2, 0)
+itemTemplate.AutoButtonColor = false
+itemTemplate.TextScaled = true
+ 
+-- 为菜单创建屏幕和框架
+local menuScreen = Instance.new(&quot;ScreenGui&quot;, player:WaitForChild(&quot;PlayerGui&quot;))
+menuScreen.Name = &quot;MenuScreen&quot;
+local menuFrame = Instance.new(&quot;Frame&quot;, menuScreen)
+menuFrame.Size = menuClosedSize
+menuFrame.Position = menuClosedPosition
+menuFrame.Visible = false
+menuFrame.BackgroundTransparency = 1
+menuFrame.BorderSizePixel = 0
+menuFrame.Name = &quot;MenuFrame&quot;
+ 
+-- AutoSelectGuiEnabled 和 GuiNavigationEnabled 的存储
+local wasAutoSelectGuiEnabled = GuiService.AutoSelectGuiEnabled
+local wasGuiNavigationEnabled = GuiService.GuiNavigationEnabled
+ 
+local function newMenuItem(name, angle, range)
+	local newItem = {}
+	local button = itemTemplate:Clone()
+	button.Text = name
+	button.Name = name
+	local angleRadians = math.rad(ANGLE_OFFSET + angle)
+	button.Position = UDim2.new(.5 + RADIUS * math.cos(angleRadians) - button.Size.X.Scale / 2, 0,
+							 .5 - RADIUS * math.sin(angleRadians) - button.Size.Y.Scale / 2, 0)
+	button.Parent = menuFrame
+	newItem.Label = button
+	newItem.Vector = Vector2.new(math.cos(angleRadians), math.sin(angleRadians))
+	newItem.Range = range
+	table.insert(menuItems, newItem)
+end
+ 
+for i = 1, NUM_OPTIONS do
+	local angle = (360 / NUM_OPTIONS) * (i - 1)
+	local name = &quot;Option&quot; .. i
+	newMenuItem(name, angle, 360 / NUM_OPTIONS)
+end
+ 
+-- 通过菜单项目表，找到每个项目的向量和传递的向量之间的
+-- 角度。如果角度小于项目范围的一半，则该项目
+-- 被选中。
+local function getButtonFromVector(vector)
+	for i = 1, #menuItems do
+		local item = menuItems[i]
+		local dotProduct = vector.X * item.Vector.X + vector.Y * item.Vector.Y
+		local angle = math.acos(dotProduct / vector.magnitude)
+		if angle &lt;= math.rad(item.Range) / 2 then
+			return item.Button
+		end
+	end
+	return nil
+end
+ 
+-- 绑定至左侧操纵杆的动作
+local function onThumbstickMoved(actionName, inputState, inputObject)
+	-- 确定操纵杆移动已经超过死区
+	if inputObject.Position.magnitude &gt;= THUMBSTICK_DEADZONE then
+		-- 基于操纵杆位置计算角度
+		local selectedButton = getButtonFromVector(inputObject.Position)
+		GuiService.SelectedObject = selectedButton
+	else
+		-- 操纵杆移动在死区范围内，清除选择
+		GuiService.SelectedObject = nil
+	end
+end
+ 
+-- 物品被选择时要调用的函数。您应当在这里编写自定的代码
+-- 以实现您预期的菜单
+local function onMenuSelect(option)
+	print(option, &quot;selected&quot;)
+end
+ 
+local function openMenu()
+	-- 存储 GuiNavigationEnabled 和 AutoSelectGuiEnabled 然后将二者均设置为 false
+	wasGuiNavigationEnabled = GuiService.GuiNavigationEnabled		
+	wasAutoSelectGuiEnabled = GuiService . AutoSelectGuiEnabled
+	GuiService.GuiNavigationEnabled	= false
+	GuiService.AutoSelectGuiEnabled = false
+ 
+	-- 绑定 onThumbstickMoved 函数
+	ContextActionService:BindAction(&quot;RadialMenu&quot;, onThumbstickMoved, false, Enum.KeyCode.Thumbstick1)		
+ 
+	-- 确保框架可见并播放打开动画
+	menuFrame.Visible = true
+	menuFrame:TweenSizeAndPosition(menuOpenSize, menuOpenPosition, Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .5, true)
+	menuOpen = true	
+end
+ 
+local function closeMenu()
+	-- 恢复 GuiNavigationEnabled 和 AutoSelectGuiEnabled
+	GuiService.GuiNavigationEnabled	= wasGuiNavigationEnabled
+	GuiService . AutoSelectGuiEnabled = wasAutoSelectGuiEnabled	
+ 
+	-- 解绑 onThumbstickMoved 函数		
+	ContextActionService:UnbindAction(&quot;RadialMenu&quot;)
+ 
+	if GuiService.SelectedObject then
+		-- 如果菜单关闭时已经选择了一个选项，则认为该选项为用户所想要的
+		onMenuSelect(GuiService.SelectedObject)
+	end
+ 
+	-- 清楚选中的对象并播放关闭动画
+	GuiService.SelectedObject = nil
+	menuFrame:TweenSizeAndPosition(menuClosedSize, menuClosedPosition, Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .4, true,
+		function()
+			-- 动画结束时的回调函数。如果用户未再打开菜单则隐藏它
+			if not menuOpen then
+				menuFrame.Visible =  false 
+			end 
+		end ) 
+	menuOpen =  false 
+end
+ 
+local function toggleMenu(actionName, inputState)
+	if inputState == Enum.UserInputState.Begin then
+		openMenu()
+	elseif inputState == Enum.UserInputState.End then
+		closeMenu()
+	end
+end
+ 
+ContextActionService:BindAction(&quot;ToggleMenu&quot;, toggleMenu, false, Enum.KeyCode.ButtonL1)
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+
+<span class="o">***</span><span class="n">__Roblox官方链接__</span><span class="p">:[</span><span class="n">创建摇杆快速菜单</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">developer</span><span class="o">.</span><span class="n">roblox</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">zh</span><span class="o">-</span><span class="n">cn</span><span class="o">/</span><span class="n">articles</span><span class="o">/</span><span class="n">Creating</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">Radial</span><span class="o">-</span><span class="n">Menu</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Creating-a-Grid-Menu.html" class="btn btn-neutral float-right" title="创建栅格菜单" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Creating-GUI-Buttons.html" class="btn btn-neutral float-left" title="创建 GUI 按钮" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

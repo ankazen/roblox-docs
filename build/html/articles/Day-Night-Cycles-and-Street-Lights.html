@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>昼夜循环和路灯 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="粒子发射器" href="Particle-Emitters.html" />
+    <link rel="prev" title="使用光束创建冒烟和起火的效果" href="Smoke-and-Fire-with-Beams.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="atmosphere.html">Atmosphere（氛围）掌控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro-to-beams.html">Beam（光束）简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-Fireworks.html">Creating Fireworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-Fireworks.html#steps">Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Portal.html">创建传送门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Portal.html#id2">步骤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fog-Overview-and-Settings.html">Fog – Overview and Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glowing-dynamic-lights.html">闪烁的动态光源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Smoke-and-Fire-with-Beams.html">使用光束创建冒烟和起火的效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Smoke-and-Fire-with-Beams.html#id2">步骤</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">昼夜循环和路灯</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">更改游戏内时间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loop">Loop（循环）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">向游戏添加路灯</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Particle-Emitters.html">粒子发射器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sounds-and-music.html">音效与音乐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="force-field-material.html">力场材质</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Basics-on-Roblox.html">添加团队</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a> &raquo;</li>
+        
+      <li>昼夜循环和路灯</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Day-Night-Cycles-and-Street-Lights.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>昼夜循环和路灯<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>在此教程中，我们将会向游戏内添加一个通过 Loop（循环）进行日夜更替的脚本和一盏通过条件语句定时进行开关的街灯。</p>
+<div class="section" id="id2">
+<h2>更改游戏内时间<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在默认情况下，Roblox 游戏并不会进行日夜更替。但若有需要，开发者可以通过脚本达成这一效果。首先，让我们来看看如何通过名为 <code class="docutils literal notranslate"><span class="pre">Lighting/SetMinutesAfterMidnight</span></code> 的函数来改变游戏内的时间：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">game</span><span class="o">.</span><span class="n">Lighting</span><span class="p">:</span><span class="n">SetMinutesAfterMidnight</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>正如我们之前在关于函数的教程中所提到的，函数乃是开发者可以在代码中使用的特殊指令。举例来说，我们所常用的 <em>print</em> 就是一个全局函数，可以供开发者随时进行调用。同时，也有一部分函数是与特定类型实例相关联的。比如这次用到的 <code class="docutils literal notranslate"><span class="pre">Lighting/SetMinutesAfterMidnight</span></code> 函数就是与 <code class="docutils literal notranslate"><span class="pre">Lighting</span></code> 实例相关联的。当使用这类函数时，同时需要指定与之一起使用的实例，其在代码中的格式与更改实例属性相似。需要注意的是，在更改属性时我们会用点号（.）分隔实例与函数，而在指定实例时应当使用冒号（:）。</p>
+<p>函数 SetMinutesAfterMidnight 的使用方法非常直接：在该函数括号内填入的数字就是当前世界午夜过后的分钟数。举例来说，上述代码示例会将游戏内时间设为凌晨 5 点（5 个 60 分钟也就是 5 个小时）。</p>
+<p>通过这个函数，我们可以多次持续地更改游戏内的时间：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">game</span><span class="o">.</span><span class="n">Lighting</span><span class="p">:</span><span class="n">SetMinutesAfterMidnight</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="n">game</span><span class="o">.</span><span class="n">Lighting</span><span class="p">:</span><span class="n">SetMinutesAfterMidnight</span><span class="p">(</span><span class="mi">6</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="n">game</span><span class="o">.</span><span class="n">Lighting</span><span class="p">:</span><span class="n">SetMinutesAfterMidnight</span><span class="p">(</span><span class="mi">7</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="n">game</span><span class="o">.</span><span class="n">Lighting</span><span class="p">:</span><span class="n">SetMinutesAfterMidnight</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="n">game</span><span class="o">.</span><span class="n">Lighting</span><span class="p">:</span><span class="n">SetMinutesAfterMidnight</span><span class="p">(</span><span class="mi">9</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>上述代码会将时间逐步从凌晨 5 点更改至上午 9 点，但若此时进入游戏，玩家会看到游戏时间立刻变为上午 9 点。这又是怎么回事呢？为什么时间没有进行逐步变更呢？</p>
+<p>虽然游戏程序的确按照我们的指令对游戏内时间进行了逐步变更，但其运行速度过快，导致我们无法观测到时间变更的结果。由于游戏在运行脚本时会使用其最快速度，导致绝大多数指令都会在瞬间完成，无法观察其运行过程。为了让玩家真正体验到游戏内时间的流逝，我们需要让脚本在每次进行变更后暂停一段时间。在本示例中，我们将会使用 “wait” 全局函数达成这一目标：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">game</span><span class="o">.</span><span class="n">Lighting</span><span class="p">:</span><span class="n">SetMinutesAfterMidnight</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="n">wait</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">game</span><span class="o">.</span><span class="n">Lighting</span><span class="p">:</span><span class="n">SetMinutesAfterMidnight</span><span class="p">(</span><span class="mi">6</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="n">wait</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">game</span><span class="o">.</span><span class="n">Lighting</span><span class="p">:</span><span class="n">SetMinutesAfterMidnight</span><span class="p">(</span><span class="mi">7</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="n">wait</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">game</span><span class="o">.</span><span class="n">Lighting</span><span class="p">:</span><span class="n">SetMinutesAfterMidnight</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="n">wait</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">game</span><span class="o">.</span><span class="n">Lighting</span><span class="p">:</span><span class="n">SetMinutesAfterMidnight</span><span class="p">(</span><span class="mi">9</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>在脚本中调用 <em>wait</em> 时，指令就会按照我们所指定的时长进行暂停（以秒为单位）。在上述代码中，每次时间变更之后脚本都会暂停 1 秒钟，以便我们观察游戏内时间的流逝。</p>
+</div>
+<div class="section" id="loop">
+<h2>Loop（循环）<a class="headerlink" href="#loop" title="Permalink to this headline">¶</a></h2>
+<p>虽然上述代码可以在短时间内正常运行，但如果我们希望游戏内的时间一直不停流逝，又应该怎么办呢？难道说要写下成千上万行相似的代码吗？在这里，我们可以使用一个名为 Loop（循环）的功能。这个十分简单易行的功能可以替我们完成这项艰巨的任务。</p>
+<p>循环是一段可以不断重复执行的代码，只有在满足特定条件后循环才会结束。有些循环甚至可以无限运行，直到游戏本身结束为止。我们此次将会使用这些无限循环中的一种，名为 while 循环。请看下列示例代码：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">true</span> <span class="n">do</span>
+	<span class="n">number</span> <span class="o">=</span> <span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+	<span class="n">wait</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>脚本的第一行创建了一个名为 <em>number</em> 的变量，并将一个为 0 的值储存在其中。脚本第二行设置了类型为 <em>while</em> 的循环，而其后面的 <em>true</em> 为循环重复执行的条件。由于我们并不像让这个循环结束，此处只需将条件设置为 <em>true</em> 即可让循环无限运行下去（我们将在后面的课程中详细解释循环的停止方法）。<em>do</em> 和 <em>end</em> 之间的代码片段就是我们想要其进行重复的操作了。在本代码示例中，每循环一次，脚本就会对 <strong>number</strong> 变量内储存的值添加 1，而添加后的结果又将被储存进 <em>number</em> 变量中去。之后我们将会输出 <em>number</em> 的值，并命令脚本暂停 1 秒钟。之后循环将会再次运行，为 <em>number</em> 内储存的值再次添加 1，以此类推。</p>
+<p>类似上述示例中能够不停运行下去的循环被我们称为无限循环。虽然无限循环的用途十分广泛，但在使用时需要格外注意：一定要在循环所重复的代码块中添加一个 <em>wait</em> 函数，否则游戏将会崩溃。</p>
+<p>你或许已经注意到，上述示例 while 循环中的代码都向右移动了一段距离。这种格式叫做缩进，是代码编写时的常用规则。缩进并不会影响到代码的运行速度，而是通过改变其格式让代码更为清晰易读。当在循环、条件语句或函数内部存在代码块时，请对其如上述示例般进行缩进，以便你或其他编程者对代码进行阅读。需要进行缩进时请使用此按键</p>
+<p>接下来，就让我们运用 while 循环实现游戏内的日夜更替吧。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">minutesAfterMidnight</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">true</span> <span class="n">do</span>
+	<span class="n">minutesAfterMidnight</span> <span class="o">=</span> <span class="n">minutesAfterMidnight</span> <span class="o">+</span> <span class="mi">1</span>
+	<span class="n">game</span><span class="o">.</span><span class="n">Lighting</span><span class="p">:</span><span class="n">SetMinutesAfterMidnight</span><span class="p">(</span><span class="n">minutesAfterMidnight</span><span class="p">)</span>
+	<span class="n">wait</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>在这段代码中，我们通过变量 <em>minutesAfterMidnight</em> 对游戏时间进行跟踪。每次进行循环，我们都会向 <em>minutesAfterMidnight</em> 中储存的值添加 1，然后通过 <em>SetMinutesAfterMidnight</em> 来更新游戏时间。更新后，我们会让脚本暂停十分之一秒，然后继续下一次循环。向游戏中加入此脚本并让其运行一段时间后，就可以观察到非常明显的日夜更替现象。</p>
+<p>开发者可以通过改变循环中每次向 <em>minutesAfterMidnight</em> 值所添加的数目来更改昼夜交替的速度。添加的值越大，时间过得也就越快。反之亦然。</p>
+</div>
+<div class="section" id="id3">
+<h2>向游戏添加路灯<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>接下来，我们将会向游戏中添加一盏夜晚开启白天关闭的路灯。首先，让我们创建路灯结构：</p>
+<p><img alt="Scripting4Lamp.png" src="https://developer.roblox.com/assets/blt2180282c6a283c91/Scripting4Lamp.png" /></p>
+<p>将希望发光的部件命名为 <em>LightPart</em>。此部件的材质应为 Neon（霓虹），以便其展现发光的视觉效果。同时，我们需要向此部件中插入 <strong>PointLight</strong>， 使其发出光能够照亮周围的部件。开发者可以随意设置 PointLight 的 Color（颜色）、Brightness（亮度）和 Range（距离）等属性，打造出自己想要的效果。</p>
+<p><img alt="Scripting4LampExplorer.png" src="https://developer.roblox.com/assets/blt464003f3751cda4f/Scripting4LampExplorer.png" /></p>
+<p>接下来，我们将对上一部分所演示的脚本进行更改，使路灯在早上 6 点关闭。同时我们也将会提升游戏内日夜更替的速度，以便开发者可以更为快速地对代码进行测试。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lightPart</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">LightPart</span>
+<span class="n">minutesAfterMidnight</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">true</span> <span class="n">do</span>
+	<span class="n">minutesAfterMidnight</span> <span class="o">=</span> <span class="n">minutesAfterMidnight</span> <span class="o">+</span> <span class="mi">10</span>
+	<span class="n">game</span><span class="o">.</span><span class="n">Lighting</span><span class="p">:</span><span class="n">SetMinutesAfterMidnight</span><span class="p">(</span><span class="n">minutesAfterMidnight</span><span class="p">)</span>
+
+	<span class="k">if</span> <span class="n">game</span><span class="o">.</span><span class="n">Lighting</span><span class="p">:</span><span class="n">GetMinutesAfterMidnight</span><span class="p">()</span> <span class="o">==</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">60</span> <span class="n">then</span>
+		<span class="n">lightPart</span><span class="o">.</span><span class="n">Material</span> <span class="o">=</span> <span class="n">Enum</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">Plastic</span>
+		<span class="n">lightPart</span><span class="o">.</span><span class="n">PointLight</span><span class="o">.</span><span class="n">Enabled</span> <span class="o">=</span> <span class="n">false</span>
+	<span class="n">end</span>
+
+	<span class="n">wait</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>首先，让我们为 <strong>LightPart</strong> 创建一个变量。在此次的循环中，我们添加了名为 if 语句的组成部分。if 语句只会在满足特定条件后才会执行指定代码。在本示例中，我们需要查看时间是否为早上 6 点。需要在 Lua 语言中确认两个对象是否相等，则需要使用两个连着的等号（也就是 ==）。位于 <strong>then</strong> 和 <strong>else</strong> 之间的编码只有当 MinutesAfterMidnight（午夜过后的分钟数）为 6 * 60 （也就是 6 个小时）时才会运行。当此时运行代码时，我们将会发现作为路灯灯泡的部分将会变为塑料材质，而其中的 PointLight 也会随之停止发光。</p>
+<p>若希望在白天结束时重新开启路灯，只需再增添一个 If 语句即可：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lightPart</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">LightPart</span>
+<span class="n">minutesAfterMidnight</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">true</span> <span class="n">do</span>
+	<span class="n">minutesAfterMidnight</span> <span class="o">=</span> <span class="n">minutesAfterMidnight</span> <span class="o">+</span> <span class="mi">10</span>
+	<span class="n">game</span><span class="o">.</span><span class="n">Lighting</span><span class="p">:</span><span class="n">SetMinutesAfterMidnight</span><span class="p">(</span><span class="n">minutesAfterMidnight</span><span class="p">)</span>
+	<span class="n">wait</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+	
+	<span class="k">if</span> <span class="n">game</span><span class="o">.</span><span class="n">Lighting</span><span class="p">:</span><span class="n">GetMinutesAfterMidnight</span><span class="p">()</span> <span class="o">==</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">60</span> <span class="n">then</span>		<span class="o">--</span> <span class="n">检查时间是否为早上</span> <span class="mi">6</span> <span class="n">点</span>
+		<span class="n">lightPart</span><span class="o">.</span><span class="n">Material</span> <span class="o">=</span> <span class="n">Enum</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">Plastic</span>
+		<span class="n">lightPart</span><span class="o">.</span><span class="n">PointLight</span><span class="o">.</span><span class="n">Enabled</span> <span class="o">=</span> <span class="n">false</span>
+	<span class="n">end</span>
+	<span class="k">if</span> <span class="n">game</span><span class="o">.</span><span class="n">Lighting</span><span class="p">:</span><span class="n">GetMinutesAfterMidnight</span><span class="p">()</span> <span class="o">==</span> <span class="mi">18</span> <span class="o">*</span> <span class="mi">60</span> <span class="n">then</span>		<span class="o">--</span> <span class="n">检查时间是否为晚上</span> <span class="mi">6</span> <span class="n">点</span>
+		<span class="n">lightPart</span><span class="o">.</span><span class="n">Material</span> <span class="o">=</span> <span class="n">Enum</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">Neon</span>
+		<span class="n">lightPart</span><span class="o">.</span><span class="n">PointLight</span><span class="o">.</span><span class="n">Enabled</span> <span class="o">=</span> <span class="n">true</span>
+	<span class="n">end</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>学习本教程后，开发者即可顺利地为游戏增添日夜更替，也可以构建自动开启关闭的路灯了！</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Day-Night-Cycles-and-Street-Lights">昼夜循环和路灯</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Particle-Emitters.html" class="btn btn-neutral float-right" title="粒子发射器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Smoke-and-Fire-with-Beams.html" class="btn btn-neutral float-left" title="使用光束创建冒烟和起火的效果" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

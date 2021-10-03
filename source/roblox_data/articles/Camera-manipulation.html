@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <link rel="canonical" href="https://developer.roblox.com/articles/Camera-manipulation"/>
+    <link rel="alternate" hreflang="x-default" href="https://developer.roblox.com/articles/Camera-manipulation"/>
+    
+      <link rel="alternate" hreflang="en-us" href="https://developer.roblox.com/en-us/"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="https://developer.roblox.com/zh-cn/"/>
+    
+      
+        
+          <title> 镜头操控</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="zh-cn">
+
+
+
+<meta name="description" content="<p>通过控制镜头创建独特的视图及过场动画等内容</p>">
+
+
+
+<meta name="keywords" content="">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="镜头操控">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>通过控制镜头创建独特的视图及过场动画等内容</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="用户界面">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="false">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="https://browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/code-highlighting.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='https://dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('https://dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="/" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="/">主页</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">教程</h5>
+      <div>
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                <span>Studio 基础知识</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/creating">
+                <span>创建</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/international">
+                <span>国际化</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                <span>声效、光照与特效</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/marketing">
+                <span>市场营销</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/optimization">
+                <span>性能优化</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                <span>所有内容</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/analytics">
+                <span>数据分析</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                <span>用户界面</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/monetization">
+                <span>盈利</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                <span>编码与脚本</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                <span>跨平台发展</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/quick-start">
+                      <span>入门</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/learn-roblox/all-tutorials">
+                      <span>了解 Roblox</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/api-reference">
+                      <span>API 参考</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/resources">
+                      <span>资源</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com">
+                      <span>社区</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="搜索">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">关闭侧边栏</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">教程</h5>
+              <div>
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                      <span>Studio 基础知识</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/creating">
+                      <span>创建</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/international">
+                      <span>国际化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                      <span>声效、光照与特效</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/marketing">
+                      <span>市场营销</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/optimization">
+                      <span>性能优化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                      <span>所有内容</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/analytics">
+                      <span>数据分析</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                      <span>用户界面</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/monetization">
+                      <span>盈利</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                      <span>编码与脚本</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                      <span>跨平台发展</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/user-interface">用户界面</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>镜头操控</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">隐藏内容索引</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">显示内容索引</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <div class="toc-content"><a href="javascript:void(0)">内容索引</a>
+        </div>
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/user-interface">用户界面</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>镜头操控</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">15  分钟</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>除了基本的<code>articles/customizing the camera|镜头自定义</code>之外，开发者还可以通过操控游戏镜头达成如创建特定玩家（角色）视图系统、锁定镜头至世界特定位置及创建独特镜头效果等目的。</p>
+<h2>镜头属性</h2>
+<p>Roblox 的 <code>Camera</code> 有若干 <span class="text-nowrap">内置</span> 属性，其中包括：</p>
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">属性</th>
+            <th scope="col">描述</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><code>Camera/CFrame</code></td>
+            <td scope="row">镜头的 <code>BasePart/CFrame|CFrame</code> 。在放置或移动游戏镜头时常会用到这一属性。</td>
+        </tr>
+        <tr>
+            <td scope="row"><code>Camera/Focus</code></td>
+            <td scope="row">镜头在 3D 空间中所朝向的点。如果把镜头朝向某个特定的方向，则需要更新这一属性，因为部分视觉效果会根据其距离焦点的距离来变更细致程度。</td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><code>Camera/FieldOfView</code></td>
+            <td scope="row">在屏幕上可观察到的游戏世界的范围，其范围在垂直方向的 <span class="text-nowrap">1 至 120</span> 度之间<span class="text-nowrap">(默认值为 70)</span>。</td>
+        </tr>
+    </tbody>
+</table>
+<h2>为镜头编写脚本</h2>
+<p>每个玩家的镜头都处于其本地设备上，因此应当将自定义镜头代码放置至 <span class="text-nowrap"><strong>StarterPlayer</strong> → <strong>StarterPlayerScripts</strong></span> 下的 <code>LocalScript</code> 中。在此类脚本中，可以通过 <code>Workspace/CurrentCamera|CurrentCamera</code> 对象来访问摄像头。</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+		<div class="top-panel">
+			<div class="nav nav-tabs" id="code-nav-1" role="tablist" style="border-bottom: 0px;">
+				
+				<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-1" data-toggle="tab" href="#nav-code-1" role="tab" aria-controls="nav-code-1" aria-selected="true">
+					<span class="txt">获取当前镜头</span>
+				</a>
+				
+				<a class="nav-item nav-link hidden-elem" id="nav-output-tab-1" data-toggle="tab" href="#nav-output-1" role="tab" aria-controls="nav-output-1" aria-selected="false">
+					<span class="txt">预期输出</span>
+				</a>
+				<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+					<span class="txt">展开</span>
+					<i class="expand-collapse-icon inline-icon"></i>
+				</a>
+			</div>
+		</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-1" role="tabpanel" aria-labelledby="nav-code-tab-1">
+			<pre class="prettyprint  linenums:01 lang-lua"><span class='highlighted'>local camera = workspace.CurrentCamera</span></pre>
+		</div>
+		<div class="tab-pane" id="nav-output-1" role="tabpanel" aria-labelledby="nav-output-tab-1">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">复制代码</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">亮色模式</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="亮色模式"></i>
+					<i class="dark-theme-icon icon" caption="深色模式"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3 class="mt-3">越肩视角</h3>
+<p>基本的<span class="text-nowrap">越肩视角</span> 镜头，常见于 <span class="text-nowrap">第三人称</span> 射击游戏当中，可以通过下列脚本来实现。此镜头将会锁定在角色的背后，玩家可通过鼠标来转动视角<span class="text-nowrap">（非方向输入）</span>。</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+		<div class="top-panel">
+			<div class="nav nav-tabs" id="code-nav-2" role="tablist" style="border-bottom: 0px;">
+				
+				<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-2" data-toggle="tab" href="#nav-code-2" role="tab" aria-controls="nav-code-2" aria-selected="true">
+					<span class="txt">越肩镜头视角</span>
+				</a>
+				
+				<a class="nav-item nav-link hidden-elem" id="nav-output-tab-2" data-toggle="tab" href="#nav-output-2" role="tab" aria-controls="nav-output-2" aria-selected="false">
+					<span class="txt">预期输出</span>
+				</a>
+				<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+					<span class="txt">展开</span>
+					<i class="expand-collapse-icon inline-icon"></i>
+				</a>
+			</div>
+		</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-2" role="tabpanel" aria-labelledby="nav-code-tab-2">
+			<pre class="prettyprint  linenums:01 lang-lua">local Players = game:GetService("Players")
+local ContextActionService = game:GetService("ContextActionService")
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+
+local camera = workspace.CurrentCamera
+local cameraOffset = Vector3.new(2, 2, 8)
+local player = Players.LocalPlayer
+
+player.CharacterAdded:Connect(function(character)
+
+	local humanoid = character:WaitForChild("Humanoid")
+	local rootPart = character:WaitForChild("HumanoidRootPart")
+	humanoid.AutoRotate = false
+
+	local cameraAngleX = 0
+	local cameraAngleY = 0
+
+	local function playerInput(actionName, inputState, inputObject)
+		-- 根据输入变化计算镜头/玩家的旋转
+		if inputState == Enum.UserInputState.Change then
+			cameraAngleX = cameraAngleX - inputObject.Delta.X
+			-- 减少垂直方向鼠标/触控灵敏度并夹住垂直轴
+			cameraAngleY = math.clamp(cameraAngleY-inputObject.Delta.Y*0.4, -75, 75)
+			-- 以 X delta 来旋转根部件 CFrame
+			rootPart.CFrame = rootPart.CFrame * CFrame.Angles(0, math.rad(-inputObject.Delta.X), 0)
+		end
+	end
+	ContextActionService:BindAction("PlayerInput", playerInput, false, Enum.UserInputType.MouseMovement, Enum.UserInputType.Touch)
+
+	RunService.RenderStepped:Connect(function()
+		if camera.CameraType ~= Enum.CameraType.Scriptable then
+			camera.CameraType = Enum.CameraType.Scriptable
+		end
+		local startCFrame = CFrame.new((rootPart.CFrame.Position)) * CFrame.Angles(0, math.rad(cameraAngleX), 0) * CFrame.Angles(math.rad(cameraAngleY), 0, 0)
+		local cameraCFrame = startCFrame:ToWorldSpace(CFrame.new(cameraOffset.X, cameraOffset.Y, cameraOffset.Z))
+		local cameraFocus = startCFrame:ToWorldSpace(CFrame.new(cameraOffset.X, cameraOffset.Y, -10000))
+		camera.CFrame = CFrame.new(cameraCFrame.Position, cameraFocus.Position)
+	end)
+end)
+
+local function focusControl(actionName, inputState, inputObject)
+	-- 在输入开始时锁定并隐藏鼠标图标
+	if inputState == Enum.UserInputState.Begin then
+		UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
+		UserInputService.MouseIconEnabled = false
+		ContextActionService:UnbindAction("FocusControl", focusControl, false, Enum.UserInputType.MouseButton1, Enum.UserInputType.Touch, Enum.UserInputType.Focus)
+	end
+end
+ContextActionService:BindAction("FocusControl", focusControl, false, Enum.UserInputType.MouseButton1, Enum.UserInputType.Touch, Enum.UserInputType.Focus)</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-2" role="tabpanel" aria-labelledby="nav-output-tab-2">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">复制代码</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">亮色模式</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="亮色模式"></i>
+					<i class="dark-theme-icon icon" caption="深色模式"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="alert alert-primary mb-4" role="alert">
+注意：可以通过调整第 7 行上的镜头偏移值改变镜头相对于角色的位置。例如，将其放在角色的左肩膀上 <span class="text-nowrap">(<code>-2, 2, 8</code>)</span> 或者是将镜头拉到离玩家更远的位置 <span class="text-nowrap">(<code>2, 2, 15</code>)</span>。
+</div>
+<h3>缩近/拉远</h3>
+<p>使用下面的脚本可以实现一种简单的缩近/拉远镜头系统。本例中使用鼠标中间来进行放大和缩小，使用 <code>ContextActionService</code> 来在移动设备上创建虚拟的缩放按钮。</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+		<div class="top-panel">
+			<div class="nav nav-tabs" id="code-nav-3" role="tablist" style="border-bottom: 0px;">
+				
+				<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-3" data-toggle="tab" href="#nav-code-3" role="tab" aria-controls="nav-code-3" aria-selected="true">
+					<span class="txt">缩近/拉远</span>
+				</a>
+				
+				<a class="nav-item nav-link hidden-elem" id="nav-output-tab-3" data-toggle="tab" href="#nav-output-3" role="tab" aria-controls="nav-output-3" aria-selected="false">
+					<span class="txt">预期输出</span>
+				</a>
+				<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+					<span class="txt">展开</span>
+					<i class="expand-collapse-icon inline-icon"></i>
+				</a>
+			</div>
+		</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-3" role="tabpanel" aria-labelledby="nav-code-tab-3">
+			<pre class="prettyprint  linenums:01 lang-lua">local Players = game:GetService("Players")
+local ContextActionService = game:GetService("ContextActionService")
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+
+local camera = workspace.CurrentCamera
+local player = Players.LocalPlayer
+
+local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out)
+local initialFieldOfView = camera.FieldOfView
+local initialCameraPosition = camera.CFrame
+local isZoomed = false
+local inTween = false
+local target
+
+player.CharacterAdded:Connect(function(character)
+
+	local humanoid = character:WaitForChild("Humanoid")
+	local rootPart = character:WaitForChild("HumanoidRootPart")
+	local initialWalkSpeed = humanoid.WalkSpeed
+	local initialJumpPower = humanoid.JumpPower
+
+	local cameraAngleX = 0
+	local cameraAngleY = 0
+
+	local function moveInput(actionName, inputState, inputObject)
+		if not isZoomed then return end
+		if inputState == Enum.UserInputState.Change then
+			cameraAngleX = math.clamp(cameraAngleX-inputObject.Delta.X*0.4, -90, 90)
+			cameraAngleY = math.clamp(cameraAngleY-inputObject.Delta.Y*0.4, -75, 75)
+			local camPosition = rootPart.CFrame:ToWorldSpace(CFrame.new(0, 2, -2))
+			local camRotation = camPosition * CFrame.Angles(0, math.rad(cameraAngleX), 0) * CFrame.Angles(math.rad(cameraAngleY), 0, 0)
+			target = camRotation:ToWorldSpace(CFrame.new(0, 0, -20))
+			camera.CFrame = CFrame.new(camRotation.Position, target.Position)
+			camera.Focus = CFrame.new(target.Position)
+		end
+	end
+
+	local function scopeInOut(actionName, inputState, inputObject)
+		if inTween == true then return end
+		if (inputObject.UserInputType == Enum.UserInputType.MouseButton3 and (inputState == Enum.UserInputState.Begin or inputState == Enum.UserInputState.End))
+			or (inputObject.UserInputType == Enum.UserInputType.Touch and inputState == Enum.UserInputState.End) then
+			inTween = true
+			-- 缩近
+			if isZoomed == false then
+				initialCameraPosition = camera.CFrame
+				camera.CameraType = Enum.CameraType.Scriptable
+				UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
+				UserInputService.MouseIconEnabled = false
+				-- 根据镜头方向来旋转根部件 CFrame
+				local faceToward = camera.CFrame:Lerp(rootPart.CFrame, 1.1)
+				rootPart.CFrame = CFrame.new(rootPart.CFrame.Position, Vector3.new(faceToward.Position.X, rootPart.Position.Y, faceToward.Position.Z))
+				target = rootPart.CFrame:ToWorldSpace(CFrame.new(0, 2, -20))
+				cameraAngleX, cameraAngleY = 0, 0
+				humanoid.WalkSpeed = 0
+				humanoid.JumpPower = 0
+				wait(0.05)
+				local camPosition = rootPart.CFrame:ToWorldSpace(CFrame.new(0, 2, -2))
+				camera.CFrame = CFrame.new(camera.CFrame.Position, target.Position)
+				local tween = TweenService:Create(camera, tweenInfo, {CFrame=camPosition, FieldOfView=12})
+				tween.Completed:Connect(function()
+					ContextActionService:BindAction("MoveInput", moveInput, false, Enum.UserInputType.MouseMovement, Enum.UserInputType.Touch)
+					ContextActionService:SetTitle("ScopeInOut", "–")
+					camera.Focus = CFrame.new(target.Position)
+					isZoomed = true
+					inTween = false
+				end)
+				tween:Play()
+			-- 拉远
+			elseif isZoomed == true then
+				ContextActionService:UnbindAction("MoveInput", moveInput, false, Enum.UserInputType.MouseMovement, Enum.UserInputType.Touch)
+				UserInputService.MouseBehavior = Enum.MouseBehavior.Default
+				UserInputService.MouseIconEnabled = true
+				local tween = TweenService:Create(camera, tweenInfo, {CFrame=initialCameraPosition, FieldOfView=initialFieldOfView})
+				tween.Completed:Connect(function()
+					ContextActionService:SetTitle("ScopeInOut", "+")
+					camera.CameraType = Enum.CameraType.Custom
+					humanoid.WalkSpeed = initialWalkSpeed
+					humanoid.JumpPower = initialJumpPower
+					isZoomed = false
+					inTween = false
+				end)
+				tween:Play()
+			end	
+		end
+	end
+	ContextActionService:BindAction("ScopeInOut", scopeInOut, true, Enum.UserInputType.MouseButton3)
+	ContextActionService:SetPosition("ScopeInOut", UDim2.new(0.65, 0, 0.1, 0))
+	ContextActionService:SetTitle("ScopeInOut", "+")
+end)</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-3" role="tabpanel" aria-labelledby="nav-output-tab-3">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">复制代码</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">亮色模式</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="亮色模式"></i>
+					<i class="dark-theme-icon icon" caption="深色模式"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="alert alert-primary mb-4" role="alert">
+缩近与拉远的速度可以通过第&nbsp;9 行上 <code>TweenInfo.new()</code> 的第一个参数进行调整，并且作用域缩放力可以使用第&nbsp;60 行上的 <code>FieldOfView</code> 值（介于 10 和 20 之间最佳）进行调整。
+</div>
+<h3>绕着对象旋转</h3>
+<p>若要让镜头全部或部分围绕镜头旋转，请尝试使用以下脚本。该脚本具有可调整镜头偏移、旋转时间、重复计数、过渡类型等功能。</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+		<div class="top-panel">
+			<div class="nav nav-tabs" id="code-nav-4" role="tablist" style="border-bottom: 0px;">
+				
+				<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-4" data-toggle="tab" href="#nav-code-4" role="tab" aria-controls="nav-code-4" aria-selected="true">
+					<span class="txt">绕对象旋转</span>
+				</a>
+				
+				<a class="nav-item nav-link hidden-elem" id="nav-output-tab-4" data-toggle="tab" href="#nav-output-4" role="tab" aria-controls="nav-output-4" aria-selected="false">
+					<span class="txt">预期输出</span>
+				</a>
+				<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+					<span class="txt">展开</span>
+					<i class="expand-collapse-icon inline-icon"></i>
+				</a>
+			</div>
+		</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-4" role="tabpanel" aria-labelledby="nav-code-tab-4">
+			<pre class="prettyprint  linenums:01 lang-lua">local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
+
+local target = workspace.Part  -- 想要绕着旋转的对象
+local camera = workspace.CurrentCamera
+camera.CameraType = Enum.CameraType.Scriptable
+camera.Focus = target.CFrame
+local rotationAngle = Instance.new("NumberValue")
+local tweenComplete = false
+
+local cameraOffset = Vector3.new(0, 10, 12)
+local rotationTime = 15  -- 时间，以秒计
+local rotationDegrees = 360
+local rotationRepeatCount = -1  -- 使用 -1 以无限次重复
+local lookAtTarget = true  -- 镜头是否倾斜以直接指向目标
+
+local function updateCamera()
+	local rotatedCFrame = CFrame.Angles(0, math.rad(rotationAngle.Value), 0)
+	camera.CFrame = rotatedCFrame:ToWorldSpace(CFrame.new(cameraOffset))
+	if lookAtTarget == true then
+		camera.CFrame = CFrame.new(camera.CFrame.Position, target.Position)
+	end
+end
+
+-- 设置并开始旋转过渡
+local tweenInfo = TweenInfo.new(rotationTime, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, rotationRepeatCount)
+local tween = TweenService:Create(rotationAngle, tweenInfo, {Value=rotationDegrees})
+tween.Completed:Connect(function()
+	tweenComplete = true
+end)
+tween:Play()
+
+-- 在过渡运行时更新镜头位置
+RunService.RenderStepped:Connect(function()
+	if tweenComplete == false then
+		updateCamera()
+	end
+end)</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-4" role="tabpanel" aria-labelledby="nav-output-tab-4">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">复制代码</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">亮色模式</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="亮色模式"></i>
+					<i class="dark-theme-icon icon" caption="深色模式"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="alert alert-primary mb-4" role="alert">
+调整第 11 至 15 行上的变量可以控制脚本的行为表现。举例来说，如果镜头位于目标对象上方比较高的位置，如 <code>cameraOffset</code> 矢量值为 <span class="text-nowrap"><code>0, 30, 12</code></span>，则 <code>lookAtTarget</code> 设置控制是否向下倾斜镜头来直接观察对象。
+</div>
+<h3>横向卷轴镜头</h3>
+<p>通过下列脚本可以实现常用的<span class="text-nowrap">横向卷轴</span>镜头系统。此示例的镜头锁定在了 <strong>X</strong> 面上，此外 <strong>Z</strong> 偏移可以根据玩家调整。</p>
+<div class="alert alert-warning" role="alert">
+若想确保该脚本正常运行， <b>必须</b> 通过将 <b>DevTouchMovementMode</b> 设置为 <b>Thumbstick</b> 来在移动设备上启用传统的拇指摇杆控制模式。详情请参阅<span class="text-nowrap"><code>articles/customizing game controls|自定义游戏控制</code></span> 一文。
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+		<div class="top-panel">
+			<div class="nav nav-tabs" id="code-nav-5" role="tablist" style="border-bottom: 0px;">
+				
+				<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-5" data-toggle="tab" href="#nav-code-5" role="tab" aria-controls="nav-code-5" aria-selected="true">
+					<span class="txt">横向卷轴镜头系统</span>
+				</a>
+				
+				<a class="nav-item nav-link hidden-elem" id="nav-output-tab-5" data-toggle="tab" href="#nav-output-5" role="tab" aria-controls="nav-output-5" aria-selected="false">
+					<span class="txt">预期输出</span>
+				</a>
+				<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+					<span class="txt">展开</span>
+					<i class="expand-collapse-icon inline-icon"></i>
+				</a>
+			</div>
+		</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-5" role="tabpanel" aria-labelledby="nav-code-tab-5">
+			<pre class="prettyprint  linenums:01 lang-lua">local Players = game:GetService("Players")
+local ContextActionService = game:GetService("ContextActionService")
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+
+local cameraChase = {left=10, right=10, up=5, down=0}
+local cameraDistance = 200
+
+local camera = workspace.CurrentCamera
+camera.CameraType = Enum.CameraType.Scriptable
+camera.FieldOfView = 10
+
+local player = Players.LocalPlayer
+local leftValue, rightValue, initialTouchPos, jumpTouchInput, thumbstickMinPush, cameraPosZ = 0, 0, 0, nil, 15, 0
+local humanoid, rootPart
+
+local function handleMovement(actionName, inputState)
+	if inputState == Enum.UserInputState.Begin then
+		if actionName == "Left" then
+			leftValue, rightValue = 1, 0
+		elseif actionName == "Right" then
+			rightValue, leftValue = 1, 0
+		end
+	elseif inputState == Enum.UserInputState.End then
+		if actionName == "Left" or actionName == "Stop" then
+			leftValue = 0
+		end
+		if actionName == "Right" or actionName == "Stop" then
+			rightValue = 0
+		end
+	end
+end
+
+local function onMove()
+	if humanoid then
+		local moveDirection = rightValue - leftValue
+		humanoid:Move(Vector3.new(moveDirection, 0, 0), false)
+	end
+end
+
+local function updateCamera()
+	if camera.CameraType ~= Enum.CameraType.Scriptable then
+		camera.CameraType = Enum.CameraType.Scriptable
+	end
+
+	if rootPart then
+		-- 负责处理水平方向镜头追踪
+		if rootPart.Position.X < camera.CFrame.Position.X - cameraChase["left"] then
+			camera.CFrame = CFrame.new(Vector3.new(rootPart.Position.X+cameraChase["left"], camera.CFrame.Position.Y, cameraPosZ))
+		elseif rootPart.Position.X > camera.CFrame.Position.X + cameraChase["right"] then
+			camera.CFrame = CFrame.new(Vector3.new(rootPart.Position.X-cameraChase["right"], camera.CFrame.Position.Y, cameraPosZ))
+		end
+		-- 负责处理垂直方向镜头追踪
+		if rootPart.Position.Y < camera.CFrame.Position.Y - cameraChase["down"] then
+			camera.CFrame = CFrame.new(Vector3.new(camera.CFrame.Position.X, rootPart.Position.Y+cameraChase["down"], cameraPosZ))
+		elseif rootPart.Position.Y > camera.CFrame.Position.Y + cameraChase["up"] then
+			camera.CFrame = CFrame.new(Vector3.new(camera.CFrame.Position.X, rootPart.Position.Y-cameraChase["up"], cameraPosZ))
+		end
+	end
+end
+
+local function handleTouchInput(input, gameProcessed)
+	if input.UserInputState == Enum.UserInputState.Begin and gameProcessed == true then
+		-- 如果触控起始于 jump 按钮，则追踪该按钮
+		if humanoid.Jump == true then
+			jumpTouchInput = input
+		-- 或者触控起始于拇指摇杆，设置初始位置
+		else
+			initialTouchPos = input.Position.X
+		end
+	elseif input.UserInputState == Enum.UserInputState.Change and gameProcessed == true then
+		-- 在玩家移动方面忽略起始于 jump 按钮的触控操作
+		if jumpTouchInput == input then return end
+		-- 只有当拇指摇杆被推动一定程度之后才会处理移动动作
+		if input.Position.X < initialTouchPos - thumbstickMinPush then
+			handleMovement("Left", Enum.UserInputState.Begin)
+		elseif input.Position.X > initialTouchPos + thumbstickMinPush then
+			handleMovement("Right", Enum.UserInputState.Begin)
+		end
+	elseif input.UserInputState == Enum.UserInputState.End then
+		-- 如果触控操作在 jump 按钮上结束，停止追踪触控
+		if jumpTouchInput == input then
+			jumpTouchInput = nil
+		-- 或者触控操作在拇指摇杆上结束，停止所有移动动作
+		else
+			handleMovement("Stop", input.UserInputState)
+			initialTouchPos = 0
+		end
+	end
+end
+
+player.CharacterAdded:Connect(function(character)
+
+	humanoid = player.Character:WaitForChild("Humanoid")
+	rootPart = player.Character:WaitForChild("HumanoidRootPart")
+	-- 设置初始镜头位置
+	camera.CFrame = CFrame.new(Vector3.new(rootPart.Position.X, rootPart.Position.Y, rootPart.Position.Z+cameraDistance))
+	cameraPosZ = camera.CFrame.Position.Z
+	-- 如果触控启用，则连接触控处理函数
+	if UserInputService.TouchEnabled == true then
+		UserInputService.TouchStarted:Connect(handleTouchInput)
+		UserInputService.TouchMoved:Connect(handleTouchInput)
+		UserInputService.TouchEnded:Connect(handleTouchInput)
+	end
+end)
+
+RunService:BindToRenderStep("Input", Enum.RenderPriority.Input.Value, onMove)
+RunService:BindToRenderStep("Camera", Enum.RenderPriority.Camera.Value, updateCamera)
+ContextActionService:BindAction("Left", handleMovement, false, "a", Enum.KeyCode.Left)
+ContextActionService:BindAction("Right", handleMovement, false, "d", Enum.KeyCode.Right)</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-5" role="tabpanel" aria-labelledby="nav-output-tab-5">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">复制代码</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">亮色模式</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="亮色模式"></i>
+					<i class="dark-theme-icon icon" caption="深色模式"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="alert alert-primary mb-4" role="alert">
+第&nbsp;6 行上的 <code>cameraChase</code> 值控制在镜头开始追随玩家之前，玩家可以移离“屏幕中心”的格数。在 <code>cameraDistance</code> 值（第&nbsp;7 行）的基础上每个方向值都可以调整，以便适配您的游戏设计，达到心中最好的观感效果。</div>
+</div>
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">相关参考文章</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="/articles/customizing-the-camera"><span class="related-article-img" style="background-image: url();"> </span></a>
+          <h3 data-toc-skip><a href="/articles/customizing-the-camera">Customizing the Camera</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>此网站如何使用 Cookie</h1>
+        <div class="privacy-content">
+          <p>此平台使用 Cookie 为您提供更好的体验、对内容进行个性化、提供社交媒体功能和分析网站流量。如需详细信息（包括有关如何在此平台上防止使用 Cookie 或对其进行管理的信息），请参阅我们的<a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私和 Cookie 政策</a>。</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">确定</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">你即将离开 Roblox 网站</div>
+        <p>请按下继续按钮前往： <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="" class="btn secondary-btn" data-dismiss="modal">返回</a>
+        <a href="" class="btn primary-btn continue-link" target="_blank">继续</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com" target="_self" class="footer-logo ptxl mbl">
+              <img src="https://dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2019 Roblox Corporation. 保留所有权利。</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>公司</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">关于 Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">招贤纳士</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">技术</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">服务条款</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私政策</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">家长</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>开发人员</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="/articles/Creating-Your-First-Game" target="_self">入门</a>
+                  </li>
+                
+                  <li>
+                    <a href="/learn-roblox/all-tutorials" target="_self">了解</a>
+                  </li>
+                
+                  <li>
+                    <a href="/api-reference" target="_self">API 参考</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com" target="_blank">社区</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">开发人员公告</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">搜索</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input"
+                        placeholder="搜索">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" href="#all" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            所有结果
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" href="#api-doc" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API 文档
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" href="#tutorial" role="tab"
+                            aria-selected="false" data-name="articles">
+                            教程
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" href="#recipe" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            代码参考
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" href="#video" role="tab"
+                            aria-selected="false" data-name="videos">
+                            视频
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+</html>

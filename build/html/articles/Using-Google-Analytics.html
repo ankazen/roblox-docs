@@ -1,0 +1,371 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>在 Roblox 中使用 Google Analytics &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="使用 PlayFab 分析" href="using-the-analytics-service.html" />
+    <link rel="prev" title="衡量参与度" href="measuring-engagement.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction-to-analytics.html">数据分析简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="measuring-engagement.html">衡量参与度</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">在 Roblox 中使用 Google Analytics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id">获取跟踪 ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">使用跟踪 ID</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#http">启用 HTTP 请求</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">跟踪场景</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#google-analytics">Google Analytics 基础知识</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">实时事件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">历史行为</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">报告自定义事件</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="using-the-analytics-service.html">使用 PlayFab 分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Developer-Stats.html">分析游戏数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="designing-for-engagement.html">提升游戏参与度</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/analytics.html">数据分析</a> &raquo;</li>
+        
+      <li>在 Roblox 中使用 Google Analytics</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Using-Google-Analytics.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="roblox-google-analytics">
+<h1>在 Roblox 中使用 Google Analytics<a class="headerlink" href="#roblox-google-analytics" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>推出后</em></p>
+<p>游戏发布后，Roblox 游戏开发者的工作并未停止。测试过程中没有出现的错误有可能出现，玩家会以你无法想象的方式就游戏设计作出回应，你还需要逐步为游戏添加新功能。</p>
+<p>在游戏推出后进行监控的一种方式是借助<code class="docutils literal notranslate"><span class="pre">articles/introduction</span> <span class="pre">to</span> <span class="pre">analytics|分析</span></code>，你可以使用 <a class="reference external" href="https://analytics.google.com/">Google Analytics</a> 等工具实现。</p>
+<div class="section" id="id">
+<h2>获取跟踪 ID<a class="headerlink" href="#id" title="Permalink to this headline">¶</a></h2>
+<p>要使用 Google Analytics 分析游戏的各个方面，你需要<strong>跟踪 ID</strong>，这是一串唯一编号，可在游戏的所有场景间共享。如有需要，你稍后可为其他游戏生成其他跟踪 ID。</p>
+<p><a class="reference external" href="https://analytics.google.com/">注册</a> Google Analytics 帐户后，请提供以下信息：</p>
+<p>项目 指导原则</p>
+<p><strong>帐户类型</strong>
+请选择<strong>网站</strong>作为跟踪帐户类型（即使是跨平台 Roblox 游戏，也可通过这种帐户类型来分析数据）。</p>
+<p><strong>帐户名称</strong>
+由于一个帐户可以为多个游戏保留多个跟踪 ID，因此请输入非特定名称，如“Roblox Games”。</p>
+<p><strong>网站名称</strong>
+也称为<strong>属性名称</strong>，一般可描述你计划分析的内容。如果你最有兴趣跟踪游戏中的一个场景，则可以使用特定场景名称，如“游戏大厅”或“赛道 1”。如需分析多个场景，最好使用游戏标题。请注意，你稍后可以更改此名称和添加其他属性。</p>
+<p><strong>网站 URL</strong>
+请输入任何有效的网址（不会跟踪网站本身）。</p>
+<p>其他信息与 Roblox 使用 Google Analytics 的方式无关，所以请视需要提供其他详细信息。</p>
+<p>准备好后，请单击 <strong>Get Tracking ID（获取跟踪 ID）</strong>。此操作将打开包含以下格式的新跟踪 ID 的页面：</p>
+<p>UA-#########-#</p>
+</div>
+<div class="section" id="id1">
+<h2>使用跟踪 ID<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="http">
+<h3>启用 HTTP 请求<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h3>
+<p>要在 Roblox 游戏中使用 Google Analytics，必须启用 <code class="docutils literal notranslate"><span class="pre">HttpService</span></code>：</p>
+<ol class="simple">
+<li><p>在 Roblox Studio 中，单击 <strong>Home</strong> （主页）选项卡中的 <strong>Game Settings（游戏设置）</strong>。
+<img alt="https://developer.roblox.com/assets/bltd6af44e38b951d0a/Game-Settings.png" src="https://developer.roblox.com/assets/bltd6af44e38b951d0a/Game-Settings.png" /></p></li>
+<li><p>在弹出窗口的 <strong>Options</strong> （选项）选项卡中，启用 **Allow HTTP Requests（允许 HTTP 请求）**选项。请注意单击 <strong>Save</strong> （保存）以存储偏好设置。</p></li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h3>跟踪场景<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>要开始跟踪场景中的操作和事件，请执行以下简单步骤：</p>
+<ol class="simple">
+<li><p>在 <strong>ServerScriptService</strong> 中创建新服务器 <code class="docutils literal notranslate"><span class="pre">Script</span></code>。</p></li>
+<li><p>将以下行粘贴至脚本。</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">GA</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="mi">153590792</span><span class="p">)</span>
+    <span class="n">GA</span><span class="o">.</span><span class="n">Init</span><span class="p">(</span><span class="s2">&quot;UA-#########-#&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>使用之前获取的跟踪 ID 替换 <code class="docutils literal notranslate"><span class="pre">UA-#########-#</span></code>。操作完成；现在，Google Analytics 即可跟踪你的场景！</p></li>
+</ol>
+<p>若要使用更精细的方法，则可以将 <code class="docutils literal notranslate"><span class="pre">config</span></code> 表传递至 <code class="docutils literal notranslate"><span class="pre">GA.Init()</span></code> 函数：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    	<span class="o">--</span> <span class="n">Report</span> <span class="ow">or</span> <span class="n">omit</span> <span class="n">script</span> <span class="n">errors</span> <span class="p">(</span><span class="nb">set</span> <span class="k">as</span> <span class="s1">&#39;true&#39;</span> <span class="n">to</span> <span class="n">omit</span><span class="p">)</span>
+    	<span class="n">DoNotReportScriptErrors</span> <span class="o">=</span> <span class="n">false</span><span class="p">,</span>
+    	<span class="o">--</span> <span class="n">Report</span> <span class="ow">or</span> <span class="n">omit</span> <span class="n">a</span> <span class="s1">&#39;ServerStartup&#39;</span> <span class="n">action</span> <span class="n">when</span> <span class="n">a</span> <span class="n">server</span> <span class="n">starts</span> <span class="p">(</span><span class="nb">set</span> <span class="k">as</span> <span class="s1">&#39;true&#39;</span> <span class="n">to</span> <span class="n">omit</span><span class="p">)</span>
+    	<span class="n">DoNotTrackServerStart</span> <span class="o">=</span> <span class="n">false</span><span class="p">,</span>
+    	<span class="o">--</span> <span class="n">Report</span> <span class="ow">or</span> <span class="n">omit</span> <span class="n">player</span> <span class="n">visits</span> <span class="n">under</span> <span class="n">the</span> <span class="s1">&#39;Visit&#39;</span> <span class="n">action</span> <span class="p">(</span><span class="nb">set</span> <span class="k">as</span> <span class="s1">&#39;true&#39;</span> <span class="n">to</span> <span class="n">omit</span><span class="p">)</span>
+    	<span class="n">DoNotTrackVisits</span> <span class="o">=</span> <span class="n">false</span>
+    <span class="p">}</span>
+    
+    <span class="n">local</span> <span class="n">GA</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="mi">153590792</span><span class="p">)</span>
+    <span class="n">GA</span><span class="o">.</span><span class="n">Init</span><span class="p">(</span><span class="s2">&quot;UA-#########-#&quot;</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="google-analytics">
+<h2>Google Analytics 基础知识<a class="headerlink" href="#google-analytics" title="Permalink to this headline">¶</a></h2>
+<p>本文并未概述 Google Analytics 的详细用法（请参考平台内帮助），而是提供有助于你入门的指导原则。</p>
+<div class="section" id="id3">
+<h3>实时事件<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>为某场景设置了跟踪 ID 后，即可轻松查看实时统计数据。</p>
+<ol class="simple">
+<li><p>将游戏发布至 Roblox 以确保将跟踪 ID 添加至新 <code class="docutils literal notranslate"><span class="pre">Script</span></code>。</p></li>
+<li><p>开始在 Roblox Studio 或 Roblox 应用程序中体验所跟踪的场景。</p></li>
+<li><p>在 Google Analytics 页面，展开左侧的 **Real-Time（实时）**菜单。</p></li>
+<li><p>单击 **Events（事件）**子项可出现一个图表，其中展示了游戏中发生的事件。如果你没有通过脚本中的 <code class="docutils literal notranslate"><span class="pre">config</span></code> 表禁用它们，则可以看到类似 ServerStartup 和 Visit 等新事件。如果游戏中存在任何 Lua 错误，则错误发生时也会在图表中显示。</p></li>
+</ol>
+</div>
+<div class="section" id="id4">
+<h3>历史行为<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>你也可以单击 <strong>Behavior（行为）</strong> → **Events（事件）**以查看事件历史记录。此操作可显示一段时间内所有跟踪的事件，并提供了多种筛选数据和分析趋势的方法。例如，下方的 **Overview（概览）**页面显示了事件总数以及相关数据。单击 **Event Action（事件操作）**即可显示 ServerStartup 和 Visit 等操作，每项均可展开以显示详细信息。</p>
+<p><img alt="https://developer.roblox.com/assets/blte54c4406db8d370d/Google-Analytics-Screen.png" src="https://developer.roblox.com/assets/blte54c4406db8d370d/Google-Analytics-Screen.png" /></p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>报告自定义事件<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Roblox 与 Google Analytics 集成后，你可以报告自定义游戏内事件，从玩家发现秘密藏宝室到各物品/对象的使用频率对比都包含在内。</p>
+<p>要向 Google Analytics 报告自定义事件，请使用已在上方 <code class="docutils literal notranslate"><span class="pre">Script</span></code> 示例中初始化的 <code class="docutils literal notranslate"><span class="pre">GA</span></code> 模块的 <code class="docutils literal notranslate"><span class="pre">ReportEvent()</span></code> 函数：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">GA</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="mi">153590792</span><span class="p">)</span>
+    <span class="n">GA</span><span class="o">.</span><span class="n">Init</span><span class="p">(</span><span class="s2">&quot;UA-#########-#&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">category</span> <span class="o">=</span> <span class="s2">&quot;PlaceId-&quot;</span> <span class="o">..</span> <span class="n">game</span><span class="o">.</span><span class="n">PlaceId</span>
+    <span class="n">local</span> <span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;Category-Action&quot;</span>
+    <span class="n">local</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span>
+    <span class="n">local</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span>
+    
+    <span class="n">GA</span><span class="o">.</span><span class="n">ReportEvent</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>如前所述，<code class="docutils literal notranslate"><span class="pre">GA.ReportEvent()</span></code> 调用需要四个参数：</p>
+<p>参数 说明</p>
+<p><code class="docutils literal notranslate"><span class="pre">category</span></code>
+默认值为 <code class="docutils literal notranslate"><span class="pre">&quot;PlaceId-&quot;</span> <span class="pre">..</span> <span class="pre">game.PlaceId</span></code>，可生成类似 PlaceId-5432167890 的字符串，但你可以指定更具描述性的类别，如<code class="docutils literal notranslate"><span class="pre">“GameItemActions”</span></code>。</p>
+<p><code class="docutils literal notranslate"><span class="pre">action</span></code>
+此值在 Google Analytics 中显示为 <strong>Event Action（事件操作）</strong>，如上方屏幕快照中的 Visit 部分所示。这可用于识别与类别相关的特定操作，例如，<code class="docutils literal notranslate"><span class="pre">&quot;GameItemActions”</span></code> 的 <code class="docutils literal notranslate"><span class="pre">action</span></code> 值可能 是<code class="docutils literal notranslate"><span class="pre">&quot;Equipped”</span></code>。</p>
+<p><code class="docutils literal notranslate"><span class="pre">label</span></code>
+此值在 Google Analytics 中显示为 <strong>Event Label（事件标签）</strong>，可用于定义有关类别或操作的特定详细信息。例如，<code class="docutils literal notranslate"><span class="pre">&quot;GameItemActions”</span></code> → <code class="docutils literal notranslate"><span class="pre">&quot;Equipped”</span></code> 可能以实际装配的物品标注，如 <code class="docutils literal notranslate"><span class="pre">&quot;Ice</span> <span class="pre">Wand”</span></code>。</p>
+<p><code class="docutils literal notranslate"><span class="pre">value</span></code>
+你可以使用此参数定义与事件相关的特定值。例如，你可以记录<strong>装配</strong>了某物品的玩家实际<strong>使用</strong>该物品的次数，然后以 <code class="docutils literal notranslate"><span class="pre">action</span></code> 值 <code class="docutils literal notranslate"><span class="pre">&quot;TimesUsed”</span></code> 将该值报告给 Google Analytics，从而分析玩家是否喜欢使用该物品。</p>
+<hr class="docutils" />
+<p>如你所见，你可以使用分析功能微调游戏并提升玩家体验。掌握了如何将 Google Analytics 与游戏相关联后，你还可以通过<code class="docutils literal notranslate"><span class="pre">articles/measuring</span> <span class="pre">engagement|衡量参与度</span></code>和<code class="docutils literal notranslate"><span class="pre">articles/designing</span> <span class="pre">for</span> <span class="pre">engagement|设计参与度</span></code>指南探索分析的基本概念。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Using-Google-Analytics">在 Roblox 中使用 Google Analytics</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="using-the-analytics-service.html" class="btn btn-neutral float-right" title="使用 PlayFab 分析" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="measuring-engagement.html" class="btn btn-neutral float-left" title="衡量参与度" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

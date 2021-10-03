@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>创建自定义传送屏幕 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="创建滚动框架 GUI" href="Creating-a-Scrolling-Frame-GUI.html" />
+    <link rel="prev" title="Chat Modules" href="Chat-Modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-GUIs.html">GUI 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI-Animations.html">GUI 动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fundamentals-of-Scripting-with-GUIs.html">GUI 脚本简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Chat-System.html">Lua 聊天系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Interactive-Surface-GUI.html">交互式表面 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-GUI-Buttons.html">创建 GUI 按钮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Radial-Menu.html">创建摇杆快速菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Grid-Menu.html">创建栅格菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using-Images-in-GUIs.html">在 GUI 中使用图像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text-and-Chat-Filtering.html">文本与聊天过滤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Camera-manipulation.html">镜头操控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mouse-Icon-Appearance.html">鼠标指针控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animating-text.html">设置文本动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar-emotes.html">Avatar Emotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chat-Modules.html">Chat Modules</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">创建自定义传送屏幕</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gui">如何禁用默认 GUI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">显示自定义 GUI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">传送后显示自定义 GUI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">简单示例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Scrolling-Frame-GUI.html">创建滚动框架 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-the-camera.html">Customizing the Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Disabling-Parts-of-Game-Interface.html">禁用游戏界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-bindings.html">Roblox Input Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selection-Boxes.html">选择框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Three-Quarters-Camera-View.html">45 度镜头视角</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Unit-Frame.html">单元框：制作生命槽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewportframe-gui.html">ViewportFrame GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/user-interface.html">用户界面</a> &raquo;</li>
+        
+      <li>创建自定义传送屏幕</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Creating-a-Custom-Teleport-GUI.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>创建自定义传送屏幕<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>当玩家在实例之间进行传送时，Roblox 会提供一条消息。如果需要，可以禁用此 GUI 以便使用自定义屏幕。添加自己的自定义 GUI 可以使游戏中各个场景之间的过渡看起来不那么明显，从而为玩家提供更流畅的体验。</p>
+<div class="section" id="gui">
+<h2>如何禁用默认 GUI<a class="headerlink" href="#gui" title="Permalink to this headline">¶</a></h2>
+<p>禁用默认消息非常简单。在 <code class="docutils literal notranslate"><span class="pre">Script</span></code> 或 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 中将 <code class="docutils literal notranslate"><span class="pre">TeleportService/CustomizedTeleportUI|CustomizedTeleportUI</span></code> 设置为 true 即可：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;TeleportService&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">CustomizedTeleportUI</span> <span class="o">=</span> <span class="n">true</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>显示自定义 GUI<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在传送玩家时显示 GUI 也非常简单。只需将想要的 GUI 移动到玩家的 <code class="docutils literal notranslate"><span class="pre">PlayerGui</span></code> 中，或者事先将那里的 GUI 隐藏，然后使用 <code class="docutils literal notranslate"><span class="pre">GuiObject/Visible</span></code> 将其显示出来即可。你可以随意加入任何你想要的效果。例如，单击传送按钮时，此代码将在纯黑屏幕中淡入：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">button</span><span class="o">.</span><span class="n">MouseButton1Click</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+	<span class="o">--</span> <span class="n">触发</span> <span class="n">RemoteEvent</span>
+	<span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;TeleportService&quot;</span><span class="p">):</span><span class="n">Teleport</span><span class="p">(</span><span class="n">otherPlaceId</span><span class="p">)</span>
+	
+	<span class="o">--</span> <span class="n">将读取页面可视化</span>
+	<span class="n">loadingScreen</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">true</span>
+	
+	<span class="o">--</span> <span class="n">淡入屏幕</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-.</span><span class="mi">05</span> <span class="n">do</span>
+		<span class="n">loadingScreen</span><span class="o">.</span><span class="n">BackgroundTransparency</span> <span class="o">=</span> <span class="n">i</span>
+		<span class="n">wait</span><span class="p">()</span>
+	<span class="n">end</span>
+	<span class="n">loadingScreen</span><span class="o">.</span><span class="n">BackgroundTransparency</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>传送后显示自定义 GUI<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>你可以通过将 LocalScripts 和 GUI 元素放在 ReplicatedFirst 中来创建自定义加载屏幕，如 <code class="docutils literal notranslate"><span class="pre">Articles/自定义加载屏幕</span></code> 中所示。但是，当游戏通过传送加载时，会出现一个小窗口，其中会显示默认的 Roblox 加载屏幕。为了填补这一空白，TeleportService 中的所有传送功能都允许使用 <code class="docutils literal notranslate"><span class="pre">ScreenGui</span></code> 作为可选参数，该参数将在传送后立即显示。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">loadingScreen</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="o">**</span><span class="n">ScreenGui</span><span class="o">**</span><span class="p">,</span> <span class="n">player</span><span class="o">.</span><span class="n">PlayerGui</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">loadingScreenFrame</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="o">**</span><span class="n">Frame</span><span class="o">**</span><span class="p">,</span> <span class="n">loadingScreen</span><span class="p">)</span>
+<span class="n">loadingScreenFrame</span><span class="o">.</span><span class="n">Name</span> <span class="o">=</span> <span class="o">**</span><span class="n">loadingScreenFrame</span><span class="o">**</span>
+<span class="n">loadingScreenFrame</span><span class="o">.</span><span class="n">BackgroundColor3</span> <span class="o">=</span> <span class="n">Color3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">loadingScreenFrame</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">loadingScreenFrame</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">loadingScreenFrame</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">false</span>
+
+<span class="n">TeleportService</span><span class="p">:</span><span class="n">Teleport</span><span class="p">(</span><span class="n">otherPlaceId</span><span class="p">,</span> <span class="n">player</span><span class="p">,</span> <span class="n">nil</span><span class="p">,</span> <span class="n">loadingScreen</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>上面的代码将创建一个黑屏，然后将其与传送调用一起传递。当新游戏加载时，将自动为该玩家显示黑屏。</p>
+</div>
+<div class="section" id="id4">
+<h2>简单示例<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>尽管没有有关如何管理你的传送的指导原则，但建议采取以下几个措施。如果要显示全屏图像，则可能需要隐藏核心 GUI。根据你的游戏，你可能还想使用诸如 <code class="docutils literal notranslate"><span class="pre">ForceField</span></code> 之类的方法来保护玩家免受伤害。最后，无论你是否使用自定义 GUI 进行传送，请做好准备处理无法传送的情况！这种情况不会经常发生，但是一定要小心。</p>
+<p>Creating Custom Teleport GUI Code Sample 1 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">LocalScript</span> <span class="k">for</span> <span class="n">Lobby</span> <span class="n">place</span>
+
+<span class="o">--</span> <span class="n">Declare</span> <span class="n">local</span> <span class="n">variables</span> <span class="k">for</span> <span class="n">Roblox</span> <span class="n">Services</span>
+<span class="n">local</span> <span class="n">TeleportService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s1">&#39;TeleportService&#39;</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">UserInputService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s1">&#39;UserInputService&#39;</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">StarterGui</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">StarterGui</span>
+
+<span class="o">--</span> <span class="n">Declare</span> <span class="n">local</span> <span class="n">variables</span>
+<span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">LocalPlayer</span>
+<span class="n">local</span> <span class="n">otherPlaceId</span> <span class="o">=</span> <span class="mi">277345328</span>
+<span class="n">local</span> <span class="n">forceField</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;ForceField&#39;</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">teleportButton</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+
+<span class="o">--</span> <span class="n">Create</span> <span class="n">loading</span> <span class="n">screen</span> <span class="n">to</span> <span class="n">fade</span> <span class="ow">in</span> <span class="ow">and</span> <span class="k">pass</span> <span class="k">with</span> <span class="n">teleport</span> <span class="n">function</span>
+<span class="n">local</span> <span class="n">loadingScreen</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;ScreenGui&#39;</span><span class="p">,</span> <span class="n">player</span><span class="o">.</span><span class="n">PlayerGui</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">loadingScreenFrame</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;Frame&#39;</span><span class="p">,</span> <span class="n">loadingScreen</span><span class="p">)</span>
+<span class="n">loadingScreenFrame</span><span class="o">.</span><span class="n">Name</span> <span class="o">=</span> <span class="s1">&#39;loadingScreenFrame&#39;</span>
+<span class="n">loadingScreenFrame</span><span class="o">.</span><span class="n">BackgroundColor3</span> <span class="o">=</span> <span class="n">Color3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">loadingScreenFrame</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">loadingScreenFrame</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">loadingScreenFrame</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">false</span>
+
+<span class="o">--</span> <span class="n">Hide</span> <span class="n">default</span> <span class="n">teleport</span> <span class="n">GUI</span> <span class="n">elements</span>
+<span class="n">TeleportService</span><span class="o">.</span><span class="n">CustomizedTeleportUI</span> <span class="o">=</span> <span class="n">true</span>
+
+<span class="o">--</span> <span class="n">Bind</span> <span class="n">function</span> <span class="n">to</span> <span class="n">OnTeleport</span> <span class="ow">in</span> <span class="n">case</span> <span class="n">teleport</span> <span class="n">fails</span>
+<span class="n">player</span><span class="o">.</span><span class="n">OnTeleport</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">teleportState</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">teleportState</span> <span class="o">==</span> <span class="n">Enum</span><span class="o">.</span><span class="n">TeleportState</span><span class="o">.</span><span class="n">Failed</span> <span class="n">then</span>
+		<span class="o">--</span> <span class="n">Disable</span> <span class="n">force</span> <span class="n">field</span>
+		<span class="n">forceField</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">nil</span>
+		
+		<span class="o">--</span> <span class="n">Hide</span> <span class="n">teleport</span> <span class="n">GUI</span> <span class="ow">and</span> <span class="n">show</span> <span class="n">teleport</span> <span class="n">button</span>
+		<span class="n">loadingScreenFrame</span><span class="o">.</span><span class="n">BackgroundTransparency</span> <span class="o">=</span> <span class="mi">1</span>
+		<span class="n">loadingScreenFrame</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">false</span>
+		<span class="n">teleportButton</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">true</span>
+		
+		<span class="o">--</span> <span class="n">Show</span> <span class="n">Core</span> <span class="n">GUI</span> <span class="n">elements</span> <span class="ow">and</span> <span class="n">mouse</span> <span class="n">cursor</span>
+		<span class="n">StarterGui</span><span class="p">:</span><span class="n">SetCoreGuiEnabled</span><span class="p">(</span><span class="n">Enum</span><span class="o">.</span><span class="n">CoreGuiType</span><span class="o">.</span><span class="n">All</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span>
+		<span class="n">UserInputService</span><span class="o">.</span><span class="n">MouseIconEnabled</span> <span class="o">=</span> <span class="n">true</span>		
+	<span class="n">end</span>
+<span class="n">end</span><span class="p">)</span>
+
+<span class="o">--</span> <span class="n">Bind</span> <span class="n">function</span> <span class="n">to</span> <span class="n">GUI</span> <span class="n">button</span>
+<span class="n">teleportButton</span><span class="o">.</span><span class="n">MouseButton1Click</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+	<span class="o">--</span> <span class="n">Hide</span> <span class="n">button</span><span class="p">,</span> <span class="n">Core</span> <span class="n">GUI</span><span class="p">,</span> <span class="ow">and</span> <span class="n">mouse</span>
+	<span class="n">teleportButton</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">false</span>
+	<span class="n">StarterGui</span><span class="p">:</span><span class="n">SetCoreGuiEnabled</span><span class="p">(</span><span class="n">Enum</span><span class="o">.</span><span class="n">CoreGuiType</span><span class="o">.</span><span class="n">All</span><span class="p">,</span> <span class="n">false</span><span class="p">)</span>	
+	<span class="n">UserInputService</span><span class="o">.</span><span class="n">MouseIconEnabled</span> <span class="o">=</span> <span class="n">false</span>	
+	
+	<span class="o">--</span> <span class="n">Activate</span> <span class="n">force</span> <span class="n">field</span> <span class="n">to</span> <span class="n">protect</span> <span class="n">player</span> <span class="n">during</span> <span class="n">teleport</span>
+	<span class="n">forceField</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">Character</span>	
+		
+	<span class="o">--</span> <span class="n">Show</span> <span class="n">loading</span> <span class="n">screen</span> <span class="ow">and</span> <span class="n">fade</span> <span class="n">it</span> <span class="ow">in</span>
+	<span class="n">loadingScreenFrame</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">true</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-.</span><span class="mi">05</span> <span class="n">do</span>
+		<span class="n">loadingScreenFrame</span><span class="o">.</span><span class="n">BackgroundTransparency</span> <span class="o">=</span> <span class="n">i</span>
+		<span class="n">wait</span><span class="p">()</span>
+	<span class="n">end</span>
+	<span class="n">loadingScreenFrame</span><span class="o">.</span><span class="n">BackgroundTransparency</span> <span class="o">=</span> <span class="mi">0</span>
+	
+	<span class="o">--</span> <span class="n">Teleport</span> <span class="n">player</span> <span class="ow">and</span> <span class="k">pass</span> <span class="n">the</span> <span class="n">loading</span> <span class="n">screen</span>
+	<span class="n">TeleportService</span><span class="p">:</span><span class="n">Teleport</span><span class="p">(</span><span class="n">otherPlaceId</span><span class="p">,</span> <span class="n">player</span><span class="p">,</span> <span class="n">nil</span><span class="p">,</span> <span class="n">loadingScreen</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+
+
+<span class="mi">0</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Creating Custom Teleport GUI Code Sample 2 ```    
+    
+    -- Local script in other place
+    
+    -- Declare local variables for Roblox Services
+    local TeleportService = game:GetService(&#39;TeleportService&#39;)
+    local UserInputService = game:GetService(&#39;UserInputService&#39;)
+    local StarterGui = game.StarterGui
+    
+    -- Hide Core GUI and mouse
+    StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.All, false)	
+    UserInputService.MouseIconEnabled = false	
+    
+    -- Bind function to teleport arrival
+    TeleportService.LocalPlayerArrivedFromTeleport:Connect(function(loadingGui, data)
+    	-- Pause briefly to allow level to load	
+    	wait(2)	
+    	
+    	-- Fade out loading screen
+    	for i = 0, 1, .05 do
+    		loadingGui.loadingScreenFrame.BackgroundTransparency = i
+    		wait()
+    	end
+    	loadingGui.loadingScreenFrame.BackgroundTransparency = 1
+    	
+    	-- Show Core GUI and mouse
+    	game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.All, true)
+    	UserInputService.MouseIconEnabled = true	
+    end)
+    
+    
+    0
+</pre></div>
+</div>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Creating-a-Custom-Teleport-GUI">创建自定义传送屏幕</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Creating-a-Scrolling-Frame-GUI.html" class="btn btn-neutral float-right" title="创建滚动框架 GUI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Chat-Modules.html" class="btn btn-neutral float-left" title="Chat Modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

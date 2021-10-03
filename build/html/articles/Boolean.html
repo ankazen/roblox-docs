@@ -1,0 +1,414 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>布尔值 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="插件简介" href="Intro-to-Plugins.html" />
+    <link rel="prev" title="实参和形参" href="Arguments-and-Parameters.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">布尔值</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">运算符</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#and">And</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>布尔值</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Boolean.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>布尔值<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p><strong>Boolean</strong>（布尔值）是一种非常简单的数据类型，其值为 <strong>true</strong> 或 <strong>false</strong>。布尔值常用于例如下列代码的<code class="docutils literal notranslate"><span class="pre">Articles/Conditional</span> <span class="pre">Statements</span> <span class="pre">in</span> <span class="pre">Lua|条件语句</span></code>中：</p>
+<p>Boolean: Code Sample 1 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">testBoolean</span> <span class="o">=</span> <span class="n">true</span>
+
+<span class="k">if</span> <span class="n">testBoolean</span> <span class="o">==</span> <span class="n">true</span> <span class="n">then</span>
+	<span class="o">--</span> <span class="n">Value</span> <span class="n">of</span> <span class="s1">&#39;testBoolean&#39;</span> <span class="ow">is</span> <span class="n">true</span><span class="p">,</span> <span class="n">so</span> <span class="n">this</span> <span class="n">condition</span> <span class="ow">is</span> <span class="n">executed</span>
+<span class="k">else</span>
+	<span class="o">--</span> <span class="n">If</span> <span class="n">value</span> <span class="n">of</span> <span class="s1">&#39;testBoolean&#39;</span> <span class="ow">is</span> <span class="n">false</span><span class="p">,</span> <span class="n">this</span> <span class="n">condition</span> <span class="ow">is</span> <span class="n">executed</span>
+<span class="n">end</span>
+
+
+<span class="mi">0</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>## Lua 估算
+
+在 Lua 中，如果某个值**不是** false 或 `nil`，则在条件语句中使用时会将其视为 “true”。下面的代码仅输出 Lua 解释为 true 的值：
+
+Boolean: Code Sample 2 ```    
+    
+    -- These values are all &quot;true&quot;
+    if true then
+    	print(&quot;true&quot;)
+    end
+    if 1 then
+    	print(&quot;1&quot;)
+    end
+    if &quot;text&quot; then
+    	print(&#39;&quot;text&quot;&#39;)
+    end
+    if {1, 2, 3} then
+    	print(&quot;{1, 2, 3}&quot;)
+    end
+    if workspace then
+    	print(&quot;workspace&quot;)
+    end
+    if &quot;&quot; then
+    	print(&#39;&quot;&quot;&#39;)
+    end
+    
+    -- But these values are not...
+    if false then
+    	print(&quot;false&quot;)
+    end
+    if nil then
+    	print(&quot;nil&quot;)
+    end
+    
+    
+    true
+    1
+    &quot;text&quot;
+    {1, 2, 3}
+    workspace
+    &quot;&quot;
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h2>运算符<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>根据上述估算规则，带有 Lua <code class="docutils literal notranslate"><span class="pre">/articles/Operators|operators</span></code> （运算符）的条件语句工作方式如下所示：</p>
+<div class="section" id="and">
+<h3>And<a class="headerlink" href="#and" title="Permalink to this headline">¶</a></h3>
+<p>如果为 <code class="docutils literal notranslate"><span class="pre">false</span></code> 或 <code class="docutils literal notranslate"><span class="pre">nil</span></code>，<code class="docutils literal notranslate"><span class="pre">and</span></code> 运算符返回<strong>第一个</strong>参数，否则返回第二个参数。</p>
+<p>Boolean: Code Samples 5 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">4</span> <span class="ow">and</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nil</span> <span class="ow">and</span> <span class="mi">12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">false</span> <span class="ow">and</span> <span class="mi">12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">true</span> <span class="ow">and</span> <span class="n">true</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">true</span> <span class="ow">and</span> <span class="n">false</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">false</span> <span class="ow">and</span> <span class="n">true</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">false</span> <span class="ow">and</span> <span class="n">false</span><span class="p">)</span>
+
+
+<span class="mi">5</span>
+<span class="n">nil</span>
+<span class="n">false</span>
+<span class="n">true</span>
+<span class="n">false</span>
+<span class="n">false</span>
+<span class="n">false</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>### Or
+
+`or` 运算符对两个值进行运算。如果第一个值 **既不是 `false` 也不是 `nil`**，则 `or` 运算符返回第一个值。如果第一个值**是 `false` 或 `nil`**，则该运算符返回第二个值。例如：
+
+Boolean: Code Samples 8 ```    
+    
+    local y = x or 1
+    print(y)
+    
+    
+    1
+</pre></div>
+</div>
+<p>之所以输出 <code class="docutils literal notranslate"><span class="pre">1</span></code>，是因为 <code class="docutils literal notranslate"><span class="pre">x</span></code> 不存在，因此为 <code class="docutils literal notranslate"><span class="pre">nil</span></code>。实际上，<code class="docutils literal notranslate"><span class="pre">or</span></code> 运算符是让我们选择 <code class="docutils literal notranslate"><span class="pre">1</span></code> 而不是 <code class="docutils literal notranslate"><span class="pre">nil</span></code>。</p>
+<p>Boolean: Code Samples 9 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">x</span> <span class="o">=</span> <span class="n">false</span>
+<span class="n">local</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="ow">or</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+
+<span class="mi">1</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>之所以也输出 `1`，是因为尽管 `x` 存在，但其值为 `false`。如果 `x` 为 `true`，则 `or` 运算符将选择 `x` 而不是 `1`。
+
+### Not
+
+如果参数为 `false` 或 `nil`，则 `not` 运算符返回 `true`，否则返回 `false`。
+
+Boolean: Code Sample 3 ```    
+    
+    print(not true)
+    print(not false)
+    print(not nil)
+    print(not &quot;text&quot;)
+    print(not 0)
+    
+    
+    false
+    true
+    true
+    false
+    false
+</pre></div>
+</div>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Boolean">布尔值</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Intro-to-Plugins.html" class="btn btn-neutral float-right" title="插件简介" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Arguments-and-Parameters.html" class="btn btn-neutral float-left" title="实参和形参" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,430 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>字符串模式 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="实参和形参" href="Arguments-and-Parameters.html" />
+    <link rel="prev" title="保存玩家数据" href="Saving-Player-Data.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">字符串模式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">直接匹配</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">字符类别</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#magic-character">Magic Character（特殊字符）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quantifier">Quantifier（量词）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">字符类别集合</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">字符串捕获</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>字符串模式</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/string-patterns-reference.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>字符串模式<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p><strong>String Pattern</strong>（字符串模式）由多个字符组成，用于在字符串中寻找特定句段（这些句段通常被称为 <em>Substring</em>，也就是子字符串）。Lua 语言中存在数个能与字符串模式共同使用的<a class="reference external" href="/articles/Lua-Libraries/string">字符串函数</a>。</p>
+<div class="section" id="id2">
+<h2>直接匹配<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>只要匹配字符非 Lua 语言中的特殊字符（Magic Character），即可通过在 Lua 函数（例：<a class="reference external" href="/articles/Lua-Libraries/string#string-match">string.match()</a>）中使用该字符串来对其进行直接匹配。举例来说，下列指令将会在字符串中查找 <strong>Roblox</strong> 一词，并输出匹配结果：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="nb">print</span><span class="p">(</span> <span class="n">string</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;Welcome to Roblox!&quot;</span><span class="p">,</span> <span class="s2">&quot;Roblox&quot;</span><span class="p">)</span> <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">string</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;Welcome to my awesome game!&quot;</span><span class="p">,</span> <span class="s2">&quot;Roblox&quot;</span><span class="p">)</span> <span class="p">)</span>
+    
+    
+    <span class="n">Roblox</span>
+    <span class="n">nil</span>
+</pre></div>
+</div>
+<p>由于在第一个字符串中找到了匹配项，因此 <code class="docutils literal notranslate"><span class="pre">Roblox</span></code> 被输出至控制台，但在第二个字符串中<strong>没有</strong>找到匹配项，所以输出为 <code class="docutils literal notranslate"><span class="pre">nil</span></code>。</p>
+</div>
+<div class="section" id="id3">
+<h2>字符类别<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>在进行高级字符串搜索时字符类别起着关键性作用：当搜索某种_非特定_子串、且该子串的字符属于某种已知的类别时，就需要用到字符类别。在 Lua 中，开发者可以在某一字符串中搜索<strong>字母</strong>、<strong>数字</strong>、<strong>空格</strong>, <strong>标点符号</strong>等。</p>
+<p>下列表格展示了 Lua 字符串模式中正式的字符类别：</p>
+<p>类别 含义 匹配示例</p>
+<p><code class="docutils literal notranslate"><span class="pre">.</span></code>
+任意字符
+<code class="docutils literal notranslate"><span class="pre">32kasGJ1%fTlk?&#64;94</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%a</span></code>
+大写字母或者小写字母
+<code class="docutils literal notranslate"><span class="pre">aBcDeFgHiJkLmNoPqRsTuVwXyZ</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%l</span></code>
+小写字母
+<code class="docutils literal notranslate"><span class="pre">abcdefghijklmnopqrstuvwxyz</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%u</span></code>
+大写字母
+<code class="docutils literal notranslate"><span class="pre">ABCDEFGHIJKLMNOPQRSTUVWXYZ</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%d</span></code>
+任意数字
+<code class="docutils literal notranslate"><span class="pre">0123456789</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%p</span></code>
+任意标点符号字符
+<code class="docutils literal notranslate"><span class="pre">!&#64;#;,.</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%w</span></code>
+含有字母或者数字的字符（字母<strong>或者</strong>数字皆可）
+<code class="docutils literal notranslate"><span class="pre">aBcDeFgHiJkLmNoPqRsTuVwXyZ0123456789</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%s</span></code>
+空格或者空白字符
+<code class="docutils literal notranslate"><span class="pre">_</span></code>, <code class="docutils literal notranslate"><span class="pre">\n</span></code>, and <code class="docutils literal notranslate"><span class="pre">\r</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%c</span></code>
+特殊<a class="reference external" href="http://en.wikipedia.org/wiki/Control_character">控制字符</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">%x</span></code>
+十六进制字符
+<code class="docutils literal notranslate"><span class="pre">0123456789ABCDEF</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%z</span></code>
+NULL 字符（<code class="docutils literal notranslate"><span class="pre">\0</span></code>）</p>
+<p><code class="docutils literal notranslate"><span class="pre">%bxy</span></code>
+平衡捕捉，匹配<code class="docutils literal notranslate"><span class="pre">x</span></code>、<code class="docutils literal notranslate"><span class="pre">y</span></code> 及两者间的所有内容（举例来说，<code class="docutils literal notranslate"><span class="pre">%b()</span></code>可以捕捉一对圆括号和圆括号内包含的所有内容）
+<code class="docutils literal notranslate"><span class="pre">（我在圆括号内！）</span></code></p>
+<p>对于 <code class="docutils literal notranslate"><span class="pre">%a</span></code> 或 <code class="docutils literal notranslate"><span class="pre">%s</span></code> 等单字母字符类别来说，当将其字母改换为<strong>大写</strong>后，将会代表与当前“截然相反”的字符类别。举例来说，<code class="docutils literal notranslate"><span class="pre">%p</span></code> 代表标点符号字符，而其大写形式 <code class="docutils literal notranslate"><span class="pre">%P</span></code>则代表着_除了_标点符号之外的所有字符。</p>
+</div>
+<div class="section" id="magic-character">
+<h2>Magic Character（特殊字符）<a class="headerlink" href="#magic-character" title="Permalink to this headline">¶</a></h2>
+<p>字符串模式中共保留了 12 个“特殊字符”，各自有其专门的用处：</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span></code>
+<code class="docutils literal notranslate"><span class="pre">%</span></code>
+<code class="docutils literal notranslate"><span class="pre">^</span></code>
+<code class="docutils literal notranslate"><span class="pre">*</span></code>
+<code class="docutils literal notranslate"><span class="pre">(</span></code>
+<code class="docutils literal notranslate"><span class="pre">)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">.</span></code>
+<code class="docutils literal notranslate"><span class="pre">[</span></code>
+<code class="docutils literal notranslate"><span class="pre">]</span></code>
+<code class="docutils literal notranslate"><span class="pre">+</span></code>
+<code class="docutils literal notranslate"><span class="pre">-</span></code>
+<code class="docutils literal notranslate"><span class="pre">?</span></code></p>
+<p>开发者将<strong>无法</strong>在字符串模式中对这些特殊字符进行直接搜索。举例来说，当需要搜索 <code class="docutils literal notranslate"><span class="pre">.</span></code> （半角句号）时，不能直接用 <code class="docutils literal notranslate"><span class="pre">&quot;.&quot;</span></code> 作为搜索字符串模式：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;String ending with period.&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>  <span class="o">--</span> <span class="s2">&quot;.&quot;</span> <span class="n">是字符串模式</span>
+</pre></div>
+</div>
+<p>若想对保留特殊字符进行直接搜索时，需要在 <code class="docutils literal notranslate"><span class="pre">.</span></code> （或者<strong>其他任何</strong>特殊字符）前添加 <code class="docutils literal notranslate"><span class="pre">%</span></code> 符号（例：<code class="docutils literal notranslate"><span class="pre">%.</span></code>）。经过此操作后，Lua 即可对特殊字符本身进行搜索。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;String ending with period.&quot;</span><span class="p">,</span> <span class="s2">&quot;%.&quot;</span><span class="p">)</span>  <span class="o">--</span> <span class="s2">&quot;%.&quot;</span> <span class="n">是字符串模式</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="quantifier">
+<h2>Quantifier（量词）<a class="headerlink" href="#quantifier" title="Permalink to this headline">¶</a></h2>
+<p>单独使用时一个字符类别时，只会与字符串中的<strong>单个</strong>字符进行匹配。举例来说，下列字符串模式（<code class="docutils literal notranslate"><span class="pre">&quot;%d&quot;</span></code>）将会从左到右读取字符串，但在找到_第一个_数字（<code class="docutils literal notranslate"><span class="pre">2</span></code>）时就会停止搜索！</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="nb">print</span><span class="p">(</span> <span class="n">string</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;The Cloud Kingdom has 25 power gems&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span> <span class="p">)</span>
+    
+    
+    <span class="mi">2</span>
+</pre></div>
+</div>
+<p>为了克服这一问题，开发者可以在任意字符类别后面添加一个<strong>量词</strong>标记，籍此匹配到指定数目的该类别字符。</p>
+<p>量词 含义</p>
+<p><code class="docutils literal notranslate"><span class="pre">+</span></code>
+为前置字符类别匹配 1 个或更多结果</p>
+<p><code class="docutils literal notranslate"><span class="pre">-</span></code>
+为前置字符类别匹配尽可能少的结果</p>
+<p><code class="docutils literal notranslate"><span class="pre">*</span></code>
+为前置字符类别匹配 0 个或更多结果</p>
+<p><code class="docutils literal notranslate"><span class="pre">?</span></code>
+为前置字符类别匹配 1 个或更少结果</p>
+</div>
+<div class="section" id="id4">
+<h2>字符类别集合<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>当单一的字符类别没有办法满足复杂匹配需求的时候，开发者应当考虑使用<strong>集合</strong>（Set）。举例来说，当开发者需要使用单个字符串模式<strong>同时</strong>对小写字母（<code class="docutils literal notranslate"><span class="pre">%l</span></code>）和标点符号（<code class="docutils literal notranslate"><span class="pre">%p</span></code>）进行匹配时，就需要使用集合达成此目的。</p>
+<p>集合的定义由方括号（<code class="docutils literal notranslate"><span class="pre">[]</span></code>）进行。在下列示例中，请仔细观察使用集合（<code class="docutils literal notranslate"><span class="pre">&quot;[%l%p]+&quot;</span></code>）和<strong>没有</strong>使用集合（<code class="docutils literal notranslate"><span class="pre">&quot;%l%p+&quot;</span></code>）时导致的结果差异。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    print( string.match(&quot;Hello!!! I am another string.&quot;, &quot;[%l%p]+&quot;) )  -- 集合
+    print( string.match(&quot;Hello!!! I am another string.&quot;, &quot;%l%p+&quot;) )    -- 非集合
+    
+    
+    ello!!!
+    o!!!
+</pre></div>
+</div>
+<p>第一条指令（使用集合）中，Lua 将会对小写字母字符与标点符号字符同时进行搜索。同时因为在整个集合后添加了 <code class="docutils literal notranslate"><span class="pre">+</span></code> 量词，Lua 将会找到<strong>所有</strong>符合条件的字符（<code class="docutils literal notranslate"><span class="pre">ello!!!</span></code>），直到其到达空格时停止。</p>
+<p>第二条指令（不使用集合）中，<code class="docutils literal notranslate"><span class="pre">+</span></code> 量词仅对其前置类别 <code class="docutils literal notranslate"><span class="pre">%p</span></code> 有效。因此 Lua 会在匹配到第一个小写字母字符（<code class="docutils literal notranslate"><span class="pre">o</span></code>）后停止对小写字母的匹配，转而开始对标点符号类字符（<code class="docutils literal notranslate"><span class="pre">!!!</span></code>）进行匹配。</p>
+<p>和字符类别一样，开发者也可以通过<code class="docutils literal notranslate"><span class="pre">[</span></code>的后面（也就是集合本体的最前端）添加 <code class="docutils literal notranslate"><span class="pre">^</span></code> 字符来表达与当前集合完全“相反”的集合类别。举例来说，<code class="docutils literal notranslate"><span class="pre">&quot;[%p%s]+&quot;</span></code> 集合代表标点符号和空格两种字符，而 <code class="docutils literal notranslate"><span class="pre">&quot;[^%p%s]+&quot;</span></code> 则代表_除了_标点符号和空格以外的所有字符。</p>
+<p>除此之外，集合还支持<strong>范围</strong>匹配，开发者可以在开始和结束字符之间的一整段范围内寻找符合匹配条件的字符。若希望对此高级匹配功能进行进一步了解，请参见<a class="reference external" href="https://www.lua.org/manual/5.1/manual.html#5.4.1">此处</a>。</p>
+</div>
+<div class="section" id="id5">
+<h2>字符串捕获<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>开发者可以通过 <strong>String Capture</strong>（字符串捕获）对特定的字符串片段进行获取，并将其保存在变量中：从单独字符类别到多字符类别（带有量词的类别），甚至是字符类别集合都可以通过此功能进行获取。</p>
+<p>捕获内容由其两侧的圆括号 <code class="docutils literal notranslate"><span class="pre">()</span></code> 进行定义。请参见下列示例：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;(</span><span class="si">%a</span><span class="s2">+)</span><span class="si">%s</span><span class="s2">?=</span><span class="si">%s</span><span class="s2">?(</span><span class="si">%d</span><span class="s2">+)&quot;</span>
+    
+    <span class="n">local</span> <span class="n">key1</span><span class="p">,</span> <span class="n">val1</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">match</span><span class="p">(</span> <span class="s2">&quot;TwentyOne = 21&quot;</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key1</span><span class="p">,</span> <span class="n">val1</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">key2</span><span class="p">,</span> <span class="n">val2</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">match</span><span class="p">(</span> <span class="s2">&quot;TwoThousand= 2000&quot;</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key2</span><span class="p">,</span> <span class="n">val2</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">key3</span><span class="p">,</span> <span class="n">val3</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">match</span><span class="p">(</span> <span class="s2">&quot;OneMillion=1000000&quot;</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key3</span><span class="p">,</span> <span class="n">val3</span><span class="p">)</span>
+    
+    
+    <span class="n">TwentyOne</span> <span class="mi">21</span>
+    <span class="n">TwoThousand</span> <span class="mi">2000</span>
+    <span class="n">OneMillion</span> <span class="mi">1000000</span>
+</pre></div>
+</div>
+<p>请注意上述模式中添加在两个 <code class="docutils literal notranslate"><span class="pre">%s</span></code> 类别后面的 <code class="docutils literal notranslate"><span class="pre">?</span></code> 量词：其对示例中 <code class="docutils literal notranslate"><span class="pre">=</span></code> 符号任意一侧的空格都进行了非必要化，是极为值得参考的操作。进行该操作后，即使等号任意一侧（或两侧）的空格都出现缺失，匹配也将完全不受干扰！</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/string-patterns-reference">字符串模式</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Arguments-and-Parameters.html" class="btn btn-neutral float-right" title="实参和形参" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Saving-Player-Data.html" class="btn btn-neutral float-left" title="保存玩家数据" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

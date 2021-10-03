@@ -1,0 +1,469 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>音效与音乐 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="力场材质" href="force-field-material.html" />
+    <link rel="prev" title="粒子发射器" href="Particle-Emitters.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="atmosphere.html">Atmosphere（氛围）掌控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro-to-beams.html">Beam（光束）简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-Fireworks.html">Creating Fireworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-Fireworks.html#steps">Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Portal.html">创建传送门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Portal.html#id2">步骤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fog-Overview-and-Settings.html">Fog – Overview and Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glowing-dynamic-lights.html">闪烁的动态光源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Smoke-and-Fire-with-Beams.html">使用光束创建冒烟和起火的效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Smoke-and-Fire-with-Beams.html#id2">步骤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Day-Night-Cycles-and-Street-Lights.html">昼夜循环和路灯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Particle-Emitters.html">粒子发射器</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">音效与音乐</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#audio-marketplace">Audio Marketplace（音频市场）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">上传自定义音频</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">播放音乐</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">播放音效</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#d">3D 音效</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">环境音效</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui">GUI 音效</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="force-field-material.html">力场材质</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Basics-on-Roblox.html">添加团队</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a> &raquo;</li>
+        
+      <li>音效与音乐</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/sounds-and-music.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>音效与音乐<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p>当构建游戏时，经常会有开发者忽略掉游戏中声音与音乐的重要性。如果能对这两方面进行创造性地运用，则可以为你的游戏奠定感人肺腑或激动人心的基调、增添游戏悬念、更能让游戏中的角色栩栩如生。</p>
+<div class="section" id="audio-marketplace">
+<h2>Audio Marketplace（音频市场）<a class="headerlink" href="#audio-marketplace" title="Permalink to this headline">¶</a></h2>
+<p>在 <a class="reference external" href="/resources/studio/Toolbox">Toolbox</a>（工具箱）窗口中单击 <strong>Marketplace</strong>（市场）选项卡，从菜单中选择 <strong>Audio</strong>（音频）即可在大量音频中进行搜索。</p>
+<p><img alt="https://developer.roblox.com/assets/bltc40a4f446019c115/Toolbox-Marketplace-Audio.png" src="https://developer.roblox.com/assets/bltc40a4f446019c115/Toolbox-Marketplace-Audio.png" /></p>
+<p>在此视图中，可以通过名称搜寻音频，也可以单击 <img alt="https://developer.roblox.com/assets/blt9d572a0193f40209/Toolbox-Sort-Icon.png" src="https://developer.roblox.com/assets/blt9d572a0193f40209/Toolbox-Sort-Icon.png" /></p>
+<p>按钮进行：</p>
+<ul class="simple">
+<li><p>通过 <strong>Creator</strong>（创造者）的搜寻（也就是发布该音频文件的 Roblox 用户）。</p></li>
+<li><p>通过 <strong>Sound Length</strong> （声音长度）的搜寻，可以籍此分辨较短的声音效果与较长的音乐。</p></li>
+<li><p>对音频文件进行 <strong>Sort</strong>（排序）。排序种类分为按相关程度排序（最为常用）、按获取 “favorite”（收藏）票数排序、按最近更新排序、以及按评分高低排序。</p></li>
+</ul>
+<p>在 Studio 中可以直接对音频文件进行预览，只需单击音频项角落的 <strong>play</strong> （播放）按钮即可。找到想要使用的音频文件后，右击音频项，选择 <strong>Copy Asset ID</strong> （复制资源 ID）即可（在下文中的回放测试中将会需要该 ID）。</p>
+<p><img alt="https://developer.roblox.com/assets/blta9affb74e78ec98f/Audio-Item-Play-Button.png" src="https://developer.roblox.com/assets/blta9affb74e78ec98f/Audio-Item-Play-Button.png" /></p>
+<p>1. 预览</p>
+<p><img alt="https://developer.roblox.com/assets/blte2d2f653ecf00317/Audio-Item-Copy-ID.png" src="https://developer.roblox.com/assets/blte2d2f653ecf00317/Audio-Item-Copy-ID.png" /></p>
+<p>2. 右击复制 ID</p>
+</div>
+<div class="section" id="id2">
+<h2>上传自定义音频<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在 Roblox 中上传音频文件时需要花费少量 Robux —— 这是因为我们需要花费时间对用户上传的每个声音文件进行审核。</p>
+<p>请注意：如果你对该声音文件没有所有权或使用权，则将其上传和/或使用的行为是对 Roblox 服务条款的违背。</p>
+<p>将音频上传至 Roblox 网站：</p>
+<ol class="simple">
+<li><p>访问 <a class="reference external" href="https://www.roblox.com/develop?View=3">Create Audio</a>（创建音频）页面后，系统将会 提示你上传本地文件并为其命名。音频文件的格式必须为 <strong>.mp3</strong> 或 <strong>.ogg</strong>、时长需要小于 7 分钟、且大小不能超过 19.5 MB。</p></li>
+<li><p>单击 <strong>Estimate Price</strong> （预估价格）按钮。音频文件的上传费用率取决于以下定价结构：</p></li>
+</ol>
+<p>时长 价格</p>
+<p>0 – 10 秒
+<img alt="https://developer.roblox.com/assets/blt0fffb3baccc585f5/Robux-Icon-Small.png" src="https://developer.roblox.com/assets/blt0fffb3baccc585f5/Robux-Icon-Small.png" /></p>
+<p>20</p>
+<p>10 – 30 秒
+<img alt="https://developer.roblox.com/assets/blt0fffb3baccc585f5/Robux-Icon-Small.png" src="https://developer.roblox.com/assets/blt0fffb3baccc585f5/Robux-Icon-Small.png" /></p>
+<p>35</p>
+<p>30 秒– 2 分钟
+<img alt="https://developer.roblox.com/assets/blt0fffb3baccc585f5/Robux-Icon-Small.png" src="https://developer.roblox.com/assets/blt0fffb3baccc585f5/Robux-Icon-Small.png" /></p>
+<p>70</p>
+<p>2 – 7 分钟
+<img alt="https://developer.roblox.com/assets/blt0fffb3baccc585f5/Robux-Icon-Small.png" src="https://developer.roblox.com/assets/blt0fffb3baccc585f5/Robux-Icon-Small.png" /></p>
+<p>350</p>
+<ol class="simple">
+<li><p>单击 <strong>Purchase</strong> （购买）按钮，上传音频文件。</p></li>
+<li><p>上传完毕后，音频文件将会显示在页面列表中。点击文件名称打开其独立页面，并从浏览器窗口 URL 中复制或记录其数字 ID（在下文中的回放测试中将会需要该 ID）。</p></li>
+</ol>
+<p>https://www.roblox.com/library/1837103530/Lucid-Dream</p>
+</div>
+<div class="section" id="id3">
+<h2>播放音乐<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>通过编写脚本，开发者可以在游戏中播放背景音乐。方法如下：</p>
+<ol class="simple">
+<li><p>在 Studio 的管理器窗口中向 <strong>ReplicatedStorage</strong> 添加新的 <code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code>。
+<img alt="https://developer.roblox.com/assets/blt03909b07be91ea1d/ReplicatedStorage-ModuleScript.png" src="https://developer.roblox.com/assets/blt03909b07be91ea1d/ReplicatedStorage-ModuleScript.png" /></p></li>
+<li><p>将新的脚本重命名为 <strong>AudioPlayer</strong>。
+<img alt="https://developer.roblox.com/assets/blt9cc3935af7f9fa0a/Rename-Script-AudioPlayer.png" src="https://developer.roblox.com/assets/blt9cc3935af7f9fa0a/Rename-Script-AudioPlayer.png" /></p></li>
+<li><p>删除脚本中所有现存行后，粘贴下列代码：</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    local AudioPlayer = {}
+    
+    -- Roblox 服务
+    local ContentProvider = game:GetService(&quot;ContentProvider&quot;)
+    
+    -- 预加载音频资源的函数
+    AudioPlayer.preloadAudio = function(assetArray)
+    	local audioAssets = {}
+    
+    	-- 将新的 “Sound” 资源添加至 “audioAssets” 数组
+    	for name, audioID in pairs(assetArray) do
+    		local audioInstance = Instance.new(&quot;Sound&quot;)
+    		audioInstance.SoundId = &quot;rbxassetid://&quot; .. audioID
+    		audioInstance.Name = name
+    		audioInstance.Parent = game.Workspace
+    		table.insert(audioAssets, audioInstance)
+    	end
+    
+    	local success, assets = pcall(function()
+    		ContentProvider:PreloadAsync(audioAssets)
+    	end)
+    end
+    
+    -- 播放音频资源的函数
+    AudioPlayer.playAudio = function(assetName)
+    	local audio = game.Workspace:FindFirstChild(assetName)
+    	if not audio then
+    		warn(&quot;Could not find audio asset: &quot; .. assetName)
+    		return
+    	end
+    	if not audio.IsLoaded then
+    		audio.Loaded:wait()
+    	end
+    	audio:Play()
+    end
+    
+    return AudioPlayer
+
+</pre></div>
+</div>
+<p>为了能够播放音频文件，必须先将其下载到客户端（Roblox 应用程序）并加载。视文件大小不同，这可能需要一些时间。因此，建议通过模块的 <code class="docutils literal notranslate"><span class="pre">preloadAudio()</span></code> 函数 （第 7 至 22 行）和 <code class="docutils literal notranslate"><span class="pre">ContentProvider/PreloadAsync|ContentProvider:PreloadAsync()</span></code>（第 20 行）来预加载音频文件。</p>
+<ol class="simple">
+<li><p>在 <strong>StarterPlayerScripts</strong>（<strong>StarterPlayer</strong> 的子项）内创建一个新的 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code>。
+<img alt="https://developer.roblox.com/assets/bltc1618e724ad60ee8/StarterPlayerScripts-LocalScript.png" src="https://developer.roblox.com/assets/bltc1618e724ad60ee8/StarterPlayerScripts-LocalScript.png" /></p></li>
+<li><p>删除脚本中所有现存行，然后粘贴以下代码。如有需要，从第 9 行开始输入其他音轨名称和音频 ID（请参阅上文中的音频市场或上传自定义音频）。</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">Roblox</span> <span class="n">服务</span>
+    <span class="n">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">对模块进行</span> <span class="n">Require</span>
+    <span class="n">local</span> <span class="n">AudioPlayerModule</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;AudioPlayer&quot;</span><span class="p">))</span>
+    
+    <span class="o">--</span> <span class="n">预加载音乐音轨</span>
+    <span class="n">AudioPlayerModule</span><span class="o">.</span><span class="n">preloadAudio</span><span class="p">({</span>
+    	<span class="p">[</span><span class="s2">&quot;Lucid_Dream&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1837103530</span><span class="p">,</span>
+    	<span class="p">[</span><span class="s2">&quot;Desert_Sands&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1848350335</span>
+    <span class="p">})</span>
+    
+    <span class="o">--</span> <span class="n">播放音乐音轨</span>
+    <span class="n">AudioPlayerModule</span><span class="o">.</span><span class="n">playAudio</span><span class="p">(</span><span class="s2">&quot;Lucid_Dream&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>测试游戏，你会听到背景中播放第 14 行中所指定名称的音轨。</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">播放音乐音轨</span>
+    <span class="n">AudioPlayerModule</span><span class="o">.</span><span class="n">playAudio</span><span class="p">(</span><span class="s2">&quot;Lucid_Dream&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>播放音效<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>不同于背景音乐，音效通常源自于游戏中的特定场景或对象——例如车辆的引擎轰鸣声、战场上敌人的怒吼声等。不过，这些音效也能以“环境”音效的形式播放，例如风声或雨声等。</p>
+<div class="section" id="d">
+<h3>3D 音效<a class="headerlink" href="#d" title="Permalink to this headline">¶</a></h3>
+<p>放置在 <code class="docutils literal notranslate"><span class="pre">BasePart</span></code> 或 <code class="docutils literal notranslate"><span class="pre">Attachment</span></code> 中的音效会从部件的 <code class="docutils literal notranslate"><span class="pre">BasePart/Position|Position</span></code> （位置）或附件的 <code class="docutils literal notranslate"><span class="pre">Attachment/WorldPosition|WorldPosition</span></code> 处发出声音。这些音效被称作 <strong>3D 音效</strong>，而且都具备下列几种共同特征：</p>
+<ul class="simple">
+<li><p><strong>音量</strong> — 3D 音效的音量会随着玩家接近声源而提高。</p></li>
+<li><p><strong>立体声</strong> — 如果玩家的一侧距离声源较近，对应方向的扬声器音量就会较大。</p></li>
+<li><p><strong>多普勒效应</strong> — 如果 3D 音效的声源正在逼近玩家，声调就会升高。同样地，如果声源正在远离玩家，声调就会降低。</p></li>
+</ul>
+<p>如果 3D 声效的源部件/附件已存在于某一场景中，则可直接在 Studio 内对其进行添加：</p>
+<ol class="simple">
+<li><p>在 Explorer（管理器）窗口中，插入一个新的 <code class="docutils literal notranslate"><span class="pre">Sound</span></code> 对象作为源对象的子项。
+<img alt="https://developer.roblox.com/assets/blt6409bd6e49534acf/Insert-3D-Sound.png" src="https://developer.roblox.com/assets/blt6409bd6e49534acf/Insert-3D-Sound.png" /></p></li>
+<li><p>选中新的音效对象，在其 Properties（属性）窗口中找到其 <strong>SoundId</strong> 属性。输入 rbxassetid://，后面填写有效的音频 ID。例：rbxassetid://1847352423。
+<img alt="https://developer.roblox.com/assets/blt4f90c628f603e1b2/Specify-Sound-ID.png" src="https://developer.roblox.com/assets/blt4f90c628f603e1b2/Specify-Sound-ID.png" /></p></li>
+<li><p>切换其 <strong>Playing</strong> 属性至开启（音效不会自动播放，需要明确指示其开始播放）。
+<img alt="https://developer.roblox.com/assets/blt6c0e7520534801dd/Toggle-Sound-Playing.png" src="https://developer.roblox.com/assets/blt6c0e7520534801dd/Toggle-Sound-Playing.png" /></p></li>
+<li><p>测试游戏，根据角色与声源的距离观测 3D 音效的音质。</p></li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h3>环境音效<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>风声和雷鸣等环境音效无需附加至部件，因为这些音效将会充斥整个场景。正因如此，此类音效可以使用上文播放音乐中所示的相同脚本来进行播放。</p>
+</div>
+<div class="section" id="gui">
+<h3>GUI 音效<a class="headerlink" href="#gui" title="Permalink to this headline">¶</a></h3>
+<p>用于交互式 GUI 对象的音效可以使用上文播放音乐中所示的相同 <code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code> 来播放。但这样将会立即播放音效，因此可以将其连接至相关按钮的 <code class="docutils literal notranslate"><span class="pre">GuiButton/Activated|Activated</span></code> （已激活）事件监听器。</p>
+<ol class="simple">
+<li><p>在 <strong>StarterGui</strong> 中添加新的 <strong>ScreenGui</strong>，然后在其中创建新的 <strong>TextButton</strong>。如果你对按钮及其基本选项并不熟悉，请参阅 <code class="docutils literal notranslate"><span class="pre">articles/Creating</span> <span class="pre">GUI</span> <span class="pre">Buttons|创建</span> <span class="pre">GUI</span> <span class="pre">按钮</span></code>一文。</p></li>
+<li><p>选中新的按钮，对其插入 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code>。</p></li>
+</ol>
+<p><img alt="https://developer.roblox.com/assets/blta51533314e36660b/TextButton-LocalScript.png" src="https://developer.roblox.com/assets/blta51533314e36660b/TextButton-LocalScript.png" /></p>
+<ol class="simple">
+<li><p>删除脚本中所有现存行，粘贴以下代码。如有需要，在第 9 行输入其他音效名称和音频 ID。</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">Roblox</span> <span class="n">服务</span>
+    <span class="n">local</span> <span class="n">ReplicatedStorage</span><span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">对模块进行</span> <span class="n">Require</span>
+    <span class="n">local</span> <span class="n">AudioPlayerModule</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;AudioPlayer&quot;</span><span class="p">))</span>
+    
+    <span class="o">--</span> <span class="n">预加载音效</span>
+    <span class="n">AudioPlayerModule</span><span class="o">.</span><span class="n">preloadAudio</span><span class="p">({</span>
+    	<span class="p">[</span><span class="s2">&quot;Simple_Click&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3061551819</span>
+    <span class="p">})</span>
+    
+    <span class="o">--</span> <span class="n">对按钮进行引用</span>
+    <span class="n">local</span> <span class="n">textButton</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+    
+    <span class="o">--</span> <span class="n">当按钮被按下时激活的函数</span>
+    <span class="n">local</span> <span class="n">function</span> <span class="n">onButtonActivated</span><span class="p">()</span>
+    	<span class="n">AudioPlayerModule</span><span class="o">.</span><span class="n">playAudio</span><span class="p">(</span><span class="s2">&quot;Simple_Click&quot;</span><span class="p">)</span>
+    <span class="n">end</span>
+    <span class="n">textButton</span><span class="o">.</span><span class="n">Activated</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">onButtonActivated</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>测试游戏，激活按钮后，你会听到第 17 行中所指定名称的音效。</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">当按钮被按下时激活的函数</span>
+    <span class="n">local</span> <span class="n">function</span> <span class="n">onButtonActivated</span><span class="p">()</span>
+    	<span class="n">AudioPlayerModule</span><span class="o">.</span><span class="n">playAudio</span><span class="p">(</span><span class="s2">&quot;Simple_Click&quot;</span><span class="p">)</span>
+    <span class="n">end</span>
+    <span class="n">textButton</span><span class="o">.</span><span class="n">Activated</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">onButtonActivated</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/sounds-and-music">音效与音乐</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="force-field-material.html" class="btn btn-neutral float-right" title="力场材质" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Particle-Emitters.html" class="btn btn-neutral float-left" title="粒子发射器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

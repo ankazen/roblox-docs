@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>设置文本动画 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Avatar Emotes" href="avatar-emotes.html" />
+    <link rel="prev" title="鼠标指针控制" href="Mouse-Icon-Appearance.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-GUIs.html">GUI 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI-Animations.html">GUI 动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fundamentals-of-Scripting-with-GUIs.html">GUI 脚本简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Chat-System.html">Lua 聊天系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Interactive-Surface-GUI.html">交互式表面 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-GUI-Buttons.html">创建 GUI 按钮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Radial-Menu.html">创建摇杆快速菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Grid-Menu.html">创建栅格菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using-Images-in-GUIs.html">在 GUI 中使用图像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text-and-Chat-Filtering.html">文本与聊天过滤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Camera-manipulation.html">镜头操控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mouse-Icon-Appearance.html">鼠标指针控制</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">设置文本动画</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">打字机模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">脚本实现</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">配置选项</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="avatar-emotes.html">Avatar Emotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chat-Modules.html">Chat Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Custom-Teleport-GUI.html">创建自定义传送屏幕</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Scrolling-Frame-GUI.html">创建滚动框架 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-the-camera.html">Customizing the Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Disabling-Parts-of-Game-Interface.html">禁用游戏界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-bindings.html">Roblox Input Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selection-Boxes.html">选择框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Three-Quarters-Camera-View.html">45 度镜头视角</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Unit-Frame.html">单元框：制作生命槽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewportframe-gui.html">ViewportFrame GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/user-interface.html">用户界面</a> &raquo;</li>
+        
+      <li>设置文本动画</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/animating-text.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>设置文本动画<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>可以通过以下效果在视觉上增强输出 NPC 对话、玩家指令和提示等游戏内文本的效果：</p>
+<p>Uh oh! Your browser doesn’t appear to support embedded videos! Here is a <a class="reference external" href="#">direct link</a> to the video instead.</p>
+<div class="section" id="id2">
+<h2>打字机模块<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>以下模块模仿了上述效果，几乎可以在任何 <code class="docutils literal notranslate"><span class="pre">TextLabel</span></code> 或 <code class="docutils literal notranslate"><span class="pre">TextButton</span></code> 上使用。若要在游戏中使用，你需要：</p>
+<ol class="simple">
+<li><p>在 <code class="docutils literal notranslate"><span class="pre">ReplicatedStorage</span></code> 中创建一个新的 <code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code>。</p></li>
+<li><p>将这个新脚本重命名为 <em>TypeWriter</em>。</p></li>
+<li><p>将以下代码复制到该脚本中。</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">SOURCE_LOCALE</span> <span class="o">=</span> <span class="s2">&quot;en&quot;</span>
+    
+    <span class="n">local</span> <span class="n">LocalizationService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;LocalizationService&quot;</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">Players</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">Players</span><span class="o">.</span><span class="n">LocalPlayer</span>
+    
+    <span class="n">local</span> <span class="n">translator</span> <span class="o">=</span> <span class="n">nil</span>
+    <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    	<span class="n">translator</span> <span class="o">=</span> <span class="n">LocalizationService</span><span class="p">:</span><span class="n">GetTranslatorForPlayerAsync</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+    <span class="n">end</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">translator</span> <span class="n">then</span>
+    	<span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    		<span class="n">translator</span> <span class="o">=</span> <span class="n">LocalizationService</span><span class="p">:</span><span class="n">GetTranslatorForLocaleAsync</span><span class="p">(</span><span class="n">SOURCE_LOCALE</span><span class="p">)</span>
+    	<span class="n">end</span><span class="p">)</span>
+    <span class="n">end</span>
+    
+    <span class="n">local</span> <span class="n">TypeWriter</span> <span class="o">=</span> <span class="p">{}</span>
+    
+    <span class="n">local</span> <span class="n">defaultConfigurations</span> <span class="o">=</span> <span class="p">{</span>
+    	<span class="n">delayTime</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span>
+    	<span class="n">extraDelayOnSpace</span> <span class="o">=</span> <span class="n">true</span>
+    <span class="p">}</span>
+    
+    <span class="n">function</span> <span class="n">TypeWriter</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">configurations</span><span class="p">)</span>
+    	<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">defaultConfigurations</span><span class="p">)</span> <span class="n">do</span>
+    		<span class="n">local</span> <span class="n">newValue</span> <span class="o">=</span> <span class="n">configurations</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+    		<span class="k">if</span> <span class="n">newValue</span> <span class="o">~=</span> <span class="n">nil</span> <span class="n">then</span>
+    			<span class="n">defaultConfigurations</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">newValue</span>
+    		<span class="k">else</span>
+    			<span class="n">warn</span><span class="p">(</span><span class="n">key</span> <span class="o">..</span> <span class="s2">&quot; is not a valid configuration for TypeWriter module&quot;</span><span class="p">)</span>
+    		<span class="n">end</span>
+    	<span class="n">end</span>
+    <span class="n">end</span>
+    
+    <span class="n">function</span> <span class="n">TypeWriter</span><span class="o">.</span><span class="n">typeWrite</span><span class="p">(</span><span class="n">guiObject</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    	<span class="n">guiObject</span><span class="o">.</span><span class="n">AutoLocalize</span> <span class="o">=</span> <span class="n">false</span>
+    	<span class="n">guiObject</span><span class="o">.</span><span class="n">Text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    	<span class="n">local</span> <span class="n">displayText</span> <span class="o">=</span> <span class="n">text</span>
+    	<span class="k">if</span> <span class="n">translator</span> <span class="n">then</span>
+    		<span class="n">displayText</span> <span class="o">=</span> <span class="n">translator</span><span class="p">:</span><span class="n">Translate</span><span class="p">(</span><span class="n">guiObject</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    	<span class="n">end</span>
+    	<span class="k">for</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span> <span class="ow">in</span> <span class="n">utf8</span><span class="o">.</span><span class="n">graphemes</span><span class="p">(</span><span class="n">displayText</span><span class="p">)</span> <span class="n">do</span>
+    		<span class="n">local</span> <span class="n">grapheme</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">displayText</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span>
+    		<span class="n">guiObject</span><span class="o">.</span><span class="n">Text</span> <span class="o">=</span> <span class="n">guiObject</span><span class="o">.</span><span class="n">Text</span> <span class="o">..</span> <span class="n">grapheme</span>
+    		<span class="k">if</span> <span class="n">defaultConfigurations</span><span class="o">.</span><span class="n">extraDelayOnSpace</span> <span class="ow">and</span> <span class="n">grapheme</span> <span class="o">==</span> <span class="s2">&quot; &quot;</span> <span class="n">then</span>
+    			<span class="n">wait</span><span class="p">(</span><span class="n">defaultConfigurations</span><span class="o">.</span><span class="n">delayTime</span><span class="p">)</span>
+    		<span class="n">end</span>
+    		<span class="n">wait</span><span class="p">(</span><span class="n">defaultConfigurations</span><span class="o">.</span><span class="n">delayTime</span><span class="p">)</span>
+    	<span class="n">end</span>
+    <span class="n">end</span>
+    
+    <span class="k">return</span> <span class="n">TypeWriter</span>
+
+</pre></div>
+</div>
+<p>如果你的游戏的源语言不是英语，请更改第 1 行上<code class="docutils literal notranslate"><span class="pre">articles/localization</span> <span class="pre">portal</span> <span class="pre">additional</span> <span class="pre">features#locale-code-reference|区域设置代码</span></code> (<code class="docutils literal notranslate"><span class="pre">en</span></code>) 以匹配本地化门户中的游戏源语言设置。</p>
+<p>该模块的主要功能包括：</p>
+<ul class="simple">
+<li><p>支持采用你在<code class="docutils literal notranslate"><span class="pre">articles/Introduction</span> <span class="pre">to</span> <span class="pre">Localization</span> <span class="pre">on</span> <span class="pre">Roblox|本地化门户</span></code>中配置的语言对输出文本进行<strong>本地化翻译</strong>。</p></li>
+<li><p>轻松自定义选项，如文本输出速度和句子中断词之间是否存在自然延迟。</p></li>
+<li><p>在输出非拉丁字符（如中文或朝鲜语）时完全支持 UTF-8 编码。</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>脚本实现<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>若要使用该模块显示打出的文本，需要一个能够显示文本的 GUI 对象，例如 <code class="docutils literal notranslate"><span class="pre">TextLabel</span></code>。如果你不熟悉文本标签及其基本选项，请参阅 <code class="docutils literal notranslate"><span class="pre">articles/Intro</span> <span class="pre">to</span> <span class="pre">GUIs|GUI</span> <span class="pre">简介</span></code>。</p>
+<ol class="simple">
+<li><p>创建一个 <code class="docutils literal notranslate"><span class="pre">TextLabel</span></code>。为了进行测试，合适的位置应位于以 <code class="docutils literal notranslate"><span class="pre">StarterGui</span></code> 为父系的 <code class="docutils literal notranslate"><span class="pre">ScreenGui</span></code> 中。</p></li>
+<li><p>创建一个新的 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 作为 <code class="docutils literal notranslate"><span class="pre">TextLabel</span></code> 的直接子系。</p></li>
+<li><p>将以下代码复制到新的 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 中。随意将第 7 行引号中的文本更改为所需的任何文本。</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">Roblox</span> <span class="n">services</span>
+    <span class="n">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">Require</span> <span class="n">module</span>
+    <span class="n">local</span> <span class="n">TypeWriter</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;TypeWriter&quot;</span><span class="p">))</span>
+    
+    <span class="n">TypeWriter</span><span class="o">.</span><span class="n">typeWrite</span><span class="p">(</span><span class="n">script</span><span class="o">.</span><span class="n">Parent</span><span class="p">,</span> <span class="s2">&quot;Beyond this door is the Great Zorgoth...&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>在 Studio 中对你的游戏进行测试，文本应该在 <code class="docutils literal notranslate"><span class="pre">TextLabel</span></code> 中逐字输出。</p></li>
+</ol>
+<div class="section" id="id4">
+<h3>配置选项<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>为了方便起见，该模块包含一个接受以下参数的配置函数：</p>
+<p>参数 描述 默认值</p>
+<p><strong>delayTime</strong>
+每个文本字符输出之间的延迟时间（秒）。
+0.2</p>
+<p><strong>extraDelayOnSpace</strong>
+在遇到文本字符串中有空格时是否添加自然延迟。
+true</p>
+<p>若要更改这些设置，只需调用该模块的 <code class="docutils literal notranslate"><span class="pre">configure()</span></code> 函数，例如：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">Roblox</span> <span class="n">services</span>
+    <span class="n">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">Require</span> <span class="n">module</span>
+    <span class="n">local</span> <span class="n">TypeWriter</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;TypeWriter&quot;</span><span class="p">))</span>
+    
+    <span class="n">TypeWriter</span><span class="o">.</span><span class="n">configure</span><span class="p">({</span>
+    	<span class="n">delayTime</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span>
+    	<span class="n">extraDelayOnSpace</span> <span class="o">=</span> <span class="n">false</span>
+    <span class="p">})</span>
+    
+    <span class="n">TypeWriter</span><span class="o">.</span><span class="n">typeWrite</span><span class="p">(</span><span class="n">script</span><span class="o">.</span><span class="n">Parent</span><span class="p">,</span> <span class="s2">&quot;Beyond this door is the Great Zorgoth...&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/animating-text">设置文本动画</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="avatar-emotes.html" class="btn btn-neutral float-right" title="Avatar Emotes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Mouse-Icon-Appearance.html" class="btn btn-neutral float-left" title="鼠标指针控制" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

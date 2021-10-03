@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <link rel="canonical" href="https://developer.roblox.com/articles/Setting-Parts-on-Fire-with-Events"/>
+    <link rel="alternate" hreflang="x-default" href="https://developer.roblox.com/articles/Setting-Parts-on-Fire-with-Events"/>
+    
+      <link rel="alternate" hreflang="en-us" href="https://developer.roblox.com/en-us/"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="https://developer.roblox.com/zh-cn/"/>
+    
+      
+        
+          <title> 通过事件让部件着火</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="zh-cn">
+
+
+
+<meta name="description" content="<p>在代码中使用 Touch 事件点燃部件或扑灭火焰</p>">
+
+
+
+<meta name="keywords" content="">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="通过事件让部件着火">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>在代码中使用 Touch 事件点燃部件或扑灭火焰</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="游戏过程">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="false">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="https://browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/code-highlighting.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='https://dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('https://dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="/" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="/">主页</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">教程</h5>
+      <div>
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                <span>Studio 基础知识</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/creating">
+                <span>创建</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/international">
+                <span>国际化</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                <span>声效、光照与特效</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/marketing">
+                <span>市场营销</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/optimization">
+                <span>性能优化</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                <span>所有内容</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/analytics">
+                <span>数据分析</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                <span>用户界面</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/monetization">
+                <span>盈利</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                <span>编码与脚本</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                <span>跨平台发展</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/quick-start">
+                      <span>入门</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/learn-roblox/all-tutorials">
+                      <span>了解 Roblox</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/api-reference">
+                      <span>API 参考</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/resources">
+                      <span>资源</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com">
+                      <span>社区</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="搜索">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">关闭侧边栏</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">教程</h5>
+              <div>
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                      <span>Studio 基础知识</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/creating">
+                      <span>创建</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/international">
+                      <span>国际化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                      <span>声效、光照与特效</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/marketing">
+                      <span>市场营销</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/optimization">
+                      <span>性能优化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                      <span>所有内容</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/analytics">
+                      <span>数据分析</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                      <span>用户界面</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/monetization">
+                      <span>盈利</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                      <span>编码与脚本</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                      <span>跨平台发展</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/gameplay">游戏过程</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>通过事件让部件着火</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">隐藏内容索引</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">显示内容索引</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <div class="toc-content"><a href="javascript:void(0)">内容索引</a>
+        </div>
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/gameplay">游戏过程</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>通过事件让部件着火</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">10  分钟</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>在本教程中，我们将会学习如何通过事件和函数在游戏中创建可以点燃及熄火部件的区域。</p>
+<p><img src="/assets/blt666b8215be36d9f7/Scripting5_Final.png" alt="Scripting5_Final.png"></p>
+<h2>初始设置</h2>
+<p>让我们从向游戏中放入两个部件开始。第一个部件将被用来点燃所有与其触碰的部件；第二个部件将被用来熄灭已经点燃的火焰。请确保两个部件在 Explorer（管理器）中的名称分别为 <em>FirePart</em>（点燃用部件）和 <em>WaterPart</em>（熄灭用部件）。</p>
+<p><img src="/assets/bltc8e1fb5a1c07f64b/Scripting5_Parts.png" alt="Scripting5_Parts.png"></p>
+<p>接下来，我们需要在 <code>ServerScriptService</code> 中创建一个 <code>Script</code>（脚本）。右键单击 <strong>ServerScriptService</strong>，将鼠标悬停在 Insert Object（插入对象）上方，然后选择 <strong>Script（脚本）</strong>。</p>
+<h2>点燃火焰</h2>
+<p>我们现在应该已经对函数的使用有了一定的经验：<em>print</em> 和 <em>wait</em> 函数可以在任何 Roblox 脚本中运行，而 <em>SetMinutesAfterMidnight</em> 是 Lighting 服务的成员函数。虽然上述函数都是由 Roblox 事先定义好的，但开发者也可以根据需要在脚本中创建各种自定义函数。</p>
+<p>首先，我们需要创建一个能够点燃部件的函数。就从下面的几行代码开始吧：</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+		<div class="top-panel">
+			<div class="nav nav-tabs" id="code-nav-1" role="tablist" style="border-bottom: 0px;">
+				
+				<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-1" data-toggle="tab" href="#nav-code-1" role="tab" aria-controls="nav-code-1" aria-selected="true">
+					<span class="txt">部件上玩家的触碰检测 - 点燃部件：代码示例 1</span>
+				</a>
+				
+				<a class="nav-item nav-link hidden-elem" id="nav-output-tab-1" data-toggle="tab" href="#nav-output-1" role="tab" aria-controls="nav-output-1" aria-selected="false">
+					<span class="txt">预期输出</span>
+				</a>
+				<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+					<span class="txt">展开</span>
+					<i class="expand-collapse-icon inline-icon"></i>
+				</a>
+			</div>
+		</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-1" role="tabpanel" aria-labelledby="nav-code-tab-1">
+			<pre class="prettyprint  linenums: lang-lua">function lightOnFire()
+	print("着火了！")
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-1" role="tabpanel" aria-labelledby="nav-output-tab-1">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">复制代码</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">亮色模式</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="亮色模式"></i>
+					<i class="dark-theme-icon icon" caption="深色模式"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>创建函数时，我们需要确保包括几个重要的组成部分：第一行代码的开头必须使用关键字 <strong>function</strong>。紧跟其后的单词将会成为函数的名称。为函数命名的规则与为变量命名的规则相同（无空格、不得以数字开头等）。在函数名称的后面需要添加括号 ()。在下面一行中，我们将会添加当函数被调用时运行的代码。在上述示例中，调用 lightOnFire 函数后，代码 print(“着火了！”) 将会运行。当添加所有需要运行的代码后，使用关键字 <strong>end</strong> 来结束函数的编写。</p>
+<p>目前我们的函数还远远没有完成，但让我们先对其进行调用，稍微测试一下吧。如果现在对游戏进行 <strong>Run</strong>（运行），你会发现什么都不会发生。我们之前所编写的 print 语句并不会显示在 Output（输出）中。这是因为虽然我们对函数调用后的操作进行了编写，但并没有对函数进行调用。自定义函数的调用方式与其他普通函数相同：使用函数名称，后跟括号。请参照下列示例：</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+		<div class="top-panel">
+			<div class="nav nav-tabs" id="code-nav-2" role="tablist" style="border-bottom: 0px;">
+				
+				<a class="nav-item nav-link active show " id="nav-code-tab-2" data-toggle="tab" href="#nav-code-2" role="tab" aria-controls="nav-code-2" aria-selected="true">
+					<span class="txt">部件上玩家的触碰检测 - 点燃部件：代码示例 2</span>
+				</a>
+				
+				<a class="nav-item nav-link " id="nav-output-tab-2" data-toggle="tab" href="#nav-output-2" role="tab" aria-controls="nav-output-2" aria-selected="false">
+					<span class="txt">预期输出</span>
+				</a>
+				<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+					<span class="txt">展开</span>
+					<i class="expand-collapse-icon inline-icon"></i>
+				</a>
+			</div>
+		</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-2" role="tabpanel" aria-labelledby="nav-code-tab-2">
+			<pre class="prettyprint  linenums: lang-lua">function lightOnFire()
+	print("着火了！")
+end
+
+lightOnFire()</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-2" role="tabpanel" aria-labelledby="nav-output-tab-2">
+			<pre class="prettyprint  nocode">"Lighting on fire!"</pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">复制代码</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">亮色模式</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="亮色模式"></i>
+					<i class="dark-theme-icon icon" caption="深色模式"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>如果我们现在运行游戏，*着火了！*将显示在 Output（输出）中。</p>
+<p>当创建自定义函数时，请务必确保在使用函数前对其先进行定义。在上述示例中，我们先对函数进行了定义，然后才对其进行调用。如果反而行之，则函数将不会正确运行：</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+		<div class="top-panel">
+			<div class="nav nav-tabs" id="code-nav-3" role="tablist" style="border-bottom: 0px;">
+				
+				<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-3" data-toggle="tab" href="#nav-code-3" role="tab" aria-controls="nav-code-3" aria-selected="true">
+					<span class="txt">部件上玩家的触碰检测 - 点燃部件：代码示例 3</span>
+				</a>
+				
+				<a class="nav-item nav-link hidden-elem" id="nav-output-tab-3" data-toggle="tab" href="#nav-output-3" role="tab" aria-controls="nav-output-3" aria-selected="false">
+					<span class="txt">预期输出</span>
+				</a>
+				<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+					<span class="txt">展开</span>
+					<i class="expand-collapse-icon inline-icon"></i>
+				</a>
+			</div>
+		</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-3" role="tabpanel" aria-labelledby="nav-code-tab-3">
+			<pre class="prettyprint  linenums: lang-lua">lightOnFire()
+
+function lightOnFire()
+	print("着火了！")
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-3" role="tabpanel" aria-labelledby="nav-output-tab-3">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">复制代码</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">亮色模式</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="亮色模式"></i>
+					<i class="dark-theme-icon icon" caption="深色模式"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>上述代码示例将不会正常运行。我们在代码的第一行就调用了 <em>lightOnFire()</em>，但由于没有事先定义函数的内容，将会导致 Script（脚本）出错。</p>
+<p>让我们继续编写函数吧。现在的函数只能打印至输出窗口，这离我们“点燃一切”的需求还差得很远！我们希望能够通过这个函数将特定部件点燃，那么接下来就需要确保函数知道需要点燃的是哪个部件。让我们通过向函数添加 <em>Parameter</em>（参数）来完成这一步骤吧。在函数定义中的括号内添加关键字 part，如下所示：</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+		<div class="top-panel">
+			<div class="nav nav-tabs" id="code-nav-4" role="tablist" style="border-bottom: 0px;">
+				
+				<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-4" data-toggle="tab" href="#nav-code-4" role="tab" aria-controls="nav-code-4" aria-selected="true">
+					<span class="txt">部件上玩家的触碰检测 - 点燃部件：代码示例 4</span>
+				</a>
+				
+				<a class="nav-item nav-link hidden-elem" id="nav-output-tab-4" data-toggle="tab" href="#nav-output-4" role="tab" aria-controls="nav-output-4" aria-selected="false">
+					<span class="txt">预期输出</span>
+				</a>
+				<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+					<span class="txt">展开</span>
+					<i class="expand-collapse-icon inline-icon"></i>
+				</a>
+			</div>
+		</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-4" role="tabpanel" aria-labelledby="nav-code-tab-4">
+			<pre class="prettyprint  linenums: lang-lua">function lightOnFire(part)
+	print("将要点燃这个部件：")
+	print(part.Name)
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-4" role="tabpanel" aria-labelledby="nav-output-tab-4">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">复制代码</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">亮色模式</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="亮色模式"></i>
+					<i class="dark-theme-icon icon" caption="深色模式"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>上述代码中的关键字 <em>part</em> 是函数的参数。之前我们曾经在其他函数中使用过一些参数：使用 <em>wait</em> 函数时，需要提供一个数字作为参数；使用 <em>print</em> 函数时，需要提供一个字符串或数字作为参数。在这个代码示例中，我们需要提供的是希望点燃的 Part（部件）。在函数内部，我们将可以像普通变量一样使用 part。</p>
+<p>接下来，让我们添加点燃后出现的火焰。添加火焰最为简单的方式就是在代码中创建新的 <strong>Fire</strong> 实例，并将其父项设置为传递进来的部件。创建火焰实例的方法与创建新部件的方法一致：只需将 <strong>Instance.new(“Part”)</strong> 修改为 <em>Instance.new(“Fire”)</em> 即可。同时，我们需要确保将火焰保存在变量中，以便设置其 Parent（父项）属性。</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+		<div class="top-panel">
+			<div class="nav nav-tabs" id="code-nav-5" role="tablist" style="border-bottom: 0px;">
+				
+				<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-5" data-toggle="tab" href="#nav-code-5" role="tab" aria-controls="nav-code-5" aria-selected="true">
+					<span class="txt">部件上玩家的触碰检测 - 点燃部件：代码示例 5</span>
+				</a>
+				
+				<a class="nav-item nav-link hidden-elem" id="nav-output-tab-5" data-toggle="tab" href="#nav-output-5" role="tab" aria-controls="nav-output-5" aria-selected="false">
+					<span class="txt">预期输出</span>
+				</a>
+				<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+					<span class="txt">展开</span>
+					<i class="expand-collapse-icon inline-icon"></i>
+				</a>
+			</div>
+		</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-5" role="tabpanel" aria-labelledby="nav-code-tab-5">
+			<pre class="prettyprint  linenums: lang-lua">function lightOnFire(part)
+	print("将要点燃这个部件：")
+	print(part.Name)
+	
+	fire = Instance.new("Fire")
+	fire.Parent = part
+end</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-5" role="tabpanel" aria-labelledby="nav-output-tab-5">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">复制代码</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">亮色模式</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="亮色模式"></i>
+					<i class="dark-theme-icon icon" caption="深色模式"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>最后，我们需要确保每当部件触碰我们在教程开头创建的 <em>FirePart</em> 时，都会调用此函数。让我们通过使用 <strong>Event</strong>（事件）来达成这个目标。事件用于在游戏中出现指定状况时对函数进行调用。事件可以包括以下状况：部件碰撞、玩家加入游戏、玩家按下按钮等。当事件发生时，我们可以在多处调用自定义函数。本示例中使用的事件为 <strong>Touched</strong>，与部件相关联：</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+		<div class="top-panel">
+			<div class="nav nav-tabs" id="code-nav-6" role="tablist" style="border-bottom: 0px;">
+				
+				<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-6" data-toggle="tab" href="#nav-code-6" role="tab" aria-controls="nav-code-6" aria-selected="true">
+					<span class="txt">部件上玩家的触碰检测 - 点燃部件：代码示例 6</span>
+				</a>
+				
+				<a class="nav-item nav-link hidden-elem" id="nav-output-tab-6" data-toggle="tab" href="#nav-output-6" role="tab" aria-controls="nav-output-6" aria-selected="false">
+					<span class="txt">预期输出</span>
+				</a>
+				<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+					<span class="txt">展开</span>
+					<i class="expand-collapse-icon inline-icon"></i>
+				</a>
+			</div>
+		</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-6" role="tabpanel" aria-labelledby="nav-code-tab-6">
+			<pre class="prettyprint  linenums: lang-lua">function lightOnFire(part)
+	print("将要点燃这个部件：")
+	print(part.Name)
+	
+	fire = Instance.new("Fire")
+	fire.Parent = part
+end
+
+firePart = game.Workspace.FirePart
+firePart.Touched:Connect(lightOnFire)</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-6" role="tabpanel" aria-labelledby="nav-output-tab-6">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">复制代码</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">亮色模式</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="亮色模式"></i>
+					<i class="dark-theme-icon icon" caption="深色模式"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>接下来，让我们进行游戏测试！点击 **Play（开始游戏）**后，将会生成游戏角色。控制角色走向 <em>FirePart</em>。当角色触碰到该部件时，其双腿将会燃烧起来！</p>
+<p><img src="/assets/blt666b8215be36d9f7/Scripting5_Final.png" alt="Scripting5_Final.png"></p>
+<h2>熄灭火焰</h2>
+<p>让我们为玩家们提供一个熄灭火焰的方法：触碰 <em>WaterPart</em>。如点燃火焰时相同，我们将需要创建一个能够熄灭火焰的函数，并将其连接至 <strong>WaterPart</strong> 的 Touched 事件。</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+		<div class="top-panel">
+			<div class="nav nav-tabs" id="code-nav-7" role="tablist" style="border-bottom: 0px;">
+				
+				<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-7" data-toggle="tab" href="#nav-code-7" role="tab" aria-controls="nav-code-7" aria-selected="true">
+					<span class="txt">部件上玩家的触碰检测 - 点燃部件：代码示例 7</span>
+				</a>
+				
+				<a class="nav-item nav-link hidden-elem" id="nav-output-tab-7" data-toggle="tab" href="#nav-output-7" role="tab" aria-controls="nav-output-7" aria-selected="false">
+					<span class="txt">预期输出</span>
+				</a>
+				<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+					<span class="txt">展开</span>
+					<i class="expand-collapse-icon inline-icon"></i>
+				</a>
+			</div>
+		</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-7" role="tabpanel" aria-labelledby="nav-code-tab-7">
+			<pre class="prettyprint  linenums: lang-lua">function putOutFire(part)
+	print("要灭掉这个部件上的火：")
+	print(part.Name)
+end
+
+waterPart = game.Workspace.WaterPart
+waterPart.Touched:Connect(putOutFire)</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-7" role="tabpanel" aria-labelledby="nav-output-tab-7">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">复制代码</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">亮色模式</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="亮色模式"></i>
+					<i class="dark-theme-icon icon" caption="深色模式"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>为了熄灭火焰，我们将会使用名为 <em>Destroy</em> 的函数。对 Roblox 中的任何对象使用此函数后，都将导致该对象被移除。或许你会想要像下面这样编写熄灭火焰的代码：</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+		<div class="top-panel">
+			<div class="nav nav-tabs" id="code-nav-8" role="tablist" style="border-bottom: 0px;">
+				
+				<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-8" data-toggle="tab" href="#nav-code-8" role="tab" aria-controls="nav-code-8" aria-selected="true">
+					<span class="txt">部件上玩家的触碰检测 - 点燃部件：代码示例 8</span>
+				</a>
+				
+				<a class="nav-item nav-link hidden-elem" id="nav-output-tab-8" data-toggle="tab" href="#nav-output-8" role="tab" aria-controls="nav-output-8" aria-selected="false">
+					<span class="txt">预期输出</span>
+				</a>
+				<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+					<span class="txt">展开</span>
+					<i class="expand-collapse-icon inline-icon"></i>
+				</a>
+			</div>
+		</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-8" role="tabpanel" aria-labelledby="nav-code-tab-8">
+			<pre class="prettyprint  linenums: lang-lua">function putOutFire(part)
+	print("要灭掉这个部件上的火：")
+	print(part.Name)
+	
+	part.Fire:Destroy()
+end
+
+waterPart = game.Workspace.WaterPart
+waterPart.Touched:Connect(putOutFire)</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-8" role="tabpanel" aria-labelledby="nav-output-tab-8">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">复制代码</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">亮色模式</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="亮色模式"></i>
+					<i class="dark-theme-icon icon" caption="深色模式"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>虽然上面的代码可用于扑灭火焰，但当角色没有着火并触碰 WaterPart 时，又会发生什么情况呢？</p>
+<p><img src="/assets/blt1276cf0f0275fc18/Scripting5_Error.png" alt="Scripting5_Error.png"></p>
+<p>没错，在这种情况下，之前的代码将会导致错误。在为游戏进行代码编写时，最理想的状况是不出现任何错误。为了修正这个情况，我们首先需要检查试图进行灭火的部件中是否存在火焰实例。该操作可以通过名为 <em>FindFirstChild</em> 的函数轻松完成：该函数可以查看指定名称的部件是否存在于其他对象中。函数的结果甚至可以被储存在变量中。让我们立即执行这一操作吧：</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+		<div class="top-panel">
+			<div class="nav nav-tabs" id="code-nav-9" role="tablist" style="border-bottom: 0px;">
+				
+				<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-9" data-toggle="tab" href="#nav-code-9" role="tab" aria-controls="nav-code-9" aria-selected="true">
+					<span class="txt">部件上玩家的触碰检测 - 点燃部件：代码示例 9</span>
+				</a>
+				
+				<a class="nav-item nav-link hidden-elem" id="nav-output-tab-9" data-toggle="tab" href="#nav-output-9" role="tab" aria-controls="nav-output-9" aria-selected="false">
+					<span class="txt">预期输出</span>
+				</a>
+				<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+					<span class="txt">展开</span>
+					<i class="expand-collapse-icon inline-icon"></i>
+				</a>
+			</div>
+		</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-9" role="tabpanel" aria-labelledby="nav-code-tab-9">
+			<pre class="prettyprint  linenums: lang-lua">function putOutFire(part)
+	print("将要灭掉这个部件上的火：")
+	print(part.Name)
+	
+	fire = part:FindFirstChild("Fire")
+	if fire then
+		fire:Destroy()
+	end
+end
+
+waterPart = game.Workspace.WaterPart
+waterPart.Touched:Connect(putOutFire)</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-9" role="tabpanel" aria-labelledby="nav-output-tab-9">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">复制代码</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">亮色模式</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="亮色模式"></i>
+					<i class="dark-theme-icon icon" caption="深色模式"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>在刚刚创建的函数中，我们会在打印输出语句后创建名为 <strong>fire</strong> 的变量，并在该变量中存储 <em>FindFirstChild(“Fire”)</em> 的结果。下一行 <strong>if fire then</strong> 是条件性检查，用于查看 fire 中是否已存储任何内容。如果 FindFirstChild 成功存储 fire 变量中的内容，则将调用下一行 <em>fire:Destroy()</em>。否则，在未找到任何内容时，函数将不会执行任何操作。如此一来，在调用函数时就不会产生任何错误。</p>
+<p>下面，让我们使用 **Play（开始游戏）**对游戏进行测试。在游戏中，我们将可以通过触碰 FirePart 点燃角色，然后触碰 WaterPart 来熄灭火焰。</p>
+<h2>后续步骤</h2>
+<p>让我们将这段新的代码与地形结合使用吧！使用地形后，玩家踩到火山熔岩时将会着火，而跳入水中后就可以熄灭身上的火焰。这种体验将会比普通的砖块要有趣逼真得多。首先，我们将会使用 **Add（添加）**地形工具来添加地形：</p>
+<p><img src="/assets/blt9052bdb90d586afe/Scripting5_Terrain.png" alt="Scripting5_Terrain.png"></p>
+<p>移动并缩放之前创建的火部件和水部件，使其与刚刚添加的地形完全重叠。确保这两个部件都处于 *Anchored（锚固）*状态，且其 <em><code>BasePart/CanCollide</code></em> 属性处于关闭状态。另外，你还可以将其 <em>Transparency</em> 属性将其设为半透明，以便更为精确地为部件定位。</p>
+<p><img src="/assets/blt71975783c3b1e88e/Scripting5_TerrainAndParts.png" alt="Scripting5_TerrainAndParts.png"></p>
+<p>在脚本末尾，我们会将这两个部件设为完全透明，使其不显示在游戏成品中：</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <pre><code class="language-lua">firePart.Transparency = 1
+waterPart.Transparency = 1
+</code></pre>
+<p>这样一来，代码就完成了！在开始游戏时，玩家可以跳到熔岩上点燃自己，也可以跳到水中将火灭掉！</p>
+<p><img src="/assets/bltf9123e3441e2ad23/Scripting5_TerrainFinished.png" alt="Scripting5_TerrainFinished.png"></p>
+<p>下面是我们刚刚编写的所有代码：</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+		<div class="top-panel">
+			<div class="nav nav-tabs" id="code-nav-10" role="tablist" style="border-bottom: 0px;">
+				
+				<a class="nav-item nav-link active show inactive-link" id="nav-code-tab-10" data-toggle="tab" href="#nav-code-10" role="tab" aria-controls="nav-code-10" aria-selected="true">
+					<span class="txt">部件上玩家的触碰检测 - 点燃部件：代码示例 10</span>
+				</a>
+				
+				<a class="nav-item nav-link hidden-elem" id="nav-output-tab-10" data-toggle="tab" href="#nav-output-10" role="tab" aria-controls="nav-output-10" aria-selected="false">
+					<span class="txt">预期输出</span>
+				</a>
+				<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+					<span class="txt">展开</span>
+					<i class="expand-collapse-icon inline-icon"></i>
+				</a>
+			</div>
+		</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-10" role="tabpanel" aria-labelledby="nav-code-tab-10">
+			<pre class="prettyprint  linenums: lang-lua">function lightOnFire(part)
+	print("将要点燃这个部件：")
+	print(part.Name)
+	
+	fire = Instance.new("Fire")
+	fire.Parent = part
+end
+
+firePart = game.Workspace.FirePart
+
+firePart.Touched:Connect(lightOnFire)
+
+function putOutFire(part)
+	print("将要灭掉这个部件上的火：")
+	print(part.Name)
+	
+	fire = part:FindFirstChild("Fire")
+	if fire then
+		fire:Destroy()
+	end
+end
+
+waterPart = game.Workspace.WaterPart
+waterPart.Touched:Connect(putOutFire)
+
+firePart.Transparency = 1
+waterPart.Transparency = 1</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-10" role="tabpanel" aria-labelledby="nav-output-tab-10">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">复制代码</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">亮色模式</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="亮色模式"></i>
+					<i class="dark-theme-icon icon" caption="深色模式"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+            </div>
+
+            
+            
+            
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>此网站如何使用 Cookie</h1>
+        <div class="privacy-content">
+          <p>此平台使用 Cookie 为您提供更好的体验、对内容进行个性化、提供社交媒体功能和分析网站流量。如需详细信息（包括有关如何在此平台上防止使用 Cookie 或对其进行管理的信息），请参阅我们的<a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私和 Cookie 政策</a>。</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">确定</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">你即将离开 Roblox 网站</div>
+        <p>请按下继续按钮前往： <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="" class="btn secondary-btn" data-dismiss="modal">返回</a>
+        <a href="" class="btn primary-btn continue-link" target="_blank">继续</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com" target="_self" class="footer-logo ptxl mbl">
+              <img src="https://dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2019 Roblox Corporation. 保留所有权利。</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>公司</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">关于 Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">招贤纳士</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">技术</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">服务条款</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私政策</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">家长</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>开发人员</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="/articles/Creating-Your-First-Game" target="_self">入门</a>
+                  </li>
+                
+                  <li>
+                    <a href="/learn-roblox/all-tutorials" target="_self">了解</a>
+                  </li>
+                
+                  <li>
+                    <a href="/api-reference" target="_self">API 参考</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com" target="_blank">社区</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">开发人员公告</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">搜索</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input"
+                        placeholder="搜索">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" href="#all" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            所有结果
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" href="#api-doc" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API 文档
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" href="#tutorial" role="tab"
+                            aria-selected="false" data-name="articles">
+                            教程
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" href="#recipe" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            代码参考
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" href="#video" role="tab"
+                            aria-selected="false" data-name="videos">
+                            视频
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+</html>

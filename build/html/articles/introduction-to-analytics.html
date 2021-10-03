@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>数据分析简介 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="衡量参与度" href="measuring-engagement.html" />
+    <link rel="prev" title="数据分析" href="../tutorials/analytics.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">数据分析简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">参与度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">保有量</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">日保有量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">周保有量</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">盈利</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="measuring-engagement.html">衡量参与度</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using-Google-Analytics.html">在 Roblox 中使用 Google Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-the-analytics-service.html">使用 PlayFab 分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Developer-Stats.html">分析游戏数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="designing-for-engagement.html">提升游戏参与度</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/analytics.html">数据分析</a> &raquo;</li>
+        
+      <li>数据分析简介</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/introduction-to-analytics.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>数据分析简介<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>（与保有量相关）。</em></p>
+<p><img alt="https://developer.roblox.com/assets/blt805e9519ed1ae574/Analytics-Banner.jpg" src="https://developer.roblox.com/assets/blt805e9519ed1ae574/Analytics-Banner.jpg" /></p>
+<p><strong>分析</strong>涉及数据的采集和分析，能发现你的游戏在哪些地方表现比较优秀，或者哪里还有可以改进的空间。利用分析来支持和改进你的创作性设计，能有助于让你的游戏更加成功、更受玩家欢迎。</p>
+<p>在本文当中，我们将介绍在你的游戏开发过程当中使用分析的相关主要概念和计量标准（或称<strong>指标</strong>）。</p>
+<p>请注意，为了与并非特定于游戏中经常引用的概念保持一致，“玩家”也可以被叫做“用户”。</p>
+<hr class="docutils" />
+<div class="section" id="id2">
+<h2>参与度<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><strong>参与度</strong>是玩家在你游戏中的投入程度的衡量标准。如果玩家积极地进行游戏，而且在你的游戏中作出了感情、心理或金钱方面的投入，则视为“已参与”。高参与度的玩家代表着你的核心玩家群体，而且成为付费玩家的几率更高。</p>
+<p>术语 定义</p>
+<p><strong>日活跃用户（DAU）</strong>
+一天内玩过你游戏的特定玩家数。</p>
+<p><strong>月活跃用户（MAU）</strong>
+一个月天内玩过你游戏的特定玩家总数。</p>
+<p><strong>DAU/MAU 比例</strong>
+用一个月内的平均 DAU 除以该月的 MAU 总数计算得出。该比例可以解读为一名玩家一个月内平均玩你游戏的天数占总天数的百分比，<strong>也可以</strong>解读为你的每月玩家当中每天都玩你游戏的玩家所占的百分比。</p>
+<p>随时间推移而呈现的 <strong>DAU</strong>，有助于表明玩家是否会始终如一地参与和回到你的游戏中（与保有量相关）。DAU 可能会由于你发布新的功能或内容而快速变动，也是一种用来衡量更新对玩家所造成影响的绝佳方式。</p>
+<p>要提高或保持 <strong>MAU</strong>，你可以提供定期更新，用以刺激玩家留在游戏当中，并解决任何会导致玩家离开的问题（例如可能导致崩溃或错误状态的漏洞）。</p>
+<p><strong>DAU/MAU 比率</strong>相比单独的 DAU 或 MAU 来说，都是更加实用的玩家参与度指标。如果你的 DAU/MAU 比率较高，就代表玩家在整个月内都在频繁参与你的游戏。例如，在一个为期 30 天的月份内，DAU/MAU 比率达到 50%，就意味着你的玩家们在这个月内登录并进行游戏的天数平均为 15 天；换句话说，你的玩家当中有半数的人每天都会进行游戏。</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="id3">
+<h2>保有量<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><strong>保有量</strong>是你的玩家中有多少人在首次访问游戏后会再次进入游戏的衡量值。保有量高说明有更多玩家在首次尝试你的游戏后会有再次游戏的动力。定期发布更新和内容是一种提高玩家回归次数的方法。每日奖励则是另一种刺激登录量提高的保有量机制。</p>
+<div class="section" id="id4">
+<h3>日保有量<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>日保有量是一种用来了解游戏对玩家“吸引力”程度的出色方式。如果你的目的是让自己的游戏成为玩家的日常习惯，日保有量就是需要你关注的关键指标。</p>
+<p>术语 定义</p>
+<p><strong>第 0 日（D0）</strong>
+指的是一名新玩家第一次进入你游戏的那一天。</p>
+<p><strong>第 n 天（Dn）</strong>
+指的是第 0 天后的第 <strong>n</strong> 天，其中 <strong>n</strong> 为数字。例如，第 1 天就是第 0 天后的那一天，而第 7 天就是第 0 天后的第七天。</p>
+<p><strong>第 n 天保有量</strong>
+在第 <strong>n</strong> 天回到游戏的新玩家的百分比。</p>
+<p><strong>第 1 天（D1）保有量</strong>表示的是新玩家开始游戏后的那一天，有多少新玩家有动力再次回到游戏，这是你能够追踪的一项最重要保有量指标。第 1 天保有量较高，你游戏的整体保有量通常也会较高。</p>
+<p>如果你的第 1 天保有量较低或衰减，通常表示你的初次玩家体验需要提升。你可能会因为教程或用户界面的问题、缺少即时奖励，或是因为初期进展过于缓慢而早早地失去新玩家。</p>
+<p>要发现你可以通过修正来提升 D1 保有量的潜在问题，其中一种最好的方式就是观察首次玩家的体验。你可以将分析事件集成到自己的新体验流程中去，观察玩家是在哪个阶段退出的。</p>
+<p>追踪后续几天的<strong>第 n 天保有量</strong>，能帮助你了解玩家一般会在多长时间内继续回归你的游戏。当你努力在游戏进展与经济之间做出平衡时，这会十分有用。</p>
+</div>
+<div class="section" id="id5">
+<h3>周保有量<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>与日保有量相比，周保有量是一种较为宽松的指标。如果玩家于给定周内的任意时间回归游戏，该指标就会将其算作“已保留”，而如果玩家在所追踪的特定一天内回归游戏，日保有量才会将其算作“已保留”。对于追踪你的游戏是否比较休闲，玩家不必每天都参与你的游戏，周保有量十分实用。</p>
+<p>术语 定义</p>
+<p><strong>第 0 周（W0）</strong>
+指的是一名新玩家第一次进入你游戏的那一周（第 0 天到第 6 天）。</p>
+<p><strong>第 n 周（Wn）</strong>
+指的是第 0 周后的第 <strong>n</strong> 周。例如，第 1 周就是第 0 周后的那一周。</p>
+<p><strong>第 n 周保有量</strong>
+第 <strong>n</strong> 周内任意时间回归游戏的新玩家百分比。</p>
+<p>与第 1 天保有量类似，<strong>第 1 周保有量</strong>较低或衰减，可能表示你的首次玩家体验或初期进展速度有问题。而如果你的 W0 保有量较高，但 W1 保有量却较低，则可能表明你的游戏最初很吸引玩家，但这些玩家在一周内逐渐厌倦了内容，或是遇到了进展障碍，让他们在第二周没有兴趣再回到游戏。</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="id6">
+<h2>盈利<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p><strong>盈利</strong>是指你从玩家身上赚取金钱的能力。盈利包括你游戏内商店和相关的用户界面、购买流程、追加销售机制，以及游戏进展平衡、物品估价、游戏内经济，还有整体设计。</p>
+<p>术语 定义</p>
+<p><strong>营收额</strong>
+在将任何费用或成本纳入核算前，你的游戏所赚取的 Robux 总额。</p>
+<p><strong>用户平均营收额（ARPU）</strong>
+单个玩家平均在你游戏当中花费的 Robux 数额。用营收额除以你游戏中的单个玩家数量计算得出。</p>
+<p><strong>付费用户平均营收额（ARPPU）</strong>
+单个<strong>付费</strong>玩家平均在你游戏当中花费的 Robux 数额。用营收额除以你游戏中的单个付费玩家数量计算得出。</p>
+<p><strong>转化率</strong>
+在你的游戏中花费了 Robux 的玩家百分比。</p>
+<p><strong>营收额</strong>（即赚取的 Robux 总额）是追踪盈利的最简单指标。与其他关键指标相比，掌握愿意在你的游戏中支付金钱的玩家数量及其愿意付出的金额，能让你了解自己游戏的盈利状况，并能更加有效地调整你的盈利策略。</p>
+<p>其中<strong>用户平均营收额（ARPU）</strong> 代表某一玩家在你游戏中的价值，而<strong>付费用户平均营收额（ARPPU）</strong> 则反映了你游戏当中的盈利质量。</p>
+<p>与转化率结合考虑时，ARPU 和 ARPPU 最为有用。<strong>转化率</strong>能反映出你调动玩家在你的游戏中花费金钱的效果。</p>
+<p>比如说，如果你的转化率较高，而 ARPPU 较低，说明你很擅长让玩家至少能购买游戏中的一件物品，但除了初次购买的物品外，却没有什么能够刺激进一步的消费。搞清楚是什么带来了这笔首次购买并观察其价值，能帮你判断出要刺激更多消费所需创建的内容。</p>
+<p>从另一方面来说，低转化率高 ARPPU 则可能说明你的物品十分昂贵却极具价值，只有经济条件比较优越的玩家才有能力购买。引入诸如新手包等高价值低价格的物品，可能会有助于刺激购买能力较低的玩家完成更多购买。</p>
+<p>总的来说，在你的游戏中购买过一次东西的玩家，再次购买的几率会更高。明白自己的游戏中的哪些对于玩家来说富有价值，能帮助你搞明白要卖些什么、如何针对不同财力的玩家来设定价格，以及如何设计游戏进展和经济，才能鼓励首次购买，然后打造更长期的付费用户。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/introduction-to-analytics">数据分析简介</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="measuring-engagement.html" class="btn btn-neutral float-right" title="衡量参与度" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../tutorials/analytics.html" class="btn btn-neutral float-left" title="数据分析" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

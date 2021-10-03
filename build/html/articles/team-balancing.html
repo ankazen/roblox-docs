@@ -1,0 +1,594 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>平衡团队构成 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="AVATAR" href="../api-reference/avatar.html" />
+    <link rel="prev" title="载具工具包" href="vehicles-kit.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Lobby.html">制作大厅</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Usage-of-dialogs.html">NPC 对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Teleporting-Between-Places.html">不同场景间的传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Spawns-and-Teams.html">角色生成与团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-an-Explosion-Course.html">制作爆炸赛道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shop-Dialogs.html">商店对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-to-teleport-within-a-Place.html">场景内玩家传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="in-game-solid-modeling.html">游戏内实体建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matchmaking.html">玩家匹配系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Player-Collisions.html">玩家间的碰撞控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setting-Parts-on-Fire-with-Events.html">通过事件让部件着火</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2D-Collision-Detection.html">2D 碰撞检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Basics-on-Roblox.html">添加团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Badges-Special-Game-Awards.html">Badges – Special Game Awards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Collision-Filtering-Team-Doors.html">Restricted/Team Doors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-VIP-Doors.html">创建 VIP 专用门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Random-Map-Chooser.html">随机地图选择器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roblox-avatars.html">Roblox 虚拟形象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Health-Pickups.html">回复用拾取物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Moving-NPCs-Between-Points.html">在点之间移动 NPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pathfinding.html">寻路</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Side-Scrolling-Camera-View.html">横向卷轴镜头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Tools.html">玩家工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="detecting-collisions.html">检测碰撞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weapons-kit.html">认可武器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="npc-kit.html">NPC 套组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vehicles-kit.html">载具工具包</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">平衡团队构成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">将好友玩家成组分配</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/gameplay.html">游戏制作</a> &raquo;</li>
+        
+      <li>平衡团队构成</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/team-balancing.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>平衡团队构成<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p><img alt="https://developer.roblox.com/assets/blt506c733356766e41/Team-Balancing-Hero.jpg" src="https://developer.roblox.com/assets/blt506c733356766e41/Team-Balancing-Hero.jpg" /></p>
+<p>通过将游戏中互加好友的玩家放入同一队伍并确保双方队伍的平衡，可以保证所有玩家都能享受到公平健康的游戏氛围。向游戏添加保持团队平衡的代码后，公平竞争的玩家们会逐渐发展友谊，从而在你的游戏中投入更多的时间。</p>
+<p>如果想要实现本文中的代码示例，建议对 Lua <code class="docutils literal notranslate"><span class="pre">/articles/Table|table（表）</span></code> 和 Roblox 的 <code class="docutils literal notranslate"><span class="pre">BindableEvent|BindableEvent</span></code> 有一定了解。</p>
+<p>本文中的脚本并不会为游戏自动添加/设置团队。如果对设置团队尚不了解，请参见<code class="docutils literal notranslate"><span class="pre">/articles/Player</span> <span class="pre">Spawns</span> <span class="pre">and</span> <span class="pre">Teams|玩家生成和团队</span></code>一文。</p>
+<div class="section" id="id2">
+<h2>将好友玩家成组分配<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>如果想要追踪一组好友玩家，需要先在 <code class="docutils literal notranslate"><span class="pre">ServerScriptService</span></code> 中包括 <code class="docutils literal notranslate"><span class="pre">Script</span></code>。在该脚本的代码中，首先需要添加查看游戏中是否有好友的函数，然后将其连接至 <code class="docutils literal notranslate"><span class="pre">Players/PlayerAdded</span></code> 事件。</p>
+<p>ServerScriptService 中的 Script ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>local friendGroups = {}
+
+-- 将好友加入同一群组，以便其加入同一团队
+local function groupFriends(player)
+	local mutualGroups = {}
+
+	-- 对好友群组进行迭代
+	for groupIndex, group in ipairs(friendGroups) do
+		-- 对群组中发现的好友进行迭代
+		for _, user in ipairs(group) do
+			-- 将共同好友放入一个群组中
+			if player:IsFriendsWith(user.UserId) then
+				if (mutualGroups[group] == nil) then
+					table.insert(mutualGroups, groupIndex)
+				end
+			end
+		end
+	end
+
+	if #mutualGroups &gt; 0 then
+		local groupIndex = mutualGroups[1]
+ 
+		-- 如果玩家拥有多个正在进行游戏的好友群组，则将其合并为一个群组
+		if #mutualGroups &gt; 1 then
+			groupIndex = mergeGroups(mutualGroups)
+		end
+ 
+		table.insert(friendGroups[groupIndex], player)
+		assignInitialTeam(player, friendGroups[groupIndex])
+	else
+		table.insert(friendGroups, {player})
+		assignInitialTeam(player)
+	end
+end
+
+-- 将 &quot;PlayerAdded&quot; 事件连接至 &quot;groupFriends()&quot; 函数
+game.Players.PlayerAdded:Connect(groupFriends)
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>此段代码的作用如下：
+
+  1. 第一行的 `friendGroups` 表将会储存至少拥有一个共同好友的多个玩家列表。
+  2. 在查找进入游戏的玩家是否有好友在游戏内时，将会使用 `Player/IsFriendsWith|Player:IsFriendsWith()` 对 `friendGroups` 内各个群组的玩家进行查询。包含进入游戏玩家一名以上好友的群组将会被存储在 `mutualGroups` 表内。
+  3. 如果找到了多个拥有好友的群组，则首先会将这些群组通过 `mergeGroups()` 辅助函数（在下文合并好友群组章节中进行了定义），然后玩家将会被分配至该群组。如果没有发现任何好友，则玩家将会被分配至新的群组。
+  4. 当玩家与其线上好友进行分组后，使用辅助函数 `assignInitialTeam()` （在下文分配玩家团队章节中进行了定义）将其分配至团队中。
+
+### 合并好友群组
+
+如果想要将多个含有共同好友的群组合并为一个更大的群组，请直接在 `groupFriends()` 函数上方添加下列 `mergeGroups()` 辅助函数。该函数将会查看拥有共同好友的群组，对其进行合并，移除旧的群组，然后将合并过的群组返回至 `groupFriends()` 函数。
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">将所有拥有共同好友的群组合并至一个群组</span>
+<span class="n">local</span> <span class="n">function</span> <span class="n">mergeGroups</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span>
+	<span class="o">--</span> <span class="n">将其它群组的成员添加至第一个群组</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="c1">#groups do</span>
+		<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">friendGroups</span><span class="p">[</span><span class="n">groups</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span> <span class="n">do</span>
+			<span class="n">table</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">friendGroups</span><span class="p">[</span><span class="n">groups</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">user</span><span class="p">)</span>
+		<span class="n">end</span>
+		<span class="o">--</span> <span class="n">移除合并后的废弃群组</span>
+		<span class="n">table</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">friendGroups</span><span class="p">,</span> <span class="n">groups</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+	<span class="n">end</span>
+
+	<span class="k">return</span> <span class="n">groups</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>### 分配玩家团队
+
+如果玩家与好友共同游戏，开始时应该将其放入同一团队中。为了达成此目的，应当：
+
+  1. 获取 `TeamService` 并与游戏团队交互。建议将服务放在脚本的最顶端。
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">TeamsService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Teams&quot;</span><span class="p">)</span>
+
+<span class="n">local</span> <span class="n">friendGroups</span> <span class="o">=</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  2. 在 `mergeGroups()` 函数下添加名为 `assignInitialTeam()` 的函数，其作用为接收玩家及其可能加入群组的参数。如果函数收到了群组参数且群组人数不会因过大而造成游戏不平衡，则好友群组中第一条目的 `Player/Team` 属性将会被用来分配团队。如果没有收到群组参数，则玩家将填入人数最少的团队。
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-- 当玩家加入游戏时，决定其应当加入的团队
+local function assignInitialTeam(player, group)
+	-- 检查玩家是否属于任何群组且该群组是否并未超过公平团队人数
+	if group and #group &lt; game.Players.MaxPlayers / 2 then
+		player.Team = group[1].Team
+	else
+		local teams = TeamsService:GetTeams()
+		table.sort(teams, function(a, b) return #a:GetPlayers() &lt; #b:GetPlayers() end)
+		player.Team = teams[1]
+	end
+end
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>## 处理玩家退出
+
+当玩家离开游戏后，需要将其从 `friendGroups` 表中移除，否则游戏将会认为好友群组比实际上的人数要多。
+
+如果想要移除玩家的条目，需要对 `friendGroups` 进行迭代，寻找与该玩家相符的用户，并将该玩家的当前索引设为 `nil`。如果玩家之前的群组为空，则将群组也设为 `nil` 。最后需要确保将函数连接至 `Players/PlayerRemoving` 事件。
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-- 当玩家离开游戏时，清除其群组
+local function removeFromGroup(player)
+	-- 对好友群组进行循环，找到玩家
+	for groupIndex, group in ipairs(friendGroups) do
+		for userIndex, user in ipairs(group) do
+			if user.Name == player.Name then
+				-- 将其从之前加入的群组中移除
+				friendGroups[groupIndex][userIndex] = nil
+				-- 如果群组为空，则将其进行移除
+				if #friendGroups[groupIndex] == 0 then
+					friendGroups[groupIndex] = nil
+				end
+			end
+		end
+	end
+end
+
+-- 将 &quot;PlayerRemoving&quot; 事件连接至 &quot;removeFromGroup()&quot; 函数
+game.Players.PlayerRemoving:Connect(removeFromGroup)
+
+-- 将 &quot;PlayerAdded&quot; 事件连接至 &quot;groupFriends()&quot; 函数
+game.Players.PlayerAdded:Connect(groupFriends)
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>## 重新平衡团队
+
+决定好友群组之后，在 `ReplicatedStorage` 内添加 `BindableEvent`，以供需要测试及重新平衡时使用。按照 Roblox 传统，将此代码置于脚本顶部。
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">TeamsService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Teams&quot;</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
+
+<span class="n">local</span> <span class="n">balanceTeamsEvent</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;BindableEvent&quot;</span><span class="p">)</span>
+<span class="n">balanceTeamsEvent</span><span class="o">.</span><span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;BalanceTeamsEvent&quot;</span>
+<span class="n">balanceTeamsEvent</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">ReplicatedStorage</span>
+
+<span class="n">local</span> <span class="n">friendGroups</span> <span class="o">=</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>接下来，为了保证各团队分配到人数大致相当的好友群组并保持平衡，在 `removeFromGroup()` 下方添加下列 `balanceTeams()` 函数：
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>local function balanceTeams()
+	local teams = TeamsService:GetTeams()
+
+	-- 对群组进行排序，将更大的群组放在前面
+	table.sort(friendGroups, function(a, b) return #a &gt; #b end)
+
+	-- 迭代好友群组（已经将其按从大到小进行排序）
+	for i = 1, #friendGroups do
+		-- 如果群组过大，则将其分开放入两个团队中
+		if (#friendGroups[i] &gt; game.Players.MaxPlayers / 2) then
+			for _, player in pairs(friendGroups[i]) do
+				table.sort(teams, function(a, b) return #a:GetPlayers() &lt; #b:GetPlayers() end)
+				player.Team = teams[1]
+			end
+		else
+			-- 对团队列表进行排序，最小的团队放在最前
+			table.sort(teams, function(a, b) return #a:GetPlayers() &lt; #b:GetPlayers() end)
+			local groupTeam = teams[1]
+
+			-- 将群组中的所有人放入同一团队
+			for _, player in pairs(friendGroups[i]) do
+				player.Team = groupTeam
+			end
+		end
+	end
+end
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>此函数的作用如下：
+
+  1. 为了保证各团队分配到人数大致相当的好友群组并保持团队平衡，将各 `friendGroups` 按照从大到小进行排序（第 90 行）。
+  2. 排序之后，再次对 `friendGroups` 进行迭代。如果任何群组人数大于游戏 `Players/MaxPlayers` 值的一半，则会将该群组内好友分开并分配至人数更少的团队。如果人数小于该值一半，则将会对团队进行升序排序后将该群组分配至最小团队中去。
+
+现在将 `BalanceTeamsEvent` 可绑定`BindableEvent/Event|事件`连接至 `balanceTeams()` 函数，在想要对团队进行重新平衡时`BindableEvent/Fire|触发`该事件即可。建议在两场比赛间触发事件，但也可以自行决定团队平衡的触发条件。
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">将</span> <span class="s2">&quot;PlayerRemoving&quot;</span> <span class="n">事件连接至</span> <span class="s2">&quot;removeFromGroup()&quot;</span> <span class="n">函数</span>
+<span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">PlayerRemoving</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">removeFromGroup</span><span class="p">)</span>
+
+<span class="o">--</span> <span class="n">将</span> <span class="s2">&quot;PlayerAdded&quot;</span> <span class="n">事件连接至</span> <span class="s2">&quot;groupFriends()&quot;</span> <span class="n">函数</span>
+<span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">PlayerAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">groupFriends</span><span class="p">)</span>
+
+<span class="n">balanceTeamsEvent</span><span class="o">.</span><span class="n">Event</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">balanceTeams</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## 完整的脚本</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>local TeamsService = game:GetService(&quot;Teams&quot;)
+local ReplicatedStorage = game:GetService(&quot;ReplicatedStorage&quot;)
+
+local balanceTeamsEvent = Instance.new(&quot;BindableEvent&quot;)
+balanceTeamsEvent.Name = &quot;BalanceTeamsEvent&quot;
+balanceTeamsEvent.Parent = ReplicatedStorage
+
+local friendGroups = {}
+
+-- 将所有拥有共同好友的群组合并至一个群组
+local function mergeGroups(groups)
+	-- 将其它群组的成员添加至第一个群组
+	for i = 2, #groups do
+		for _, user in pairs(friendGroups[groups[i]]) do
+			table.insert(friendGroups[groups[1]], user)
+		end
+		-- 移除合并后的废弃群组
+		table.remove(friendGroups, groups[i])
+	end
+ 
+	return groups[1]
+end
+
+-- 当玩家加入游戏时，决定其应当加入的团队
+local function assignInitialTeam(player, group)
+	-- 检查玩家是否属于任何群组且该群组是否并未超过公平团队人数
+	if group and #group &lt; game.Players.MaxPlayers / 2 then
+		player.Team = group[1].Team
+	else
+		local teams = TeamsService:GetTeams()
+		table.sort(teams, function(a, b) return #a:GetPlayers() &lt; #b:GetPlayers() end)
+		player.Team = teams[1]
+	end
+end
+
+-- 将好友加入同一群组，以便其加入同一团队
+local function groupFriends(player)
+	local mutualGroups = {}
+
+	-- 对好友群组进行迭代
+	for groupIndex, group in ipairs(friendGroups) do
+		-- 对群组中发现的好友进行迭代
+		for _, user in ipairs(group) do
+			-- 将共同好友放入一个群组中
+			if player:IsFriendsWith(user.UserId) then
+				if (mutualGroups[group] == nil) then
+					table.insert(mutualGroups, groupIndex)
+				end
+			end
+		end
+	end
+ 
+	if #mutualGroups &gt; 0 then
+		local groupIndex = mutualGroups[1]
+ 
+		-- 如果玩家拥有多个正在进行游戏的好友群组，则将其合并为一个群组
+		if #mutualGroups &gt; 1 then
+			groupIndex = mergeGroups(mutualGroups)
+		end
+ 
+		table.insert(friendGroups[groupIndex], player)
+		assignInitialTeam(player, friendGroups[groupIndex])
+	else
+		table.insert(friendGroups, {player})
+		assignInitialTeam(player)
+	end
+end
+
+-- 当玩家离开游戏时，清除其群组
+local function removeFromGroup(player)
+	-- 对好友群组进行循环，找到玩家
+	for groupIndex, group in ipairs(friendGroups) do
+		for userIndex, user in ipairs(group) do
+			if user.Name == player.Name then
+				-- 将其从之前加入的群组中移除
+				friendGroups[groupIndex][userIndex] = nil
+				-- 如果群组为空，则将其进行移除
+				if #friendGroups[groupIndex] == 0 then
+					friendGroups[groupIndex] = nil
+				end
+			end
+		end
+	end
+end
+
+local function balanceTeams()
+	local teams = TeamsService:GetTeams()
+
+	-- 对群组进行排序，将更大的群组放在前面
+	table.sort(friendGroups, function(a, b) return #a &gt; #b end)
+
+	-- 迭代好友群组（已经将其按从大到小进行排序）
+	for i = 1, #friendGroups do
+		-- 如果群组过大，则将其分开放入两个团队中
+		if (#friendGroups[i] &gt; game.Players.MaxPlayers / 2) then
+			for _, player in pairs(friendGroups[i]) do
+				table.sort(teams, function(a, b) return #a:GetPlayers() &lt; #b:GetPlayers() end)
+				player.Team = teams[1]
+			end
+		else
+			-- 对团队列表进行排序，最小的团队放在最前
+			table.sort(teams, function(a, b) return #a:GetPlayers() &lt; #b:GetPlayers() end)
+			local groupTeam = teams[1]
+
+			-- 将群组中的所有人放入同一团队
+			for _, player in pairs(friendGroups[i]) do
+				player.Team = groupTeam
+			end
+		end
+	end
+end
+
+-- 将 &quot;PlayerRemoving&quot; 事件连接至 &quot;removeFromGroup()&quot; 函数
+game.Players.PlayerRemoving:Connect(removeFromGroup)
+
+-- 将 &quot;PlayerAdded&quot; 事件连接至 &quot;groupFriends()&quot; 函数
+game.Players.PlayerAdded:Connect(groupFriends)
+
+balanceTeamsEvent.Event:Connect(balanceTeams)
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+
+<span class="o">***</span><span class="n">__Roblox官方链接__</span><span class="p">:[</span><span class="n">平衡团队构成</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">developer</span><span class="o">.</span><span class="n">roblox</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">zh</span><span class="o">-</span><span class="n">cn</span><span class="o">/</span><span class="n">articles</span><span class="o">/</span><span class="n">team</span><span class="o">-</span><span class="n">balancing</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../api-reference/avatar.html" class="btn btn-neutral float-right" title="AVATAR" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="vehicles-kit.html" class="btn btn-neutral float-left" title="载具工具包" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

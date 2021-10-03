@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>添加团队 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="市场营销" href="../tutorials/marketing.html" />
+    <link rel="prev" title="力场材质" href="force-field-material.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="atmosphere.html">Atmosphere（氛围）掌控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro-to-beams.html">Beam（光束）简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-Fireworks.html">Creating Fireworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-Fireworks.html#steps">Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Portal.html">创建传送门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Portal.html#id2">步骤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fog-Overview-and-Settings.html">Fog – Overview and Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glowing-dynamic-lights.html">闪烁的动态光源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Smoke-and-Fire-with-Beams.html">使用光束创建冒烟和起火的效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Smoke-and-Fire-with-Beams.html#id2">步骤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Day-Night-Cycles-and-Street-Lights.html">昼夜循环和路灯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Particle-Emitters.html">粒子发射器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sounds-and-music.html">音效与音乐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="force-field-material.html">力场材质</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">添加团队</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#teams">启用 Teams（团队）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">添加新团队</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">团队的重生点位置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">自动将玩家分配到团队</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a> &raquo;</li>
+        
+      <li>添加团队</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Team-Basics-on-Roblox.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>添加团队<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>Teams（团队）是一项向 Roblox 游戏添加团队功能的游戏服务。团队名称和颜色以及该团队的所有玩家都可以在游戏排行榜上看到。</p>
+<div class="section" id="teams">
+<h2>启用 Teams（团队）<a class="headerlink" href="#teams" title="Permalink to this headline">¶</a></h2>
+<p>若要启用团队，请遵循以下说明：</p>
+<ol class="simple">
+<li><p>单击“Model（模型）”选项卡，然后单击“Advanced（高级）”部分中的“Service（服务）”按钮。</p></li>
+</ol>
+<p><img alt="InsertService.png" src="https://developer.roblox.com/assets/bltc9d73beb913130dd/InsertService.png" /></p>
+<ol class="simple">
+<li><p>选择 <strong>Teams（团队）</strong>，然后单击“Insert（插入）”。</p></li>
+</ol>
+<p><img alt="InsertTeams.png" src="https://developer.roblox.com/assets/bltc3751d7f858c9668/InsertTeams.png" /></p>
+<p>完成后，管理器将获得一个名为 Teams 的新对象。</p>
+<p><img alt="TeamsInExplorer.png" src="https://developer.roblox.com/assets/blt3328bd065a52ad0f/TeamsInExplorer.png" /></p>
+</div>
+<div class="section" id="id2">
+<h2>添加新团队<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Teams</span></code> 服务被添加到游戏中后，你便可以通过在管理器中右键单击 **Teams（团队）**并选择“Insert Object（插入对象）&gt;Team（团队）”来添加新的 <code class="docutils literal notranslate"><span class="pre">Team</span></code>。</p>
+<p>可以在“Properties（属性）”窗口中更改团队的名称。在管理器中选择要更改的团队，然后确保“Properties（属性）”已打开。可以使用 <code class="docutils literal notranslate"><span class="pre">Instance/Name</span></code> 字段更改名称。使用 <code class="docutils literal notranslate"><span class="pre">Team/TeamColor</span></code> 字段可以更改团队的颜色。</p>
+<p><img alt="TeamProperties.png" src="https://developer.roblox.com/assets/bltdfe42f25c531cbea/TeamProperties.png" /></p>
+</div>
+<div class="section" id="id3">
+<h2>团队的重生点位置<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">SpawnLocation</span></code> 是一个与团队紧密联系的 Roblox 对象。当玩家加入游戏或死亡后重生时，其角色将在与玩家团队具有相同 TeamColor 的 <code class="docutils literal notranslate"><span class="pre">SpawnLocation</span></code> 处生成。</p>
+<p>你可以通过单击“Model（模型）”选项卡，然后点击“Gameplay（游戏）”部分中的“Spawn（生成点）”按钮来创建 SpawnLocation。如果你单击 SpawnLocation，然后打开“Properties（属性）”窗口，你可以在“Teams（团队）”部分中看到生成点的 <code class="docutils literal notranslate"><span class="pre">SpawnLocation/TeamColor</span></code>。请记住，这与 SpawnLocation 的 <code class="docutils literal notranslate"><span class="pre">BasePart/BrickColor</span></code> 不同！BrickColor 只是部件的显示颜色，与团队无关。为了避免混淆，通常惯例是确保 SpawnLocation 的 <code class="docutils literal notranslate"><span class="pre">BasePart/BrickColor</span></code> 与 <code class="docutils literal notranslate"><span class="pre">SpawnLocation/TeamColor</span></code> 相同。</p>
+<p><img alt="SpawnTeamColor.png" src="https://developer.roblox.com/assets/blt59381207e52a699c/SpawnTeamColor.png" /></p>
+<p>如果你在某个 SpawnLocation 上打开 <code class="docutils literal notranslate"><span class="pre">SpawnLocation/AllowTeamChangeOnTouch</span></code> 设置，则玩家可以更改团队。如果某个玩家踩到了此重生点，那么这个玩家就会加入与这个重生点关联的团队。</p>
+</div>
+<div class="section" id="id4">
+<h2>自动将玩家分配到团队<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>默认情况下，Roblox 将自动为团队分配新玩家。当玩家加入团队游戏时，该游戏会将该玩家放入玩家人数最少的团队。如果你不希望玩家自动加入团队，请选择该团队，然后打开“Properties（属性）”窗口。 确保关闭 <code class="docutils literal notranslate"><span class="pre">Team/AutoAssignable</span></code>。</p>
+<p><img alt="AutoAssignableOff.png" src="https://developer.roblox.com/assets/bltc4c06059fca7bd87/AutoAssignableOff.png" /></p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Team-Basics-on-Roblox">添加团队</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../tutorials/marketing.html" class="btn btn-neutral float-right" title="市场营销" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="force-field-material.html" class="btn btn-neutral float-left" title="力场材质" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

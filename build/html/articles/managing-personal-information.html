@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>关于 GDPR 和 CCPA &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="设计多人游戏" href="designing-for-multiplayer.html" />
+    <link rel="prev" title="内容版权与知识产权" href="Copyright-Guidance.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/creating.html">创建</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Building-a-Campfire.html">构建篝火</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Circle-With-Code.html">使用代码创建圆环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3D-Modeling-with-Parts.html">实体建模：使用部件进行 3D 建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Content.html">内容数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importing-terrain-data.html">导入地形数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importing-custom-rigs.html">导入自定义模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-ray-casting-laser-gun-in-Roblox.html">射线投射：创建激光枪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archiving-assets-and-games.html">将资源和游戏归档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="understanding-root-parts.html">根部件：概述与理解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Copyright-Guidance.html">内容版权与知识产权</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">关于 GDPR 和 CCPA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">免责声明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gdpr">GDPR 是什么？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ccpa">CCPA 是什么？</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">什么是个人信息？</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">对开发者的影响</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">移除个人信息</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="designing-for-multiplayer.html">设计多人游戏</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Create.html">合作式开发</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/creating.html">创建</a> &raquo;</li>
+        
+      <li>关于 GDPR 和 CCPA</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/managing-personal-information.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gdpr-ccpa">
+<h1>关于 GDPR 和 CCPA<a class="headerlink" href="#gdpr-ccpa" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<div class="section" id="id1">
+<h2>免责声明<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>本文档所包含的信息不构成法律意见。如果你有任何问题或疑虑，我们鼓励你<strong>咨询律师</strong>。Roblox 不会也无法充当你的律师，Roblox 不承担由于此类信息引发的任何责任或费用。</p>
+</div>
+<div class="section" id="gdpr">
+<h2>GDPR 是什么？<a class="headerlink" href="#gdpr" title="Permalink to this headline">¶</a></h2>
+<p>GDPR 是 <strong>General Data Protection Regulation</strong> 《通用数据保护条例》的简称。GDPR 是欧盟的一项法律，其重点是保护欧盟和欧洲经济区内每个人的个人信息、保障他们个人信息的收集、使用和共享的具体权利。这些权利放之四海而皆准，因此，许多收集欧盟成员国内民众个人信息的公司或个人都受 GDPR 的约束。</p>
+</div>
+<div class="section" id="ccpa">
+<h2>CCPA 是什么？<a class="headerlink" href="#ccpa" title="Permalink to this headline">¶</a></h2>
+<p>CCPA 是 <strong>California Consumer Privacy Act</strong> 《加州消费者隐私法》的简称，<strong>2020 年 1 月 1 日</strong>生效。该法案规定了居住在美国加利福尼亚州的消费者的权利，包括有权知悉他们有哪些信息被收集走、要求企业删除任何关于消费者的个人信息，以及如果消费者行使隐私权，企业不得对其区别对待。</p>
+<div class="section" id="id2">
+<h3>什么是个人信息？<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>大多数人将术语“个人信息”或“个人身份信息”（Personally Identifiable Information，简称 PII）与姓名、电子邮件地址或家庭地址等数据联系在一起。然而，GDPR 和 CCPA 对个人信息有更广泛的定义，这些信息也可以涵盖不直接链接到特定个人的信息，如用户的 ID 或 IP 地址。</p>
+<p>一般来说，开发者收集的个人信息<strong>不应该</strong>多于 Roblox 提供的信息，如玩家的 ID 和用户名等。如需了解更多有关信息，请参见我们的<a class="reference external" href="https://en.help.roblox.com/hc/en-us/articles/203313410-Roblox-Community-Rules">社区规则</a>。</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>对开发者的影响<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>作为一名开发者，尊重并履行 GDPR 及 CCPA 的方式有：</p>
+<ul class="simple">
+<li><p>您可能会收到 Roblox 发来的关于<strong>要求删除个人信息</strong>的消息。Roblox 会特别注意核实这些请求，以确保其合法性。您应<strong>只接受来自 Roblox 的相应要求</strong>。如果有玩家先与您联系，请让他/她在 <a class="reference external" href="https://www.roblox.com/support">https://www.roblox.com/support</a> 提出申请。</p></li>
+<li><p>除了用户 ID 和用户名外，<strong>不要</strong>存储其他形式的个人信息（例如出生日期或个人照片等）。</p></li>
+<li><p>如果您已经存储了 Roblox 提供的访问权限之外的其他个人信息，请将其删除并更新您的游戏，以便将来不再存储这些数据。</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>移除个人信息<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>如果** Roblox要求您**删除某个行使 GDPR 或 CCPA 规定权利的个人的信息，您可能需要从游戏中的<code class="docutils literal notranslate"><span class="pre">articles/Data</span> <span class="pre">store|数据存储</span></code>中删除特定数据。在数据存储中识别 Roblox 用户的一个常见模式是通过其唯一的 <code class="docutils literal notranslate"><span class="pre">Player/UserId|UserId</span></code> 前缀 Player_ 来识别 Roblox 用户，例如 Player_12345678。要创建一个删除玩家数据的控制台命令脚本，请按照以下步骤执行。</p>
+<p>请注意，这些步骤基于<a class="reference external" href="https://www.roblox.com/games/3752087252/Data-Removal">示例场景</a>所使用的数据存储。开发者可以按照步骤理解模式，但您的游戏可能使用了不同的数据设置，需要进行改动。</p>
+<ol class="simple">
+<li><p>打开游戏的起始场景。</p></li>
+<li><p>在 <strong>ServerStorage</strong> 中创建一个 <code class="docutils literal notranslate"><span class="pre">BindableEvent</span></code> 并将其重命名为 <strong>RemovePlayerData</strong>。
+<img alt="https://developer.roblox.com/assets/blt84f22b9574bfa731/Data-Removal-BindableEvent.png" src="https://developer.roblox.com/assets/blt84f22b9574bfa731/Data-Removal-BindableEvent.png" /></p></li>
+<li><p>在 <strong>ServerScriptService</strong> 中创建一个新的 <code class="docutils literal notranslate"><span class="pre">Script</span></code> 并将其重命名为 <strong>ConsoleEvent</strong>。
+<img alt="https://developer.roblox.com/assets/blt2d4e580a931c2751/Data-Removal-ConsoleEvent.png" src="https://developer.roblox.com/assets/blt2d4e580a931c2751/Data-Removal-ConsoleEvent.png" /></p></li>
+<li><p>将下面的代码复制到新脚本中。注意，想要从数据存储中移除键值，需使用 <code class="docutils literal notranslate"><span class="pre">GlobalDataStore/RemoveAsync|RemoveAsync()</span></code>（第 13 行）方法。</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    local ServerStorage = game:GetService(&quot;ServerStorage&quot;)
+    local DataStoreService = game:GetService(&quot;DataStoreService&quot;)
+    local removePlayerDataEvent = ServerStorage:WaitForChild(&quot;RemovePlayerData&quot;)
+    
+    -- 玩家数据存储的引用（将 &quot;PlayerData&quot; 替换为你的数据存储的名称）
+    local playerData = DataStoreService:GetDataStore(&quot;PlayerData&quot;)
+    
+    local function onRemovePlayerDataEvent(userID)
+    	-- 玩家数据存储键值的模式，如 &quot;Player_12345678&quot;
+    	local dataStoreKey = &quot;Player_&quot; .. userID
+    
+    	local success, err = pcall(function()
+    		return playerData:RemoveAsync(dataStoreKey)
+    	end)
+    	if success then
+    		warn(&quot;Removed player data for user ID &#39;&quot; .. userID .. &quot;&#39;&quot;)
+    	else
+    		warn(err)
+    	end
+    end
+    removePlayerDataEvent.Event:Connect(onRemovePlayerDataEvent)
+
+</pre></div>
+</div>
+<p>请记住， 这个脚本默认名为 <strong>PlayerData</strong> 的数据存储存在， 其数据键的格式为 Player_XXXXXXXX， 其中 XXXXXXXX 是用户的唯一 Roblox ID。如果你的游戏数据存储的命名方式不同、或者数据键的格式不同，您需要调整第 6 行和第 10 行。</p>
+<ol class="simple">
+<li><p>发布场景，然后在 Roblox <strong>客户端</strong>（而非 Studio）中运行场景。</p></li>
+<li><p>进入游戏后，打开 <code class="docutils literal notranslate"><span class="pre">/articles/Developer</span> <span class="pre">Console|Developer</span> <span class="pre">Console</span></code>（开发者控制台），方式为点击 F9 或在聊天中输入 <code class="docutils literal notranslate"><span class="pre">/console</span></code> 。</p></li>
+<li><p>在 <strong>Log</strong> 区中点击 <strong>Server</strong> 选项卡。
+<img alt="https://developer.roblox.com/assets/blt8526a8311943cd23/Developer-Console-Server-Tab.png" src="https://developer.roblox.com/assets/blt8526a8311943cd23/Developer-Console-Server-Tab.png" /></p></li>
+<li><p>在控制台的<strong>命令行</strong>中输入以下命令，其中 XXXXXXXX 是 Roblox 提供给您的用户 ID。</p></li>
+</ol>
+<p>game.ServerStorage.RemovePlayerData:Fire(“XXXXXXXX”)</p>
+<p><img alt="https://developer.roblox.com/assets/blt4718c74ed2ae2e6c/Developer-Console-Command-Line.png" src="https://developer.roblox.com/assets/blt4718c74ed2ae2e6c/Developer-Console-Command-Line.png" /></p>
+<p>如果玩家数据键的为 Player_XXXXXXXX 模式，控制台将会显示消息，提醒开发者已成功从数据存储中删除玩家数据：</p>
+<p><img alt="https://developer.roblox.com/assets/blt8122e7ff80dfc18d/Developer-Console-Output.png" src="https://developer.roblox.com/assets/blt8122e7ff80dfc18d/Developer-Console-Output.png" /></p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/managing-personal-information">关于 GDPR 和 CCPA</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="designing-for-multiplayer.html" class="btn btn-neutral float-right" title="设计多人游戏" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Copyright-Guidance.html" class="btn btn-neutral float-left" title="内容版权与知识产权" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

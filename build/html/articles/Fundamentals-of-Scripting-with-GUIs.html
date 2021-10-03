@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GUI 脚本简介 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lua 聊天系统" href="Lua-Chat-System.html" />
+    <link rel="prev" title="GUI 动画" href="GUI-Animations.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-GUIs.html">GUI 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI-Animations.html">GUI 动画</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">GUI 脚本简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#udim2">关于 UDim2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">GUI 类型</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#screengui">ScreenGui</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#surfacegui">SurfaceGui</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#billboardgui">BillboardGui</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">GUI 对象</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Chat-System.html">Lua 聊天系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Interactive-Surface-GUI.html">交互式表面 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-GUI-Buttons.html">创建 GUI 按钮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Radial-Menu.html">创建摇杆快速菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Grid-Menu.html">创建栅格菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using-Images-in-GUIs.html">在 GUI 中使用图像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text-and-Chat-Filtering.html">文本与聊天过滤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Camera-manipulation.html">镜头操控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mouse-Icon-Appearance.html">鼠标指针控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animating-text.html">设置文本动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar-emotes.html">Avatar Emotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chat-Modules.html">Chat Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Custom-Teleport-GUI.html">创建自定义传送屏幕</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Scrolling-Frame-GUI.html">创建滚动框架 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-the-camera.html">Customizing the Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Disabling-Parts-of-Game-Interface.html">禁用游戏界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-bindings.html">Roblox Input Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selection-Boxes.html">选择框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Three-Quarters-Camera-View.html">45 度镜头视角</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Unit-Frame.html">单元框：制作生命槽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewportframe-gui.html">ViewportFrame GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/user-interface.html">用户界面</a> &raquo;</li>
+        
+      <li>GUI 脚本简介</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Fundamentals-of-Scripting-with-GUIs.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gui">
+<h1>GUI 脚本简介<a class="headerlink" href="#gui" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>15  分钟</em></p>
+<div class="section" id="udim2">
+<h2>关于 UDim2<a class="headerlink" href="#udim2" title="Permalink to this headline">¶</a></h2>
+<p>UDim2 是调整 GUI 的大小并进行定位的系统。与 <code class="docutils literal notranslate"><span class="pre">Vector3</span></code> 不同，它用于定位部件。<code class="docutils literal notranslate"><span class="pre">UDim2/new</span></code> 函数接受四个参数：xScale、xOffset、yScale 和 yOffset。xScale 和 yScale 将返回相对于其父对象大小的值。如果 GUI 的父对象宽度为 100，则将 xScale 设置为 0.5 将返回 50，而将 xScale 设置为 1 将返回 100。高度和 yScale 也是如此。xOffset 是添加到 xScale 返回的任意数的像素数。例如，如果父对象宽度为 100，xScale 为 0.5，xOffset 为 25，则将返回 75 (100*0.5 + 25)。yOffset 和 yScale 也是如此。</p>
+<p>借助 UDim2，开发者可以在玩家屏幕上以编程方式调整 UI 元素的大小并进行定位。例如：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Frame&quot;</span><span class="p">)</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>这样会创建定位在显示器中央的矩形 GUI，并覆盖 25% 的屏幕（一半宽度和一半高度）。</p>
+<p>注意：这些 2D GUI 使用的 XY 网格与 Roblox 其余部分使用的坐标不同。(0, 0) 位置位于 GUI 元素的左上角。在此网格中，右侧为 X 正方向，下侧是 Y 正方向。</p>
+</div>
+<div class="section" id="id1">
+<h2>GUI 类型<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>在 Roblox 中，所有 GUI 必须位于特殊容器内。有三种不同类型的容器用于显示 GUI。它们是：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ScreenGui</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SurfaceGui</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BillboardGui</span></code></p></li>
+</ul>
+<p><img alt="GuiTypes.png" src="https://developer.roblox.com/assets/blt5c4ac4854c6270ae/GuiTypes.png" /></p>
+<div class="section" id="screengui">
+<h3>ScreenGui<a class="headerlink" href="#screengui" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">ScreenGui</span></code> 直接绘制到玩家屏幕（在游戏世界中没有位置）。这通常用于玩家旅行所需的 HUD、缩略图、任何信息或图形。ScreenGui 中的元素仅对拥有它们的玩家可见。要将 ScreenGui 添加到游戏中，可以将其置于 <code class="docutils literal notranslate"><span class="pre">StarterGui</span></code> 中（会将其复制到加入游戏的每位新玩家），也可以将其直接置于玩家的 <code class="docutils literal notranslate"><span class="pre">PlayerGui</span></code> 中（在这种情况下，仅对该玩家可见）。</p>
+</div>
+<div class="section" id="surfacegui">
+<h3>SurfaceGui<a class="headerlink" href="#surfacegui" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">SurfaceGui</span></code> 绘制在 <code class="docutils literal notranslate"><span class="pre">Part</span></code> 的表面上。这会粘在部件上，即使部件移动或旋转也是如此。要将 SurfaceGui 添加到游戏中，可以将其直接置于要在其上绘制的部件中（它会为所有玩家显示 GUI）。或者，可以将 SurfaceGui 置于 <code class="docutils literal notranslate"><span class="pre">StarterGui</span></code> 中（它会将其复制到加入游戏的每位新玩家），也可以将其直接置于玩家的 <code class="docutils literal notranslate"><span class="pre">PlayerGui</span></code> 中（在这种情况下，仅对该玩家可见）。如果将 SurfaceGui 置于 StarterGui 或 PlayerGui 中，则必须将 <code class="docutils literal notranslate"><span class="pre">SurfaceGui/Adornee</span></code> 设置为要显示 GUI 的部件。</p>
+</div>
+<div class="section" id="billboardgui">
+<h3>BillboardGui<a class="headerlink" href="#billboardgui" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">BillboardGui</span></code> 绘制在 <code class="docutils literal notranslate"><span class="pre">Part</span></code> 的位置上，但将始终面向玩家。如果部件移动，BillboardGui 也会随着一起移动。如果仅使用 <code class="docutils literal notranslate"><span class="pre">BillboardGui/Size</span></code> UDim2 的 Scale 组件设置 BillboardGui 的大小，则会根据与玩家的距离进行调整（即，玩家越近就会变得越大，玩家越远就会变得越小）。如果设置了 Size 的 Offset，则 BillboardGui 将保持相同大小，无论与玩家的距离为何。</p>
+<p>可以将 BillboardGui 直接置于要在其上绘制的部件中（它会为所有玩家显示 GUI）。或者，可以将 BillboardGui 置于 <code class="docutils literal notranslate"><span class="pre">StarterGui</span></code> 中（它会将其复制到加入游戏的每位新玩家），也可以将其直接置于玩家的 <code class="docutils literal notranslate"><span class="pre">PlayerGui</span></code> 中（在这种情况下，仅对该玩家可见）。如果将 BillboardGui 置于 StarterGui 或 PlayerGui 中，则必须将 <code class="docutils literal notranslate"><span class="pre">BillboardGui/Adornee</span></code> 设置为要显示 GUI 的部件。</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>GUI 对象<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>有多个 GUI 对象可用于创建用户界面，但所有 GUI 对象必须位于容器内（请参阅&lt;a href=”#gui-types&gt;GUI 类型</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Fundamentals-of-Scripting-with-GUIs">GUI 脚本简介</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Lua-Chat-System.html" class="btn btn-neutral float-right" title="Lua 聊天系统" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="GUI-Animations.html" class="btn btn-neutral float-left" title="GUI 动画" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

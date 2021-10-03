@@ -1,0 +1,416 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ViewportFrame GUI &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="盈利" href="../tutorials/monetization.html" />
+    <link rel="prev" title="单元框：制作生命槽" href="Making-a-Unit-Frame.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-GUIs.html">GUI 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI-Animations.html">GUI 动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fundamentals-of-Scripting-with-GUIs.html">GUI 脚本简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Chat-System.html">Lua 聊天系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Interactive-Surface-GUI.html">交互式表面 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-GUI-Buttons.html">创建 GUI 按钮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Radial-Menu.html">创建摇杆快速菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Grid-Menu.html">创建栅格菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using-Images-in-GUIs.html">在 GUI 中使用图像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text-and-Chat-Filtering.html">文本与聊天过滤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Camera-manipulation.html">镜头操控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mouse-Icon-Appearance.html">鼠标指针控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animating-text.html">设置文本动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar-emotes.html">Avatar Emotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chat-Modules.html">Chat Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Custom-Teleport-GUI.html">创建自定义传送屏幕</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Scrolling-Frame-GUI.html">创建滚动框架 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-the-camera.html">Customizing the Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Disabling-Parts-of-Game-Interface.html">禁用游戏界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-bindings.html">Roblox Input Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selection-Boxes.html">选择框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Three-Quarters-Camera-View.html">45 度镜头视角</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Unit-Frame.html">单元框：制作生命槽</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ViewportFrame GUI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#viewportframe">创建 ViewportFrame</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">关键点</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">控制镜头</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">备注/性能</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/user-interface.html">用户界面</a> &raquo;</li>
+        
+      <li>ViewportFrame GUI</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/viewportframe-gui.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="viewportframe-gui">
+<h1>ViewportFrame GUI<a class="headerlink" href="#viewportframe-gui" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">ViewportFrame</span></code> 是一种 <code class="docutils literal notranslate"><span class="pre">GuiObject</span></code>，可在其边界内呈现 3D 对象。它可以在 <code class="docutils literal notranslate"><span class="pre">ScreenGui</span></code> 等 2D GUI 空间中很好的显示 3D 对象/模型。</p>
+<p>如果你还没有阅读 <code class="docutils literal notranslate"><span class="pre">articles/Intro</span> <span class="pre">to</span> <span class="pre">GUIs|GUI</span> <span class="pre">简介</span></code>指南，请先阅读该指南，然后再继续学习本教程。</p>
+<div class="section" id="viewportframe">
+<h2>创建 ViewportFrame<a class="headerlink" href="#viewportframe" title="Permalink to this headline">¶</a></h2>
+<p>可按以下步骤创建新的 <code class="docutils literal notranslate"><span class="pre">ViewportFrame</span></code>：</p>
+<ol class="simple">
+<li><p>在 <strong>ScreenGui</strong> 文件夹中创建一个新的 <strong>StarterGui</strong>。
+<img alt="https://developer.roblox.com/assets/blt37c2628537f9d291/Create-ScreenGui.png" src="https://developer.roblox.com/assets/blt37c2628537f9d291/Create-ScreenGui.png" /></p></li>
+<li><p>在新的屏幕 GUI 对象中插入一个 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code>。
+<img alt="https://developer.roblox.com/assets/blt72517c1a2eb7b775/ScreenGui-LocalScript.png" src="https://developer.roblox.com/assets/blt72517c1a2eb7b775/ScreenGui-LocalScript.png" /></p></li>
+<li><p>在脚本中粘贴以下代码：</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">viewportFrame</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;ViewportFrame&quot;</span><span class="p">)</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">BackgroundColor3</span> <span class="o">=</span> <span class="n">Color3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">BorderColor3</span> <span class="o">=</span> <span class="n">Color3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">BorderSizePixel</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">BackgroundTransparency</span> <span class="o">=</span> <span class="mf">0.25</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+    
+    <span class="n">local</span> <span class="n">part</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Part&quot;</span><span class="p">)</span>
+    <span class="n">part</span><span class="o">.</span><span class="n">Material</span> <span class="o">=</span> <span class="n">Enum</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">Concrete</span>
+    <span class="n">part</span><span class="o">.</span><span class="n">Color</span> <span class="o">=</span> <span class="n">Color3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">part</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">part</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">viewportFrame</span>
+    
+    <span class="n">local</span> <span class="n">viewportCamera</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Camera&quot;</span><span class="p">)</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">CurrentCamera</span> <span class="o">=</span> <span class="n">viewportCamera</span>
+    <span class="n">viewportCamera</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">viewportFrame</span>
+    
+    <span class="n">viewportCamera</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">part</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>进行游戏测试，你会看到一个包含 <code class="docutils literal notranslate"><span class="pre">part</span></code> 对象的新视口帧。</p></li>
+</ol>
+<p>Uh oh! Your browser doesn’t appear to support embedded videos! Here is a <a class="reference external" href="#">direct link</a> to the video instead.</p>
+<div class="section" id="id1">
+<h3>关键点<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>检查脚本中用于创建视口帧的主要因素：</p>
+<ul class="simple">
+<li><p>第 1-8 行设置基本的视口帧，并将其作为 <code class="docutils literal notranslate"><span class="pre">ScreenGui</span></code> 的父对象。许多属性与 <code class="docutils literal notranslate"><span class="pre">articles/Intro</span> <span class="pre">to</span> <span class="pre">GUIs|GUI</span> <span class="pre">简介</span></code>指南中说明的属性相似。</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">viewportFrame</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;ViewportFrame&quot;</span><span class="p">)</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">BackgroundColor3</span> <span class="o">=</span> <span class="n">Color3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">BorderColor3</span> <span class="o">=</span> <span class="n">Color3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">BorderSizePixel</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">BackgroundTransparency</span> <span class="o">=</span> <span class="mf">0.25</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>在下一个代码块中，创建一个基本的 <code class="docutils literal notranslate"><span class="pre">Part</span></code>。最重要的是，该部件是第 14 行视口帧的<strong>父对象</strong>：</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">part</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Part&quot;</span><span class="p">)</span>
+    <span class="n">part</span><span class="o">.</span><span class="n">Material</span> <span class="o">=</span> <span class="n">Enum</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">Concrete</span>
+    <span class="n">part</span><span class="o">.</span><span class="n">Color</span> <span class="o">=</span> <span class="n">Color3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">part</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">part</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">viewportFrame</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>在第 16-18 行中，创建一个新的 <code class="docutils literal notranslate"><span class="pre">Camera</span></code>，然后将其分配至 <code class="docutils literal notranslate"><span class="pre">ViewportFrame/CurrentCamera|CurrentCamera</span></code> 属性，并将其作为 <code class="docutils literal notranslate"><span class="pre">viewportFrame</span></code> 的父对象。这是一个关键点，因为视口不使用默认的通用镜头，而使用自身镜头来呈现玩家看到的“视图”。</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">viewportCamera</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Camera&quot;</span><span class="p">)</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">CurrentCamera</span> <span class="o">=</span> <span class="n">viewportCamera</span>
+    <span class="n">viewportCamera</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">viewportFrame</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>在最后一行，通过重置其 <code class="docutils literal notranslate"><span class="pre">datatype/CFrame|CFrame</span></code>，将新镜头置于部件的相对位置。</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">viewportCamera</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">part</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>如果你不熟悉 CFrames，请查看文章 <code class="docutils literal notranslate"><span class="pre">articles/Understanding</span> <span class="pre">CFrame|CFrames</span> <span class="pre">须知</span></code>。</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>控制镜头<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>如上所示，可通过重置其 <code class="docutils literal notranslate"><span class="pre">datatype/CFrame|CFrame</span></code> 来移动视口镜头。这意味着可以通过操纵镜头的方向来动态更改帧的游戏内视图。</p>
+<p>考虑在脚本中添加以下内容。在第一行，我们通过 <code class="docutils literal notranslate"><span class="pre">TweenService</span></code> 服务逐步移动镜头。2 秒钟后，配置并播放一个新的 <code class="docutils literal notranslate"><span class="pre">Tween</span></code>，让镜头更靠近部件。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">TweenService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;TweenService&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">viewportFrame</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;ViewportFrame&quot;</span><span class="p">)</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">BackgroundColor3</span> <span class="o">=</span> <span class="n">Color3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">BorderColor3</span> <span class="o">=</span> <span class="n">Color3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">BorderSizePixel</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">BackgroundTransparency</span> <span class="o">=</span> <span class="mf">0.25</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+    
+    <span class="n">local</span> <span class="n">part</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Part&quot;</span><span class="p">)</span>
+    <span class="n">part</span><span class="o">.</span><span class="n">Material</span> <span class="o">=</span> <span class="n">Enum</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">Concrete</span>
+    <span class="n">part</span><span class="o">.</span><span class="n">Color</span> <span class="o">=</span> <span class="n">Color3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">part</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">part</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">viewportFrame</span>
+    
+    <span class="n">local</span> <span class="n">viewportCamera</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Camera&quot;</span><span class="p">)</span>
+    <span class="n">viewportFrame</span><span class="o">.</span><span class="n">CurrentCamera</span> <span class="o">=</span> <span class="n">viewportCamera</span>
+    <span class="n">viewportCamera</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">viewportFrame</span>
+    
+    <span class="n">viewportCamera</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">part</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+    
+    <span class="n">wait</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">cameraGoal</span> <span class="o">=</span> <span class="p">{</span>
+    	<span class="n">CFrame</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">part</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+    <span class="p">}</span>
+    
+    <span class="n">local</span> <span class="n">tweenInfo</span> <span class="o">=</span> <span class="n">TweenInfo</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">EasingStyle</span><span class="o">.</span><span class="n">Quad</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">EasingDirection</span><span class="o">.</span><span class="n">Out</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">tween</span> <span class="o">=</span> <span class="n">TweenService</span><span class="p">:</span><span class="n">Create</span><span class="p">(</span><span class="n">viewportCamera</span><span class="p">,</span> <span class="n">tweenInfo</span><span class="p">,</span> <span class="n">cameraGoal</span><span class="p">)</span>
+    
+    <span class="n">tween</span><span class="p">:</span><span class="n">Play</span><span class="p">()</span>
+
+</pre></div>
+</div>
+<p>Uh oh! Your browser doesn’t appear to support embedded videos! Here is a <a class="reference external" href="#">direct link</a> to the video instead.</p>
+</div>
+<div class="section" id="id3">
+<h2>备注/性能<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>以下是创建视口帧的一些重要考虑因素：</p>
+<ul class="simple">
+<li><p>每个视口帧都将创建一个用于呈现的纹理。该纹理具有最大尺寸限制，因此如果帧太大，内容可能会看起来很模糊。</p></li>
+<li><p>仅当其子对象（镜头或其中的对象）发生变更时，视口才会更新。</p></li>
+<li><p>移动视口的物理子对象不如使其保持静态。如果您需要更新视图，最好移动镜头，而不是移动部件/模块。</p></li>
+<li><p>视口帧并不是为了呈现大量复杂对象而设计；如果在其中放置太多对象，可能导致响应缓慢。</p></li>
+<li><p>视口内的对象将使用固定光源设置来呈现，尽管将来可能会有更多选项可用。当前并无阴影或后期特效可用。</p></li>
+</ul>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/viewportframe-gui">ViewportFrame GUI</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../tutorials/monetization.html" class="btn btn-neutral float-right" title="盈利" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Making-a-Unit-Frame.html" class="btn btn-neutral float-left" title="单元框：制作生命槽" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

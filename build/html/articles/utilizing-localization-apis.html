@@ -1,0 +1,718 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>使用本地化 API &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="格式字符串" href="Format-Strings.html" />
+    <link rel="prev" title="本地化非文本实例" href="localizing-non-text-instances.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/international.html">国际化</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Introduction-to-Localization-on-Roblox.html">本地化简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization-format-strings.html">本地化格式字符串</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization-portal-additional-features.html">本地化门户：扩展功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Localization-Support-and-Troubleshooting.html">本地化常见问题和错误排查</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localizing-non-text-instances.html">本地化非文本实例</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">使用本地化 API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">加载一个翻译器</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">玩家区域设置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">特定区域设置</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#translate">Translate()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formatbykey">FormatByKey()</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">输入键 »</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">使用格式化字符串</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">已编号格式化字符串</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">已命名的格式化字符串</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">最佳做法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#autolocalize">禁用 AutoLocalize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">错误处理</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Format-Strings.html">格式字符串</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/international.html">国际化</a> &raquo;</li>
+        
+      <li>使用本地化 API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/utilizing-localization-apis.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api">
+<h1>使用本地化 API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>在必要时，开发者可以使用脚本来获取那些添加到<code class="docutils literal notranslate"><span class="pre">articles/Introduction</span> <span class="pre">to</span> <span class="pre">Localization</span> <span class="pre">on</span> <span class="pre">Roblox|本地化门户</span></code>中的翻译并将其格式化。</p>
+<div class="section" id="id1">
+<h2>加载一个翻译器<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>当开发者准备使用 API 来进行翻译时，应该先要获取一个 <code class="docutils literal notranslate"><span class="pre">Translator</span></code> 实例。</p>
+<div class="section" id="id2">
+<h3>玩家区域设置<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>当 <code class="docutils literal notranslate"><span class="pre">LocalizationService/GetTranslatorForPlayerAsync|GetTranslatorForPlayerAsync()</span></code> API 针对 <code class="docutils literal notranslate"><span class="pre">Players/LocalPlayer|LocalPlayer</span></code> 属性进行调用时，会得到一个用于玩家 Roblox 账户所设置语言的 <code class="docutils literal notranslate"><span class="pre">Translator</span></code> 。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">LocalizationService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;LocalizationService&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">translator</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    	<span class="k">return</span> <span class="n">LocalizationService</span><span class="p">:</span><span class="n">GetTranslatorForPlayerAsync</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">LocalPlayer</span><span class="p">)</span>
+    <span class="n">end</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">success</span> <span class="n">then</span>
+    
+    <span class="k">else</span>
+    	<span class="n">warn</span><span class="p">(</span><span class="s2">&quot;无法为玩家加载翻译器！&quot;</span><span class="p">)</span>
+    <span class="n">end</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>特定区域设置<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>如果开发者实现了一个自定义游戏选项来让玩家选择他们最喜欢的语言，那么就能通过 <code class="docutils literal notranslate"><span class="pre">LocalizationService/GetTranslatorForLocaleAsync|GetTranslatorForLocaleAsync()</span></code> 来为Roblox 所支持的语言码获取一个 <code class="docutils literal notranslate"><span class="pre">Translator</span></code> 。</p>
+<div class="section" id="id4">
+<h4>语言代码参考 »<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>下表概述了本地化门户中当前支持的语言。用黄色高亮显示的语言完全受 Roblox 平台/应用程序支持。</p>
+<p>语言代码 语言</p>
+<p><strong>de</strong>
+German
+Deutsch</p>
+<p><strong>en</strong>
+English
+English</p>
+<p><strong>es</strong>
+Spanish
+Español</p>
+<p><strong>fr</strong>
+French
+Français</p>
+<p><strong>jp</strong>
+Japanese
+日本語</p>
+<p><strong>ko</strong>
+Korean
+한국어</p>
+<p><strong>pt</strong>
+Portuguese
+Português</p>
+<p><strong>zh-hans</strong>
+Chinese (Simplified)
+中文(简体)</p>
+<p><strong>zh-hant</strong>
+Chinese (Traditional)
+中文(繁體)</p>
+<p><strong>bg</strong>
+Bulgarian
+български</p>
+<p><strong>bn</strong>
+Bengali
+বাংলা</p>
+<p><strong>bs</strong>
+Bosnian
+босански</p>
+<p><strong>cs</strong>
+Czech
+Čeština</p>
+<p><strong>da</strong>
+Danish
+Dansk</p>
+<p><strong>el</strong>
+Greek
+ελληνικά</p>
+<p><strong>et</strong>
+Estonian
+Eesti</p>
+<p><strong>fi</strong>
+Finnish
+Suomi</p>
+<p><strong>hi</strong>
+Hindi
+हिन्दी</p>
+<p><strong>hr</strong>
+Croatian
+Hrvatski</p>
+<p><strong>hu</strong>
+Hungarian
+Magyar</p>
+<p><strong>id</strong>
+Indonesian
+Bahasa Indonesia</p>
+<p><strong>it</strong>
+Italian
+Italiano</p>
+<p><strong>ka</strong>
+Georgian
+ქართული</p>
+<p><strong>kk</strong>
+Kazakh
+қазақ тілі</p>
+<p><strong>km</strong>
+Khmer
+ភាសាខ្មែរ</p>
+<p><strong>lt</strong>
+Lithuanian
+Lietuvių</p>
+<p><strong>lv</strong>
+Latvian
+Latviešu</p>
+<p><strong>ms</strong>
+Malay
+Bahasa Melayu</p>
+<p><strong>my</strong>
+Burmese
+ဗမာစာ</p>
+<p><strong>nb</strong>
+Bokmal
+Bokmål</p>
+<p><strong>nl</strong>
+Dutch
+Nederlands</p>
+<p><strong>fil</strong>
+Filipino
+Filipino</p>
+<p><strong>pl</strong>
+Polish
+Polski</p>
+<p><strong>ro</strong>
+Romanian
+Română</p>
+<p><strong>ru</strong>
+Russian
+русский</p>
+<p><strong>si</strong>
+Sinhala
+සිංහල</p>
+<p><strong>sk</strong>
+Slovak
+Slovenčina</p>
+<p><strong>sl</strong>
+Slovenian
+Slovenski</p>
+<p><strong>sq</strong>
+Albanian
+Shqipe</p>
+<p><strong>sr</strong>
+Serbian
+српски</p>
+<p><strong>sv</strong>
+Swedish
+Svenska</p>
+<p><strong>th</strong>
+Thai
+ภาษาไทย</p>
+<p><strong>tr</strong>
+Turkish
+Türkçe</p>
+<p><strong>uk</strong>
+Ukrainian
+україньска</p>
+<p><strong>vi</strong>
+Vietnamese
+Tiểng Việt</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">LocalizationService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;LocalizationService&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">translator</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    	<span class="k">return</span> <span class="n">LocalizationService</span><span class="p">:</span><span class="n">GetTranslatorForLocaleAsync</span><span class="p">(</span><span class="s2">&quot;es&quot;</span><span class="p">)</span>
+    <span class="n">end</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">success</span> <span class="n">then</span>
+    
+    <span class="k">else</span>
+    	<span class="n">warn</span><span class="p">(</span><span class="s2">&quot;无法为玩家加载翻译器！&quot;</span><span class="p">)</span>
+    <span class="n">end</span>
+
+</pre></div>
+</div>
+<p>注意 <code class="docutils literal notranslate"><span class="pre">LocalizationService/GetTranslatorForPlayerAsync|GetTranslatorForPlayerAsync()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">LocalizationService/GetTranslatorForLocaleAsync|GetTranslatorForLocaleAsync()</span></code> 都是异步运行，所以可能会因为连接不稳定或者其他原因而导致运行失败，因此一定要将它们和 <code class="docutils literal notranslate"><span class="pre">pcall</span></code> 嵌套并实现错误处理功能，如下所示。</p>
+</div>
+</div>
+</div>
+<div class="section" id="translate">
+<h2>Translate()<a class="headerlink" href="#translate" title="Permalink to this headline">¶</a></h2>
+<p>当一个合法的 <code class="docutils literal notranslate"><span class="pre">Translator</span></code> 加载完毕后，<code class="docutils literal notranslate"><span class="pre">Translator/Translate|Translate()</span></code> 函数就可以从本地化门户中基于其 <strong>Source</strong> 字符串和一个游戏内 <code class="docutils literal notranslate"><span class="pre">Instance</span></code> 来取回翻译。注意 <code class="docutils literal notranslate"><span class="pre">Instance</span></code> 参数可能是任意参数，除非开发者要求进行<a class="reference external" href="/api-reference/function/Translator/Translate#translate-context-overrides">上下文 覆盖</a>。</p>
+<p>A
+B
+C
+D
+E</p>
+<p>Key（键）
+Context（上下文）
+<strong>Source（原文）</strong>
+Example（示例）
+<strong>es</strong></p>
+<p>Screen
+Pantalla</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="k">if</span> <span class="n">success</span> <span class="n">then</span>
+    	<span class="n">local</span> <span class="n">translation</span> <span class="o">=</span> <span class="n">translator</span><span class="p">:</span><span class="n">Translate</span><span class="p">(</span><span class="n">game</span><span class="p">,</span> <span class="s2">&quot;Screen&quot;</span><span class="p">)</span>
+    	<span class="nb">print</span><span class="p">(</span><span class="n">translation</span><span class="p">)</span>
+    <span class="k">else</span>
+    	<span class="n">warn</span><span class="p">(</span><span class="s2">&quot;无法为玩家加载翻译器！&quot;</span><span class="p">)</span>
+    <span class="n">end</span>
+    
+    
+    <span class="n">Pantalla</span>
+</pre></div>
+</div>
+<p>如果开发者用一个<strong>不</strong>存在于本地化门户中的源文本字符串去调用 <code class="docutils literal notranslate"><span class="pre">Translator/Translate|Translate()</span></code> ，那么该字符串就会自动被添加到门户（以及可下载的 .csv 电子表格）中，翻译人员就可以找到它并进行翻译。</p>
+</div>
+<div class="section" id="formatbykey">
+<h2>FormatByKey()<a class="headerlink" href="#formatbykey" title="Permalink to this headline">¶</a></h2>
+<p>当 <code class="docutils literal notranslate"><span class="pre">Translator/FormatByKey|FormatByKey()</span></code> 对一个有效合法的 <code class="docutils literal notranslate"><span class="pre">Translator</span></code> 进行调用时，它会从本地化门户中基于一个针对源项的标识符 <strong>key</strong> （键）来获取翻译。标识符键只能被输入到可下载的电子表格 <strong>Key</strong> 列中或者输入到门户中的直接条目里，无法通过 Roblox 应用中的自动文本捕捉来进行侦测或添加。</p>
+<div class="section" id="id5">
+<h3>输入键 »<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>如果你更喜欢使用 .csv <code class="docutils literal notranslate"><span class="pre">articles/localization</span> <span class="pre">portal</span> <span class="pre">additional</span> <span class="pre">features#localizing-with-csv-files|电子表格</span></code>管理译文，则可以在 <strong>Key</strong> 列输入标识符键：</p>
+<p>A
+B
+C
+D
+E</p>
+<p><strong>键</strong>
+上下文
+原文
+示例
+es</p>
+<p>Key_StartButton
+Start
+Iniciar</p>
+<p>Key_OptionsButton
+Options
+Opciones</p>
+<p>或者，你可以通过以下步骤，直接在本地化门户中输入基于键的条目：</p>
+<ol class="simple">
+<li><p>在门户中的 **Manage Translations（管理译文）**页面上，单击 **Add New Entry（添加新条目）**按钮。
+<img alt="https://developer.roblox.com/assets/bltb96d211b1f744953/LP-Add-New-Entry.png" src="https://developer.roblox.com/assets/bltb96d211b1f744953/LP-Add-New-Entry.png" /></p></li>
+<li><p>指定 <strong>Text to Translate（待译文字）</strong>（将成为电子表单中的<strong>原文</strong>）和<strong>键</strong>值。</p></li>
+<li><p>单击 **Save（保存）**按钮将条目添加至门户。</p></li>
+</ol>
+<p>如果要在一个脚本中使用 <code class="docutils literal notranslate"><span class="pre">Translator/FormatByKey|FormatByKey()</span></code> ，用一个从本地化门户中获取到的有效的键名称来调用 API 。比如下列编码示例的第 9 行的 <code class="docutils literal notranslate"><span class="pre">print()</span></code> 语句将在开发者在西班牙语环境中进行<code class="docutils literal notranslate"><span class="pre">articles/game</span> <span class="pre">testing#player-emulator|游戏测试</span></code>时输出对应键为 “Key_Prize” 的西班牙语翻译 “joyas”。</p>
+<p>A
+B
+C
+D
+E</p>
+<p><strong>Key（键）</strong>
+Context（上下文）
+Source（原文）
+Example（示例）
+<strong>es</strong></p>
+<p>Key_Prize
+jewels
+joyas</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="k">if</span> <span class="n">success</span> <span class="n">then</span>
+    	<span class="n">local</span> <span class="n">keyTranslation</span> <span class="o">=</span> <span class="n">translator</span><span class="p">:</span><span class="n">FormatByKey</span><span class="p">(</span><span class="s2">&quot;Key_Prize&quot;</span><span class="p">)</span>
+    	<span class="nb">print</span><span class="p">(</span><span class="n">keyTranslation</span><span class="p">)</span>
+    <span class="k">else</span>
+    	<span class="n">warn</span><span class="p">(</span><span class="s2">&quot;无法为玩家加载 translator ！&quot;</span><span class="p">)</span>
+    <span class="n">end</span>
+    
+    
+    <span class="n">joyas</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>使用格式化字符串<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>本地化 API 可以和<code class="docutils literal notranslate"><span class="pre">/articles/localization</span> <span class="pre">format</span> <span class="pre">strings|格式化字符串</span></code>一起使用来返回带有变量数据的翻译内容。此方法仅取决于格式化字符串为<strong>已编号</strong>还是<strong>已命名</strong>。</p>
+<div class="section" id="id7">
+<h3>已编号格式化字符串<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>下列翻译数据中含有<strong>已编号</strong>的格式化字符串，比如 <strong>{1:int}</strong>：</p>
+<p>A
+B
+C
+D
+E</p>
+<p><strong>Key（键）</strong>
+Context（上下文）
+<strong>Source（原文）</strong>
+Example（示例）
+<strong>es</strong></p>
+<p>Key_Prize_1
+{1:int} jewels
+{1:int} joyas</p>
+<p>Key_Prize_2
+${1:fixed} cash and {2:int} jewels
+${1:fixed} dinero y {2:int} joyas</p>
+<p>要将这些数据格式化为带有变量金额的现金和/或珠宝，请将数量传入一个以逗号分隔的 Lua 数组之中，以该数组作为 <code class="docutils literal notranslate"><span class="pre">Translator/FormatByKey|FormatByKey()</span></code> 的第二个参数。再使用西班牙语进行<code class="docutils literal notranslate"><span class="pre">articles/game</span> <span class="pre">testing#player-emulator|游戏测试</span></code>时，<code class="docutils literal notranslate"><span class="pre">print()</span></code> 语句就会输出正确的翻译。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    if success then
+    	local keyTranslation1 = translator:FormatByKey(&quot;Key_Prize_1&quot;, {100})
+    	print(keyTranslation1)
+    	local keyTranslation2 = translator:FormatByKey(&quot;Key_Prize_2&quot;, {500, 100})
+    	print(keyTranslation2)
+    else
+    
+    
+    100 joyas
+    $500.00 dinero y 100 joyas
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>已命名的格式化字符串<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>在处理<strong>已命名</strong>格式化字符串（比如 <strong>{NumJewels:int}</strong> ）时，将一个含有多个键值对的表格作为第二个参数传入 <code class="docutils literal notranslate"><span class="pre">Translator/FormatByKey|FormatByKey()</span></code>，每个键值对中是一个格式化字符串的名称和要替换的值。</p>
+<p>A
+B
+C
+D
+E</p>
+<p><strong>Key（键）</strong>
+Context（上下文）
+<strong>Source（原文）</strong>
+Example（示例）
+<strong>es</strong></p>
+<p>Key_Prize_1
+{NumJewels:int} jewels
+{NumJewels:int} joyas</p>
+<p>Key_Prize_2
+{AmountCash:fixed} cash and {NumJewels:int} jewels
+{AmountCash:fixed} dinero y {NumJewels:int} joyas</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    if success then
+    	local keyTranslation1 = translator:FormatByKey(&quot;Key_Prize_1&quot;, {NumJewels=100})
+    	print(keyTranslation1)
+    	local keyTranslation2 = translator:FormatByKey(&quot;Key_Prize_2&quot;, {AmountCash=500, NumJewels=100})
+    	print(keyTranslation2)
+    else
+    
+    
+    100 joyas
+    $500.00 dinero y 100 joyas
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>最佳做法<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="autolocalize">
+<h3>禁用 AutoLocalize<a class="headerlink" href="#autolocalize" title="Permalink to this headline">¶</a></h3>
+<p>在使用本地化 API 时，最好禁用使用译文对象的 <code class="docutils literal notranslate"><span class="pre">GuiBase2d/AutoLocalize|AutoLocalize</span></code>。例如：</p>
+<p>情景 禁用 AutoLocalize 的原因</p>
+<p>在 NPC 头顶上方的 <code class="docutils literal notranslate"><span class="pre">BillboardGui</span></code> 中显示 NPC 专有名称。
+NPC 的名字在各国语言中保持不变，因此 Studio’s 的自动文本捕捉功能无法捕获 NPC 名字。</p>
+<p>从门户中获取一段译文并用“打字机”效果以逐字母的方式显示。
+防止 Studio 的自动文本捕捉功能捕捉不完整的词语并将其添加至门户。</p>
+<p>要禁用某个特定 GUI 对象的 自动本地化功能，需要在 Studio 中取消选中它的 <code class="docutils literal notranslate"><span class="pre">GuiBase2d/AutoLocalize|AutoLocalize</span></code> 属性或者在一段脚本中将其设置为 <code class="docutils literal notranslate"><span class="pre">false</span></code> 。</p>
+</div>
+<div class="section" id="id10">
+<h3>错误处理<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>下面的帮助模块可以捕获到开发者本地化条目中可能存在的问题并处理基于网络的函数在获取 <code class="docutils literal notranslate"><span class="pre">Translator</span></code> 时可能会引发的错误。 要在游戏中使用此功能，请执行以下操作：</p>
+<ol class="simple">
+<li><p>在 <code class="docutils literal notranslate"><span class="pre">ReplicatedStorage</span></code> 中创建新的 <code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code>。</p></li>
+<li><p>将新脚本重命名为 <em>TranslationHelper</em>。</p></li>
+<li><p>将下列编码复制到脚本中。</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    local TranslationHelper = {}
+    
+    -- Roblox 服务
+    local LocalizationService = game:GetService(&quot;LocalizationService&quot;)
+    local Players = game:GetService(&quot;Players&quot;)
+    
+    -- 本地变量
+    local player = Players.LocalPlayer
+    local sourceLanguageCode = &quot;en&quot;
+    
+    -- 获取 Translator
+    local playerTranslator, fallbackTranslator
+    local foundPlayerTranslator = pcall(function()
+    	playerTranslator = LocalizationService:GetTranslatorForPlayerAsync(player)
+    end)
+    local foundFallbackTranslator = pcall(function()
+    	fallbackTranslator = LocalizationService:GetTranslatorForLocaleAsync(sourceLanguageCode)
+    end)
+    
+    TranslationHelper.setSourceLanguage = function(languageCode)
+    	if sourceLanguageCode ~= languageCode then
+    		foundFallbackTranslator = pcall(function()
+    			fallbackTranslator = LocalizationService:GetTranslatorForLocaleAsync(sourceLanguageCode)
+    			sourceLanguageCode = languageCode
+    			return true
+    		end)	
+    	end
+    	return false
+    end
+    
+    -- 翻译函数
+    TranslationHelper.translate = function(text, object)
+    	if not object then
+    		object = game
+    	end
+    	local translation = &quot;&quot;
+    	local foundTranslation = false
+    	if foundPlayerTranslator then
+    		return playerTranslator:Translate(object, text)
+    	end
+    	if foundFallbackTranslator then
+    		return fallbackTranslator:Translate(object, text)
+    	end
+    	return false
+    end
+    
+    -- 按键函数进行翻译 
+    TranslationHelper.translateByKey = function(key, arguments)
+    	local translation = &quot;&quot;
+    	local foundTranslation = false
+    	
+    	-- 首先试图翻译至玩家语言（如果发现 Translator）
+    	if foundPlayerTranslator then
+    		foundTranslation = pcall(function()
+    			translation = playerTranslator:FormatByKey(key, arguments)
+    		end)
+    	end
+    	if foundFallbackTranslator and not foundTranslation then
+    		foundTranslation = pcall(function()
+    			translation = fallbackTranslator:FormatByKey(key, arguments)
+    		end)
+    	end
+    	if foundTranslation then
+    		return translation
+    	else
+    		return false
+    	end
+    end
+    
+    return TranslationHelper
+
+</pre></div>
+</div>
+<p>如果游戏的原文并非英文，请将第 9 行的 <code class="docutils literal notranslate"><span class="pre">sourceLanguageCode</span></code> 值更改为<strong>获得充分支持的</strong>语言码，该语言码与本地化门户中游戏的<strong>原文 语言</strong>设置必须一致。请参阅上方的游戏码参考 表，了解可接受选项。</p>
+<p>将模块放入 <code class="docutils literal notranslate"><span class="pre">ReplicatedStorage</span></code> 后，就可以从 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 中进行 <code class="docutils literal notranslate"><span class="pre">require()</span></code> 处理，如下面第 5 行所示。之后如有需要，可随时调用模块的 <code class="docutils literal notranslate"><span class="pre">translate()</span></code> 函数（等效于 <code class="docutils literal notranslate"><span class="pre">Translator/Translate|Translate()</span></code> ）或者 <code class="docutils literal notranslate"><span class="pre">translateByKey()</span></code> 函数（等效于 <code class="docutils literal notranslate"><span class="pre">Translator/FormatByKey|FormatByKey()</span></code>）。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">Roblox</span> <span class="n">服务</span>
+    <span class="n">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">对翻译模块进行</span> <span class="n">Require</span>
+    <span class="n">local</span> <span class="n">TranslationHelper</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;TranslationHelper&quot;</span><span class="p">))</span>
+    
+    <span class="n">local</span> <span class="n">sourceTranslation</span> <span class="o">=</span> <span class="n">TranslationHelper</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="s2">&quot;Source_String&quot;</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">keyTranslation</span> <span class="o">=</span> <span class="n">TranslationHelper</span><span class="o">.</span><span class="n">translateByKey</span><span class="p">(</span><span class="s2">&quot;Key_Name&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/utilizing-localization-apis">使用本地化 API</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Format-Strings.html" class="btn btn-neutral float-right" title="格式字符串" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="localizing-non-text-instances.html" class="btn btn-neutral float-left" title="本地化非文本实例" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

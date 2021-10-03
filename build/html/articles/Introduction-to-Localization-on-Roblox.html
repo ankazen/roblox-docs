@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>本地化简介 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="本地化格式字符串" href="localization-format-strings.html" />
+    <link rel="prev" title="国际化" href="../tutorials/international.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/international.html">国际化</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">本地化简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">本地化的目的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">本地化入门</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">文本的采集和存储</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#atc">ATC 使用准则</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">逐个对象禁用 ATC</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">添加和管理译文</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">自动翻译</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">使用译文</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="localization-format-strings.html">本地化格式字符串</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization-portal-additional-features.html">本地化门户：扩展功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Localization-Support-and-Troubleshooting.html">本地化常见问题和错误排查</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localizing-non-text-instances.html">本地化非文本实例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilizing-localization-apis.html">使用本地化 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Format-Strings.html">格式字符串</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/international.html">国际化</a> &raquo;</li>
+        
+      <li>本地化简介</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Introduction-to-Localization-on-Roblox.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>本地化简介<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p>Roblox 致力于促进我们玩家和开发者群体的成长。随着全球玩家数量的不断增长，<strong>本地化</strong>将更有助这些玩家理解和享受您的游戏作品。</p>
+<div class="section" id="id2">
+<h2>本地化的目的<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>从核心上来说，本地化的目的就是让游戏的含义更加明确，并提高其对特定玩家群体的吸引力。世界上的每个地区都有其自己的文化、语言和习俗，所以您游戏中的按钮、说明、角色对话等内容，最好都能显示为地区特有的语言。</p>
+<p><img alt="https://developer.roblox.com/assets/blt49b3373f6fe58022/Multilingual-Robot-Dance.jpg" src="https://developer.roblox.com/assets/blt49b3373f6fe58022/Multilingual-Robot-Dance.jpg" /></p>
+<p>本地化不只是最基本的翻译，还意味着要在你的游戏当中使用<strong>最贴切</strong>的译文。你尽可以直接上网查找直白的逐字翻译，但是每一种文化都会有自己独特的辞藻能用来表达你真正想要传达的意思。</p>
+</div>
+<div class="section" id="id3">
+<h2>本地化入门<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>在 Roblox 当中，本地化一款游戏涉及以下三个主要阶段：</p>
+<p><strong>文本的采集和存储</strong>
+<img alt="https://developer.roblox.com/assets/blt4e539ce26d011f16/r-arrow-blue.png" src="https://developer.roblox.com/assets/blt4e539ce26d011f16/r-arrow-blue.png" /></p>
+<p><strong>添加和管理译文</strong>
+<img alt="https://developer.roblox.com/assets/blt4e539ce26d011f16/r-arrow-blue.png" src="https://developer.roblox.com/assets/blt4e539ce26d011f16/r-arrow-blue.png" /></p>
+<p><strong>使用译文</strong></p>
+<p>如果您是初次接触本地化，请继续阅读探索基于云<strong>的本地化平台</strong>，即推荐的译文存储、管理和使用方法。</p>
+</div>
+<div class="section" id="id4">
+<h2>文本的采集和存储<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>要访问本地化平台，请导航至您的游戏主页，单击 <img alt="https://developer.roblox.com/assets/blt738fe32bb9c285f9/Config-Dots.png" src="https://developer.roblox.com/assets/blt738fe32bb9c285f9/Config-Dots.png" /></p>
+<p>按钮，然后从快捷菜单中选择 <strong>Configure Localization（配置本地化）</strong>。</p>
+<p><img alt="https://developer.roblox.com/assets/bltc26a047d5f63e31c/Configure-Localization.png" src="https://developer.roblox.com/assets/bltc26a047d5f63e31c/Configure-Localization.png" /></p>
+<p>进入平台后，单击 <strong>Settings（设置）</strong> 选项卡并打开 <strong>Automatic Text Capture（ATC - 自动文本捕捉）</strong>。这样当任何人在 Roblox 上玩您的游戏时，就会对游戏内的字符串进行捕捉和存储。</p>
+<p><img alt="https://developer.roblox.com/assets/bltf2271e5731d23224/LP-Enable-ATC.png" src="https://developer.roblox.com/assets/bltf2271e5731d23224/LP-Enable-ATC.png" /></p>
+<div class="section" id="atc">
+<h3>ATC 使用准则<a class="headerlink" href="#atc" title="Permalink to this headline">¶</a></h3>
+<p>For ATC to detect in-game text and add it to the localization portal, note the following:</p>
+<ul class="simple">
+<li><p>The game must be played in the <strong>Roblox application</strong>, not within Roblox Studio.</p></li>
+<li><p>If the game is played from your account, it may take 1–2 minutes for ATC to inject text into the localization portal.</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>逐个对象禁用 ATC<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>对于某些游戏内内容，你应当<strong>禁用</strong>自动文本捕捉。例如，ATC 无需追踪名为“Diva Dragonslayer”（角色名）的 NPC 上方 <code class="docutils literal notranslate"><span class="pre">BillboardGui</span></code> 上的 <code class="docutils literal notranslate"><span class="pre">TextLabel</span></code>，因为她的名字不会随语言的不同而改变。</p>
+<p>要禁用特定 <code class="docutils literal notranslate"><span class="pre">GuiBase2d|GUI</span></code> 对象上的自动文本捕捉，请在 Studio 中取消选中其 <code class="docutils literal notranslate"><span class="pre">GuiBase2d/AutoLocalize|AutoLocalize</span></code> 属性，或是在脚本中将其设为 <code class="docutils literal notranslate"><span class="pre">false</span></code>。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>添加和管理译文<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>你应当先在 <strong>Languages</strong> （语言）部分中将 **Game Source Language（游戏源语言）**设为 Roblox 上完全支持的语言之一。</p>
+<p><img alt="https://developer.roblox.com/assets/blt12a20377bc49c831/LP-Source-Language.png" src="https://developer.roblox.com/assets/blt12a20377bc49c831/LP-Source-Language.png" /></p>
+<p>下面，在紧接着的 <strong>Translated Languages</strong> （翻译语言）部分中，单击 **Add Language（添加语言）**字段并从菜单中选择一种语言。</p>
+<p><img alt="https://developer.roblox.com/assets/blt6053dac5e5eff0c8/LP-Select-Language.png" src="https://developer.roblox.com/assets/blt6053dac5e5eff0c8/LP-Select-Language.png" /></p>
+<p>添加到列表后，单击特定语言后会打开 **Manage Translations（管理译文）**页面，可以在其中管理你的译文。</p>
+<p><img alt="https://developer.roblox.com/assets/blt259ed0336e964470/LP-Translation-Manager.png" src="https://developer.roblox.com/assets/blt259ed0336e964470/LP-Translation-Manager.png" /></p>
+<p><strong>A</strong></p>
+<p>通过自动文本捕捉或手工输入采集的游戏内<strong>源文本字符串</strong>列表。绿色指示表示已经为选定语言添加了一条译文，而灰色指示则表示不存在译文。</p>
+<p><strong>B</strong></p>
+<p>将要用于所选定语言的本地化译文。</p>
+<p><strong>C</strong></p>
+<p>在其中找到了字符串的游戏内 GUI 对象列表。</p>
+<p><strong>D</strong></p>
+<p>对特定项目进行的更改日志（历史）。若您使用所选语言的自动翻译，机器翻译的记录会出现在此。</p>
+</div>
+<div class="section" id="id7">
+<h2>自动翻译<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>目前，<strong>自动机器翻译</strong>已面向指定测试人员开放，届时此功能将向所有开发者开放。根据您之前选择的<strong>游戏源语言</strong>，启用支持语言的自动翻译的开关会显示：</p>
+<p><img alt="https://developer.roblox.com/assets/blt560255811afec38f/Auto-Translation-Toggle.png" src="https://developer.roblox.com/assets/blt560255811afec38f/Auto-Translation-Toggle.png" /></p>
+<p>目前有以下自动翻译可用：</p>
+<p>源语言 目标语言</p>
+<p><strong>英语</strong>
+简体中文
+法语
+日语
+葡萄牙语</p>
+<p>繁体中文
+德语
+韩语
+西班牙语</p>
+<p>请注意，自动翻译永远不会覆盖人工翻译。任何已有的人工翻译都将保持不变，只有尚无翻译的条目会被填充。</p>
+</div>
+<div class="section" id="id8">
+<h2>使用译文<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>当你准备好在自己的游戏当中使用翻译好的内容后，返回平台的 <strong>Settings</strong> （设置）部分并启用 <strong>Use Translated Content（使用翻译内容）</strong>。</p>
+<p><img alt="https://developer.roblox.com/assets/bltec06ab0a13ebd01f/LP-Use-Translated-Content.png" src="https://developer.roblox.com/assets/bltec06ab0a13ebd01f/LP-Use-Translated-Content.png" /></p>
+<p>启用后，你就可以直接在 Roblox Studio 内按<code class="docutils literal notranslate"><span class="pre">articles/game</span> <span class="pre">testing#player-emulator|游戏测试模式</span></code>中的叙述测试译文了。</p>
+<p>请注意，如果您在此时发布游戏，译文将会应用到游戏的发行中版本。</p>
+<hr class="docutils" />
+<p>从这里开始，如需设置游戏标题和描述翻译、或让其他翻译者协助翻译工作等，请参阅<code class="docutils literal notranslate"><span class="pre">articles/localization</span> <span class="pre">portal</span> <span class="pre">additional</span> <span class="pre">features|本地化平台</span> <span class="pre">–</span> <span class="pre">其他功能</span></code>一文。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Introduction-to-Localization-on-Roblox">本地化简介</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="localization-format-strings.html" class="btn btn-neutral float-right" title="本地化格式字符串" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../tutorials/international.html" class="btn btn-neutral float-left" title="国际化" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <link rel="canonical" href="https://developer.roblox.com/articles/atmosphere"/>
+    <link rel="alternate" hreflang="x-default" href="https://developer.roblox.com/articles/atmosphere"/>
+    
+      <link rel="alternate" hreflang="en-us" href="https://developer.roblox.com/en-us/"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="https://developer.roblox.com/zh-cn/"/>
+    
+      
+        
+          <title> Atmosphere（氛围）掌控</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="zh-cn">
+
+
+
+<meta name="description" content="<p>学习如何为充满戏剧感的世界或模仿真实生活的场景进行氛围创建</p>">
+
+
+
+<meta name="keywords" content="">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="Atmosphere （氛围）">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>学习如何为充满戏剧感的世界或模仿真实生活的场景进行氛围创建</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="声效、光照与特效">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="false">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="https://browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/code-highlighting.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='https://dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('https://dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="/" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="/">主页</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">教程</h5>
+      <div>
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                <span>Studio 基础知识</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/creating">
+                <span>创建</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/international">
+                <span>国际化</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                <span>声效、光照与特效</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/marketing">
+                <span>市场营销</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/optimization">
+                <span>性能优化</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                <span>所有内容</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/analytics">
+                <span>数据分析</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                <span>用户界面</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/monetization">
+                <span>盈利</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                <span>编码与脚本</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                <span>跨平台发展</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/quick-start">
+                      <span>入门</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/learn-roblox/all-tutorials">
+                      <span>了解 Roblox</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/api-reference">
+                      <span>API 参考</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/resources">
+                      <span>资源</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com">
+                      <span>社区</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="搜索">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">关闭侧边栏</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">教程</h5>
+              <div>
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                      <span>Studio 基础知识</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/creating">
+                      <span>创建</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/international">
+                      <span>国际化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                      <span>声效、光照与特效</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/marketing">
+                      <span>市场营销</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/optimization">
+                      <span>性能优化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                      <span>所有内容</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/analytics">
+                      <span>数据分析</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                      <span>用户界面</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/monetization">
+                      <span>盈利</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                      <span>编码与脚本</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                      <span>跨平台发展</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/sound-lighting-fx">声效、光照与特效</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>Atmosphere（氛围）掌控</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">隐藏内容索引</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">显示内容索引</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <div class="toc-content"><a href="javascript:void(0)">内容索引</a>
+        </div>
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/sound-lighting-fx">声效、光照与特效</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>Atmosphere（氛围）掌控</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">5  分钟</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <style>
+.custom-button {
+  opacity: 0.7;
+}
+.custom-button.active {
+  opacity: 1;
+}
+.custom-button.tab-right-margin {
+  margin-right: 1px;
+}
+</style>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p><code>Atmosphere</code>（氛围）对象可以通过调整 Density（密度）等各种空气粒子属性来改变日光等光线的发散形态，从而帮助开发者在 Roblox 中创建更为真实的游戏环境。此对象可以模拟<span class="text-nowrap">真实世界</span>中的“空气透视”现象，并允许开发者对天空背景与远处对象的透光性进行控制。不仅如此，通过 Atmosphere 对象还能对 Haze（雾气）与 Glare（眩光）等条件进行操控，从而打造出完美澎湃的日落或雾气朦胧的下午等各种场景。</p>
+<h2>设置选项</h2>
+<p>若想对氛围进行设置，需要用到 <code>Lighting</code> 服务中的 <code>Sky</code> 和 <code>Atmosphere</code> 对象。如果服务中尚未存在上述对象，请将其进行插入。</p>
+<img src="/assets/bltdd45b4547def9101/Atmosphere-Sky-Objects.png" class="img-fluid half-sized">
+<h2>Atmosphere（氛围）属性</h2>
+<h3>Density （密度）</h3>
+<p><code>Atmosphere/Density|Density</code> （密度）定义了空气中存在粒子的数目。密度越高，粒子也就越多，<span class="text-nowrap">游戏内</span>的对象或地形也就会因为被这些粒子遮蔽而变得越为朦胧模糊。需要注意的是，Density（密度）并不会<strong>直接</strong>作用于 <span class="text-nowrap"><code>articles/Custom Skyboxes|Skybox</code>（天空盒），而是只作用于<span class="text-nowrap">游戏内</span>的对象或地形，并通过对其进行操控而影响 Skybox（天空盒）的可见程度。</p>
+<nav class="mt-3">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#DensityA" role="tab">Density（密度）= 0</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#DensityB" role="tab">Density（密度）= 0.35</a>
+  </div>
+</nav>
+<div class="tab-content">
+  <div class="tab-pane active show" id="DensityA" role="tabpanel"><img src="/assets/bltf99d55d704c3d0b6/Atmosphere-Density-A.jpg" class="img-fluid mb-4"></div>
+  <div class="tab-pane" id="DensityB" role="tabpanel"><img src="/assets/blt6b8b16519d05e550/Atmosphere-Density-B.jpg" class="img-fluid mb-4"></div>
+</div>
+<h3>Offset（偏移）</h3>
+<p><code>Atmosphere/Offset|Offset</code>（偏移）控制了光照在镜头与天空背景间的照射方式。可以通过增加偏移值来创造日落时天边清晰可见的晚霞，也可以通过减少偏移值来将远处的对象与天空背景进行融合，创造广阔无垠的开阔世界。</p>
+<nav class="mt-3">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#OffsetA" role="tab">Offset（偏移）= 0</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#OffsetB" role="tab">Offset（偏移）= 1</a>
+  </div>
+</nav>
+<div class="tab-content">
+  <div class="tab-pane active show" id="OffsetA" role="tabpanel"><img src="/assets/blt8bcf21dadce6c222/Atmosphere-Offset-A.jpg" class="img-fluid mb-3"></div>
+  <div class="tab-pane" id="OffsetB" role="tabpanel"><img src="/assets/blt06e241270abbf082/Atmosphere-Offset-B.jpg" class="img-fluid mb-3"></div>
+</div>
+<div class="alert alert-warning mb-4" role="alert">
+需要注意的是，在调整 Offset（偏移）属性时要与 <code>Atmosphere/Density|Density</code>（密度）属性进行平衡，并在场景中进行仔细测试。当偏移值过低时，可能会导致天空盒透过对象或地形显示。此类问题可以通过增加偏移值进行修复。虽然偏移值可以让远处的对象或地形与天空背景的对比更为清晰，但当偏移值过高时可能会出现远处地形或网格的<span class="text-nowrap">细节层次</span>显示不均的现象。
+</div>
+<h3>Haze（雾气）</h3>
+<p><code>Atmosphere/Haze|Haze</code>（雾气）定义了环境氛围的雾气浓度，对地平线以上及远处的环境氛围都有影响。与 <code>Atmosphere/Color|Color</code>（颜色）属性共同使用时，可以用来创建特定的环境氛围，例如污染严重的外星星球表面的雾霾等。</p>
+<nav class="mt-3">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#HazeA" role="tab">Haze（雾气）= 1</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#HazeB" role="tab">Haze（雾气）= 2.8</a>
+  </div>
+</nav>
+<div class="tab-content">
+  <div class="tab-pane active show" id="HazeA" role="tabpanel"><img src="/assets/blt9c7bbb3698988ef3/Atmosphere-Haze-A.jpg" class="img-fluid mb-4"></div>
+  <div class="tab-pane" id="HazeB" role="tabpanel"><img src="/assets/blt40e8e32caec63528/Atmosphere-Haze-B.jpg" class="img-fluid mb-4"></div>
+</div>
+<h3>Color（颜色）</h3>
+<p><code>Atmosphere/Color|Color</code>（颜色）属性可以用来改变氛围色调，潜移默化地影响环境氛围。推荐将此属性与 <code>Atmosphere/Haze|Haze</code>（雾气）属性同时使用，以扩展可见效果。</p>
+<nav class="mt-3">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#ColorA" role="tab">Color（颜色） = [255, 255, 255]</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#ColorB" role="tab">Color（颜色） = [250, 200, 255]</a>
+  </div>
+</nav>
+<div class="tab-content">
+  <div class="tab-pane active show" id="ColorA" role="tabpanel"><img src="/assets/blt8d36b3ccf5bb8919/Atmosphere-Color-A.jpg" class="img-fluid mb-4"></div>
+  <div class="tab-pane" id="ColorB" role="tabpanel"><img src="/assets/bltc42075d69e827e8d/Atmosphere-Color-B.jpg" class="img-fluid mb-4"></div>
+</div>
+<h3>Glare（眩光）</h3>
+<p><code>Atmosphere/Glare|Glare</code>（眩光）指定了太阳光源周围的氛围光或眩光。眩光值增加时，体现在天空与世界中的阳光照射强度也将会随之增加。</p>
+<nav class="mt-3">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#GlareA" role="tab">Glare（眩光）= 0</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#GlareB" role="tab">Glare（眩光）= 1</a>
+  </div>
+</nav>
+<div class="tab-content">
+  <div class="tab-pane active show" id="GlareA" role="tabpanel"><img src="/assets/bltb5567a982b107e42/Atmosphere-Glare-A.jpg" class="img-fluid mb-3"></div>
+  <div class="tab-pane" id="GlareB" role="tabpanel"><img src="/assets/blt8c0ba9496ed24b54/Atmosphere-Glare-B.jpg" class="img-fluid mb-3"></div>
+</div>
+<div class="alert alert-warning mb-4" role="alert">
+当使用 <code>Atmosphere/Glare|Glare</code>（眩光）属性时，需要同时将 <code>Atmosphere/Haze|Haze</code>（雾气）等级设置为 0 以上才会显示眩光效果。
+</div>
+<h3>Decay（衰减）</h3>
+<p><code>Atmosphere/Decay|Decay</code>（衰减）定义了远离太阳的气氛色调。当太阳根据 <code>Lighting/ClockTime|ClockTime</code> 或 <code>Lighting/TimeOfDay|TimeOfDay</code> 在天空中移动时，逐渐远离太阳的区域氛围将会从 <code>Atmosphere/Color|Color</code>（颜色）属性所指定的颜色向衰减值进行过渡。</p>
+<nav class="mt-3">
+  <div class="nav nav-tabs border-white" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4 active show" data-toggle="tab" href="#DecayA" role="tab">Decay（衰减）= [255, 255, 255]</a>
+    <a class="nav-item nav-link custom-button tab-right-margin bg-dark text-white border-0 px-4" data-toggle="tab" href="#DecayB" role="tab">Decay（衰减）= [255, 90, 80]</a>
+  </div>
+</nav>
+<div class="tab-content">
+  <div class="tab-pane active show" id="DecayA" role="tabpanel"><img src="/assets/blt8c0ba9496ed24b54/Atmosphere-Glare-B.jpg" class="img-fluid mb-3"></div><!-- Decay A was identical to Glare B -->
+  <div class="tab-pane" id="DecayB" role="tabpanel"><img src="/assets/bltb3c09e390b8fe81f/Atmosphere-Decay-B.jpg" class="img-fluid mb-3"></div>
+</div>
+<div class="alert alert-warning mb-4" role="alert">
+使用 <code>Atmosphere/Decay|Decay</code>（衰减）属性时，场景中的 <code>Atmosphere/Haze|Haze</code>（雾气）和 <code>Atmosphere/Glare|Glare</code>（眩光）程度必须要大于 0，否则衰减将不会产生任何效果。
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!--## 示例氛围
+下列 `Lighting`、`Sky`、`Atmosphere` 和其它属性与对象的组合可能会对构建游戏基础氛围有一定帮助。
+需要注意的是，每个对象的属性都是相对于默认值的**更改值**。如果这些对象已存在于游戏中且已经被更改，则可能需要对其进行删除与再创建，以便达成下列效果。-->
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>撒哈拉日落</h3>
+<div class="mb-4">
+<div class="row">
+  <div class="col">
+    <img src="/assets/blt3b93ef7813d00089/Atmosphere-Sahara-Sunset.jpg" class="img-fluid mb-3 lightbox rounded-0">
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
+    <div class="nav flex-column nav-pills mb-1" role="tablist">
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2 active show" data-toggle="pill" href="#SaharaSunset-Lighting" role="tab">Lighting（光照）</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2" data-toggle="pill" href="#SaharaSunset-Atmosphere" role="tab">Atmosphere（氛围）</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2" data-toggle="pill" href="#SaharaSunset-Sky" role="tab">Sky（天空）</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2" data-toggle="pill" href="#SaharaSunset-ColorCorrection" role="tab">Color Correction（颜色修正）</a>
+      <a class="nav-link custom-button bg-dark text-white text-center mb-2" data-toggle="pill" href="#SaharaSunset-SunRays" role="tab">Sun Rays（太阳光束）</a>
+    </div>
+    <div class="tab-content">
+      <!-- Lighting -->
+      <div class="tab-pane active show" id="SaharaSunset-Lighting">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">Lighting（光照）</b></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">OutdoorAmbient</td>
+              <td scope="row" class="studio-item-row text-nowrap"><div class="rgb-box d-inline-block" style="background-color: rgb(100,70,70);"></div>[100, 70, 70]</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">ClockTime</td>
+              <td scope="row" class="studio-item-row text-nowrap">17.7</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Atmosphere -->
+      <div class="tab-pane" id="SaharaSunset-Atmosphere">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">Atmosphere（氛围）</b> <span class="text-nowrap">（<b>Lighting</b> 的子项）</span></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">Density（密度）</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.35</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Color（颜色）</td>
+              <td scope="row" class="studio-item-row text-nowrap"><div class="rgb-box d-inline-block" style="background-color: rgb(250,180,120);"></div>[250, 180, 120]</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Decay（衰减）</td>
+              <td scope="row" class="studio-item-row text-nowrap"><div class="rgb-box d-inline-block" style="background-color: rgb(255,0,200);"></div>[255, 0, 200]</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Glare（眩光）</td>
+              <td scope="row" class="studio-item-row text-nowrap">1</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Haze（雾气）</td>
+              <td scope="row" class="studio-item-row text-nowrap">2.1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Sky -->
+      <div class="tab-pane" id="SaharaSunset-Sky">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">Sky（天空）</b> <span class="text-nowrap">（<b>Lighting</b> 的子项）</span></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">SunAngluarSize</td>
+              <td scope="row" class="studio-item-row text-nowrap">16</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- ColorCorrection -->
+      <div class="tab-pane" id="SaharaSunset-ColorCorrection">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">ColorCorrection（颜色修正）</b> <span class="text-nowrap">（<b>Lighting</b> 的子项）</span></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">Contrast（对比）</td>
+              <td scope="row" class="studio-item-row text-nowrap">2</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Saturation（饱和）</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.2</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">TintColor</td>
+              <td scope="row" class="studio-item-row text-nowrap"><div class="rgb-box d-inline-block" style="background-color: rgb(200,150,220);"></div>[200, 150, 220]</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- SunRays -->
+      <div class="tab-pane" id="SaharaSunset-SunRays">
+        <table class="table studio-table no-outer-border mb-0">
+          <tbody>
+            <tr>
+              <td scope="row" class="studio-header-row" colspan="2"><b class="text-white">SunRays（太阳光束）</b> <span class="text-nowrap">（<b>Lighting</b> 的子项）</span></td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row" width="45%">Intensity（强度）</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.08</td>
+            </tr>
+            <tr>
+              <td scope="row" class="studio-item-row">Spread（分散）</td>
+              <td scope="row" class="studio-item-row text-nowrap">0.75</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- (next effect) -->
+    </div>
+  </div>
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">相关参考文章</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="/articles/Custom-Skyboxes"><span class="related-article-img" style="background-image: url();"> </span></a>
+          <h3 data-toc-skip><a href="/articles/Custom-Skyboxes">自定义 Skybox（天空盒）</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>此网站如何使用 Cookie</h1>
+        <div class="privacy-content">
+          <p>此平台使用 Cookie 为您提供更好的体验、对内容进行个性化、提供社交媒体功能和分析网站流量。如需详细信息（包括有关如何在此平台上防止使用 Cookie 或对其进行管理的信息），请参阅我们的<a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私和 Cookie 政策</a>。</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">确定</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">你即将离开 Roblox 网站</div>
+        <p>请按下继续按钮前往： <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="" class="btn secondary-btn" data-dismiss="modal">返回</a>
+        <a href="" class="btn primary-btn continue-link" target="_blank">继续</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com" target="_self" class="footer-logo ptxl mbl">
+              <img src="https://dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2019 Roblox Corporation. 保留所有权利。</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>公司</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">关于 Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">招贤纳士</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">技术</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">服务条款</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私政策</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">家长</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>开发人员</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="/articles/Creating-Your-First-Game" target="_self">入门</a>
+                  </li>
+                
+                  <li>
+                    <a href="/learn-roblox/all-tutorials" target="_self">了解</a>
+                  </li>
+                
+                  <li>
+                    <a href="/api-reference" target="_self">API 参考</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com" target="_blank">社区</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">开发人员公告</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">搜索</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input"
+                        placeholder="搜索">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" href="#all" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            所有结果
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" href="#api-doc" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API 文档
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" href="#tutorial" role="tab"
+                            aria-selected="false" data-name="articles">
+                            教程
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" href="#recipe" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            代码参考
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" href="#video" role="tab"
+                            aria-selected="false" data-name="videos">
+                            视频
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+</html>

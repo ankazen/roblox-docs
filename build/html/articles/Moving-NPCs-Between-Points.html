@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>在点之间移动 NPC &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="寻路" href="Pathfinding.html" />
+    <link rel="prev" title="回复用拾取物品" href="Health-Pickups.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Lobby.html">制作大厅</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Usage-of-dialogs.html">NPC 对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Teleporting-Between-Places.html">不同场景间的传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Spawns-and-Teams.html">角色生成与团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-an-Explosion-Course.html">制作爆炸赛道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shop-Dialogs.html">商店对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-to-teleport-within-a-Place.html">场景内玩家传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="in-game-solid-modeling.html">游戏内实体建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matchmaking.html">玩家匹配系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Player-Collisions.html">玩家间的碰撞控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setting-Parts-on-Fire-with-Events.html">通过事件让部件着火</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2D-Collision-Detection.html">2D 碰撞检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Basics-on-Roblox.html">添加团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Badges-Special-Game-Awards.html">Badges – Special Game Awards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Collision-Filtering-Team-Doors.html">Restricted/Team Doors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-VIP-Doors.html">创建 VIP 专用门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Random-Map-Chooser.html">随机地图选择器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roblox-avatars.html">Roblox 虚拟形象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Health-Pickups.html">回复用拾取物品</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">在点之间移动 NPC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">向某一点移动</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">向多个点移动</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">在多个点间往返</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Pathfinding.html">寻路</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Side-Scrolling-Camera-View.html">横向卷轴镜头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Tools.html">玩家工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="detecting-collisions.html">检测碰撞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weapons-kit.html">认可武器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="npc-kit.html">NPC 套组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vehicles-kit.html">载具工具包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="team-balancing.html">平衡团队构成</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/gameplay.html">游戏制作</a> &raquo;</li>
+        
+      <li>在点之间移动 NPC</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Moving-NPCs-Between-Points.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="npc">
+<h1>在点之间移动 NPC<a class="headerlink" href="#npc" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p>NPC（即<strong>非玩家角色</strong>）能够增加一款游戏的深度。NPC 可以是供玩家打击的敌人、玩家可以对话和互动的各色角色等等。</p>
+<p>有些时候，NPC 可能站在某一个场景中，就像是在小型游戏内商店工作的店员一样。在另一些情况下，如果 NPC 四处走动，即便是在两个或多个点进行基本的移动，看起来就不会太像机器人（而更像是真人）。</p>
+<p>请注意，本文讨论的是在游戏世界中两点间进行的直接直线运动。如果你需要让某个 NPC 沿着更加复杂的的路线移动或是绕过障碍，请参阅<code class="docutils literal notranslate"><span class="pre">Articles/Pathfinding|寻路</span></code>指南。</p>
+<div class="section" id="id1">
+<h2>向某一点移动<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>让 NPC 移动的其中一种简便方法，就是使用 <code class="docutils literal notranslate"><span class="pre">Humanoid</span></code> 对象，这是一种特殊的对象，能让某一 <code class="docutils literal notranslate"><span class="pre">Model|model</span></code> 获得角色的功能，即便其看起来并不像是真人。这能让该模型实实在在地在场景中移动，并与场景中的对象进行交互。</p>
+<p>以这只僵尸为例。僵尸都不大聪明，所以我们可以让它走直线，不用担心中途会有什么障碍。</p>
+<p><img alt="https://developer.roblox.com/assets/bltb886c30a94c8f5c5/Zombie-Direct-Path.jpg" src="https://developer.roblox.com/assets/bltb886c30a94c8f5c5/Zombie-Direct-Path.jpg" /></p>
+<p>为方便起见，游戏中绿色的旗子模型已命名为 <em>GreenFlag</em>。我们会用其来作为僵尸前进的第一个目的地。请分析以下示例：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">Variables</span> <span class="k">for</span> <span class="n">the</span> <span class="n">zombie</span> <span class="ow">and</span> <span class="n">its</span> <span class="n">humanoid</span>
+    <span class="n">local</span> <span class="n">zombie</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">Zombie</span>
+    <span class="n">local</span> <span class="n">humanoid</span> <span class="o">=</span> <span class="n">zombie</span><span class="o">.</span><span class="n">Humanoid</span>
+     
+    <span class="o">--</span> <span class="n">Variables</span> <span class="k">for</span> <span class="n">the</span> <span class="n">point</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">the</span> <span class="n">zombie</span> <span class="n">should</span> <span class="n">move</span> <span class="n">between</span>
+    <span class="n">local</span> <span class="n">pointA</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">GreenFlag</span>
+    
+    <span class="o">--</span> <span class="n">Move</span> <span class="n">the</span> <span class="n">zombie</span> <span class="n">to</span> <span class="n">the</span> <span class="n">primary</span> <span class="n">part</span> <span class="n">of</span> <span class="n">the</span> <span class="n">green</span> <span class="n">flag</span> <span class="n">model</span>
+    <span class="n">humanoid</span><span class="p">:</span><span class="n">MoveTo</span><span class="p">(</span><span class="n">pointA</span><span class="o">.</span><span class="n">PrimaryPart</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>在这段基本代码当中，我们在工作区内找到 <strong>Zombie</strong> 模型、获取其 <code class="docutils literal notranslate"><span class="pre">Humanoid</span></code> 对象、将绿色旗子设为目标点，然后让僵尸使用 <code class="docutils literal notranslate"><span class="pre">Humanoid/MoveTo|MoveTo()</span></code> 方法向其走去。</p>
+<p>Uh oh! Your browser doesn’t appear to support embedded videos! Here is a <a class="reference external" href="#">direct link</a> to the video instead.</p>
+</div>
+<div class="section" id="id2">
+<h2>向多个点移动<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>让 NPC 朝一个点移动固然很精彩，但是让其在一系列点之间移动又怎么样呢？你可以连续编写一串 <code class="docutils literal notranslate"><span class="pre">Humanoid/MoveTo|MoveTo()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">wait()</span></code> 命令，但代码也会十分冗长繁琐。</p>
+<p>更出色的解决办法，就是使用 <code class="docutils literal notranslate"><span class="pre">Humanoid/MoveToFinished|MoveToFinished</span></code> 事件。这种事件能让你在完成 <code class="docutils literal notranslate"><span class="pre">Humanoid/MoveTo|MoveTo()</span></code> 动作，且 NPC 到达其目标点前暂停某一脚本。然后，你就可以继续运行该脚本，让 NPC 继续向另一点移动，或是返回其原点。</p>
+<p><img alt="https://developer.roblox.com/assets/bltf4a57ceedb11d465/Zombie-Direct-Path-2.jpg" src="https://developer.roblox.com/assets/bltf4a57ceedb11d465/Zombie-Direct-Path-2.jpg" /></p>
+<p>在以下代码中，我们会为紫色旗子创建另一个变量 <code class="docutils literal notranslate"><span class="pre">pointB</span></code>。在送僵尸走向绿色旗子后，我们会立即暂停脚本。一旦僵尸到达该旗子，脚本就会继续，我们就会送僵尸朝紫色旗子移动。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">Variables</span> <span class="k">for</span> <span class="n">the</span> <span class="n">zombie</span> <span class="ow">and</span> <span class="n">its</span> <span class="n">humanoid</span>
+    <span class="n">local</span> <span class="n">zombie</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">Zombie</span>
+    <span class="n">local</span> <span class="n">humanoid</span> <span class="o">=</span> <span class="n">zombie</span><span class="o">.</span><span class="n">Humanoid</span>
+    
+    <span class="o">--</span> <span class="n">Variables</span> <span class="k">for</span> <span class="n">the</span> <span class="n">point</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">the</span> <span class="n">zombie</span> <span class="n">should</span> <span class="n">move</span> <span class="n">between</span>
+    <span class="n">local</span> <span class="n">pointA</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">GreenFlag</span>
+    <span class="n">local</span> <span class="n">pointB</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">PurpleFlag</span>
+    
+    <span class="o">--</span> <span class="n">Move</span> <span class="n">the</span> <span class="n">zombie</span> <span class="n">to</span> <span class="n">the</span> <span class="n">primary</span> <span class="n">part</span> <span class="n">of</span> <span class="n">the</span> <span class="n">green</span> <span class="n">flag</span> <span class="n">model</span>
+    <span class="n">humanoid</span><span class="p">:</span><span class="n">MoveTo</span><span class="p">(</span><span class="n">pointA</span><span class="o">.</span><span class="n">PrimaryPart</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">Wait</span> <span class="n">until</span> <span class="n">the</span> <span class="n">zombie</span> <span class="n">has</span> <span class="n">reached</span> <span class="n">its</span> <span class="n">first</span> <span class="n">target</span>
+    <span class="n">humanoid</span><span class="o">.</span><span class="n">MoveToFinished</span><span class="p">:</span><span class="n">Wait</span><span class="p">()</span>
+    
+    <span class="o">--</span> <span class="n">Move</span> <span class="n">the</span> <span class="n">zombie</span> <span class="n">to</span> <span class="n">the</span> <span class="n">primary</span> <span class="n">part</span> <span class="n">of</span> <span class="n">the</span> <span class="n">purple</span> <span class="n">flag</span> <span class="n">model</span>
+    <span class="n">humanoid</span><span class="p">:</span><span class="n">MoveTo</span><span class="p">(</span><span class="n">pointB</span><span class="o">.</span><span class="n">PrimaryPart</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>Uh oh! Your browser doesn’t appear to support embedded videos! Here is a <a class="reference external" href="#">direct link</a> to the video instead.</p>
+<p>如配合事件使用，当事件发生时，大多数代码都会用 <code class="docutils literal notranslate"><span class="pre">DataType/RBXScriptSignal|Connect</span></code> 来调用自定义函数。在本示例中，我们只需<strong>暂停</strong>脚本，直到触发 <code class="docutils literal notranslate"><span class="pre">Humanoid/MoveToFinished|MoveToFinished</span></code> 事件，这就是事件的 <code class="docutils literal notranslate"><span class="pre">Wait()</span></code> 方法的具体作用！</p>
+</div>
+<div class="section" id="id3">
+<h2>在多个点间往返<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>既然僵尸已经能够在两个旗子间移动了，让我们通过添加以下内容来完成这一脚本：</p>
+<ol class="simple">
+<li><p>让僵尸不断在旗子之间来回往复巡逻的循环；</p></li>
+<li><p>可自定义的“巡逻延迟”，能让僵尸在向下一个点移动前短时间暂停。</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">Set</span> <span class="n">patrol</span> <span class="n">delay</span> <span class="n">at</span> <span class="mi">2</span> <span class="n">seconds</span>
+    <span class="n">local</span> <span class="n">PATROL_DELAY</span> <span class="o">=</span> <span class="mi">2</span>
+    
+    <span class="o">--</span> <span class="n">Variables</span> <span class="k">for</span> <span class="n">the</span> <span class="n">zombie</span> <span class="ow">and</span> <span class="n">its</span> <span class="n">humanoid</span>
+    <span class="n">local</span> <span class="n">zombie</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">Zombie</span>
+    <span class="n">local</span> <span class="n">humanoid</span> <span class="o">=</span> <span class="n">zombie</span><span class="o">.</span><span class="n">Humanoid</span>
+    
+    <span class="o">--</span> <span class="n">Variables</span> <span class="k">for</span> <span class="n">the</span> <span class="n">point</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">the</span> <span class="n">zombie</span> <span class="n">should</span> <span class="n">move</span> <span class="n">between</span>
+    <span class="n">local</span> <span class="n">pointA</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">GreenFlag</span>
+    <span class="n">local</span> <span class="n">pointB</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">PurpleFlag</span>
+    
+    <span class="o">--</span> <span class="n">Variable</span> <span class="n">to</span> <span class="n">keep</span> <span class="n">track</span> <span class="n">of</span> <span class="n">the</span> <span class="n">zombie</span><span class="s1">&#39;s next destination</span>
+    <span class="n">local</span> <span class="n">nextDestinationObject</span> <span class="o">=</span> <span class="n">pointA</span>
+    
+    <span class="o">--</span> <span class="n">Loop</span> <span class="n">to</span> <span class="n">move</span> <span class="n">between</span> <span class="n">the</span> <span class="n">two</span> <span class="n">points</span>
+    <span class="k">while</span> <span class="n">wait</span><span class="p">(</span><span class="n">PATROL_DELAY</span><span class="p">)</span> <span class="n">do</span>
+    	<span class="o">--</span> <span class="n">Move</span> <span class="n">the</span> <span class="n">zombie</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">destination</span>
+    	<span class="n">humanoid</span><span class="p">:</span><span class="n">MoveTo</span><span class="p">(</span><span class="n">nextDestinationObject</span><span class="o">.</span><span class="n">PrimaryPart</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+    
+    	<span class="o">--</span> <span class="n">Wait</span> <span class="n">until</span> <span class="n">the</span> <span class="n">zombie</span> <span class="n">has</span> <span class="n">reached</span> <span class="n">its</span> <span class="n">target</span>
+    	<span class="n">humanoid</span><span class="o">.</span><span class="n">MoveToFinished</span><span class="p">:</span><span class="n">Wait</span><span class="p">()</span>
+    
+    	<span class="o">--</span> <span class="n">Switch</span> <span class="n">the</span> <span class="n">current</span> <span class="n">target</span> <span class="n">to</span> <span class="n">the</span> <span class="n">other</span> <span class="n">target</span>
+    	<span class="k">if</span> <span class="n">nextDestinationObject</span> <span class="o">==</span> <span class="n">pointA</span> <span class="n">then</span>
+    		<span class="n">nextDestinationObject</span> <span class="o">=</span> <span class="n">pointB</span>
+    	<span class="k">else</span>
+    		<span class="n">nextDestinationObject</span> <span class="o">=</span> <span class="n">pointA</span>
+    	<span class="n">end</span>
+    <span class="n">end</span>
+
+</pre></div>
+</div>
+<p>就是这样！现在僵尸可以在两个旗子之间巡逻了，并且每次都会停下来休息 2 秒。</p>
+<p>Uh oh! Your browser doesn’t appear to support embedded videos! Here is a <a class="reference external" href="#">direct link</a> to the video instead.</p>
+<hr class="docutils" />
+<p>下一步怎么走？如我们所见，在多个点之间直线移动十分简单，但也同样很有局限性。如果路线上有任何障碍存在（墙、河、悬崖等），NPC 可能永远都无法到达目的地。僵尸的智商的确不高，但是其他 NPC 却应该有“更聪明”的行为方式，并会尝试找到通往目的地的<strong>最优</strong>路线。具体方法，请参考 <code class="docutils literal notranslate"><span class="pre">Articles/Pathfinding|寻路</span></code> 指南！</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Moving-NPCs-Between-Points">在点之间移动 NPC</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Pathfinding.html" class="btn btn-neutral float-right" title="寻路" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Health-Pickups.html" class="btn btn-neutral float-left" title="回复用拾取物品" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

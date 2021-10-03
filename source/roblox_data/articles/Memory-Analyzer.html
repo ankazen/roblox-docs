@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <link rel="canonical" href="https://developer.roblox.com/articles/Memory-Analyzer"/>
+    <link rel="alternate" hreflang="x-default" href="https://developer.roblox.com/articles/Memory-Analyzer"/>
+    
+      <link rel="alternate" hreflang="en-us" href="https://developer.roblox.com/en-us/"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="https://developer.roblox.com/zh-cn/"/>
+    
+      
+        
+          <title> 内存分析器</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="zh-cn">
+
+
+
+<meta name="description" content="<p>通过查看内存的使用程度改善游戏性能</p>">
+
+
+
+<meta name="keywords" content="">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="内存分析器">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>通过查看内存的使用程度改善游戏性能</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="性能优化">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="/static/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="/static/images/favicon.ico?q=1544016445575
+" type="image/x-icon">
+<link rel="icon" href="/static/images/favicon.ico?q=1544016445575
+" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="https://browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="/static/css/prettify.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+<link href="/static/css/select2.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+<link href="/static/css/font-awesome.min.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+<link href="/static/css/main.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+
+<script src="/static/js/jquery-3.3.1.min.js?q=1544016445575
+"></script>
+<script src="/static/js/popper.min.js?q=1544016445575
+"></script>
+<script src="/static/js/jPages.js?q=1544016445575
+"></script>
+<script src="/static/js/bootstrap.min.js?q=1544016445575
+"></script>
+<script src="/static/js/bootstrap-toc.js?q=1544016445575
+"></script>
+<!-- <script src="/static/js/docs.min.js?q=1544016445575
+"></script> -->
+<script src="/static/js/prettify.js?q=1544016445575
+"></script>
+<script src="/static/js/lang-lua.js?q=1544016445575
+"></script>
+<script src="/static/js/select2.js?q=1544016445575
+"></script>
+<script src="/static/js/clipboard.min.js?q=1544016445575
+"></script>
+
+<script src="/static/js/autolinking.js?q=1544016445575
+"></script>
+<script src="/static/js/lightbox.js?q=1544016445575
+"></script>
+<script src="/static/js/half-sized.js?q=1544016445575
+"></script>
+<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="/static/js/jquery.cookie.js?q=1544016445575
+"></script>
+<script type="text/javascript" src="/static/js/encrypt-md5.js?q=1544016445575
+"></script>
+<!-- <script type="text/javascript" src="/static/js/gdpr.js?q=1544016445575
+"></script> -->
+
+<script src="/static/js/script.js?q=1544016445575
+"></script>
+<script src="/static/js/codesample-theme.js?q=1544016445575
+"></script>
+<script src="/static/js/code-highlighting.js?q=1544016445575
+"></script>
+<!-- <script src="/static/js/local-codesamples.js?q=1544016445575
+"></script> -->
+<script src="/static/js/language-dropdown.js?q=1544016445575
+"></script>
+
+<script src="/static/js/event_template_one.js?q=1544016445575
+"></script>
+
+<script type="text/javascript" src="/static/js/jquery.swiftype.autocomplete.js?q=1544016445575
+">
+</script>
+<script type='text/javascript' src='/static/js/jquery.ba-hashchange.min.js?q=1544016445575
+'></script>
+<script type="text/javascript" src="/static/js/jquery.swiftype.search.js?q=1544016445575
+"></script>
+<script type="text/javascript" src="/static/js/jquery.swiftype.livesearch.js?q=1544016445575
+">
+</script>
+
+<script type="text/javascript" src="/static/js/st.custom.search.js?q=1544016445575
+"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('https://dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="/" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="/">主页</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/quick-start">
+                      <span>入门</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/learn-roblox/all-tutorials">
+                      <span>了解 Roblox</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/api-reference">
+                      <span>API 参考</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/resources">
+                      <span>资源</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com">
+                      <span>社区</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="搜索">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">关闭侧边栏</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="/static/images/l-arrow.svg?q=1544016445575
+"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">教程</h5>
+              <div>
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                      <span>All Content</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/analytics">
+                      <span>Analytics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                      <span>Coding and Scripts</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/creating">
+                      <span>Creating</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                      <span>Cross-Platform</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/international">
+                      <span>International</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/marketing">
+                      <span>Marketing</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/monetization">
+                      <span>Monetization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/optimization">
+                      <span>Optimization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                      <span>Sound, Lighting & FX</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                      <span>Studio Basics</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                      <span>User Interface</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/optimization">性能优化</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>内存分析器</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">隐藏内容索引</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">显示内容索引</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <div class="toc-content"><a href="javascript:void(0)">内容索引</a>
+        </div>
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/optimization">性能优化</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>内存分析器</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">5  分钟</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <pre class="prettyprint lang-lua linenums">
+local me = "Brandon"
+-- 注释可引用本地 x = 2
+function namedFunction(param)
+	print(param)
+end
+namedFunction(me)
+</pre>
+<p>如果想要你的 Roblox 游戏大获成功，就应当让其在包括移动设备及平板电脑等各种支持平台上运行顺畅。提升游戏性能的关键因素之一是对内存使用的有效管理。内存对于移动设备来说格外重要。如果游戏在手机上运行的游戏时消耗过多内存，就会导致游戏崩溃。</p>
+<p>地形、部件、图形效果、脚本、物理模拟以及声效等各种因素都能够造成内存消耗。Studio 的 Performance（性能）控件可以显示场景的内存消耗指标。通过这些指标，我们可以识别效果过多内存的场景。</p>
+<h2>分析工具</h2>
+<p>如果想要对游戏的内存消耗进行监测，可以使用以下两个工具：第一个是可以在 Studio 和客户端中打开的 Developer Console（开发者控制台）。第二个是 Studio 的 Performance（性能）控件。</p>
+<h3>开发者控制台</h3>
+<p>开发者控制台可以在其 Memory（内存）选项卡中显示正在运行场景的当前内存消耗：</p>
+<p><img src="/assets/bltad9006e34b3cb630/MemoryAnalyzerDevConsole.png" alt="MemoryAnalyzerDevConsole.png"></p>
+<p>在 Mac 和 PC 设备上（客户端和 Studio 中）按下 F9 键即可打开控制台。</p>
+<table class="table">
+<thead class="thead-dark">
+<tr>
+<th>平台</th>
+<th>开发者控制台的打开方式</th>
+</tr>
+<tr>
+<td>Mac 和 PC（Studio 和客户端中）</td>
+<td>按 F9 键</td>
+</tr>
+<tr>
+<td>移动设备（平板电脑和手机）</td>
+<td>在聊天系统中键入信息 "/console" </td>
+</tr>
+<tr>
+<td>游戏主机</td>
+<td>在游戏内的设置菜单中选择开发者控制台</td>
+</tr>
+</tbody>
+</table>
+<h3>Performance（性能）控件</h3>
+<p>Studio 内的 Performance（性能）控件中存在显示场景内存消耗的部分。前往 View（视图）选项卡，点击性能按钮即可打开控件。</p>
+<p><img src="/assets/blt917b3b9da24bbfcf/MemoryAnalyzerPerformanceButton.png" alt="MemoryAnalyzerPerformanceButton.png"></p>
+<p><img src="/assets/blt79a9084c2819d4dc/MemoryAnalyzerPerformanceWidget.png" alt="MemoryAnalyzerPerformanceWidget.png"></p>
+<h2>内存种类</h2>
+<h3>总内存</h3>
+<p>当 Roblox 客户端运行场景时，会消耗一定量的系统内存。这部分系统内存在 Roblox 中被称为 “Total Memory” （总内存）。总内存的值代表了 Roblox 内部进程（Core Memory 核心内存）与场景特定元素（Place Memory 场景内存）运行时所消耗的内存总值。通过 Performance（性能）控件可以测量这个数值，同时在操作系统工具（如 PC 的任务管理器或 Mac 的活动监视器等）中也可以进行查看。</p>
+<h3>Core Memory（核心内存）</h3>
+<p>Roblox 客户端运行时，其基础设施会持续消耗一小部分的内存。无论运行的场景有多小或多简单，引擎中内置的常见 Roblox 游戏进程 （例如关于网络、虚拟角色、UI 元素等的进程）将会使用一定量的内存。这一部分内存被我们称为 “Core Memory” （核心内存）。</p>
+<h3>Place Memory （场景内存）</h3>
+<p>简单来说， Place Memory（场景内存）就是除去 Core Memory（核心内存）外游戏所消耗的内存。其计算方法为：</p>
+<p>（场景内存）=（总内存）-（核心内存）</p>
+<p>场景内存的值与构建场景时所作出的各种选择直接关联。 Studio 的 Performance（性能）控件将所消耗的内存分类显示于多个 “Developer Tag” （开发者标签）下，可以用来标识游戏中不同元素对整体内存消耗的影响。</p>
+<h4>Developer Tag （开发者标签）</h4>
+<p>所有场景内存消耗都会获取一个开发者标签，以便清晰查看不同游戏设计选择所相关联的内存消耗。下表中列举了所有开发者标签。以及如何优化该标签所关联的内存消耗。</p>
+<table class="table">
+<thead class="thead-dark">
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>优化建议</th>
+</tr>
+<tr>
+<td>GraphicsMeshParts</td>
+<td>网格部件的图形显示。</td>
+<td>使用更少或更简单的网格部件。</td>
+</tr>
+<tr>
+<td>GraphicsParticles</td>
+<td>粒子系统的图形显示。</td>
+<td>减少粒子系统的使用数量，或减少粒子生成数量与持续时间。</td>
+</tr>
+<tr>
+<td>GraphicsParts</td>
+<td>部件的图形显示。</td>
+<td>使用更少或更简单的部件。</td>
+</tr>
+<tr>
+<td>GraphicsSolidModels</td>
+<td>渲染实体建模的图形数据。</td>
+<td>使用更少或更简单的实体建模。</td>
+</tr>
+<tr>
+<td>GraphicsSpatialHash</td>
+<td>常规渲染。</td>
+<td>减少任何需要渲染的物体使用，包括部件、粒子、灯光等。</td>
+</tr>
+<tr>
+<td>GraphicsTerrain</td>
+<td>地形的图形显示。</td>
+<td>使用更少的地形。</td>
+</tr>
+<tr>
+<td>GraphicsTexture</td>
+<td>纹理内存。</td>
+<td>使用更少或更小的纹理。</td>
+</tr>
+<tr>
+<td>GraphicsTextureCharacter</td>
+<td>角色纹理内存。</td>
+<td>使用更少的独特角色外观。</td>
+</tr>
+<tr>
+<td>HttpCache</td>
+<td>从 Roblox 服务器中下载并保存在缓存中的资源（图像、网格等）。</td>
+<td>加载更少或更小的资源。</td>
+</tr>
+<tr>
+<td>Instances</td>
+<td>场景中的实例。</td>
+<td>使用更少的实例。数据模型中的一切（管理器控件中的所有对象）皆为实例（例如：部件、脚本、光源等）。</td>
+</tr>
+<tr>
+<td>LuaHeap</td>
+<td>核心脚本（Roblox 客户端附带的脚本）和自定义脚本的堆内存。</td>
+<td>编写节省内存的脚本。</td>
+</tr>
+<tr>
+<td>PhysicsCollision</td>
+<td>物理模拟的碰撞数据。</td>
+<td>如果部件不需要移动，请将 Anchored 设置为 true。如果不需要与任何东西 （包括玩家）碰撞，请将 Cancollide 设置为 false。</td>
+</tr>
+<tr>
+<td>PhysicsParts</td>
+<td>物理、几何和动力模拟。</td>
+<td>使用更简单、更小或更少的部件。</td>
+</tr>
+<tr>
+<td>Script</td>
+<td>Lua 脚本。</td>
+<td>使用更少或更短的脚本。</td>
+</tr>
+<tr>
+<td>Signals</td>
+<td>实例之间触发的信号：在一个实例上触发事件以在另一个实例上触发事件。</td>
+<td>在实例间使用更少的事件连接。</td>
+</tr>
+<tr>
+<td>Sounds</td>
+<td>内存中的声音。</td>
+<td>使用更少或占内存更小的声音。</td>
+</tr>
+<tr>
+<td>StreamingSounds</td>
+<td>流媒体声音。</td>
+<td>使用更少的流媒体声音。</td>
+</tr>
+<tr>
+<td>TerrainVoxels</td>
+<td>地形体素。</td>
+<td>使用更少的地形。</td>
+</tr>
+<tr>
+<td>TerrainPhysics</td>
+<td>地形物理。</td>
+<td>对于靠近地形的对象，将其 CanCollide 设为 false，也可将其 Anchored 设为 true 。</td>
+</tr>
+</tbody>
+</table>
+<h2>Studio 偏差</h2>
+<p>在使用内存分析工具时，需要注意的一点是在 Studio 中运行场景时会消耗比客户端更多的内存。这是因为：</p>
+<ul>
+<li>Studio 支持撤销和重做操作，可能会在内存中储存某些对象的多个版本。</li>
+<li>为了将模拟游戏运行后的清理简单化，Studio 为 “edit（编辑）” 和 “player（玩家）”保存了单独的不同数据模型。</li>
+</ul>
+<p>由于 Studio 的内存偏差主要在于其大小的增加（对部分对象的多次计入），虽然 Studio 的内存统计并非完全可靠，但仍然有一定的参考价值。举例来说，如果 “Sounds（声音）”开发者标签相比其它标签要大很多，就可以推断我们应当首先对声音方面进行优化。如果改变后导致了标签内存值的减少，那么在客户端中也应该会反映同样的结果。</p>
+<p>在此再次提醒，这个偏差只会在 Studio 中出现。客户端中任何场景的内存计算都应该是准确的。</p>
+
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">相关参考文章</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="/articles/Roblox-Localization-Tools"><span class="related-article-img" style="background-image: url();"> </span></a>
+          <h3 data-toc-skip><a href="/articles/Roblox-Localization-Tools">本地化文本捕捉工具</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="/articles/Game-Passes-One-Time-Purchases"><span class="related-article-img" style="background-image: url(https://dk135eecbplh9.cloudfront.net/assets/bltf0d7f66b077e360d/Game-Passes-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="/articles/Game-Passes-One-Time-Purchases">Game Passes – One&#8209;Time Purchases</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="/articles/Developer-Products-In-Game-Purchases"><span class="related-article-img" style="background-image: url(https://dk135eecbplh9.cloudfront.net/assets/bltccae47ff18547a39/Dev-Products-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="/articles/Developer-Products-In-Game-Purchases">Developer Products – In&#8209;Game Purchases</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>此网站如何使用 Cookie</h1>
+        <div class="privacy-content">
+          <p>此平台使用 Cookie 为您提供更好的体验、对内容进行个性化、提供社交媒体功能和分析网站流量。如需详细信息（包括有关如何在此平台上防止使用 Cookie 或对其进行管理的信息），请参阅我们的<a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私和 Cookie 政策</a>。</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">确定</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">你即将离开 Roblox 网站</div>
+        <p>请按下继续按钮前往： <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="" class="btn secondary-btn" data-dismiss="modal">返回</a>
+        <a href="" class="btn primary-btn continue-link" target="_blank">继续</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com" target="_self" class="footer-logo ptxl mbl">
+              <img src="https://dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2019 Roblox Corporation. 保留所有权利。</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>公司</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">关于 Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">招贤纳士</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">技术</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">服务条款</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私政策</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">家长</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>开发人员</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="/articles/Creating-Your-First-Game" target="_self">入门</a>
+                  </li>
+                
+                  <li>
+                    <a href="/learn-roblox/all-tutorials" target="_self">了解</a>
+                  </li>
+                
+                  <li>
+                    <a href="/api-reference" target="_self">API 参考</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com" target="_blank">社区</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">开发人员公告</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">搜索</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input"
+                        placeholder="搜索">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" href="#all" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            所有结果
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" href="#api-doc" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API 文档
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" href="#tutorial" role="tab"
+                            aria-selected="false" data-name="articles">
+                            教程
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" href="#recipe" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            代码参考
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" href="#video" role="tab"
+                            aria-selected="false" data-name="videos">
+                            视频
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+</html>

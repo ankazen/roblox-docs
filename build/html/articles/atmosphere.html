@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Atmosphere（氛围）掌控 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Beam（光束）简介" href="intro-to-beams.html" />
+    <link rel="prev" title="声效、光照与特效" href="../tutorials/sound-lighting-fx.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Atmosphere（氛围）掌控</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">设置选项</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Atmosphere（氛围）属性</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#density">Density （密度）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#offset">Offset（偏移）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#haze">Haze（雾气）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#color">Color（颜色）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#glare">Glare（眩光）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#decay">Decay（衰减）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">撒哈拉日落</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="intro-to-beams.html">Beam（光束）简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-Fireworks.html">Creating Fireworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-Fireworks.html#steps">Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Portal.html">创建传送门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Portal.html#id2">步骤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fog-Overview-and-Settings.html">Fog – Overview and Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glowing-dynamic-lights.html">闪烁的动态光源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Smoke-and-Fire-with-Beams.html">使用光束创建冒烟和起火的效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Smoke-and-Fire-with-Beams.html#id2">步骤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Day-Night-Cycles-and-Street-Lights.html">昼夜循环和路灯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Particle-Emitters.html">粒子发射器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sounds-and-music.html">音效与音乐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="force-field-material.html">力场材质</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Basics-on-Roblox.html">添加团队</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a> &raquo;</li>
+        
+      <li>Atmosphere（氛围）掌控</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/atmosphere.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="atmosphere">
+<h1>Atmosphere（氛围）掌控<a class="headerlink" href="#atmosphere" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Atmosphere</span></code>（氛围）对象可以通过调整 Density（密度）等各种空气粒子属性来改变日光等光线的发散形态，从而帮助开发者在 Roblox 中创建更为真实的游戏环境。此对象可以模拟真实世界中的“空气透视”现象，并允许开发者对天空背景与远处对象的透光性进行控制。不仅如此，通过 Atmosphere 对象还能对 Haze（雾气）与 Glare（眩光）等条件进行操控，从而打造出完美澎湃的日落或雾气朦胧的下午等各种场景。</p>
+<div class="section" id="id1">
+<h2>设置选项<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>若想对氛围进行设置，需要用到 <code class="docutils literal notranslate"><span class="pre">Lighting</span></code> 服务中的 <code class="docutils literal notranslate"><span class="pre">Sky</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Atmosphere</span></code> 对象。如果服务中尚未存在上述对象，请将其进行插入。</p>
+<p><img alt="https://developer.roblox.com/assets/bltdd45b4547def9101/Atmosphere-Sky-Objects.png" src="https://developer.roblox.com/assets/bltdd45b4547def9101/Atmosphere-Sky-Objects.png" /></p>
+</div>
+<div class="section" id="id2">
+<h2>Atmosphere（氛围）属性<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="density">
+<h3>Density （密度）<a class="headerlink" href="#density" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Atmosphere/Density|Density</span></code> （密度）定义了空气中存在粒子的数目。密度越高，粒子也就越多，游戏内的对象或地形也就会因为被这些粒子遮蔽而变得越为朦胧模糊。需要注意的是，Density（密度）并不会<strong>直接</strong>作用于 <code class="docutils literal notranslate"><span class="pre">articles/Custom</span> <span class="pre">Skyboxes|Skybox</span></code>（天空盒），而是只作用于游戏内的对象或地形，并通过对其进行操控而影响 Skybox（天空盒）的可见程度。</p>
+<p>Density（密度）= 0 Density（密度）= 0.35</p>
+<p><img alt="https://developer.roblox.com/assets/bltf99d55d704c3d0b6/Atmosphere-Density-A.jpg" src="https://developer.roblox.com/assets/bltf99d55d704c3d0b6/Atmosphere-Density-A.jpg" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt6b8b16519d05e550/Atmosphere-Density-B.jpg" src="https://developer.roblox.com/assets/blt6b8b16519d05e550/Atmosphere-Density-B.jpg" /></p>
+</div>
+<div class="section" id="offset">
+<h3>Offset（偏移）<a class="headerlink" href="#offset" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Atmosphere/Offset|Offset</span></code>（偏移）控制了光照在镜头与天空背景间的照射方式。可以通过增加偏移值来创造日落时天边清晰可见的晚霞，也可以通过减少偏移值来将远处的对象与天空背景进行融合，创造广阔无垠的开阔世界。</p>
+<p>Offset（偏移）= 0 Offset（偏移）= 1</p>
+<p><img alt="https://developer.roblox.com/assets/blt8bcf21dadce6c222/Atmosphere-Offset-A.jpg" src="https://developer.roblox.com/assets/blt8bcf21dadce6c222/Atmosphere-Offset-A.jpg" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt06e241270abbf082/Atmosphere-Offset-B.jpg" src="https://developer.roblox.com/assets/blt06e241270abbf082/Atmosphere-Offset-B.jpg" /></p>
+<p>需要注意的是，在调整 Offset（偏移）属性时要与 <code class="docutils literal notranslate"><span class="pre">Atmosphere/Density|Density</span></code>（密度）属性进行平衡，并在场景中进行仔细测试。当偏移值过低时，可能会导致天空盒透过对象或地形显示。此类问题可以通过增加偏移值进行修复。虽然偏移值可以让远处的对象或地形与天空背景的对比更为清晰，但当偏移值过高时可能会出现远处地形或网格的细节层次显示不均的现象。</p>
+</div>
+<div class="section" id="haze">
+<h3>Haze（雾气）<a class="headerlink" href="#haze" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Atmosphere/Haze|Haze</span></code>（雾气）定义了环境氛围的雾气浓度，对地平线以上及远处的环境氛围都有影响。与 <code class="docutils literal notranslate"><span class="pre">Atmosphere/Color|Color</span></code>（颜色）属性共同使用时，可以用来创建特定的环境氛围，例如污染严重的外星星球表面的雾霾等。</p>
+<p>Haze（雾气）= 1 Haze（雾气）= 2.8</p>
+<p><img alt="https://developer.roblox.com/assets/blt9c7bbb3698988ef3/Atmosphere-Haze-A.jpg" src="https://developer.roblox.com/assets/blt9c7bbb3698988ef3/Atmosphere-Haze-A.jpg" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt40e8e32caec63528/Atmosphere-Haze-B.jpg" src="https://developer.roblox.com/assets/blt40e8e32caec63528/Atmosphere-Haze-B.jpg" /></p>
+</div>
+<div class="section" id="color">
+<h3>Color（颜色）<a class="headerlink" href="#color" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Atmosphere/Color|Color</span></code>（颜色）属性可以用来改变氛围色调，潜移默化地影响环境氛围。推荐将此属性与 <code class="docutils literal notranslate"><span class="pre">Atmosphere/Haze|Haze</span></code>（雾气）属性同时使用，以扩展可见效果。</p>
+<p>Color（颜色） = [255, 255, 255] Color（颜色） = [250, 200, 255]</p>
+<p><img alt="https://developer.roblox.com/assets/blt8d36b3ccf5bb8919/Atmosphere-Color-A.jpg" src="https://developer.roblox.com/assets/blt8d36b3ccf5bb8919/Atmosphere-Color-A.jpg" /></p>
+<p><img alt="https://developer.roblox.com/assets/bltc42075d69e827e8d/Atmosphere-Color-B.jpg" src="https://developer.roblox.com/assets/bltc42075d69e827e8d/Atmosphere-Color-B.jpg" /></p>
+</div>
+<div class="section" id="glare">
+<h3>Glare（眩光）<a class="headerlink" href="#glare" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Atmosphere/Glare|Glare</span></code>（眩光）指定了太阳光源周围的氛围光或眩光。眩光值增加时，体现在天空与世界中的阳光照射强度也将会随之增加。</p>
+<p>Glare（眩光）= 0 Glare（眩光）= 1</p>
+<p><img alt="https://developer.roblox.com/assets/bltb5567a982b107e42/Atmosphere-Glare-A.jpg" src="https://developer.roblox.com/assets/bltb5567a982b107e42/Atmosphere-Glare-A.jpg" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt8c0ba9496ed24b54/Atmosphere-Glare-B.jpg" src="https://developer.roblox.com/assets/blt8c0ba9496ed24b54/Atmosphere-Glare-B.jpg" /></p>
+<p>当使用 <code class="docutils literal notranslate"><span class="pre">Atmosphere/Glare|Glare</span></code>（眩光）属性时，需要同时将 <code class="docutils literal notranslate"><span class="pre">Atmosphere/Haze|Haze</span></code>（雾气）等级设置为 0 以上才会显示眩光效果。</p>
+</div>
+<div class="section" id="decay">
+<h3>Decay（衰减）<a class="headerlink" href="#decay" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Atmosphere/Decay|Decay</span></code>（衰减）定义了远离太阳的气氛色调。当太阳根据 <code class="docutils literal notranslate"><span class="pre">Lighting/ClockTime|ClockTime</span></code> 或 <code class="docutils literal notranslate"><span class="pre">Lighting/TimeOfDay|TimeOfDay</span></code> 在天空中移动时，逐渐远离太阳的区域氛围将会从 <code class="docutils literal notranslate"><span class="pre">Atmosphere/Color|Color</span></code>（颜色）属性所指定的颜色向衰减值进行过渡。</p>
+<p>Decay（衰减）= [255, 255, 255] Decay（衰减）= [255, 90, 80]</p>
+<p><img alt="https://developer.roblox.com/assets/blt8c0ba9496ed24b54/Atmosphere-Glare-B.jpg" src="https://developer.roblox.com/assets/blt8c0ba9496ed24b54/Atmosphere-Glare-B.jpg" /></p>
+<p><img alt="https://developer.roblox.com/assets/bltb3c09e390b8fe81f/Atmosphere-Decay-B.jpg" src="https://developer.roblox.com/assets/bltb3c09e390b8fe81f/Atmosphere-Decay-B.jpg" /></p>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">Atmosphere/Decay|Decay</span></code>（衰减）属性时，场景中的 <code class="docutils literal notranslate"><span class="pre">Atmosphere/Haze|Haze</span></code>（雾气）和 <code class="docutils literal notranslate"><span class="pre">Atmosphere/Glare|Glare</span></code>（眩光）程度必须要大于 0，否则衰减将不会产生任何效果。</p>
+</div>
+<div class="section" id="id3">
+<h3>撒哈拉日落<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p><img alt="https://developer.roblox.com/assets/blt3b93ef7813d00089/Atmosphere-Sahara-Sunset.jpg" src="https://developer.roblox.com/assets/blt3b93ef7813d00089/Atmosphere-Sahara-Sunset.jpg" /></p>
+<p>Lighting（光照） Atmosphere（氛围） Sky（天空） Color Correction（颜色修正） Sun Rays（太阳光束）</p>
+<p><strong>Lighting（光照）</strong></p>
+<p>OutdoorAmbient</p>
+<p>[100, 70, 70]</p>
+<p>ClockTime
+17.7</p>
+<p><strong>Atmosphere（氛围）</strong> （<strong>Lighting</strong> 的子项）</p>
+<p>Density（密度）
+0.35</p>
+<p>Color（颜色）</p>
+<p>[250, 180, 120]</p>
+<p>Decay（衰减）</p>
+<p>[255, 0, 200]</p>
+<p>Glare（眩光）
+1</p>
+<p>Haze（雾气）
+2.1</p>
+<p><strong>Sky（天空）</strong> （<strong>Lighting</strong> 的子项）</p>
+<p>SunAngluarSize
+16</p>
+<p><strong>ColorCorrection（颜色修正）</strong> （<strong>Lighting</strong> 的子项）</p>
+<p>Contrast（对比）
+2</p>
+<p>Saturation（饱和）
+0.2</p>
+<p>TintColor</p>
+<p>[200, 150, 220]</p>
+<p><strong>SunRays（太阳光束）</strong> （<strong>Lighting</strong> 的子项）</p>
+<p>Intensity（强度）
+0.08</p>
+<p>Spread（分散）
+0.75</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/atmosphere">Atmosphere（氛围）掌控</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="intro-to-beams.html" class="btn btn-neutral float-right" title="Beam（光束）简介" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../tutorials/sound-lighting-fx.html" class="btn btn-neutral float-left" title="声效、光照与特效" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

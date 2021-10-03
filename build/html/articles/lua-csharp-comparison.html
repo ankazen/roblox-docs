@@ -1,0 +1,903 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lua / C# Comparison &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lua Style Guide" href="Lua-Style-Guide.html" />
+    <link rel="prev" title="JSON 格式" href="JSON-Storage-Format.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lua / C# Comparison</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general-differences">General Differences</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#comments">Comments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#strings">Strings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conditional-operators">Conditional Operators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arithmetic-operators">Arithmetic Operators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reserved-keywords">Reserved Keywords</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#line-endings">Line Endings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scoping">Scoping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#variables">Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#loops">Loops</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#for-loops">For Loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#while-loops">While Loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#for-each-loops">For Each Loops</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#conditional-statements">Conditional Statements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id13">Lua</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">C#</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ternary-operations">Ternary Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#generic-functions">Generic Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#variable-argument-number">Variable Argument Number</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#named-arguments">Named Arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#try-catch-structures">Try/Catch Structures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id23">Lua</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id24">C#</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tables">Tables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dictionary-tables">Dictionary Tables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerically-indexed-tables">Numerically-Indexed Tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>Lua / C# Comparison</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/lua-csharp-comparison.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lua-c-comparison">
+<h1>Lua / C# Comparison<a class="headerlink" href="#lua-c-comparison" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em></em></p>
+<p>This article is a general overview of the Lua programming language and how its syntax compares to C#.</p>
+<div class="section" id="general-differences">
+<h2>General Differences<a class="headerlink" href="#general-differences" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="lua">
+<h4>Lua<a class="headerlink" href="#lua" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">Single</span> <span class="n">line</span> <span class="n">comment</span>
+
+<span class="o">--</span><span class="p">[[</span>
+	<span class="n">Block</span> <span class="n">comment</span>
+<span class="o">--</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="c">
+<h4>C#<a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Single</span> <span class="n">line</span> <span class="n">comment</span>
+
+<span class="o">/*</span>
+	<span class="n">Block</span> <span class="n">comment</span>
+<span class="o">*/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="strings">
+<h3>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>Lua<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">Multi</span><span class="o">-</span><span class="n">line</span> <span class="n">string</span>
+<span class="p">[[</span><span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">string</span> <span class="n">that</span><span class="p">,</span>
+<span class="n">when</span> <span class="n">printed</span><span class="p">,</span> <span class="n">will</span> <span class="n">appear</span>
+<span class="n">on</span> <span class="n">multiple</span> <span class="n">lines</span><span class="p">]]</span>
+
+
+
+<span class="o">--</span> <span class="n">Concatenation</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="s2">&quot;This is a string &quot;</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="s2">&quot;made with two parts.&quot;</span>
+<span class="n">endString</span> <span class="o">=</span> <span class="n">s1</span> <span class="o">..</span> <span class="n">s2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h4>C#<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Multi</span><span class="o">-</span><span class="n">line</span> <span class="n">string</span>
+<span class="s2">&quot;This is a string that,</span><span class="se">\n</span><span class="s2">when printed, will appear</span><span class="se">\n</span><span class="s2"> on multiple lines.&quot;</span>
+
+
+
+<span class="o">//</span> <span class="n">Concatenation</span>
+<span class="n">string</span> <span class="n">s1</span> <span class="o">=</span> <span class="s2">&quot;This is a string &quot;</span><span class="p">;</span>
+<span class="n">string</span> <span class="n">s2</span> <span class="o">=</span> <span class="s2">&quot;made with two parts.&quot;</span><span class="p">;</span>
+<span class="n">string</span> <span class="n">endString</span> <span class="o">=</span> <span class="n">s1</span> <span class="o">+</span> <span class="n">s2</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="conditional-operators">
+<h3>Conditional Operators<a class="headerlink" href="#conditional-operators" title="Permalink to this headline">¶</a></h3>
+<p>Lua C#</p>
+<p><strong>Equal To</strong>
+<code class="docutils literal notranslate"><span class="pre">==</span></code>
+<code class="docutils literal notranslate"><span class="pre">==</span></code></p>
+<p><strong>Greater Than</strong>
+<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>
+<code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p>
+<p><strong>Less Than</strong>
+<code class="docutils literal notranslate"><span class="pre">&lt;</span></code>
+<code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p>
+<p><strong>Greater Than or Equal To</strong>
+<code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>
+<code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p>
+<p><strong>Less Than or Equal To</strong>
+<code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>
+<code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p>
+<p><strong>Not Equal To</strong>
+<code class="docutils literal notranslate"><span class="pre">~=</span></code>
+<code class="docutils literal notranslate"><span class="pre">!=</span></code></p>
+<p><strong>And</strong>
+<code class="docutils literal notranslate"><span class="pre">and</span></code>
+<code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code></p>
+<p><strong>Or</strong>
+<code class="docutils literal notranslate"><span class="pre">or</span></code>
+<code class="docutils literal notranslate"><span class="pre">&amp;vert;&amp;vert;</span></code></p>
+</div>
+<div class="section" id="arithmetic-operators">
+<h3>Arithmetic Operators<a class="headerlink" href="#arithmetic-operators" title="Permalink to this headline">¶</a></h3>
+<p>Lua C#</p>
+<p><strong>Addition</strong>
+<code class="docutils literal notranslate"><span class="pre">+</span></code>
+<code class="docutils literal notranslate"><span class="pre">+</span></code></p>
+<p><strong>Subtraction</strong>
+<code class="docutils literal notranslate"><span class="pre">-</span></code>
+<code class="docutils literal notranslate"><span class="pre">-</span></code></p>
+<p><strong>Multiplication</strong>
+<code class="docutils literal notranslate"><span class="pre">*</span></code>
+<code class="docutils literal notranslate"><span class="pre">*</span></code></p>
+<p><strong>Division</strong>
+<code class="docutils literal notranslate"><span class="pre">/</span></code>
+<code class="docutils literal notranslate"><span class="pre">/</span></code></p>
+<p><strong>Modulus</strong>
+<code class="docutils literal notranslate"><span class="pre">%</span></code>
+<code class="docutils literal notranslate"><span class="pre">%</span></code></p>
+<p><strong>Exponentiation</strong>
+<code class="docutils literal notranslate"><span class="pre">^</span></code>
+<code class="docutils literal notranslate"><span class="pre">**</span></code></p>
+</div>
+<div class="section" id="reserved-keywords">
+<h3>Reserved Keywords<a class="headerlink" href="#reserved-keywords" title="Permalink to this headline">¶</a></h3>
+<p>Below are Lua’s reserved keywords mapped to their C# equivalent. Not all C# keywords are shown.</p>
+<p>Lua C#</p>
+<p><code class="docutils literal notranslate"><span class="pre">and</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">break</span></code>
+<code class="docutils literal notranslate"><span class="pre">break</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">do</span></code>
+<code class="docutils literal notranslate"><span class="pre">do</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">if</span></code>
+<code class="docutils literal notranslate"><span class="pre">if</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">else</span></code>
+<code class="docutils literal notranslate"><span class="pre">else</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">elseif</span></code>
+<code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">then</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">end</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">true</span></code>
+<code class="docutils literal notranslate"><span class="pre">true</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">false</span></code>
+<code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">for</span></code>
+<code class="docutils literal notranslate"><span class="pre">for</span></code> / <code class="docutils literal notranslate"><span class="pre">foreach</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">function</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">in</span></code>
+<code class="docutils literal notranslate"><span class="pre">in</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">local</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">nil</span></code>
+<code class="docutils literal notranslate"><span class="pre">null</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">not</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">or</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">repeat</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">return</span></code>
+<code class="docutils literal notranslate"><span class="pre">return</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">until</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">while</span></code>
+<code class="docutils literal notranslate"><span class="pre">while</span></code></p>
+</div>
+<div class="section" id="line-endings">
+<h3>Line Endings<a class="headerlink" href="#line-endings" title="Permalink to this headline">¶</a></h3>
+<p>Semicolons are <strong>not</strong> required in Lua, but they will work if used in your code.</p>
+</div>
+<div class="section" id="scoping">
+<h3>Scoping<a class="headerlink" href="#scoping" title="Permalink to this headline">¶</a></h3>
+<p>In Lua, variables and logic can be written in a tighter scope than their function or class by nesting the logic within <code class="docutils literal notranslate"><span class="pre">do</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code> keywords, similar to nesting it within curly brackets <code class="docutils literal notranslate"><span class="pre">{}</span></code> in C#. For more details on scope in Lua, please see the <code class="docutils literal notranslate"><span class="pre">/articles/Scope|Scope</span></code> article.</p>
+<div class="section" id="id3">
+<h4>Lua<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">example</span> <span class="o">=</span> <span class="s2">&quot;Example text&quot;</span>
+
+<span class="n">do</span>
+	<span class="n">example</span> <span class="o">=</span> <span class="n">example</span> <span class="o">..</span> <span class="s2">&quot; changed!&quot;</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">example</span><span class="p">)</span>  <span class="o">--</span> <span class="n">Outputs</span> <span class="s1">&#39;Example text changed!&#39;</span>
+<span class="n">end</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">example</span><span class="p">)</span>  <span class="o">--</span> <span class="n">Outputs</span> <span class="s1">&#39;Example text&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h4>C#<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string</span> <span class="n">example</span> <span class="o">=</span> <span class="s2">&quot;Example text&quot;</span><span class="p">;</span>
+
+<span class="p">{</span>
+	<span class="n">example</span> <span class="o">+=</span> <span class="s2">&quot; changed!&quot;</span><span class="p">;</span>
+	<span class="n">Console</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">example</span><span class="p">);</span>  <span class="o">//</span> <span class="n">Outputs</span> <span class="s1">&#39;Example text changed!&#39;</span>
+<span class="p">}</span>
+
+<span class="n">Console</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">example</span><span class="p">);</span>  <span class="o">//</span> <span class="n">Outputs</span> <span class="s1">&#39;Example text&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="variables">
+<h3>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
+<p>In Lua, variables do <strong>not</strong> specify their type when being declared/defined. Also, Lua variables do not have access modifiers, although you may prefix “private” variables with an underscore for readability.</p>
+<div class="section" id="id5">
+<h4>Lua<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">variableName</span> <span class="o">=</span> <span class="s2">&quot;value&quot;</span>
+
+
+
+<span class="o">--</span> <span class="s2">&quot;Public&quot;</span> <span class="n">declaration</span>
+<span class="n">local</span> <span class="n">variableName</span>
+
+<span class="o">--</span> <span class="s2">&quot;Private&quot;</span> <span class="n">declaration</span>
+<span class="n">local</span> <span class="n">_variableName</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h4>C#<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string</span> <span class="n">variableName</span> <span class="o">=</span> <span class="s2">&quot;value&quot;</span><span class="p">;</span>
+
+
+
+<span class="o">//</span> <span class="n">Public</span> <span class="n">declaration</span>
+<span class="n">public</span> <span class="n">string</span> <span class="n">variableName</span>
+
+<span class="o">//</span> <span class="n">Private</span> <span class="n">declaration</span>
+<span class="n">string</span> <span class="n">variableName</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="loops">
+<h2>Loops<a class="headerlink" href="#loops" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="for-loops">
+<h3>For Loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h4>Lua<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">Forward</span> <span class="n">loop</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span> <span class="n">do</span>
+	<span class="n">doSomething</span><span class="p">()</span>
+<span class="n">end</span>
+
+
+
+<span class="o">--</span> <span class="n">Reverse</span> <span class="n">loop</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="n">do</span>
+	<span class="n">doSomething</span><span class="p">()</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h4>C#<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Forward</span> <span class="n">loop</span>
+<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">doSomething</span><span class="p">();</span>
+<span class="p">}</span>
+
+
+
+<span class="o">//</span> <span class="n">Reverse</span> <span class="n">loop</span>
+<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">doSomething</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="while-loops">
+<h3>While Loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h4>Lua<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">boolExpression</span> <span class="n">do</span>
+	<span class="n">doSomething</span><span class="p">()</span>
+<span class="n">end</span>
+
+
+
+<span class="n">repeat</span>
+	<span class="n">doSomething</span><span class="p">()</span>
+<span class="n">until</span> <span class="ow">not</span> <span class="n">boolExpression</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h4>C#<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">boolExpression</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">doSomething</span><span class="p">();</span>
+<span class="p">}</span>
+
+
+
+<span class="n">do</span> <span class="p">{</span>
+	<span class="n">doSomething</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">boolExpression</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="for-each-loops">
+<h3>For Each Loops<a class="headerlink" href="#for-each-loops" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h4>Lua<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">abcList</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ipairs</span><span class="p">(</span><span class="n">abcList</span><span class="p">)</span> <span class="n">do</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="n">end</span>
+
+
+
+<span class="n">local</span> <span class="n">abcDictionary</span> <span class="o">=</span> <span class="p">{</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span> <span class="p">}</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">abcDictionary</span><span class="p">)</span> <span class="n">do</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id12">
+<h4>C#<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">List</span> <span class="n">abcList</span> <span class="o">=</span> <span class="n">new</span> <span class="n">List</span><span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">};</span>
+
+<span class="n">foreach</span> <span class="p">(</span><span class="n">string</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">abcList</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">Console</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+
+<span class="n">Dictionary</span> <span class="n">abcDictionary</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Dictionary</span>
+<span class="p">{</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> <span class="p">};</span>
+
+<span class="n">foreach</span> <span class="p">(</span><span class="n">KeyValuePair</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">abcDictionary</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">Console</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">Key</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">entry</span><span class="o">.</span><span class="n">Value</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="conditional-statements">
+<h2>Conditional Statements<a class="headerlink" href="#conditional-statements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id13">
+<h3>Lua<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">One</span> <span class="n">condition</span>
+<span class="k">if</span> <span class="n">boolExpression</span> <span class="n">then</span>
+	<span class="n">doSomething</span><span class="p">()</span>
+<span class="n">end</span>
+
+<span class="o">--</span> <span class="n">Multiple</span> <span class="n">conditions</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">boolExpression</span> <span class="n">then</span>
+	<span class="n">doSomething</span><span class="p">()</span>
+<span class="n">elseif</span> <span class="n">otherBoolExpression</span> <span class="n">then</span>
+	<span class="n">doSomething</span><span class="p">()</span>
+<span class="k">else</span>
+	<span class="n">doSomething</span><span class="p">()</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id14">
+<h3>C#<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// One condition
+if (boolExpression) {
+	doSomething();
+}
+
+// Multiple conditions
+if (!boolExpression) {
+	doSomething();
+}
+else if (otherBoolExpression) {
+	doSomething();
+}
+else {
+	doSomething();
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="ternary-operations">
+<h3>Ternary Operations<a class="headerlink" href="#ternary-operations" title="Permalink to this headline">¶</a></h3>
+<p>Lua does not offer a direct equivalent to the C ternary operator <code class="docutils literal notranslate"><span class="pre">a?b:c</span></code>. However, the Lua idiom <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">and</span> <span class="pre">b)</span> <span class="pre">or</span> <span class="pre">c</span></code> offers a close approximation, provided <code class="docutils literal notranslate"><span class="pre">b</span></code> is not false.</p>
+<div class="section" id="id15">
+<h4>Lua<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="nb">max</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">&gt;</span><span class="n">y</span> <span class="ow">and</span> <span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id16">
+<h4>C#<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>int max = (x&gt;y) ? x: y;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<p>Be sure to read our article on <code class="docutils literal notranslate"><span class="pre">articles/Understanding</span> <span class="pre">Functions</span> <span class="pre">in</span> <span class="pre">Roblox|Functions</span></code> to get a deeper understanding of Lua functions.</p>
+<div class="section" id="generic-functions">
+<h3>Generic Functions<a class="headerlink" href="#generic-functions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h4>Lua<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">Generic</span> <span class="n">function</span>
+<span class="n">local</span> <span class="n">function</span> <span class="n">increment</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id18">
+<h4>C#<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Generic</span> <span class="n">function</span>
+<span class="nb">int</span> <span class="n">increment</span><span class="p">(</span><span class="nb">int</span> <span class="n">number</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="n">number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="variable-argument-number">
+<h3>Variable Argument Number<a class="headerlink" href="#variable-argument-number" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id19">
+<h4>Lua<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">Variable</span> <span class="n">argument</span> <span class="n">number</span>
+<span class="n">local</span> <span class="n">function</span> <span class="n">variableArguments</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+	<span class="nb">print</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id20">
+<h4>C#<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Variable</span> <span class="n">argument</span> <span class="n">number</span>
+<span class="n">void</span> <span class="n">variableArguments</span><span class="p">(</span><span class="n">params</span> <span class="n">string</span><span class="p">[]</span> <span class="n">inventoryItems</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="p">(</span><span class="n">item</span> <span class="ow">in</span> <span class="n">inventoryItems</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">Console</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="named-arguments">
+<h3>Named Arguments<a class="headerlink" href="#named-arguments" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id21">
+<h4>Lua<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">Named</span> <span class="n">arguments</span>
+<span class="n">local</span> <span class="n">function</span> <span class="n">namedArguments</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">args</span><span class="o">.</span><span class="n">name</span> <span class="o">..</span> <span class="s2">&quot;&#39;s birthday: &quot;</span> <span class="o">..</span> <span class="n">args</span><span class="o">.</span><span class="n">dob</span>
+<span class="n">end</span>
+
+<span class="n">namedArguments</span><span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="n">dob</span><span class="o">=</span><span class="s2">&quot;4/1/2000&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id22">
+<h4>C#<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Named</span> <span class="n">arguments</span>
+<span class="n">string</span> <span class="n">namedArguments</span><span class="p">(</span><span class="n">string</span> <span class="n">name</span><span class="p">,</span> <span class="n">string</span> <span class="n">dob</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;&#39;s birthday: &quot;</span> <span class="o">+</span> <span class="n">dob</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">namedArguments</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="n">dob</span><span class="p">:</span> <span class="s2">&quot;4/1/2000&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="try-catch-structures">
+<h2>Try/Catch Structures<a class="headerlink" href="#try-catch-structures" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id23">
+<h3>Lua<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">function</span> <span class="n">fireWeapon</span><span class="p">()</span>
+	<span class="k">if</span> <span class="ow">not</span> <span class="n">weaponEquipped</span> <span class="n">then</span>
+		<span class="n">error</span><span class="p">(</span><span class="s2">&quot;No weapon equipped!&quot;</span><span class="p">)</span>
+	<span class="n">end</span>
+	<span class="o">--</span> <span class="n">Proceed</span><span class="o">...</span>
+<span class="n">end</span>
+
+<span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">errorMessage</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">fireWeapon</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">success</span> <span class="n">then</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">errorMessage</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id24">
+<h3>C#<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>void fireWeapon() {
+	if (!weaponEquipped) {
+		// Use a user-defined exception
+		throw new InvalidWeaponException(&quot;No weapon equipped!&quot;);
+	}
+	// Proceed...
+}
+
+try {
+	fireWeapon();
+} catch (InvalidWeaponException ex) {
+	// An error was raised
+}
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="tables">
+<h2>Tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h2>
+<p>Be sure to read the <code class="docutils literal notranslate"><span class="pre">articles/Table|Tables</span></code> article to get a deeper understanding on how you can use tables in Lua.</p>
+<div class="section" id="dictionary-tables">
+<h3>Dictionary Tables<a class="headerlink" href="#dictionary-tables" title="Permalink to this headline">¶</a></h3>
+<p>Tables in Lua can be used just like Dictionaries in C#.</p>
+<div class="section" id="id25">
+<h4>Lua<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">dictionary</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="n">val1</span> <span class="o">=</span> <span class="s2">&quot;this&quot;</span><span class="p">,</span>
+	<span class="n">val2</span> <span class="o">=</span> <span class="s2">&quot;is&quot;</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">dictionary</span><span class="o">.</span><span class="n">val1</span><span class="p">)</span>  <span class="o">--</span> <span class="n">Outputs</span> <span class="s1">&#39;this&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dictionary</span><span class="p">[</span><span class="n">val1</span><span class="p">])</span>  <span class="o">--</span> <span class="n">Outputs</span> <span class="s1">&#39;this&#39;</span>
+
+<span class="n">dictionary</span><span class="o">.</span><span class="n">val1</span> <span class="o">=</span> <span class="n">nil</span>  <span class="o">--</span> <span class="n">Removes</span> <span class="s1">&#39;val1&#39;</span> <span class="kn">from</span> <span class="nn">table</span>
+<span class="n">table</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="o">--</span> <span class="n">Also</span> <span class="n">removes</span> <span class="s1">&#39;val1&#39;</span> <span class="kn">from</span> <span class="nn">table</span>
+
+<span class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;val3&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;a dictionary&quot;</span>  <span class="o">--</span> <span class="n">Overwrites</span> <span class="s1">&#39;val3&#39;</span> <span class="ow">or</span> <span class="n">sets</span> <span class="n">new</span> <span class="n">key</span><span class="o">-</span><span class="n">value</span> <span class="n">pair</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id26">
+<h4>C#<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Dictionary</span> <span class="n">dictionary</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Dictionary</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="p">{</span> <span class="s2">&quot;val1&quot;</span><span class="p">,</span> <span class="s2">&quot;this&quot;</span> <span class="p">},</span>
+	<span class="p">{</span> <span class="s2">&quot;val2&quot;</span><span class="p">,</span> <span class="s2">&quot;is&quot;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">Console</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;val1&quot;</span><span class="p">]);</span>  <span class="o">//</span> <span class="n">Outputs</span> <span class="s1">&#39;this&#39;</span>
+
+<span class="n">dictionary</span><span class="o">.</span><span class="n">Remove</span><span class="p">(</span><span class="s2">&quot;val1&quot;</span><span class="p">);</span>  <span class="o">//</span> <span class="n">Removes</span> <span class="s1">&#39;val1&#39;</span> <span class="kn">from</span> <span class="nn">dictionary</span>
+
+<span class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;val3&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;a dictionary&quot;</span><span class="p">;</span>  <span class="o">//</span> <span class="n">Overwrites</span> <span class="s1">&#39;val3&#39;</span> <span class="ow">or</span> <span class="n">sets</span> <span class="n">new</span> <span class="n">key</span><span class="o">-</span><span class="n">value</span> <span class="n">pair</span>
+<span class="n">dictionary</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s2">&quot;val3&quot;</span><span class="p">,</span> <span class="s2">&quot;a dictionary&quot;</span><span class="p">);</span>  <span class="o">//</span> <span class="n">Creates</span> <span class="n">a</span> <span class="n">new</span> <span class="n">key</span><span class="o">-</span><span class="n">value</span> <span class="n">pair</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="numerically-indexed-tables">
+<h3>Numerically-Indexed Tables<a class="headerlink" href="#numerically-indexed-tables" title="Permalink to this headline">¶</a></h3>
+<p>Tables in Lua can also be used like a List in C#. The key difference is that indices start at <strong>1</strong> with Lua and <strong>0</strong> with C#.</p>
+<div class="section" id="id27">
+<h4>Lua<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">NPCAttributes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;strong&quot;</span><span class="p">,</span> <span class="s2">&quot;intelligent&quot;</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">NPCAttributes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="o">--</span> <span class="n">Outputs</span> <span class="s1">&#39;strong&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="c1">#NPCAttributes)  -- Outputs the size of the list</span>
+
+<span class="o">--</span> <span class="n">Append</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">list</span>
+<span class="n">table</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">NPCAttributes</span><span class="p">,</span> <span class="s2">&quot;humble&quot;</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">Another</span> <span class="n">way</span><span class="o">...</span>
+<span class="n">NPCAttributes</span><span class="p">[</span><span class="c1">#NPCAttributes+1] = &quot;humble&quot;</span>
+
+<span class="o">--</span> <span class="n">Insert</span> <span class="n">at</span> <span class="n">the</span> <span class="n">beginning</span> <span class="n">of</span> <span class="n">the</span> <span class="nb">list</span>
+<span class="n">table</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">NPCAttributes</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;brave&quot;</span><span class="p">)</span>
+
+<span class="o">--</span> <span class="n">Remove</span> <span class="n">item</span> <span class="n">at</span> <span class="n">a</span> <span class="n">given</span> <span class="n">index</span>
+<span class="n">table</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">NPCAttributes</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id28">
+<h4>C#<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">List</span> <span class="n">NPCAttributes</span> <span class="o">=</span> <span class="n">new</span> <span class="n">List</span><span class="p">{</span><span class="s2">&quot;strong&quot;</span><span class="p">,</span> <span class="s2">&quot;intelligent&quot;</span><span class="p">};</span>
+
+<span class="n">Console</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">NPCAttributes</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>  <span class="o">//</span> <span class="n">Outputs</span> <span class="s1">&#39;strong&#39;</span>
+
+<span class="n">Console</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">NPCAttributes</span><span class="o">.</span><span class="n">Count</span><span class="p">);</span>  <span class="o">//</span> <span class="n">Outputs</span> <span class="n">the</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="nb">list</span>
+
+<span class="o">//</span> <span class="n">Append</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">list</span>
+<span class="n">NPCAttributes</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s2">&quot;humble&quot;</span><span class="p">);</span>
+<span class="o">//</span> <span class="n">Another</span> <span class="n">way</span><span class="o">...</span>
+<span class="n">NPCAttributes</span><span class="o">.</span><span class="n">Insert</span><span class="p">(</span><span class="n">NPCAttributes</span><span class="o">.</span><span class="n">Count</span><span class="p">,</span> <span class="s2">&quot;humble&quot;</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Insert</span> <span class="n">at</span> <span class="n">the</span> <span class="n">beginning</span> <span class="n">of</span> <span class="n">the</span> <span class="nb">list</span>
+<span class="n">NPCAttributes</span><span class="o">.</span><span class="n">Insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;brave&quot;</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Remove</span> <span class="n">item</span> <span class="n">at</span> <span class="n">a</span> <span class="n">given</span> <span class="n">index</span>
+<span class="n">NPCAttributes</span><span class="o">.</span><span class="n">Remove</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/lua-csharp-comparison">Lua / C# Comparison</a></p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Lua-Style-Guide.html" class="btn btn-neutral float-right" title="Lua Style Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="JSON-Storage-Format.html" class="btn btn-neutral float-left" title="JSON 格式" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

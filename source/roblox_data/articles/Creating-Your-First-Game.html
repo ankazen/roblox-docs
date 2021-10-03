@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <link rel="canonical" href="https://developer.roblox.com/articles/Creating-Your-First-Game"/>
+    <link rel="alternate" hreflang="x-default" href="https://developer.roblox.com/articles/Creating-Your-First-Game"/>
+    
+      <link rel="alternate" hreflang="en-us" href="https://developer.roblox.com/en-us/"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="https://developer.roblox.com/zh-cn/"/>
+    
+      
+        
+          <title> 创建基本的障碍跑游戏</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="zh-cn">
+
+
+
+<meta name="description" content="<p>使用这篇非常适合于 Roblox Studio 新手的说明教程，制作障碍跑游戏</p>">
+
+
+
+<meta name="keywords" content="">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="Making a Basic Platformer">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>使用这篇非常适合于 Roblox Studio 新手的说明教程，制作障碍跑游戏</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="Studio 基础知识">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="false">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="/static/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="/static/images/favicon.ico?q=1544016445575
+" type="image/x-icon">
+<link rel="icon" href="/static/images/favicon.ico?q=1544016445575
+" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="https://browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="/static/css/prettify.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+<link href="/static/css/select2.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+<link href="/static/css/font-awesome.min.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+<link href="/static/css/main.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+
+<script src="/static/js/jquery-3.3.1.min.js?q=1544016445575
+"></script>
+<script src="/static/js/popper.min.js?q=1544016445575
+"></script>
+<script src="/static/js/jPages.js?q=1544016445575
+"></script>
+<script src="/static/js/bootstrap.min.js?q=1544016445575
+"></script>
+<script src="/static/js/bootstrap-toc.js?q=1544016445575
+"></script>
+<!-- <script src="/static/js/docs.min.js?q=1544016445575
+"></script> -->
+<script src="/static/js/prettify.js?q=1544016445575
+"></script>
+<script src="/static/js/lang-lua.js?q=1544016445575
+"></script>
+<script src="/static/js/select2.js?q=1544016445575
+"></script>
+<script src="/static/js/clipboard.min.js?q=1544016445575
+"></script>
+
+<script src="/static/js/autolinking.js?q=1544016445575
+"></script>
+<script src="/static/js/lightbox.js?q=1544016445575
+"></script>
+<script src="/static/js/half-sized.js?q=1544016445575
+"></script>
+<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="/static/js/jquery.cookie.js?q=1544016445575
+"></script>
+<script type="text/javascript" src="/static/js/encrypt-md5.js?q=1544016445575
+"></script>
+<!-- <script type="text/javascript" src="/static/js/gdpr.js?q=1544016445575
+"></script> -->
+
+<script src="/static/js/script.js?q=1544016445575
+"></script>
+<script src="/static/js/codesample-theme.js?q=1544016445575
+"></script>
+<script src="/static/js/code-highlighting.js?q=1544016445575
+"></script>
+<!-- <script src="/static/js/local-codesamples.js?q=1544016445575
+"></script> -->
+<script src="/static/js/language-dropdown.js?q=1544016445575
+"></script>
+
+<script src="/static/js/event_template_one.js?q=1544016445575
+"></script>
+
+<script type="text/javascript" src="/static/js/jquery.swiftype.autocomplete.js?q=1544016445575
+">
+</script>
+<script type='text/javascript' src='/static/js/jquery.ba-hashchange.min.js?q=1544016445575
+'></script>
+<script type="text/javascript" src="/static/js/jquery.swiftype.search.js?q=1544016445575
+"></script>
+<script type="text/javascript" src="/static/js/jquery.swiftype.livesearch.js?q=1544016445575
+">
+</script>
+
+<script type="text/javascript" src="/static/js/st.custom.search.js?q=1544016445575
+"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('https://dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="/" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="/">主页</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/quick-start">
+                      <span>入门</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/learn-roblox/all-tutorials">
+                      <span>了解 Roblox</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/api-reference">
+                      <span>API 参考</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/resources">
+                      <span>资源</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com">
+                      <span>社区</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="搜索">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">关闭侧边栏</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="/static/images/l-arrow.svg?q=1544016445575
+"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">教程</h5>
+              <div>
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                      <span>Studio 基础知识</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/creating">
+                      <span>创建</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/international">
+                      <span>国际化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                      <span>声效、光照与特效</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/marketing">
+                      <span>市场营销</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/optimization">
+                      <span>性能优化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                      <span>所有内容</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/analytics">
+                      <span>数据分析</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                      <span>用户界面</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/monetization">
+                      <span>盈利</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                      <span>编码与脚本</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                      <span>跨平台发展</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/studio-basics">STUDIO 基础知识</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>创建基本的障碍跑游戏</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">隐藏内容索引</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">显示内容索引</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <div class="toc-content"><a href="javascript:void(0)">内容索引</a>
+        </div>
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/studio-basics">STUDIO 基础知识</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>创建基本的障碍跑游戏</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">30  分钟</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="alert alert-warning mt-2 mb-4" role="alert">
+如果你之前从未使用过 <b class="text-nowrap">Roblox Studio</b>，请先<span class="text-nowrap"><code>/articles/Studio Setup|下载并安装</code></span>。然后回到此处开启你的创作之旅。
+</div>
+<h2>Roblox Studio 简介</h2>
+<p>我们先来看一个<strong>障碍跑</strong>（“障碍跑游戏”的简称）示例。在障碍跑中，玩家从一个位置跳到另一个位置，同时要避开障碍物才能到达关卡的终点。</p>
+<h3>打开障碍跑模板</h3>
+<p><strong>模板</strong>是<span class="text-nowrap">预构建</span>的 Roblox 项目，可用作你自己游戏的起点。你可以测试现有的障碍跑模板以了解将创建的内容。</p>
+<ol>
+<li>在 Roblox Studio 中，单击左上角的 <strong>New</strong> （新建）按钮。</li>
+</ol>
+<img src="/assets/5c4b5c5fade8a5800cc43c20/New-Project.png" class="img-fluid list-indent half-sized">
+<div class="alert alert-primary list-indent" role="alert">
+如果你有任何打开的项目，请先关闭它们（<b>File（文件）</b>&rarr; <b>Close（关闭）</b>），以便访问 <b>New（新建）</b>按钮。
+</div>
+<ol start="2">
+<li>查找名为 <strong>Obby</strong> （障碍跑）的模板，然后单击该图块将其打开。</li>
+</ol>
+<img src="/assets/5c4a60315f3670640c4d23db/Select-Obby-Template.png" class="img-fluid list-indent half-sized">
+<h3>体验障碍跑游戏</h3>
+<p>要测试障碍跑模板，只需按 <strong>Play</strong> （开始游戏）按钮。</p>
+<img src="/assets/5c4a6591a007329c0f28ae1e/Play-Button-H.png" class="img-fluid half-sized">
+<p>在游戏中，使用以下控制项：</p>
+<table class="table table-striped table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">控制</th>
+      <th scope="col">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td scope="row"><kbd class="keyboard-key">W</kbd> <kbd class="keyboard-key">A</kbd> <kbd class="keyboard-key">S</kbd> <kbd class="keyboard-key">D</kbd></td>
+      <td>四处移动角色</td>
+    </tr>
+    <tr>
+      <td scope="row"><kbd class="keyboard-key">空格键</kbd></td>
+      <td>跳跃</td>
+    </tr>
+    <tr>
+      <td scope="row"></b><kbd class="keyboard-key">鼠标右键</kbd></b></td>
+      <td>环顾</td>
+    </tr>
+  </tbody>
+</table>
+<h3>停止游戏</h3>
+<p>要停止游戏，请按 <strong>Stop</strong> （停止）按钮。</p>
+<img src="/assets/5c4a6854a007329c0f28ae24/Stop-Button-H.png" class="img-fluid half-sized mb-4">
+<h2>设计障碍跑游戏</h2>
+<p>现在你已了解了什么是障碍跑，是时候创建自己的障碍跑游戏了！</p>
+<ol>
+<li>首先，单击 <strong>Obby</strong> （障碍跑）选项卡中的 <img src="/assets/5c4a7106d626b8290a8e38e1/Tab-Close-X.png" class="d-inline my-0 align-text-bottom" width=23><span class="text-nowrap">（或 <strong>File</strong> （文件）→ <strong>Close</strong> （关闭））</span>以退出模板。如果出现提示，不必担心是否保存任何更改。</li>
+<li>现在，通过单击 <strong>Baseplate</strong> （底板）模板从<strong>新</strong>项目文件开始。</li>
+</ol>
+<img src="/assets/5c4a6dd220efe24f0a023721/Select-Baseplate-Template.png" class="img-fluid list-indent half-sized">
+<h3>删除底板</h3>
+<p>由于我们需要一个完全空白的世界来开始制作障碍跑游戏，因此你必须要删除底板。</p>
+<ol>
+<li>查找可列出你游戏中所有对象的 <strong>Explorer</strong> （管理器）窗口。即使无法在游戏编辑器窗口中进行查看，你也可以使用 Explorer（管理器）选择并使用部件。</li>
+</ol>
+<img src="https://images.contentstack.io/v3/assets/bltc2ad39afa86662c8/bltcf6cbd5b4ee7b9ad/5c4f6d7ada4c5b970f6f0d3f/Explorer-Window-(Basic).png" class="img-fluid list-indent half-sized">
+<div class="alert alert-primary list-indent mb-4" role="alert">
+如果未显示 Explorer（管理器）窗口，请选择 <b>View（视图）</b>选项卡并单击 <b>Explorer（管理器）</b>按钮：
+<img src="/zh-cn/assets/5c4a7ca65f3670640c4d2429/Toggle-Explorer.png" class="img-fluid half-sized mt-2 mb-0">
+</div>
+<ol start="2">
+<li>在 Explorer（管理器）窗口中，单击 <strong>Workspace</strong> 旁的<strong>小箭头</strong>展开树。</li>
+</ol>
+<img src="/assets/5c4a8361d626b8290a8e3903/Delete-Baseplate-1.png" class="img-fluid list-indent half-sized">
+<ol start="3">
+<li>单击 <strong>Baseplate</strong> （底板）以选择它。</li>
+</ol>
+<img src="/assets/5c4a838420efe24f0a023749/Delete-Baseplate-2.png" class="img-fluid list-indent half-sized">
+<ol start="4">
+<li>按键盘上的 <kbd>Delete</kbd>。</li>
+</ol>
+<h3>创建起点</h3>
+<p>在 Roblox 中，<strong>SpawnLocation</strong> 标记玩家在游戏开始时或重新开始后在世界中出现的位置。如果没有 SpawnLocation，玩家可能出现在任意位置并跌落死亡。</p>
+<p>要创建新的重生位置：</p>
+<ol>
+<li>在 Explorer（管理器）窗口，将鼠标<em>悬停</em>在 <strong>Workspace</strong> 上方。</li>
+<li>单击圆圈 <img src="/zh-cn/assets/5b47cd50cbdac88b0b7f397a/Explorer-Plus-Icon.png" class="d-inline my-0 align-text-bottom" width=22> 按钮。</li>
+</ol>
+<img src="/assets/5c4b60467640f46a0fdeb48c/New-SpawnLocation-1.png" class="img-fluid list-indent half-sized">
+<ol start="3">
+<li>滚动下拉列表，直到找到 <strong>SpawnLocation</strong>，然后单击它。</li>
+</ol>
+<img src="/assets/5c4b656ff8a426690c842f5d/New-SpawnLocation-2.png" class="img-fluid list-indent half-sized">
+<p>将在镜头视角的正中心创建新的重生位置。</p>
+<img src="/zh-cn/assets/5c4b664bda4c5b970f6f04b5/New-SpawnLocation-3.jpg" class="img-fluid half-sized mb-4">
+<h2>移动镜头</h2>
+<p>既然你的游戏已具有一个对象，那么移动镜头即可获得更好的视角。</p>
+<table class="table table-striped table-bordered">
+  <thead class="thead-dark">
+    <th scope="col">控制</th>
+    <th scope="col">操作</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td scope="row"><kbd class="keyboard-key">W</kbd></td>
+      <td>向前</td>
+    </tr>
+    <tr>
+      <td scope="row"><kbd class="keyboard-key">S</kbd></td>
+      <td>向后</td>
+    </tr>
+    <tr>
+      <td scope="row"><kbd class="keyboard-key">A</kbd></td>
+      <td>向左</td>
+    </tr>
+    <tr>
+      <td scope="row"><kbd class="keyboard-key">D</kbd></td>
+      <td>向右</td>
+    </tr>
+    <tr>
+      <td scope="row"><kbd class="keyboard-key">Q</kbd></td>
+      <td>向下</td>
+    </tr>
+    <tr>
+      <td scope="row"><kbd class="keyboard-key">E</kbd></td>
+      <td>向上</td>
+    </tr>
+    <tr>
+      <td scope="row"><kbd class="keyboard-key">Shift</kbd></td>
+      <td>更改镜头速度</td>
+    </tr>
+    <tr>
+      <td scope="row" class="text-nowrap"><kbd class="keyboard-key">鼠标右键</kbd></td>
+      <td>转动镜头</td>
+    </tr>
+    <tr>
+      <td scope="row" class="text-nowrap"><kbd class="keyboard-key">鼠标中键</kbd></td>
+      <td>平移镜头</td>
+    </tr>
+    <tr>
+      <td scope="row"><kbd class="keyboard-key">F</kbd></td>
+      <td>将镜头聚焦到所选部件上</td>
+    </tr>
+  </tbody>
+</table>
+<div class="alert alert-warning mb-4" role="alert">
+如果镜头未移动，首先单击游戏编辑器窗口。
+</div>
+<h2>添加和移动部件</h2>
+<p><strong>部件</strong>是游戏的构建块。可以使用它们构建障碍跑的一系列平台。</p>
+<h3>添加部件</h3>
+<ol>
+<li>选择 <strong>Model</strong> （模型）选项卡。</li>
+</ol>
+<img src="/zh-cn/assets/5c4b6b00f46a836f0f1a56b2/Model-Tab.png" class="img-fluid list-indent half-sized">
+<ol start="2">
+<li>单击 <strong>Part</strong> （部件）图标下的<strong>小箭头</strong>：</li>
+</ol>
+<img src="/zh-cn/assets/5c4b6da99be177550ae8f166/Add-Part-1.png" class="img-fluid list-indent half-sized">
+<ol start="3">
+<li>选择要创建的基本部件类型：<strong>Block</strong> （方块）、<strong>Sphere</strong> （球体）、<strong>Wedge</strong> （楔形体）或 <strong>Cylinder</strong> （圆柱体）。新部件将在镜头视角的正中心出现。</li>
+</ol>
+<img src="/zh-cn/assets/5c4b6e58d626b8290a8e3cda/Add-Part-2.jpg" class="img-fluid list-indent half-sized">
+<h3>移动部件</h3>
+<p>要将新部件移至所需位置：</p>
+<ol>
+<li>选择该部件（在游戏编辑器窗口中单击它）。</li>
+<li>使用之前学习的镜头控制项获得合适的视角。</li>
+<li>选择 <strong>Move</strong> （移动）工具。</li>
+</ol>
+<img src="/assets/5c4b7282f46a836f0f1a5700/Move-Part-1.png" class="img-fluid list-indent half-sized">
+<ol start="4">
+<li>拖动带颜色的箭头将部件移至重生位置附近，让玩家执行简单的首次跳跃。</li>
+</ol>
+<p><img src="/zh-cn/assets/5b200aba1c0ac0d3040845e3/Creating-First-Jump.png" class="img-fluid list-indent half-sized mb-5"><span id="changing-part-snapping"></span></p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-primary border-primary" role="card" style="">
+  
+
+  
+  
+    
+  
+
+  
+  
+    <h5 data-toc-skip class="card-header bg-primary text-white">部件对齐</h5>
+  
+
+
+  
+  
+    
+    
+      <div class="collapse show" id="ref_card-1">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+  
+     
+      <div class="markdown-field-data">
+        <p>在 Roblox 中，<strong>格</strong>是基本的测量单位。此处，白色栅格显示每个格的大小：</p>
+<img src="/zh-cn/assets/5b27f2e91c5b25ce0450a123/About-Studs.png" class="img-fluid half-sized">
+<p>如果部件一次仅按“步”移动或旋转 45 度，这是因为使用了<strong>对齐</strong>。在移动应当准确地放在一起的部件（例如建筑物的墙）时，“对齐”非常有用。</p>
+<p>要调整对齐大小，请为 **Rotate（旋转）**或 **Move（移动）**输入不同的数值（或单击字段内的小箭头）。</p>
+<img src="/assets/5c4b77bfa007329c0f28b221/Change-Snap-Values.png" class="img-fluid half-sized">
+<p>或者，也可以取消选中 **Rotate（旋转）**或 <strong>Move（移动）<strong>旁边的框，来</strong>关闭</strong>对齐。</p>
+<img src="/assets/5c4b7911f46a836f0f1a5712/Disable-Snapping.png" class="img-fluid half-sized mb-0">
+      </div>
+    
+  
+
+
+
+          
+        </div>
+      </div>
+    
+  
+
+  
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>在场景中锚固部件<span id="anchor-parts"></span></h2>
+<p>如果立即开始障碍跑游戏，你会注意到：除了重生位置外，你添加的任何部件都将落入空白区域。<strong>锚固</strong>可将部件固定到位，并且阻止其移动 — 它们甚至在被玩家或其他物体撞到时也会待在原地。</p>
+<ul>
+<li>通过选择部件并单击 **Anchor（锚固）**按钮，锚固这些部件。</li>
+</ul>
+<img src="/assets/5c4b939a74af87280a8a1d66/Toggle-Anchor.png" class="img-fluid half-sized mb-4">
+<h2>缩放和旋转部件</h2>
+<p>更改部件的大小和角度可让你有创意地设计障碍跑并调整难度。</p>
+<h3>缩放部件</h3>
+<p>可沿着任意轴轻松地调整部件的大小：</p>
+<ol>
+<li>选择 **Scale（缩放）**工具。</li>
+</ol>
+<img src="/assets/5c4b9b8ff8a426690c843083/Scale-Part-1.png" class="img-fluid list-indent half-sized">
+<ol start="2">
+<li>选择障碍跑中的部件并朝任意方向拖动带颜色的图柄。</li>
+</ol>
+<img src="/zh-cn/assets/5b200b4da00a67ed2644340f/Scale-Part-2.png" class="img-fluid list-indent half-sized">
+<h3>旋转部件</h3>
+<p>旋转部件具有类似的工作原理：</p>
+<ol>
+<li>选择 **Rotate（旋转）**工具。</li>
+</ol>
+<img src="/assets/5c4b9c0a7640f46a0fdeb622/Rotate-Part-1.png" class="img-fluid list-indent half-sized">
+<ol start="2">
+<li>拖动球体上的图柄以绕轴旋转。</li>
+</ol>
+<p><img src="/zh-cn/assets/5b200cfa2ee811240631b650/Rotate-Part-2.png" class="img-fluid list-indent half-sized mb-5"><span id="about-collisions"></span></p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-primary border-primary" role="card" style="">
+  
+
+  
+  
+    
+  
+
+  
+  
+    <h5 data-toc-skip class="card-header bg-primary text-white">切换碰撞</h5>
+  
+
+
+  
+  
+    
+    
+      <div class="collapse show" id="ref_card-2">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+  
+     
+      <div class="markdown-field-data">
+        <p>在 Roblox Studio 中，**Collisions（碰撞）**选项可以控制是否应当阻止一个部件移动至另一个部件中。要打开或关闭碰撞，请单击 **Collisions（碰撞）**按钮：</p>
+<img src="/zh-cn/assets/5c4b9808f8a426690c843075/Toggle-Collisions.png" class="img-fluid half-sized">
+<p>如果将碰撞设置为<strong>开</strong>，则无法将一个部件移至任何一个会与另一个部件重叠的位置。如果将碰撞设置为<strong>关</strong>，则可将部件随意移动至世界的任意一个位置。</p>
+
+      </div>
+    
+  
+
+
+
+          
+        </div>
+      </div>
+    
+  
+
+  
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>完成障碍跑游戏</h2>
+<p>一次跳跃不足以创建真正有趣的障碍跑，因此需要添加更多内容！使用你所学的工具，再添加 <span class="text-nowrap">5 - 6</span> 个部件。尝试创建如圆柱体或楔形体等不同类型的部件，并且使用不同的大小和旋转让作品具有丰富变化。</p>
+<img src="/zh-cn/assets/5b200dbaa00a67ed2644341b/Create-End-Zone.png" class="img-fluid half-sized mb-4">
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-warning border-warning" role="card" style="">
+  
+
+  
+  
+    
+  
+
+  
+  
+    <h5 data-toc-skip class="card-header bg-warning text-white">提示</h5>
+  
+
+
+  
+  
+    
+    
+      <div class="collapse show" id="ref_card-3">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+  
+     
+      <div class="markdown-field-data">
+        <ul class="mb-0">
+<li>在你创建更多部件时，请记得从多个角度查看你的障碍跑游戏。如果只从一个方向查看，部件可能并未像你想像的那样排列成行。</li>
+<li>如果有任何部件落入区域，可能是因为没有<a href="#anchor-parts">锚固</a>它们。</li>
+<li>如果部件按“步”缩放或旋转，你可能需要调整或关闭<a href="#changing-part-snapping">对齐</a>。</li>
+<li>如果部件被阻止移动或旋转到另一个部件，请关闭<a href="#about-collisions">碰撞</a>。</li>
+</ul>
+      </div>
+    
+  
+
+
+
+          
+        </div>
+      </div>
+    
+  
+
+  
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>游戏测试</h2>
+<p><strong>游戏测试</strong>过程用于测试一款游戏以确保所有内容都正常运行，并了解如何进一步改进。立即体验障碍跑游戏以测试你的设计（单击 **Play（开始游戏）**按钮）。</p>
+<img src="/assets/5c4ba69a5f3670640c4d2902/Play-Button-M.png" class="img-fluid half-sized mb-4">
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card-primary border-primary" role="card" style="">
+  
+
+  
+  
+    
+  
+
+  
+  
+    <h5 data-toc-skip class="card-header bg-primary text-white">游戏测试提示</h5>
+  
+
+
+  
+  
+    
+    
+      <div class="collapse show" id="ref_card-4">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+  
+     
+      <div class="markdown-field-data">
+        <ul class="mb-0"> 
+<li>确保你的游戏可以正常运行，特别是你刚进行的更改。</li>
+<li>寻找可以改进和平衡的方面。如果所有跳跃都太难，玩家会感到沮丧；但是，如果跳跃过于简单，玩家可能会觉得无聊。</li>
+<li>如果可能，请邀请一位朋友对你的游戏进行测试&nbsp;&mdash; 有时候，你认为简单的跳跃动作对别人来说可能很难！</li>
+</ul>
+      </div>
+    
+  
+
+
+
+          
+        </div>
+      </div>
+    
+  
+
+  
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>发布项目<span id="publishing-a-project"></span></h2>
+<p>最好每 <span class="text-nowrap">10 - 15</span> 分钟向 Roblox <strong>发布</strong>一次你的游戏。除了将你的作品保存到安全的位置外，还可以通过发布让 Roblox 上的其他玩家体验你的游戏。</p>
+<ol>
+<li>选择 <strong>File（文件）</strong>→ <strong>Publish to Roblox（发布至 Roblox）</strong>。</li>
+</ol>
+<img src="/zh-cn/assets/5caba4151b7760bb7beb73ac/Publish-to-Roblox.png" class="img-fluid list-indent half-sized">
+<ol start="2">
+<li>单击 <strong>New Place（新建场景）</strong>。</li>
+</ol>
+<img src="/assets/5c4bc7c3ade8a5800cc43d5a/New-Place.png" class="img-fluid list-indent half-sized">
+<ol start="3">
+<li>输入名称和描述。</li>
+<li>单击 <strong>Create Place（创建场景）</strong>。</li>
+<li>当进度条已满并显示“100% Completed（已完成 100%）”时，单击蓝色的 **Next（下一步）**按钮。</li>
+<li>在下一个界面上，你将看到关于额外功能的信息。你可以暂时跳过这些步骤 — 只需单击 **Done（完成）**按钮。</li>
+</ol>
+<img src="/assets/5c4bcb119be177550ae8f276/Publish-Done.png" class="img-fluid list-indent half-sized mb-4">
+<hr>
+<p>恭喜！你已经创建了自己首个 Roblox 游戏！下一步是什么？通过探索下面的教程，可以添加更多颜色、开始编码，或者构建旋转的平台。</p>
+
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">相关参考文章</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="/articles/Making-Your-Obby-Colorful"><span class="related-article-img" style="background-image: url(https://dk135eecbplh9.cloudfront.net/assets/blt2999e8baca801509/Color-Obby-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="/articles/Making-Your-Obby-Colorful">部件颜色与材质</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="/articles/Creating-Traps-and-Pickups"><span class="related-article-img" style="background-image: url(https://dk135eecbplh9.cloudfront.net/assets/blt17212f0d96531795/Traps-Pickups-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="/articles/Creating-Traps-and-Pickups">对陷阱和拾取道具进行编码</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="/articles/building-a-turning-platform"><span class="related-article-img" style="background-image: url(https://dk135eecbplh9.cloudfront.net/assets/blt8a3afa6c314c1ac7/Turning-Platform-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="/articles/building-a-turning-platform">构建旋转平台</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="/articles/building-a-hinged-platform"><span class="related-article-img" style="background-image: url(https://dk135eecbplh9.cloudfront.net/assets/blte967d7a82273dc89/Hinged-Platform-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="/articles/building-a-hinged-platform">构建铰链平台</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>此网站如何使用 Cookie</h1>
+        <div class="privacy-content">
+          <p>此平台使用 Cookie 为您提供更好的体验、对内容进行个性化、提供社交媒体功能和分析网站流量。如需详细信息（包括有关如何在此平台上防止使用 Cookie 或对其进行管理的信息），请参阅我们的<a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私和 Cookie 政策</a>。</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">确定</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">你即将离开 Roblox 网站</div>
+        <p>请按下继续按钮前往： <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="" class="btn secondary-btn" data-dismiss="modal">返回</a>
+        <a href="" class="btn primary-btn continue-link" target="_blank">继续</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com" target="_self" class="footer-logo ptxl mbl">
+              <img src="https://dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2019 Roblox Corporation. 保留所有权利。</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>公司</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">关于 Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">招贤纳士</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">技术</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">服务条款</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私政策</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">家长</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>开发人员</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="/articles/Creating-Your-First-Game" target="_self">入门</a>
+                  </li>
+                
+                  <li>
+                    <a href="/learn-roblox/all-tutorials" target="_self">了解</a>
+                  </li>
+                
+                  <li>
+                    <a href="/api-reference" target="_self">API 参考</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com" target="_blank">社区</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">开发人员公告</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">搜索</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input"
+                        placeholder="搜索">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" href="#all" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            所有结果
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" href="#api-doc" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API 文档
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" href="#tutorial" role="tab"
+                            aria-selected="false" data-name="articles">
+                            教程
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" href="#recipe" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            代码参考
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" href="#video" role="tab"
+                            aria-selected="false" data-name="videos">
+                            视频
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+</html>

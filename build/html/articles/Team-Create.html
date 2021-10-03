@@ -1,0 +1,426 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>合作式开发 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="国际化" href="../tutorials/international.html" />
+    <link rel="prev" title="设计多人游戏" href="designing-for-multiplayer.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/creating.html">创建</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Building-a-Campfire.html">构建篝火</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Circle-With-Code.html">使用代码创建圆环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3D-Modeling-with-Parts.html">实体建模：使用部件进行 3D 建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Content.html">内容数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importing-terrain-data.html">导入地形数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importing-custom-rigs.html">导入自定义模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-ray-casting-laser-gun-in-Roblox.html">射线投射：创建激光枪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archiving-assets-and-games.html">将资源和游戏归档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="understanding-root-parts.html">根部件：概述与理解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Copyright-Guidance.html">内容版权与知识产权</a></li>
+<li class="toctree-l2"><a class="reference internal" href="managing-personal-information.html">关于 GDPR 和 CCPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="designing-for-multiplayer.html">设计多人游戏</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">合作式开发</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">启用组队创作</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">聊天窗口</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">管理编辑成员</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">群组游戏</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">独立游戏</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">进入工作环节</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">合作式构建</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">用户颜色</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#undo-redo">Undo（撤销）/ Redo（重做）</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">合作式编辑脚本</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id11">编辑和测试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">脚本对照</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">将编辑后的内容应用到服务器端</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">合并更改内容</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">恢复被删除的脚本</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">发布和保存</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">撤销改动</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">关闭组队创作</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/creating.html">创建</a> &raquo;</li>
+        
+      <li>合作式开发</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Team-Create.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>合作式开发<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p><strong>Team Create</strong>（组队创作）为 Roblox Studio 中的工具之一，可以让多个开发者群组同时对场景和脚本进行编辑。启用组队创作后，拥有相应权限的开发者可以邀请其他人进行共同编辑，且每个编辑者都可以在工作过程中清楚地看到他人所做出的改动。</p>
+<div class="section" id="id2">
+<h2>启用组队创作<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>要开始与其他开发者共同编辑场景时，请在 <strong>View</strong>（视图）选项卡中单击 <strong>Team Create</strong>（组队创作）：</p>
+<p><img alt="https://developer.roblox.com/assets/blt184b664e309a7ddf/Team-Create-Button.png" src="https://developer.roblox.com/assets/blt184b664e309a7ddf/Team-Create-Button.png" /></p>
+<p>打开窗口后，按下 <strong>Turn ON</strong>（开启）按钮：</p>
+<p><img alt="https://developer.roblox.com/assets/blta48f059e911dbde7/Enable-Team-Create.png" src="https://developer.roblox.com/assets/blta48f059e911dbde7/Enable-Team-Create.png" /></p>
+<p>组队创作启用后，此窗口会显示一个用户列表，包括了所有拥有场景编辑权限的用户。每个用户会被自动分配一个用户颜色（也就是用户虚拟形象图像背后的颜色）用来在编辑时进行标识。</p>
+<p><img alt="https://developer.roblox.com/assets/bltf76bd37687e32a2a/Team-Create-User-List.png" src="https://developer.roblox.com/assets/bltf76bd37687e32a2a/Team-Create-User-List.png" /></p>
+<div class="section" id="id3">
+<h3>聊天窗口<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>A useful tool while collaborating is the <strong>Chat</strong> panel, accessible via <strong>View</strong> → <strong>Chat</strong>.</p>
+<p><img alt="https://developer.roblox.com/assets/blt67bd7828004d8a3d/Team-Create-Chat-Button.png" src="https://developer.roblox.com/assets/blt67bd7828004d8a3d/Team-Create-Chat-Button.png" /></p>
+<p>To start chatting, click on the text box, type a message, and press Enter to send it. Messages in the chat window will be labeled by the user’s color outlined above.</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>管理编辑成员<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h3>群组游戏<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>如果你正在对<code class="docutils literal notranslate"><span class="pre">articles/Group</span> <span class="pre">Games|群组游戏</span></code>进行开发工作且拥有正确的<code class="docutils literal notranslate"><span class="pre">articles/Group</span> <span class="pre">Games#editing-roles|权限</span></code>，就可以依照下列步骤对编辑成员进行管理：</p>
+<ol class="simple">
+<li><p>从 <strong>Home</strong>（主页）选项卡中进入 <strong>Game Settings</strong>（游戏设置）。
+<img alt="https://developer.roblox.com/assets/bltd6af44e38b951d0a/Game-Settings.png" src="https://developer.roblox.com/assets/bltd6af44e38b951d0a/Game-Settings.png" /></p></li>
+<li><p>选中 <strong>Permissions</strong>（权限）选项卡。</p></li>
+<li><p>在 <strong>Game Owner</strong>（游戏所有者）部分中，展开群组图标旁边的树型图。
+<img alt="https://developer.roblox.com/assets/blt3b24ef7811555348/Group-Permissions-Expand.png" src="https://developer.roblox.com/assets/blt3b24ef7811555348/Group-Permissions-Expand.png" /></p></li>
+<li><p>找到你想要添加编辑权限的每一个群组角色，从权限菜单中选择 <strong>Edit</strong>（编辑）。
+<img alt="https://developer.roblox.com/assets/blt1be093989a8ecf8e/Group-Permissions-Set.png" src="https://developer.roblox.com/assets/blt1be093989a8ecf8e/Group-Permissions-Set.png" /></p></li>
+<li><p>点击 <strong>Save</strong>（保存）按钮来保留更改。</p></li>
+</ol>
+</div>
+<div class="section" id="id6">
+<h3>独立游戏<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>如果想和其他人一起合作但游戏并没有以<code class="docutils literal notranslate"><span class="pre">articles/Group</span> <span class="pre">Games|群组游戏</span></code>的方式发布，仍然可以按下列步骤添加编辑者：</p>
+<ol class="simple">
+<li><p>从 <strong>Home</strong>（主页）选项卡中进入 <strong>Game Settings</strong>（游戏设置）。
+<img alt="https://developer.roblox.com/assets/bltd6af44e38b951d0a/Game-Settings.png" src="https://developer.roblox.com/assets/bltd6af44e38b951d0a/Game-Settings.png" /></p></li>
+<li><p>选择 <strong>Permissions</strong>（权限）选项卡。</p></li>
+<li><p>在 <strong>Collaborators</strong>（合作者）部分，按照 Roblox 用户名搜索一名编辑者并对其单击，将其添加为合作者。
+<img alt="https://developer.roblox.com/assets/blt0cac85b0ea18265a/Game-Collaborators-Find-User.png" src="https://developer.roblox.com/assets/blt0cac85b0ea18265a/Game-Collaborators-Find-User.png" /></p></li>
+<li><p>从权限菜单中选择 <strong>Edit</strong>（编辑）：
+<img alt="https://developer.roblox.com/assets/blt39102d055c00a06d/Game-Collaborators-User-Permission-Edit.png" src="https://developer.roblox.com/assets/blt39102d055c00a06d/Game-Collaborators-User-Permission-Edit.png" /></p></li>
+<li><p>单击 <strong>Save</strong>（保存）按钮来保留变动的内容。</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>进入工作环节<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>被邀请对场景进行编辑的开发者可以按照以下步骤加入组队创作的工作环节：</p>
+<ol class="simple">
+<li><p>在 Studio 中关闭所有当前已打开的场景（或者关闭并重新打开 Studio）。</p></li>
+<li><p>选择 <strong>Group Games</strong>（群组游戏）选项卡（当游戏为<code class="docutils literal notranslate"><span class="pre">/articles/Group</span> <span class="pre">Games|群组游戏</span></code>时）或者 <strong>Shared With Me</strong>（与我共享）选项卡。
+<img alt="https://developer.roblox.com/assets/blt29827fa3542d7240/Team-Create-Select-Sorting-Tab.png" src="https://developer.roblox.com/assets/blt29827fa3542d7240/Team-Create-Select-Sorting-Tab.png" /></p></li>
+<li><p>找到并打开场景，开始编辑。</p></li>
+</ol>
+</div>
+<div class="section" id="id8">
+<h2>合作式构建<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>在组队创作的工作环节中，所有编辑者都可以操控对象，但其工作流程与单独编辑还是有细微差别的，请查阅以下章节详述：</p>
+<div class="section" id="id9">
+<h3>用户颜色<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>之前提到过，环节中的每个编辑者都被分配了一种颜色，该颜色会成为在编辑者组队创作窗口中虚拟形象的背景，当一名编辑者选择对象时，一个有着自己颜色的选择框就会以 3D 视图的形式出现在对象周围：</p>
+<p><img alt="https://developer.roblox.com/assets/bltdbfa5838f8046dcc/Team-Create-User-Color-Parts.jpg" src="https://developer.roblox.com/assets/bltdbfa5838f8046dcc/Team-Create-User-Color-Parts.jpg" /></p>
+<p>同理，管理器窗口中的对象也会显示出对应的颜色点，用来指明对其进行选中的编辑者。</p>
+<p><img alt="https://developer.roblox.com/assets/bltcba06a170cecfc4b/Team-Create-User-Color-Explorer.png" src="https://developer.roblox.com/assets/bltcba06a170cecfc4b/Team-Create-User-Color-Explorer.png" /></p>
+</div>
+<div class="section" id="undo-redo">
+<h3>Undo（撤销）/ Redo（重做）<a class="headerlink" href="#undo-redo" title="Permalink to this headline">¶</a></h3>
+<p>撤销和重做基本上和它们在单人模式中的使用方式一样，但有一些小差异，如果有多个开发者对一个部件或者实例进行了编辑，那么当你对该对象进行 <strong>Undo</strong> （撤销）时，此对象将会撤回至你未对其做变更之前的状态，<strong>同时</strong>还会撤销你最后一次编辑后的其他编辑者所做出的修改。</p>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>合作式编辑脚本<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>在组队创作工作环节中，游戏脚本被存储在中央云存储 仓库里，该仓库可以由所有合作者访问。因此，合作者将得以进行以下操作：</p>
+<ul class="simple">
+<li><p>对其他开发者正在编辑的同一脚本进行独立处理。</p></li>
+<li><p>准确获悉其他开发者对脚本进行编辑的时间段。</p></li>
+<li><p>先在本地测试变动的内容，然后再提交给云端。</p></li>
+<li><p>将本地脚本提交至云端前对其进行比对。</p></li>
+</ul>
+<p>在默认情况下合作式编辑脚本是启用的，若想对其进行禁用，选择<strong>Game Settings（游戏设置）</strong> → <strong>Options（选项）</strong>，然后关闭 <strong>Enable Collaborative Editing（启用合作式编辑）</strong>。若希望设置更改立即生效，需要关闭组队创作，然后对其重新启用来重启工作环节。</p>
+<div class="section" id="id11">
+<h3>编辑和测试<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>在组队创作环境中即使是其他用户正在对脚本进行编辑，开发者仍然可以按常规操作打开该脚本。对脚本做出改动后，该脚本将会被添加到 <strong>Drafts</strong>（草稿）窗口中。草稿会进行自动保存，且在同一机器上不会因为多次进入与退出 Studio 工作环节而丢失。</p>
+<p><img alt="https://developer.roblox.com/assets/blt6a6285642469f6c2/Team-Create-Drafts-Window.png" src="https://developer.roblox.com/assets/blt6a6285642469f6c2/Team-Create-Drafts-Window.png" /></p>
+<p>如果草稿窗口没有打开，可以通过点击 <strong>View</strong>（视图）选项卡中的 <strong>Drafts</strong>（草稿）按钮进行开启。</p>
+<p>在本地进行的游戏测试会使用<strong>草稿</strong>版本（而非服务器版本）的脚本。开发者可以籍此测试变动内容，而不影响其他合作者的工作进度。在进行<strong>团队测试</strong>环节时将会使用服务器版本脚本，具体说明详见<code class="docutils literal notranslate"><span class="pre">articles/game</span> <span class="pre">testing|游戏测试模式</span></code>。</p>
+</div>
+<div class="section" id="id12">
+<h3>脚本对照<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>开发者随时可以将草稿与对应的云端版本进行对照，只需右键单击草稿然后选择<strong>Compare with server</strong>（与服务器端对照）。</p>
+<p><img alt="https://developer.roblox.com/assets/blt05990c9be27b6b77/Team-Create-Drafts-Compare.png" src="https://developer.roblox.com/assets/blt05990c9be27b6b77/Team-Create-Drafts-Compare.png" /></p>
+<p>此操作将会打开 <strong>Diff Result</strong>（差异结果）窗口。红色部分表示服务器端被改动或者删除的代码；绿色部分表示更新后的代码。开发者可以通过对比行号来决定该保留的内容。</p>
+<p><img alt="https://developer.roblox.com/assets/bltecba0021f2ab9f9b/Team-Create-Diff-Result.png" src="https://developer.roblox.com/assets/bltecba0021f2ab9f9b/Team-Create-Diff-Result.png" /></p>
+</div>
+<div class="section" id="id13">
+<h3>将编辑后的内容应用到服务器端<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>若想将更改后的内容应用至云端版本，请在 <strong>Draft</strong>（草稿）窗口中选择一个或多个草稿，右键单击后选择 <strong>Commit</strong>（提交）。</p>
+<p><img alt="https://developer.roblox.com/assets/bltc1ebf2beafe4c237/Team-Create-Drafts-Commit.png" src="https://developer.roblox.com/assets/bltc1ebf2beafe4c237/Team-Create-Drafts-Commit.png" /></p>
+</div>
+<div class="section" id="id14">
+<h3>合并更改内容<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>若开发者在对脚本进行编辑时有另外一名合作者对同一脚本提交了改动，<strong>Draft</strong>（草稿）窗口中此脚本的旁边将会显示绿色的 <img alt="https://developer.roblox.com/assets/bltb5160a07ace432d7/Team-Create-Updated-Icon.png" src="https://developer.roblox.com/assets/bltb5160a07ace432d7/Team-Create-Updated-Icon.png" /></p>
+<p>图标。</p>
+<p><img alt="https://developer.roblox.com/assets/blt45b836a3f3771786/Team-Create-Script-Updated.png" src="https://developer.roblox.com/assets/blt45b836a3f3771786/Team-Create-Script-Updated.png" /></p>
+<p>此时开发者可选择一个或者更多脚本，右键单击然后选择 <strong>Merge from server</strong>（从服务器端合并）打开合并工具窗口。在此窗口中可以看到和本地开发者编辑内容有关的最新编辑条目。如果有任何改动出现内容冲突，开发者可以选择希望保留的代码，也可以进行手动编辑。</p>
+<p><img alt="https://developer.roblox.com/assets/blta555ce479e9a3873/Team-Create-Merge-Options.png" src="https://developer.roblox.com/assets/blta555ce479e9a3873/Team-Create-Merge-Options.png" /></p>
+<ul class="simple">
+<li><p>勾选 <strong>Draft</strong>（草稿）保留本地更改，未勾选时将会删除本地更改。</p></li>
+<li><p>勾选 <strong>Server</strong>（服务器）将更改合并至草稿中，未勾选时将会忽略所有服务器端更改。</p></li>
+<li><p>勾选 <strong>Other</strong>（其它）对脚本进行手动编辑，然后将更改保存至草稿。</p></li>
+</ul>
+<p>勾选所需选项后，可以切换 <strong>Preview Resolution</strong>（预览解决方案）开关，预览脚本的变更情况。</p>
+<p><img alt="https://developer.roblox.com/assets/blt70c0bf68f791584a/Team-Create-Merge-Preview.png" src="https://developer.roblox.com/assets/blt70c0bf68f791584a/Team-Create-Merge-Preview.png" /></p>
+</div>
+<div class="section" id="id15">
+<h3>恢复被删除的脚本<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<p>当本地开发者正在编辑脚本时，如果出现另一合作者删除当前脚本的情况，将会在 <strong>Drafts</strong>（草稿）窗口显示带有红色 <img alt="https://developer.roblox.com/assets/bltf61c0a8ce69aad48/Team-Create-Deleted-Icon.png" src="https://developer.roblox.com/assets/bltf61c0a8ce69aad48/Team-Create-Deleted-Icon.png" /></p>
+<p>的图标：</p>
+<p><img alt="https://developer.roblox.com/assets/bltaf78232b137b4613/Team-Create-Script-Deleted.png" src="https://developer.roblox.com/assets/bltaf78232b137b4613/Team-Create-Script-Deleted.png" /></p>
+<p>若想将本地脚本版本放回游戏中，请在 <strong>Drafts</strong>（草稿）窗口选中一个或更多草稿，对其右键单击后选择<strong>Restore Script</strong>（恢复脚本）。</p>
+<p>注意：被恢复的脚本将会被放置回场景的 <strong>Workspace</strong> 中，因此需要将其父项重新设置为原有位置。</p>
+</div>
+</div>
+<div class="section" id="id16">
+<h2>发布和保存<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<p>在使用组队创作时对已变动的内容进行保存的过程与单人 Studio 下有些差异。启用组队创作时，Studio 将会以自动保存的方式每隔 5 分钟将内容投射到云端。在多个自动保存之间做出的变动将不会被发布，因此更新已发布游戏时，仍然需要通过<strong>File（文件）</strong> → **Publish to Roblox（发布至 Roblox）**来进行单独发布。</p>
+</div>
+<div class="section" id="id17">
+<h2>撤销改动<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<p>所有者可以将改动的内容恢复原样，与在单人模式下开发游戏时相同：</p>
+<ol class="simple">
+<li><p>在游戏页面上单击 <img alt="https://developer.roblox.com/assets/blt738fe32bb9c285f9/Config-Dots.png" src="https://developer.roblox.com/assets/blt738fe32bb9c285f9/Config-Dots.png" /></p></li>
+</ol>
+<p>按钮。
+2. 选择 <strong>Configure this Place（配置此场景）</strong>。
+3. 单击 <strong>Version History（版本历史）</strong>。
+4. 选择更早的版本并单击 **Revert to this version（恢复至此版本）**来进行改动撤销。</p>
+<p>用这种方式将改动内容恢复时一定要小心，如果目前有人在用组队创作编辑游戏，其工作环节将仍然能够进行自动保存并覆盖恢复操作。在进行版本恢复前，一定要确保目前没有人正在编辑游戏，或者直接关闭组队创作。</p>
+</div>
+<div class="section" id="id18">
+<h2>关闭组队创作<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<p>游戏所有者或拥有正确<code class="docutils literal notranslate"><span class="pre">articles/Group</span> <span class="pre">Games#editing-roles|权限</span></code>的开发者可以关闭场景的组队创作功能。单击位于组队创作窗口最底端的 <img alt="https://developer.roblox.com/assets/bltc0570ac67590e30e/Team-Create-Menu-Dots.png" src="https://developer.roblox.com/assets/bltc0570ac67590e30e/Team-Create-Menu-Dots.png" /></p>
+<p>按钮并选择 **Disable Team Create（禁用组队创作）**后，工作环节中的任何其他用户都会被踢出，且在组队创作被重新启用前都将无法加入。</p>
+<p><img alt="https://developer.roblox.com/assets/blt9e83d5dc6a9b9ae5/Disable-Team-Create.png" src="https://developer.roblox.com/assets/blt9e83d5dc6a9b9ae5/Disable-Team-Create.png" /></p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Team-Create">合作式开发</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../tutorials/international.html" class="btn btn-neutral float-right" title="国际化" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="designing-for-multiplayer.html" class="btn btn-neutral float-left" title="设计多人游戏" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

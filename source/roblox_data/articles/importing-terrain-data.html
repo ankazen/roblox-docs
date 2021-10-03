@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <link rel="canonical" href="https://developer.roblox.com/articles/importing-terrain-data"/>
+    <link rel="alternate" hreflang="x-default" href="https://developer.roblox.com/articles/importing-terrain-data"/>
+    
+      <link rel="alternate" hreflang="en-us" href="https://developer.roblox.com/en-us/"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="https://developer.roblox.com/zh-cn/"/>
+    
+      
+        
+          <title> 导入地形数据</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="zh-cn">
+
+
+
+<meta name="description" content="<p>如何为地形的生成导入 heightmap（高度图）</p>">
+
+
+
+<meta name="keywords" content="">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="导入地形数据">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>如何为地形的生成导入 heightmap（高度图）</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="创建">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="/static/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="/static/images/favicon.ico?q=1544016445575
+" type="image/x-icon">
+<link rel="icon" href="/static/images/favicon.ico?q=1544016445575
+" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="https://browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="/static/css/prettify.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+<link href="/static/css/select2.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+<link href="/static/css/font-awesome.min.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+<link href="/static/css/main.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+
+<script src="/static/js/jquery-3.3.1.min.js?q=1544016445575
+"></script>
+<script src="/static/js/popper.min.js?q=1544016445575
+"></script>
+<script src="/static/js/jPages.js?q=1544016445575
+"></script>
+<script src="/static/js/bootstrap.min.js?q=1544016445575
+"></script>
+<script src="/static/js/bootstrap-toc.js?q=1544016445575
+"></script>
+<!-- <script src="/static/js/docs.min.js?q=1544016445575
+"></script> -->
+<script src="/static/js/prettify.js?q=1544016445575
+"></script>
+<script src="/static/js/lang-lua.js?q=1544016445575
+"></script>
+<script src="/static/js/select2.js?q=1544016445575
+"></script>
+<script src="/static/js/clipboard.min.js?q=1544016445575
+"></script>
+
+<script src="/static/js/autolinking.js?q=1544016445575
+"></script>
+<script src="/static/js/lightbox.js?q=1544016445575
+"></script>
+<script src="/static/js/half-sized.js?q=1544016445575
+"></script>
+<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="/static/js/jquery.cookie.js?q=1544016445575
+"></script>
+<script type="text/javascript" src="/static/js/encrypt-md5.js?q=1544016445575
+"></script>
+<!-- <script type="text/javascript" src="/static/js/gdpr.js?q=1544016445575
+"></script> -->
+
+<script src="/static/js/script.js?q=1544016445575
+"></script>
+<script src="/static/js/codesample-theme.js?q=1544016445575
+"></script>
+<script src="/static/js/code-highlighting.js?q=1544016445575
+"></script>
+<!-- <script src="/static/js/local-codesamples.js?q=1544016445575
+"></script> -->
+<script src="/static/js/language-dropdown.js?q=1544016445575
+"></script>
+
+<script src="/static/js/event_template_one.js?q=1544016445575
+"></script>
+
+<script type="text/javascript" src="/static/js/jquery.swiftype.autocomplete.js?q=1544016445575
+">
+</script>
+<script type='text/javascript' src='/static/js/jquery.ba-hashchange.min.js?q=1544016445575
+'></script>
+<script type="text/javascript" src="/static/js/jquery.swiftype.search.js?q=1544016445575
+"></script>
+<script type="text/javascript" src="/static/js/jquery.swiftype.livesearch.js?q=1544016445575
+">
+</script>
+
+<script type="text/javascript" src="/static/js/st.custom.search.js?q=1544016445575
+"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('https://dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="/" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="/">主页</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/quick-start">
+                      <span>入门</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/learn-roblox/all-tutorials">
+                      <span>了解 Roblox</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/api-reference">
+                      <span>API 参考</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/resources">
+                      <span>资源</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com">
+                      <span>社区</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="搜索">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">关闭侧边栏</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="/static/images/l-arrow.svg?q=1544016445575
+"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">教程</h5>
+              <div>
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/monetization">
+                      <span>Monetization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                      <span>Studio 基础知识</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/creating">
+                      <span>创建</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/international">
+                      <span>国际化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                      <span>声效、光照与特效</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/marketing">
+                      <span>市场营销</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/optimization">
+                      <span>性能优化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                      <span>所有内容</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/analytics">
+                      <span>数据分析</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                      <span>用户界面</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                      <span>编码与脚本</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                      <span>跨平台发展</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/creating">创建</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>导入地形数据</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">隐藏内容索引</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">显示内容索引</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <div class="toc-content"><a href="javascript:void(0)">内容索引</a>
+        </div>
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/creating">创建</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>导入地形数据</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">5  分钟</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>在<span class="text-nowrap"><code>/articles/Intro To Terrain|环境与地形工具</code></span>当中，我们涉猎了手动地形生成的方法。除此之外，开发者还可以通过导入 heightmap（高度图）以及 colormap（颜色图）来创建地形。</p>
+<h2>导入 Heightmap（高度图）</h2>
+<p>**Heightmap（高度图）**是 3D 地形图的 2D 表示，形同于从正上方俯视。高度图上较亮的区域会在实际地形中表现为较高的地域，如山峰等。高度图中较暗则会形成诸如峡谷之类的区域。</p>
+<div class="container">
+<div class="row">
+<div class="col-auto mr-4 px-0 py-1">
+<img src="/assets/blt08ebba3ddfaa88c6/Terrain-Heightmap.png" class="img-fluid half-sized">
+</div>
+<div class="col-auto mx-0 px-1 my-auto">
+<img src="/assets/blt4e539ce26d011f16/r-arrow-blue.png" class="img-fluid half-sized">
+</div>
+<div class="col-auto ml-4 px-0 py-1">
+<img src="/assets/bltb0bf41ea76556bda/Terrain-Heightmap-Result.jpg" class="img-fluid half-sized">
+</div>
+</div>
+</div>
+<p>若想在 Roblox Studio 中导入高度图，请遵循以下步骤：</p>
+<ol>
+<li>在 <strong>Home</strong>（主页）选项卡中点击 <strong>Terrain</strong>（地形）部分的 <strong>Editor</strong>（编辑器）按钮。</li>
+</ol>
+<img src="/assets/blt614b8c09002f5ad2/Toggle-Terrain-Editor.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>在 <strong>Terrain Editor</strong>（地形编辑器）窗口，点击 <strong>Create</strong>（创建）选项卡下的 <strong>Import</strong>（导入）按钮。</li>
+</ol>
+<img src="/assets/blt46fb94db6afb7c59/Terrain-Editor-Import.png" class="img-fluid half-sized list-indent">
+<ol start="3">
+<li>在 <strong>Map Settings</strong>（地图设置）中点击 <strong>Asset ID</strong>（资源 ID），选择事先通过 Game Explorer（游戏管理器）上传的恰当高度图。</li>
+</ol>
+<div class="alert alert-warning list-indent mb-4" role="alert">
+上传高度图时最好选择灰度图像，但是导入器仍可分辨 RGB 图像（其原理为仅使用图像中的<b>红色</b>通道来获取高度信息）。
+</div>
+<ol start="4">
+<li>若有需求，可输入新的 <strong>Position</strong> （位置，也就是生成地形的中心）及其 <strong>Size</strong>（尺寸），单位以格计。需要注意的是，地形的最大范围维度没有强制的上限，系统测试时曾达到的最大格数为 16384×16384×1024 格。</li>
+</ol>
+<div class="alert alert-primary list-indent mb-4" role="alert">
+最小和最大的地形高度将取决于导入期间高度图最暗和最亮的区域，最终的结果是相对于 <b>Y</b> 轴的尺寸（高度）而言的。举例来说，如果选择高度为 128，则纯黑色区域等于是中心位置</b>下方<b> 64 格的位置，纯白色区域则是中心位置 </b>上方</b> 64 格。
+</div>
+<ol start="5">
+<li>准备完毕后，单击 <strong>Import</strong>（导入）按钮以生成地形区域，使用的材质是 “Asphalt”（沥青）。</li>
+</ol>
+<h2>使用 Colormap（颜色图）</h2>
+<p>如果开发者在导入高度图时同时希望能指定地形材质，则可以再添加一个 <strong>colormap</strong>（颜色图）。基于图像文件上“涂”的颜色，Roblox 将会生成对应类型的地形。</p>
+<div class="container">
+<div class="row">
+<div class="col-auto mr-4 px-0 py-1">
+<img src="/assets/blte1637255c6427287/Terrain-Colormap.png" class="img-fluid half-sized">
+</div>
+<div class="col-auto mx-0 px-1 my-auto">
+<img src="/assets/blt4e539ce26d011f16/r-arrow-blue.png" class="img-fluid half-sized">
+</div>
+<div class="col-auto ml-4 px-0 py-1">
+<img src="/assets/blt1f54c752b3990863/Terrain-Colormap-Result.jpg" class="img-fluid half-sized">
+</div>
+</div>
+</div>
+<p>如果希望在导入高度图时附加颜色图。请遵循以下步骤：</p>
+<ol>
+<li>选择高度图后，打开 <strong>Material Settings</strong>（材质设置）中的 <strong>Use Colormap</strong>（使用颜色图）选项开关。</li>
+<li>点击开关下的 <strong>Asset ID</strong>（资源 ID）区域，选择已上传的颜色图图像。</li>
+<li>准备完毕后单击 <strong>Import</strong>（导入）按钮，生成根据图像 RGB 值来确定材质的地形区域。下列表格中不存在的颜色将会被默认为其最为接近的材质颜色。</li>
+</ol>
+<div class="alert alert-primary list-indent mb-4" role="alert">
+绘制颜色图时，最好使用硬边线。<span class="text-nowrap">抗锯齿</span>或是平滑边缘可能会在预想的 RGB 材质设置范围之外创建不必要的像素。
+</div>
+<table class="table table-bordered list-indent w-75">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">颜色</th>
+            <th scope="col">RGB&nbsp;值</th>
+            <th scope="col">材质</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #ffffff;"></td>
+            <td scope="row" class="text-nowrap">[255, 255, 255]</td>
+            <td scope="row">空气</td>
+        </tr>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #737b6b;"></td>
+            <td scope="row" class="text-nowrap">[115, 123, 107]</td>
+            <td scope="row">沥青</td>
+        </tr>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #1e1e25;"></td>
+            <td scope="row" class="text-nowrap">[30, 30, 37]</td>
+            <td scope="row">玄武岩</td>
+        </tr>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #8a563e;"></td>
+            <td scope="row" class="text-nowrap">[138, 86, 62]</td>
+            <td scope="row">砖块</td>
+        </tr>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #847b5a;"></td>
+            <td scope="row" class="text-nowrap">[132, 123, 90]</td>
+            <td scope="row">鹅卵石</td>
+        </tr>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #7f663f;"></td>
+            <td scope="row" class="text-nowrap">[127, 102, 63]</td>
+            <td scope="row">混凝土</td>
+        </tr>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #e89c4a;"></td>
+            <td scope="row" class="text-nowrap">[232, 156, 74]</td>
+            <td scope="row">熔岩</td>
+        </tr>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #65b0ea;"></td>
+            <td scope="row" class="text-nowrap">[101, 176, 234]</td>
+            <td scope="row">冰川</td>
+        </tr>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #6a7f3f;"></td>
+            <td scope="row" class="text-nowrap">[106, 127, 63]</td>
+            <td scope="row">草地</td>
+        </tr>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #665c3b;"></td>
+            <td scope="row" class="text-nowrap">[102, 92, 59]</td>
+            <td scope="row">土地</td>
+        </tr>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #81c2e0;"></td>
+            <td scope="row" class="text-nowrap">[129, 194, 224]</td>
+            <td scope="row">冰</td>
+        </tr>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #73844a;"></td>
+            <td scope="row" class="text-nowrap">[115, 132, 74]</td>
+            <td scope="row">草丛</td>
+        </tr>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #cead94;"></td>
+            <td scope="row" class="text-nowrap">[206, 173, 148]</td>
+            <td scope="row">石灰岩</td>
+        </tr>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #3a2e24;"></td>
+            <td scope="row" class="text-nowrap">[58, 46, 36]</td>
+            <td scope="row">泥</td>
+        </tr>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #94948c;"></td>
+            <td scope="row" class="text-nowrap">[148, 148, 140]</td>
+            <td scope="row">路面</td>
+        </tr>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #666c6f;"></td>
+            <td scope="row" class="text-nowrap">[102, 108, 111]</td>
+            <td scope="row">石头</td>
+        </tr>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #c6bdb5;"></td>
+            <td scope="row" class="text-nowrap">[198, 189, 181]</td>
+            <td scope="row">盐地</td>
+        </tr>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #8f7e5f;"></td>
+            <td scope="row" class="text-nowrap">[143, 126, 95]</td>
+            <td scope="row">沙地</td>
+        </tr>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #895a47;"></td>
+            <td scope="row" class="text-nowrap">[137, 90, 71]</td>
+            <td scope="row">砂岩</td>
+        </tr>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #3f7f6b;"></td>
+            <td scope="row" class="text-nowrap">[63, 127, 107]</td>
+            <td scope="row">板岩</td>
+        </tr>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #c3c7da;"></td>
+            <td scope="row" class="text-nowrap">[195, 199, 218]</td>
+            <td scope="row">雪地</td>
+        </tr>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #8b6d4f;"></td>
+            <td scope="row" class="text-nowrap">[139, 109, 79]</td>
+            <td scope="row">木板</td>
+        </tr>
+        <tr>
+            <td scope="row" class="border-dark" style="background-color: #0c545c;"></td>
+            <td scope="row" class="text-nowrap">[12, 84, 92]</td>
+            <td scope="row">水域</td>
+        </tr>
+    </tbody>
+</table>
+<h2>大小缩放有关提示</h2>
+<p>了解底层地形单位系统，有助于实现创造景观上的特定功能：</p>
+<ul>
+<li>地形是建立在一个 **voxel （体素）**构成的系统上的，这些体素的尺寸为 4×4×4 格。</li>
+<li>导入设置的计量单位为 <strong>stud（格）</strong>。</li>
+<li>在导入高度图/颜色图时，默认的缩放比值为 <span class="text-nowrap"><b>1 像素</b> = <b>1 体素</b> = <b>4 格</b>。</span> 比如，一个大小为 5×5 平方像素的高度图将会创建一个 20×20 平方格大小的地形。</li>
+<li>如果开发者提供了不同缩放比值维度，那么导入器会通过缩放与平滑来契合该维度。若想在地形中生成尖锐的边角或陡峭的<span class="text-nowrap">断崖</span>，最好还是保持与默认的缩放比值一致或相近。</li>
+</ul>
+
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">相关参考文章</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="/articles/Intro-To-Terrain"><span class="related-article-img" style="background-image: url();"> </span></a>
+          <h3 data-toc-skip><a href="/articles/Intro-To-Terrain">环境与地形工具</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>此网站如何使用 Cookie</h1>
+        <div class="privacy-content">
+          <p>此平台使用 Cookie 为您提供更好的体验、对内容进行个性化、提供社交媒体功能和分析网站流量。如需详细信息（包括有关如何在此平台上防止使用 Cookie 或对其进行管理的信息），请参阅我们的<a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私和 Cookie 政策</a>。</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">确定</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">你即将离开 Roblox 网站</div>
+        <p>请按下继续按钮前往： <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="" class="btn secondary-btn" data-dismiss="modal">返回</a>
+        <a href="" class="btn primary-btn continue-link" target="_blank">继续</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com" target="_self" class="footer-logo ptxl mbl">
+              <img src="https://dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2019 Roblox Corporation. 保留所有权利。</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>公司</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">关于 Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">招贤纳士</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">技术</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">服务条款</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私政策</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">家长</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>开发人员</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="/articles/Creating-Your-First-Game" target="_self">入门</a>
+                  </li>
+                
+                  <li>
+                    <a href="/learn-roblox/all-tutorials" target="_self">了解</a>
+                  </li>
+                
+                  <li>
+                    <a href="/api-reference" target="_self">API 参考</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com" target="_blank">社区</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">开发人员公告</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">搜索</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input"
+                        placeholder="搜索">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" href="#all" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            所有结果
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" href="#api-doc" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API 文档
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" href="#tutorial" role="tab"
+                            aria-selected="false" data-name="articles">
+                            教程
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" href="#recipe" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            代码参考
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" href="#video" role="tab"
+                            aria-selected="false" data-name="videos">
+                            视频
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+</html>

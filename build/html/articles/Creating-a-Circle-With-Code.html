@@ -1,0 +1,299 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>使用代码创建圆环 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="实体建模：使用部件进行 3D 建模" href="3D-Modeling-with-Parts.html" />
+    <link rel="prev" title="构建篝火" href="Building-a-Campfire.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/creating.html">创建</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Building-a-Campfire.html">构建篝火</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">使用代码创建圆环</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">目标</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">步骤</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">高级</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">椭圆</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3D-Modeling-with-Parts.html">实体建模：使用部件进行 3D 建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Content.html">内容数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importing-terrain-data.html">导入地形数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importing-custom-rigs.html">导入自定义模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-ray-casting-laser-gun-in-Roblox.html">射线投射：创建激光枪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archiving-assets-and-games.html">将资源和游戏归档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="understanding-root-parts.html">根部件：概述与理解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Copyright-Guidance.html">内容版权与知识产权</a></li>
+<li class="toctree-l2"><a class="reference internal" href="managing-personal-information.html">关于 GDPR 和 CCPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="designing-for-multiplayer.html">设计多人游戏</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Create.html">合作式开发</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/creating.html">创建</a> &raquo;</li>
+        
+      <li>使用代码创建圆环</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Creating-a-Circle-With-Code.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>使用代码创建圆环<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<div class="section" id="id2">
+<h2>目标<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>这不是球形的 <code class="docutils literal notranslate"><span class="pre">Part</span></code>，而是一个用许多小砖块像素化的空心轮廓。实际上，你根本不用碰砖块，只需编写脚本即可。</p>
+</div>
+<div class="section" id="id3">
+<h2>步骤<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>创建一个新的空白地图 iRoblox Studio。</p></li>
+<li><p>Insert（插入）&gt; Object（对象）&gt; Script（脚本）</p></li>
+<li><p>将以下内容插入到该脚本中（说明如下）：</p></li>
+</ul>
+<div class="section" id="id4">
+<h3>说明<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>圆有 360 度。因此你将为你的圆创建 360 个小砖块。“for”循环将运行 360 次。“math.rad(angle )”将以度为单位的角度转换为 <code class="docutils literal notranslate"><span class="pre">Articles/Using</span> <span class="pre">Radians</span> <span class="pre">to</span> <span class="pre">Measure</span> <span class="pre">Angles</span></code>。</p>
+<p>每次“for”循环运行时，它：</p>
+<ul class="simple">
+<li><p>创建一个新的<strong>部件</strong>，该部件的父级是“game.Workspace”。</p></li>
+<li><p>该部件的名称为“Brick”</p></li>
+<li><p>该 Brick 的大小为 (1, 1, 1) – 记住，我们想要小砖块。</p></li>
+<li><p>所有的砖块都已被锚固，以免掉下来。</p></li>
+</ul>
+<p>现在是比较棘手的部分：我们想把砖块定位成一个圆。如果你学过三角学，那么你就应该知道下一行的意义。如果没有学过，那么我告诉你，所有这一切都是在说，<code class="docutils literal notranslate"><span class="pre">x</span></code> 值应该是值为“i”的名为“cosine”的数学函数的 100 倍，<code class="docutils literal notranslate"><span class="pre">y</span></code> 值应该是值为“i”的名为“sine”的数学函数的 100 倍。sine 和 cosine 是研究角和圆的函数。<code class="docutils literal notranslate"><span class="pre">y</span></code> 的值增加了 120 个正方形，否则，它将被压在地上，这使你的圆看起来像一个半圆。</p>
+<p>现在是比较棘手的问题。此处我们使用 <code class="docutils literal notranslate"><span class="pre">CFrame</span></code> 组合，以避免使用三角函数。我们从圆心的一个 CFrame 开始，然后我们旋转所需的角度，最后我们将砖块从圆心移出。因为这是在旋转之后应用的，所以砖块相对于新的方向移动。</p>
+<p>运行此脚本，你应该会得到一个不错的小圆圈。</p>
+</div>
+<div class="section" id="id5">
+<h3>高级<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>上面的例子是一个相当大的圆。假设你想要一个小一点的，你必须做两件事：</p>
+<ul class="simple">
+<li><p>减少从圆心向外移动的距离</p></li>
+<li><p>减少迭代次数（这会减少砖块的数量）。</p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>椭圆<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>椭圆在几何上与圆非常相似。你只需要使一个维度（<code class="docutils literal notranslate"><span class="pre">x</span></code> 或 <code class="docutils literal notranslate"><span class="pre">y</span></code>）比另一个维度长：</p>
+<p>注意这里的 <code class="docutils literal notranslate"><span class="pre">x</span></code> 维度是 <strong>100</strong> *math.cos(i)，而 <code class="docutils literal notranslate"><span class="pre">y</span></code> 维度现在只有 <strong>50</strong> *math.sin(i)。你可以交换这些数字来更改椭圆是水平长还是垂直长。也可以更改这些数字来改变椭圆的长度和宽度。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Creating-a-Circle-With-Code">使用代码创建圆环</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="3D-Modeling-with-Parts.html" class="btn btn-neutral float-right" title="实体建模：使用部件进行 3D 建模" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Building-a-Campfire.html" class="btn btn-neutral float-left" title="构建篝火" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

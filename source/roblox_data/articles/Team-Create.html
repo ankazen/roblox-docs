@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <link rel="canonical" href="https://developer.roblox.com/articles/Team-Create"/>
+    <link rel="alternate" hreflang="x-default" href="https://developer.roblox.com/articles/Team-Create"/>
+    
+      <link rel="alternate" hreflang="en-us" href="https://developer.roblox.com/en-us/"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="https://developer.roblox.com/zh-cn/"/>
+    
+      
+        
+          <title> 合作式开发</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="zh-cn">
+
+
+
+<meta name="description" content="<p>了解多名开发者如何同时对同一场景进行编辑</p>">
+
+
+
+<meta name="keywords" content="">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="组队创作">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>了解多名开发者如何同时对同一场景进行编辑</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="创建">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="false">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="https://browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/code-highlighting.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='https://dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('https://dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="/" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="/">主页</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">教程</h5>
+      <div>
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                <span>Studio 基础知识</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/creating">
+                <span>创建</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/international">
+                <span>国际化</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                <span>声效、光照与特效</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/marketing">
+                <span>市场营销</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/optimization">
+                <span>性能优化</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                <span>所有内容</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/analytics">
+                <span>数据分析</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                <span>用户界面</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/monetization">
+                <span>盈利</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                <span>编码与脚本</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                <span>跨平台发展</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/quick-start">
+                      <span>入门</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/learn-roblox/all-tutorials">
+                      <span>了解 Roblox</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/api-reference">
+                      <span>API 参考</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/resources">
+                      <span>资源</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com">
+                      <span>社区</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="搜索">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">关闭侧边栏</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">教程</h5>
+              <div>
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                      <span>Studio 基础知识</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/creating">
+                      <span>创建</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/international">
+                      <span>国际化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                      <span>声效、光照与特效</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/marketing">
+                      <span>市场营销</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/optimization">
+                      <span>性能优化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                      <span>所有内容</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/analytics">
+                      <span>数据分析</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                      <span>用户界面</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/monetization">
+                      <span>盈利</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                      <span>编码与脚本</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                      <span>跨平台发展</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/creating">创建</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>合作式开发</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">隐藏内容索引</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">显示内容索引</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <div class="toc-content"><a href="javascript:void(0)">内容索引</a>
+        </div>
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/creating">创建</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>合作式开发</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">10  分钟</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p><strong>Team Create</strong>（组队创作）为 Roblox Studio 中的工具之一，可以让多个开发者群组同时对场景和脚本进行编辑。启用组队创作后，拥有相应权限的开发者可以邀请其他人进行共同编辑，且每个编辑者都可以在工作过程中清楚地看到他人所做出的改动。</p>
+<h2>启用组队创作</h2>
+<p>要开始与其他开发者共同编辑场景时，请在 <strong>View</strong>（视图）选项卡中单击 <strong>Team Create</strong>（组队创作）：</p>
+<img src="/assets/blt184b664e309a7ddf/Team-Create-Button.png" class="img-fluid half-sized">
+<p>打开窗口后，按下 <strong>Turn ON</strong>（开启）按钮：</p>
+<img src="/assets/blta48f059e911dbde7/Enable-Team-Create.png" class="img-fluid half-sized">
+<p>组队创作启用后，此窗口会显示一个用户列表，包括了所有拥有场景编辑权限的用户。每个用户会被自动分配一个用户颜色（也就是用户虚拟形象图像背后的颜色）用来在编辑时进行标识。</p>
+<img src="/assets/bltf76bd37687e32a2a/Team-Create-User-List.png" class="img-fluid half-sized">
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card- border-" role="card" style="margin-top: 5px;">
+  
+
+  
+  
+    
+  
+
+  
+  
+    <h5 data-toc-skip class="card-header bg- text-white">聊天窗口</h5>
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse show" id="ref_card-1">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>A useful tool while collaborating is the <strong>Chat</strong> panel, accessible via <span class="text-nowrap"><strong>View</strong> → <strong>Chat</strong>.</span></p>
+<img src="/assets/blt67bd7828004d8a3d/Team-Create-Chat-Button.png" class="img-fluid half-sized">
+<p>To start chatting, click on the text box, type a message, and press <kbd class="keyboard-key">Enter</kbd> to send it. Messages in the chat window will be labeled by the user’s color outlined above.</p>
+
+      </div>
+    
+  
+
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>管理编辑成员</h2>
+<h3>群组游戏</h3>
+<p>如果你正在对<span class="text-nowrap"><code>articles/Group Games|群组游戏</code></span>进行开发工作且拥有正确的<code>articles/Group Games#editing-roles|权限</code>，就可以依照下列步骤对编辑成员进行管理：</p>
+<ol>
+<li>从 <strong>Home</strong>（主页）选项卡中进入 <strong>Game Settings</strong>（游戏设置）。</li>
+</ol>
+<img src="/assets/bltd6af44e38b951d0a/Game-Settings.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>选中 <strong>Permissions</strong>（权限）选项卡。</li>
+<li>在 <strong>Game Owner</strong>（游戏所有者）部分中，展开群组图标旁边的树型图。</li>
+</ol>
+<img src="/assets/blt3b24ef7811555348/Group-Permissions-Expand.png" class="img-fluid half-sized list-indent">
+<ol start="4">
+<li>找到你想要添加编辑权限的每一个群组角色，从权限菜单中选择 <strong>Edit</strong>（编辑）。</li>
+</ol>
+<img src="/assets/blt1be093989a8ecf8e/Group-Permissions-Set.png" class="img-fluid half-sized list-indent">
+<ol start="5">
+<li>点击 <strong>Save</strong>（保存）按钮来保留更改。</li>
+</ol>
+<h3>独立游戏</h3>
+<p>如果想和其他人一起合作但游戏并没有以<span class="text-nowrap"><code>articles/Group Games|群组游戏</code></span>的方式发布，仍然可以按下列步骤添加编辑者：</p>
+<ol>
+<li>从 <strong>Home</strong>（主页）选项卡中进入 <strong>Game Settings</strong>（游戏设置）。</li>
+</ol>
+<img src="/assets/bltd6af44e38b951d0a/Game-Settings.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>选择 <strong>Permissions</strong>（权限）选项卡。</li>
+<li>在 <strong>Collaborators</strong>（合作者）部分，按照 Roblox 用户名搜索一名编辑者并对其单击，将其添加为合作者。</li>
+</ol>
+<img src="/assets/blt0cac85b0ea18265a/Game-Collaborators-Find-User.png" class="img-fluid half-sized list-indent">
+<ol start="4">
+<li>从权限菜单中选择 <strong>Edit</strong>（编辑）：</li>
+</ol>
+<img src="/assets/blt39102d055c00a06d/Game-Collaborators-User-Permission-Edit.png" class="img-fluid half-sized list-indent mb-3">
+<!--<div class="list-indent mb-3">
+移除一名编辑者的方法是：在编辑者列表对应的行中点击<img src="/assets/blt513746cb9a1021bf/Close-X-Dark.png" class="d-inline my-0 align-text-bottom" width=23>：
+</div>
+<img src="/assets/blt7adbc1fb89da895c/Game-Collaborators-Remove-User.png" class="img-fluid half-sized list-indent">-->
+<ol start="5">
+<li>单击 <strong>Save</strong>（保存）按钮来保留变动的内容。</li>
+</ol>
+<h2>进入工作环节</h2>
+<p>被邀请对场景进行编辑的开发者可以按照以下步骤加入组队创作的工作环节：</p>
+<ol>
+<li>在 Studio 中关闭所有当前已打开的场景（或者关闭并重新打开 Studio）。</li>
+<li>选择 <strong>Group Games</strong>（群组游戏）选项卡（当游戏为<span class="text-nowrap"><code>/articles/Group Games|群组游戏</code>时）</span>或者 <strong>Shared With Me</strong>（与我共享）选项卡。</li>
+</ol>
+<img src="/assets/blt29827fa3542d7240/Team-Create-Select-Sorting-Tab.png" class="img-fluid half-sized list-indent">
+<ol start="3">
+<li>找到并打开场景，开始编辑。</li>
+</ol>
+<h2>合作式构建</h2>
+<p>在组队创作的工作环节中，所有编辑者都可以操控对象，但其工作流程与单独编辑还是有细微差别的，请查阅以下章节详述：</p>
+<h3>用户颜色</h3>
+<p>之前提到过，环节中的每个编辑者都被分配了一种颜色，该颜色会成为在编辑者组队创作窗口中虚拟形象的背景，当一名编辑者选择对象时，一个有着自己颜色的选择框就会以 3D 视图的形式出现在对象周围：</p>
+<img src="/assets/bltdbfa5838f8046dcc/Team-Create-User-Color-Parts.jpg" class="img-fluid half-sized">
+<p>同理，管理器窗口中的对象也会显示出对应的颜色点，用来指明对其进行选中的编辑者。</p>
+<img src="/assets/bltcba06a170cecfc4b/Team-Create-User-Color-Explorer.png" class="img-fluid half-sized">
+<h3>Undo（撤销）/ Redo（重做）</h3>
+<p>撤销和重做基本上和它们在单人模式中的使用方式一样，但有一些小差异，如果有多个开发者对一个部件或者实例进行了编辑，那么当你对该对象进行 <strong>Undo</strong> （撤销）时，此对象将会撤回至你未对其做变更之前的状态，<strong>同时</strong>还会撤销你最后一次编辑后的其他编辑者所做出的修改。</p>
+<!--### 测试
+
+关于与他人合作编辑时如何测试游戏的详情，请查阅<span class="text-nowrap">`articles/Game Testing|游戏测试模式`。</span>-->
+<h2>合作式编辑脚本</h2>
+<p>在组队创作工作环节中，游戏脚本被存储在中央<span class="text-nowrap">云存储</span> 仓库里，该仓库可以由所有合作者访问。因此，合作者将得以进行以下操作：</p>
+<ul>
+<li>对其他开发者正在编辑的同一脚本进行独立处理。</li>
+<li>准确获悉其他开发者对脚本进行编辑的时间段。</li>
+<li>先在本地测试变动的内容，然后再提交给云端。</li>
+<li>将本地脚本提交至云端前对其进行比对。</li>
+</ul>
+<div class="alert alert-primary mb-4" role="alert">
+在默认情况下合作式编辑脚本是启用的，若想对其进行禁用，选择<span class="text-nowrap"><b>Game Settings（游戏设置）</b> &rarr; <b>Options（选项）</b></span>，然后关闭 <b class="text-nowrap">Enable Collaborative Editing（启用合作式编辑）</b>。若希望设置更改立即生效，需要<a href="#turn-off-team-create">关闭</a>组队创作，然后对其<span class="text-nowrap">重新启用</span>来重启工作环节。
+</div>
+<h3>编辑和测试</h3>
+<p>在组队创作环境中即使是其他用户正在对脚本进行编辑，开发者仍然可以按常规操作打开该脚本。对脚本做出改动后，该脚本将会被添加到 <strong>Drafts</strong>（草稿）窗口中。草稿会进行自动保存，且在同一机器上不会因为多次进入与退出 Studio 工作环节而丢失。</p>
+<img src="/assets/blt6a6285642469f6c2/Team-Create-Drafts-Window.png" class="img-fluid half-sized">
+<div class="alert alert-primary mb-3" role="alert">
+如果草稿窗口没有打开，可以通过点击 <b>View</b>（视图）选项卡中的 <b>Drafts</b>（草稿）按钮进行开启。
+</div>
+<div class="alert alert-warning mb-4" role="alert">
+在本地进行的游戏测试会使用<b>草稿</b>版本（而非服务器版本）的脚本。开发者可以籍此测试变动内容，而不影响其他合作者的工作进度。在进行<b class="text-nowrap">团队测试</b>环节时将会使用服务器版本脚本，具体说明详见<span class="text-nowrap"><code>articles/game testing|游戏测试模式</code>。</span>
+</div>
+<h3>脚本对照</h3>
+<p>开发者随时可以将草稿与对应的云端版本进行对照，只需<span class="text-nowrap">右键单击</span>草稿然后选择<b class="text-nowrap">Compare with server</b>（与服务器端对照）。</p>
+<img src="/assets/blt05990c9be27b6b77/Team-Create-Drafts-Compare.png" class="img-fluid half-sized">
+<p>此操作将会打开 <b class="text-nowrap">Diff Result</b>（差异结果）窗口。红色部分表示服务器端被改动或者删除的代码；绿色部分表示更新后的代码。开发者可以通过对比行号来决定该保留的内容。</p>
+<img src="/assets/bltecba0021f2ab9f9b/Team-Create-Diff-Result.png" class="img-fluid half-sized">
+<h3>将编辑后的内容应用到服务器端</h3>
+<p>若想将更改后的内容应用至云端版本，请在 <strong>Draft</strong>（草稿）窗口中选择一个或多个草稿，<span class="text-nowrap">右键单击</span>后选择 <strong>Commit</strong>（提交）。</p>
+<img src="/assets/bltc1ebf2beafe4c237/Team-Create-Drafts-Commit.png" class="img-fluid half-sized">
+<h3>合并更改内容</h3>
+<p>若开发者在对脚本进行编辑时有另外一名合作者对同一脚本提交了改动，<strong>Draft</strong>（草稿）窗口中此脚本的旁边将会显示绿色的 <img src="/assets/bltb5160a07ace432d7/Team-Create-Updated-Icon.png" class="d-inline my-0 align-text-bottom" width=21> 图标。</p>
+<img src="/assets/blt45b836a3f3771786/Team-Create-Script-Updated.png" class="img-fluid half-sized">
+<p>此时开发者可选择一个或者更多脚本，<span class="text-nowrap">右键单击</span>然后选择 <b class="text-nowrap">Merge from server</b>（从服务器端合并）打开合并工具窗口。在此窗口中可以看到和本地开发者编辑内容有关的最新编辑条目。如果有任何改动出现内容冲突，开发者可以选择希望保留的代码，也可以进行手动编辑。</p>
+<div class="container mb-4">
+<div class="row">
+<div class="col-auto mx-0 pl-3 pr-5 py-3" style="background-color: #2e2e2e;">
+<img src="/assets/blta555ce479e9a3873/Team-Create-Merge-Options.png" class="img-fluid half-sized mb-0 mr-4">
+</div>
+<div class="col pl-2 px-0 pt-1">
+<ul class="mb-0">
+<li>勾选 <b>Draft</b>（草稿）保留本地更改，未勾选时将会删除本地更改。</li>
+<li>勾选 <b>Server</b>（服务器）将更改合并至草稿中，未勾选时将会忽略所有服务器端更改。</li>
+<li>勾选 <b>Other</b>（其它）对脚本进行手动编辑，然后将更改保存至草稿。</li>
+</ul>
+</div>
+</div>
+</div>
+<p>勾选所需选项后，可以切换 <b class="text-nowrap">Preview Resolution</b>（预览解决方案）开关，预览脚本的变更情况。</p>
+<div class="container mb-4">
+<div class="row">
+<div class="col-auto mx-0 pl-3 pr-3 py-3" style="background-color: #2e2e2e;">
+<img src="/assets/blt70c0bf68f791584a/Team-Create-Merge-Preview.png" class="img-fluid half-sized mb-0">
+</div>
+</div>
+</div>
+<h3>恢复被删除的脚本</h3>
+<p>当本地开发者正在编辑脚本时，如果出现另一合作者删除当前脚本的情况，将会在 <strong>Drafts</strong>（草稿）窗口显示带有红色 <img src="/assets/bltf61c0a8ce69aad48/Team-Create-Deleted-Icon.png" class="d-inline my-0 align-text-bottom" width=21> 的图标：</p>
+<img src="/assets/bltaf78232b137b4613/Team-Create-Script-Deleted.png" class="img-fluid half-sized">
+<p>若想将本地脚本版本放回游戏中，请在 <strong>Drafts</strong>（草稿）窗口选中一个或更多草稿，对其<span class="text-nowrap">右键单击</span>后选择<b class="text-nowrap">Restore Script</b>（恢复脚本）。</p>
+<div class="alert alert-warning mb-4" role="alert">
+注意：被恢复的脚本将会被放置回场景的 <b>Workspace</b> 中，因此需要<span class="text-nowrap">将其父项</span>重新设置为原有位置。
+</div>
+<h2>发布和保存</h2>
+<p>在使用组队创作时对已变动的内容进行保存的过程与单人 Studio 下有些差异。启用组队创作时，Studio 将会以<span class="text-nowrap">自动保存</span>的方式每隔 5 分钟将内容投射到云端。在多个<span class="text-nowrap">自动保存</span>之间做出的变动将不会被发布，因此更新已发布游戏时，仍然需要通过<span class="text-nowrap"><b>File（文件）</b> → <b>Publish to Roblox（发布至 Roblox）</b>来进行单独发布。</span></p>
+<h2>撤销改动</h2>
+<p>所有者可以将改动的内容恢复原样，与在单人模式下开发游戏时相同：</p>
+<ol>
+<li>在游戏页面上单击 <img src="/assets/blt738fe32bb9c285f9/Config-Dots.png" class="d-inline my-0 align-text-bottom" width=29> 按钮。</li>
+<li>选择 <b class="text-nowrap">Configure this Place（配置此场景）</b>。</li>
+<li>单击 <b class="text-nowrap">Version History（版本历史）</b>。</li>
+<li>选择更早的版本并单击 <b class="text-nowrap">Revert to this version（恢复至此版本）</b>来进行改动撤销。</li>
+</ol>
+<div class="alert alert-danger mb-4" role="alert">
+用这种方式将改动内容恢复时一定要小心，如果目前有人在用组队创作编辑游戏，其工作环节将仍然能够进行<span class="text-nowrap">自动保存</span>并覆盖恢复操作。在进行版本恢复前，一定要确保目前没有人正在编辑游戏，或者直接<a href="#turn-off-team-create">关闭</a>组队创作。
+</div>
+<h2>关闭组队创作<span id="turn-off-team-create"></span></h2>
+<p>游戏所有者或拥有正确<code>articles/Group Games#editing-roles|权限</code>的开发者可以关闭场景的组队创作功能。单击位于组队创作窗口最底端的 <img src="/assets/bltc0570ac67590e30e/Team-Create-Menu-Dots.png" class="d-inline my-0 align-text-bottom" width=23> 按钮并选择  <b class="text-nowrap">Disable Team Create（禁用组队创作）</b>后，工作环节中的任何其他用户都会被踢出，且在组队创作被<span class="text-nowrap">重新启用</span>前都将无法加入。</p>
+<img src="/assets/blt9e83d5dc6a9b9ae5/Disable-Team-Create.png" class="img-fluid half-sized">
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">相关参考文章</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="/articles/Group-Games"><span class="related-article-img" style="background-image: url(https://dk135eecbplh9.cloudfront.net/assets/blte146e5d0b1d53338/Group-Games-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="/articles/Group-Games">群组游戏</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="/articles/game-testing"><span class="related-article-img" style="background-image: url(https://dk135eecbplh9.cloudfront.net/assets/blt33af09af338dd4ee/Game-Test-Modes-Thumbnail.png);"> </span></a>
+          <h3 data-toc-skip><a href="/articles/game-testing">游戏测试模式</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>此网站如何使用 Cookie</h1>
+        <div class="privacy-content">
+          <p>此平台使用 Cookie 为您提供更好的体验、对内容进行个性化、提供社交媒体功能和分析网站流量。如需详细信息（包括有关如何在此平台上防止使用 Cookie 或对其进行管理的信息），请参阅我们的<a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私和 Cookie 政策</a>。</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">确定</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">你即将离开 Roblox 网站</div>
+        <p>请按下继续按钮前往： <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="" class="btn secondary-btn" data-dismiss="modal">返回</a>
+        <a href="" class="btn primary-btn continue-link" target="_blank">继续</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com" target="_self" class="footer-logo ptxl mbl">
+              <img src="https://dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2019 Roblox Corporation. 保留所有权利。</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>公司</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">关于 Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">招贤纳士</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">技术</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">服务条款</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私政策</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">家长</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>开发人员</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="/articles/Creating-Your-First-Game" target="_self">入门</a>
+                  </li>
+                
+                  <li>
+                    <a href="/learn-roblox/all-tutorials" target="_self">了解</a>
+                  </li>
+                
+                  <li>
+                    <a href="/api-reference" target="_self">API 参考</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com" target="_blank">社区</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">开发人员公告</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">搜索</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input"
+                        placeholder="搜索">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" href="#all" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            所有结果
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" href="#api-doc" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API 文档
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" href="#tutorial" role="tab"
+                            aria-selected="false" data-name="articles">
+                            教程
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" href="#recipe" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            代码参考
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" href="#video" role="tab"
+                            aria-selected="false" data-name="videos">
+                            视频
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+</html>

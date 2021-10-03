@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>使用光束创建冒烟和起火的效果 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="昼夜循环和路灯" href="Day-Night-Cycles-and-Street-Lights.html" />
+    <link rel="prev" title="闪烁的动态光源" href="Glowing-dynamic-lights.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="atmosphere.html">Atmosphere（氛围）掌控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro-to-beams.html">Beam（光束）简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-Fireworks.html">Creating Fireworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-Fireworks.html#steps">Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Portal.html">创建传送门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Portal.html#id2">步骤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fog-Overview-and-Settings.html">Fog – Overview and Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glowing-dynamic-lights.html">闪烁的动态光源</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">使用光束创建冒烟和起火的效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">步骤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Day-Night-Cycles-and-Street-Lights.html">昼夜循环和路灯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Particle-Emitters.html">粒子发射器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sounds-and-music.html">音效与音乐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="force-field-material.html">力场材质</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Basics-on-Roblox.html">添加团队</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a> &raquo;</li>
+        
+      <li>使用光束创建冒烟和起火的效果</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Smoke-and-Fire-with-Beams.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>使用光束创建冒烟和起火的效果<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>15  分钟</em></p>
+<p>在本教程中，你将学习：</p>
+<ul class="simple">
+<li><p>如何使用 <code class="docutils literal notranslate"><span class="pre">Beam</span></code> 对象创建自己的火焰效果</p></li>
+<li><p>如何在 <code class="docutils literal notranslate"><span class="pre">Part</span></code> 上创建 <code class="docutils literal notranslate"><span class="pre">Attachment</span></code> 并设置其位置</p></li>
+<li><p>如何在整个光束上设置光束的 <code class="docutils literal notranslate"><span class="pre">Beam/Color</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Beam/Transparency</span></code>。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Beam/LightEmission</span></code> 如何在两个 Beam 对象上起作用</p></li>
+</ul>
+<p><img alt="Tutorial final product" src="https://developer.roblox.com/assets/blt4217e95f14c2b6ca/FireBeamFinal.png" /></p>
+</div>
+<div class="section" id="id2">
+<h1>步骤<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>在“Insert（插入）”部分的“Home（主页）”选项卡下，插入一个 <code class="docutils literal notranslate"><span class="pre">Part</span></code>。<br /><img alt="Inserting a Part" src="https://developer.roblox.com/assets/blt9d8d6a8b75616bbd/InsertPart.png" /></p></li>
+</ol>
+<p><img alt="Selected part" src="https://developer.roblox.com/assets/blt594ca29a5b53c870/SelectedPart.png" /></p>
+<ol class="simple">
+<li><p>在“Constraints（约束）”部分的“Model（模型）”选项卡下，选择 <code class="docutils literal notranslate"><span class="pre">Attachment</span></code>。在选中该工具的情况下，在游戏视图中两个不同的位置上单击你的 Part（部件）两次，可创建两个 Attachment（附件）对象。在“Explorer（管理器）”窗口中，观察这两个对象如何成为该 Part（部件）的父对象。<br /><img alt="Creating an Attachment" src="https://developer.roblox.com/assets/blta997e49199217d1f/CreateAttachment.png" /></p></li>
+</ol>
+<p><img alt="Created Attachments" src="https://developer.roblox.com/assets/blt36124a435b8fc831/NewAttachments.png" /></p>
+<p><img alt="Attachments in the Explorer Window" src="https://developer.roblox.com/assets/bltdc2a7a19e7bfe406/AttachmentsExplorer.png" /></p>
+<ol class="simple">
+<li><p>将这两个附件重命名为 “Center” 和 “Top”。完成此操作的方法是，在“Explorer（管理器）”窗口中右键单击这两个附件，然后选择“Rename（重命名）”或按 F2。<br /><img alt="Renamed Attachments in Explorer" src="https://developer.roblox.com/assets/bltd5bac421c190dd61/PartCenterTopAttachments.png" /></p></li>
+<li><p>选择 Center Attachment（中央附件）。在“Properties（属性）”窗口中，将其 <code class="docutils literal notranslate"><span class="pre">Attachment/Position</span></code> 设置为 0, 0, 0。将 Top Attachment （顶部附件）的 Position 设置为 0, 10, 0。Position（位置）会相对于 Part（部件）重定位附件。<br /><img alt="Attachment Position in the Properties Window" src="https://developer.roblox.com/assets/blt845025e49f8b244e/AttachmentPosition.png" /></p></li>
+<li><p>选择该 Part（部件）。在“Effects（效果）”下拉列表中“Gameplay（游戏）”部分的“Model（模型）”选项卡下，插入一个 <code class="docutils literal notranslate"><span class="pre">Beam</span></code> 对象。<br /><img alt="Inserting a Beam effect" src="https://developer.roblox.com/assets/blt6b3526fa8e24c5aa/InsertBeam.png" /></p></li>
+</ol>
+<p><img alt="Beam in the Explorer window" src="https://developer.roblox.com/assets/blt42707ed26a9d7b4c/Beam.png" /></p>
+<ol class="simple">
+<li><p>这个新的 Beam 将在插入时被选中。在“Properties（属性）”窗口中，在这个新的 Beam 被选中的情况下，将 <code class="docutils literal notranslate"><span class="pre">Beam/Attachment0</span></code> 属性设置为 Center Attachment（中央附件）并且将 <code class="docutils literal notranslate"><span class="pre">Beam/Attachment1</span></code> 属性设置为 Top Attachment（顶部附件）。<br /><strong>提示：</strong> 若要设置对象引用属性（例如 Attachment0 和 Attachment1），请单击该属性右侧的空格。然后，单击“Explorer（管理器）”窗口中的对象，或单击 X 以清除该属性。<br />设置这两个属性后，光束将在游戏视图中的部件上渲染。应该如下所示：<br /><img alt="Beam preview - step 6" src="https://developer.roblox.com/assets/bltbb8337d1c91fdd12/FireBeam0.png" /></p></li>
+<li><p>将 Beam 的 <code class="docutils literal notranslate"><span class="pre">Beam/Texture</span></code> 属性设置为以下值：<br /><code class="docutils literal notranslate"><span class="pre">rbxassetid://1849531275</span></code> (<a class="reference external" href="https://i.imgur.com/I54FaUj.png">Preview</a></p></li>
+</ol>
+<p>)<br />此纹理是 128 × 1024 重复的透明白色烟雾纹理。<br /><strong>提示：</strong> 你只需粘贴数字部分（资源 ID），Roblox Studio 会填写前缀。<br />设置后，光束将立即渲染纹理。由于 Beam 的 TextureSpeed 属性（默认情况下是，设置为 1），因此它还会向上移动。<br /><img alt="Beam preview - step 7" src="https://developer.roblox.com/assets/blt6cec1fd894f5f40f/FireBeam1.png" /></p>
+<ol class="simple">
+<li><p>将 Beam 的 <code class="docutils literal notranslate"><span class="pre">Beam/Width0</span></code> 属性设置为 4，并将 <code class="docutils literal notranslate"><span class="pre">Beam/Width1</span></code> 属性设置为 8。这将使光束呈圆锥形渲染，在底部变细，在顶部变宽。<br /><img alt="Beam preview - step 8" src="https://developer.roblox.com/assets/blt7287dcbef2a54652/FireBeam2.png" /></p></li>
+<li><p>接下来，在“Properties（属性）”窗口中选择 Beam 的 <code class="docutils literal notranslate"><span class="pre">Beam/Transparency</span></code> 属性。单击该属性，当你要输入数字时，请改为单击出现在字段右侧的 […]。<br /><img alt="Beam Transparency Field" src="https://developer.roblox.com/assets/blt18e0c039589bf4a0/BeamTransparencyField.png" /></p></li>
+</ol>
+<p>此时将出现一个折线图。这是用于 <code class="docutils literal notranslate"><span class="pre">DataType/NumberSequence</span></code> 类型字段的编辑器。对于 Transparency（透明度），X 轴代表从 Attachment0 到 Attachment1 渲染的光束中的位置。 Y 轴代表该位置处光束的 Transparency（透明度）。默认情况下，在整个 Beam 中该值为 0.5，如 0.5 处的水平线显示。<br /><img alt="Beam Transparency Graph - Constant" src="https://developer.roblox.com/assets/blt19c8e68c4a4c96bc/BeamTransparencyGraphConstant.png" /></p>
+<p>将鼠标悬停在左侧点（Time = 0 处）以将其选中。通过将它拖动到折线图的底部，将它的值设置为 0。将右侧点（Time = 1 处）的值设置为 1。这将导致 Beam（光束）在 Attachment0 附近完全不透明地渲染，并在 Attachment1 附近逐渐消失。该图现在应如下所示：<br /><img alt="Beam Transparency Graph - Linear" src="https://developer.roblox.com/assets/blt443b7094406af408/BeamTransparencyGraphLinear.png" /></p>
+<p>光束现在会像这样。注意 Attachment1 附近的光束顶部没有硬边。<br /><img alt="Beam preview - step 9" src="https://developer.roblox.com/assets/blt5c580e0ff7fbd0da/FireBeam3.png" /></p>
+<ol class="simple">
+<li><p>选择光束的 <code class="docutils literal notranslate"><span class="pre">Beam/Color</span></code> 属性。与透明度非常相似，你可以在编辑时单击 […] 打开 <code class="docutils literal notranslate"><span class="pre">DataType/ColorSequence</span></code> 编辑器。与透明度类似，此图根据位置确定光束的 <code class="docutils literal notranslate"><span class="pre">Beam/Texture</span></code> 的颜色。<br /><img alt="Beam Color Graph" src="https://developer.roblox.com/assets/blt77eb559373dabcaa/BeamColorWhite.png" /></p></li>
+</ol>
+<p>我们希望光束从白色渐变为橙色再到红色。单击右侧的色块（Time = 1 处）以将其选中，然后单击 Color（颜色）将颜色更改为红色。对左侧的色块（Time = 0 处）进行相同的操作，将颜色更改为黄色。<br /><img alt="Beam Color Graph - Gradient" src="https://developer.roblox.com/assets/blt409036ff45b2fab6/BeamColorGradient.png" /></p>
+<p>现在，光束将从 Attachment0 到 Attachment1 从黄色混合为红色，中间为橙色。它看起来像这样：<br /><img alt="Beam preview - step 10" src="https://developer.roblox.com/assets/blt464640f2aa2b8250/FireBeam4.png" /></p>
+<ol class="simple">
+<li><p>启用光束的 <code class="docutils literal notranslate"><span class="pre">Beam/FaceCamera</span></code> 属性。这将导致在 Attachment0-Attachment1 行上旋转光束的 2D 面，以使光束始终面向 <code class="docutils literal notranslate"><span class="pre">Camera</span></code>。尝试从不同的镜头角度查看光束，以了解此属性的工作方式。</p></li>
+<li><p>将光束的 <code class="docutils literal notranslate"><span class="pre">Beam/LightEmission</span></code> 属性更改为 1。光束会显得稍微亮一些，因为 LightEmission 导致光束使用 [加法混合] (<a class="reference external" href="https://en.wikipedia.org/wiki/Blend_modes#Addition">https://en.wikipedia.org/wiki/Blend_modes#Addition</a>) 进行渲染。<br /><img alt="Beam LightEmission and TextureSpeed in Properties window" src="https://developer.roblox.com/assets/blt9c1947391da0330f/BeamLightEmissionTextureSpeed.png" /></p></li>
+<li><p>将光束的 <code class="docutils literal notranslate"><span class="pre">Beam/TextureSpeed</span></code> 更改为 0.4 并将光束重命名为 BeamA。按 CTRL+D 复制该光束并将副本重命名为 BeamB。将 BeamB 的 TextureSpeed 更改为 0.8。现在，该部件的外观将明显变亮，因为有两个使用了加法混合的光束。BeamB 的纹理移动速度比 BeamA 的快，因此当纹理的颜色混合时，它们会产生一种烟雾效果。<br /><img alt="Beam preview - Step 13" src="https://developer.roblox.com/assets/bltbbc54333c259be9c/FireBeam5.png" /></p></li>
+<li><p>在选中该部件的情况下，添加一个 <code class="docutils literal notranslate"><span class="pre">Smoke</span></code> 对象（通过“Gameplay（游戏）”部分的“Model（模型）”选项卡下的“Effects（效果）”菜单）：<br /><img alt="Inserting a Smoke object" src="https://developer.roblox.com/assets/blt5ab023c5d7e6b687/InsertSmoke.png" /></p></li>
+<li><p>对于 Smoke 对象，将 <code class="docutils literal notranslate"><span class="pre">Smoke/RiseVelocity</span></code> 设置为 5，将 Opacity 设置为 0.2 并将 <code class="docutils literal notranslate"><span class="pre">Smoke/Color</span></code> 设置为黑色。这将对比 Beam 对象的明亮颜色。<br /><img alt="Beam preview - step 15" src="https://developer.roblox.com/assets/bltc17afcb031ff63ab/FireBeam6.png" /></p></li>
+<li><p>现在开始创造吧！开始摆弄在前面步骤中设置的属性。这里有一些想法。
+1. 尝试在 0, 15, 0 处创建一个名为 Top2 的新 <code class="docutils literal notranslate"><span class="pre">Attachment</span></code> 并将 BeamB 的 Attachment1 设置为这个新附件。这将导致一些火焰升得更高。
+2. 将 Part 的 <code class="docutils literal notranslate"><span class="pre">BasePart/Transparency</span></code> 设置为 1 以便它不可见。注意底部的硬边。尝试设置 Transparency 以便光束在 Attachment0 附近消失。<br /><img alt="A customized Transparency graph" src="https://developer.roblox.com/assets/blt0c492617d513b817/BeamTransparencyGraphCustom.png" /></p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>3. 在选中 Center Attachment 的情况下，在“Effects（效果）”下添加一个 `PointLight` 对象。将它的 `PointLight/Color` 设置为橙色，将它的 Range 设置为 12。  
+</pre></div>
+</div>
+<p><img alt="Inserting a PointLight" src="https://developer.roblox.com/assets/blt11a4320b31f96251/InsertPointLight.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>4. 尝试不同的 `Beam/Texture`！下面是一缕透明的白色烟雾。将 BeamB 的 TextureLength 设置为 1.25，将它的 Texture 设置为以下值：  
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">rbxassetid://1525327413</span></code> (<a class="reference external" href="https://i.imgur.com/wZza97B.png">Preview</a></p>
+<p>)
+17. 下面是执行上述步骤时效果的免费模型链接：<a class="reference external" href="https://www.roblox.com/library/1880281999">Final Product</a></p>
+<p>这是我玩了几分钟后想出的光束发射效果的一种变化。看看你是否可以重新创建它。<br /><strong>提示：</strong> 每次你改变内容时都要复制你的效果。这样你可以回到一个更基本的效果版本。<br /><img alt="Pink fire Beam effect - try recreating me!" src="https://developer.roblox.com/assets/blt852194554d15fe8d/PinkFireBeamExample.png" /></p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Smoke-and-Fire-with-Beams">使用光束创建冒烟和起火的效果</a></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Day-Night-Cycles-and-Street-Lights.html" class="btn btn-neutral float-right" title="昼夜循环和路灯" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Glowing-dynamic-lights.html" class="btn btn-neutral float-left" title="闪烁的动态光源" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,621 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>镜头操控 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="鼠标指针控制" href="Mouse-Icon-Appearance.html" />
+    <link rel="prev" title="文本与聊天过滤" href="Text-and-Chat-Filtering.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-GUIs.html">GUI 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI-Animations.html">GUI 动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fundamentals-of-Scripting-with-GUIs.html">GUI 脚本简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Chat-System.html">Lua 聊天系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Interactive-Surface-GUI.html">交互式表面 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-GUI-Buttons.html">创建 GUI 按钮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Radial-Menu.html">创建摇杆快速菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Grid-Menu.html">创建栅格菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using-Images-in-GUIs.html">在 GUI 中使用图像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text-and-Chat-Filtering.html">文本与聊天过滤</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">镜头操控</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">镜头属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">为镜头编写脚本</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">缩近/拉远</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">横向卷轴镜头</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Mouse-Icon-Appearance.html">鼠标指针控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animating-text.html">设置文本动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar-emotes.html">Avatar Emotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chat-Modules.html">Chat Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Custom-Teleport-GUI.html">创建自定义传送屏幕</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Scrolling-Frame-GUI.html">创建滚动框架 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-the-camera.html">Customizing the Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Disabling-Parts-of-Game-Interface.html">禁用游戏界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-bindings.html">Roblox Input Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selection-Boxes.html">选择框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Three-Quarters-Camera-View.html">45 度镜头视角</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Unit-Frame.html">单元框：制作生命槽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewportframe-gui.html">ViewportFrame GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/user-interface.html">用户界面</a> &raquo;</li>
+        
+      <li>镜头操控</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Camera-manipulation.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>镜头操控<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>15  分钟</em></p>
+<p>除了基本的<code class="docutils literal notranslate"><span class="pre">articles/customizing</span> <span class="pre">the</span> <span class="pre">camera|镜头自定义</span></code>之外，开发者还可以通过操控游戏镜头达成如创建特定玩家（角色）视图系统、锁定镜头至世界特定位置及创建独特镜头效果等目的。</p>
+<div class="section" id="id2">
+<h2>镜头属性<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Roblox 的 <code class="docutils literal notranslate"><span class="pre">Camera</span></code> 有若干 内置 属性，其中包括：</p>
+<p>属性 描述</p>
+<p><code class="docutils literal notranslate"><span class="pre">Camera/CFrame</span></code>
+镜头的 <code class="docutils literal notranslate"><span class="pre">BasePart/CFrame|CFrame</span></code> 。在放置或移动游戏镜头时常会用到这一属性。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Camera/Focus</span></code>
+镜头在 3D 空间中所朝向的点。如果把镜头朝向某个特定的方向，则需要更新这一属性，因为部分视觉效果会根据其距离焦点的距离来变更细致程度。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Camera/FieldOfView</span></code>
+在屏幕上可观察到的游戏世界的范围，其范围在垂直方向的 1 至 120 度之间(默认值为 70)。</p>
+</div>
+<div class="section" id="id3">
+<h2>为镜头编写脚本<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>每个玩家的镜头都处于其本地设备上，因此应当将自定义镜头代码放置至 <strong>StarterPlayer</strong> → <strong>StarterPlayerScripts</strong> 下的 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 中。在此类脚本中，可以通过 <code class="docutils literal notranslate"><span class="pre">Workspace/CurrentCamera|CurrentCamera</span></code> 对象来访问摄像头。</p>
+<p>获取当前镜头 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">camera</span> <span class="o">=</span> <span class="n">workspace</span><span class="o">.</span><span class="n">CurrentCamera</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>### 越肩视角
+
+基本的越肩视角 镜头，常见于 第三人称 射击游戏当中，可以通过下列脚本来实现。此镜头将会锁定在角色的背后，玩家可通过鼠标来转动视角（非方向输入）。
+
+越肩镜头视角 ```    
+    
+    local Players = game:GetService(&quot;Players&quot;)
+    local ContextActionService = game:GetService(&quot;ContextActionService&quot;)
+    local UserInputService = game:GetService(&quot;UserInputService&quot;)
+    local RunService = game:GetService(&quot;RunService&quot;)
+    
+    local camera = workspace.CurrentCamera
+    local cameraOffset = Vector3.new(2, 2, 8)
+    local player = Players.LocalPlayer
+    
+    player.CharacterAdded:Connect(function(character)
+    
+    	local humanoid = character:WaitForChild(&quot;Humanoid&quot;)
+    	local rootPart = character:WaitForChild(&quot;HumanoidRootPart&quot;)
+    	humanoid.AutoRotate = false
+    
+    	local cameraAngleX = 0
+    	local cameraAngleY = 0
+    
+    	local function playerInput(actionName, inputState, inputObject)
+    		-- 根据输入变化计算镜头/玩家的旋转
+    		if inputState == Enum.UserInputState.Change then
+    			cameraAngleX = cameraAngleX - inputObject.Delta.X
+    			-- 减少垂直方向鼠标/触控灵敏度并夹住垂直轴
+    			cameraAngleY = math.clamp(cameraAngleY-inputObject.Delta.Y*0.4, -75, 75)
+    			-- 以 X delta 来旋转根部件 CFrame
+    			rootPart.CFrame = rootPart.CFrame * CFrame.Angles(0, math.rad(-inputObject.Delta.X), 0)
+    		end
+    	end
+    	ContextActionService:BindAction(&quot;PlayerInput&quot;, playerInput, false, Enum.UserInputType.MouseMovement, Enum.UserInputType.Touch)
+    
+    	RunService.RenderStepped:Connect(function()
+    		if camera.CameraType ~= Enum.CameraType.Scriptable then
+    			camera.CameraType = Enum.CameraType.Scriptable
+    		end
+    		local startCFrame = CFrame.new((rootPart.CFrame.Position)) * CFrame.Angles(0, math.rad(cameraAngleX), 0) * CFrame.Angles(math.rad(cameraAngleY), 0, 0)
+    		local cameraCFrame = startCFrame:ToWorldSpace(CFrame.new(cameraOffset.X, cameraOffset.Y, cameraOffset.Z))
+    		local cameraFocus = startCFrame:ToWorldSpace(CFrame.new(cameraOffset.X, cameraOffset.Y, -10000))
+    		camera.CFrame = CFrame.new(cameraCFrame.Position, cameraFocus.Position)
+    	end)
+    end)
+    
+    local function focusControl(actionName, inputState, inputObject)
+    	-- 在输入开始时锁定并隐藏鼠标图标
+    	if inputState == Enum.UserInputState.Begin then
+    		UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
+    		UserInputService.MouseIconEnabled = false
+    		ContextActionService:UnbindAction(&quot;FocusControl&quot;, focusControl, false, Enum.UserInputType.MouseButton1, Enum.UserInputType.Touch, Enum.UserInputType.Focus)
+    	end
+    end
+    ContextActionService:BindAction(&quot;FocusControl&quot;, focusControl, false, Enum.UserInputType.MouseButton1, Enum.UserInputType.Touch, Enum.UserInputType.Focus)
+
+</pre></div>
+</div>
+<p>注意：可以通过调整第 7 行上的镜头偏移值改变镜头相对于角色的位置。例如，将其放在角色的左肩膀上 (<code class="docutils literal notranslate"><span class="pre">-2,</span> <span class="pre">2,</span> <span class="pre">8</span></code>) 或者是将镜头拉到离玩家更远的位置 (<code class="docutils literal notranslate"><span class="pre">2,</span> <span class="pre">2,</span> <span class="pre">15</span></code>)。</p>
+<div class="section" id="id4">
+<h3>缩近/拉远<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>使用下面的脚本可以实现一种简单的缩近/拉远镜头系统。本例中使用鼠标中间来进行放大和缩小，使用 <code class="docutils literal notranslate"><span class="pre">ContextActionService</span></code> 来在移动设备上创建虚拟的缩放按钮。</p>
+<p>缩近/拉远 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">Players</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">ContextActionService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ContextActionService&quot;</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">UserInputService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;UserInputService&quot;</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">TweenService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;TweenService&quot;</span><span class="p">)</span>
+
+<span class="n">local</span> <span class="n">camera</span> <span class="o">=</span> <span class="n">workspace</span><span class="o">.</span><span class="n">CurrentCamera</span>
+<span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">Players</span><span class="o">.</span><span class="n">LocalPlayer</span>
+
+<span class="n">local</span> <span class="n">tweenInfo</span> <span class="o">=</span> <span class="n">TweenInfo</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">EasingStyle</span><span class="o">.</span><span class="n">Quint</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">EasingDirection</span><span class="o">.</span><span class="n">Out</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">initialFieldOfView</span> <span class="o">=</span> <span class="n">camera</span><span class="o">.</span><span class="n">FieldOfView</span>
+<span class="n">local</span> <span class="n">initialCameraPosition</span> <span class="o">=</span> <span class="n">camera</span><span class="o">.</span><span class="n">CFrame</span>
+<span class="n">local</span> <span class="n">isZoomed</span> <span class="o">=</span> <span class="n">false</span>
+<span class="n">local</span> <span class="n">inTween</span> <span class="o">=</span> <span class="n">false</span>
+<span class="n">local</span> <span class="n">target</span>
+
+<span class="n">player</span><span class="o">.</span><span class="n">CharacterAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">character</span><span class="p">)</span>
+
+	<span class="n">local</span> <span class="n">humanoid</span> <span class="o">=</span> <span class="n">character</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;Humanoid&quot;</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">rootPart</span> <span class="o">=</span> <span class="n">character</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;HumanoidRootPart&quot;</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">initialWalkSpeed</span> <span class="o">=</span> <span class="n">humanoid</span><span class="o">.</span><span class="n">WalkSpeed</span>
+	<span class="n">local</span> <span class="n">initialJumpPower</span> <span class="o">=</span> <span class="n">humanoid</span><span class="o">.</span><span class="n">JumpPower</span>
+
+	<span class="n">local</span> <span class="n">cameraAngleX</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="n">local</span> <span class="n">cameraAngleY</span> <span class="o">=</span> <span class="mi">0</span>
+
+	<span class="n">local</span> <span class="n">function</span> <span class="n">moveInput</span><span class="p">(</span><span class="n">actionName</span><span class="p">,</span> <span class="n">inputState</span><span class="p">,</span> <span class="n">inputObject</span><span class="p">)</span>
+		<span class="k">if</span> <span class="ow">not</span> <span class="n">isZoomed</span> <span class="n">then</span> <span class="k">return</span> <span class="n">end</span>
+		<span class="k">if</span> <span class="n">inputState</span> <span class="o">==</span> <span class="n">Enum</span><span class="o">.</span><span class="n">UserInputState</span><span class="o">.</span><span class="n">Change</span> <span class="n">then</span>
+			<span class="n">cameraAngleX</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="n">cameraAngleX</span><span class="o">-</span><span class="n">inputObject</span><span class="o">.</span><span class="n">Delta</span><span class="o">.</span><span class="n">X</span><span class="o">*</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
+			<span class="n">cameraAngleY</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="n">cameraAngleY</span><span class="o">-</span><span class="n">inputObject</span><span class="o">.</span><span class="n">Delta</span><span class="o">.</span><span class="n">Y</span><span class="o">*</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mi">75</span><span class="p">,</span> <span class="mi">75</span><span class="p">)</span>
+			<span class="n">local</span> <span class="n">camPosition</span> <span class="o">=</span> <span class="n">rootPart</span><span class="o">.</span><span class="n">CFrame</span><span class="p">:</span><span class="n">ToWorldSpace</span><span class="p">(</span><span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">))</span>
+			<span class="n">local</span> <span class="n">camRotation</span> <span class="o">=</span> <span class="n">camPosition</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="n">cameraAngleX</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">Angles</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">rad</span><span class="p">(</span><span class="n">cameraAngleY</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+			<span class="n">target</span> <span class="o">=</span> <span class="n">camRotation</span><span class="p">:</span><span class="n">ToWorldSpace</span><span class="p">(</span><span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">))</span>
+			<span class="n">camera</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">camRotation</span><span class="o">.</span><span class="n">Position</span><span class="p">,</span> <span class="n">target</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+			<span class="n">camera</span><span class="o">.</span><span class="n">Focus</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+		<span class="n">end</span>
+	<span class="n">end</span>
+
+	<span class="n">local</span> <span class="n">function</span> <span class="n">scopeInOut</span><span class="p">(</span><span class="n">actionName</span><span class="p">,</span> <span class="n">inputState</span><span class="p">,</span> <span class="n">inputObject</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">inTween</span> <span class="o">==</span> <span class="n">true</span> <span class="n">then</span> <span class="k">return</span> <span class="n">end</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">inputObject</span><span class="o">.</span><span class="n">UserInputType</span> <span class="o">==</span> <span class="n">Enum</span><span class="o">.</span><span class="n">UserInputType</span><span class="o">.</span><span class="n">MouseButton3</span> <span class="ow">and</span> <span class="p">(</span><span class="n">inputState</span> <span class="o">==</span> <span class="n">Enum</span><span class="o">.</span><span class="n">UserInputState</span><span class="o">.</span><span class="n">Begin</span> <span class="ow">or</span> <span class="n">inputState</span> <span class="o">==</span> <span class="n">Enum</span><span class="o">.</span><span class="n">UserInputState</span><span class="o">.</span><span class="n">End</span><span class="p">))</span>
+			<span class="ow">or</span> <span class="p">(</span><span class="n">inputObject</span><span class="o">.</span><span class="n">UserInputType</span> <span class="o">==</span> <span class="n">Enum</span><span class="o">.</span><span class="n">UserInputType</span><span class="o">.</span><span class="n">Touch</span> <span class="ow">and</span> <span class="n">inputState</span> <span class="o">==</span> <span class="n">Enum</span><span class="o">.</span><span class="n">UserInputState</span><span class="o">.</span><span class="n">End</span><span class="p">)</span> <span class="n">then</span>
+			<span class="n">inTween</span> <span class="o">=</span> <span class="n">true</span>
+			<span class="o">--</span> <span class="n">缩近</span>
+			<span class="k">if</span> <span class="n">isZoomed</span> <span class="o">==</span> <span class="n">false</span> <span class="n">then</span>
+				<span class="n">initialCameraPosition</span> <span class="o">=</span> <span class="n">camera</span><span class="o">.</span><span class="n">CFrame</span>
+				<span class="n">camera</span><span class="o">.</span><span class="n">CameraType</span> <span class="o">=</span> <span class="n">Enum</span><span class="o">.</span><span class="n">CameraType</span><span class="o">.</span><span class="n">Scriptable</span>
+				<span class="n">UserInputService</span><span class="o">.</span><span class="n">MouseBehavior</span> <span class="o">=</span> <span class="n">Enum</span><span class="o">.</span><span class="n">MouseBehavior</span><span class="o">.</span><span class="n">LockCenter</span>
+				<span class="n">UserInputService</span><span class="o">.</span><span class="n">MouseIconEnabled</span> <span class="o">=</span> <span class="n">false</span>
+				<span class="o">--</span> <span class="n">根据镜头方向来旋转根部件</span> <span class="n">CFrame</span>
+				<span class="n">local</span> <span class="n">faceToward</span> <span class="o">=</span> <span class="n">camera</span><span class="o">.</span><span class="n">CFrame</span><span class="p">:</span><span class="n">Lerp</span><span class="p">(</span><span class="n">rootPart</span><span class="o">.</span><span class="n">CFrame</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+				<span class="n">rootPart</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">rootPart</span><span class="o">.</span><span class="n">CFrame</span><span class="o">.</span><span class="n">Position</span><span class="p">,</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">faceToward</span><span class="o">.</span><span class="n">Position</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="n">rootPart</span><span class="o">.</span><span class="n">Position</span><span class="o">.</span><span class="n">Y</span><span class="p">,</span> <span class="n">faceToward</span><span class="o">.</span><span class="n">Position</span><span class="o">.</span><span class="n">Z</span><span class="p">))</span>
+				<span class="n">target</span> <span class="o">=</span> <span class="n">rootPart</span><span class="o">.</span><span class="n">CFrame</span><span class="p">:</span><span class="n">ToWorldSpace</span><span class="p">(</span><span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">))</span>
+				<span class="n">cameraAngleX</span><span class="p">,</span> <span class="n">cameraAngleY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+				<span class="n">humanoid</span><span class="o">.</span><span class="n">WalkSpeed</span> <span class="o">=</span> <span class="mi">0</span>
+				<span class="n">humanoid</span><span class="o">.</span><span class="n">JumpPower</span> <span class="o">=</span> <span class="mi">0</span>
+				<span class="n">wait</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+				<span class="n">local</span> <span class="n">camPosition</span> <span class="o">=</span> <span class="n">rootPart</span><span class="o">.</span><span class="n">CFrame</span><span class="p">:</span><span class="n">ToWorldSpace</span><span class="p">(</span><span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">))</span>
+				<span class="n">camera</span><span class="o">.</span><span class="n">CFrame</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">camera</span><span class="o">.</span><span class="n">CFrame</span><span class="o">.</span><span class="n">Position</span><span class="p">,</span> <span class="n">target</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+				<span class="n">local</span> <span class="n">tween</span> <span class="o">=</span> <span class="n">TweenService</span><span class="p">:</span><span class="n">Create</span><span class="p">(</span><span class="n">camera</span><span class="p">,</span> <span class="n">tweenInfo</span><span class="p">,</span> <span class="p">{</span><span class="n">CFrame</span><span class="o">=</span><span class="n">camPosition</span><span class="p">,</span> <span class="n">FieldOfView</span><span class="o">=</span><span class="mi">12</span><span class="p">})</span>
+				<span class="n">tween</span><span class="o">.</span><span class="n">Completed</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+					<span class="n">ContextActionService</span><span class="p">:</span><span class="n">BindAction</span><span class="p">(</span><span class="s2">&quot;MoveInput&quot;</span><span class="p">,</span> <span class="n">moveInput</span><span class="p">,</span> <span class="n">false</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">UserInputType</span><span class="o">.</span><span class="n">MouseMovement</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">UserInputType</span><span class="o">.</span><span class="n">Touch</span><span class="p">)</span>
+					<span class="n">ContextActionService</span><span class="p">:</span><span class="n">SetTitle</span><span class="p">(</span><span class="s2">&quot;ScopeInOut&quot;</span><span class="p">,</span> <span class="s2">&quot;–&quot;</span><span class="p">)</span>
+					<span class="n">camera</span><span class="o">.</span><span class="n">Focus</span> <span class="o">=</span> <span class="n">CFrame</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+					<span class="n">isZoomed</span> <span class="o">=</span> <span class="n">true</span>
+					<span class="n">inTween</span> <span class="o">=</span> <span class="n">false</span>
+				<span class="n">end</span><span class="p">)</span>
+				<span class="n">tween</span><span class="p">:</span><span class="n">Play</span><span class="p">()</span>
+			<span class="o">--</span> <span class="n">拉远</span>
+			<span class="n">elseif</span> <span class="n">isZoomed</span> <span class="o">==</span> <span class="n">true</span> <span class="n">then</span>
+				<span class="n">ContextActionService</span><span class="p">:</span><span class="n">UnbindAction</span><span class="p">(</span><span class="s2">&quot;MoveInput&quot;</span><span class="p">,</span> <span class="n">moveInput</span><span class="p">,</span> <span class="n">false</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">UserInputType</span><span class="o">.</span><span class="n">MouseMovement</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">UserInputType</span><span class="o">.</span><span class="n">Touch</span><span class="p">)</span>
+				<span class="n">UserInputService</span><span class="o">.</span><span class="n">MouseBehavior</span> <span class="o">=</span> <span class="n">Enum</span><span class="o">.</span><span class="n">MouseBehavior</span><span class="o">.</span><span class="n">Default</span>
+				<span class="n">UserInputService</span><span class="o">.</span><span class="n">MouseIconEnabled</span> <span class="o">=</span> <span class="n">true</span>
+				<span class="n">local</span> <span class="n">tween</span> <span class="o">=</span> <span class="n">TweenService</span><span class="p">:</span><span class="n">Create</span><span class="p">(</span><span class="n">camera</span><span class="p">,</span> <span class="n">tweenInfo</span><span class="p">,</span> <span class="p">{</span><span class="n">CFrame</span><span class="o">=</span><span class="n">initialCameraPosition</span><span class="p">,</span> <span class="n">FieldOfView</span><span class="o">=</span><span class="n">initialFieldOfView</span><span class="p">})</span>
+				<span class="n">tween</span><span class="o">.</span><span class="n">Completed</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+					<span class="n">ContextActionService</span><span class="p">:</span><span class="n">SetTitle</span><span class="p">(</span><span class="s2">&quot;ScopeInOut&quot;</span><span class="p">,</span> <span class="s2">&quot;+&quot;</span><span class="p">)</span>
+					<span class="n">camera</span><span class="o">.</span><span class="n">CameraType</span> <span class="o">=</span> <span class="n">Enum</span><span class="o">.</span><span class="n">CameraType</span><span class="o">.</span><span class="n">Custom</span>
+					<span class="n">humanoid</span><span class="o">.</span><span class="n">WalkSpeed</span> <span class="o">=</span> <span class="n">initialWalkSpeed</span>
+					<span class="n">humanoid</span><span class="o">.</span><span class="n">JumpPower</span> <span class="o">=</span> <span class="n">initialJumpPower</span>
+					<span class="n">isZoomed</span> <span class="o">=</span> <span class="n">false</span>
+					<span class="n">inTween</span> <span class="o">=</span> <span class="n">false</span>
+				<span class="n">end</span><span class="p">)</span>
+				<span class="n">tween</span><span class="p">:</span><span class="n">Play</span><span class="p">()</span>
+			<span class="n">end</span>	
+		<span class="n">end</span>
+	<span class="n">end</span>
+	<span class="n">ContextActionService</span><span class="p">:</span><span class="n">BindAction</span><span class="p">(</span><span class="s2">&quot;ScopeInOut&quot;</span><span class="p">,</span> <span class="n">scopeInOut</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">UserInputType</span><span class="o">.</span><span class="n">MouseButton3</span><span class="p">)</span>
+	<span class="n">ContextActionService</span><span class="p">:</span><span class="n">SetPosition</span><span class="p">(</span><span class="s2">&quot;ScopeInOut&quot;</span><span class="p">,</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.65</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+	<span class="n">ContextActionService</span><span class="p">:</span><span class="n">SetTitle</span><span class="p">(</span><span class="s2">&quot;ScopeInOut&quot;</span><span class="p">,</span> <span class="s2">&quot;+&quot;</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>缩近与拉远的速度可以通过第 9 行上 `TweenInfo.new()` 的第一个参数进行调整，并且作用域缩放力可以使用第 60 行上的 `FieldOfView` 值（介于 10 和 20 之间最佳）进行调整。 
+
+### 绕着对象旋转
+
+若要让镜头全部或部分围绕镜头旋转，请尝试使用以下脚本。该脚本具有可调整镜头偏移、旋转时间、重复计数、过渡类型等功能。
+
+绕对象旋转 ```    
+    
+    local TweenService = game:GetService(&quot;TweenService&quot;)
+    local RunService = game:GetService(&quot;RunService&quot;)
+    
+    local target = workspace.Part  -- 想要绕着旋转的对象
+    local camera = workspace.CurrentCamera
+    camera.CameraType = Enum.CameraType.Scriptable
+    camera.Focus = target.CFrame
+    local rotationAngle = Instance.new(&quot;NumberValue&quot;)
+    local tweenComplete = false
+    
+    local cameraOffset = Vector3.new(0, 10, 12)
+    local rotationTime = 15  -- 时间，以秒计
+    local rotationDegrees = 360
+    local rotationRepeatCount = -1  -- 使用 -1 以无限次重复
+    local lookAtTarget = true  -- 镜头是否倾斜以直接指向目标
+    
+    local function updateCamera()
+    	local rotatedCFrame = CFrame.Angles(0, math.rad(rotationAngle.Value), 0)
+    	camera.CFrame = rotatedCFrame:ToWorldSpace(CFrame.new(cameraOffset))
+    	if lookAtTarget == true then
+    		camera.CFrame = CFrame.new(camera.CFrame.Position, target.Position)
+    	end
+    end
+    
+    -- 设置并开始旋转过渡
+    local tweenInfo = TweenInfo.new(rotationTime, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, rotationRepeatCount)
+    local tween = TweenService:Create(rotationAngle, tweenInfo, {Value=rotationDegrees})
+    tween.Completed:Connect(function()
+    	tweenComplete = true
+    end)
+    tween:Play()
+    
+    -- 在过渡运行时更新镜头位置
+    RunService.RenderStepped:Connect(function()
+    	if tweenComplete == false then
+    		updateCamera()
+    	end
+    end)
+
+</pre></div>
+</div>
+<p>调整第 11 至 15 行上的变量可以控制脚本的行为表现。举例来说，如果镜头位于目标对象上方比较高的位置，如 <code class="docutils literal notranslate"><span class="pre">cameraOffset</span></code> 矢量值为 <code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">30,</span> <span class="pre">12</span></code>，则 <code class="docutils literal notranslate"><span class="pre">lookAtTarget</span></code> 设置控制是否向下倾斜镜头来直接观察对象。</p>
+</div>
+<div class="section" id="id5">
+<h3>横向卷轴镜头<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>通过下列脚本可以实现常用的横向卷轴镜头系统。此示例的镜头锁定在了 <strong>X</strong> 面上，此外 <strong>Z</strong> 偏移可以根据玩家调整。</p>
+<p>若想确保该脚本正常运行， <strong>必须</strong> 通过将 <strong>DevTouchMovementMode</strong> 设置为 <strong>Thumbstick</strong> 来在移动设备上启用传统的拇指摇杆控制模式。详情请参阅<code class="docutils literal notranslate"><span class="pre">articles/customizing</span> <span class="pre">game</span> <span class="pre">controls|自定义游戏控制</span></code> 一文。</p>
+<p>横向卷轴镜头系统 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>local Players = game:GetService(&quot;Players&quot;)
+local ContextActionService = game:GetService(&quot;ContextActionService&quot;)
+local UserInputService = game:GetService(&quot;UserInputService&quot;)
+local RunService = game:GetService(&quot;RunService&quot;)
+
+local cameraChase = {left=10, right=10, up=5, down=0}
+local cameraDistance = 200
+
+local camera = workspace.CurrentCamera
+camera.CameraType = Enum.CameraType.Scriptable
+camera.FieldOfView = 10
+
+local player = Players.LocalPlayer
+local leftValue, rightValue, initialTouchPos, jumpTouchInput, thumbstickMinPush, cameraPosZ = 0, 0, 0, nil, 15, 0
+local humanoid, rootPart
+
+local function handleMovement(actionName, inputState)
+	if inputState == Enum.UserInputState.Begin then
+		if actionName == &quot;Left&quot; then
+			leftValue, rightValue = 1, 0
+		elseif actionName == &quot;Right&quot; then
+			rightValue, leftValue = 1, 0
+		end
+	elseif inputState == Enum.UserInputState.End then
+		if actionName == &quot;Left&quot; or actionName == &quot;Stop&quot; then
+			leftValue = 0
+		end
+		if actionName == &quot;Right&quot; or actionName == &quot;Stop&quot; then
+			rightValue = 0
+		end
+	end
+end
+
+local function onMove()
+	if humanoid then
+		local moveDirection = rightValue - leftValue
+		humanoid:Move(Vector3.new(moveDirection, 0, 0), false)
+	end
+end
+
+local function updateCamera()
+	if camera.CameraType ~= Enum.CameraType.Scriptable then
+		camera.CameraType = Enum.CameraType.Scriptable
+	end
+
+	if rootPart then
+		-- 负责处理水平方向镜头追踪
+		if rootPart.Position.X &lt; camera.CFrame.Position.X - cameraChase[&quot;left&quot;] then
+			camera.CFrame = CFrame.new(Vector3.new(rootPart.Position.X+cameraChase[&quot;left&quot;], camera.CFrame.Position.Y, cameraPosZ))
+		elseif rootPart.Position.X &gt; camera.CFrame.Position.X + cameraChase[&quot;right&quot;] then
+			camera.CFrame = CFrame.new(Vector3.new(rootPart.Position.X-cameraChase[&quot;right&quot;], camera.CFrame.Position.Y, cameraPosZ))
+		end
+		-- 负责处理垂直方向镜头追踪
+		if rootPart.Position.Y &lt; camera.CFrame.Position.Y - cameraChase[&quot;down&quot;] then
+			camera.CFrame = CFrame.new(Vector3.new(camera.CFrame.Position.X, rootPart.Position.Y+cameraChase[&quot;down&quot;], cameraPosZ))
+		elseif rootPart.Position.Y &gt; camera.CFrame.Position.Y + cameraChase[&quot;up&quot;] then
+			camera.CFrame = CFrame.new(Vector3.new(camera.CFrame.Position.X, rootPart.Position.Y-cameraChase[&quot;up&quot;], cameraPosZ))
+		end
+	end
+end
+
+local function handleTouchInput(input, gameProcessed)
+	if input.UserInputState == Enum.UserInputState.Begin and gameProcessed == true then
+		-- 如果触控起始于 jump 按钮，则追踪该按钮
+		if humanoid.Jump == true then
+			jumpTouchInput = input
+		-- 或者触控起始于拇指摇杆，设置初始位置
+		else
+			initialTouchPos = input.Position.X
+		end
+	elseif input.UserInputState == Enum.UserInputState.Change and gameProcessed == true then
+		-- 在玩家移动方面忽略起始于 jump 按钮的触控操作
+		if jumpTouchInput == input then return end
+		-- 只有当拇指摇杆被推动一定程度之后才会处理移动动作
+		if input.Position.X &lt; initialTouchPos - thumbstickMinPush then
+			handleMovement(&quot;Left&quot;, Enum.UserInputState.Begin)
+		elseif input.Position.X &gt; initialTouchPos + thumbstickMinPush then
+			handleMovement(&quot;Right&quot;, Enum.UserInputState.Begin)
+		end
+	elseif input.UserInputState == Enum.UserInputState.End then
+		-- 如果触控操作在 jump 按钮上结束，停止追踪触控
+		if jumpTouchInput == input then
+			jumpTouchInput = nil
+		-- 或者触控操作在拇指摇杆上结束，停止所有移动动作
+		else
+			handleMovement(&quot;Stop&quot;, input.UserInputState)
+			initialTouchPos = 0
+		end
+	end
+end
+
+player.CharacterAdded:Connect(function(character)
+
+	humanoid = player.Character:WaitForChild(&quot;Humanoid&quot;)
+	rootPart = player.Character:WaitForChild(&quot;HumanoidRootPart&quot;)
+	-- 设置初始镜头位置
+	camera.CFrame = CFrame.new(Vector3.new(rootPart.Position.X, rootPart.Position.Y, rootPart.Position.Z+cameraDistance))
+	cameraPosZ = camera.CFrame.Position.Z
+	-- 如果触控启用，则连接触控处理函数
+	if UserInputService.TouchEnabled == true then
+		UserInputService.TouchStarted:Connect(handleTouchInput)
+		UserInputService.TouchMoved:Connect(handleTouchInput)
+		UserInputService.TouchEnded:Connect(handleTouchInput)
+	end
+end)
+
+RunService:BindToRenderStep(&quot;Input&quot;, Enum.RenderPriority.Input.Value, onMove)
+RunService:BindToRenderStep(&quot;Camera&quot;, Enum.RenderPriority.Camera.Value, updateCamera)
+ContextActionService:BindAction(&quot;Left&quot;, handleMovement, false, &quot;a&quot;, Enum.KeyCode.Left)
+ContextActionService:BindAction(&quot;Right&quot;, handleMovement, false, &quot;d&quot;, Enum.KeyCode.Right)
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>第 6 行上的 `cameraChase` 值控制在镜头开始追随玩家之前，玩家可以移离“屏幕中心”的格数。在 `cameraDistance` 值（第 7 行）的基础上每个方向值都可以调整，以便适配您的游戏设计，达到心中最好的观感效果。
+
+
+
+***__Roblox官方链接__:[镜头操控](https://developer.roblox.com/zh-cn/articles/Camera-manipulation)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Mouse-Icon-Appearance.html" class="btn btn-neutral float-right" title="鼠标指针控制" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Text-and-Chat-Filtering.html" class="btn btn-neutral float-left" title="文本与聊天过滤" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

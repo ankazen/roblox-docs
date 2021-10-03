@@ -1,0 +1,286 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>网络模拟模式 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="线程计划程序" href="Thread-Scheduler.html" />
+    <link rel="prev" title="监控游戏崩溃与性能过滤功能" href="Monitoring-Games-for-Crashes-and-Performance-Filtering.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Fighting-Against-Lag.html">减少延迟影响</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MicroProfiler.html">MicroProfiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Monitoring-Games-for-Crashes-and-Performance-Filtering.html">监控游戏崩溃与性能过滤功能</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">网络模拟模式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">启用网络模拟模式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">受网络模拟影响的服务</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Thread-Scheduler.html">线程计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Memory-Analyzer.html">内存分析器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Developer-Console.html">开发者控制台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Network-Ownership.html">网络所有权</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/optimization.html">性能优化</a> &raquo;</li>
+        
+      <li>网络模拟模式</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Network-Simulation-Mode.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>网络模拟模式<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>2  分钟</em></p>
+<p>在 Roblox 中制作游戏时，定期进行测试非常重要，尤其是当测试模拟次优条件时。Studio 的<strong>网络模拟</strong>模式旨在模拟较差的连接性，以便可以开发网络连接不好的玩家也能玩的游戏。</p>
+<p>网络模拟模式专门做两件事。第一件事，它模拟通过网络发送信息时的时间延迟。无论何时在网络模拟模式下进行 web 调用，调用都会延迟 300 到 600 毫秒之间的一个随机时间。</p>
+<p>第二件事，它模拟随机网络故障。在网络模拟模式进行 web 调用时，模拟有 30％ 的机会使调用失败。如果这些调用未封装在 <code class="docutils literal notranslate"><span class="pre">pcall</span></code> 标签内，则运行该代码的脚本将出错。</p>
+<div class="section" id="id2">
+<h2>启用网络模拟模式<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>网络模拟模式仅在 Studio 的 **Local Server（本地服务器）**模拟中有效。若要启用它：</p>
+<ol class="simple">
+<li><p>导航到 Studio 中的 **Test（测试）**选项卡。</p></li>
+<li><p>确保 **Local Server（本地服务器）**为所选择的模式。</p></li>
+<li><p>单击 **Start（开始）**启动 Studio 的新会话（一个会话用于服务器，一个会话用于配置的玩家数量）。</p></li>
+<li><p>在服务器的新会话中，单击 **Network Simulator（网络模拟器）**按钮。这将启用该模式。再次单击将禁用该模式。</p></li>
+</ol>
+<p><img alt="NetworkSimulationToggle.PNG" src="https://developer.roblox.com/assets/bltfc7a965eafed28a4/NetworkSimulationToggle.PNG" /></p>
+<p>启用后，“Output（输出）”窗口将在其标题栏中显示 <strong>Network Simulator Enabled（网络模拟器已启用）</strong>。</p>
+<p><img alt="NetworkSimulationEnabled.PNG" src="https://developer.roblox.com/assets/blt56af6687c4e4aaca/NetworkSimulationEnabled.PNG" /></p>
+</div>
+<div class="section" id="id3">
+<h2>受网络模拟影响的服务<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>请注意，网络模拟模式仅适用于以下特定的 Roblox 服务：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DataStoreService</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MarketplaceService</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HttpService</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ContentProvider</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GamePassService</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InsertService</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Players</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AssetService</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GroupService</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PointsService</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TeleportService</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BadgeService</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Chat</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TextService</span></code></p></li>
+</ul>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Network-Simulation-Mode">网络模拟模式</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Thread-Scheduler.html" class="btn btn-neutral float-right" title="线程计划程序" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Monitoring-Games-for-Crashes-and-Performance-Filtering.html" class="btn btn-neutral float-left" title="监控游戏崩溃与性能过滤功能" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

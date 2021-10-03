@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>创建 GUI 按钮 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="创建摇杆快速菜单" href="Creating-a-Radial-Menu.html" />
+    <link rel="prev" title="交互式表面 GUI" href="Interactive-Surface-GUI.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-GUIs.html">GUI 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI-Animations.html">GUI 动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fundamentals-of-Scripting-with-GUIs.html">GUI 脚本简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Chat-System.html">Lua 聊天系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Interactive-Surface-GUI.html">交互式表面 GUI</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">创建 GUI 按钮</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">按钮类型</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">文本按钮</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">图像按钮</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">创建按钮</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#imagebutton">添加一个 ImageButton</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">上传图像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">设置外观</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">调整按钮</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#localscript">附加 LocalScript</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Radial-Menu.html">创建摇杆快速菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Grid-Menu.html">创建栅格菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using-Images-in-GUIs.html">在 GUI 中使用图像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text-and-Chat-Filtering.html">文本与聊天过滤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Camera-manipulation.html">镜头操控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mouse-Icon-Appearance.html">鼠标指针控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animating-text.html">设置文本动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar-emotes.html">Avatar Emotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chat-Modules.html">Chat Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Custom-Teleport-GUI.html">创建自定义传送屏幕</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Scrolling-Frame-GUI.html">创建滚动框架 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-the-camera.html">Customizing the Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Disabling-Parts-of-Game-Interface.html">禁用游戏界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-bindings.html">Roblox Input Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selection-Boxes.html">选择框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Three-Quarters-Camera-View.html">45 度镜头视角</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Unit-Frame.html">单元框：制作生命槽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewportframe-gui.html">ViewportFrame GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/user-interface.html">用户界面</a> &raquo;</li>
+        
+      <li>创建 GUI 按钮</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Creating-GUI-Buttons.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gui">
+<h1>创建 GUI 按钮<a class="headerlink" href="#gui" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p>本文将拓展<code class="docutils literal notranslate"><span class="pre">articles/Using</span> <span class="pre">Images</span> <span class="pre">in</span> <span class="pre">GUIs|在</span> <span class="pre">GUI</span> <span class="pre">中使用图像</span></code>的教程，并演示如何制作可以在菜单、游戏内操作等内容中使用的屏显按钮。</p>
+<div class="section" id="id1">
+<h2>按钮类型<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>文本按钮<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">TextButton</span></code> 与 <code class="docutils literal notranslate"><span class="pre">TextLabel</span></code> 非常相似，区别在于玩家可以点击或触碰来激活它。它在内部也与文本标签有许多相同的视觉属性：字体，背景颜色，描边颜色等等。</p>
+<p><img alt="https://developer.roblox.com/assets/blt3b41c5fcae887a74/Text-Button-Example.png" src="https://developer.roblox.com/assets/blt3b41c5fcae887a74/Text-Button-Example.png" /></p>
+</div>
+<div class="section" id="id3">
+<h3>图像按钮<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>同样，<code class="docutils literal notranslate"><span class="pre">ImageButton</span></code> 也像是 <code class="docutils literal notranslate"><span class="pre">ImageLabel</span></code> 对象的互动版本，使用您上传至 Roblox 的一张自定义图像。它也与其非按钮版本共享许多同样的属性。</p>
+<p><img alt="https://developer.roblox.com/assets/blt57ed7bcddba87667/Image-Button-Example.png" src="https://developer.roblox.com/assets/blt57ed7bcddba87667/Image-Button-Example.png" /></p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>创建按钮<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>本文其余的部分将演示如何在屏幕上添加一个 <code class="docutils literal notranslate"><span class="pre">ImageButton</span></code>，并根据玩家的互动来切换三种不同的外观。</p>
+<div class="section" id="imagebutton">
+<h3>添加一个 ImageButton<a class="headerlink" href="#imagebutton" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>在 Explorer（管理器）窗口中，将鼠标悬停在 <strong>StarterGui</strong> 对象上，点击圆形 <img alt="https://developer.roblox.com/assets/blt0dd97240c2a0db2a/Explorer-Plus-Icon.png" src="https://developer.roblox.com/assets/blt0dd97240c2a0db2a/Explorer-Plus-Icon.png" /></p></li>
+</ol>
+<p>按钮，然后插入一个 <strong>ScreenGui</strong> 对象。
+2. 选择新的 <strong>ScreenGui</strong> 对象，然后以类似的方式插入一个 <strong>ImageButton</strong>。
+<img alt="https://developer.roblox.com/assets/blt4e313d906cf97b91/Add-ImageButton-1.png" src="https://developer.roblox.com/assets/blt4e313d906cf97b91/Add-ImageButton-1.png" /></p>
+<p>这将在游戏视图的角落添加一个空白的图像按钮。</p>
+<p><img alt="https://developer.roblox.com/assets/blt6c2524e15ef4f7de/New-ImageButton-1.png" src="https://developer.roblox.com/assets/blt6c2524e15ef4f7de/New-ImageButton-1.png" /></p>
+</div>
+<div class="section" id="id5">
+<h3>上传图像<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>此按钮需要三张自定义图像：它在屏幕上的正常外观，鼠标悬停时的外观，以及玩家按下按钮时的外观。</p>
+<p><img alt="https://developer.roblox.com/assets/bltceee05c433f1fc16/ImgButtonNormal.png" src="https://developer.roblox.com/assets/bltceee05c433f1fc16/ImgButtonNormal.png" /></p>
+<p>ImgButtonNormal</p>
+<p><img alt="https://developer.roblox.com/assets/blt6a44e16ed2ae1f88/ImgButtonHover.png" src="https://developer.roblox.com/assets/blt6a44e16ed2ae1f88/ImgButtonHover.png" /></p>
+<p>ImgButtonHover</p>
+<p><img alt="https://developer.roblox.com/assets/blt4cecb613af7f0574/ImgButtonPressed.png" src="https://developer.roblox.com/assets/blt4cecb613af7f0574/ImgButtonPressed.png" /></p>
+<p>ImgButtonPressed</p>
+<p>您可以用这些菜单按钮来测试，只需右键点击每个按钮并选择 **Save Image As…（另存图像为…）**来保存至您的电脑中。</p>
+<p>与其单独上传每张图像，您可以用 <a class="reference external" href="/resources/studio/Asset-Manager">Asset Manager（资源管理器）</a>一次上传多张图像：</p>
+<ol class="simple">
+<li><p>如果尚未打开，点击 <strong>View</strong> （视图）选项卡的 <strong>Asset Manager</strong> （资源管理器）。
+<img alt="https://developer.roblox.com/assets/blt920c84884e646d5b/Toggle-Game-Explorer.png" src="https://developer.roblox.com/assets/blt920c84884e646d5b/Toggle-Game-Explorer.png" /></p></li>
+<li><p>点击窗口顶部附近的 <strong>Import</strong> （导入）按钮。
+<img alt="https://developer.roblox.com/assets/blt6d000574d5048053/Asset-Manager-Import-Button.png" src="https://developer.roblox.com/assets/blt6d000574d5048053/Asset-Manager-Import-Button.png" /></p></li>
+<li><p>找到您电脑中的三张图像，选择并确认上传。</p></li>
+<li><p>上传完成后，双击 <strong>Images</strong> （图像）文件夹或从树状图菜单中选择 <strong>Images</strong>。</p></li>
+</ol>
+<p><img alt="https://developer.roblox.com/assets/blt1e6408581c921750/Asset-Manager-Images-Folder-1.png" src="https://developer.roblox.com/assets/blt1e6408581c921750/Asset-Manager-Images-Folder-1.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/bltdb3624d3b5c2d132/Asset-Manager-Images-Folder-2.png" src="https://developer.roblox.com/assets/bltdb3624d3b5c2d132/Asset-Manager-Images-Folder-2.png" /></p>
+<p>在文件夹中，您应该可以看见新的图像：</p>
+<p><img alt="https://developer.roblox.com/assets/bltedad54c26573042e/Add-Images-2.png" src="https://developer.roblox.com/assets/bltedad54c26573042e/Add-Images-2.png" /></p>
+</div>
+<div class="section" id="id6">
+<h3>设置外观<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>通过 <code class="docutils literal notranslate"><span class="pre">ImageButton</span></code> 对象可设置按钮的三种外观。</p>
+<ol class="simple">
+<li><p>在管理器窗口中，选择 <strong>ImageButton</strong> 对象。
+<img alt="https://developer.roblox.com/assets/blt4e313d906cf97b91/Add-ImageButton-1.png" src="https://developer.roblox.com/assets/blt4e313d906cf97b91/Add-ImageButton-1.png" /></p></li>
+<li><p>在 <strong>Properties</strong> （属性）窗口中，点击 <strong>Image</strong> （图像）属性并选择 <strong>ImgButtonNormal</strong> 资源。
+<img alt="https://developer.roblox.com/assets/blt3a3905103d9fb913/Set-Buttton-Images-Normal.png" src="https://developer.roblox.com/assets/blt3a3905103d9fb913/Set-Buttton-Images-Normal.png" /></p></li>
+<li><p>点击 <strong>HoverImage</strong> 属性并选择 <strong>ImgButtonHover</strong> 资源。
+<img alt="https://developer.roblox.com/assets/bltd86feaebec02bf02/Set-Buttton-Images-Hover.png" src="https://developer.roblox.com/assets/bltd86feaebec02bf02/Set-Buttton-Images-Hover.png" /></p></li>
+<li><p>点击 <strong>PressedImage</strong> 属性并选择 <strong>ImgButtonPressed</strong> 资源。
+<img alt="https://developer.roblox.com/assets/blt8cbd63c80a9b055b/Set-Buttton-Images-Pressed.png" src="https://developer.roblox.com/assets/blt8cbd63c80a9b055b/Set-Buttton-Images-Pressed.png" /></p></li>
+</ol>
+</div>
+<div class="section" id="id7">
+<h3>调整按钮<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>要决定按钮在屏幕上的最终外观，请做出如下调整：</p>
+<ol class="simple">
+<li><p>在属性窗口中，将 <strong>BackgroundTransparency</strong> 的值设为 <strong>1</strong>，使背景变为透明。
+<img alt="https://developer.roblox.com/assets/bltf03bf5b70d762219/Add-ImageButton-2.png" src="https://developer.roblox.com/assets/bltf03bf5b70d762219/Add-ImageButton-2.png" /></p></li>
+<li><p>将 <strong>Position</strong> → <strong>X</strong> → <strong>Offset</strong> 和 <strong>Position</strong> → <strong>Y</strong> → <strong>Offset</strong> 都设为大约 50，使按钮从角落中移开。
+<img alt="https://developer.roblox.com/assets/blt5e75340fa9a34bb7/Add-ImageButton-3.png" src="https://developer.roblox.com/assets/blt5e75340fa9a34bb7/Add-ImageButton-3.png" /></p></li>
+</ol>
+</div>
+<div class="section" id="localscript">
+<h3>附加 LocalScript<a class="headerlink" href="#localscript" title="Permalink to this headline">¶</a></h3>
+<p>最后的工作是连接基本的按钮功能。</p>
+<ol class="simple">
+<li><p>在“Explorer（管理器）”窗口中，将鼠标悬停在 <strong>ImageButton</strong> 对象上，点击圆形 <img alt="https://developer.roblox.com/assets/blt0dd97240c2a0db2a/Explorer-Plus-Icon.png" src="https://developer.roblox.com/assets/blt0dd97240c2a0db2a/Explorer-Plus-Icon.png" /></p></li>
+</ol>
+<p>按钮，然后插入一个 <strong>LocalScript</strong> 对象。这将创建一个新的 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 并显示它。
+<img alt="https://developer.roblox.com/assets/blt3d663d50e2c756a4/ImageButton-LocalScript.png" src="https://developer.roblox.com/assets/blt3d663d50e2c756a4/ImageButton-LocalScript.png" /></p>
+<ol class="simple">
+<li><p>在脚本中，复制并粘贴以下新行：</p></li>
+</ol>
+<p>基本按钮激活（LocalScript） ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">button</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+
+<span class="n">local</span> <span class="n">function</span> <span class="n">onButtonActivated</span><span class="p">()</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;按钮已激活！&quot;</span><span class="p">)</span>
+	<span class="o">--</span> <span class="n">在这里执行按钮对应的操作</span>
+
+<span class="n">end</span>
+
+<span class="n">button</span><span class="o">.</span><span class="n">Activated</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">onButtonActivated</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>这是一个基本按钮脚本，其作用如下：
+
+  * 第一行设置一个变量 `button`，让脚本明白它连接的是哪个对象。这里它连接的是 `ImageButton`，即脚本的父项。
+
+  * `onButtonActivated()` 函数是按钮激活的主处理函数。您可以在里面执行按钮的操作，例如开启游戏的主菜单。
+
+  * 最后一行**连接** `onButtonActivated()` 函数和 `GuiButton/Activated|Activated` （已激活）事件。这将使函数在玩家每次于游戏中激活按钮时运行。
+
+虽然有许多种不同的事件可以连接至按钮，`GuiButton/Activated|Activated` 是基本按钮最可靠的选择，可在电脑、手机、平板电脑以及主机等各种平台上提供标准按钮行为。 
+
+##### 按钮错误排查
+
+If the button doesn’t work as expected, check the following:
+
+  * Make sure you used a client-side `LocalScript`, not a server-side `Script`.
+  * Ensure that the `LocalScript` is a **direct child** of the `ImageButton` object (not the top-level `ScreenGui` parent).
+  * Confirm that your `ImageButton` object&#39;s **Image**, **HoverImage**, and **PressedImage** properties are set to the appropriate image assets.
+
+  
+
+
+
+
+***__Roblox官方链接__:[创建 GUI 按钮](https://developer.roblox.com/zh-cn/articles/Creating-GUI-Buttons)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Creating-a-Radial-Menu.html" class="btn btn-neutral float-right" title="创建摇杆快速菜单" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Interactive-Surface-GUI.html" class="btn btn-neutral float-left" title="交互式表面 GUI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

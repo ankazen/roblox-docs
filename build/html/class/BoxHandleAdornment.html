@@ -1,0 +1,382 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>BoxHandleAdornment &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>BoxHandleAdornment</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/class/BoxHandleAdornment.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="boxhandleadornment">
+<h1>BoxHandleAdornment<a class="headerlink" href="#boxhandleadornment" title="Permalink to this headline">¶</a></h1>
+<p>为使句柄具备交互能力，必须将玩家的 PlayerGui 或 CoreGui 设为其父项。
+BoxHandleAdornment 是一种能够装饰到 BasePart 上的矩形棱柱。这种装饰物能够侦听输入事件，常用于制作拖曳工具。</p>
+<p>属性
+Vector3
+Size
+装饰物的尺寸。</p>
+<p>继承自 HandleAdornment:
+隐藏
+bool
+AlwaysOnTop
+强制该对象在 Workspace 进行渲染时出现在所有 3D 对象的顶部。</p>
+<p>CFrame
+CFrame
+对象相对于其 PVAdornment.Adornee 的位置和旋转。</p>
+<p>Vector3
+SizeRelativeOffset
+基于 adornee（被装饰物）BasePart.Size 的装饰物位置偏移。</p>
+<p>int
+ZIndex
+ZIndex 属性决定 HandleAdornment 的绘制顺序。</p>
+<p>继承自 PVAdornment:
+隐藏
+PVInstance
+Adornee
+与 PVAdornment 相连的 PVInstance 。</p>
+<p>继承自 GuiBase3d:
+隐藏
+Color3
+Color3
+设置一个 GUI 对象的颜色。</p>
+<p>float
+Transparency
+设置 GUI 对象的透明度，1 表示不可见，0 表示完全可见。</p>
+<p>bool
+Visible
+决定对象和其子项是否会被显示。</p>
+<p>继承自 Instance:
+隐藏
+bool
+Archivable
+Determines if an Instance can be cloned using Instance:Clone or saved to file.</p>
+<p>string
+ClassName
+[readonly]  [notreplicated]
+A read-only string representing the class this Instance belongs to</p>
+<p>string
+Name
+Instance的非唯一标识符</p>
+<p>Instance
+Parent
+决定 Instance 的分层式父项</p>
+<p>bool
+RobloxLocked
+当为 true 时，Instance 及其子项将无法被 Script 或 LocalScript 进行索引或者编辑，并在尝试对其进行上述操作时报错</p>
+<p>函数
+继承自 Instance:
+隐藏
+void
+ClearAllChildren ( )
+此函数将摧毁 Instance 的所有子项。</p>
+<p>Instance
+Clone ( )
+Create a deep copy of a Roblox instance and descendants where Archivable = true.</p>
+<p>void
+Destroy ( )
+Sets the Instance.Parent property to nil, locks the Instance.Parent property, disconnects all connections and calls Destroy on all children.</p>
+<p>Instance
+FindFirstAncestor ( string  name )
+返回 Instance 的第一父项，其 Instance.Name 与给定名称一致。</p>
+<p>Instance
+FindFirstAncestorOfClass ( string  className )
+返回 Instance.ClassName 等于给定 className 的 Instance 的第一个父项。</p>
+<p>Instance
+FindFirstAncestorWhichIsA ( string  className )
+返回 Instance 的第一个父项，此父项的 Instance:IsA 对于给定 className 会返回 true。</p>
+<p>Instance
+FindFirstChild ( string  name , bool  recursive )
+Returns the first child of the Instance found with the given name.</p>
+<p>Instance
+FindFirstChildOfClass ( string  className )
+返回 Instance.ClassName 等于给定 className 的第一个 Instance 子项。</p>
+<p>Instance
+FindFirstChildWhichIsA ( string  className , bool  recursive )
+返回 Instance 的第一个子项，此子项的 Instance:IsA 对于给定 className 会返回 true。</p>
+<p>Variant
+GetAttribute ( string  attribute )
+RBXScriptSignal
+GetAttributeChangedSignal ( string  attribute )
+Dictionary
+GetAttributes ( )
+Objects
+GetChildren ( )
+Returns an array containing all of the Instance’s children.</p>
+<p>string
+GetDebugId ( int  scopeLength )
+[notbrowsable]
+返回供 Roblox 内部使用的 Instance DebugId 的编码字符串。</p>
+<p>Array
+GetDescendants ( )
+[customluastate]
+返回含有实例所有子项的数组</p>
+<p>string
+GetFullName ( )
+返回一个描述 Instance 父项的字符串。</p>
+<p>RBXScriptSignal
+GetPropertyChangedSignal ( string  property )
+获取一个在对象给定属性更改时触发的事件。</p>
+<p>bool
+IsA ( string  className )
+[customluastate]
+Returns true if an Instance’s class matches or inherits from a given class</p>
+<p>bool
+IsAncestorOf ( Instance  descendant )
+当 Instance 为给定子项的父项时返回 true。</p>
+<p>bool
+IsDescendantOf ( Instance  ancestor )
+Returns true if an Instance is a descendant of the given ancestor.</p>
+<p>void
+SetAttribute ( string  attribute , Variant  value )
+Instance
+WaitForChild ( string  childName , double  timeOut )
+[customluastate]  [canyield]
+返回拥有给定名称的 Instance 子项。若无满足条件的子项存在，则函数将会暂停当前线程，直到子项出现为止。</p>
+<p>事件
+继承自 HandleAdornment:
+隐藏
+RBXScriptSignal
+MouseButton1Down ( )
+当用户在装饰物上按下鼠标左键时触发。</p>
+<p>RBXScriptSignal
+MouseButton1Up ( )
+当用户在装饰物上松开鼠标左键时触发。</p>
+<p>RBXScriptSignal
+MouseEnter ( )
+当用户将光标移到装饰物上时触发。</p>
+<p>RBXScriptSignal
+MouseLeave ( )
+当用户将光标从装饰物上移开时触发。</p>
+<p>继承自 Instance:
+隐藏
+RBXScriptSignal
+AncestryChanged ( Instance  child , Instance  parent )
+当对象或其父项之一的 Instance.Parent 属性发生改变时即会触发。</p>
+<p>RBXScriptSignal
+AttributeChanged ( string  attribute )
+RBXScriptSignal
+Changed ( string  property )
+[detectingpropertychanges]
+在对象的属性发生更改后立即触发。</p>
+<p>RBXScriptSignal
+ChildAdded ( Instance  child )
+Fires when an object is parented to this Instance.</p>
+<p>RBXScriptSignal
+ChildRemoved ( Instance  child )
+从该 Instance 中移除某一子项时触发。</p>
+<p>RBXScriptSignal
+DescendantAdded ( Instance  descendant )
+向 Instance 中添加子项时触发。</p>
+<p>RBXScriptSignal
+DescendantRemoving ( Instance  descendant )
+在 Instance 的子项即将被移除前触发。</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

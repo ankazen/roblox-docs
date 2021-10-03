@@ -1,0 +1,464 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lua Style Guide &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lua 中的类型强制转换" href="Type-Coercion-in-Lua.html" />
+    <link rel="prev" title="Lua / C# Comparison" href="lua-csharp-comparison.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lua Style Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#whitespace-rules">Whitespace Rules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#indentation">Indentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expressions">Expressions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#table-commas">Table Commas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#line-wrapping">Line wrapping</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#function-calls">Function Calls</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nested-function-calls">Nested function calls</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#semicolons">Semicolons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scope">Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#see-also">See also</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>Lua Style Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Lua-Style-Guide.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lua-style-guide">
+<h1>Lua Style Guide<a class="headerlink" href="#lua-style-guide" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em></em></p>
+<p>These rules are recommended, but do not need to be followed, are not arbitrary and <strong>should in no way be considered as a reference</strong>. These rules are only presentational, and so do not have to be followed for code to work, but they <em>might</em> make code easier to read, write, and debug.</p>
+<div class="section" id="whitespace-rules">
+<h2>Whitespace Rules<a class="headerlink" href="#whitespace-rules" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="indentation">
+<h3>Indentation<a class="headerlink" href="#indentation" title="Permalink to this headline">¶</a></h3>
+<p>Each level of block should be indented by a single tab.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">var</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">if</span> <span class="n">var</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="n">do</span>
+	<span class="o">--</span> <span class="n">new</span> <span class="n">block</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">var</span> <span class="n">do</span>
+		<span class="o">--</span> <span class="n">new</span> <span class="n">block</span>
+		<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+		<span class="o">--</span> <span class="n">end</span> <span class="n">block</span>
+	<span class="n">end</span>
+	<span class="o">--</span> <span class="n">end</span> <span class="n">block</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="expressions">
+<h3>Expressions<a class="headerlink" href="#expressions" title="Permalink to this headline">¶</a></h3>
+<p>Spaces are optional around <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">^/</span></code>. If there is one after, always put one before, and vice versa. Always include spaces before and after <code class="docutils literal notranslate"><span class="pre">=</span></code>, and all the other binary operators. Unary operators, such as <code class="docutils literal notranslate"><span class="pre">-a</span></code> and <code class="docutils literal notranslate"><span class="pre">!#a</span></code> should not have a space between the operator and the operand.<br />Right:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="c1">#t)*c</span>
+<span class="n">local</span> <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="n">a</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Wrong:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">a</span> <span class="o">=</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">)</span><span class="o">*</span> <span class="n">d</span>
+<span class="n">local</span> <span class="n">b</span><span class="o">=</span> <span class="o">-</span><span class="n">a</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">==</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="table-commas">
+<h3>Table Commas<a class="headerlink" href="#table-commas" title="Permalink to this headline">¶</a></h3>
+<p>Never put a space before a comma, but multiple spaces may come after. Make sure spacing is consistent. If the table is put on a single line, the comma after the last entry can usually be omitted.</p>
+<p>Good:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span>
+<span class="n">local</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="n">local</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">}</span>
+<span class="n">local</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="mi">1</span><span class="p">,</span>
+	<span class="mi">2</span><span class="p">,</span>
+	<span class="mi">3</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Not good:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span> <span class="p">,</span><span class="mi">2</span> <span class="p">,</span><span class="mi">3</span><span class="p">}</span>
+<span class="n">local</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>	<span class="mi">1</span>  <span class="p">,</span> <span class="mi">2</span><span class="p">,</span>   <span class="mi">3</span><span class="p">,}</span> <span class="o">--</span> <span class="n">oh</span> <span class="n">god</span> <span class="n">what</span> <span class="n">are</span> <span class="n">you</span> <span class="n">doing</span>
+</pre></div>
+</div>
+<p>Since tables accept either commas or semi-colons as separators, use semi-colons at the end of a line instead of commas.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">;</span>
+	<span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">;</span>
+	<span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="line-wrapping">
+<h2>Line wrapping<a class="headerlink" href="#line-wrapping" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="function-calls">
+<h3>Function Calls<a class="headerlink" href="#function-calls" title="Permalink to this headline">¶</a></h3>
+<p>Say you have this function call, and you want to line-wrap it at the 1.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">var</span> <span class="o">=</span> <span class="n">foo</span><span class="p">(</span><span class="n">aPart</span><span class="p">,</span> <span class="n">anotherPart</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The first option is to bring all the arguments to the next line, indent them one level (with a tab), and then wrap them. The close parenthesis should go on the following line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">var</span> <span class="o">=</span> <span class="n">foo</span><span class="p">(</span>
+	<span class="n">aPart</span><span class="p">,</span> <span class="n">anotherPart</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+	<span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The second option is to align the arguments by column. Note that this option, however, will be misinterpreted by many programming editors. This should be done with spaces, not tabs:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">var</span> <span class="o">=</span> <span class="n">foo</span><span class="p">(</span><span class="n">aPart</span><span class="p">,</span> <span class="n">anotherPart</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="nested-function-calls">
+<h3>Nested function calls<a class="headerlink" href="#nested-function-calls" title="Permalink to this headline">¶</a></h3>
+<p>The following function call</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">var</span> <span class="o">=</span> <span class="n">foo</span><span class="p">(</span><span class="n">bar</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">),</span> <span class="n">baz</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Could be line wrapped to one of</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">var</span> <span class="o">=</span> <span class="n">foo</span><span class="p">(</span>
+	<span class="n">bar</span><span class="p">(</span>
+		<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span>
+		<span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span>
+	<span class="p">),</span>
+	<span class="n">baz</span><span class="p">(</span>
+		<span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
+		<span class="n">w</span><span class="p">,</span> <span class="n">v</span>
+	<span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">var</span> <span class="o">=</span> <span class="n">foo</span><span class="p">(</span><span class="n">bar</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span>
+                        <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">),</span>
+                    <span class="n">baz</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>
+                        <span class="n">w</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="section" id="table-literals">
+<h4>Table literals<a class="headerlink" href="#table-literals" title="Permalink to this headline">¶</a></h4>
+<p>Treat these in the same way as function calls.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">my_table</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;potato&quot;</span><span class="p">;</span>
+	<span class="n">b</span> <span class="o">=</span> <span class="s2">&quot;Taco!&quot;</span><span class="p">;</span>
+	<span class="n">c</span> <span class="o">=</span> <span class="mf">3.1416</span><span class="p">;</span>
+	<span class="n">new</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="n">reaction</span> <span class="o">=</span> <span class="s2">&quot;yay!&quot;</span><span class="p">;</span>
+	<span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="semicolons">
+<h2>Semicolons<a class="headerlink" href="#semicolons" title="Permalink to this headline">¶</a></h2>
+<p>Besides seperating values in a table, semicolons (<code class="docutils literal notranslate"><span class="pre">;</span></code>) are used to denote the end of a statement. They are not required, but can solve some <a class="reference external" href="Whitespace#Ambiguities">Whitespace Ambiguities</a>.</p>
+<p>Places to use semicolons:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">assignment</span> <span class="o">=</span> <span class="s2">&quot;value&quot;</span><span class="p">;</span>	<span class="o">--</span> <span class="n">after</span> <span class="n">assignments</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;here&quot;</span><span class="p">);</span>	<span class="o">--</span> <span class="n">after</span> <span class="n">function</span> <span class="n">calls</span>
+<span class="k">return</span><span class="p">;</span>	<span class="o">--</span> <span class="n">at</span> <span class="n">the</span> <span class="n">end</span> <span class="n">of</span> <span class="o">**</span><span class="k">break</span><span class="o">**</span> <span class="ow">or</span> <span class="o">**</span><span class="k">return</span><span class="o">**</span>
+</pre></div>
+</div>
+<p>Places to NOT use semicolons:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="mi">10</span> <span class="n">do</span> <span class="n">end</span> <span class="o">--</span> <span class="ow">in</span> <span class="n">loops</span>
+<span class="n">do</span><span class="p">;</span> <span class="n">end</span>	<span class="o">--</span> <span class="n">after</span> <span class="s2">&quot;do&quot;</span><span class="p">,</span> <span class="n">this</span> <span class="n">includes</span> <span class="n">loops</span>
+<span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">true</span><span class="p">)</span> <span class="n">then</span><span class="p">;</span> <span class="n">end</span>	<span class="o">--</span> <span class="n">after</span> <span class="s2">&quot;then&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;first&quot;</span><span class="p">;</span> <span class="s2">&quot;second&quot;</span><span class="p">);</span>	<span class="o">--</span> <span class="ow">in</span> <span class="n">function</span> <span class="n">calls</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="scope">
+<h2>Scope<a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h2>
+<p>Variables and functions defined without the <code class="docutils literal notranslate"><span class="pre">local</span></code> keyword are global by default. Local variables are stored in the Lua registers, and are limited in scope to the block wherein they are declared. Local variables should almost always be preferred to global variables, as noted in <a class="reference external" href="http://www.lua.org/pil/4.2.html">section 4.2 of <strong>Programming in Lua</strong></a>:</p>
+<p>It is good programming style to use local variables whenever possible. Local variables help you avoid cluttering the global environment with unnecessary names. Moreover, the access to local variables is faster than to global ones.</p>
+<p>Variables should usually be declared as late as possible. If a block itself contains many blocks (say, if a conditional statement contains many for loops), variables should be declared before the first block that uses them. If a bug in the code later is found related to this variable, it will be possible to know immediately that the variable is not used before the place where it is declared. Shortening the scope of the variable (it can only be used after it is declared) greatly increases readability.</p>
+<p>A useful trick is to use the <code class="docutils literal notranslate"><span class="pre">do</span></code> statement to create a new block with no other purpose than creating a new scope. If a variable is only useful for a function, <code class="docutils literal notranslate"><span class="pre">bar</span></code> in the example below, the variable and function can be defined in a block created by a <code class="docutils literal notranslate"><span class="pre">do</span></code> statement so that the variable only exists in that function’s environment. This too increases readability, since people reading the code will know for sure the variable is not used anywhere outside of the function. Here’s an example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">bar</span>
+<span class="n">do</span>
+	<span class="n">local</span> <span class="n">foo</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+	<span class="n">function</span> <span class="n">bar</span><span class="p">(</span><span class="n">quux</span><span class="p">)</span>
+		<span class="n">foo</span><span class="p">[</span><span class="c1">#foo + 1] = quux</span>
+		<span class="k">return</span> <span class="n">foo</span>
+	<span class="n">end</span>
+<span class="n">end</span>
+
+<span class="n">bar</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the example above, the variable <code class="docutils literal notranslate"><span class="pre">foo</span></code> can only be accessed from the function <code class="docutils literal notranslate"><span class="pre">bar</span></code> since the scope of <code class="docutils literal notranslate"><span class="pre">foo</span></code> ends once the block introduced by the <code class="docutils literal notranslate"><span class="pre">do</span></code> statement is over. Even though <code class="docutils literal notranslate"><span class="pre">foo</span></code> is out of scope after this block, <code class="docutils literal notranslate"><span class="pre">bar</span></code> retains access to <code class="docutils literal notranslate"><span class="pre">foo</span></code> as an upvalue and can used <code class="docutils literal notranslate"><span class="pre">foo</span></code> normally.</p>
+</div>
+<div class="section" id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://lua-users.org/wiki/LuaStyleGuide">Lua Style Guide</a></p></li>
+</ul>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Lua-Style-Guide">Lua Style Guide</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Type-Coercion-in-Lua.html" class="btn btn-neutral float-right" title="Lua 中的类型强制转换" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lua-csharp-comparison.html" class="btn btn-neutral float-left" title="Lua / C# Comparison" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

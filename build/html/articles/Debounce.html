@@ -1,0 +1,424 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>防抖动：使用时机及原因说明 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="匿名函数" href="Anonymous-Functions.html" />
+    <link rel="prev" title="游戏安全" href="Game-Security.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">防抖动：使用时机及原因说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">理论应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">使用示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">实际应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">进阶符号用法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">练习实践</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>防抖动：使用时机及原因说明</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Debounce.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>防抖动：使用时机及原因说明<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>简而言之，**Debounce（防抖动）**系统就是一个用来防止函数运行次数过多的代码集合。这个概念来自于电子元件开关的接点弹跳现象，也就是开关开启时接点在多次弹跳后才能稳定下来，导致多个信号产生。该问题在 Roblox 中主要体现于 <code class="docutils literal notranslate"><span class="pre">BasePart/Touched</span></code> 事件：在两个部件短时间内多次触碰时会产生类似问题。不过，防抖动系统在其他情况下也能够派上用场。</p>
+<div class="section" id="id2">
+<h2>理论应用<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>假设地板上有一个按钮。每当玩家角色跳到按钮上时，按钮就会输出一条讯息。为此情况编写的代码可能会是这样的：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">Button</span><span class="o">.</span><span class="n">Touched</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">hit</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;按钮被按下&quot;</span><span class="p">)</span> <span class="o">--</span><span class="n">打印讯息</span>
+    <span class="n">wait</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>                 <span class="o">--</span><span class="n">等待</span> <span class="mi">1</span> <span class="n">秒</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hi :D&quot;</span><span class="p">)</span>          <span class="o">--</span><span class="n">打印另一条讯息</span>
+<span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>上述代码将会在输出窗口中产生下列讯息：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">按钮被按下</span>
+<span class="n">Hi</span> <span class="p">:</span><span class="n">D</span>
+</pre></div>
+</div>
+<p>但物理引擎处理碰撞的方式使其不会只记录一次碰撞，而是可能触发多次 Touched 事件。因此，刚才代码的实际输出效果可能更接近下面所示：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">按钮被按下</span>
+<span class="n">按钮被按下</span>
+<span class="n">按钮被按下</span>
+<span class="n">按钮被按下</span>
+<span class="n">按钮被按下</span>
+<span class="n">Hi</span> <span class="p">:</span><span class="n">D</span>
+<span class="n">Hi</span> <span class="p">:</span><span class="n">D</span>
+<span class="n">Hi</span> <span class="p">:</span><span class="n">D</span>
+<span class="n">Hi</span> <span class="p">:</span><span class="n">D</span>
+<span class="n">Hi</span> <span class="p">:</span><span class="n">D</span>
+</pre></div>
+</div>
+<p>所有的事件处理函数会同时执行，而非按顺序单个执行。</p>
+<p>下面是开发者可能会遇到的情况：</p>
+<p>当希望使用按钮进行 <code class="docutils literal notranslate"><span class="pre">Articles/How</span> <span class="pre">to</span> <span class="pre">Make</span> <span class="pre">a</span> <span class="pre">Model</span> <span class="pre">Regenerate</span></code>（模型再次生成）时，很可能会导致每按一次按钮都会生成 5 个模型。由于这 5 个模型都会处于_相同位置_，可能会导致多种问题发生。在代码中加入简单的防抖动系统后，就可以轻易避免这些问题。当然，在上述情况中也可以为按钮添加 <code class="docutils literal notranslate"><span class="pre">ClickDetector</span></code> 来解决重复问题。但在许多无法使用 ClickDetector 的情况下，防抖动系统将会十分有用。</p>
+<p>基本的防抖动系统工作原理如下：</p>
+<p>当特定动作发生时（例如当玩家跳上之前所提到的地板按钮上时），脚本会<strong>封锁</strong>所有对函数的再次调用，直到指定时长后或者动作完成后为止。</p>
+</div>
+<div class="section" id="id3">
+<h2>使用示例<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>为已有脚本添加防抖动功能其实并不困难。下面就让我们以之前的脚本为例：只需添加几行代码，就能够为这个脚本添加函数能够再次运行前需要等待的时长限制。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>local buttonPressed = false
+--将按钮是否被按下的状态储存在局部变量中
+
+Workspace.Button.Touched:Connect(function(hit)
+    if not buttonPressed then
+    -- 状态是否为“未按下”？
+
+        buttonPressed = true
+        -- 若是，则将其标记为“已按下”，防止函数多次运行
+
+        print(&quot;按钮被按下&quot;)
+        wait(1)
+        print(&quot;Hi :D&quot;)
+        -- 执行操作
+
+        buttonPressed = false
+        -- 执行操作后将其标记为“未按下”，以便再次执行函数
+    end
+end)
+</pre></div>
+</div>
+<p>进行调整后，输出应该是这样的：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">按钮被按下</span>
+<span class="n">Hi</span> <span class="p">:</span><span class="n">D</span>
+</pre></div>
+</div>
+<p>这样就达到我们最开始的目的了！这四行代码可以被添加至大多数带有函数的脚本中，以达成同样的效果。其也适用于非互相触碰对象的使用情况，如：用来阻止玩家过于频繁地按下按钮或发射武器，或者用来阻止新事件在当前事件完成前触发等。请参考下列示例：</p>
+</div>
+<div class="section" id="id4">
+<h2>实际应用<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>下列代码为火箭发射器工具的本地 GUI 脚本：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enabled</span> <span class="o">=</span> <span class="n">true</span>
+<span class="n">mouse</span><span class="o">.</span><span class="n">Button1Down</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">enabled</span> <span class="n">then</span>
+        <span class="k">return</span>
+    <span class="n">end</span>
+
+    <span class="n">enabled</span> <span class="o">=</span> <span class="n">false</span>
+    <span class="n">mouse</span><span class="o">.</span><span class="n">Icon</span> <span class="o">=</span> <span class="s2">&quot;rbxasset://textures</span><span class="se">\\</span><span class="s2">GunWaitCursor.png&quot;</span>
+
+    <span class="n">wait</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">mouse</span><span class="o">.</span><span class="n">Icon</span> <span class="o">=</span> <span class="s2">&quot;rbxasset://textures</span><span class="se">\\</span><span class="s2">GunCursor.png&quot;</span>
+    <span class="n">enabled</span> <span class="o">=</span> <span class="n">true</span>
+
+<span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>发射火箭发射器后，脚本会显示装填图标，并让函数等待 12 秒。在此期间 enabled 值将为 false，因此当玩家尝试再次使用发射器时，函数会立即返回，导致脚本不会运行。装填图标将会在 12 秒后消失，且 enabled 值将重新设为 true，以便玩家再次使用火箭发射器。</p>
+</div>
+<div class="section" id="id5">
+<h2>进阶符号用法<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>在熟悉防抖动的使用方法后，开发者不需要为每个事件处理程序定义不同的防抖动变量，可转为编写防抖动函数，用来返回事件处理函数的防抖动拷贝。该函数将会使用 <code class="docutils literal notranslate"><span class="pre">...</span></code> 符号来<a class="reference external" href="https://developer.roblox.com/en-us/articles/Variadic-Functions#argument-forwarding">传递参数</a>。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">debounce</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">isRunning</span> <span class="o">=</span> <span class="n">false</span>    <span class="o">--</span> <span class="n">创建局部防抖动变量</span>
+    <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>       <span class="o">--</span> <span class="n">返回新函数</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">isRunning</span> <span class="n">then</span>
+            <span class="n">isRunning</span> <span class="o">=</span> <span class="n">true</span>
+
+            <span class="n">func</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>          <span class="o">--</span> <span class="n">用原始参数进行调用</span>
+
+            <span class="n">isRunning</span> <span class="o">=</span> <span class="n">false</span>
+        <span class="n">end</span>
+    <span class="n">end</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>将其应用至原始代码：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Workspace</span><span class="o">.</span><span class="n">Button</span><span class="o">.</span><span class="n">Touched</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">debounce</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">hit</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;按钮被按下&quot;</span><span class="p">)</span> <span class="o">--</span><span class="n">打印讯息</span>
+    <span class="n">wait</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>                 <span class="o">--</span><span class="n">等候</span> <span class="mi">1</span> <span class="n">秒</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hi :D&quot;</span><span class="p">)</span>          <span class="o">--</span><span class="n">打印另一条讯息</span>
+<span class="n">end</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="section" id="id6">
+<h3>练习实践<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>制作一个被玩家触碰时使玩家生命值减少 5 的部件。通过防抖动功能确保此效果每 3 秒只能触发一次。</p>
+<p>显示/隐藏</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>--将按钮是否被按下的状态储存在局部变量中
+local buttonPressed = false
+script.Parent.Touched:connect(function(hit)
+    -- 状态是否为“未按下”？
+    if not buttonPressed then
+        -- 若是，则将其标记为“已按下”，防止函数多次运行
+        buttonPressed = true
+        if hit.Parent then
+            hum = hit.Parent:FindFirstChild(&quot;Humanoid&quot;)
+            hum.Health = hum.Health - 5
+        end
+        wait(3)
+        -- 执行操作后将其标记为“未按下”，以便再次执行函数
+        buttonPressed = false
+    end
+end)
+</pre></div>
+</div>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Debounce">防抖动：使用时机及原因说明</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Anonymous-Functions.html" class="btn btn-neutral float-right" title="匿名函数" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Game-Security.html" class="btn btn-neutral float-left" title="游戏安全" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,430 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lua 中的类型强制转换 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="使用 Lua 调试器" href="Lua-debugger.html" />
+    <link rel="prev" title="Lua Style Guide" href="Lua-Style-Guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lua 中的类型强制转换</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">串联期间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">算数运算期间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">比较期间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">其他类型的强制转换</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">枚举</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#timeofday">TimeOfDay</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">另请参阅</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>Lua 中的类型强制转换</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Type-Coercion-in-Lua.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lua">
+<h1>Lua 中的类型强制转换<a class="headerlink" href="#lua" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>“Type Coercion”（类型强制转换）指将值从一种类型_隐式_或_自动_转换成另一种类型的过程。在 Lua 环境中，此类转换指从字符串转化为数字或从数字转化为字符串。</p>
+<p>为了执行计算，Lua 会自动将字符串和数字类型转换为正确的格式。举例来说，如果开发者对字符串应用算术运算，则 Lua 会首先尝试将该字符串转换为数字，否则运算将无法执行。如果该字符串无法被转换为数字，则会引发错误。</p>
+<div class="section" id="id1">
+<h2>串联期间<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>使用串联（Concatenation）运算符时，Lua 会将数字转换为字符串。请参考下列示例：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">print(&quot;This</span> <span class="pre">is</span> <span class="pre">Lua</span> <span class="pre">version</span> <span class="pre">&quot;</span> <span class="pre">..</span> <span class="pre">5.1</span> <span class="pre">..</span> <span class="pre">&quot;</span> <span class="pre">we</span> <span class="pre">are</span> <span class="pre">using.&quot;)</span></code></p>
+<ul>
+<li><p>输出：This is Lua version 5.1 we are using.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print(&quot;Pi:</span> <span class="pre">&quot;</span> <span class="pre">..</span> <span class="pre">math.pi)</span></code></p>
+<ul>
+<li><p>输出：Pi: 3.1415926535898</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print(&quot;Pi:</span> <span class="pre">&quot;</span> <span class="pre">..</span> <span class="pre">3.1415927)</span></code></p>
+<ul>
+<li><p>输出：Pi: 3.1415927</p></li>
+</ul>
+</li>
+</ul>
+<p>如上所示，开发者无法在强制转换中完全控制转换的格式。若希望将数字格式化为字符串，则可以使用 <code class="docutils literal notranslate"><span class="pre">string.format()</span></code> 函数。请参考下列示例：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">print((&quot;%.3f&quot;):format(5.1))</span></code></p>
+<ul>
+<li><p>输出：5.100</p></li>
+<li><p><em>注意小数点后有三位。</em></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print(&quot;Lua</span> <span class="pre">version</span> <span class="pre">&quot;</span> <span class="pre">..</span> <span class="pre">(&quot;%.1f&quot;):format(5.1))</span></code></p>
+<ul>
+<li><p>输出：Lua version 5.1</p></li>
+</ul>
+</li>
+</ul>
+<p>以上示例使用了函数对数字进行转换，因此为显式转换而不是强制（隐式）转换。</p>
+</div>
+<div class="section" id="id2">
+<h2>算数运算期间<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在考虑转换方式时，开发者应当尽可能避免使用强制转换。虽然强制转换有一定成效，但并非是最佳实践方法。举例来说，当函数可以接受转换前的数字时，数字转换就并非必要操作。即使如此，还请开发者尽可能对强制转换进行避免。</p>
+<p><strong>示例</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">print(100</span> <span class="pre">+</span> <span class="pre">&quot;7&quot;)</span></code></p>
+<ul>
+<li><p>输出：107</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print(&quot;1000&quot;</span> <span class="pre">+</span> <span class="pre">234)</span></code></p>
+<ul>
+<li><p>输出：1234</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print(234</span> <span class="pre">+</span> <span class="pre">&quot;1000&quot;)</span></code></p>
+<ul>
+<li><p>输出：1234</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print(&quot;hello&quot;</span> <span class="pre">+</span> <span class="pre">234)</span></code></p>
+<ul>
+<li><p>输出：尝试对字符串值执行算术运算</p></li>
+</ul>
+</li>
+</ul>
+<p>由上可见，当字符串可以被转换为数字时，计算将会成功运行。字符串 “hello” 无法被转换为数字，因此触发了错误信息。由于在 C 语言等静态类型语言中无法将值分配给不兼容类型的变量，此操作在该类程序语言中将会导致错误。但因为 Lua 为动态类型语言，此操作可以正常运行。</p>
+</div>
+<div class="section" id="id3">
+<h2>比较期间<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>需要注意的例外：比较（Comparison）运算符（也就是 ==、~=、&lt;、&gt;、&lt;= 和 &gt;=）<strong>无法</strong>强制转换其参数。不等或等号运算符并不认为数字等同于其字符串表示形式或任何非数字形式。当向有序比较运算符提供非数字的类型时，其将会触发错误：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">print(100</span> <span class="pre">==</span> <span class="pre">&quot;100&quot;)</span></code></p>
+<ul>
+<li><p>输出：false</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print(100</span> <span class="pre">~</span> <span class="pre">&quot;hello&quot;)</span></code></p>
+<ul>
+<li><p>输出： true</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print(100</span> <span class="pre">~</span> <span class="pre">{})</span></code></p>
+<ul>
+<li><p>输出： true</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print(100</span> <span class="pre">==</span> <span class="pre">tonumber(&quot;100&quot;))</span></code></p>
+<ul>
+<li><p>输出：true</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print(100</span> <span class="pre">&lt;</span> <span class="pre">&quot;100&quot;)</span></code></p>
+<ul>
+<li><p>输出：尝试比较数字和字符串</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>其他类型的强制转换<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>强制转换不仅局限于数字和字符串。Roblox 中同样存在其他的强制转换情况。</p>
+<div class="section" id="id5">
+<h3>枚举<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>枚举（Enum）为其中之一。当在需要枚举或数字的地方使用字符串或数字时，该字符串或数字将被强制转换为枚举。</p>
+<p>以下三个示例的效果相同，都会创建一个部件并使其具体化：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="o">**</span><span class="n">Part</span><span class="o">**</span><span class="p">)</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">Material</span> <span class="o">=</span> <span class="mi">816</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">workspace</span>
+
+<span class="n">local</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="o">**</span><span class="n">Part</span><span class="o">**</span><span class="p">)</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">Material</span> <span class="o">=</span> <span class="o">**</span><span class="n">Concrete</span><span class="o">**</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">workspace</span>
+
+<span class="n">local</span> <span class="n">p3</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="o">**</span><span class="n">Part</span><span class="o">**</span><span class="p">)</span>
+<span class="n">p3</span><span class="o">.</span><span class="n">Material</span> <span class="o">=</span> <span class="n">Enum</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">Concrete</span>
+<span class="n">p3</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">workspace</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="timeofday">
+<h3>TimeOfDay<a class="headerlink" href="#timeofday" title="Permalink to this headline">¶</a></h3>
+<p>强制转换的另一个示例是照明的 TimeOfDay 属性。此属性可设置服务器的当前时间。也就是说，开发者可以通过此属性定义游戏世界现在处于晚上、白天或其他任何时间。TimeOfDay 属性为字符串，但向其发送数字类参数时仍然可以正常运行。</p>
+<p>下列两个示例中前者使用数字，后者使用字符串。两者的效果相同：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">game</span><span class="o">.</span><span class="n">Lighting</span><span class="o">.</span><span class="n">TimeOfDay</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">Lighting</span><span class="o">.</span><span class="n">TimeOfDay</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输出为 “05:00:00”</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">game</span><span class="o">.</span><span class="n">Lighting</span><span class="o">.</span><span class="n">TimeOfDay</span> <span class="o">=</span> <span class="s2">&quot;05:00:00&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">Lighting</span><span class="o">.</span><span class="n">TimeOfDay</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输出为 “05:00:00”</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>另请参阅<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.lua.org/manual/5.1/manual.html#2.2.1">Lua 5.1 参考手册：强制转换</a></p></li>
+</ul>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Type-Coercion-in-Lua">Lua 中的类型强制转换</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Lua-debugger.html" class="btn btn-neutral float-right" title="使用 Lua 调试器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Lua-Style-Guide.html" class="btn btn-neutral float-left" title="Lua Style Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

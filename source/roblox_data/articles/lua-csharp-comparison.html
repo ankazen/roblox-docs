@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <link rel="canonical" href="https://developer.roblox.com/articles/lua-csharp-comparison"/>
+    <link rel="alternate" hreflang="x-default" href="https://developer.roblox.com/articles/lua-csharp-comparison"/>
+    
+      <link rel="alternate" hreflang="en-us" href="https://developer.roblox.com/en-us/"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="https://developer.roblox.com/zh-cn/"/>
+    
+      
+        
+          <title> Lua / C# Comparison</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="zh-cn">
+
+
+
+<meta name="description" content="<p>Overview of Lua syntax and how it compares to C#</p>">
+
+
+
+<meta name="keywords" content="">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="Lua / C# Comparison">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>Overview of Lua syntax and how it compares to C#</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="编码与脚本">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="https://browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/code-highlighting.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='https://dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('https://dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="/" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="/">主页</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">教程</h5>
+      <div>
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                <span>Studio 基础知识</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/creating">
+                <span>创建</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/international">
+                <span>国际化</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                <span>声效、光照与特效</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/marketing">
+                <span>市场营销</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/optimization">
+                <span>性能优化</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                <span>所有内容</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/analytics">
+                <span>数据分析</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                <span>用户界面</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/monetization">
+                <span>盈利</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                <span>编码与脚本</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                <span>跨平台发展</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/quick-start">
+                      <span>入门</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/learn-roblox/all-tutorials">
+                      <span>了解 Roblox</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/api-reference">
+                      <span>API 参考</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/resources">
+                      <span>资源</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com">
+                      <span>社区</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="搜索">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">关闭侧边栏</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">教程</h5>
+              <div>
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                      <span>Studio 基础知识</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/creating">
+                      <span>创建</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/international">
+                      <span>国际化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                      <span>声效、光照与特效</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/marketing">
+                      <span>市场营销</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/optimization">
+                      <span>性能优化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                      <span>所有内容</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/analytics">
+                      <span>数据分析</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                      <span>用户界面</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/monetization">
+                      <span>盈利</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                      <span>编码与脚本</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                      <span>跨平台发展</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/coding-scripts">编码与脚本</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>Lua / C# Comparison</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">隐藏内容索引</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">显示内容索引</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <div class="toc-content"><a href="javascript:void(0)">内容索引</a>
+        </div>
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/coding-scripts">编码与脚本</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>Lua / C# Comparison</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <style>
+.code-render-blocker { content: ""; }
+</style>
+<p>This article is a general overview of the Lua programming language and how its syntax compares to C#.</p>
+<h2>General Differences</h2>
+<h3>Comments</h3>
+<h4>Lua</h4>
+<pre class="prettyprint lang-lua">
+-- Single line comment
+
+--[[
+	Block comment
+--]]
+</pre>
+<h4>C#</h4>
+<pre class="prettyprint lang-cs">
+// Single line comment
+
+/*
+	Block comment
+*/
+</pre>
+<h3 class="mt-4">Strings</h3>
+<h4>Lua</h4>
+<pre class="prettyprint lang-lua">
+-- Multi-line string
+[[This is a string that,
+when printed, will appear
+on multiple lines]]
+</pre>
+<pre class="prettyprint lang-lua">
+-- Concatenation
+s1 = "This is a string "
+s2 = "made with two parts."
+endString = s1 .. s2
+</pre>
+<h4>C#</h4>
+<pre class="prettyprint lang-cs">
+// Multi-line string
+"This is a string that,\nwhen printed, will appear\n on multiple lines."
+</pre>
+<pre class="prettyprint lang-cs">
+// Concatenation
+string s1 = "This is a string ";
+string s2 = "made with two parts.";
+string endString = s1 + s2;
+</pre>
+<h3 class="mt-4">Conditional Operators</h3>
+<table class="table table-striped table-bordered w-75">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col"></th>
+            <th scope="col" class="text-center" width="30%">Lua</th>
+            <th scope="col" class="text-center" width="30%">C#</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+             <td scope="row" class="text-nowrap"><b>Equal To</b></td>
+            <td scope="row" class="text-center py-2"><code>==</code></td>
+            <td scope="row" class="text-center py-2"><code>==</code></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Greater Than</b></td>
+            <td scope="row" class="text-center py-2"><code>&gt;</code></td>
+            <td scope="row" class="text-center py-2"><code>&gt;</code></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Less Than</b></td>
+            <td scope="row" class="text-center py-2"><code>&lt;</code></td>
+            <td scope="row" class="text-center py-2"><code>&lt;</code></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Greater Than or Equal To</b></td>
+            <td scope="row" class="text-center py-2"><code>&gt;=</code></td>
+            <td scope="row" class="text-center py-2"><code>&gt;=</code></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Less Than or Equal To</b></td>
+            <td scope="row" class="text-center py-2"><code>&lt;=</code></td>
+            <td scope="row" class="text-center py-2"><code>&lt;=</code></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Not Equal To</b></td>
+            <td scope="row" class="text-center py-2"><code>~=</code></td>
+            <td scope="row" class="text-center py-2"><code>!=</code></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>And</b></td>
+            <td scope="row" class="text-center py-2"><code>and</code></td>
+            <td scope="row" class="text-center py-2"><code>&amp;&amp;</code></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-nowrap"><b>Or</b></td>
+            <td scope="row" class="text-center py-2"><code>or</code></td>
+            <td scope="row" class="text-center py-2"><code><span class="code-render-blocker"></span>&vert;&vert;</code></td>
+        </tr>
+    </tbody>
+</table>
+<h3>Arithmetic Operators</h3>
+<table class="table table-striped table-bordered w-75">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col"></th>
+            <th scope="col" class="text-center" width="30%">Lua</th>
+            <th scope="col" class="text-center" width="30%">C#</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+             <td scope="row" class="text-nowrap"><b>Addition</b></td>
+            <td scope="row" class="text-center py-2"><code>+</code></td>
+            <td scope="row" class="text-center py-2"><code>+</code></td>
+        </tr>
+        <tr>
+             <td scope="row" class="text-nowrap"><b>Subtraction</b></td>
+            <td scope="row" class="text-center py-2"><code>-</code></td>
+            <td scope="row" class="text-center py-2"><code>-</code></td>
+        </tr>
+        <tr>
+             <td scope="row" class="text-nowrap"><b>Multiplication</b></td>
+            <td scope="row" class="text-center py-2"><code>*</code></td>
+            <td scope="row" class="text-center py-2"><code>*</code></td>
+        </tr>
+        <tr>
+             <td scope="row" class="text-nowrap"><b>Division</b></td>
+            <td scope="row" class="text-center py-2"><code><span class="code-render-blocker"></span>/</code></td>
+            <td scope="row" class="text-center py-2"><code><span class="code-render-blocker"></span>/</code></td>
+        </tr>
+        <tr>
+             <td scope="row" class="text-nowrap"><b>Modulus</b></td>
+            <td scope="row" class="text-center py-2"><code>%</code></td>
+            <td scope="row" class="text-center py-2"><code>%</code></td>
+        </tr>
+        <tr>
+             <td scope="row" class="text-nowrap"><b>Exponentiation</b></td>
+            <td scope="row" class="text-center py-2"><code>^</code></td>
+            <td scope="row" class="text-center py-2"><code>**</code></td>
+        </tr>
+    </tbody>
+</table>
+<h3>Reserved Keywords</h3>
+<p>Below are Lua’s reserved keywords mapped to their C# equivalent. Not all C# keywords are shown.</p>
+<table class="table table-striped table-bordered w-75">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" class="text-center w-50">Lua</th>
+            <th scope="col" class="text-center w-50">C#</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row" class="text-center py-2"><code>and</code></td>
+            <td scope="row" class="text-center py-2"></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-center py-2"><code>break</code></td>
+            <td scope="row" class="text-center py-2"><code>break</code></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-center py-2"><code>do</code></td>
+            <td scope="row" class="text-center py-2"><code>do</code></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-center py-2"><code>if</code></td>
+            <td scope="row" class="text-center py-2"><code>if</code></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-center py-2"><code>else</code></td>
+            <td scope="row" class="text-center py-2"><code>else</code></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-center py-2"><code>elseif</code></td>
+            <td scope="row" class="text-center py-2"><code>else if</code></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-center py-2"><code>then</code></td>
+            <td scope="row" class="text-center py-2"></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-center py-2"><code>end</code></td>
+            <td scope="row" class="text-center py-2"></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-center py-2"><code>true</code></td>
+            <td scope="row" class="text-center py-2"><code>true</code></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-center py-2"><code>false</code></td>
+            <td scope="row" class="text-center py-2"><code>false</code></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-center py-2"><code>for</code></td>
+            <td scope="row" class="text-center py-2"><code>for</code> / <code>foreach</code></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-center py-2"><code>function</code></td>
+            <td scope="row" class="text-center py-2"></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-center py-2"><code>in</code></td>
+            <td scope="row" class="text-center py-2"><code>in</code></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-center py-2"><code>local</code></td>
+            <td scope="row" class="text-center py-2"></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-center py-2"><code>nil</code></td>
+            <td scope="row" class="text-center py-2"><code>null</code></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-center py-2"><code>not</code></td>
+            <td scope="row" class="text-center py-2"></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-center py-2"><code>or</code></td>
+            <td scope="row" class="text-center py-2"></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-center py-2"><code>repeat</code></td>
+            <td scope="row" class="text-center py-2"></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-center py-2"><code>return</code></td>
+            <td scope="row" class="text-center py-2"><code>return</code></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-center py-2"><code>until</code></td>
+            <td scope="row" class="text-center py-2"></td>
+        </tr>
+        <tr>
+            <td scope="row" class="text-center py-2"><code>while</code></td>
+            <td scope="row" class="text-center py-2"><code>while</code></td>
+        </tr>
+    </tbody>
+</table>
+<h3>Line Endings</h3>
+<p>Semicolons are <strong>not</strong> required in Lua, but they will work if used in your code.</p>
+<h3>Scoping</h3>
+<p>In Lua, variables and logic can be written in a tighter scope than their function or class by nesting the logic within <code>do</code> and <code>end</code> keywords, similar to nesting it within curly brackets <code>{}</code> in C#. For more details on scope in Lua, please see the <code>/articles/Scope|Scope</code> article.</p>
+<h4>Lua</h4>
+<pre class="prettyprint lang-lua">
+local example = "Example text"
+
+do
+	example = example .. " changed!"
+	print(example)  -- Outputs 'Example text changed!'
+end
+
+print(example)  -- Outputs 'Example text'
+</pre>
+<h4>C#</h4>
+<pre class="prettyprint lang-cs">
+string example = "Example text";
+
+{
+	example += " changed!";
+	Console.WriteLine(example);  // Outputs 'Example text changed!'
+}
+
+Console.WriteLine(example);  // Outputs 'Example text'
+</pre>
+<h3 class="mt-4">Variables</h3>
+<p>In Lua, variables do <strong>not</strong> specify their type when being declared/defined. Also, Lua variables do not have access modifiers, although you may prefix “private” variables with an underscore for readability.</p>
+<h4>Lua</h4>
+<pre class="prettyprint lang-lua">
+local variableName = "value"
+</pre>
+<pre class="prettyprint lang-lua">
+-- "Public" declaration
+local variableName
+
+-- "Private" declaration
+local _variableName
+</pre>
+<h4>C#</h4>
+<pre class="prettyprint lang-cs">
+string variableName = "value";
+</pre>
+<pre class="prettyprint lang-cs">
+// Public declaration
+public string variableName
+
+// Private declaration
+string variableName;
+</pre>
+<hr class="mt-4 mb-4">
+<h2>Loops</h2>
+<h3>For Loops</h3>
+<h4>Lua</h4>
+<pre class="prettyprint lang-lua">
+-- Forward loop
+for i = 1, 10 do
+	doSomething()
+end
+</pre>
+<pre class="prettyprint lang-lua">
+-- Reverse loop
+for i = 10, 1, -1 do
+	doSomething()
+end
+</pre>
+<h4>C#</h4>
+<pre class="prettyprint lang-cs">
+// Forward loop
+for (int i = 1; i <= 10; i++) {
+	doSomething();
+}
+</pre>
+<pre class="prettyprint lang-cs">
+// Reverse loop
+for (int i = 10; i >= 1; i--) {
+	doSomething();
+}
+</pre>
+<h3 class="mt-4">While Loops</h3>
+<h4>Lua</h4>
+<pre class="prettyprint lang-lua">
+while boolExpression do
+	doSomething()
+end
+</pre>
+<pre class="prettyprint lang-lua">
+repeat
+	doSomething()
+until not boolExpression
+</pre>
+<h4>C#</h4>
+<pre class="prettyprint lang-cs">
+while (boolExpression) {
+	doSomething();
+}
+</pre>
+<pre class="prettyprint lang-cs">
+do {
+	doSomething();
+} while (boolExpression)
+</pre>
+<h3 class="mt-4">For Each Loops</h3>
+<h4>Lua</h4>
+<pre class="prettyprint lang-lua">
+local abcList = {"a", "b", "c"}
+
+for i, v in ipairs(abcList) do
+	print(v)
+end
+</pre>
+<pre class="prettyprint lang-lua">
+local abcDictionary = { a=1, b=2, c=3 }
+
+for k, v in pairs(abcDictionary) do
+	print(k, v)
+end
+</pre>
+<h4>C#</h4>
+<pre class="prettyprint lang-cs">
+List<string> abcList = new List<string>{"a", "b", "c"};
+
+foreach (string v in abcList) {
+	Console.WriteLine(v);
+}
+</pre>
+<pre class="prettyprint lang-cs">
+Dictionary<string, int> abcDictionary = new Dictionary<string, int>
+{ {"a", 1}, {"b", 2}, {"c", 3} };
+
+foreach (KeyValuePair<string, int> entry in abcDictionary) {
+	Console.WriteLine(entry.Key + " " + entry.Value);
+}
+</pre>
+<hr class="mt-4 mb-4">
+<h2>Conditional Statements</h2>
+<h4>Lua</h4>
+<pre class="prettyprint lang-lua">
+-- One condition
+if boolExpression then
+	doSomething()
+end
+
+-- Multiple conditions
+if not boolExpression then
+	doSomething()
+elseif otherBoolExpression then
+	doSomething()
+else
+	doSomething()
+end
+</pre>
+<h4>C#</h4>
+<pre class="prettyprint lang-cs">
+// One condition
+if (boolExpression) {
+	doSomething();
+}
+
+// Multiple conditions
+if (!boolExpression) {
+	doSomething();
+}
+else if (otherBoolExpression) {
+	doSomething();
+}
+else {
+	doSomething();
+}
+</pre>
+<h3 class="mt-4">Ternary Operations</h3>
+<p>Lua does not offer a direct equivalent to the C ternary operator <code>a?b:c</code>. However, the Lua idiom <span class="text-nowrap"><code>(a and b) or c</code></span> offers a close approximation, provided <code>b</code> is not false.</p>
+<h4>Lua</h4>
+<pre class="prettyprint lang-lua">
+local max = (x>y and x) or y
+</pre>
+<h4>C#</h4>
+<pre class="prettyprint lang-cs">
+int max = (x>y) ? x: y;
+</pre>
+<hr class="mt-4 mb-4">
+<h2>Functions</h2>
+<p>Be sure to read our article on <code>articles/Understanding Functions in Roblox|Functions</code> to get a deeper understanding of Lua functions.</p>
+<h3>Generic Functions</h3>
+<h4>Lua</h4>
+<pre class="prettyprint lang-lua">
+-- Generic function
+local function increment(number)
+	return number + 1
+end
+</pre>
+<h4>C#</h4>
+<pre class="prettyprint lang-cs">
+// Generic function
+int increment(int number) {
+	return number + 1;
+}
+</pre>
+<h3 class="mt-4">Variable Argument Number</h3>
+<h4>Lua</h4>
+<pre class="prettyprint lang-lua">
+-- Variable argument number
+local function variableArguments(...)
+	print(...)
+end
+</pre>
+<h4>C#</h4>
+<pre class="prettyprint lang-cs">
+// Variable argument number
+void variableArguments(params string[] inventoryItems) {
+	for (item in inventoryItems) {
+		Console.WriteLine(item);
+	}
+}
+</pre>
+<h3 class="mt-4">Named Arguments</h3>
+<h4>Lua</h4>
+<pre class="prettyprint lang-lua">
+-- Named arguments
+local function namedArguments(args)
+	return args.name .. "'s birthday: " .. args.dob
+end
+
+namedArguments{name="Bob", dob="4/1/2000"}
+</pre>
+<h4>C#</h4>
+<pre class="prettyprint lang-cs">
+// Named arguments
+string namedArguments(string name, string dob) {
+	return name + "'s birthday: " + dob;
+}
+
+namedArguments(name: "Bob", dob: "4/1/2000");
+</pre>
+<hr class="mt-4 mb-4">
+<h2>Try/Catch Structures</h2>
+<h4>Lua</h4>
+<pre class="prettyprint lang-lua">
+local function fireWeapon()
+	if not weaponEquipped then
+		error("No weapon equipped!")
+	end
+	-- Proceed...
+end
+
+local success, errorMessage = pcall(fireWeapon)
+if not success then
+	print(errorMessage)
+end
+</pre>
+<h4>C#</h4>
+<pre class="prettyprint lang-cs">
+void fireWeapon() {
+	if (!weaponEquipped) {
+		// Use a user-defined exception
+		throw new InvalidWeaponException("No weapon equipped!");
+	}
+	// Proceed...
+}
+
+try {
+	fireWeapon();
+} catch (InvalidWeaponException ex) {
+	// An error was raised
+}
+</pre>
+<hr class="mt-4 mb-4">
+<h2>Tables</h2>
+<p>Be sure to read the <code>articles/Table|Tables</code> article to get a deeper understanding on how you can use tables in Lua.</p>
+<h3>Dictionary Tables</h3>
+<p>Tables in Lua can be used just like Dictionaries in C#.</p>
+<h4>Lua</h4>
+<pre class="prettyprint lang-lua">
+local dictionary = {
+	val1 = "this",
+	val2 = "is"
+}
+
+print(dictionary.val1)  -- Outputs 'this'
+print(dictionary[val1])  -- Outputs 'this'
+
+dictionary.val1 = nil  -- Removes 'val1' from table
+table.remove(dictionary, 1)  -- Also removes 'val1' from table
+
+dictionary["val3"] = "a dictionary"  -- Overwrites 'val3' or sets new key-value pair
+</pre>
+<h4>C#</h4>
+<pre class="prettyprint lang-cs">
+Dictionary dictionary = new Dictionary()
+{
+	{ "val1", "this" },
+	{ "val2", "is" }
+};
+
+Console.WriteLine(dictionary["val1"]);  // Outputs 'this'
+
+dictionary.Remove("val1");  // Removes 'val1' from dictionary
+
+dictionary["val3"] = "a dictionary";  // Overwrites 'val3' or sets new key-value pair
+dictionary.Add("val3", "a dictionary");  // Creates a new key-value pair
+</pre>
+<h3 class="mt-4">Numerically-Indexed Tables</h3>
+<p>Tables in Lua can also be used like a List in C#. The key difference is that indices start at <strong>1</strong> with Lua and <strong>0</strong> with C#.</p>
+<h4>Lua</h4>
+<pre class="prettyprint lang-lua">
+local NPCAttributes = {"strong", "intelligent"}
+
+print(NPCAttributes[1])  -- Outputs 'strong'
+
+print(#NPCAttributes)  -- Outputs the size of the list
+
+-- Append to the list
+table.insert(NPCAttributes, "humble")
+-- Another way...
+NPCAttributes[#NPCAttributes+1] = "humble"
+
+-- Insert at the beginning of the list
+table.insert(NPCAttributes, 1, "brave")
+
+-- Remove item at a given index
+table.remove(NPCAttributes, 3)
+</pre>
+<h4>C#</h4>
+<pre class="prettyprint lang-cs">
+List NPCAttributes = new List{"strong", "intelligent"};
+
+Console.WriteLine(NPCAttributes[0]);  // Outputs 'strong'
+
+Console.WriteLine(NPCAttributes.Count);  // Outputs the size of the list
+
+// Append to the list
+NPCAttributes.Add("humble");
+// Another way...
+NPCAttributes.Insert(NPCAttributes.Count, "humble");
+
+// Insert at the beginning of the list
+NPCAttributes.Insert(0, "brave");
+
+// Remove item at a given index
+NPCAttributes.Remove(2);
+</pre>
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+            
+            
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>此网站如何使用 Cookie</h1>
+        <div class="privacy-content">
+          <p>此平台使用 Cookie 为您提供更好的体验、对内容进行个性化、提供社交媒体功能和分析网站流量。如需详细信息（包括有关如何在此平台上防止使用 Cookie 或对其进行管理的信息），请参阅我们的<a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私和 Cookie 政策</a>。</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">确定</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">你即将离开 Roblox 网站</div>
+        <p>请按下继续按钮前往： <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="" class="btn secondary-btn" data-dismiss="modal">返回</a>
+        <a href="" class="btn primary-btn continue-link" target="_blank">继续</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com" target="_self" class="footer-logo ptxl mbl">
+              <img src="https://dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2019 Roblox Corporation. 保留所有权利。</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>公司</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">关于 Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">招贤纳士</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">技术</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">服务条款</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私政策</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">家长</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>开发人员</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="/articles/Creating-Your-First-Game" target="_self">入门</a>
+                  </li>
+                
+                  <li>
+                    <a href="/learn-roblox/all-tutorials" target="_self">了解</a>
+                  </li>
+                
+                  <li>
+                    <a href="/api-reference" target="_self">API 参考</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com" target="_blank">社区</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">开发人员公告</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">搜索</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input"
+                        placeholder="搜索">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" href="#all" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            所有结果
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" href="#api-doc" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API 文档
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" href="#tutorial" role="tab"
+                            aria-selected="false" data-name="articles">
+                            教程
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" href="#recipe" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            代码参考
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" href="#video" role="tab"
+                            aria-selected="false" data-name="videos">
+                            视频
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+</html>

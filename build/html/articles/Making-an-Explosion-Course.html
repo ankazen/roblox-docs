@@ -1,0 +1,434 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>制作爆炸赛道 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="商店对话框" href="Shop-Dialogs.html" />
+    <link rel="prev" title="角色生成与团队" href="Player-Spawns-and-Teams.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Lobby.html">制作大厅</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Usage-of-dialogs.html">NPC 对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Teleporting-Between-Places.html">不同场景间的传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Spawns-and-Teams.html">角色生成与团队</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">制作爆炸赛道</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">构建路线</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">编写脚本</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">随机数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">警示玩家</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Shop-Dialogs.html">商店对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-to-teleport-within-a-Place.html">场景内玩家传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="in-game-solid-modeling.html">游戏内实体建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matchmaking.html">玩家匹配系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Player-Collisions.html">玩家间的碰撞控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setting-Parts-on-Fire-with-Events.html">通过事件让部件着火</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2D-Collision-Detection.html">2D 碰撞检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Basics-on-Roblox.html">添加团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Badges-Special-Game-Awards.html">Badges – Special Game Awards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Collision-Filtering-Team-Doors.html">Restricted/Team Doors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-VIP-Doors.html">创建 VIP 专用门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Random-Map-Chooser.html">随机地图选择器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roblox-avatars.html">Roblox 虚拟形象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Health-Pickups.html">回复用拾取物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Moving-NPCs-Between-Points.html">在点之间移动 NPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pathfinding.html">寻路</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Side-Scrolling-Camera-View.html">横向卷轴镜头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Tools.html">玩家工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="detecting-collisions.html">检测碰撞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weapons-kit.html">认可武器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="npc-kit.html">NPC 套组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vehicles-kit.html">载具工具包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="team-balancing.html">平衡团队构成</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/gameplay.html">游戏制作</a> &raquo;</li>
+        
+      <li>制作爆炸赛道</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Making-an-Explosion-Course.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>制作爆炸赛道<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p><img alt="https://developer.roblox.com/assets/blt0a85022115c39188/Explosion-Course-Banner.jpg" src="https://developer.roblox.com/assets/blt0a85022115c39188/Explosion-Course-Banner.jpg" /></p>
+<p>在本教程中，我们将利用 for 循环和随机数来制作一项爆炸挑战。</p>
+<div class="section" id="id2">
+<h2>构建路线<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>第一件事就是就是构建玩家将要跑过的路线。请务必加入重生点。</p>
+<p>如上图所示，这一路线最重要的特点就是，可以在你希望发生爆炸的位置填充部件。每个部件都应命名为 <em>ExplosionPart</em>，并直接放置在 <code class="docutils literal notranslate"><span class="pre">Workspace</span></code> 当中。</p>
+</div>
+<div class="section" id="id3">
+<h2>编写脚本<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>现在，让我们添加一个用来让这些部件爆炸的脚本。</p>
+<p>首先，在 <code class="docutils literal notranslate"><span class="pre">ServerScriptService</span></code> 中插入一个脚本。通过代码添加爆炸的函数与我们用来创建新部件的函数是同一种：:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">explosion</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Explosion&quot;</span><span class="p">)</span>
+<span class="n">explosion</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span>
+</pre></div>
+</div>
+<p>爆炸的关键在于，我们需要告诉它们起爆的位置。我们可以用爆炸的 <strong>Position</strong> （位置）属性来实现这一目的 —但是，我们究竟想要爆炸出现在哪里呢？我们可以按照下面这样操作：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">explosion</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Explosion&quot;</span><span class="p">)</span>
+<span class="n">explosion</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">ExplosionPart</span><span class="o">.</span><span class="n">Position</span>
+<span class="n">explosion</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span>
+</pre></div>
+</div>
+<p>这会让爆炸出现在我们之前插入的其中一个部件的中心。</p>
+<p>这段代码只会创建<strong>一</strong>次爆炸，而我们想要所有命名为 <em>ExplosionPart</em> 的部件都发生爆炸。为了达到这种效果，我们将会使用通用 <code class="docutils literal notranslate"><span class="pre">for</span></code> 循环。通用 <code class="docutils literal notranslate"><span class="pre">for</span></code> 循环有多种使用方式，其中一种就是在一组对象当中循环，并对每个对象都执行同样的操作。在本教程中，我们将使用这一技巧，在 <code class="docutils literal notranslate"><span class="pre">Workspace</span></code> 的所有子项当中循环，使效果影响每个 <em>ExplosionPart</em>。</p>
+<p>首先，我们需要获取 <code class="docutils literal notranslate"><span class="pre">Workspace</span></code> 中所有子项的列表。我们可以用 <code class="docutils literal notranslate"><span class="pre">Instance/GetChildren|GetChildren()</span></code> 成员函数来实现这一目的，并将结果存储在一个变量当中：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">children</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="p">:</span><span class="n">GetChildren</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>现在，我们就可以使用 for 循环来操作该列表中的所有子项了。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">children</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="p">:</span><span class="n">GetChildren</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">ipairs</span><span class="p">(</span><span class="n">children</span><span class="p">)</span> <span class="n">do</span>
+	<span class="n">local</span> <span class="n">explosion</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Explosion&quot;</span><span class="p">)</span>
+	<span class="n">explosion</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">Position</span>
+	<span class="n">explosion</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>遗憾的是，如果我们运行这段代码，我们的游戏将会报错：</p>
+<p><img alt="Scripting6_Error.png" src="https://developer.roblox.com/assets/bltc1558f7f9ca1ee16/Scripting6_Error.png" /></p>
+<p>这是由于 <code class="docutils literal notranslate"><span class="pre">Instance/GetChildren|GetChildren()</span></code> 返回了工作空间当中的 <strong>所有</strong> 子项，包括 <strong>Camera</strong> （镜头）、<strong>Terrain</strong> （地形）和我们游戏当中可能存在的任何其他部件。</p>
+<p>因此，我们需要检查自己看到的子项是否为 <em>ExplosionPart</em>。我们可以通过一个用来检查子项名称的条件语句来达到这种效果：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">children</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="p">:</span><span class="n">GetChildren</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">ipairs</span><span class="p">(</span><span class="n">children</span><span class="p">)</span> <span class="n">do</span>
+	<span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">Name</span> <span class="o">==</span> <span class="s2">&quot;ExplosionPart&quot;</span> <span class="n">then</span>
+		<span class="n">local</span> <span class="n">explosion</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Explosion&quot;</span><span class="p">)</span>
+		<span class="n">explosion</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">Position</span>
+		<span class="n">explosion</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span>
+	<span class="n">end</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>现在，我们的代码将会正常运行，并会在所有正确的位置制造爆炸了！不过，就爆炸一次可不怎么过瘾。让我们用一个 <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">true</span></code> 循环和一个 <code class="docutils literal notranslate"><span class="pre">wait()</span></code> 来让代码循环运行，这样就可以得到反复爆炸的效果：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">children</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="p">:</span><span class="n">GetChildren</span><span class="p">()</span>
+<span class="k">while</span> <span class="n">true</span> <span class="n">do</span>
+	<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">ipairs</span><span class="p">(</span><span class="n">children</span><span class="p">)</span> <span class="n">do</span>
+		<span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">Name</span> <span class="o">==</span> <span class="s2">&quot;ExplosionPart&quot;</span> <span class="n">then</span>
+			<span class="n">local</span> <span class="n">explosion</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Explosion&quot;</span><span class="p">)</span>
+			<span class="n">explosion</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">Position</span>
+			<span class="n">explosion</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span>
+		<span class="n">end</span>
+	<span class="n">end</span>
+	<span class="n">wait</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<div class="section" id="id4">
+<h3>随机数<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>现在，我们所有的 <em>ExplosionPart</em> 部件都会在每个循环当中制造一次爆炸。让我们来添加一个 <strong>随机</strong> 要素，使得每次循环时只有某些部件会起爆。</p>
+<p>我们首先要做的，就是将我们的爆炸代码放到一个 <strong>function</strong> （函数）当中。后面还要向其中添加更多内容，所以我们不想让循环当中的代码变得太难懂。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">function</span> <span class="n">explodePart</span><span class="p">(</span><span class="n">part</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">explosion</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Explosion&quot;</span><span class="p">)</span>
+	<span class="n">explosion</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">Position</span>
+	<span class="n">explosion</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span>
+<span class="n">end</span>
+
+<span class="n">local</span> <span class="n">children</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="p">:</span><span class="n">GetChildren</span><span class="p">()</span>
+<span class="k">while</span> <span class="n">true</span> <span class="n">do</span>
+	<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">ipairs</span><span class="p">(</span><span class="n">children</span><span class="p">)</span> <span class="n">do</span>
+		<span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">Name</span> <span class="o">==</span> <span class="s2">&quot;ExplosionPart&quot;</span> <span class="n">then</span>
+		<span class="n">explodePart</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+	<span class="n">end</span>
+	<span class="n">end</span>
+	<span class="n">wait</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>该代码的运行效果与之前并无二致，唯一的区别就是使用函数后，使其变得更有条理。现在，让我们制作一个随机数，用来决定我们是否想制造爆炸。随机数的生成是通过一种特殊的函数来完成的：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">number</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">math.random()</span></code> 将会输出一个随机数，该数介于你在括号里提供的两个数字之间。在本案例中，我们会得到一个介于 <code class="docutils literal notranslate"><span class="pre">1</span></code> 和 <code class="docutils literal notranslate"><span class="pre">3</span></code> 之间的随机数。我们可以用一个条件语句来检查这个数字：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">function</span> <span class="n">explodePart</span><span class="p">(</span><span class="n">part</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">number</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">1</span> <span class="n">then</span>
+		<span class="n">local</span> <span class="n">explosion</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Explosion&quot;</span><span class="p">)</span>
+		<span class="n">explosion</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">Position</span>
+		<span class="n">explosion</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span>
+	<span class="n">end</span>
+<span class="n">end</span>
+
+<span class="n">local</span> <span class="n">children</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="p">:</span><span class="n">GetChildren</span><span class="p">()</span>
+<span class="k">while</span> <span class="n">true</span> <span class="n">do</span>
+	<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">ipairs</span><span class="p">(</span><span class="n">children</span><span class="p">)</span> <span class="n">do</span>
+		<span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">Name</span> <span class="o">==</span> <span class="s2">&quot;ExplosionPart&quot;</span> <span class="n">then</span>
+			<span class="n">explodePart</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+		<span class="n">end</span>
+	<span class="n">end</span>
+	<span class="n">wait</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>警示玩家<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>游戏目前并没有给玩家提供某一指定部件即将爆炸的指示。我们现在来添加某种能让部件在爆炸前变红的代码。</p>
+<p>在我们的 <code class="docutils literal notranslate"><span class="pre">explodePart()</span></code> 函数当中，我们会添加一个新的 <code class="docutils literal notranslate"><span class="pre">if</span></code> 语句，还有一个称为 <code class="docutils literal notranslate"><span class="pre">else</span></code> 的新语句，它的作用是在第一个语句没有得到满足时运行逻辑。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">function</span> <span class="n">explodePart</span><span class="p">(</span><span class="n">part</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">part</span><span class="o">.</span><span class="n">BrickColor</span> <span class="o">==</span> <span class="n">BrickColor</span><span class="o">.</span><span class="n">Red</span><span class="p">()</span> <span class="n">then</span>
+		<span class="n">local</span> <span class="n">explosion</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Explosion&quot;</span><span class="p">)</span>
+		<span class="n">explosion</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">Position</span>
+		<span class="n">explosion</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span>
+		<span class="n">part</span><span class="o">.</span><span class="n">BrickColor</span> <span class="o">=</span> <span class="n">BrickColor</span><span class="o">.</span><span class="n">White</span><span class="p">()</span>
+	<span class="k">else</span>
+		<span class="n">local</span> <span class="n">number</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">1</span> <span class="n">then</span>
+			<span class="n">part</span><span class="o">.</span><span class="n">BrickColor</span> <span class="o">=</span> <span class="n">BrickColor</span><span class="o">.</span><span class="n">Red</span><span class="p">()</span>
+		<span class="n">end</span>
+	<span class="n">end</span>	
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>让我们从头到尾看一下这个函数，了解一下现在正在进行哪些动作。函数会先检查部件是否已经变红。如果已经变红，则会引发爆炸，并让部件变回白色。如果部件_不是_红色（默认不是红色），函数将会生成一个随机数。如果随机数等于 1，则我们会将部件变为红色。这将导致部件在下次被该函数调用时发生爆炸。</p>
+<p>整个脚本应为如下所示：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">function</span> <span class="n">explodePart</span><span class="p">(</span><span class="n">part</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">part</span><span class="o">.</span><span class="n">BrickColor</span> <span class="o">==</span> <span class="n">BrickColor</span><span class="o">.</span><span class="n">Red</span><span class="p">()</span> <span class="n">then</span>
+		<span class="n">local</span> <span class="n">explosion</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Explosion&quot;</span><span class="p">)</span>
+		<span class="n">explosion</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">Position</span>
+		<span class="n">explosion</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span>
+		<span class="n">part</span><span class="o">.</span><span class="n">BrickColor</span> <span class="o">=</span> <span class="n">BrickColor</span><span class="o">.</span><span class="n">White</span><span class="p">()</span>
+	<span class="k">else</span>
+		<span class="n">local</span> <span class="n">number</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">1</span> <span class="n">then</span>
+			<span class="n">part</span><span class="o">.</span><span class="n">BrickColor</span> <span class="o">=</span> <span class="n">BrickColor</span><span class="o">.</span><span class="n">Red</span><span class="p">()</span>
+		<span class="n">end</span>
+	<span class="n">end</span>	
+<span class="n">end</span>
+
+<span class="n">local</span> <span class="n">children</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="p">:</span><span class="n">GetChildren</span><span class="p">()</span>
+<span class="k">while</span> <span class="n">true</span> <span class="n">do</span>
+	<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">ipairs</span><span class="p">(</span><span class="n">children</span><span class="p">)</span> <span class="n">do</span>
+		<span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">Name</span> <span class="o">==</span> <span class="s2">&quot;ExplosionPart&quot;</span> <span class="n">then</span>
+			<span class="n">explodePart</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+		<span class="n">end</span>
+	<span class="n">end</span>
+	<span class="n">wait</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>现在，各部件将会随机变红然后再爆炸，让你的玩家能有机会逃出升天！</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Making-an-Explosion-Course">制作爆炸赛道</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Shop-Dialogs.html" class="btn btn-neutral float-right" title="商店对话框" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Player-Spawns-and-Teams.html" class="btn btn-neutral float-left" title="角色生成与团队" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

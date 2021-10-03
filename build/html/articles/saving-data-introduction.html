@@ -1,0 +1,421 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>保存数据：简介 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="任务计划程序" href="task-scheduler.html" />
+    <link rel="prev" title="试验模式" href="Converting-From-Experimental-Mode.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">保存数据：简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#studio">启用 Studio 访问</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">访问数据存储</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">数据排序 »</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">保存数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">示例场景</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">淘金热</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>保存数据：简介</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/saving-data-introduction.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>保存数据：简介<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">DataStoreService</span></code> 保存在游戏进程之间保留的数据，例如玩家的金钱、经验值或物品栏中的道具等等。保存的数据可从游戏中的任何场景访问，也可跨服务器访问。</p>
+<div class="section" id="studio">
+<h2>启用 Studio 访问<a class="headerlink" href="#studio" title="Permalink to this headline">¶</a></h2>
+<p>默认情况下，在 Studio 中测试的游戏无法访问数据存储，所以您必须手动<strong>启用</strong>。</p>
+<ol class="simple">
+<li><p>在 **Home（主页）**选项卡中，打开 **Game Settings（游戏设置）**窗口。如果您的游戏尚未发布，您将被询问是否发布。
+<img alt="https://developer.roblox.com/assets/bltd6af44e38b951d0a/Game-Settings.png" src="https://developer.roblox.com/assets/bltd6af44e38b951d0a/Game-Settings.png" /></p></li>
+<li><p>在 **Security（安全）**部分，打开 <strong>Enable Studio Access to API Services（启用 Studio 访问 API 服务）</strong>.</p></li>
+<li><p>点击 **Save（保存）**来注册您的变更。</p></li>
+</ol>
+<p>如果游戏已上线且有活跃玩家，通过 Studio 访问数据存储时请谨慎。Studio 访问与上线的游戏相同的数据，所以建议您在独立的测试版本中访问数据存储。</p>
+</div>
+<div class="section" id="id2">
+<h2>访问数据存储<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>数据存储最初通过一个独特的<strong>名称</strong>创建并访问。例如，一个名为 <strong>PlayerGold</strong> 的数据存储可以在游戏进程中与进程之间存储玩家的金钱。</p>
+<ol class="simple">
+<li><p>在名为 <strong>DataStoreTest</strong> 的 <code class="docutils literal notranslate"><span class="pre">ServerScriptService</span></code> 内创建一个新的 <code class="docutils literal notranslate"><span class="pre">Script</span></code>。
+<img alt="https://developer.roblox.com/assets/blta132586c9ea9dcc4/DataStoreTest-Object.png" src="https://developer.roblox.com/assets/blta132586c9ea9dcc4/DataStoreTest-Object.png" /></p></li>
+<li><p>数据存储通过 <code class="docutils literal notranslate"><span class="pre">DataStoreService</span></code> 进行管理，所以请在第一行获取服务。</p></li>
+</ol>
+<p>访问数据存储 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">DataStoreService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;DataStoreService&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  3. 用 `&quot;PlayerGold&quot;` 字符串调用 `DataStoreService/GetDataStore|DataStoreService:GetDataStore()`。如果已存在，这将访问 **PlayerGold** 数据存储，否则将新建。
+
+访问数据存储 ```    
+    
+    local DataStoreService = game:GetService(&quot;DataStoreService&quot;)
+    local goldStore = DataStoreService:GetDataStore(&quot;PlayerGold&quot;)
+
+</pre></div>
+</div>
+<div class="section" id="id3">
+<h3>数据排序 »<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Data returned by <code class="docutils literal notranslate"><span class="pre">DataStoreService/GetDataStore|GetDataStore()</span></code> is not sorted. This isn’t a concern when reading specific individual keys, but sorted data fetched via <code class="docutils literal notranslate"><span class="pre">DataStoreService/GetOrderedDataStore|GetOrderedDataStore()</span></code> is essential for user interfaces like persistent leaderboards.</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>保存数据<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>数据存储本质上是字典，就像 Lua 表。数据存储中的每个<strong>值</strong>都由一个独特的<strong>键</strong>索引，例如玩家的独特 <code class="docutils literal notranslate"><span class="pre">Player/UserId|UserId</span></code> 或一个命名的字符串。</p>
+<p>玩家数据 游戏数据</p>
+<p>Key Value</p>
+<p>31250608
+50</p>
+<p>351675979
+20</p>
+<p>505306092
+78000</p>
+<p>Key Value</p>
+<p>ActiveSpecialEvent
+SummerParty2</p>
+<p>ActivePromoCode
+BONUS123</p>
+<p>CanAccessPartyPlace
+true</p>
+<p>要将数据保存进 <strong>PlayerGold</strong> 数据存储，请用键和一个值调用 <code class="docutils literal notranslate"><span class="pre">GlobalDataStore/SetAsync|SetAsync()</span></code>：</p>
+<p>保存至数据存储 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">DataStoreService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;DataStoreService&quot;</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">goldStore</span> <span class="o">=</span> <span class="n">DataStoreService</span><span class="p">:</span><span class="n">GetDataStore</span><span class="p">(</span><span class="s2">&quot;PlayerGold&quot;</span><span class="p">)</span>
+
+<span class="o">--</span> <span class="n">数据存储键和值</span>
+<span class="n">local</span> <span class="n">playerUserID</span> <span class="o">=</span> <span class="mi">505306092</span>
+<span class="n">local</span> <span class="n">playerGold</span> <span class="o">=</span> <span class="mi">250</span>
+
+<span class="o">--</span> <span class="n">设置数据存储键</span>
+<span class="n">local</span> <span class="n">setSuccess</span><span class="p">,</span> <span class="n">errorMessage</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+	<span class="n">goldStore</span><span class="p">:</span><span class="n">SetAsync</span><span class="p">(</span><span class="n">playerUserID</span><span class="p">,</span> <span class="n">playerGold</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">setSuccess</span> <span class="n">then</span>
+	<span class="n">warn</span><span class="p">(</span><span class="n">errorMessage</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>类似`GlobalDataStore/SetAsync|SetAsync()`这种访问数据存储内容的函数是网络调用，并且有时可能会失败。如上图所示，您应当将这些调用打包在`pcall()`中以捕获和处理错误。关于错误处理的详情，请参见`articles/Datastore Errors|此文`。 
+
+对数据存储键的请求置于队列中。如果短时间内有对同一个键的大量请求，队列可能会爆满，使后续的请求被丢弃。所以与其在玩家每次拾取金钱时更新，不如将玩家的金钱存在一个表中并偶尔更新数据存储，例如当玩家离开时（`Players/PlayerRemoving|Players.PlayerRemoving`事件）。
+
+## 读取数据
+
+要从数据存储中读取数据，请用需要的键名称调用 `GlobalDataStore/GetAsync|GetAsync()`：
+
+从数据存储中读取 ```    
+    
+    local DataStoreService = game:GetService(&quot;DataStoreService&quot;)
+    local goldStore = DataStoreService:GetDataStore(&quot;PlayerGold&quot;)
+    
+    -- 数据存储键和值
+    local playerUserID = 505306092
+    local playerGold = 250
+    
+    -- 设置数据存储键
+    local setSuccess, errorMessage = pcall(function()
+    	goldStore:SetAsync(playerUserID, playerGold)
+    end)
+    if not setSuccess then
+    	warn(errorMessage)
+    end
+    
+    -- 读取数据存储键
+    local getSuccess, currentGold = pcall(function()
+    	return goldStore:GetAsync(playerUserID)
+    end)
+    if getSuccess then
+    	print(currentGold)
+    end
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>测试<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>当您完成脚本后，便可测试 <strong>PlayerGold</strong> 数据存储。</p>
+<ol class="simple">
+<li><p>点击 **Run（运行）**按钮。
+<img alt="https://developer.roblox.com/assets/blt806e39d14fd0bf40/Play-Button-Upper.png" src="https://developer.roblox.com/assets/blt806e39d14fd0bf40/Play-Button-Upper.png" /></p></li>
+<li><p>如果一切正确，<code class="docutils literal notranslate"><span class="pre">playerGold</span></code> 值应该会在 **Output（输出）**窗口中打印出来。注意这可能需要几秒钟的时间，因为函数必须连接至数据存储服务器。
+<img alt="https://developer.roblox.com/assets/blt3e151e0aec8a4260/DataStoreTest-Output.png" src="https://developer.roblox.com/assets/blt3e151e0aec8a4260/DataStoreTest-Output.png" /></p></li>
+</ol>
+</div>
+<div class="section" id="id6">
+<h2>示例场景<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>现在您已掌握了数据存储的基本用法，请在示例场景中测试一下。</p>
+<p><img alt="https://developer.roblox.com/assets/blt377b3c22f1e549a2/Sample-Place-Gold-Rush.jpg" src="https://developer.roblox.com/assets/blt377b3c22f1e549a2/Sample-Place-Gold-Rush.jpg" /></p>
+<div class="section" id="id7">
+<h3><a class="reference external" href="https://www.roblox.com/games/5268331031/Gold-Rush">淘金热</a><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>尽可能多地收集金块，您的个人最佳纪录将在游戏进程之间保存。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/saving-data-introduction">保存数据：简介</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="task-scheduler.html" class="btn btn-neutral float-right" title="任务计划程序" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Converting-From-Experimental-Mode.html" class="btn btn-neutral float-left" title="试验模式" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

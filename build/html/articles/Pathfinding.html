@@ -1,0 +1,572 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>寻路 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="横向卷轴镜头" href="Side-Scrolling-Camera-View.html" />
+    <link rel="prev" title="在点之间移动 NPC" href="Moving-NPCs-Between-Points.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Lobby.html">制作大厅</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Usage-of-dialogs.html">NPC 对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Teleporting-Between-Places.html">不同场景间的传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Spawns-and-Teams.html">角色生成与团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-an-Explosion-Course.html">制作爆炸赛道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shop-Dialogs.html">商店对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-to-teleport-within-a-Place.html">场景内玩家传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="in-game-solid-modeling.html">游戏内实体建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matchmaking.html">玩家匹配系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Player-Collisions.html">玩家间的碰撞控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setting-Parts-on-Fire-with-Events.html">通过事件让部件着火</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2D-Collision-Detection.html">2D 碰撞检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Basics-on-Roblox.html">添加团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Badges-Special-Game-Awards.html">Badges – Special Game Awards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Collision-Filtering-Team-Doors.html">Restricted/Team Doors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-VIP-Doors.html">创建 VIP 专用门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Random-Map-Chooser.html">随机地图选择器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roblox-avatars.html">Roblox 虚拟形象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Health-Pickups.html">回复用拾取物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Moving-NPCs-Between-Points.html">在点之间移动 NPC</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">寻路</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">创建路径</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">路径参数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">沿路径移动</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">计算路线</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">获取路径的途经点</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">显示途经点</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">路径移动</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">处理堵塞的路径</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Side-Scrolling-Camera-View.html">横向卷轴镜头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Tools.html">玩家工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="detecting-collisions.html">检测碰撞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weapons-kit.html">认可武器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="npc-kit.html">NPC 套组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vehicles-kit.html">载具工具包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="team-balancing.html">平衡团队构成</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/gameplay.html">游戏制作</a> &raquo;</li>
+        
+      <li>寻路</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Pathfinding.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>寻路<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>15  分钟</em></p>
+<p>在 <code class="docutils literal notranslate"><span class="pre">Articles/Moving</span> <span class="pre">NPCs</span> <span class="pre">Between</span> <span class="pre">Points|在点之间移动</span> <span class="pre">NPC</span></code> 教程当中，你学习了角色的直接直线移动。在本文中，我们将探讨如何让 NPC 沿着更加复杂的路线移动或是绕过障碍物。这叫做<strong>寻路</strong>。</p>
+<div class="section" id="id2">
+<h2>设置<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在 Roblox 当中，寻路是由 <code class="docutils literal notranslate"><span class="pre">PathfindingService</span></code> 驱动的，因此你的脚本必须先取得该服务，然后才能实现众多其他功能。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">PathfindingService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;PathfindingService&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>创建路径<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>在你的脚本当中加入 <code class="docutils literal notranslate"><span class="pre">PathfindingService</span></code> 后，你就能通过 <code class="docutils literal notranslate"><span class="pre">PathfindingService/CreatePath|CreatePath()</span></code> 方法创建一个新的 <code class="docutils literal notranslate"><span class="pre">Path</span></code>：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">PathfindingService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;PathfindingService&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">path</span> <span class="o">=</span> <span class="n">PathfindingService</span><span class="p">:</span><span class="n">CreatePath</span><span class="p">(</span><span class="n">pathParams</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<div class="section" id="id4">
+<h3>路径参数<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>正如你所见，这一方法会接受一个参数 <code class="docutils literal notranslate"><span class="pre">pathParams</span></code>，这是一个 Lua 表格，能让你针对<strong>行为主体</strong>（将要沿路径移动的人形对象）的大小对路径进行微调。</p>
+<p>以下是可供 <code class="docutils literal notranslate"><span class="pre">pathParams</span></code> 表格使用的参数：</p>
+<p>键 值类型 默认值 描述</p>
+<p>AgentRadius
+整数
+2
+人形对象的半径。用于确定与障碍物的最小距离。</p>
+<p>AgentHeight
+整数
+5
+人形对象的高度。小于该值的空白空间（如台阶下的空间）都会标记为无法穿越。</p>
+<p>请注意，参数的数量会随着时间推移而增加，包括哪些材质/区域更适合通过！</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>沿路径移动<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>让我们来将寻路付诸操作吧！下面僵尸的智商比<code class="docutils literal notranslate"><span class="pre">Articles/Moving</span> <span class="pre">NPCs</span> <span class="pre">Between</span> <span class="pre">Points|直线移动</span></code>教程中的僵尸还要高一点点，所以不应直接朝着粉色旗子的方向走进岩浆。我们来让它安全地走过木板。</p>
+<p><img alt="https://developer.roblox.com/assets/blt0f3ac93c8b6083df/Zombie-Pathfinding-1.jpg" src="https://developer.roblox.com/assets/blt0f3ac93c8b6083df/Zombie-Pathfinding-1.jpg" /></p>
+<p>以下代码会取得 <code class="docutils literal notranslate"><span class="pre">PathfindingService</span></code>、为僵尸及其 <code class="docutils literal notranslate"><span class="pre">Humanoid</span></code> 创建变量、设置目标点（粉色旗子），并创建 <code class="docutils literal notranslate"><span class="pre">Path</span></code> 对象。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">PathfindingService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;PathfindingService&quot;</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">Variables</span> <span class="k">for</span> <span class="n">the</span> <span class="n">zombie</span><span class="p">,</span> <span class="n">its</span> <span class="n">humanoid</span><span class="p">,</span> <span class="ow">and</span> <span class="n">destination</span>
+    <span class="n">local</span> <span class="n">zombie</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">Zombie</span>
+    <span class="n">local</span> <span class="n">humanoid</span> <span class="o">=</span> <span class="n">zombie</span><span class="o">.</span><span class="n">Humanoid</span>
+    <span class="n">local</span> <span class="n">destination</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">PinkFlag</span>
+    
+    <span class="o">--</span> <span class="n">Create</span> <span class="n">the</span> <span class="n">path</span> <span class="nb">object</span>
+    <span class="n">local</span> <span class="n">path</span> <span class="o">=</span> <span class="n">PathfindingService</span><span class="p">:</span><span class="n">CreatePath</span><span class="p">()</span>
+
+</pre></div>
+</div>
+<p>在本示例当中，我们不会向 <code class="docutils literal notranslate"><span class="pre">PathfindingService/CreatePath|CreatePath()</span></code> 传递满满一表格的自定义参数，因为行为对象（僵尸）是一个正常大小的角色，默认的半径/高度值都很适中。</p>
+<div class="section" id="id6">
+<h3>计算路线<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>用 <code class="docutils literal notranslate"><span class="pre">PathfindingService/CreatePath|CreatePath()</span></code> 创建完有效的 <code class="docutils literal notranslate"><span class="pre">Path</span></code> 对象后，你就需要<strong>计算</strong>路线了 — 这是一个<strong>不会</strong>在路径创建完毕后自动进行的显式步骤！</p>
+<p>要计算路径，就要对 <code class="docutils literal notranslate"><span class="pre">Path</span></code> 对象调用 <code class="docutils literal notranslate"><span class="pre">Path/ComputeAsync|ComputeAsync()</span></code>，从而为起始位置和目标目的地提供一个 <code class="docutils literal notranslate"><span class="pre">Vector3</span></code>。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">PathfindingService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;PathfindingService&quot;</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">Variables</span> <span class="k">for</span> <span class="n">the</span> <span class="n">zombie</span><span class="p">,</span> <span class="n">its</span> <span class="n">humanoid</span><span class="p">,</span> <span class="ow">and</span> <span class="n">destination</span>
+    <span class="n">local</span> <span class="n">zombie</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">Zombie</span>
+    <span class="n">local</span> <span class="n">humanoid</span> <span class="o">=</span> <span class="n">zombie</span><span class="o">.</span><span class="n">Humanoid</span>
+    <span class="n">local</span> <span class="n">destination</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">PinkFlag</span>
+    
+    <span class="o">--</span> <span class="n">Create</span> <span class="n">the</span> <span class="n">path</span> <span class="nb">object</span>
+    <span class="n">local</span> <span class="n">path</span> <span class="o">=</span> <span class="n">PathfindingService</span><span class="p">:</span><span class="n">CreatePath</span><span class="p">()</span>
+    
+    <span class="o">--</span> <span class="n">Compute</span> <span class="n">the</span> <span class="n">path</span>
+    <span class="n">path</span><span class="p">:</span><span class="n">ComputeAsync</span><span class="p">(</span><span class="n">zombie</span><span class="o">.</span><span class="n">HumanoidRootPart</span><span class="o">.</span><span class="n">Position</span><span class="p">,</span> <span class="n">destination</span><span class="o">.</span><span class="n">PrimaryPart</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>获取路径的途经点<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>用 <code class="docutils literal notranslate"><span class="pre">Path/ComputeAsync|ComputeAsync()</span></code> 计算出 <code class="docutils literal notranslate"><span class="pre">Path</span></code> 后，其中会出现一系列<strong>途经点</strong>，循着这些点，角色就能沿路径前进。这些点会通过 <code class="docutils literal notranslate"><span class="pre">Path/GetWaypoints|GetWaypoints()</span></code> 函数来采集：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">PathfindingService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;PathfindingService&quot;</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">Variables</span> <span class="k">for</span> <span class="n">the</span> <span class="n">zombie</span><span class="p">,</span> <span class="n">its</span> <span class="n">humanoid</span><span class="p">,</span> <span class="ow">and</span> <span class="n">destination</span>
+    <span class="n">local</span> <span class="n">zombie</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">Zombie</span>
+    <span class="n">local</span> <span class="n">humanoid</span> <span class="o">=</span> <span class="n">zombie</span><span class="o">.</span><span class="n">Humanoid</span>
+    <span class="n">local</span> <span class="n">destination</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">PinkFlag</span>
+    
+    <span class="o">--</span> <span class="n">Create</span> <span class="n">the</span> <span class="n">path</span> <span class="nb">object</span>
+    <span class="n">local</span> <span class="n">path</span> <span class="o">=</span> <span class="n">PathfindingService</span><span class="p">:</span><span class="n">CreatePath</span><span class="p">()</span>
+    
+    <span class="o">--</span> <span class="n">Compute</span> <span class="n">the</span> <span class="n">path</span>
+    <span class="n">path</span><span class="p">:</span><span class="n">ComputeAsync</span><span class="p">(</span><span class="n">zombie</span><span class="o">.</span><span class="n">HumanoidRootPart</span><span class="o">.</span><span class="n">Position</span><span class="p">,</span> <span class="n">destination</span><span class="o">.</span><span class="n">PrimaryPart</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">Get</span> <span class="n">the</span> <span class="n">path</span> <span class="n">waypoints</span>
+    <span class="n">local</span> <span class="n">waypoints</span> <span class="o">=</span> <span class="n">path</span><span class="p">:</span><span class="n">GetWaypoints</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>显示途经点<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>保存途经点后，我们就能通过在其位置创建一个小部件来显示每个途经点：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">Get</span> <span class="n">the</span> <span class="n">path</span> <span class="n">waypoints</span>
+    <span class="n">local</span> <span class="n">waypoints</span> <span class="o">=</span> <span class="n">path</span><span class="p">:</span><span class="n">GetWaypoints</span><span class="p">()</span>
+    
+    <span class="o">--</span> <span class="n">Loop</span> <span class="n">through</span> <span class="n">waypoints</span>
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">waypoint</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">waypoints</span><span class="p">)</span> <span class="n">do</span>
+    	<span class="n">local</span> <span class="n">part</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Part&quot;</span><span class="p">)</span>
+    	<span class="n">part</span><span class="o">.</span><span class="n">Shape</span> <span class="o">=</span> <span class="s2">&quot;Ball&quot;</span>
+    	<span class="n">part</span><span class="o">.</span><span class="n">Material</span> <span class="o">=</span> <span class="s2">&quot;Neon&quot;</span>
+    	<span class="n">part</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)</span>
+    	<span class="n">part</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">waypoint</span><span class="o">.</span><span class="n">Position</span>
+    	<span class="n">part</span><span class="o">.</span><span class="n">Anchored</span> <span class="o">=</span> <span class="n">true</span>
+    	<span class="n">part</span><span class="o">.</span><span class="n">CanCollide</span> <span class="o">=</span> <span class="n">false</span>
+    	<span class="n">part</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span>
+    <span class="n">end</span>
+
+</pre></div>
+</div>
+<p><img alt="https://developer.roblox.com/assets/blt9d4bd8a7eae40778/Zombie-Pathfinding-2.jpg" src="https://developer.roblox.com/assets/blt9d4bd8a7eae40778/Zombie-Pathfinding-2.jpg" /></p>
+<p>如你所见，路径途经点会穿过木板一直延伸到粉色旗子！</p>
+</div>
+<div class="section" id="id9">
+<h3>路径移动<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>路径看起来没问题，那么我们来让僵尸沿着路径行走吧。最简单的方式就是从一个途经点到另一个途经点调用 <code class="docutils literal notranslate"><span class="pre">Humanoid/MoveTo|MoveTo()</span></code>。在这个脚本中，我们只需向同一个途经点循环添加两个命令：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">Loop</span> <span class="n">through</span> <span class="n">waypoints</span>
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">waypoint</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">waypoints</span><span class="p">)</span> <span class="n">do</span>
+    	<span class="n">local</span> <span class="n">part</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Part&quot;</span><span class="p">)</span>
+    	<span class="n">part</span><span class="o">.</span><span class="n">Shape</span> <span class="o">=</span> <span class="s2">&quot;Ball&quot;</span>
+    	<span class="n">part</span><span class="o">.</span><span class="n">Material</span> <span class="o">=</span> <span class="s2">&quot;Neon&quot;</span>
+    	<span class="n">part</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)</span>
+    	<span class="n">part</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">waypoint</span><span class="o">.</span><span class="n">Position</span>
+    	<span class="n">part</span><span class="o">.</span><span class="n">Anchored</span> <span class="o">=</span> <span class="n">true</span>
+    	<span class="n">part</span><span class="o">.</span><span class="n">CanCollide</span> <span class="o">=</span> <span class="n">false</span>
+    	<span class="n">part</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span>
+    
+    	<span class="o">--</span> <span class="n">Move</span> <span class="n">zombie</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">waypoint</span>
+    	<span class="n">humanoid</span><span class="p">:</span><span class="n">MoveTo</span><span class="p">(</span><span class="n">waypoint</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+    	<span class="o">--</span> <span class="n">Wait</span> <span class="n">until</span> <span class="n">zombie</span> <span class="n">has</span> <span class="n">reached</span> <span class="n">the</span> <span class="n">waypoint</span> <span class="n">before</span> <span class="n">continuing</span>
+    	<span class="n">humanoid</span><span class="o">.</span><span class="n">MoveToFinished</span><span class="p">:</span><span class="n">Wait</span><span class="p">()</span>
+    <span class="n">end</span>
+
+</pre></div>
+</div>
+<p>Uh oh! Your browser doesn’t appear to support embedded videos! Here is a <a class="reference external" href="#">direct link</a> to the video instead.</p>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>处理堵塞的路径<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>很多 Roblox 的世界都是动态的 — 部件可能会移动或掉落、地板会塌陷等等。这可能会堵塞计算好的路径，并会阻碍 NPC 抵达其目的地。</p>
+<p>要解决这一问题，你可以将 <code class="docutils literal notranslate"><span class="pre">Path/Blocked|Blocked</span></code> 事件与 <code class="docutils literal notranslate"><span class="pre">Path</span></code> 对象连接，然后重新计算绕过堵塞障碍的路线。请思考以下寻路脚本：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">PathfindingService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;PathfindingService&quot;</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">Variables</span> <span class="k">for</span> <span class="n">the</span> <span class="n">zombie</span><span class="p">,</span> <span class="n">its</span> <span class="n">humanoid</span><span class="p">,</span> <span class="ow">and</span> <span class="n">destination</span>
+    <span class="n">local</span> <span class="n">zombie</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">Zombie</span>
+    <span class="n">local</span> <span class="n">humanoid</span> <span class="o">=</span> <span class="n">zombie</span><span class="o">.</span><span class="n">Humanoid</span>
+    <span class="n">local</span> <span class="n">destination</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">PinkFlag</span>
+    
+    <span class="o">--</span> <span class="n">Create</span> <span class="n">the</span> <span class="n">path</span> <span class="nb">object</span>
+    <span class="n">local</span> <span class="n">path</span> <span class="o">=</span> <span class="n">PathfindingService</span><span class="p">:</span><span class="n">CreatePath</span><span class="p">()</span>
+    
+    <span class="o">--</span> <span class="n">Variables</span> <span class="n">to</span> <span class="n">store</span> <span class="n">waypoints</span> <span class="n">table</span> <span class="ow">and</span> <span class="n">zombie</span><span class="s1">&#39;s current waypoint</span>
+    <span class="n">local</span> <span class="n">waypoints</span>
+    <span class="n">local</span> <span class="n">currentWaypointIndex</span>
+    
+    <span class="n">local</span> <span class="n">function</span> <span class="n">followPath</span><span class="p">(</span><span class="n">destinationObject</span><span class="p">)</span>
+    	<span class="o">--</span> <span class="n">Compute</span> <span class="ow">and</span> <span class="n">check</span> <span class="n">the</span> <span class="n">path</span>
+    	<span class="n">path</span><span class="p">:</span><span class="n">ComputeAsync</span><span class="p">(</span><span class="n">zombie</span><span class="o">.</span><span class="n">HumanoidRootPart</span><span class="o">.</span><span class="n">Position</span><span class="p">,</span> <span class="n">destinationObject</span><span class="o">.</span><span class="n">PrimaryPart</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+    	<span class="o">--</span> <span class="n">Empty</span> <span class="n">waypoints</span> <span class="n">table</span> <span class="n">after</span> <span class="n">each</span> <span class="n">new</span> <span class="n">path</span> <span class="n">computation</span>
+    	<span class="n">waypoints</span> <span class="o">=</span> <span class="p">{}</span>
+    
+    	<span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">Status</span> <span class="o">==</span> <span class="n">Enum</span><span class="o">.</span><span class="n">PathStatus</span><span class="o">.</span><span class="n">Success</span> <span class="n">then</span>
+    		<span class="o">--</span> <span class="n">Get</span> <span class="n">the</span> <span class="n">path</span> <span class="n">waypoints</span> <span class="ow">and</span> <span class="n">start</span> <span class="n">zombie</span> <span class="n">walking</span>
+    		<span class="n">waypoints</span> <span class="o">=</span> <span class="n">path</span><span class="p">:</span><span class="n">GetWaypoints</span><span class="p">()</span>
+    		<span class="o">--</span> <span class="n">Move</span> <span class="n">to</span> <span class="n">first</span> <span class="n">waypoint</span>
+    		<span class="n">currentWaypointIndex</span> <span class="o">=</span> <span class="mi">1</span>
+    		<span class="n">humanoid</span><span class="p">:</span><span class="n">MoveTo</span><span class="p">(</span><span class="n">waypoints</span><span class="p">[</span><span class="n">currentWaypointIndex</span><span class="p">]</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+    	<span class="k">else</span>
+    		<span class="o">--</span> <span class="n">Error</span> <span class="p">(</span><span class="n">path</span> <span class="ow">not</span> <span class="n">found</span><span class="p">);</span> <span class="n">stop</span> <span class="n">humanoid</span>
+    		<span class="n">humanoid</span><span class="p">:</span><span class="n">MoveTo</span><span class="p">(</span><span class="n">zombie</span><span class="o">.</span><span class="n">HumanoidRootPart</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+    	<span class="n">end</span>
+    <span class="n">end</span>
+    
+    <span class="n">local</span> <span class="n">function</span> <span class="n">onWaypointReached</span><span class="p">(</span><span class="n">reached</span><span class="p">)</span>
+    	<span class="k">if</span> <span class="n">reached</span> <span class="ow">and</span> <span class="n">currentWaypointIndex</span> <span class="o">&lt;</span> <span class="c1">#waypoints then</span>
+    		<span class="n">currentWaypointIndex</span> <span class="o">=</span> <span class="n">currentWaypointIndex</span> <span class="o">+</span> <span class="mi">1</span>
+    		<span class="n">humanoid</span><span class="p">:</span><span class="n">MoveTo</span><span class="p">(</span><span class="n">waypoints</span><span class="p">[</span><span class="n">currentWaypointIndex</span><span class="p">]</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+    	<span class="n">end</span>
+    <span class="n">end</span>
+    
+    <span class="n">local</span> <span class="n">function</span> <span class="n">onPathBlocked</span><span class="p">(</span><span class="n">blockedWaypointIndex</span><span class="p">)</span>
+    	<span class="o">--</span> <span class="n">Check</span> <span class="k">if</span> <span class="n">the</span> <span class="n">obstacle</span> <span class="ow">is</span> <span class="n">further</span> <span class="n">down</span> <span class="n">the</span> <span class="n">path</span>
+    	<span class="k">if</span> <span class="n">blockedWaypointIndex</span> <span class="o">&gt;</span> <span class="n">currentWaypointIndex</span> <span class="n">then</span>
+    		<span class="o">--</span> <span class="n">Call</span> <span class="n">function</span> <span class="n">to</span> <span class="n">re</span><span class="o">-</span><span class="n">compute</span> <span class="n">the</span> <span class="n">path</span>
+    		<span class="n">followPath</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span>
+    	<span class="n">end</span>
+    <span class="n">end</span>
+    
+    <span class="o">--</span> <span class="n">Connect</span> <span class="s1">&#39;Blocked&#39;</span> <span class="n">event</span> <span class="n">to</span> <span class="n">the</span> <span class="s1">&#39;onPathBlocked&#39;</span> <span class="n">function</span>
+    <span class="n">path</span><span class="o">.</span><span class="n">Blocked</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">onPathBlocked</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">Connect</span> <span class="s1">&#39;MoveToFinished&#39;</span> <span class="n">event</span> <span class="n">to</span> <span class="n">the</span> <span class="s1">&#39;onWaypointReached&#39;</span> <span class="n">function</span>
+    <span class="n">humanoid</span><span class="o">.</span><span class="n">MoveToFinished</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">onWaypointReached</span><span class="p">)</span>
+    
+    <span class="n">followPath</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>脚本中加入或更改了很多东西，那么我们来从头到尾看一下这段代码：</p>
+<ol class="simple">
+<li><p>第一部分与先前类似：获取 <code class="docutils literal notranslate"><span class="pre">PathfindingService</span></code>、设置几种变量，然后创建 <code class="docutils literal notranslate"><span class="pre">Path</span></code> 对象。添加的主要内容就是 <code class="docutils literal notranslate"><span class="pre">waypoints</span></code> 和 <code class="docutils literal notranslate"><span class="pre">currentWaypointIndex</span></code> 两种变量。<code class="docutils literal notranslate"><span class="pre">waypoints</span></code> 会存储计算出的途经点，<code class="docutils literal notranslate"><span class="pre">currentWaypointIndex</span></code> 则会追踪僵尸到达的每个途经点的索引编号，编号从 <strong>1</strong> 开始，并随着僵尸沿路径行走而增加。</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">PathfindingService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;PathfindingService&quot;</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">Variables</span> <span class="k">for</span> <span class="n">the</span> <span class="n">zombie</span><span class="p">,</span> <span class="n">its</span> <span class="n">humanoid</span><span class="p">,</span> <span class="ow">and</span> <span class="n">destination</span>
+    <span class="n">local</span> <span class="n">zombie</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">Zombie</span>
+    <span class="n">local</span> <span class="n">humanoid</span> <span class="o">=</span> <span class="n">zombie</span><span class="o">.</span><span class="n">Humanoid</span>
+    <span class="n">local</span> <span class="n">destination</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">PinkFlag</span>
+    
+    <span class="o">--</span> <span class="n">Create</span> <span class="n">the</span> <span class="n">path</span> <span class="nb">object</span>
+    <span class="n">local</span> <span class="n">path</span> <span class="o">=</span> <span class="n">PathfindingService</span><span class="p">:</span><span class="n">CreatePath</span><span class="p">()</span>
+    
+    <span class="o">--</span> <span class="n">Variables</span> <span class="n">to</span> <span class="n">store</span> <span class="n">waypoints</span> <span class="n">table</span> <span class="ow">and</span> <span class="n">zombie</span><span class="s1">&#39;s current waypoint</span>
+    <span class="n">local</span> <span class="n">waypoints</span>
+    <span class="n">local</span> <span class="n">currentWaypointIndex</span>
+
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>下一个函数 <code class="docutils literal notranslate"><span class="pre">followPath()</span></code> 包含我们之前使用过的多种命令，还在第 21 行加入了一个小错误检查功能。如果 <code class="docutils literal notranslate"><span class="pre">Path/ComputeAsync|path:ComputeAsync()</span></code> 成功，我们会获取途经点并将其存储在 <code class="docutils literal notranslate"><span class="pre">waypoints</span></code> 变量中。接着，我们要将 <code class="docutils literal notranslate"><span class="pre">currentWaypointIndex</span></code> 计数器设为 *<em>1</em>，并让僵尸移动到第一个途经点。</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">function</span> <span class="n">followPath</span><span class="p">(</span><span class="n">destinationObject</span><span class="p">)</span>
+    	<span class="o">--</span> <span class="n">Compute</span> <span class="ow">and</span> <span class="n">check</span> <span class="n">the</span> <span class="n">path</span>
+    	<span class="n">path</span><span class="p">:</span><span class="n">ComputeAsync</span><span class="p">(</span><span class="n">zombie</span><span class="o">.</span><span class="n">HumanoidRootPart</span><span class="o">.</span><span class="n">Position</span><span class="p">,</span> <span class="n">destinationObject</span><span class="o">.</span><span class="n">PrimaryPart</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+    	<span class="o">--</span> <span class="n">Empty</span> <span class="n">waypoints</span> <span class="n">table</span> <span class="n">after</span> <span class="n">each</span> <span class="n">new</span> <span class="n">path</span> <span class="n">computation</span>
+    	<span class="n">waypoints</span> <span class="o">=</span> <span class="p">{}</span>
+    
+    	<span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">Status</span> <span class="o">==</span> <span class="n">Enum</span><span class="o">.</span><span class="n">PathStatus</span><span class="o">.</span><span class="n">Success</span> <span class="n">then</span>
+    		<span class="o">--</span> <span class="n">Get</span> <span class="n">the</span> <span class="n">path</span> <span class="n">waypoints</span> <span class="ow">and</span> <span class="n">start</span> <span class="n">zombie</span> <span class="n">walking</span>
+    		<span class="n">waypoints</span> <span class="o">=</span> <span class="n">path</span><span class="p">:</span><span class="n">GetWaypoints</span><span class="p">()</span>
+    		<span class="o">--</span> <span class="n">Move</span> <span class="n">to</span> <span class="n">first</span> <span class="n">waypoint</span>
+    		<span class="n">currentWaypointIndex</span> <span class="o">=</span> <span class="mi">1</span>
+    		<span class="n">humanoid</span><span class="p">:</span><span class="n">MoveTo</span><span class="p">(</span><span class="n">waypoints</span><span class="p">[</span><span class="n">currentWaypointIndex</span><span class="p">]</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+    	<span class="k">else</span>
+    		<span class="o">--</span> <span class="n">Error</span> <span class="p">(</span><span class="n">path</span> <span class="ow">not</span> <span class="n">found</span><span class="p">);</span> <span class="n">stop</span> <span class="n">humanoid</span>
+    		<span class="n">humanoid</span><span class="p">:</span><span class="n">MoveTo</span><span class="p">(</span><span class="n">zombie</span><span class="o">.</span><span class="n">HumanoidRootPart</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+    	<span class="n">end</span>
+    <span class="n">end</span>
+
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>路径可能堵塞的动态场景中，要遍历 <code class="docutils literal notranslate"><span class="pre">pairs()</span></code> 循环中所有的途经点是很成问题的。如果有任何物体堵塞了路径，则很难阻止/打破该循环。在该脚本中， <code class="docutils literal notranslate"><span class="pre">onWaypointReached()</span></code> 函数只有在僵尸到达下一个途经点后，才会让僵尸继续前进。</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">function</span> <span class="n">onWaypointReached</span><span class="p">(</span><span class="n">reached</span><span class="p">)</span>
+    	<span class="k">if</span> <span class="n">reached</span> <span class="ow">and</span> <span class="n">currentWaypointIndex</span> <span class="o">&lt;</span> <span class="c1">#waypoints then</span>
+    		<span class="n">currentWaypointIndex</span> <span class="o">=</span> <span class="n">currentWaypointIndex</span> <span class="o">+</span> <span class="mi">1</span>
+    		<span class="n">humanoid</span><span class="p">:</span><span class="n">MoveTo</span><span class="p">(</span><span class="n">waypoints</span><span class="p">[</span><span class="n">currentWaypointIndex</span><span class="p">]</span><span class="o">.</span><span class="n">Position</span><span class="p">)</span>
+    	<span class="n">end</span>
+    <span class="n">end</span>
+
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>最后一个函数 <code class="docutils literal notranslate"><span class="pre">onPathBlocked()</span></code> 会与第 49 行中的 <code class="docutils literal notranslate"><span class="pre">Path/Blocked|Blocked</span></code> 事件连接。如果路径遭到堵塞，该函数将会触发，且 <code class="docutils literal notranslate"><span class="pre">blockedWaypointIndex</span></code> 将会是被堵塞的途经点索引编号。</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">function</span> <span class="n">onPathBlocked</span><span class="p">(</span><span class="n">blockedWaypointIndex</span><span class="p">)</span>
+    	<span class="o">--</span> <span class="n">Check</span> <span class="k">if</span> <span class="n">the</span> <span class="n">obstacle</span> <span class="ow">is</span> <span class="n">further</span> <span class="n">down</span> <span class="n">the</span> <span class="n">path</span>
+    	<span class="k">if</span> <span class="n">blockedWaypointIndex</span> <span class="o">&gt;</span> <span class="n">currentWaypointIndex</span> <span class="n">then</span>
+    		<span class="o">--</span> <span class="n">Call</span> <span class="n">function</span> <span class="n">to</span> <span class="n">re</span><span class="o">-</span><span class="n">compute</span> <span class="n">the</span> <span class="n">path</span>
+    		<span class="n">followPath</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span>
+    	<span class="n">end</span>
+    <span class="n">end</span>
+    
+    <span class="o">--</span> <span class="n">Connect</span> <span class="s1">&#39;Blocked&#39;</span> <span class="n">event</span> <span class="n">to</span> <span class="n">the</span> <span class="s1">&#39;onPathBlocked&#39;</span> <span class="n">function</span>
+    <span class="n">path</span><span class="o">.</span><span class="n">Blocked</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">onPathBlocked</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>在第 42 行中，我们会检查堵塞的途经点索引是否<strong>大于</strong>当前的途经点索引。别忘了，路径的堵塞位置可能在僵尸的<strong>身后</strong>，但是这不代表应当停止检查。该检查能够确保只有当堵塞的途经点位于僵尸<strong>前方</strong>时，才会重新计算路径。</p>
+<p>请注意，<code class="docutils literal notranslate"><span class="pre">Path/Blocked|Blocked</span></code> 事件可能在路径生命周期内的任何时候触发。如果涉及移动障碍（比如在路径上滚动的巨石），事件还可能多次触发。正因如此，你可能需要 <code class="docutils literal notranslate"><span class="pre">Instance/Destroy|destroy</span></code> 路径，或是取消注册 <code class="docutils literal notranslate"><span class="pre">Path/Blocked|Blocked</span></code> 连接，直到路径计算完毕。</p>
+<hr class="docutils" />
+<p>正如你所见，<code class="docutils literal notranslate"><span class="pre">PathfindingService</span></code> 让你能够创建智商远超一般僵尸的 NPC。配合自定义行为对象参数和 <code class="docutils literal notranslate"><span class="pre">Path/Blocked|Blocked</span></code> 事件，你可以让任何 NPC 到达目的地，即使是在不断变化的动态场景当中！</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Pathfinding">寻路</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Side-Scrolling-Camera-View.html" class="btn btn-neutral float-right" title="横向卷轴镜头" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Moving-NPCs-Between-Points.html" class="btn btn-neutral float-left" title="在点之间移动 NPC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

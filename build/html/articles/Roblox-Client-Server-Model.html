@@ -1,0 +1,354 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Roblox 主从架构 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="协同程序初学者指南" href="Beginners-Guide-to-Coroutines.html" />
+    <link rel="prev" title="编码与脚本" href="../tutorials/coding-scripts.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Roblox 主从架构</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">客户端与服务器之间的通讯</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">了解客户端与服务器脚本</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">客户端代码</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">服务器代码</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">远程函数/事件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">例外</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>Roblox 主从架构</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Roblox-Client-Server-Model.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="roblox">
+<h1>Roblox 主从架构<a class="headerlink" href="#roblox" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p>Roblox 使用<strong>主从架构</strong>，这也是一种多玩家游戏的通用框架。在你畅玩使用 Roblox 创作的游戏时，你的个人计算机、手机、平板电脑或游戏机就成为了<strong>客户端</strong>，游戏中的每一位其他独特玩家也各自是一个客户端。</p>
+<p>游戏中的所有客户端（玩家）都会连接到一台功能强大的 Roblox 计算机（也就是所谓的<strong>服务器</strong>）。服务器就像是这个游戏的管理员 — 它会确保每位玩家看到和体验到的游戏世界与其他玩家完全相同。</p>
+<p><img alt="https://developer.roblox.com/assets/blt4be5ef28af5c29b4/Client-Server-Model.png" src="https://developer.roblox.com/assets/blt4be5ef28af5c29b4/Client-Server-Model.png" /></p>
+<div class="section" id="id1">
+<h2>客户端与服务器之间的通讯<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>在游戏过程中，服务器会不断更新已连接的客户端。例如，试想有一个游戏 <code class="docutils literal notranslate"><span class="pre">Script</span></code> 将白天变为午夜。<code class="docutils literal notranslate"><span class="pre">Script</span></code> 只能在服务器上运行，所以服务器是第一个看到日夜转变的地方。此时，服务器会自动通知所有客户端也更改它们的游戏时间。</p>
+<p>客户端也可以与服务器进行对话。典型的情形就是当你按下设备（客户端）上的按钮/按键或其他控制键时，会告知服务器更新你在游戏世界中的游戏角色，这样所有其他玩家就能看到你所在的位置和正在进行的操作。</p>
+</div>
+<div class="section" id="id2">
+<h2>了解客户端与服务器脚本<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在为游戏编写<strong>脚本</strong>时，客户端和服务器都能处理如下特定任务非常重要：</p>
+<div class="section" id="id3">
+<h3>客户端代码<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>一般来说，<strong>客户端</strong>应检测玩家的输入，并向该特定玩家显示信息。例如，<code class="docutils literal notranslate"><span class="pre">Articles/intro</span> <span class="pre">to</span> <span class="pre">player</span> <span class="pre">tools|玩家工具</span></code>会响应玩家的输入并可能在服务器上触发更改，但它们首先会在客户端进行处理，以便向玩家提供实时反馈。同样，客户端的菜单、地图和其他 GUI 也应该由客户端代码进行管理。</p>
+<p>客户端代码在 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 内运行。只有在 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 属于以下实例的子类时，此类代码才会开始运行：</p>
+<ul class="simple">
+<li><p>玩家的 <code class="docutils literal notranslate"><span class="pre">Player/Character|Character</span></code> （角色）模型</p></li>
+<li><p>玩家的 <code class="docutils literal notranslate"><span class="pre">PlayerGui</span></code></p></li>
+<li><p>玩家的 <code class="docutils literal notranslate"><span class="pre">Backpack</span></code></p></li>
+<li><p>玩家的 <code class="docutils literal notranslate"><span class="pre">PlayerScripts</span></code> 文件夹</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Tool</span></code>（仅限于由玩家装备的情况）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ReplicatedFirst</span></code> 文件夹</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>服务器代码<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>游戏<strong>服务器</strong>应负责处理游戏逻辑、保存玩家数据、更新得分、创建部件等。决定此情形的原因包括以下几点：</p>
+<ul class="simple">
+<li><p>如果脚本代码会改变游戏世界（如创建或移除部件），服务器必须确保所有客户端看到同样的改变。</p></li>
+<li><p>如果玩家的生命值或得分由服务器进行控制，那么黑客就无法更改这些数值来影响其他玩家。</p></li>
+</ul>
+<p>服务器代码在 <code class="docutils literal notranslate"><span class="pre">Script</span></code> 中运行。只有当 <code class="docutils literal notranslate"><span class="pre">Script</span></code> 属于以下实例的子类时，此类代码才会开始运行：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Workspace</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ServerScriptService</span></code></p></li>
+<li><p>玩家的 <code class="docutils literal notranslate"><span class="pre">Backpack</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>远程函数/事件<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>服务器会自动处理多项任务，但有时候你需要将游戏设计中所独有的特定指令发送到服务器。可以通过<code class="docutils literal notranslate"><span class="pre">Articles/Remote</span> <span class="pre">Functions</span> <span class="pre">and</span> <span class="pre">Events|远程函数和事件</span></code>（<code class="docutils literal notranslate"><span class="pre">Script|Script</span></code> 和 <code class="docutils literal notranslate"><span class="pre">LocalScript|LocalScript</span></code> 用于相互通讯的对象）来完成该目标。</p>
+<div class="section" id="id6">
+<h4>服务器端验证<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">RemoteEvent|RemoteEvent</span></code> 和 <code class="docutils literal notranslate"><span class="pre">RemoteFunction|RemoteFunction</span></code> 是适用于客户端与服务器间通信的最佳选项，但它们并非绝对安全的通道。狡猾的黑客可能会伪造远程事件，或者更改随其传递的值。因此，你应该使用基本服务器端验证来确认传入的请求是否合法。</p>
+<p>了解更多</p>
+<p>以一个带有商店系统的游戏为例。当玩家想要购买物品时，玩家将与客户端上的界面进行交互，例如含 “Buy（购买）”按钮的 <code class="docutils literal notranslate"><span class="pre">ScreenGui</span></code>。当按下此按钮时，客户端可以向服务器发送远程事件并请求购买。但是，<strong>服务器</strong>（最可靠的游戏管理器）必须检查玩家是否有足够资金来购买该物品。</p>
+<p><img alt="https://developer.roblox.com/assets/blt5fcdc8ffa5581b4b/RemoteEvent-Flow.png" src="https://developer.roblox.com/assets/blt5fcdc8ffa5581b4b/RemoteEvent-Flow.png" /></p>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>例外<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>有些客户端动作会立即复制，无需服务器的许可。这些动作主要与玩家应该立即看到的内容有关，而其他动作则为了方便你的操作而提供。</p>
+<p>对象 例外</p>
+<p><strong>Humanoid</strong>
+<code class="docutils literal notranslate"><span class="pre">Humanoid/Jump|Humanoid.Jump</span></code> 以及 <code class="docutils literal notranslate"><span class="pre">Humanoid/Sit|Humanoid.Sit</span></code> 属性会立即从客户端复制到服务器。请注意，此情况仅适用于本地玩家的人形对象 — 如果 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 试图更新其他玩家的人形，该指令会被忽略。</p>
+<p><strong>Sound</strong>
+<code class="docutils literal notranslate"><span class="pre">Sound/TimePosition|Sound.TimePosition</span></code> 以及 <code class="docutils literal notranslate"><span class="pre">Sound/Playing|Sound.Playing</span></code> 属性会从客户端复制到服务器，所以如果某个客户端开始播放声音，所有其他客户端也会播放此声音。请参阅 <code class="docutils literal notranslate"><span class="pre">Sound</span></code> 文档以了解详细信息。</p>
+<p><strong>AnimationTrack</strong>
+如果客户端在 <code class="docutils literal notranslate"><span class="pre">AnimationTrack</span></code> 上调用 <code class="docutils literal notranslate"><span class="pre">AnimationTrack/Play|AnimationTrack:Play()</span></code> 或 <code class="docutils literal notranslate"><span class="pre">AnimationTrack/Stop|AnimationTrack:Stop()</span></code>，该动画模型会以动画呈现在客户端上并复制到服务器。</p>
+<p><strong>BasePart</strong>
+从技术而言，虽然部件属性不会复制，但有一些例外情况。如果该部件是由客户端所创建，且该客户端<strong>模拟了物理变化</strong>（如部件掉落、击中其他物体、受约束而移动等），则产生的变动将会复制到服务器。</p>
+<p><strong>ClickDetector</strong>
+大多数的 <code class="docutils literal notranslate"><span class="pre">ClickDetector</span></code> 事件在客户端和服务器上都会触发，包括 <code class="docutils literal notranslate"><span class="pre">ClickDetector/MouseClick|MouseClick</span></code>、<code class="docutils literal notranslate"><span class="pre">ClickDetector/MouseHoverEnter|MouseHoverEnter</span></code>、<code class="docutils literal notranslate"><span class="pre">ClickDetector/MouseHoverLeave|MouseHoverLeave</span></code> 和 <code class="docutils literal notranslate"><span class="pre">ClickDetector/RightMouseClick|RightMouseClick</span></code> 等输入事件。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Roblox-Client-Server-Model">Roblox 主从架构</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Beginners-Guide-to-Coroutines.html" class="btn btn-neutral float-right" title="协同程序初学者指南" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../tutorials/coding-scripts.html" class="btn btn-neutral float-left" title="编码与脚本" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

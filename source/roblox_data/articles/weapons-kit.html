@@ -1,0 +1,3117 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <link rel="canonical" href="https://developer.roblox.com/articles/weapons-kit"/>
+    <link rel="alternate" hreflang="x-default" href="https://developer.roblox.com/articles/weapons-kit"/>
+    
+      <link rel="alternate" hreflang="en-us" href="https://developer.roblox.com/en-us/"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="https://developer.roblox.com/zh-cn/"/>
+    
+      
+        
+          <title> 认可武器</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="zh-cn">
+
+
+
+<meta name="description" content="<p>探索可在任何游戏中使用的可定制武器集合</p>">
+
+
+
+<meta name="keywords" content="">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="认可武器">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>探索可在任何游戏中使用的可定制武器集合</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="游戏过程">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="false">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="https://browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/code-highlighting.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='https://dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('https://dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="/" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="/">主页</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">教程</h5>
+      <div>
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                <span>Studio 基础知识</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/creating">
+                <span>创建</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/international">
+                <span>国际化</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                <span>声效、光照与特效</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/marketing">
+                <span>市场营销</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/optimization">
+                <span>性能优化</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                <span>所有内容</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/analytics">
+                <span>数据分析</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                <span>用户界面</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/monetization">
+                <span>盈利</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                <span>编码与脚本</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                <span>跨平台发展</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/quick-start">
+                      <span>入门</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/learn-roblox/all-tutorials">
+                      <span>了解 Roblox</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/api-reference">
+                      <span>API 参考</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/resources">
+                      <span>资源</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com">
+                      <span>社区</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="搜索">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">关闭侧边栏</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">教程</h5>
+              <div>
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                      <span>Studio 基础知识</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/creating">
+                      <span>创建</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/international">
+                      <span>国际化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                      <span>声效、光照与特效</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/marketing">
+                      <span>市场营销</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/optimization">
+                      <span>性能优化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                      <span>所有内容</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/analytics">
+                      <span>数据分析</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                      <span>用户界面</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/monetization">
+                      <span>盈利</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                      <span>编码与脚本</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                      <span>跨平台发展</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/gameplay">游戏过程</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>认可武器</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">隐藏内容索引</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">显示内容索引</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <div class="toc-content"><a href="javascript:void(0)">内容索引</a>
+        </div>
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/gameplay">游戏过程</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>认可武器</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">30  分钟</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <style>
+.tree-table-borderless {
+  border-collapse: separated;
+  width: 100%;
+  border: 16px solid #252525;
+  background-color: #252525;
+}
+.tree-table-borderless td {
+  border: 0px !important;
+  padding: 0px !important;
+}
+.tree-row-indent, .tree-row-indent li {
+  min-width: 40px;
+  margin: 0px 5px 0px 0px;
+  padding-left: 4px;
+  padding-right: 4px;
+  line-height: 24px;
+  min-height: 24px;
+  color: #999;
+}
+.tree-end {
+  background-image: url("/assets/blt0e5b38e8e28b4dee/Hierarchy-Tree-End.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 32px 24px;
+}
+.tree-branch {
+  background-image: url("/assets/bltd229da198d72d990/Hierarchy-Tree-Branch.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 32px 4000px;
+}
+.tree-vert {
+  background-image: url("/assets/blt9817f6f24bade38d/Hierarchy-Tree-Connect.png");
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 32px 24px;
+}
+.explorer-item-hl {
+  color: white;
+  background-color: #0b5aaf;
+  border: 3px solid #0b5aaf;
+  box-sizing: border-box;
+  line-height: 18px;
+  margin-left: -3px;
+  margin-right: 3px;
+}
+.explorer-item-hl-alt {
+  color: white;
+  background-color: #006c60;
+  border: 3px solid #006c60;
+  box-sizing: border-box;
+  line-height: 18px;
+  margin-left: -3px;
+  margin-right: 2px;
+}
+.explorer-item-hl-alt2 {
+  color: white;
+  background-color: #006c60;
+  border: 1px solid #252525;
+  box-sizing: border-box;
+  line-height: 22px;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+.tree-item-name {
+  color: #e3e3e3;
+}
+.tree-row-indent .req, ul .req {
+  color: #d3393f;
+}
+.tree-row-indent .opt, ul .opt {
+  color: #746bec;
+}
+.tree-row-indent code {
+  color: #cccccc;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0px 1px 0px 2px;
+  font-size: 13px;
+  border: 0px;
+}
+</style>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <img src="/assets/blt5bfeb15605969ee9/Endorsed-Weapons-Banner.jpg" class="img-fluid mb-4 pb-1">
+<p>为了帮助您创造有竞争力的<span class="text-nowrap">战斗</span>体验，我们有几种<strong>认可武器</strong>可供您在任何游戏中使用。核心系统以<span class="text-nowrap">使用投射物</span>的<span class="text-nowrap">越肩视角</span>镜头的武器为特色，将投射物速度设置得足够高可以模拟激光枪等射线投射武器。</p>
+<!--
+<div class="alert alert-primary mb-4" role="alert">
+这些武器都包含在<span class="text-nowrap"><code>大逃杀游戏模板</code></span>中，您可以随意下载和设置该游戏，以预览它们在游戏中的操作方式。 
+</div>
+-->
+<p>要在您的游戏中使用认可武器：</p>
+<ol>
+<li>在下列武器中选择其中之一：</li>
+</ol>
+<div class="list-indent">
+<div class="container mb-3">
+<!-- Row 1 -->
+<div class="row">
+<div class="col-3 mr-4 px-0">
+<figure class="figure">
+<a href="CATALOG_ITEM_PISTOL" target="_new"><img src="/assets/blt326b57c590737740/Endorsed-Weapon-Pistol.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption text-center">手枪</figcaption></a>
+</figure>
+</div>
+<div class="col-3 mx-4 px-0">
+<figure class="figure">
+<a href="CATALOG_ITEM_SHOTGUN" target="_new"><img src="/assets/bltd84946701c009ae1/Endorsed-Weapon-Shotgun.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption text-center">霰弹枪</figcaption></a>
+</figure>
+</div>
+<div class="col-3 ml-4 px-0">
+<figure class="figure">
+<a href="CATALOG_ITEM_ASSAULT_RIFLE" target="_new"><img src="/assets/blt379012a5f19fded3/Endorsed-Weapon-AR.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption text-center">突击步枪</figcaption></a>
+</figure>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="row">
+<div class="col-3 mr-4 px-0">
+<figure class="figure">
+<a href="CATALOG_ITEM_SUBMACHINE_GUN" target="_new"><img src="/assets/blt40936fd7354b1feb/Endorsed-Weapon-Submachine-Gun.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption text-center">冲锋枪</figcaption></a>
+</figure>
+</div>
+<div class="col-3 mx-4 px-0">
+<figure class="figure">
+<a href="CATALOG_ITEM_SNIPER_RIFLE" target="_new"><img src="/assets/blt6880301740f5ccfe/Endorsed-Weapon-Sniper-Rifle.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption text-center">狙击步枪</figcaption></a>
+</figure>
+</div>
+<div class="col-3 ml-4 px-0">
+<figure class="figure">
+<a href="CATALOG_ITEM_CROSSBOW" target="_new"><img src="/assets/blt92032747b444070c/Endorsed-Weapon-Crossbow.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption text-center">十字弓</figcaption></a>
+</figure>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="row">
+<div class="col-3 mr-4 px-0">
+<figure class="figure">
+<a href="CATALOG_ITEM_GRENADE_LAUNCHER" target="_new"><img src="/assets/bltd2b1885af0ecee8d/Endorsed-Weapon-Grenade-Launcher.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption text-center">榴弹枪</figcaption></a>
+</figure>
+</div>
+<div class="col-3 mx-4 px-0">
+<figure class="figure">
+<a href="CATALOG_ITEM_ROCKET_LAUNCHER" target="_new"><img src="/assets/blt92b327d7afc16971/Endorsed-Weapon-Rocket-Launcher.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption text-center">火箭筒</figcaption></a>
+</figure>
+</div>
+<div class="col-3 ml-4 px-0">
+<figure class="figure">
+<a href="CATALOG_ITEM_RAILGUN" target="_new"><img src="/assets/blt0c808b13a893369c/Endorsed-Weapon-Railgun.jpg" class="img-fluid mt-2 mb-2">
+<figcaption class="figure-caption text-center">磁轨炮</figcaption></a>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<ol start="2">
+<li>在武器的物品页面上，点击绿色的 <strong>Get</strong>（获取）按钮并确认交易。</li>
+<li>在 Roblox Studio 中，打开工具箱<span class="text-nowrap">（<strong>View（视图）</strong> → <strong>Toolbox（工具箱）</strong>）。</span></li>
+<li>选择工具箱 <strong>Inventory</strong>（物品栏）部分。</li>
+</ol>
+<img src="/assets/blt7d482aecd878107e/Toolbox-Select-Inventory.png" class="img-fluid half-sized list-indent">
+<ol start="5">
+<li>找到武器并单击将其添加到场景中，当提示是否将该工具放入新手包时，如果您希望玩家使用该武器开始游戏，请点击<strong>是</strong>，或者单击<strong>否</strong>，即可将该武器作为拾取放入游戏世界。</li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card- border-" role="card" style="margin-top: 10px;">
+  
+
+  
+  
+    
+  
+
+  
+  
+    <h5 data-toc-skip class="card-header bg- text-white">第一把认可武器？</h5>
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse show" id="ref_card-1">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>Each endorsed weapon contains a complete copy of the entire weapons system, including sounds and decals for all weapons.</p>
+<p><img src="/assets/bltfd389b87b21fc0ab/Move-WeaponsSystem-Folder.png" class="img-fluid half-sized pl-1 ml-4 mr-0 mt-1 mb-0 float-right">The first time you bring in an endorsed weapon, move its <samp>WeaponsSystem</samp> folder into <code>ReplicatedStorage</code>. Later, be sure to delete the <samp>WeaponsSystem</samp> folder from any <strong>new</strong> endorsed weapons you add to avoid confusion while configuring weapon options.</p>
+
+      </div>
+    
+  
+
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!---------------------- WEAPONS SYSTEM FOLDER STRUCTURE ---------------------->
+<h2>系统文件夹结构</h2>
+<p><samp>WeaponsSystem</samp>（武器系统）文件夹控制所有的认可武器，其结构如下：</p>
+<div class="container-fluid mt-4 mr-0 my-0">
+<div class="row">
+<div class="col p-0 mx-0">
+<table class="table tree-table-borderless mb-4">
+  <tbody>
+<!-- ReplicatedStorage -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"><span class="explorer-item-hl-alt">ReplicatedStorage</span></div>
+</div>
+      </td>
+    </tr>
+<!-- WeaponsSystem (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="explorer-item-hl">WeaponsSystem</span> (<code>Folder</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Assets</span> (<code>Folder</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/Animations (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Animations</span> (<code>Folder</code>) 放置武器系统中使用的动画的地方。</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/Effects (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Effects</span> (<code>Folder</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/Effects/Casings (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Casings</span> (<code>Folder</code>) 储存所有弹壳的地方。</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/Effects/HitMarks (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">HitMarks</span> (<code>Folder</code>) 储存所有命中痕迹效果的地方。</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/Effects/Shots (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Shots</span> (<code>Folder</code>) 储存所有射击效果的地方。</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui (ScreenGui) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="tree-item-name">WeaponsSystemGui</span> (<code>ScreenGui</code>) 详情请见 <a href="#weapons-system-gui">武器系统&nbsp;GUI</a>。</div>
+</div>
+    </td>
+    </tr>
+<!-- Configuration (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Configuration</span> (<code>Folder</code>) 放置武器系统配置值的地方。</div>
+</div>
+    </td>
+    </tr>
+<!-- Configuration/SlowZoomWalkEnabled (BoolValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">SlowZoomWalkEnabled</span> (<code>BoolValue</code>)和<a href="#sprint-control">冲刺控制</a>有关。</div>
+</div>
+    </td>
+    </tr>
+<!-- Configuration/SprintEnabled (BoolValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="tree-item-name">SprintEnabled</span> (<code>BoolValue</code>) 和<a href="#sprint-control">冲刺控制</a>有关。</div>
+</div>
+    </td>
+    </tr>
+<!-- Libraries (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Libraries</span> (<code>Folder</code>) 储存所有其它在武器系统中使用的 <code>ModuleScript|ModuleScript</code> 的地方。</div>
+</div>
+    </td>
+    </tr>
+<!-- WeaponTypes (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">WeaponTypes</span> (<code>Folder</code>) 定义所有武器系统的地方。</div>
+</div>
+    </td>
+    </tr>
+<!-- ServerWeaponsScript (Script) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">ServerWeaponsScript</span> (<code>Script</code>) 确保只有一个武器系统实例在运行。</div>
+</div>
+    </td>
+    </tr>
+<!-- Version (IntValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Version</span> (<code>IntValue</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- ClientWeaponsScript (LocalScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">ClientWeaponsScript</span> (<code>LocalScript</code>) 确保只有一个武器系统实例在运行。</div>
+</div>
+    </td>
+    </tr>
+<!-- NetworkingCallbacks (ModuleScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">NetworkingCallbacks</span> (<code>ModuleScript</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- WeaponData (RemoteEvent) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">WeaponData</span> (<code>RemoteEvent</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- WeaponsSystem (ModuleScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="tree-item-name">WeaponsSystem</span> (<code>ModuleScript</code>)</div>
+</div>
+    </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>在 <samp>WeaponsSystem</samp> 文件夹中，不同功能由以下各 <code>ModuleScript|ModuleScript</code> 分别控制：</p>
+<table class="table table-striped table-bordered mb-3">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">功能</th>
+            <th scope="col">主要处理位置</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><b>武器功能</b></td>
+            <td scope="row"><ul class="my-0"><li><samp>WeaponsSystem</samp></li><li><samp>Libraries/BaseWeapon</samp></li><li><samp>WeaponTypes/BulletWeapon</samp></li><li><samp>WeaponTypes/BowWeapon</samp></li></ul></td>
+        </tr>
+        <tr>
+            <td scope="row"><b>越肩镜头</b> (<a href="#shoulder-camera">参考</a>)</td>
+            <td scope="row"><ul class="my-0"><li><samp>Libraries/ShoulderCamera</samp></li></ul></td>
+        </tr>
+        <tr>
+            <td scope="row"><b>武器 GUI</b> (<a href="#weapons-system-gui">参考</a>)</td>
+            <td scope="row"><ul class="my-0"><li><samp>Libraries/WeaponsGui</samp></li><li><samp>Libraries/DirectionalIndicatorGuiManager</samp></li><li><samp>Libraries/DamageBillboardHandler</samp></li></ul></td>
+        </tr>
+    </tbody>
+</table><span id="sprint-control"></span>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card- border-" role="card" style="">
+  
+
+  
+  
+    
+  
+
+  
+  
+    <h5 data-toc-skip class="card-header bg- text-white">冲刺及缩放控制</h5>
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse show" id="ref_card-2">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>By default, the weapons system adds “sprint” capability to the game, so players can sprint by holding the <kbd class="keyboard-key">Shift</kbd> key, pushing fully up on the dynamic thumbstick (mobile), or pushing fully up on the left joystick (gamepad). If you want to disable sprinting, set <b>SprintEnabled</b> within <samp>WeaponsSystem/Configuration</samp> to <b>false</b>.</p>
+<p>The system also reduces player speed while they’re aiming/zooming, although this behavior can be disabled by setting the <b>SlowZoomWalkEnabled</b> boolean to <b>false</b>.</p>
+
+      </div>
+    
+  
+
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>修改武器<span id="modifying-a-weapon"></span></h2>
+<p>下面是修改武器或创建新武器所需的所有通用子项，以及要覆盖的所有可选子项。<span class="text-nowrap"><a href="#weapon-options">武器选项</a></span>中有更具体的选项。</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card- border-" role="card" style="">
+  
+
+  
+  
+    
+  
+
+  
+  
+    <h5 data-toc-skip class="card-header bg- text-white">对象/命名规则</h5>
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse show" id="ref_card-3">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>Throughout this documentation, note the following object and naming rules:</p>
+<ul class="pl-4 mb-0">
+<li>When something is specified as a <code>BasePart</code> such as <span class="text-nowrap">"<b>Arrow</b> (<code>BasePart</code>),"</span> the object type just needs to inherit from <code>BasePart</code>, so it can be a <code>Part</code>, <code>MeshPart</code>, etc. However, if something is noted as a specific inherited type such as <span class="text-nowrap">"<b>Handle</b> (<code>Part</code>),"</span> that object <b>must</b> be a <code>Part</code>.</li>
+<li>Square brackets <b>[]</b> refer to the object in general and the name doesn't matter. For example, <b>[Model]</b> refers to the weapon's <code>Model</code> and you can rename it to whatever makes sense.</li>
+</ul>
+      </div>
+    
+  
+
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!---------------------- WEAPON STRUCTURE HIERARCHY ---------------------->
+<div class="container-fluid mt-0 mr-0 my-0">
+<div class="row">
+<div class="col p-0 mx-0">
+<table class="table tree-table-borderless mb-4">
+  <tbody>
+<!-- [Weapon] (Tool) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"><span class="explorer-item-hl">[Weapon]</span> (<code>Tool</code>) 和在玩家背包里显示的一样命名。</div>
+</div>
+      </td>
+    </tr>
+<!-- WeaponType (StringValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">WeaponType</span> (<code>StringValue</code>) <span class="req">（必须）</span> &mdash;  <samp>WeaponsSystem/WeaponTypes</samp> 文件夹中对应的 <code>ModuleScript</code> 的名称（<b>BulletWeapon</b> 和 <b>BowWeapon</b> 是唯二的选项，除非您添加了新的武器类型）。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Model] (Model) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">[WeaponModel]</span> (<code>Model</code>) <span class="req">（必须）</span></div>
+</div>
+    </td>
+    </tr>
+<!-- [ModelParts] (BaseParts) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent">一个或多个 <code>BasePart|BaseParts</code> <span class="req">（必须）</span> &mdash; 这些组成了物理武器模型，其中一个应该设置为该模型的 <code>Model/PrimaryPart|PrimaryPart</code>。</div>
+</div>
+    </td>
+    </tr>
+<!-- Descendants -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent">Descendants of <span class="tree-item-name">[WeaponModel]</span>:
+<ul class="my-0">
+<li><span class="tree-item-name">TipAttachment</span> (<code>Attachment</code>) <span class="req">（必须）</span> &mdash; 将此附件置于武器模型 <code>BasePart</code> 您想让子弹/投射物发出来的地方。</li>
+<li><span class="tree-item-name">HandleAttachment</span> (<code>Attachment</code>) <span class="req">（必须）</span> &mdash; 将此附件置于武器模型 <code>BasePart</code> 您想要接合手柄的地方。</li>
+<li><span class="tree-item-name">Fired</span> (<code>Sound</code>) <span class="opt">（可选）</span> &mdash; 武器开火时播放。</li>
+<li><span class="tree-item-name">Reload</span> (<code>Sound</code>) <span class="opt">（可选）</span> &mdash; 武器装弹时播放。</li>
+<li><a href="#weapon-options">武器选项</a>的额外子项。</li>
+</ul>
+</div>
+</div>
+    </td>
+    </tr>
+<!-- Handle (Part) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Handle</span> (<code>Part</code>) <span class="req">（必须）</span> &mdash; 将部件放置在您想让玩家拿着武器的地方。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Configuration] (Configuration) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="tree-item-name">[Configuration]</span> (<code>Configuration</code>) &mdash; 放置武器配置项目的地方。请注意，所有项目都有默认值，因此您可以忽略那些不需要更改的项。</div>
+</div>
+    </td>
+    </tr>
+<!-- AmmoCapacity (IntValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">AmmoCapacity</span> (<code>IntValue</code>) <span class="opt">（可选）</span> &mdash;  "弹夹"可装的最大子弹数；默认为 <b>30</b>。请注意子弹是无限的，本项并<b>不</b>指定玩家可以携带的子弹数量。</div>
+</div>
+    </td>
+    </tr>
+<!-- FireMode (StringValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">FireMode</span> (<code>StringValue</code>) <span class="opt">（可选）</span> &mdash; 在 <b>Semiautomatic</b> （半自动。一次点击射击一次）、 <b>Automatic</b> （全自动。按住连续射击）、或 <b>Burst</b>（点射。点击以点射出一定数量的子弹，数量取决于 <span class="tree-item-name">NumBurstShots</span>）中选择。默认为 <b>Semiautomatic</b>。</div>
+</div>
+    </td>
+    </tr>
+<!-- ShotCooldown (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">ShotCooldown</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 点击之间最小的等待时间；默认为 <b>0.1</b>。对于<b>全自动</b>武器，表示每发之间的最小时间间隔。</div>
+</div>
+    </td>
+    </tr>
+<!-- BurstShotCooldown (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">BurstShotCooldown</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 点射时每发之间的间隔时间；默认为 <span class="tree-item-name">ShotCooldown</span> 的值，只在您将 <span class="tree-item-name">FireMode</span> 设为 <b>Burst</b> 时生效。</div>
+</div>
+    </td>
+    </tr>
+<!-- NumBurstShots (IntValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">NumBurstShots</span> (<code>IntValue</code>) <span class="opt">（可选）</span> &mdash; 每次点击/点射的射击数；默认为 <b>3</b>，只在您将 <span class="tree-item-name">FireMode</span> 设为 <b>Burst</b> 时生效。</div>
+</div>
+    </td>
+    </tr>
+<!-- HitDamage (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">HitDamage</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 每次直接命中所造成的伤害；默认为 <b>10</b>。</div>
+</div>
+    </td>
+    </tr>
+<!-- FullDamageDistance (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">FullDamageDistance</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 射击能够造成完全伤害的最大距离。默认为 <b>1000</b>，超过此距离，命中所造成的伤害就越来越低，直到子弹达到 <span class="tree-item-name">ZeroDamageDistance</span>，此时伤害为零。</div>
+</div>
+    </td>
+    </tr>
+<!-- ZeroDamageDistance (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">ZeroDamageDistance</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 超过或处于此距离的命中造成的伤害为零。默认为 <b>10000</b>。</div>
+</div>
+    </td>
+    </tr>
+<!-- BulletSpeed (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">BulletSpeed</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 子弹/投射物飞行的速度；默认为 <b>1000</b>。将此值设为比如 <b>20000</b> 一样大的值可以模拟激光枪等射线投射武器。</div>
+</div>
+    </td>
+    </tr>
+<!-- MaxDistance (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">MaxDistance</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 子弹/投射物在消失前可飞行的最大距离；默认为 <b>2000</b>。</div>
+</div>
+    </td>
+    </tr>
+<!-- MinSpread (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">MinSpread</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 武器扩散的最小值；默认为 <b>0</b>。</div>
+</div>
+    </td>
+    </tr>
+<!-- MaxSpread (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">MaxSpread</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 武器扩散的最大值；默认为 <span class="tree-item-name">MinSpread</span> 的值。</div>
+</div>
+    </td>
+    </tr>
+<!-- GravityFactor (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">GravityFactor</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 子弹/投射物受重力的影响量；默认为 <b>0</b>。例如，对于<a href="CATALOG_ITEM_CROSSBOW" target="_new">十字弓</a>，此值为 <b>1</b>，因为箭矢做弧线运动，但对于<a href="CATALOG_ITEM_ROCKET_LAUNCHER" target="_new">火箭筒</a>，此值为 <b>0</b>，因为火箭做直线运动。</div>
+</div>
+    </td>
+    </tr>
+<!-- HasScope (BoolValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">HasScope</span> (<code>BoolValue</code>) <span class="opt">（可选）</span> &mdash; Set to <b>true</b> 若您想使用在 <a href="#weapons-system-gui">武器系统&nbsp;GUI</a>中定义的倍镜，请设为 true。默认为 <b>false</b>。</div>
+</div>
+    </td>
+    </tr>
+<!-- ReloadAnimation (StringValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">ReloadAnimation</span> (<code>StringValue</code>) <span class="opt">（可选）</span> &mdash; 在 <samp>WeaponsSystem/Assets/Animations</samp> 中的装弹动画的名称；默认为 <b>RifleReload</b>。</div>
+</div>
+    </td>
+    </tr>
+<!-- AimTrack (StringValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">AimTrack</span> (<code>StringValue</code>) <span class="opt">（可选）</span> &mdash; 在 <samp>WeaponsSystem/Assets/Animations</samp> 中的瞄准动画的名称；默认为 <b>RifleAim</b>。</div>
+</div>
+    </td>
+    </tr>
+<!-- AimZoomTrack (StringValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">AimZoomTrack</span> (<code>StringValue</code>) <span class="opt">（可选）</span> &mdash; 在 <samp>WeaponsSystem/Assets/Animations</samp> 中的放大瞄准动画的名称；默认为 <b>RifleAimDownSights</b>。</div>
+</div>
+    </td>
+    </tr>
+<!-- RecoilMin (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">RecoilMin</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 每次射击的最小反冲；默认为 <b>0.05</b>。</div>
+</div>
+    </td>
+    </tr>
+<!-- RecoilMax (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">RecoilMax</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 每次射击的最大反冲；默认为 <b>0.5</b>。</div>
+</div>
+    </td>
+    </tr>
+<!-- TotalRecoilMax (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">TotalRecoilMax</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 累积反冲的最大值（武器的当前反冲不会比此值高）；默认为 <b>2</b>。</div>
+</div>
+    </td>
+    </tr>
+<!-- RecoilDecay (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">RecoilDecay</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 反冲的衰减倍数（本质即射击后反冲消失的速度）；默认为 <b>0.825</b>。</div>
+</div>
+    </td>
+    </tr>
+<!-- RecoilDelayTime (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">RecoilDelayTime</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 射击/点击后反冲添加到镜头之前的等待时间；默认为 <b>0.07</b>。</div>
+</div>
+    </td>
+    </tr>
+<!-- StartupTime (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">StartupTime</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 武器装备后玩家可以射击之前的等待时间；默认为 <b>0.2</b>。这可以防止玩家快速连续地用不同的武器开枪。</div>
+</div>
+    </td>
+    </tr>
+<!-- FiredPlaybackSpeedRange (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">FiredPlaybackSpeedRange</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 武器的 <span class="tree-item-name">Fired</span>（射击）音效可以变调的程度。 若您希望音效总是在同一个调播放，请将此设为 <b>0</b>，默认为 <b>0.1</b>。</div>
+</div>
+    </td>
+    </tr>
+<!-- NumProjectiles (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">NumProjectiles</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 点击一次，子弹/投射物可以同时发射的数量；默认为 <b>1</b>。对于诸如<a href="CATALOG_ITEM_SHOTGUN" target="_new">霰弹枪</a>一类同时发射多发子弹的武器，此值很有用。请注意，无论此值如何，一次射击始终只使用一颗弹药。</div>
+</div>
+    </td>
+    </tr>
+<!-- (Additional Children) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><a href="#weapon-options">武器选项</a>的额外子项。</div>
+</div>
+    </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<!--NOTE: max spread is calculated like this: "MinSpread" + (current recoil / "TotalRecoilMax") * ("MaxSpread" - "MinSpread")-->
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!---------------------- WEAPON OPTIONS ---------------------->
+<h2 class="mt-3">武器选项<span id="weapon-options"></span></h2>
+<p>您可以为任何武器添加/修改以下任意数量的选项。请注意有些项是依赖于其他的，例如<span class="text-nowrap"><a href="#muzzle-particles">枪口粒子</a></span>需要<span class="text-nowrap"><a href="#projectile-hit-effects-sounds">投射物/命中效果和声音</a></span>必要的子项。</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!------------ BOLT ANIMATIONS AND SOUNDS ------------>
+<h3 class="mt-2">枪栓动画和声音<span id="bolt-animations-sounds"></span></h3>
+<p>认可武器的<strong>枪栓</strong>是指每次射击时来回移动的部件。</p>
+<ul>
+<li>武器 <code>Model</code>（模型）的子项：</li>
+</ul>
+<img src="/assets/blt71c6749646e34c4a/Weapon-Model-Descendants.png" class="img-fluid half-sized list-indent">
+<div class="list-indent">
+<ul>
+<li><b>Bolt</b> (<code>BasePart</code>) <span class="req">（必须）</span> &mdash; 动画时实际移动的枪栓。</li>
+<li><b>BoltMotor</b> (<code>Motor6D</code>) <span class="req">（必须）</span> &mdash; 用于为枪栓设置动画。请确保将  <code>JointInstance/Part0|Part0</code> 设置为武器的 <code>Model/PrimaryPart|PrimaryPart</code>，将 <code>JointInstance/Part1|Part1</code> 设置为 <b>Bolt<b>。</li>
+<li><b>BoltMotorStart</b> (<code>Attachment</code>) <span class="req">（必须）</span> &mdash; 当枪栓处于静止状态时所在的位置。</li>
+<li><b>BoltMotorTarget</b> (<code>Attachment</code>) <span class="req">（必须）</span> &mdash; 射击时枪栓所在的位置。</li>
+<li><b>BoltOpenSound</b> (<code>Sound</code>) <span class="opt">（可选）</span> &mdash; 枪栓打开时播放。</li>
+<li><b>BoltCloseSound</b> (<code>Sound</code>) <span class="opt">（可选）</span> &mdash; 枪栓关闭时播放。</li>
+</ul>
+</div>
+<ul>
+<li>武器 <code>Configuration</code>（配置）的子项：</li>
+</ul>
+<img src="/assets/bltd910143fc345c427/Weapon-Configuration-Children.png" class="img-fluid half-sized list-indent">
+<div class="list-indent">
+<ul class="mb-0">
+<li><b>ActionOpenTime</b> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 枪栓动画到打开位置所需的时间；默认为 <b>0.025</b>。</li>
+<li><b>ActionCloseTime</b> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 枪栓动画到关闭位置所需的时间；默认为 <b>0.075</b>。</li>
+</ul>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!------------ EJECTING BULLET CASINGS ------------>
+<h3 class="mt-4">弹出弹壳<span id="ejecting-bullet-casings"></span></h3>
+<p>武器可以包含物理弹壳，这些弹壳在开火时会弹出，然后落在地上。</p>
+<ul>
+<li>武器 <code>Model</code>（模型）的子项：</li>
+</ul>
+<img src="/assets/blt71c6749646e34c4a/Weapon-Model-Descendants.png" class="img-fluid half-sized list-indent">
+<div class="list-indent">
+<ul>
+<li><b>CasingEjectPoint</b> (<code>Attachment</code>) <span class="req">（必须）</span> &mdash; 将此附件置于武器模型 <code>BasePart</code> 上子弹/投射物将会射出的位置。请注意，附件的方向决定了弹壳弹出的方向。</li>
+</ul>
+</div>
+<ul>
+<li>武器 <code>Configuration</code>（配置）的子项：</li>
+</ul>
+<img src="/assets/bltd910143fc345c427/Weapon-Configuration-Children.png" class="img-fluid half-sized list-indent">
+<div class="list-indent">
+<ul>
+<li><b>CasingEffect</b> (<code>StringValue</code>) <span class="req">（必须）</span> &mdash;  <samp>WeaponsSystem/Assets/Effects/Casings</samp> 中的弹壳 <code>BasePart</code> 的名称。</li>
+<li><b>CasingEjectSpeedMin</b> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 弹壳弹出的最小速度；默认为 <b>15</b>。<li>
+<li><b>CasingEjectSpeedMax</b> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 弹壳弹出的最大速度；默认为 <b>18</b>。</li>
+</ul>
+</div>
+<ul>
+<li><samp>WeaponsSystem/Assets/Effects/Casings</samp> 里的弹壳 <code>BasePart</code> 的额外子项：</li>
+</ul>
+<img src="/assets/blt825b80686ff44ac6/Weapon-CasingHitSound.png" class="img-fluid half-sized list-indent">
+<div class="list-indent">
+<ul class="mb-0">
+<li><b>CasingHitSound</b> (<code>Sound</code>) <span class="opt">（可选）</span> &mdash; 弹夹落到地上时播放。</li>
+</ul>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!------------ PROJECTILE/HIT EFFECTS AND SOUNDS ------------>
+<h3 class="mt-4">投射/命中效果和声音<span id="projectile-hit-effects-sounds"></span></h3>
+<p>您可以为任何武器指定物理投射物，以及用于命中效果和其他特效的<code>Sound|声音</code>、<code>Beam|光束</code>和<code>ParticleEmitter|粒子发射器</code>。</p>
+<ul>
+<li>武器 <code>Configuration</code>（配置）的子项：</li>
+</ul>
+<img src="/assets/bltc94a1400b4411793/Weapon-Configuration-Children-Grenade-Launcher.png" class="img-fluid half-sized list-indent">
+<div class="list-indent">
+<ul>
+<li><b>ShotEffect</b> (<code>StringValue</code>) <span class="req">（必须）</span> &mdash; <samp>WeaponsSystem/Assets/Effects/Shots</samp> 中储存的射击效果的名称。</li>
+<li><b>ShouldMovePart</b> (<code>BoolValue</code>) <span class="opt">（可选）</span> &mdash;  若您想让 <b>ShotEffect</b> 随投射物一起移动，请设为 <b>true</b>，如果不，请设为 <b>false</b> ；默认为 <b>false</b>。仅当每次射击都有可见对象（如箭矢或火箭）移动时，才能将其设置为 <b>true</b>。</li>
+<li><b>BeamFadeTime</b> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 子弹/投射物击中某物后 <b>Beam0</b> 和 <b>Beam1</b> 淡出所需的时间。默认为 <code>nil</code>，表示没有代码手动应用的淡入淡出。</li>
+<li><b>BeamWidth0</b> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; <b>Attachment0</b> 处的<b>Beam0</b>/<b>Beam1</b> 的厚度；默认为 <b>1.5</b>。</li>
+<li><b>BeamWidth1</b> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; <b>Attachment1</b> 处的<b>Beam0</b>/<b>Beam1</b> 的厚度；默认为 <b>1.8</b>。</li>
+<li><b>NumHitParticles</b> (<code>IntValue</code>) <span class="opt">（可选）</span> &mdash; <b>HitParticles</b> <code>ParticleEmitter</code>（粒子发射器）发射的粒子的数量。默认为 <b>3</b>。</li>
+<li><b>HitParticlesUsePartColor</b> (<code>BoolValue</code>) <span class="opt">（可选）</span> &mdash; 若您希望命中粒子与命中表面有一样的颜色，请设为 <b>true</b>。若您不希望命中粒子改变颜色，请设为 <b>false</b>。默认为 <b>true</b>。</li>
+</ul>
+</div>
+<ul>
+<li>前面部分提到的具体的 <strong>ShotEffect</strong> 的子项（位于 <span class="text-nowrap"><samp>WeaponsSystem/Assets/Effects/Shots</samp> 中）：</span></li>
+</ul>
+<img src="/assets/blt014b835302d53afe/Weapon-Grenade.png" class="img-fluid half-sized list-indent">
+<div class="list-indent">
+<ul class="mb-0">
+<li><b>Flying</b> (<code>Sound</code>) <span class="opt">（可选）</span> &mdash; 子弹/投射物飞行时播放。</li>
+<li><b>Beam0</b> (<code>Beam</code>) <span class="opt">（可选）</span> &mdash; 子弹/投射物轨迹光束的第一个槽。别忘了设置附件（参见跟随的子项）。</li>
+<li><b>Beam1</b> (<code>Beam</code>) <span class="opt">（可选）</span> &mdash; 子弹/投射物轨迹光束的第二个槽。别忘了设置附件（参见跟随的子项）。</li>
+<li><b>Attachment0</b> (<code>Attachment</code>) <span class="opt">（可选）</span> &mdash; 轨迹光束的后面；确保将 <b>Attachment0</b> 设置在 <b>Beam0</b> 和 <b>Beam1</b> 上。
+    <ul>
+    <li><b>TrailParticles</b> (<code>ParticleEmitter</code>) <span class="opt">（可选）</span> &mdash; <b>Attachment0</b> 的一级子项；子弹/投射物飞行时，这会从 <b>Attachment0</b> 里发射。</li>
+    </ul>
+</li>
+<li><b>Attachment1</b> (<code>Attachment</code>) <span class="opt">（可选）</span> &mdash; 轨迹光束的前面；确保将 <b>Attachment1</b> 设置在 <b>Beam0</b> 和 <b>Beam1</b> 上。
+    <ul>
+    <li><b>LeadingParticles</b> (<code>ParticleEmitter</code>) <span class="opt">（可选）</span> &mdash; <b>Attachment1</b> 的一级子项；子弹/投射物飞行时，这会从 <b>Attachment1</b> 里发射。</li>
+    </ul>
+</li>
+<li><b>HitEffect</b> (<code>Attachment</code>) <span class="opt">（可选）</span> &mdash; 与位置无关，当子弹/投射物命中时，其位置将被设为 <b>Beam0.Attachment1</b>，因此您必须指定 <b>Beam0</b> 及其附件，此项才能正常工作。
+    <ul>
+    <li><b>HitSound</b> (<code>Sound</code>) <span class="opt">（可选）</span> &mdash; <b>HitEffect</b> 的一级子项；子弹/投射物命中时播放。</li>
+    <li><b>HitParticles</b> (<code>ParticleEmitter</code>) <span class="opt">（可选）</span> &mdash; <b>HitEffect</b> 的一级子项；子弹/投射物命中时发射。</li>
+    </ul>
+</li>
+<li>您想作为物理投射物的任何 <code>Part</code>/<code>MeshPart</code>/<code>SpecialMesh</code> <span class="opt">（可选）</span>。若您想要使对象可见，确保您将前文提到的 <b>ShouldMovePart</b> 设为 <b>true</b>。</li>
+</ul>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!------------ MUZZLE PARTICLES ------------>
+<h3 class="mt-4">枪口粒子<span id="muzzle-particles"></span></h3>
+<p>此选项在武器发射时从武器特定 <b>TipAttachment</b> <code>Attachment</code>（附件）上的 <code>ParticleEmitter</code>（粒子发射器）发射粒子。</p>
+<ul>
+<li>武器 <code>Configuration</code>（配置）的子项：</li>
+</ul>
+<img src="/assets/bltee7d708eab38b55d/Weapon-Configuration-Children-Railgun.png" class="img-fluid half-sized list-indent">
+<div class="list-indent">
+<ul>
+<li><b>ShotEffect</b> (<code>StringValue</code>) <span class="req">（必须）</span> &mdash; <samp>WeaponsSystem/Assets/Effects/Shots</samp> 中储存的射击效果的名称。</li>
+<li><b>NumMuzzleParticles</b> (<code>IntValue</code>) <span class="opt">（可选）</span> &mdash; 发射的枪口粒子数量；默认为 <b>50</b>。</li>
+</ul>
+</div>
+<ul>
+<li>对于特定的射击效果（位于 <span class="text-nowrap"><samp>WeaponsSystem/Assets/Effects/Shots</samp>），</span> 添加一个名为 <b>MuzzleParticles</b> 的 <code>ParticleEmitter</code>（粒子发射器）：</li>
+</ul>
+<img src="/assets/blt02953bc2985777a4/Weapon-MuzzleParticles.png" class="img-fluid half-sized list-indent mb-2">
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!------------ MUZZLE FLASHES ------------>
+<h3 class="mt-4">枪口闪光<span id="muzzle-flashes"></span></h3>
+<p>此选项在武器发射时创建一个 <code>Beam</code> 闪光。</p>
+<ul>
+<li>武器 <code>Model</code>（模型）的子项：</li>
+</ul>
+<img src="/assets/blt52dfdaccd68ce4c3/Weapon-Model-Descendants-Railgun.png" class="img-fluid half-sized list-indent">
+<div class="list-indent">
+<ul>
+<li><b>MuzzleFlash0</b> (<code>Attachment</code>) <span class="req">（必须）</span> &mdash; 用于描述枪口闪光的一侧，位置不重要。</li>
+<li><b>MuzzleFlash1</b> (<code>Attachment</code>) <span class="req">（必须）</span> &mdash; 用于描述枪口闪光的反侧，位置不重要。</li>
+<li><b>MuzzleFlash</b> (<code>Beam</code>) <span class="req">（必须）</span> &mdash; 确保将 <code>Beam/Attachment0|Attachment0</code> 设为 <b>MuzzleFlash0</b>，将 <code>Beam/Attachment1|Attachment1</code> 设为 <b>MuzzleFlash1</b>。</li>
+</ul>
+</div>
+<ul>
+<li>武器 <code>Configuration</code>（配置）的子项：</li>
+</ul>
+<img src="/assets/bltee7d708eab38b55d/Weapon-Configuration-Children-Railgun.png" class="img-fluid half-sized list-indent">
+<div class="list-indent">
+<ul class="mb-0">
+<li><b>MuzzleFlashTime</b> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 枪口闪光显示的时间；默认为 <b>0.03</b>。</li>
+<li><b>MuzzleFlashRotation0</b> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 枪口闪光的最小旋转；默认为 <code>-math.pi</code>。</li>
+<li><b>MuzzleFlashRotation1</b> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 枪口闪光的最大旋转；默认为 <code>math.pi</code>。</li>
+<li><b>MuzzleFlashSize0</b> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 枪口闪光的最小尺寸；默认为 <b>1</b>。</li>
+<li><b>MuzzleFlashSize1</b> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 枪口闪光的最大尺寸；默认为 <b>1</b>。</li>
+</ul>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!------------ TRAIL BEHIND PROJECTILES ------------>
+<h3 class="mt-4">投射物轨迹<span id="trail-behind-projectiles"></span></h3>
+<p>此选项会创建从武器到投射物落点的不同长度的轨迹。</p>
+<ul>
+<li>武器 <code>Configuration</code>（配置）的子项：</li>
+</ul>
+<img src="/assets/bltee7d708eab38b55d/Weapon-Configuration-Children-Railgun.png" class="img-fluid half-sized list-indent">
+<div class="list-indent">
+<ul class="mb-0">
+<li><b>TrailLength</b> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 子弹/投射物后面的轨迹的长度；默认为 <code>nil</code>，表示轨迹的长度由 <b>TrailLengthFactor</b> 计算。</li>
+<li><b>TrailLengthFactor</b> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 轨迹长度将设置为此值乘以子弹/投射物在最后一帧中移动的距离；默认为 <b>1</b>。注意若您设置了 <b>TrailLength</b>，此值会被覆盖。</li>
+<li><b>ShowEntireTrailUntilHit</b> (<code>BoolValue</code>) <span class="opt">（可选）</span> &mdash; 设置为 <b>true</b> 将呈现从武器尖端一直到投射物所在位置的轨迹；这将覆盖 <b>TrailLength</b> 和 <b>TrailLengthFactor</b>，并且只有在投射物击中某些物体时，轨迹才会消失。设置为 <b>false</b> 可使用以上两个选项之一计算轨迹长度。默认为 <b>false</b>。</li>
+</ul>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!------------ HIT MARKS ------------>
+<h3 class="mt-4">命中痕迹<span id="hit-marks"></span></h3>
+<p>这种视觉效果出现在投射物击中的表面上，可用于箭头、弹孔、焦痕等。</p>
+<ul>
+<li>武器 <code>Configuration</code>（配置）的子项：</li>
+</ul>
+<img src="/assets/bltd910143fc345c427/Weapon-Configuration-Children.png" class="img-fluid half-sized list-indent">
+<div class="list-indent">
+<ul>
+<li><b>HitMarkEffect</b> (<code>StringValue</code>) <span class="opt">（可选）</span> &mdash; <samp>WeaponsSystem/Assets/Effects/HitMarks</samp> 中储存的命中痕迹效果的名称；默认为 <b>BulletHole</b>。</li>
+<li><b>AlignHitMarkToNormal</b> (<code>BoolValue</code>) <span class="opt">（可选）</span> &mdash; 如果命中痕迹应与命中表面齐平，比如弹孔，则设置为 <b>true</b>；如果命中痕迹应从投射物来的方向卡在表面上（如箭头），则设置为 <b>false</b>。 默认为 <b>true</b>。</li>
+</ul>
+</div>
+<ul>
+<li>前面部分提到的具体的 <b>HitMarkEffect</b> 的子项（位于 <samp>WeaponsSystem/Assets/Effects/HitMarks</samp>）：</li>
+</ul>
+<img src="/assets/blt085a852732ce4843/Weapon-BulletHole.png" class="img-fluid half-sized list-indent">
+<div class="list-indent">
+<ul class="mb-0">
+<li><b>Glow</b> (<code>Decal</code>) <span class="opt">（可选）</span> &mdash; 在命中表面上显示为完全不透明，然后迅速变得逐渐透明，就像表面上快速褪色的发光效果一样，可用于在爆炸击中的地方显示一个发光的红色痕迹等状况。</li>
+<li><b>BulletHole</b> (<code>Decal</code>) <span class="opt">（可选）</span> &mdash; 在命中表面上显示为完全不透明，4 秒之后，在 1 秒内逐渐变为透明。</li>
+<li><b>ImpactBillboard</b> (<code>BillboardGui</code>) <span class="opt">（可选）</span> &mdash; 在命中表面显示，始终面对玩家。
+    <ul>
+    <li><b>Impact</b> (<code>ImageLabel</code>) <span class="opt">（可选）</span> &mdash; <b>ImpactBillboard</b> 的一级子项；开始为完全不透明，在 0.1 秒内逐渐放大为 <b>ImpactBillboard</b> 的尺寸，然后缩小为一半大小，在 0.1 内褪至完全透明。 </li>
+    </ul>
+</li>
+<li>您想作为物理投射物的任何 <code>Part</code>/<code>MeshPart</code>/<code>SpecialMesh</code> <span class="opt">（可选）</span>。例如，添加箭矢 <code>MeshPart</code> 并将上面提到的 <b>AlignHitMarkToNormal</b> 设置为 <b>false</b> 将使箭矢以您射击的方向伸出表面。</li>
+</ul>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!------------ EXPLODING PROJECTILES ------------>
+<h3 class="mt-4">爆炸投射物<span id="exploding-projectiles"></span></h3>
+<p>开发者可以为投射物添加 <code>Explosion</code> （爆炸）对象，以对落点周围区域内的玩家造成伤害。</p>
+<ul>
+<li>武器 <code>Configuration</code>（配置）的子项：</li>
+</ul>
+<img src="/assets/bltc94a1400b4411793/Weapon-Configuration-Children-Grenade-Launcher.png" class="img-fluid half-sized list-indent">
+<div class="list-indent">
+<ul class="mb-0">
+<li><b>ExplodeOnImpact</b> (<code>BoolValue</code>) <span class="opt">（可选）</span> &mdash; 如果您希望武器的子弹/投射物在撞击时爆炸，请设置为 <b>true</b>，否则设置为 <b>false</b>。默认为 <b>false</b>。</li>
+<li><b>BlastRadius</b> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 爆炸的 <code>Explosion/BlastRadius|BlastRadius</code>（爆炸半径）；默认为 <b>8</b>。</li>
+<li><b>BlastPressure</b> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 爆炸的 <code>Explosion/BlastPressure|BlastPressure</code>（爆炸压力）；默认为 <b>10000</b>。</li>
+<li><b>BlastDamage</b> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 爆炸中心可对物体造成的伤害。注意击中的物体离爆炸中心越远，所受到的伤害就越小。默认为 <b>100</b>。</li>
+</ul>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!------------ CHARGING WEAPON ------------>
+<h3 class="mt-4">充能武器<span id="charging-weapon"></span></h3>
+<p>像<a href="CATALOG_ITEM_RAILGUN" target="_new">磁轨炮</a>一类的充能武器每次必须充能完毕才能射击。</p>
+<ul>
+<li>武器 <code>Model</code>（模型）的子项：</li>
+</ul>
+<img src="/assets/blt52dfdaccd68ce4c3/Weapon-Model-Descendants-Railgun.png" class="img-fluid half-sized list-indent">
+<div class="list-indent">
+<ul>
+<li><b>Charging</b> (<code>Sound</code>) <span class="opt">（可选）</span> &mdash; 充能时播放。</li>
+<li><b>Discharging</b> (<code>Sound</code>) <span class="opt">（可选）</span> &mdash; 释能时播放，例如当武器部分充能时您释放了射击按钮。</li>
+<li><b>ChargeComplete</b> (<code>Sound</code>) <span class="opt">（可选）</span> &mdash; 武器完全充能时播放。</li>
+<li><b>DischargeComplete</b> (<code>Sound</code>) <span class="opt">（可选）</span> &mdash; 武器完全释能时播放。</li>
+<li><b>ChargeGlow</b> (<code>BasePart</code>) <span class="opt">（可选）</span> &mdash; 当武器充能时，这个物体将逐渐变得不透明，在 100% 充能时它将完全不透明。</li>
+<li><b>ChargeCompleteParticles</b> (<code>ParticleEmitter</code>) <span class="opt">（可选）</span> &mdash; 武器完成充能时发射。此发射器可以是任何模型 <code>BasePart</code> 的子项，也可以是 <code>BasePart</code> 内的 <code>Attachment</code> 的子项。</li>
+<li><b>DischargeCompleteParticles</b> (<code>ParticleEmitter</code>) <span class="opt">（可选）</span> &mdash; 武器完成释能时发射。此发射器可以是任何模型 <code>BasePart</code> 的子项，也可以是 <code>BasePart</code> 内的 <code>Attachment</code> 的子项。</li>
+<li><b>ChargingParticles</b> (<code>ParticleEmitter</code>) <span class="opt">（可选）</span> &mdash; 在武器充能时发射。您可以使用多个该名称的发射器，每个发射器都将在充能时发射。此发射器可以是任何模型 <code>BasePart</code> 的子项，也可以是 <code>BasePart</code> 内的 <code>Attachment</code> 的子项。</li>
+</ul>
+</div>
+<ul>
+<li>武器 <code>Configuration</code>（配置）的子项：</li>
+</ul>
+<img src="/assets/bltee7d708eab38b55d/Weapon-Configuration-Children-Railgun.png" class="img-fluid half-sized list-indent">
+<div class="list-indent">
+<ul class="mb-0">
+<li><b>ChargeRate</b> (<code>NumberValue</code>) <span class="req">（必须）</span> &mdash; 武器充能的速率。必须指定此值以指示武器使用充能。</li>
+<li><b>DischargeRate</b> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 武器释能的速率。默认为 <b>0</b>，表示武器不会释放能量。</li>
+<li><b>ChargePassively</b> (<code>BoolValue</code>) <span class="opt">（可选）</span> &mdash; 如果您希望武器被动充能，以便在您单击时能立即射击，请设置为 <b>true</b>；如果要单击/触摸为武器充能，并在充能完毕后立即开火，请设置为 <b>false</b>。默认为 <b>false</b>。</li>
+<li><b>ChargingParticlesRatePerCharge</b> (<code>IntValue</code>) <span class="opt">（可选）</span> &mdash; 将从所有 <b>ChargingParticles</b> 发射器中发射的粒子数乘以武器的当前充能。默认为 <b>20</b>，表示若武器充能 10%，每个  <b>ChargingParticles</b> 发射器会发射 2 个粒子<span class="text-nowrap">（<code>20*0.1</code>），</span>若武器充能到 90%，每个发射器将发射 18 个粒子<span class="text-nowrap">（<code>20*0.9</code>）。</span></li>
+<li><b>FireDischarge</b> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 射出一发完全充能后武器将损失的充能量；默认为 <b>1</b>。</li>
+<li><b>NumChargeCompleteParticles</b> (<code>IntValue</code>) <span class="opt">（可选）</span> &mdash; 武器完全充能后，<b>ChargeCompleteParticles</b> 发射器发射粒子的数量。默认为 <b>25</b>。</li>
+<li><b>NumDischargeCompleteParticles</b> (<code>IntValue</code>) <span class="opt">（可选）</span> &mdash; 武器完全释能后，<b>DischargeCompleteParticles</b> 发射器发射粒子的数量。默认为 <b>25</b>。</li>
+</ul>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!------------ BOW WEAPON ------------>
+<h3 class="mt-4">弓武器<span id="bow-weapon"></span></h3>
+<p>如<a href="CATALOG_ITEM_CROSSBOW" target="_new">十字弓</a>一类的弓武器可以包含逼真的弦和弓臂构造，以及可视的指向弦的箭矢。</p>
+<ul>
+<li>按照<a href="#charging-weapon">充能武器</a>中的规定可将武器制成充能武器。例如，在武器的 <code>Configuration</code>（配置）中添加必需的 <b>ChargeRate</b> 来规定拉弦速度。此外，还可以考虑在武器的 <code>Model</code>（模型）中添加可选的子项，例如为拉弦/弓臂添加一个<b>充能</b>声音。</li>
+<li>根据<a href="#modifying-a-weapon">修改武器</a>中所述将 <b>WeaponType</b> 设为 <b>BowWeapon</b>。</li>
+<li>武器 <code>Model</code>（模型）的子项：</li>
+</ul>
+<img src="/assets/blte839d97cf6fe3fa4/Weapon-Model-Descendants-Crossbow.png" class="img-fluid half-sized list-indent">
+<div class="list-indent">
+<ul class="mb-0">
+<li><b>LeftString</b> (<code>Beam</code>) <span class="opt">（可选）</span> &mdash; 弦的左半部外观。</li>
+<li><b>RightString</b> (<code>Beam</code>) <span class="opt">（可选）</span> &mdash; 弦的右半部外观。</li>
+<li><b>Arrow</b> (<code>BasePart</code>) <span class="opt">（可选）</span> &mdash; 弓拉满时出现的箭矢。注意只是外观 （实际发射的箭矢应是一个 <b>ShotEffect</b>，详情请见<span class="text-nowrap"><a href="#projectile-hit-effects-sounds">投射/命中效果和声音</a>）。</span></li>
+<li><b>String1</b> (<code>Attachment</code>) <span class="opt">（可选）</span> &mdash; 弦的中心。</li>
+<li><b>StringLoose</b> (<code>Attachment</code>) <span class="opt">（可选）</span> &mdash; 弓在静止状态时，<b>String1</b> 所处的位置。</li>
+<li><b>StringTight</b> (<code>Attachment</code>) <span class="opt">（可选）</span> &mdash; 弓拉满时，<b>String1</b> 所处的位置。</li>
+<li><b>Arms</b> (<code>Part</code>) <span class="opt">（可选）</span> &mdash; 仅用作弓臂设置动画的内部指示器的部件，可能包含以下一级子项：
+    <ul>
+    <li><b>LeftString0</b> (<code>Attachment</code>) <span class="opt">（可选）</span> &mdash; 弦左侧附着在弓上的位置。</li>
+    <li><b>RightString0</b> (<code>Attachment</code>) <span class="opt">（可选）</span> &mdash; 弦右侧附着在弓上的位置。</li>
+    <li><b>LeftLoose</b> (<code>Attachment</code>) <span class="opt">（可选）</span> &mdash; 弓在静止状态时，<b>LeftString0</b> 所在的位置。</li>
+    <li><b>RightLoose</b> (<code>Attachment</code>) <span class="opt">（可选）</span> &mdash; 弓在静止状态时， <b>RightString0</b> 所在的位置。</li>
+    <li><b>LeftTight</b> (<code>Attachment</code>) <span class="opt">（可选）</span> &mdash; 弓拉满时，<b>LeftString0</b> 所在的位置。</li>
+    <li><b>RightTight</b> (<code>Attachment</code>) <span class="opt">（可选）</span> &mdash; 弓拉满时，<b>RightString0</b> 所在的位置。</li>
+    <li><b>[SpecialMesh]</b> (<code>SpecialMesh</code>) <span class="opt">（可选）</span> &mdash; 拉弓时弓实际弯曲的一部分。 注意您必须设定以下四个 <code>Vector3Value</code> 来为其设置动画。</li>
+    <li><b>LooseOffset</b> (<code>Vector3Value</code>) <span class="opt">（可选）</span> &mdash; 弓在静止状态时，<code>SpecialMesh</code> 的偏移。</li>
+    <li><b>TightOffset</b> (<code>Vector3Value</code>) <span class="opt">（可选）</span> &mdash; 弓拉满时，<code>SpecialMesh</code> 的偏移。</li>
+    <li><b>LooseScale</b> (<code>Vector3Value</code>) <span class="opt">（可选）</span> &mdash; 弓在静止状态时， <code>SpecialMesh</code> 的缩放。</li>
+    <li><b>TightScale</b> (<code>Vector3Value</code>) <span class="opt">（可选）</span> &mdash; 弓拉满时，<code>SpecialMesh</code> 的缩放。</li>
+    </ul>
+</li>
+</ul>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!------------ WEAPONS SYSTEM GUI ------------>
+<h2 class="mt-4">武器系统 GUI<span id="weapons-system-gui"></span></h2>
+<p>核心武器系统接口，可用于更新基于 GUI 的部分，诸如枪的范围、受到攻击和命中敌人的提示等。</p>
+<p>在 <samp>WeaponsSystem/Assets</samp> 中，武器系统 GUI 的结构如下所示：</p>
+<div class="container-fluid mt-4 mr-0 my-0">
+<div class="row">
+<div class="col p-0 mx-0">
+<table class="table tree-table-borderless mb-4">
+  <tbody>
+<!-- WeaponsSystem (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"><span class="explorer-item-hl-alt">WeaponsSystem</span> (<code>Folder</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="explorer-item-hl-alt">Assets</span> (<code>Folder</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/Animations (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Animations</span> (<code>Folder</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/Effects (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Effects</span> (<code>Folder</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui (ScreenGui) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="explorer-item-hl">WeaponsSystemGui</span> (<code>ScreenGui</code>) 游戏开始后，作为 <code>PlayerGui</code> 的子项。</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">ScalingElements</span> (<code>Folder</code>) 自动随屏幕尺寸缩放的元素。</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements/DirectionalIndicators (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">DirectionalIndicators</span> (<code>Folder</code>) 储存所有 <a href="#create-directional-indicator">方向指示器</a> 的地方。</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements/Crosshair (Frame) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Crosshair</span> (<code>Frame</code>) 当有武器被装备时，其四个子 <code>ImageLabel|ImageLabels</code> 会出现。注意边框的大小会随武器的范围而变化，但这四个子项的尺寸不会改变。 </div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements/Crosshair/UIAspectRatioConstraint (UIAspectRatioConstraint) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">[UIAspectRatioConstraint]</span> (<code>UIAspectRatioConstraint</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements/Crosshair/Bottom (ImageLabel) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Bottom</span> (<code>ImageLabel</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements/Crosshair/Left (ImageLabel) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Left</span> (<code>ImageLabel</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements/Crosshair/Right (ImageLabel) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Right</span> (<code>ImageLabel</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements/Crosshair/Top (ImageLabel) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Top</span> (<code>ImageLabel</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements/HitMarker (Frame) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="tree-item-name">HitMarker</span> (<code>Frame</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements/HitMarker/UIAspectRatioConstraint (UIAspectRatioConstraint) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">[UIAspectRatioConstraint]</span> (<code>UIAspectRatioConstraint</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements/HitMarker/HitMarker (ImageLabel) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="tree-item-name">HitMarkerImage</span> (<code>ImageLabel</code>) 当您命中其它玩家时显现，之后渐隐。</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/LargeTouchscreen (Frame) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">LargeTouchscreen</span> (<code>Frame</code>) 在大型触摸屏上显示的按钮。</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/LargeTouchscreen/AimButton (ImageButton) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">AimButton</span> (<code>ImageButton</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/LargeTouchscreen/FireButton (ImageButton) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="tree-item-name">FireButton</span> (<code>ImageButton</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/Scope (Frame) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Scope</span> (<code>Frame</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/Scope/ScopeImage (ImageLabel) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="tree-item-name">ScopeImage</span> (<code>ImageLabel</code>) 在使用 <span class="tree-item-name">HasScope</span> 设为 <b>true</b> <span class="text-nowrap">（参见 <a href="#modifying-a-weapon">修改武器</a>）的武器调整视野时显示。</span></div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/Scope/ScopeImage/UIAspectRatioConstraint (UIAspectRatioConstraint) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">[UIAspectRatioConstraint]</span> (<code>UIAspectRatioConstraint</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/Scope/ScopeImage/BottomBlack (Frame) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">BottomBlack</span> (<code>Frame</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/Scope/ScopeImage/LeftBlack (Frame) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">LeftBlack</span> (<code>Frame</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/Scope/ScopeImage/RightBlack (Frame) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">RightBlack</span> (<code>Frame</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/Scope/ScopeImage/TopBlack (Frame) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="tree-item-name">TopBlack</span> (<code>Frame</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/SmallTouchscreen (Frame) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="tree-item-name">SmallTouchscreen</span> (<code>Frame</code>) 在小型触摸屏上显示的按钮。</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/SmallTouchscreen/AimButton (ImageButton) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">AimButton</span> (<code>ImageButton</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/SmallTouchscreen/FireButton (ImageButton) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="tree-item-name">FireButton</span> (<code>ImageButton</code>)</div>
+</div>
+    </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!------------ CREATE A DIRECTIONAL INDICATOR ------------>
+<h3 class="mt-2">创建方向指示器<span id="create-directional-indicator"></span></h3>
+<p>方向指示器用于显示玩家十字准线周围物体的方向。例如，如果有人向您开枪，一个红色的<span class="text-nowrap">半圆</span>会显示在您的十字准线周围，标记射击来源的方向。其他的例子还有指示脚步方向、间接射击，甚至是箱子等环境物体的指示器。</p>
+<p>要添加新的指示器，只需以如下结构将其加入 <samp>WeaponsSystemGui/ScalingElements/DirectionalIndicators</samp>：</p>
+<div class="container-fluid mt-4 mr-0 my-0">
+<div class="row">
+<div class="col p-0 mx-0">
+<table class="table tree-table-borderless mb-4">
+  <tbody>
+<!-- Assets/WeaponsSystemGui (ScreenGui) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"><span class="explorer-item-hl-alt">WeaponsSystemGui</span> (<code>ScreenGui</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="explorer-item-hl-alt">ScalingElements</span> (<code>Folder</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements/DirectionalIndicators (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="explorer-item-hl-alt">DirectionalIndicators</span> (<code>Folder</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements/DirectionalIndicators/[Indicator] (Frame) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="explorer-item-hl">[Indicator]</span> (<code>Frame</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements/DirectionalIndicators/[Indicator]/[UIAspectRatioConstraint] (UIAspectRatioConstraint) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">[UIAspectRatioConstraint]</span> (<code>UIAspectRatioConstraint</code>) <span class="req">(required)</span></div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements/DirectionalIndicators/[Indicator]/[ImageLabel] (ImageLabel) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">[ImageLabel]</span> (<code>ImageLabel</code>) <span class="req">（必须）</span> &mdash; 方向指示器的图像。可能需要在 Studio 中调整图像的旋转，除非您上传的图像是朝下的，并且周围几乎没有空白。</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements/DirectionalIndicators/[Indicator]/[ImageLabel]/[UIAspectRatioConstraint] (UIAspectRatioConstraint) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="tree-item-name">[UIAspectRatioConstraint]</span> (<code>UIAspectRatioConstraint</code>) <span class="req">(required)</span></div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements/DirectionalIndicators/[Indicator]/[Configuration] (Configuration) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="tree-item-name">[Configuration]</span> (<code>Configuration</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements/DirectionalIndicators/[Indicator]/[Configuration]/DistanceLevelFromCenter (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">DistanceLevelFromCenter</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 到屏幕中心的距离等级（每一距离等级代表大约 0.03 的屏幕缩放）；默认为 <b>6</b>。</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements/DirectionalIndicators/[Indicator]/[Configuration]/FadeTime (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">FadeTime</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 指示器激活后的渐隐时间及 <b>TimeBeforeFade</b> 时间；默认为 <b>1</b>。</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements/DirectionalIndicators/[Indicator]/[Configuration]/Name (StringValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Name</span> (<code>StringValue</code>) <span class="opt">（可选）</span> &mdash; 您想要引用的方向指示器的名称；默认为最高级指示器的名称<code>Frame</code>.</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements/DirectionalIndicators/[Indicator]/[Configuration]/TimeBeforeFade (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">TimeBeforeFade</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 指示器渐隐之前显示的时间；默认为 <b>1</b>。</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements/DirectionalIndicators/[Indicator]/[Configuration]/TransparencyBeforeFade (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">TransparencyBeforeFade</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 指示器渐隐之前的透明度；默认为 <b>0</b>。</div>
+</div>
+    </td>
+    </tr>
+<!-- Assets/WeaponsSystemGui/ScalingElements/DirectionalIndicators/[Indicator]/[Configuration]/WidthLevel (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="tree-item-name">WidthLevel</span> (<code>NumberValue</code>) <span class="opt">（可选）</span> &mdash; 到屏幕中心的宽度等级（每一宽度等级代表大约 0.03 的屏幕缩放）；默认等于 <b>DistanceLevelFromCenter</b> 的值。</div>
+</div>
+    </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>创建后，您可以使用 <samp>WeaponsSystem/Libraries/WeaponsGui</samp> 中的以下命令激活指示器。<code>indicatorName</code> 表示要激活的指示器的名称， <code>worldPos</code> 表示指示器的世界位置。</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+		<div class="top-panel">
+			<div class="nav nav-tabs" id="code-nav-1" role="tablist" style="border-bottom: 0px;">
+				
+				<a class="nav-item nav-link hidden-elem" id="nav-output-tab-1" data-toggle="tab" href="#nav-output-1" role="tab" aria-controls="nav-output-1" aria-selected="false">
+					<span class="txt">预期输出</span>
+				</a>
+				<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+					<span class="txt">展开</span>
+					<i class="expand-collapse-icon inline-icon"></i>
+				</a>
+			</div>
+		</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-1" role="tabpanel" aria-labelledby="nav-code-tab-1">
+			<pre class="prettyprint  linenums:01 lang-lua">self.DirectionalIndicatorGuiManager:ActivateDirectionalIndicator(indicatorName, worldPos)</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-1" role="tabpanel" aria-labelledby="nav-output-tab-1">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">复制代码</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">亮色模式</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="亮色模式"></i>
+					<i class="dark-theme-icon icon" caption="深色模式"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <div class="alert alert-primary" role="alert">
+<ul class="mb-0 pl-4">
+<li>如果指示器在完全淡出之前再次被激活，则一个该类型的新的指示器将被实例化，允许您同时激活多个任意类型的指示器。</li>
+<li>您还可以在 <samp>WeaponsGui</samp> 以外激活指示，只需将上述代码中的 <code>self</code> 替换为您代码中的 <samp>WeaponsGui</samp> 实例。不过我们推荐您在 <samp>WeaponsGui</samp> 中激活，然后用 <code>RemoteEvent</code> 或 <code>BindableEvent</code> 触发。您可以参见 <samp>DamageIndicator</samp> 是如何在 <samp>WeaponsGui</samp> 中激活的。</li>
+</ul>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!------------ SHOW DAMAGE BILLBOARD ------------>
+<h3 class="mt-3">显示伤害通知<span id="show-damage-billboard"></span></h3>
+<p>伤害通知用于在玩家受到伤害时在他们的头顶上显示小数字。这些只会为造成伤害的玩家显示，观战的玩家则无法看到。</p>
+<p>伤害通知在 <samp>WeaponsSystem/Libraries/DamageBillboardHandler</samp> 中处理，可以像下述一样从任意 <span class="text-nowrap">客户端</span> 代码激活，其中 <code>damage</code> 表示伤害数值，<code>adornmentPart</code> 为公告的装饰部件，如受害者的头部。</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+		<div class="top-panel">
+			<div class="nav nav-tabs" id="code-nav-2" role="tablist" style="border-bottom: 0px;">
+				
+				<a class="nav-item nav-link hidden-elem" id="nav-output-tab-2" data-toggle="tab" href="#nav-output-2" role="tab" aria-controls="nav-output-2" aria-selected="false">
+					<span class="txt">预期输出</span>
+				</a>
+				<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+					<span class="txt">展开</span>
+					<i class="expand-collapse-icon inline-icon"></i>
+				</a>
+			</div>
+		</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-2" role="tabpanel" aria-labelledby="nav-code-tab-2">
+			<pre class="prettyprint  linenums:01 lang-lua">DamageBillboardHandler:ShowDamageBillboard(damage, adornmentPart)</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-2" role="tabpanel" aria-labelledby="nav-output-tab-2">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">复制代码</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">亮色模式</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="亮色模式"></i>
+					<i class="dark-theme-icon icon" caption="深色模式"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!------------ SHOULDER CAMERA ------------>
+<h2 class="mt-4">越肩镜头<span id="shoulder-camera"></span></h2>
+<p>越肩镜头是从玩家的右肩上方观看的<span class="text-nowrap">第三人称</span>镜头。要自定义肩越肩镜头，请修改  <samp>WeaponsSystem/Libraries/ShoulderCamera</samp> 的 <code>ShoulderCamera.new()</code> 函数中<span class="text-nowrap"> <code>-- 配置参数（常量）</code></span>注释下的变量。您可以修改诸如视野、距玩家的偏移量、冲刺或瞄准时的行走速度等内容。</p>
+
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">相关参考文章</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="/articles/npc-kit"><span class="related-article-img" style="background-image: url();"> </span></a>
+          <h3 data-toc-skip><a href="/articles/npc-kit">NPC 套组</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="/articles/vehicles-kit"><span class="related-article-img" style="background-image: url();"> </span></a>
+          <h3 data-toc-skip><a href="/articles/vehicles-kit">载具工具包</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>此网站如何使用 Cookie</h1>
+        <div class="privacy-content">
+          <p>此平台使用 Cookie 为您提供更好的体验、对内容进行个性化、提供社交媒体功能和分析网站流量。如需详细信息（包括有关如何在此平台上防止使用 Cookie 或对其进行管理的信息），请参阅我们的<a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私和 Cookie 政策</a>。</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">确定</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">你即将离开 Roblox 网站</div>
+        <p>请按下继续按钮前往： <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="" class="btn secondary-btn" data-dismiss="modal">返回</a>
+        <a href="" class="btn primary-btn continue-link" target="_blank">继续</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com" target="_self" class="footer-logo ptxl mbl">
+              <img src="https://dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2019 Roblox Corporation. 保留所有权利。</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>公司</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">关于 Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">招贤纳士</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">技术</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">服务条款</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私政策</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">家长</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>开发人员</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="/articles/Creating-Your-First-Game" target="_self">入门</a>
+                  </li>
+                
+                  <li>
+                    <a href="/learn-roblox/all-tutorials" target="_self">了解</a>
+                  </li>
+                
+                  <li>
+                    <a href="/api-reference" target="_self">API 参考</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com" target="_blank">社区</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">开发人员公告</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">搜索</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input"
+                        placeholder="搜索">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" href="#all" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            所有结果
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" href="#api-doc" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API 文档
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" href="#tutorial" role="tab"
+                            aria-selected="false" data-name="articles">
+                            教程
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" href="#recipe" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            代码参考
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" href="#video" role="tab"
+                            aria-selected="false" data-name="videos">
+                            视频
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+</html>

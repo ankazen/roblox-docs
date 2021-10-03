@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>根部件：概述与理解 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="内容版权与知识产权" href="Copyright-Guidance.html" />
+    <link rel="prev" title="将资源和游戏归档" href="archiving-assets-and-games.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/creating.html">创建</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Building-a-Campfire.html">构建篝火</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Circle-With-Code.html">使用代码创建圆环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3D-Modeling-with-Parts.html">实体建模：使用部件进行 3D 建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Content.html">内容数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importing-terrain-data.html">导入地形数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importing-custom-rigs.html">导入自定义模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-ray-casting-laser-gun-in-Roblox.html">射线投射：创建激光枪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archiving-assets-and-games.html">将资源和游戏归档</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">根部件：概述与理解</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#root-part">Root Part（根部件）是什么？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">根部件排序规则</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Copyright-Guidance.html">内容版权与知识产权</a></li>
+<li class="toctree-l2"><a class="reference internal" href="managing-personal-information.html">关于 GDPR 和 CCPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="designing-for-multiplayer.html">设计多人游戏</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Create.html">合作式开发</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/creating.html">创建</a> &raquo;</li>
+        
+      <li>根部件：概述与理解</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/understanding-root-parts.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>根部件：概述与理解<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<div class="section" id="root-part">
+<h2>Root Part（根部件）是什么？<a class="headerlink" href="#root-part" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Weld|Weld</span></code>（接合）与 <code class="docutils literal notranslate"><span class="pre">Motor6D|Motor6D</span></code> 等刚性 <code class="docutils literal notranslate"><span class="pre">JointInstance|joint</span></code>（关节）可将多个部件结合为一个“<strong>集合</strong>”。如果集合中的所有部件均未被锚固，则该集合将形成一个刚体。每个集合都将拥有一个根部件，可以通过调用 <code class="docutils literal notranslate"><span class="pre">BasePart/GetRootPart</span></code> 来进行获取。</p>
+<p>Weld 和 Motor6D 关节均无方向定义。当更改 C0/C1 或为 Motor6D 添加动画效果时，Part0 和 Part1 的具体定义部件并不能决定将要移动的部件。如果希望了解各部件的移动情况，我们首先需要对根部件进行指定。</p>
+<p><strong>集合的 Root Part（根部件）为当刚性关节的 <code class="docutils literal notranslate"><span class="pre">DataType/CFrame|CFrame</span></code> 进行更新时仍然不会移动的部件。</strong></p>
+<p>在使用 Weld（接合）时，开发者无需对此问题过于纠结：只需使用 <code class="docutils literal notranslate"><span class="pre">WeldConstraint|WeldConstraint</span></code> 或在进行接合前将部件移动到指定位置即可避免这一问题。但在使用 Motor6D 制作动画效果时，则需了解会进行移动的具体部件。</p>
+<p>进行内部处理时，我们首先需要根据下文所述的部件排序规则决定根部件，然后使用从根部件逐步扩展的刚性关节构建扩展型的树状结构。当某个刚性关节的 CFrame 更新后，关节中距离根部件最近的部件将会静止不动，而其子部件及子部件的各子项将会进行移动。简而言之，我们将会为每个集合构建一个内部的变换层次结构（Transform Hierarchy）。</p>
+<p>下图左边为基础的 R15 <code class="docutils literal notranslate"><span class="pre">Humanoid|Humanoid</span></code>（人形对象）角色模型中树状结构的视觉化效果，而右边为此树状结构中部件与部件之间的移动关系。</p>
+<p><img alt="Humanoid rig in Workspace" src="https://developer.roblox.com/assets/blt9abeebfde015986e/Root-Parts-Thumbnail.jpeg" /></p>
+<p><img alt="Humanoid rig in explorer" src="https://developer.roblox.com/assets/bltc252f9f5b103c805/Humanoid-Rig-Explorer.png" /></p>
+<p>普通的 Humanoid（人形对象）角色模型为使用 Motor6D 进行连接的单一集合。其根部件通常为 <code class="docutils literal notranslate"><span class="pre">HumanoidRootPart</span></code>，原因如下：集合中的 <code class="docutils literal notranslate"><span class="pre">Accessory|Accessory</span></code> （饰品）通常为“<strong>无质量</strong>”部件；另外，将部件取名为 “HumanoidRootPart” 时，会使其在根据 <code class="docutils literal notranslate"><span class="pre">BasePart/Size|Size</span></code>（尺寸）进行排序的根部件排序规则中获取 10 倍尺寸值加成（这条规则来源于 Roblox 中添加 <code class="docutils literal notranslate"><span class="pre">BasePart/RootPriority|RootPriority</span></code> 前的时期）。</p>
+<p>根部件在物理效果复制（Physics Replication）方面也有着重要作用。只有在所有客户端拥有相同根部件的前提下，物理效果复制才能够正常运行；当涉及到约束时，同时也将需要对机制结构进行统一，以保证网络所有权的正常分配。</p>
+</div>
+<div class="section" id="id2">
+<h2>根部件排序规则<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在选择集合根部件时，集合中的部件将会按照此规则表顺序进行比较：</p>
+<ol class="simple">
+<li><p>部件锚固（锚固部件将始终为其所在集合的根部件）</p></li>
+<li><p>非 <code class="docutils literal notranslate"><span class="pre">BasePart/Massless|massless</span></code>（无质量）部件</p></li>
+<li><p>RootPriority</p></li>
+<li><p>旧版尺寸排序。根据以 Size（尺寸）定义的对象边界框所拥有的的最大表面区域进行排序。其中 Seat（座位）部件将获取 20 倍加成；名为 “Torso”（躯干）及 “HumanoidRootPart” 的部件将分别获取 5 倍和 10 倍加成：<code class="docutils literal notranslate"><span class="pre">floor(maxPlanarSize()</span> <span class="pre">*</span> <span class="pre">50.0)</span> <span class="pre">*</span> <span class="pre">specialMultiplier</span></code></p></li>
+</ol>
+<p>此规则表中的最后一条规则已经过时，但仍有许多游戏在不知情的情况下运用了这条规则。为了避免这种情况的发生，开发者应当通过提升特定部件 RootPriority 值等方法对表中的其他规则进行利用，以便更为准确地决定集合的根部件。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/understanding-root-parts">根部件：概述与理解</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Copyright-Guidance.html" class="btn btn-neutral float-right" title="内容版权与知识产权" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="archiving-assets-and-games.html" class="btn btn-neutral float-left" title="将资源和游戏归档" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

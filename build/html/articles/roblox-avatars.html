@@ -1,0 +1,365 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Roblox 虚拟形象 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="回复用拾取物品" href="Health-Pickups.html" />
+    <link rel="prev" title="随机地图选择器" href="Random-Map-Chooser.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Lobby.html">制作大厅</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Usage-of-dialogs.html">NPC 对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Teleporting-Between-Places.html">不同场景间的传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Spawns-and-Teams.html">角色生成与团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-an-Explosion-Course.html">制作爆炸赛道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shop-Dialogs.html">商店对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-to-teleport-within-a-Place.html">场景内玩家传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="in-game-solid-modeling.html">游戏内实体建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matchmaking.html">玩家匹配系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Player-Collisions.html">玩家间的碰撞控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setting-Parts-on-Fire-with-Events.html">通过事件让部件着火</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2D-Collision-Detection.html">2D 碰撞检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Basics-on-Roblox.html">添加团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Badges-Special-Game-Awards.html">Badges – Special Game Awards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Collision-Filtering-Team-Doors.html">Restricted/Team Doors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-VIP-Doors.html">创建 VIP 专用门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Random-Map-Chooser.html">随机地图选择器</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Roblox 虚拟形象</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">虚拟形象类型</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">构成</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rthro">身体比例与 Rthro</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">类型侦测</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">基础自定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#roblox-studio">Roblox Studio</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">运行时脚本</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Health-Pickups.html">回复用拾取物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Moving-NPCs-Between-Points.html">在点之间移动 NPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pathfinding.html">寻路</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Side-Scrolling-Camera-View.html">横向卷轴镜头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Tools.html">玩家工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="detecting-collisions.html">检测碰撞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weapons-kit.html">认可武器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="npc-kit.html">NPC 套组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vehicles-kit.html">载具工具包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="team-balancing.html">平衡团队构成</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/gameplay.html">游戏制作</a> &raquo;</li>
+        
+      <li>Roblox 虚拟形象</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/roblox-avatars.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="roblox">
+<h1>Roblox 虚拟形象<a class="headerlink" href="#roblox" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>如玩具般</em></p>
+<p>Roblox 的每个玩家都会自动获取属于自己的人形 <strong>avatar</strong>（虚拟形象），且默认设置为所有 Roblox 游戏中玩家的角色外形。</p>
+<p><img alt="https://developer.roblox.com/assets/blt6a63b94b291e70ec/Roblox-Avatars-Rthro-Lineup.jpg" src="https://developer.roblox.com/assets/blt6a63b94b291e70ec/Roblox-Avatars-Rthro-Lineup.jpg" /></p>
+<p>玩家可以通过大量身体部件、饰品、服装、皮肤颜色、动画效果等选项对其虚拟形象进行自定义。虽然玩家可以通过无穷的搭配来表达其独特的个人风格，但游戏中虚拟形象的控制权最终在于开发者手中，开发者可以为游戏中的所有虚拟形象指定特定外观。</p>
+<div class="section" id="id1">
+<h2>虚拟形象类型<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Roblox 虚拟形象可以分为两类：<strong>R6</strong> 和 <strong>R15</strong>。</p>
+<p><img alt="https://developer.roblox.com/assets/blt5b0824ec37238468/Avatar-Type-R6.jpg" src="https://developer.roblox.com/assets/blt5b0824ec37238468/Avatar-Type-R6.jpg" /> R6</p>
+<p><img alt="https://developer.roblox.com/assets/blt9bbf4f91c34a24da/Avatar-Type-Rthro.jpg" src="https://developer.roblox.com/assets/blt9bbf4f91c34a24da/Avatar-Type-Rthro.jpg" /> R15</p>
+<div class="section" id="id2">
+<h3>构成<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>如其名称所示，<strong>R6</strong> 虚拟形象仅由 6 个部件所构成，因此其动画动作十分有限。<strong>R15</strong> 则由 15 个部件组成，其动作范围也被扩大了很多。</p>
+<p>R6
+R15</p>
+<p>头部
+头部</p>
+<p>身体
+上半身</p>
+<p>下半身</p>
+<p>左臂
+左大臂</p>
+<p>左小臂</p>
+<p>左手</p>
+<p>右臂
+右大臂</p>
+<p>右小臂</p>
+<p>右手</p>
+<p>左腿
+左大腿</p>
+<p>左小腿</p>
+<p>左脚</p>
+<p>右腿
+右大腿</p>
+<p>右小腿</p>
+<p>右脚</p>
+</div>
+<div class="section" id="rthro">
+<h3>身体比例与 Rthro<a class="headerlink" href="#rthro" title="Permalink to this headline">¶</a></h3>
+<p>除了身体部件、饰品和皮肤颜色之外，R15 虚拟形象的身体类型、高度、宽度、头部尺寸及比例都可以进行自定义。</p>
+<p>选项 描述</p>
+<p><strong>身体类型</strong>
+值的范围为 0%（身材短粗、如玩具般的角色）到 100%（高大、如真人般的角色）。身体类型值为 100% 时也被称为 <strong>Rthro</strong>。装备在<a class="reference external" href="https://www.roblox.com/catalog/?Category=4&amp;Subcategory=37&amp;Direction=2">目录</a>中被标记为 <img alt="https://developer.roblox.com/assets/bltc604d13bcf308703/Rthro-Label-Small.png" src="https://developer.roblox.com/assets/bltc604d13bcf308703/Rthro-Label-Small.png" /></p>
+<p>的角色包时，身体类型值将会设置为 100%，但其仍然能和任何身体类型以及任何其他虚拟形象部件共同使用。</p>
+<p><strong>高度与宽度</strong>
+虚拟形象的相对高度和宽度，高度的值区间在 90% 到 105% 之间，宽度的值区间在 70% 到 100% 之间。</p>
+<p><strong>头部</strong>
+虚拟形象头部相对于其身体的比例，其值区间在 95% 到 100% 之间。</p>
+<p><strong>比例</strong>
+当被设置为 0% 时，总体身体形态会显得更高更宽，带有宽厚的肩膀。当被设置为 100% 时，身体形态会显得更窄更矮，带有纤细的肩膀。</p>
+<p>Uh oh! Your browser doesn’t appear to support embedded videos! Here is a <a class="reference external" href="/zh-cn/assets/blt8aed6666fb2796f8/Rthro-Scaling-640x360.mp4">direct link</a> to the video instead.</p>
+</div>
+<div class="section" id="id3">
+<h3>类型侦测<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>如果有必要的话，可以使用 <code class="docutils literal notranslate"><span class="pre">Humanoid/RigType</span></code> 属性来侦测某玩家的虚拟形象类型。举例来说，下列示例在 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 之中进行了上述操作：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">Players</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">Players</span><span class="o">.</span><span class="n">LocalPlayer</span>
+    
+    <span class="n">local</span> <span class="n">function</span> <span class="n">getRigType</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+    	<span class="n">local</span> <span class="n">character</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">Character</span>
+    	<span class="k">if</span> <span class="ow">not</span> <span class="n">character</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">character</span><span class="o">.</span><span class="n">Parent</span> <span class="n">then</span>
+    		<span class="n">character</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">CharacterAdded</span><span class="p">:</span><span class="n">wait</span><span class="p">()</span>
+    	<span class="n">end</span>
+    
+    	<span class="n">local</span> <span class="n">humanoid</span> <span class="o">=</span> <span class="n">character</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;Humanoid&quot;</span><span class="p">)</span>
+    	<span class="k">return</span> <span class="n">humanoid</span><span class="o">.</span><span class="n">RigType</span>
+    <span class="n">end</span>
+    
+    <span class="n">local</span> <span class="n">rigType</span> <span class="o">=</span> <span class="n">getRigType</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">rigType</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>基础自定义<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>如果你想为游戏中的虚拟形象制定一个更具体且玩家设置度较低的外表，可以通过 Roblox Studio 或运行时脚本来对玩家虚拟形象进行自定义。</p>
+<div class="section" id="roblox-studio">
+<h3>Roblox Studio<a class="headerlink" href="#roblox-studio" title="Permalink to this headline">¶</a></h3>
+<p>开发者在 Studio 中 <strong>Game Settings</strong>（游戏设置）窗口的 <strong>Avatar</strong>（虚拟形象）部分对虚拟形象的种类、身体部件、身体比例及着装进行强制规定（详情请见 <code class="docutils literal notranslate"><span class="pre">/articles/game</span> <span class="pre">settings|Roblox</span> <span class="pre">游戏设置</span></code>一文）。需要注意的是，如果将 <strong>Body Type</strong>（身体类型）设置为 0%，虚拟形象将拥有经典的 R15 虚拟形象比例；如果被设置为 100%，虚拟形象的属性就会和 Rthro 类似。</p>
+</div>
+<div class="section" id="id5">
+<h3>运行时脚本<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>开发者可以通过在脚本中使用 <code class="docutils literal notranslate"><span class="pre">HumanoidDescription</span></code> 实例来改变虚拟形象的属性，更多详情及编码示例请参考 <code class="docutils literal notranslate"><span class="pre">/articles/humanoiddescription</span> <span class="pre">system|HumanoidDescription</span> <span class="pre">系统</span></code>一文。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/roblox-avatars">Roblox 虚拟形象</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Health-Pickups.html" class="btn btn-neutral float-right" title="回复用拾取物品" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Random-Map-Chooser.html" class="btn btn-neutral float-left" title="随机地图选择器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

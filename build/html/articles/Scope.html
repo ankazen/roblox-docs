@@ -1,0 +1,428 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Scope（作用域） &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="代码编写简洁化" href="Writing-Clean-Code.html" />
+    <link rel="prev" title="Nil 值" href="Nil.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Scope（作用域）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#local-scope">Local Scope（局部作用域）</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">全局注意事项</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">作用域的实用实践</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#forward-declaration">Forward Declaration（前向声明）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>Scope（作用域）</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Scope.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="scope">
+<h1>Scope（作用域）<a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>进行脚本编写时，开发者可以通过 <strong>Scope</strong>（作用域）对变量或函数的“可见”和可访问区域进行定义。<code class="docutils literal notranslate"><span class="pre">articles/Loops|循环</span></code>、<code class="docutils literal notranslate"><span class="pre">articles/Function|函数</span></code>及<code class="docutils literal notranslate"><span class="pre">articles/Conditional</span> <span class="pre">Statements</span> <span class="pre">in</span> <span class="pre">Lua|条件语句</span></code>等元素都会创建新的 <strong>Scope Block</strong>（作用域区块）。每个区块都能够访问处于其父项区块中的剧本变量或函数，但当这些数据位于其子项区块时将无法对其进行获取。</p>
+<p><img alt="https://developer.roblox.com/assets/bltd46ee264544ef2f3/Scope-Diagram.png" src="https://developer.roblox.com/assets/bltd46ee264544ef2f3/Scope-Diagram.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt0ae9a4266bb09810/Green-Bullet.png" src="https://developer.roblox.com/assets/blt0ae9a4266bb09810/Green-Bullet.png" /></p>
+<p>B 区块<strong>可以</strong>访问 A 区块中的局部变量。</p>
+<p><img alt="https://developer.roblox.com/assets/blt0ae9a4266bb09810/Green-Bullet.png" src="https://developer.roblox.com/assets/blt0ae9a4266bb09810/Green-Bullet.png" /></p>
+<p>C 区块<strong>可以</strong>访问 A 区块与 B 区块中的局部函数与变量。</p>
+<p><img alt="https://developer.roblox.com/assets/blt4250e428bdfc7e26/Red-Bullet.png" src="https://developer.roblox.com/assets/blt4250e428bdfc7e26/Red-Bullet.png" /></p>
+<p>A 区块<strong>无法</strong>访问 B 区块与 C 区块中的局部函数与变量。</p>
+<p><img alt="https://developer.roblox.com/assets/blt4250e428bdfc7e26/Red-Bullet.png" src="https://developer.roblox.com/assets/blt4250e428bdfc7e26/Red-Bullet.png" /></p>
+<p>B 区块<strong>无法</strong>访问 C 区块中的局部变量。</p>
+<div class="section" id="local-scope">
+<h2>Local Scope（局部作用域）<a class="headerlink" href="#local-scope" title="Permalink to this headline">¶</a></h2>
+<p>在变量与函数前添加 <code class="docutils literal notranslate"><span class="pre">local</span></code> 前缀后，可以将其作用域限制为<strong>局部作用域</strong>。下列示例中的 <code class="docutils literal notranslate"><span class="pre">testFunc()</span></code> 函数和 <code class="docutils literal notranslate"><span class="pre">testVar</span></code> 变量的作用域均已被设为局部：</p>
+<p>Local Scope（局部作用域） ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">function</span> <span class="n">testFunc</span><span class="p">()</span>  <span class="o">--</span> <span class="n">作用域为局部</span>
+	<span class="n">local</span> <span class="n">testVar</span> <span class="o">=</span> <span class="mi">64</span>  <span class="o">--</span> <span class="n">作用域为局部</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">testVar</span><span class="p">)</span>
+<span class="n">end</span>
+
+<span class="n">testFunc</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">testVar</span><span class="p">)</span>
+
+
+<span class="mi">64</span>
+<span class="n">nil</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>此示例中 `testVar` 的作用域限制为 `testFunc()` 函数内（其访问范围受到了同样限制），因此在第 3 行对其进行输出时将会按照预期产生 `64` 。但在第 8 行尝试输出该变量时则会产生 `nil`：这是因为在离开特定作用域后，在该作用域级别下创建的变量会被弃用，也就是被“遗忘”了。
+
+## Global Scope（全局作用域）
+
+对全局变量和函数进行声明后，就可以在同一脚本声明后的任意代码块中对其进行使用。变量和函数的作用域默认为全局，除非开发者特意用 `local` 关键字对其进行标记。
+
+下列示例中的 `testVar` 在局部函数 `testFunc()` 函数中进行了全局声明。调用该函数后，`testVar` 被设置为 `64` 。由于该变量为全局作用域并可以在函数外进行访问，因此对其在第 7 行进行输出时同样按预期输出了 `64`。
+
+Global Scope（全局作用域） ```    
+    
+    local function testFunc()  -- 作用域为局部
+    	testVar = 64  -- 作用域为全局
+    end
+    
+    testFunc()
+    
+    print(testVar)
+    
+    
+    64
+</pre></div>
+</div>
+<div class="section" id="id1">
+<h3>全局注意事项<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Although it may seem convenient to use global scope throughout a script, note the following:</p>
+<ul class="simple">
+<li><p>Because global variables and functions must be accessed by a hash lookup, they can be expensive to use in terms of performance. In fact, a global variable accessed in a time-critical loop can perform 10% slower (or worse) than a local variable in the same loop.</p></li>
+<li><p>As noted earlier, global variables and functions are only accessible within the associated script, not between multiple scripts. Thus, a global variable/function doesn’t provide any benefit over an in-scope local equivalent or a forward declaration.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>作用域的实用实践<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="forward-declaration">
+<h3>Forward Declaration（前向声明）<a class="headerlink" href="#forward-declaration" title="Permalink to this headline">¶</a></h3>
+<p>在需要时，开发者可以对局部变量进行定义而不为其进行赋值。进行该操作后，可以在其作用域范围<strong>及</strong>子项作用域级别中对该变量进行读取。该操作通常被称为<strong>前向声明</strong>或 <strong>Upvalue</strong>（外部局部变量）。</p>
+<p>下列示例的第 8 行对局部变量 <code class="docutils literal notranslate"><span class="pre">fruitName</span></code> 进行了前向声明。在其后的 <code class="docutils literal notranslate"><span class="pre">for</span></code> 循环中（该循环的子项作用域区块）对 <code class="docutils literal notranslate"><span class="pre">fruitName</span></code> 分配了一个值，且该值在循环后被返回。整个 <code class="docutils literal notranslate"><span class="pre">getFruitByColor()</span></code> 函数中的 <code class="docutils literal notranslate"><span class="pre">fruitName</span></code> 一直都是同一个局部变量，此示例中的前向声明避免了当对 <code class="docutils literal notranslate"><span class="pre">fruitName</span></code> 进行全局声明时可能会出现的冲突或覆盖情况。</p>
+<p>Forward Declaration（前向声明） ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">fruitTable</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="n">Lemon</span> <span class="o">=</span> <span class="s2">&quot;Yellow&quot;</span><span class="p">,</span>
+	<span class="n">Apple</span> <span class="o">=</span> <span class="s2">&quot;Red&quot;</span><span class="p">,</span>
+	<span class="n">Orange</span> <span class="o">=</span> <span class="s2">&quot;Orange&quot;</span>
+<span class="p">}</span>
+
+<span class="n">local</span> <span class="n">function</span> <span class="n">getFruitByColor</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">fruitName</span>
+	<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">fruitTable</span><span class="p">)</span> <span class="n">do</span>
+		<span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="n">color</span> <span class="n">then</span>
+			<span class="n">fruitName</span> <span class="o">=</span> <span class="n">key</span>
+		<span class="n">end</span>
+	<span class="n">end</span>
+	<span class="k">return</span> <span class="n">fruitName</span>
+<span class="n">end</span>
+
+<span class="n">local</span> <span class="n">fruit</span> <span class="o">=</span> <span class="n">getFruitByColor</span><span class="p">(</span><span class="s2">&quot;Yellow&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruit</span><span class="p">)</span>
+
+
+<span class="n">Lemon</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>### 多脚本数据模块
+
+当需要创建可供多个脚本访问的“全局数据表”时，开发者可以首先在 `ReplicatedStorage` 等其他脚本可以访问的位置创建一个 `ModuleScript` ；然后在 `local module = {}` 和 `return module` 之间创建适配数据的组织表以及子表：
+
+数据模块 ```    
+    
+    local module = {}
+    
+    module.VehicleData = {
+    	-- 火箭滑车
+    	RocketSled = {
+    		displayName = &quot;Rocket Sled&quot;,
+    		topSpeed = 120
+    	},
+    	-- 蜘蛛坦克
+    	SpiderTank = {
+    		displayName = &quot;Spider Tank&quot;,
+    		topSpeed = 40
+    	},
+    }
+    
+    return module
+
+</pre></div>
+</div>
+<p>接下来在每个需要访问该数据的其他脚本中对模块进行 <code class="docutils literal notranslate"><span class="pre">require()</span></code>，如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">对模块进行</span> <span class="n">Require</span>
+    <span class="n">local</span> <span class="n">DataModule</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;DataModule&quot;</span><span class="p">))</span>
+
+</pre></div>
+</div>
+<p>完成之后，即可通过简单操作读取表中的值了：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">对模块进行</span> <span class="n">Require</span>
+    <span class="n">local</span> <span class="n">DataModule</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;DataModule&quot;</span><span class="p">))</span>
+    
+    <span class="n">local</span> <span class="n">vehicleData</span> <span class="o">=</span> <span class="n">DataModule</span><span class="o">.</span><span class="n">VehicleData</span><span class="o">.</span><span class="n">RocketSled</span>
+    
+    <span class="n">local</span> <span class="n">displayName</span> <span class="o">=</span> <span class="n">vehicleData</span><span class="o">.</span><span class="n">displayName</span>
+    <span class="n">local</span> <span class="n">topSpeed</span> <span class="o">=</span> <span class="n">vehicleData</span><span class="o">.</span><span class="n">topSpeed</span>
+
+</pre></div>
+</div>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Scope">Scope（作用域）</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Writing-Clean-Code.html" class="btn btn-neutral float-right" title="代码编写简洁化" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Nil.html" class="btn btn-neutral float-left" title="Nil 值" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

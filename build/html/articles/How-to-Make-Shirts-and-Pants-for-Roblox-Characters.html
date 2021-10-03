@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>制作虚拟形象服装 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="虚拟形象观察菜单" href="avatar-inspect-menu.html" />
+    <link rel="prev" title="开发者经济运作" href="developer-economics.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/monetization.html">盈利</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="premium-payouts.html">Premium 收益系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Developer-Products-In-Game-Purchases.html">Developer Products – In‑Game Purchases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Earning-Commissions.html">获取利润</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Passes-One-Time-Purchases.html">Game Passes – One‑Time Purchases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-VIP-Server-on-Roblox.html">VIP 服务器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Advertising.html">游戏与物品广告</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-economics.html">开发者经济运作</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">制作虚拟形象服装</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#t">T 恤贴花</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">衬衫和裤子</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">设计考虑要素</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">注意事项/限制</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">上传服装</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="avatar-inspect-menu.html">虚拟形象观察菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtual-items-policy.html">虚拟物品政策</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/monetization.html">盈利</a> &raquo;</li>
+        
+      <li>制作虚拟形象服装</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/How-to-Make-Shirts-and-Pants-for-Roblox-Characters.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>制作虚拟形象服装<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>本文概括了如何制作虚拟角色所用的裤子和衬衫等服饰。这些服饰可以供自己使用，也可以在 Roblox <a class="reference external" href="https://www.roblox.com/catalog/">目录</a>中进行出售。</p>
+<div class="section" id="t">
+<h2>T 恤贴花<a class="headerlink" href="#t" title="Permalink to this headline">¶</a></h2>
+<p>服装设计中最为简单（但也因此最受限制的）就是 <strong>T 恤</strong>了。简单来说，T 恤就是一张应用到虚拟形象躯干正面的图像。若想制作一件 T 恤，首先需要创建一张图像（最好为 128×128 像素尺寸），然后按照下述步骤将其上传至 Roblox。</p>
+</div>
+<div class="section" id="id2">
+<h2>衬衫和裤子<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>与 T 恤不同，<strong>衬衫</strong>和<strong>裤子</strong>会完全包裹虚拟形象的身体，给予设计者更多可控的设计元素与空间。刚开始服装设计的你可以使用我们所提供的服装模板，然后在上面绘制自己的图案。</p>
+<ol class="simple">
+<li><p>右键单击下列图像并选择 <strong>Save Image As…（图像另存为…）</strong>，将模板保存到你的计算机。</p></li>
+</ol>
+<p><img alt="https://static.rbxcdn.com/images/Template-Shirts-R15_04202017.png" src="https://static.rbxcdn.com/images/Template-Shirts-R15_04202017.png" /></p>
+<p>躯干 + 手臂（衬衫）</p>
+<p><img alt="https://static.rbxcdn.com/images/Template-Pants-R15_04202017.png" src="https://static.rbxcdn.com/images/Template-Pants-R15_04202017.png" /></p>
+<p>躯干 + 腿（裤子）</p>
+<ol class="simple">
+<li><p>在图像编辑器中打开模板进行编辑。你可以使用任意图像编辑程序；常用的免费工具包括 <a class="reference external" href="https://www.gimp.org">GIMP</a> 和 <a class="reference external" href="https://www.getpaint.net/index.html">Paint.NET</a> 等。</p></li>
+</ol>
+<p>在编辑每种模板时，都要时刻注意部件成品需要进行“折叠”，并包裹在 Roblox 角色的身体、手臂和腿上。以下是每种模板部件的尺寸：</p>
+<p>形状 尺寸（宽度 × 高度） 服装部件</p>
+<p>大正方形
+128 × 128 像素
+躯干正反面</p>
+<p>高矩形
+64 × 128 像素
+躯干侧面（<strong>R</strong>、<strong>L</strong>）<br />手臂/腿侧面（<strong>L</strong>、<strong>B</strong>、<strong>R</strong>、<strong>F</strong>）</p>
+<p>宽矩形
+128 × 64 像素
+躯干顶部和底部</p>
+<p>小正方形
+64 × 64 像素
+手臂/腿顶部和底部（<strong>U</strong>、<strong>D</strong>）</p>
+<div class="section" id="id3">
+<h3>设计考虑要素<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>将服装应用到 Roblox 中的 <code class="docutils literal notranslate"><span class="pre">/articles/r6</span> <span class="pre">vs</span> <span class="pre">r15</span> <span class="pre">avatars|R15</span></code> 虚拟形象时，模板会存在一些限制。以下是几个在裤子模板上设计鞋子时的恰当和不恰当方式的示例。</p>
+<p><img alt="zh-cn/assets/5c50a72cda4c5b970f6f11f9/Pants-Template-Good.jpg" src="zh-cn/assets/5c50a72cda4c5b970f6f11f9/Pants-Template-Good.jpg" /> 在本示例中，鞋子的设计摆放在靠近裤腿底部的位置（<strong>L</strong>、<strong>B</strong>、<strong>R</strong>、<strong>F</strong>），但又没有离得太近。这样，鞋子和牛仔裤脚就得以很好地区分开来。</p>
+<p><img alt="zh-cn/assets/5c50a761da4c5b970f6f11ff/Pants-Template-Bad.jpg" src="zh-cn/assets/5c50a761da4c5b970f6f11ff/Pants-Template-Bad.jpg" /> 而在这里，鞋子的设计与裤腿离得太近（<strong>L</strong>、<strong>B</strong>、<strong>R</strong>、<strong>F</strong>），使得鞋子看起来像是裤子的一部分。这种问题还可能出现在虚拟形象身体的其他关节位置附近。</p>
+</div>
+<div class="section" id="id4">
+<h3>注意事项/限制<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>如<a class="reference external" href="https://www.roblox.com/bundles/162/Circuit-Breaker">电路破坏者</a>等部分虚拟形象在设计上不适应服装。</p></li>
+<li><p>对于衬衫和裤子，上传的图像必须完全符合模板的尺寸，即宽 585 像素，高 559 像素，否则上传就会失败。</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>上传服装<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>设计完成后，你需要将其上传到 Roblox。</p>
+<ol class="simple">
+<li><p>保存你的模板文件。请注意，你可以对透明区域使用 8 位 Alpha 通道。</p></li>
+<li><p>转至 <a class="reference external" href="https://www.roblox.com/develop">Create（创建）</a>页面。</p></li>
+<li><p>单击 <strong>My Creations（我的作品）</strong> 选项卡。
+<img alt="https://developer.roblox.com/assets/blt14f9347cc38cc208/My-Creations-Tab.png" src="https://developer.roblox.com/assets/blt14f9347cc38cc208/My-Creations-Tab.png" /></p></li>
+<li><p>根据你的设计，单击左侧列中的 <strong>Shirts（衬衫）</strong>、<strong>Pants（裤子）</strong> 或 <strong>T-Shirts（T 恤）</strong>。</p></li>
+<li><p>在窗口的主区域中单击 <strong>Choose File（选择文件）</strong> 选择你的模板文件。</p></li>
+<li><p>为你的物品输入一个有创意的名称。</p></li>
+<li><p>单击 <strong>Upload（上传）</strong> 按钮。经过 Roblox 批准后，该物品将作为一件作品出现，并且可以<a class="reference external" href="https://www.roblox.com/my/avatar">应用到你的虚拟形象</a>或出售给其他 Roblox 玩家。</p></li>
+</ol>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/How-to-Make-Shirts-and-Pants-for-Roblox-Characters">制作虚拟形象服装</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="avatar-inspect-menu.html" class="btn btn-neutral float-right" title="虚拟形象观察菜单" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="developer-economics.html" class="btn btn-neutral float-left" title="开发者经济运作" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

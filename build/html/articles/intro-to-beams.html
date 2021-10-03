@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Beam（光束）简介 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Creating Fireworks" href="Creating-Fireworks.html" />
+    <link rel="prev" title="Atmosphere（氛围）掌控" href="atmosphere.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="atmosphere.html">Atmosphere（氛围）掌控</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Beam（光束）简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">创建光束</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">视觉属性</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">使用序列的颜色和透明度</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">光束几何形状</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#facecamera">FaceCamera</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#width0-width1">Width0 和 Width1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#curvesize0-curvesize1">CurveSize0 和 CurveSize1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-Fireworks.html">Creating Fireworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-Fireworks.html#steps">Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Portal.html">创建传送门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Portal.html#id2">步骤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fog-Overview-and-Settings.html">Fog – Overview and Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glowing-dynamic-lights.html">闪烁的动态光源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Smoke-and-Fire-with-Beams.html">使用光束创建冒烟和起火的效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Smoke-and-Fire-with-Beams.html#id2">步骤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Day-Night-Cycles-and-Street-Lights.html">昼夜循环和路灯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Particle-Emitters.html">粒子发射器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sounds-and-music.html">音效与音乐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="force-field-material.html">力场材质</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Basics-on-Roblox.html">添加团队</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a> &raquo;</li>
+        
+      <li>Beam（光束）简介</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/intro-to-beams.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="beam">
+<h1>Beam（光束）简介<a class="headerlink" href="#beam" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>Beam（光束）是一种特殊效果对象，其作用为在两个 <code class="docutils literal notranslate"><span class="pre">Attachment</span></code> 对象之间渲染纹理。开发者可以对颜色、透明度、宽度、纹理和纹理速度等光束属性进行配置。</p>
+<div class="section" id="id1">
+<h2>创建光束<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>光束的起点和终点都需要附着到一个部件。开始创建光束之前，需要通过 Model（模型） &gt; Constraints（约束） &gt; 启用 Constraint Details（约束详细信息），以确保 Attachment 可见。启用后，它将以灰色突出显示。</p>
+<ol class="simple">
+<li><p><strong>创建两个部件</strong>作为光束的起点和终点。<br /><img alt="游戏视图中的两个部件" src="https://developer.roblox.com/assets/bltfaf266b05c588903/TwoParts.png" /></p></li>
+<li><p><strong>将两个部件编组</strong>为一个 <code class="docutils literal notranslate"><span class="pre">Model</span></code>（选择两个部件然后按 Ctrl+G 或 ⌘+G）。<br /><img alt="在管理器窗口中由两个部件组成的模型" src="https://developer.roblox.com/assets/blt20244fb8adf85220/ModelWithTwoParts.png" /></p></li>
+<li><p>使用 + 按钮为每个部件<strong>插入附件</strong>。<br /><img alt="使用 + 按钮插入附件" src="https://developer.roblox.com/assets/bltf6eb54e381899d02/InsertAttachment.png" /></p></li>
+</ol>
+<p>→ <img alt="在管理器窗口中，两个部件，每个带有两个附件" src="https://developer.roblox.com/assets/blt458e4e0c2c61efcc/TwoPartsWithAttachments.png" /></p>
+<ol class="simple">
+<li><p>将<strong>一个 Beam 插入</strong>模型。<br /><img alt="将一个光束插入模型" src="https://developer.roblox.com/assets/bltdb06522c4c942fb7/InsertBeam.png" /></p></li>
+<li><p>选择光束，然后在属性窗口中向下滚动到 Attachment0/Attachment1 属性。单击该属性，然后单击先前创建的附件来<strong>设置附件</strong>。注意不要将附件属性分配给同一附件！<br /><img alt="点击附件后的属性分配 Attachment0" src="https://developer.roblox.com/assets/blte6c779fb4835eaa4/AssigningAttachment0.png" /></p></li>
+<li><p>最后结果应为这样：<br /><img alt="光束连接的两个部件" src="https://developer.roblox.com/assets/bltb1645f18c44aeeec/TwoPartsWithABeam2.png" /></p></li>
+</ol>
+<p>移动部件或其附件也会移动光束，因为附件点决定了光束的起点/终点。现在就可以开始测试光束属性了！开发者可以通过选择模型并按 Ctrl+D 或 ⌘+D 来复制该模型。创建光束时，请经常对其进行复制，以便可以比较所做出的修改。</p>
+</div>
+<div class="section" id="id2">
+<h2>视觉属性<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>光束最有用的属性或许就是 <code class="docutils literal notranslate"><span class="pre">Beam/Texture|Texture</span></code> 了，它沿光束的长度渲染 Texture（纹理）。下图中，绿色/粉色的三角形纹理被渲染。Texture 属性是一个 <code class="docutils literal notranslate"><span class="pre">articles/Content</span></code> 属性，如 <code class="docutils literal notranslate"><span class="pre">rbxassetid://3259097211</span></code>（如下图所示）。</p>
+<p><img alt="一个绿色/粉色三角形纹理，旁边是原始光束和应用了纹理的光束" src="https://developer.roblox.com/assets/blt66dd94d1bf0efb5e/BeamTexture.png" /></p>
+<div class="section" id="id3">
+<h3>使用序列的颜色和透明度<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>在光束上，有两个视觉属性您可以使用序列来定义：透明度和颜色。在 Studio 中，您可以通过单击属性窗口中的 […] 来配置这些属性。透明度属性是一个 <code class="docutils literal notranslate"><span class="pre">datatype/NumberSequence</span></code>，需使用折线图编辑。X 轴是沿光束长度的位置，Y 轴是该位置的透明度。单击图形上的任意位置可以添加一个新的关键点，拖动现有的关键点可以编辑或删除它们，Reset（重置）按钮会将序列更改回窗口打开时的状态。</p>
+<p><img alt="光束的透明度序列，范围为 0 到 1" src="https://developer.roblox.com/assets/blt5e517927e6e939fe/Beam.Transparency.png" /></p>
+<p><code class="docutils literal notranslate"><span class="pre">Beam/Color</span></code> 的工作原理与此类似，但使用的是色标渐变。纹理沿光束长度以与 <code class="docutils literal notranslate"><span class="pre">ImageLabel/ImageColor3</span></code> 相同的方式着色。单击序列栏可以添加更多色标，单击色标可以选择它们，以更改它们的颜色、位置或删除它们。</p>
+<p><img alt="一个以从红到蓝的颜色渐变着色的光束" src="https://developer.roblox.com/assets/blt77ef6a0658d2143f/BeamColor.png" /></p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>光束几何形状<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>3D 内容都是用三角形渲染的；光束通过在两个分段之间绘制两个三角形来渲染其纹理。分段布置在两个 <code class="docutils literal notranslate"><span class="pre">Attachment</span></code> 方向之间，因此如果附件朝向不同的方向，分段就会扭曲。默认情况下光束使用 10 个分段，但您可以通过配置 <code class="docutils literal notranslate"><span class="pre">Beam/Segments|Segments</span></code> 属性进行更改。</p>
+<p><img alt="具有 5 个分段的两个光束，其中前景光束由于附件的方向而扭曲" src="https://developer.roblox.com/assets/blta47fff4777b882ed/BeamTwist.png" /></p>
+<p>上面的屏幕截图显示了两个光束，每个光束有 5 个分段。绿色/粉色三角形纹理在 5 个分段之间渲染 4 次。前景光束由于附件的轻微扭曲而扭曲。</p>
+<div class="section" id="facecamera">
+<h3>FaceCamera<a class="headerlink" href="#facecamera" title="Permalink to this headline">¶</a></h3>
+<p>开启 <code class="docutils literal notranslate"><span class="pre">Beam/FaceCamera|FaceCamera</span></code> 属性后，光束会自动调整角度面向镜头。</p>
+<p><img alt="两个光束，背景光束面向镜头" src="https://developer.roblox.com/assets/blt0c7153b75ec8b135/Beam.FaceCamera.png" /></p>
+</div>
+<div class="section" id="width0-width1">
+<h3>Width0 和 Width1<a class="headerlink" href="#width0-width1" title="Permalink to this headline">¶</a></h3>
+<p>您可以通过配置 <code class="docutils literal notranslate"><span class="pre">Beam/Width0|Width0</span></code>/<code class="docutils literal notranslate"><span class="pre">Beam/Width1|Width1</span></code> 属性在每个端点设置光束的宽度。</p>
+<p><img alt="一个在每个端点有不同宽度的光束" src="https://developer.roblox.com/assets/bltdccfd2f57a137cd5/BeamWidth-sm.png" /></p>
+</div>
+<div class="section" id="curvesize0-curvesize1">
+<h3>CurveSize0 和 CurveSize1<a class="headerlink" href="#curvesize0-curvesize1" title="Permalink to this headline">¶</a></h3>
+<p>您可以使用 <code class="docutils literal notranslate"><span class="pre">Beam/CurveSize0|CurveSize0</span></code>/<code class="docutils literal notranslate"><span class="pre">Beam/CurveSize1|CurveSize1</span></code> 属性来使光束相对附件的方向向上或向下弯曲。</p>
+<p><img alt="一个又大又漂亮的曲线光束" src="https://developer.roblox.com/assets/blt1e941db48a9a3560/Beam.CurveSize.png" /></p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/intro-to-beams">Beam（光束）简介</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Creating-Fireworks.html" class="btn btn-neutral float-right" title="Creating Fireworks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="atmosphere.html" class="btn btn-neutral float-left" title="Atmosphere（氛围）掌控" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

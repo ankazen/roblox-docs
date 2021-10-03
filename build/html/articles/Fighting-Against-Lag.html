@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>减少延迟影响 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MicroProfiler" href="MicroProfiler.html" />
+    <link rel="prev" title="性能优化" href="../tutorials/optimization.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">减少延迟影响</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">延迟的根源</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#laggy-cannons">“Laggy Cannons”</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">蓝色大炮</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">第 1 课：小心使用你的代码</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">橙色大炮</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">第 2 课：同步体验</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">红色大炮</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">第 3 课：没有输入延迟！</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">紫色目标</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">第 4 课：拆分脚本</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">现实世界中的延迟</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#studio">在 Studio 中测试延迟</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MicroProfiler.html">MicroProfiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Monitoring-Games-for-Crashes-and-Performance-Filtering.html">监控游戏崩溃与性能过滤功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Network-Simulation-Mode.html">网络模拟模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Thread-Scheduler.html">线程计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Memory-Analyzer.html">内存分析器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Developer-Console.html">开发者控制台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Network-Ownership.html">网络所有权</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/optimization.html">性能优化</a> &raquo;</li>
+        
+      <li>减少延迟影响</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Fighting-Against-Lag.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>减少延迟影响<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>15  分钟</em></p>
+<p>网络游戏（例如 Roblox 上的游戏）都有令人沮丧的，不可避免的延迟问题。幸运的是，你可以使用两种策略来克服这种延迟，并将其优雅地集成到游戏的功能中。</p>
+<div class="section" id="id2">
+<h2>延迟的根源<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在学习一些隐藏延迟的策略之前，重要的是要有一个准确的心理模型来解释为什么延迟必须存在于远程调用的游戏中。</p>
+<p>假设你是我们在英国的用户之一。在这个游戏中，一个本地脚本允许你按“F”键发射大炮。开发人员认为炮弹对于客户端处理来说太重要了。因此，本地脚本对服务器进行远程调用，以便服务器可以是触发的服务器。当客户端检测到“F”键被按下时，它会联系服务器，服务器会发射加农炮，并且服务器会让客户端知道结果。但是，由于你的计算机在英国，而且 Roblox 服务器在美国，因此这需要在整个大西洋上传送信号。需要发送两次信号。这需要时间，而这一次是在按下“F”键和实际看到炮火之间的恼人延迟。</p>
+</div>
+<div class="section" id="laggy-cannons">
+<h2>“Laggy Cannons”<a class="headerlink" href="#laggy-cannons" title="Permalink to this headline">¶</a></h2>
+<p>为了使最后一个示例的假设少一些，本教程随附了一个简单的 Roblox 游戏，名为“Laggy Cannons”。<a class="reference external" href="http://www.Roblox.com/Laggy-Cannons-place?id=174999362">你可以在此处在线玩这个游戏</a>，也可以根据需要自行下载 Studio 版本。</p>
+<p>在 Laggy Cannons 中，有四门大炮对准四个移动目标。每个大炮目标对都受到相同的人为夸大的延迟时间的影响，但是每个大炮目标对都以稍微不同的方式解决了这一延迟。有些大炮目标对比其他大炮目标对更好地处理这种延迟。紫色大炮目标对比红色大炮目标对好，红色大炮目标对比橙色大炮目标对好，橙色大炮目标对比蓝色大炮目标对好。</p>
+<p><img alt="在此处输入图像描述" src="https://developer.roblox.com/assets/blt0e00ededf5cf89cc/LaggyCannons_Gameplay.png" /></p>
+<p>在阅读本教程的其余部分之前，现在是一个很好的时间去玩 Laggy Cannons 游戏，看看你是否能感觉到这四种大炮之间的差异。若要玩 Laggy Cannons 游戏，请使用重生点附近的四个传送器传送到具有相应颜色的炮台。当你站在炮台上时，你可以按“F”来发射炮弹并尝试击中该大炮的移动目标。踏上炮台的彩色区域，返回传送炮台并尝试另一门大炮。你可以通过单击重生点附近控制板上的“+”和“-”按钮来操纵人为延迟的秒数。</p>
+<p>本教程的其余部分深入介绍了每种颜色的大炮或目标的行为方式以及原因。我们还将概括每对使用的策略，以便你可以更轻松地将它们应用于你的游戏。</p>
+<div class="section" id="id3">
+<h3>蓝色大炮<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p><img alt="在此处输入图像描述" src="https://developer.roblox.com/assets/bltc662b5ee274f61ac/LaggyCannons_BlueCannon.png" /></p>
+<p>让我们从无法真正尝试的大炮开始：蓝色大炮。如果你按“F”键，你会立即看到和听到大炮开火的爆炸声，但你会很长一段时间看不到炮弹。以下是当你发射蓝色大炮时在本地脚本中调用的函数：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">在本地脚本中</span>
+<span class="n">local</span> <span class="n">function</span> <span class="n">badCannonStrategy</span><span class="p">()</span>
+    <span class="n">Workspace</span><span class="o">.</span><span class="n">FireCannonEvent</span><span class="p">:</span><span class="n">FireServer</span><span class="p">(</span><span class="n">activeCannon</span><span class="p">)</span>
+    <span class="n">createExplosion</span><span class="p">(</span><span class="n">activeCannon</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>此函数的第一行使用名为“FireCannonEvent”的一个 RemoteEvent 来请求服务器触发名为“activeCannon”的全局变量。当然，此处的 activeCannon 是蓝色大炮。FireCannonEvent 是对服务器的单向请求。在向服务器发送一条要求它发射蓝色大炮的消息后，这个本地脚本立即继续使用未显示的辅助函数“createExplosion”在屏幕上显示爆炸。</p>
+<p>此处没有做任何工作来处理 RemoteEvent 固有的延迟。消息已发送，爆炸已制造，然后我们等待服务器发射炮弹。</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>第 1 课：小心使用你的代码<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">badCannonStrategy()</span></code> 函数看起来很无辜。它发射大炮并制造爆炸，这不就是我们想要的吗？问题是它完全忽略了延迟，这很容易做到。如果你想制作出色的游戏，你必须注意到这里会有延迟。请继续读下去，了解你能对延迟做些什么。</p>
+<div class="section" id="id5">
+<h3>橙色大炮<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p><img alt="在此处输入图像描述" src="https://developer.roblox.com/assets/blt1002ad22c65de0dd/LaggyCannons_OrangeCannon.png" /></p>
+<p>橙色大炮稍微修改了蓝色大炮的策略，以便使炮弹的发射与爆炸同步。触发橙色大炮的函数如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">在本地脚本中</span>
+<span class="n">local</span> <span class="n">function</span> <span class="n">okCannonStrategy</span><span class="p">()</span>
+    <span class="n">local</span> <span class="n">waitForResponse</span> <span class="o">=</span> <span class="n">Workspace</span><span class="o">.</span><span class="n">FireCannonFunction</span><span class="p">:</span><span class="n">InvokeServer</span><span class="p">(</span><span class="n">activeCannon</span><span class="p">)</span>
+    <span class="n">createExplosion</span><span class="p">(</span><span class="n">activeCannon</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>你可以看到这里唯一的变化是函数的第一行。橙色大炮没有使用 RemoteEvent 来发射炮弹，而是使用一个名为“FireCannonFunction”的 RemoteFunction。你可能还记得<code class="docutils literal notranslate"><span class="pre">Articles/Remote</span> <span class="pre">Functions</span> <span class="pre">and</span> <span class="pre">Events|关于远程调用的教程</span></code>中讲述的内容，RemoteFunction 与 RemoteEvent 的不同之处在于它有一个返回值。RemoteEvent 只是从客户端向服务器发送的信号，而 RemoteFunction 不仅是从客户端向服务器发送的信号，而且还是从服务器向客户端返回的值。此外，由于客户端期望返回值，因此它实际上会等待该返回值出现，然后再在其本地脚本中继续。这正是橙色大炮脚本所利用的功能。这个稍微好一点的大炮发射函数等待服务器告知该大炮已经发射了一个炮弹，然后再继续创建伴随的爆炸。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>第 2 课：同步体验<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>蓝色大炮没有意义，因为你在看到炮弹之前就已经看到了大炮爆炸。在现实世界中，爆炸和炮弹射击同时发生。为了让游戏充满乐趣和沉浸感，它不应该违背玩家对这类愚蠢事情的期望。遵循橙色大炮的示例，并使用 RemoteFunction 在客户端和服务器之间同步事件。</p>
+<div class="section" id="id7">
+<h3>红色大炮<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p><img alt="在此处输入图像描述" src="https://developer.roblox.com/assets/bltbfe5032abc4c46ec/LaggyCannons_RedCannon.png" /></p>
+<p>虽然橙色大炮解决了炮弹和爆炸不同步的问题，但它实际上暴露了另一个延迟问题。当玩家按下“F”键开火时，在游戏完全响应之前会有明显的延迟。这被称为输入延迟，这是玩家最讨厌的事情之一。</p>
+<p>有一个简单的技巧可以用来消除输入延迟。你无法加快大炮发射的时间。无论如何，这都将花费一条消息从客户端到服务器再到客户端的往返时间。但是，你可以给玩家一些其他即时反馈，使他们觉得游戏正在响应他们的命令。</p>
+<p>红色大炮选择给的立即反馈是声音。当玩家按下“F”键时，红色大炮立即开始播放大炮引信燃烧的声音。此声音会一直播放到服务器响应 RemoteFunction。一旦服务器响应，红色大炮将关闭燃烧的引信声音，并伴随着服务器刚刚发射的炮弹产生爆炸。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">在本地脚本中</span>
+<span class="n">local</span> <span class="n">function</span> <span class="n">bestCannonStrategy</span><span class="p">()</span>
+    <span class="n">Workspace</span><span class="o">.</span><span class="n">Sounds</span><span class="o">.</span><span class="n">BurningFuse</span><span class="p">:</span><span class="n">Play</span><span class="p">()</span> 
+    <span class="n">local</span> <span class="n">waitForResponse</span> <span class="o">=</span> <span class="n">Workspace</span><span class="o">.</span><span class="n">FireCannonFunction</span><span class="p">:</span><span class="n">InvokeServer</span><span class="p">(</span><span class="n">activeCannon</span><span class="p">)</span>
+    <span class="n">Workspace</span><span class="o">.</span><span class="n">Sounds</span><span class="o">.</span><span class="n">BurningFuse</span><span class="p">:</span><span class="n">Stop</span><span class="p">()</span>
+    <span class="n">createExplosion</span><span class="p">(</span><span class="n">activeCannon</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>如果使用红色大炮，应该感觉很自然。在按下“F”键和看到炮弹开火之间仍有一段延迟，但这是不可察觉的，因为大炮将这种延迟融入其工作方式中。</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>第 3 课：没有输入延迟！<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>玩家讨厌输入延迟。感到自己和游戏脱节是令人沮丧的。尽管可能需要对玩家输入做出延迟的响应，但你始终可以给玩家一些小的响应，以表明他们的请求已被听到。这可以是声音、变化的砖块颜色，甚至可以是任何东西。让玩家知道他们的请求已被听到，你的玩家会非常开心。</p>
+<div class="section" id="id9">
+<h3>紫色目标<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p><img alt="在此处输入图像描述" src="https://developer.roblox.com/assets/blt506901afa31c58e8/LaggyCannons_PurpleTarget.png" /></p>
+<p>紫色大炮的工作方式和红色大炮完全一样。紫色平台和所有其他颜色的平台的区别在于移动目标的功能。</p>
+<p>当你击中蓝色、橙色或红色目标时，你会注意到在看到目标被击中与产生的“叮”声和分数更新之间存在延迟。例如，蓝色目标的“叮”声和分数更新由以下服务器函数执行：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">服务器端脚本</span>
+<span class="n">Workspace</span><span class="o">.</span><span class="n">Blue</span><span class="o">.</span><span class="n">Target</span><span class="o">.</span><span class="n">Face</span><span class="o">.</span><span class="n">Touched</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">projectile</span><span class="p">)</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">_G</span><span class="o">.</span><span class="n">artificialLag</span><span class="p">)</span>    <span class="o">--</span> <span class="n">Laggy</span> <span class="n">Cannons</span> <span class="n">游戏创造人为延迟的方法</span>
+    <span class="o">--</span><span class="n">播放目标命中声效</span>
+    <span class="n">Workspace</span><span class="o">.</span><span class="n">Sounds</span><span class="o">.</span><span class="n">TargetHit</span><span class="p">:</span><span class="n">Play</span><span class="p">()</span>
+    <span class="o">--</span><span class="n">更新蓝色分数</span>
+    <span class="n">blueScore</span> <span class="o">=</span> <span class="n">blueScore</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">Workspace</span><span class="o">.</span><span class="n">Blue</span><span class="o">.</span><span class="n">Scoreboard</span><span class="o">.</span><span class="n">SurfaceGui</span><span class="o">.</span><span class="n">ScoreLabel</span><span class="o">.</span><span class="n">Text</span> <span class="o">=</span> <span class="n">blueScore</span>
+<span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>我们知道像玩家得分这样重要的事情必须由服务器来处理。因此，更新目标分数时必须有延迟。但是击中目标的声音呢？</p>
+<p>虽然最终由服务器决定目标是否被击中，但客户端完全能够立即播放目标击中的声音本身。最坏的情况是，如果客户端和服务器在目标是否被击中的问题上有一个罕见的分歧，玩家将体验到“叮”声和分数更新之间的差异。发生这种情况的概率是五千分之一，这是一个很值得给予玩家即时反馈的成本。因此，我们实际上可以将以前的服务器脚本拆分为服务器脚本和本地脚本：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>--服务器端脚本
+Workspace.Purple.Target.Face.Touched:connect(function(projectile)
+    wait(_G.artificialLag)    -–（Laggy Cannons 游戏创造人为延迟的方法）
+    --更新紫色分数
+    purpleScore = purpleScore + 1
+    Workspace.Purple.Scoreboard.SurfaceGui.ScoreLabel.Text = purpleScore
+end)
+
+--本地脚本
+Workspace.Purple.Target.Face.Touched:connect(function(projectile)
+    --播放目标命中声效
+    Workspace.Sounds.TargetHit:Play()
+end)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>第 4 课：拆分脚本<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>有时你必须在服务器上做一半的工作，在客户机上做一半的工作。不要害怕两次检测同一事件。本地检测给玩家提供反馈，服务器检测处理重要的游戏逻辑。</p>
+</div>
+<div class="section" id="id11">
+<h2>现实世界中的延迟<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>Laggy Cannons 的默认人为延迟为一秒。这是你玩 Roblox 游戏时机器自然遇到的任何延迟的基础。在我们的玩家群中，我们可以看到延迟 0.1 到 1.5 秒不等的玩家。平均延迟似乎徘徊在 0.3 秒左右。幸运的是，你现在已具备处理此延迟的工具。</p>
+</div>
+<div class="section" id="studio">
+<h2>在 Studio 中测试延迟<a class="headerlink" href="#studio" title="Permalink to this headline">¶</a></h2>
+<p>如果要在 Roblox Studio 中模拟延迟，则可以转到“File（文件）”-&gt;“Settings（设置）” -&gt;“Network（网络）” -&gt; IncomingReplicationLag 并调整 Studio 在运行测试服务器时模拟的延迟秒数。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Fighting-Against-Lag">减少延迟影响</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MicroProfiler.html" class="btn btn-neutral float-right" title="MicroProfiler" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../tutorials/optimization.html" class="btn btn-neutral float-left" title="性能优化" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

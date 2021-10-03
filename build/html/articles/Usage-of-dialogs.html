@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>NPC 对话框 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="不同场景间的传送" href="Teleporting-Between-Places.html" />
+    <link rel="prev" title="制作大厅" href="Making-a-Lobby.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Lobby.html">制作大厅</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">NPC 对话框</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">基本概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">创建基本的对话</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">制作对话气泡</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">脚本编写</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Teleporting-Between-Places.html">不同场景间的传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Spawns-and-Teams.html">角色生成与团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-an-Explosion-Course.html">制作爆炸赛道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shop-Dialogs.html">商店对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-to-teleport-within-a-Place.html">场景内玩家传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="in-game-solid-modeling.html">游戏内实体建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matchmaking.html">玩家匹配系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Player-Collisions.html">玩家间的碰撞控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setting-Parts-on-Fire-with-Events.html">通过事件让部件着火</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2D-Collision-Detection.html">2D 碰撞检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Basics-on-Roblox.html">添加团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Badges-Special-Game-Awards.html">Badges – Special Game Awards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Collision-Filtering-Team-Doors.html">Restricted/Team Doors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-VIP-Doors.html">创建 VIP 专用门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Random-Map-Chooser.html">随机地图选择器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roblox-avatars.html">Roblox 虚拟形象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Health-Pickups.html">回复用拾取物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Moving-NPCs-Between-Points.html">在点之间移动 NPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pathfinding.html">寻路</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Side-Scrolling-Camera-View.html">横向卷轴镜头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Tools.html">玩家工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="detecting-collisions.html">检测碰撞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weapons-kit.html">认可武器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="npc-kit.html">NPC 套组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vehicles-kit.html">载具工具包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="team-balancing.html">平衡团队构成</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/gameplay.html">游戏制作</a> &raquo;</li>
+        
+      <li>NPC 对话框</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Usage-of-dialogs.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="npc">
+<h1>NPC 对话框<a class="headerlink" href="#npc" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p><strong>Dialog</strong> 对象能让你通过内置界面来创建能够与之交谈的 NPC 角色。界面简单易用，甚至无需进行脚本编写。不仅如此，你还能通过 <code class="docutils literal notranslate"><span class="pre">Dialog/DialogChoiceSelected</span></code> 事件来添加额外的功能。</p>
+<p>可应用于以下场景：<br />*创建提供奖励或任务的 NPC 角色；<br />*创建机器人助手；<br />*创建会说话的敌人；<br />*可以创建任何物品，请尽情发挥你的想象！</p>
+<div class="section" id="id1">
+<h2>基本概述<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>对话应用实际上非常简单，即使没有完成 Lua 语言学习的制作者，也不必进行脚本编写。对话的构成如下图所示：</p>
+<p><img alt="DialogExample.PNG" src="https://developer.roblox.com/assets/blt9dea6289967fa3c9/DialogExample.PNG" /></p>
+<p>Dialog 对象会显示初始提示，随后会从 DialogChoice 对象向用户提供回答选择；而 DialogChoice 接着会通过自身所包含的 DialogChoice 对象向用户提供回答选择。</p>
+</div>
+<div class="section" id="id2">
+<h2>创建基本的对话<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>制作对话气泡<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>首先，打开 Roblox Studio 并创建一个新场景。在管理器（View（视图）-&gt; Explorer（管理器））中，选择你想要显示的对话气泡部件。单击“Insert（插入）”，选择“Basic Objects（基本对象）”，然后在出现的窗口中选择“Dialog（对话）”。第一个对话对象就创建完成了！在使用角色运行游戏（联机或单人测试模式）前，暂时无法看到对话气泡。<br />在属性窗口（View（视图）-&gt; Properties（属性））中，可以看到 <code class="docutils literal notranslate"><span class="pre">Dialog/InitialPrompt</span></code> 属性。将该属性更改为当你单击对话气泡时该部件所要说的话。</p>
+<p>好啦！你已经完成了第一个单击其图标就会说话的部件！</p>
+<div class="section" id="id4">
+<h4>添加选择<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>你已经做好了对话气泡。效果不错，不过你还是没法跟它交谈，对吧？<br />选择原始的 Dialog 对象并单击“Insert（插入）”，单击“Basic Objects（基本部件）”，接着从窗口中选择 <code class="docutils literal notranslate"><span class="pre">DialogChoice</span></code>。在已经打开的属性窗口中将会看到一条名为 <code class="docutils literal notranslate"><span class="pre">DialogChoice/UserDialog</span></code> 的属性。<strong>这是用户将会得到的选择</strong>，<strong>而非</strong>该属性或任何其他属性的名称。<code class="docutils literal notranslate"><span class="pre">DialogChoice/ResponseDialog</span></code> 属性是用户选择后部件会说的话，请将其更改为想要说的话。<br />向原始的 Dialog 对象添加多少个 DialogChoice 对象，就能向用户提供多少种选择。</p>
+</div>
+<div class="section" id="id5">
+<h4>添加更多选择<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>现在，我们的 Dialog 能向用户提供多种选择，每种选择都能让部件给出一种回答。此外，我们还能在这些选择中添加更多选择，从而用该部件创建一组更加丰富的对话。<br />要实现这一目的，只需在完成上一步时不将 DialogChoice 对象插入原始 Dialog 对象，而是将其插入已有的 DialogChoice 对象当中。</p>
+</div>
+<div class="section" id="id6">
+<h4>更多属性和自定义内容<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p>可以利用其他属性进一步自定义自己的 Dialog。请通过属性窗口更改这些属性。<br /><em>注意：这些都是只会在游戏中呈现视觉效果的属性。</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">Dialog/ConversationDistance</span></code>：请将其设为能够与部件对话的最大距离。走出该范围，对话就会终止。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Dialog/Purpose</span></code>：这些是显示在部件上方供你单击的各种图标。任务用 <strong>!</strong> 表示，帮助用“?”表示，而商店则用“$”表示。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Dialog/Tone</span></code>：这是对话（即对话气泡）和选择 GUI 的颜色。友好用绿色表示，中立用蓝色表示，敌对则用红色表示。</p>
+</div>
+<div class="section" id="id7">
+<h4>示例<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p>以下是一个使用中的 Dialog 示例。</p>
+<p><img alt="Final_Dialog_Example.gif" src="https://developer.roblox.com/assets/bltc80572d5d73b3459/Final_Dialog_Example.gif" /></p>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>脚本编写<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>如果你已经完成了 Roblox Lua 的学习，还可以向自己的 NPC 部件添加更多的功能。脚本编写事件 DialogChoiceSelected 包含两种参数，即玩家对象和玩家所作选择的<strong>对象</strong>。该事件_不会_返回选择的名称。每当玩家作出一种选择时，都会触发该事件。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">workspace</span><span class="o">.</span><span class="n">Dialog</span><span class="o">.</span><span class="n">DialogChoiceSelected</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">player</span><span class="p">,</span><span class="n">choice</span><span class="p">)</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span><span class="n">choice</span><span class="o">.</span><span class="n">Name</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>该事件会打印玩家的名称，以及<strong>每次玩家作出选择时</strong>所作选择的名称。你不能用 Dialog 方法将其本地化为具体的选择。如果希望在玩家作出特定选择时触发事件，就需要赋予其一个唯一的 Name 属性，并将其与 if 语句进行比较。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">workspace</span><span class="o">.</span><span class="n">Dialog</span><span class="o">.</span><span class="n">DialogChoiceSelected</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">player</span><span class="p">,</span><span class="n">choice</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">choice</span><span class="o">.</span><span class="n">Name</span> <span class="o">==</span> <span class="s2">&quot;No&quot;</span> <span class="n">then</span>
+		<span class="n">player</span><span class="o">.</span><span class="n">Character</span><span class="o">.</span><span class="n">Humanoid</span><span class="o">.</span><span class="n">Health</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="n">elseif</span> <span class="n">choice</span><span class="o">.</span><span class="n">Name</span> <span class="o">==</span> <span class="s2">&quot;Yes&quot;</span> <span class="n">then</span>
+		<span class="n">player</span><span class="o">.</span><span class="n">Character</span><span class="o">.</span><span class="n">Humanoid</span><span class="o">.</span><span class="n">Health</span> <span class="o">=</span> <span class="mi">1000</span>
+	<span class="n">end</span>
+<span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>你也可以在特定玩家作出特定选择时触发事件。</p>
+<p>示例：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">workspace</span><span class="o">.</span><span class="n">Dialog</span><span class="o">.</span><span class="n">DialogChoiceSelected</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">player</span><span class="p">,</span><span class="n">choice</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">choice</span><span class="o">.</span><span class="n">Name</span> <span class="o">==</span> <span class="s2">&quot;isplayer&quot;</span> <span class="ow">and</span> <span class="n">player</span><span class="o">.</span><span class="n">Name</span> <span class="o">==</span> <span class="s2">&quot;pighead10&quot;</span> <span class="n">then</span>
+		<span class="n">player</span><span class="o">.</span><span class="n">Character</span><span class="o">.</span><span class="n">Humanoid</span><span class="o">.</span><span class="n">Health</span> <span class="o">=</span> <span class="mi">10000</span>
+	<span class="n">end</span>
+<span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>你可以通过该类事件可以给予角色任务、奖励、商店物品等！</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Usage-of-dialogs">NPC 对话框</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Teleporting-Between-Places.html" class="btn btn-neutral float-right" title="不同场景间的传送" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Making-a-Lobby.html" class="btn btn-neutral float-left" title="制作大厅" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

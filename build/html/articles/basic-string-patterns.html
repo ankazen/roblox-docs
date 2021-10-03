@@ -1,0 +1,399 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>基础字符串模式 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="对象浏览器" href="Object-browser.html" />
+    <link rel="prev" title="可变参函数" href="Variadic-Functions.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">基础字符串模式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">简单匹配</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">完美匹配</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">使用字符类</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">量词</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">组匹配</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">字符串捕捉</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>基础字符串模式</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/basic-string-patterns.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>基础字符串模式<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p><strong>字符串模式</strong>是一种字符组合，可用于查找存在于较长字符串当中的具体片段（通常称为_子字符串_）。</p>
+<p>在您的游戏中，您可以使用字符串模式找到一个单词中的所有字母 <strong>A</strong>，或者查找句子中的数字。</p>
+<div class="section" id="id2">
+<h2>简单匹配<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>简单的匹配可以通过 Lua 的 <code class="docutils literal notranslate"><span class="pre">Lua</span> <span class="pre">Libraries/string|string.match()</span></code> 函数来完成。此示例中，我们将在两个字符串中查找单词 <strong>Roblox</strong>：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="nb">print</span><span class="p">(</span> <span class="n">string</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;Welcome to Roblox!&quot;</span><span class="p">,</span> <span class="s2">&quot;Roblox&quot;</span><span class="p">)</span> <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">string</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;Welcome to my awesome game!&quot;</span><span class="p">,</span> <span class="s2">&quot;Roblox&quot;</span><span class="p">)</span> <span class="p">)</span>
+    
+    
+    <span class="n">Roblox</span>
+    <span class="n">nil</span>
+</pre></div>
+</div>
+<p>如您所见，我们在第一个字符串中找到了匹配项，因此向控制台输出了 <code class="docutils literal notranslate"><span class="pre">Roblox</span></code>。但我们在第二个字符串中<strong>没有</strong>找到匹配项，所以输出了 <code class="docutils literal notranslate"><span class="pre">nil</span></code>。</p>
+</div>
+<div class="section" id="id3">
+<h2>完美匹配<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>简单匹配的作用是很有限的，最多只能实现这样的查找。下面请考虑这三种陈述：</p>
+<p><strong>云之国有 25 个力量宝石</strong></p>
+<p><strong>闹鬼矿洞有 10 个力量宝石</strong></p>
+<p><strong>巫师村有 50 个力量宝石</strong></p>
+<p>假设您只想提取每个世界中“力量宝石”的数量(<strong>25</strong>、<strong>10</strong> 或 <strong>50</strong>)，因为每个世界中的宝石数量不同，所以您并不能使用简单匹配，而需要使用<strong>字符类</strong>搜索每条语句。</p>
+<p>简单地说，字符类提供了一种方法，能用来搜索并不_具体_但又符合某一已知类别（类）的内容。在 Lua 中，您可以在字符串中搜索<strong>字母</strong>、<strong>数字</strong>、<strong>空格</strong>、<strong>标点符号</strong>等。</p>
+<p><img alt="https://developer.roblox.com/assets/bltad916cfeb252618d/Character-Tiles.png" src="https://developer.roblox.com/assets/bltad916cfeb252618d/Character-Tiles.png" /></p>
+<p>下表中是一些常见的和有用的字符类：</p>
+<p>类 代表 匹配示例</p>
+<p><code class="docutils literal notranslate"><span class="pre">.</span></code>
+任意字符
+<code class="docutils literal notranslate"><span class="pre">32kasGJ1%fTlk?&#64;94</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%a</span></code>
+任意大小写的字母
+<code class="docutils literal notranslate"><span class="pre">aBcDeFgHiJkLmNoPqRsTuVwXyZ</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%l</span></code>
+小写字母
+<code class="docutils literal notranslate"><span class="pre">abcdefghijklmnopqrstuvwxyz</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%u</span></code>
+大写字母
+<code class="docutils literal notranslate"><span class="pre">ABCDEFGHIJKLMNOPQRSTUVWXYZ</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%d</span></code>
+任意数字
+<code class="docutils literal notranslate"><span class="pre">0123456789</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%p</span></code>
+任意标点符号
+<code class="docutils literal notranslate"><span class="pre">!&#64;#;,.</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%w</span></code>
+任意数字或字母
+<code class="docutils literal notranslate"><span class="pre">aBcDeFgHiJkLmNoPqRsTuVwXyZ0123456789</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%s</span></code>
+空格或空格字符
+<code class="docutils literal notranslate"><span class="pre">_</span></code>、<code class="docutils literal notranslate"><span class="pre">\n</span></code> 和 <code class="docutils literal notranslate"><span class="pre">\r</span></code></p>
+</div>
+<div class="section" id="id4">
+<h2>使用字符类<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>上面的表格可能看起来难以消化，但是不要担心，我们将通过一些基本的示例向您展示它的作用。</p>
+<p>首先让我们看看这个陈述：</p>
+<p><strong>云之国有 25 个力量宝石</strong></p>
+<p>在表中我们可以看到 <code class="docutils literal notranslate"><span class="pre">%d</span></code> 字符类允许您在字符串中查找<strong>数字</strong>，正好就能用来找出每个虚构的游戏世界中有多少“力量宝石”！让我们来试试这些代码：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="nb">print</span><span class="p">(</span> <span class="n">string</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;The Cloud Kingdom has 25 power gems&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span> <span class="p">)</span>
+    
+    
+    <span class="mi">2</span>
+</pre></div>
+</div>
+<p>注意这段代码输出的是 <code class="docutils literal notranslate"><span class="pre">2</span></code>— 可是云之国有 <strong>25</strong> 个力量宝石，而不是 2 个呀！那到底出了什么问题呢？</p>
+<p>有关字符类的一个重要细节是，它们本身只匹配字符串中的<strong>一个</strong>字符。上面的模式（<code class="docutils literal notranslate"><span class="pre">%d</span></code>）从左到右开始读取字符串，查找它找到的_第一个_数字（<code class="docutils literal notranslate"><span class="pre">2</span></code>），然后就停止了！</p>
+<p>好在您还可以使用<strong>量词</strong>来扩展字符类的功能。</p>
+</div>
+<div class="section" id="id5">
+<h2>量词<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p><strong>Quantifier</strong>（量词）是在字符类之后键入的符号，它允许您匹配特定数量的某类字符。</p>
+<p>量词 含义</p>
+<p><code class="docutils literal notranslate"><span class="pre">+</span></code>
+匹配大于等于 1 个指定类别的字符</p>
+<p><code class="docutils literal notranslate"><span class="pre">-</span></code>
+匹配尽可能少的指定类别的字符</p>
+<p><code class="docutils literal notranslate"><span class="pre">*</span></code>
+匹配大于等于 0 个指定类别的字符</p>
+<p><code class="docutils literal notranslate"><span class="pre">?</span></code>
+匹配小于等于 1 个指定类别的字符</p>
+<p>让我们使用量词来找到云之国力量宝石的正确数量吧：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">+&quot;</span>  <span class="o">--</span> <span class="n">注意</span> <span class="s1">&#39;+&#39;</span> <span class="n">量词要在</span> <span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="n">之后</span>
+    
+    <span class="nb">print</span><span class="p">(</span> <span class="n">string</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;The Cloud Kingdom has 25 power gems&quot;</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span> <span class="p">)</span>
+    
+    
+    <span class="mi">25</span>
+</pre></div>
+</div>
+<p>如您所见，此模式找到第一个数字（<code class="docutils literal notranslate"><span class="pre">2</span></code>），并继续查找到了 <code class="docutils literal notranslate"><span class="pre">5</span></code>！而且它还会继续查找更多的数字（如果它们存在），例如：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">+&quot;</span>
+    
+    <span class="nb">print</span><span class="p">(</span> <span class="n">string</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;The Cloud Kingdom has 25 power gems&quot;</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span> <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">string</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;The Cloud Kingdom has 25001000 power gems&quot;</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span> <span class="p">)</span>
+    
+    
+    <span class="mi">25</span>
+    <span class="mi">25001000</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>组匹配<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>…</p>
+</div>
+<div class="section" id="id7">
+<h2>字符串捕捉<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>…</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/basic-string-patterns">基础字符串模式</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Object-browser.html" class="btn btn-neutral float-right" title="对象浏览器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Variadic-Functions.html" class="btn btn-neutral float-left" title="可变参函数" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

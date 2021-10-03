@@ -1,0 +1,405 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>可变参函数 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="基础字符串模式" href="basic-string-patterns.html" />
+    <link rel="prev" title="代码编写简洁化" href="Writing-Clean-Code.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">可变参函数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">库中的可变参函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">可变参函数的使用</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">实参传递</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">从实参表中调用可变参函数</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>可变参函数</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Variadic-Functions.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>可变参函数<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>可变参函数（Variadic Function）与只能接收指定数量参数的常规函数不同，可以接收任意数量的参数。</p>
+<div class="section" id="id2">
+<h2>库中的可变参函数<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Lua 和 Roblox 的库中包括多个可变参函数。许多开发者都未意识到，我们所常用的 <code class="docutils literal notranslate"><span class="pre">print()</span></code> 函数就是十分典型的可变参函数。</p>
+<p><strong>代码</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">string</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;The </span><span class="si">%s</span><span class="s2"> is a </span><span class="si">%s</span><span class="s2">!&quot;</span><span class="p">,</span> <span class="s2">&quot;cake&quot;</span><span class="p">,</span> <span class="s2">&quot;lie&quot;</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">string</span><span class="o">.</span><span class="n">byte</span><span class="p">(</span><span class="mi">115</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">114</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">116</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>输出</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>2 + 2 = 4
+The cake is a lie!
+secret
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>可变参函数的使用<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>定义可变参函数时，开发者应当使用 <code class="docutils literal notranslate"><span class="pre">...</span></code> 符号作为该函数的最后或唯一参数（请勿将其与两个句点构成的串联运算符 <code class="docutils literal notranslate"><span class="pre">..</span></code> 混淆）。这个由三个句点构成的符号稍后可在该函数中作为变量集合使用。在大多数情况下，最为便利的做法是将所有实参都打包至表（table）中：</p>
+<p><strong>代码</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">function</span> <span class="n">variadic</span><span class="p">(</span><span class="n">named</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">arguments</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span> <span class="o">--</span> <span class="n">将额外参数打包至表中</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Named argument = &quot;</span><span class="p">,</span> <span class="n">named</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">ipairs</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span> <span class="n">do</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Input No. &quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="n">end</span>
+<span class="n">end</span>
+
+<span class="n">variadic</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;Hi&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;Variadic Function&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>输出</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Named</span> <span class="n">argument</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">Input</span> <span class="n">No</span><span class="o">.</span> <span class="mi">1</span> <span class="o">=</span> <span class="n">Hi</span>
+<span class="n">Input</span> <span class="n">No</span><span class="o">.</span> <span class="mi">2</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">Input</span> <span class="n">No</span><span class="o">.</span> <span class="mi">3</span> <span class="o">=</span> <span class="n">Variadic</span> <span class="n">Function</span>
+</pre></div>
+</div>
+<p>同时，我们也可以运用此功能来编写 “sum”（总和）函数：</p>
+<p><strong>代码</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="nb">sum</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="n">local</span> <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">ipairs</span><span class="p">({</span><span class="o">...</span><span class="p">})</span> <span class="n">do</span>
+        <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">value</span>
+    <span class="n">end</span>
+    <span class="k">return</span> <span class="nb">sum</span>
+<span class="n">end</span>
+<span class="nb">print</span><span class="p">(</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>输出</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span>
+<span class="mi">42</span>
+</pre></div>
+</div>
+<div class="section" id="id4">
+<h3>实参传递<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>此功能的另一个常见用法为对实参的传递。在以下示例中，假设开发者需要在调用函数前后分别进行打印（print）：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">function</span> <span class="n">printAround</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Before&quot;</span><span class="p">)</span>
+    <span class="n">func</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After&quot;</span><span class="p">)</span>
+<span class="n">end</span>
+
+<span class="n">local</span> <span class="n">function</span> <span class="n">foo</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+<span class="n">end</span>
+
+<span class="n">printAround</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>输出</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Before</span>
+<span class="n">bar</span>
+<span class="n">After</span>
+</pre></div>
+</div>
+<p>当我们希望为 <code class="docutils literal notranslate"><span class="pre">foo()</span></code> 添加参数时，可以使用 <code class="docutils literal notranslate"><span class="pre">...</span></code> 符号进行以下处理：</p>
+<p><strong>代码</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">function</span> <span class="n">printAround</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Before&quot;</span><span class="p">)</span>
+    <span class="n">func</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After&quot;</span><span class="p">)</span>
+<span class="n">end</span>
+
+<span class="n">local</span> <span class="n">function</span> <span class="n">foo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x =&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y + z =&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span>
+<span class="n">end</span>
+
+<span class="n">printAround</span><span class="p">(</span><span class="n">foo</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>输出</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Before</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">y</span> <span class="o">+</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">After</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>从实参表中调用可变参函数<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>当需要将值表传递给可变参函数时，开发者可以使用 <code class="docutils literal notranslate"><span class="pre">unpack()</span></code> 函数。</p>
+<p><strong>代码</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">squares</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;The first 5 square numbers are:&quot;</span><span class="p">,</span> <span class="n">unpack</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>输出</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>The first 5 square numbers are: 1 4 9 16 25
+请注意：如果开发者编写了能够获取可变参数的函数，且正在对多个值表使用 unpack 函数，则应当考虑将表直接传递给函数本身。
+</pre></div>
+</div>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Variadic-Functions">可变参函数</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="basic-string-patterns.html" class="btn btn-neutral float-right" title="基础字符串模式" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Writing-Clean-Code.html" class="btn btn-neutral float-left" title="代码编写简洁化" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

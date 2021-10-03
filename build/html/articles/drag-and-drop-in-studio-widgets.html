@@ -1,0 +1,357 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Studio 控件中的拖放 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="跨平台发展" href="../tutorials/cross-platform.html" />
+    <link rel="prev" title="对象空间与世界空间" href="object-world-space.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Studio 控件中的拖放</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">创建一个拖拽源</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">初始化拖拽</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">创建一个释放的目标</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">处理释放的动作</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>Studio 控件中的拖放</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/drag-and-drop-in-studio-widgets.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="studio">
+<h1>Studio 控件中的拖放<a class="headerlink" href="#studio" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p>使用插件中的拖放交互是一种改进插件中数据流的简易方式。在阅读之前请好好熟悉下 studio 控件，可以先参考一下 <code class="docutils literal notranslate"><span class="pre">articles/Building</span> <span class="pre">Studio</span> <span class="pre">Widgets</span></code> 这篇文章！</p>
+<div class="section" id="id1">
+<h2>创建一个拖拽源<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>当用户在 UI 元素（比如控件中的 <code class="docutils literal notranslate"><span class="pre">TextButton</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">ImageButton</span></code>）上按鼠标键时，就需要调用 <code class="docutils literal notranslate"><span class="pre">Plugin/StartDrag</span></code> 来开始一个拖拽动作。先用常规方式创建一个控件：下列代码示例会创建出一个包含按钮的简单窗口。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">先创建控件</span>
+<span class="n">local</span> <span class="n">widgetInfo</span> <span class="o">=</span> <span class="n">DockWidgetPluginGuiInfo</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">Enum</span><span class="o">.</span><span class="n">InitialDockState</span><span class="o">.</span><span class="n">Float</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">dragSourceWidget</span> <span class="o">=</span> <span class="n">plugin</span><span class="p">:</span><span class="n">CreateDockWidgetPluginGui</span><span class="p">(</span><span class="s2">&quot;Drag Source&quot;</span><span class="p">,</span> <span class="n">widgetInfo</span><span class="p">)</span>
+<span class="n">dragSourceWidget</span><span class="o">.</span><span class="n">Title</span> <span class="o">=</span> <span class="s2">&quot;Drag Source&quot;</span>
+
+<span class="o">--</span> <span class="n">创建一个将会初始化拖拽的</span> <span class="n">TextButton</span>
+<span class="n">local</span> <span class="n">dragButton</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;TextButton&quot;</span><span class="p">)</span>
+<span class="n">dragButton</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">dragButton</span><span class="o">.</span><span class="n">Text</span> <span class="o">=</span> <span class="s2">&quot;Drag me!&quot;</span>
+<span class="n">dragButton</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">dragSourceWidget</span>
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h3>初始化拖拽<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>我们希望当用户用鼠标点击 TextButton 时，拖拽动作就会立刻开始。一般情况下按钮上会使用 <code class="docutils literal notranslate"><span class="pre">GuiButton/Activated|Activated</span></code> 事件，但我们选择使用 <code class="docutils literal notranslate"><span class="pre">GuiButton/MouseButton1Down|MouseButton1Down</span></code>，因为它会在鼠标键被按下的时候就立刻开始，而不是等鼠标键被松开后再开始。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">function</span> <span class="n">onButton1Down</span><span class="p">()</span>
+	<span class="n">local</span> <span class="n">dragInfo</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="n">Data</span> <span class="o">=</span> <span class="s2">&quot;Hello, world&quot;</span><span class="p">,</span>      <span class="o">--</span> <span class="n">数据正在被拖拽</span>
+		<span class="n">MimeType</span> <span class="o">=</span> <span class="s2">&quot;text/plain&quot;</span><span class="p">,</span>    <span class="o">--</span> <span class="n">描述数据的</span> <span class="n">MIME</span> <span class="n">类型</span>
+		<span class="n">Sender</span> <span class="o">=</span> <span class="s2">&quot;SomeDragSource&quot;</span><span class="p">,</span>  <span class="o">--</span> <span class="n">描述数据起源于何处</span>
+		<span class="n">MouseIcon</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>             <span class="o">--</span> <span class="n">提供给光标使用的图像</span>
+		<span class="n">DragIcon</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>              <span class="o">--</span> <span class="n">在拖拽时光标下面显示的图像</span>
+		<span class="n">HotSpot</span> <span class="o">=</span> <span class="n">Vector2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">--</span> <span class="n">在</span> <span class="n">DragIcon</span> <span class="n">的哪个位置居中光标</span>
+	<span class="p">}</span>
+	<span class="n">plugin</span><span class="p">:</span><span class="n">StartDrag</span><span class="p">(</span><span class="n">dragInfo</span><span class="p">)</span>
+<span class="n">end</span>
+
+<span class="n">dragButton</span><span class="o">.</span><span class="n">MouseButton1Down</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">onButton1Down</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>在这个函数中必须决定被拖拽的数据详情：其类型由 <code class="docutils literal notranslate"><span class="pre">MimeType</span></code> 键来反映，拖拽内容应该在 <code class="docutils literal notranslate"><span class="pre">Data</span></code> 键中，发送者则由 <code class="docutils literal notranslate"><span class="pre">Sender</span></code>键描述。详情参考 <code class="docutils literal notranslate"><span class="pre">Plugin/StartDrag</span></code> 页面。</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>创建一个释放的目标<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>当用户在拖拽窗口过程中松开鼠标键时，<code class="docutils literal notranslate"><span class="pre">PluginGui/PluginDragDropped|PluginDragDropped</span></code> 事件就会启动，我们需要一个释放的目标，创建带有 <code class="docutils literal notranslate"><span class="pre">TextLabel</span></code> 的第二个控件来侦测拖拽动作后的释放：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">dragTargetWidget</span> <span class="o">=</span> <span class="n">plugin</span><span class="p">:</span><span class="n">CreateDockWidgetPluginGui</span><span class="p">(</span><span class="s2">&quot;Drop Target&quot;</span><span class="p">,</span> <span class="n">widgetInfo</span><span class="p">)</span>
+<span class="n">dragTargetWidget</span><span class="o">.</span><span class="n">Title</span> <span class="o">=</span> <span class="s2">&quot;Drop Target&quot;</span>
+
+<span class="o">--</span> <span class="n">此</span> <span class="n">TextLabel</span> <span class="n">将会显示被释放的东西</span>
+<span class="n">local</span> <span class="n">textLabel</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;TextLabel&quot;</span><span class="p">)</span>
+<span class="n">textLabel</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">textLabel</span><span class="o">.</span><span class="n">Text</span> <span class="o">=</span> <span class="s2">&quot;Drop here...&quot;</span>
+<span class="n">textLabel</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">dragTargetWidget</span>
+</pre></div>
+</div>
+<div class="section" id="id4">
+<h3>处理释放的动作<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>然后将 <code class="docutils literal notranslate"><span class="pre">PluginGui/PluginDragDropped|PluginDragDropped</span></code> 事件与释放的目标的控件相连接：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">function</span> <span class="n">onDragDrop</span><span class="p">(</span><span class="n">dragData</span><span class="p">)</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;PluginDragDropped&quot;</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">dragData</span><span class="o">.</span><span class="n">MimeType</span> <span class="o">==</span> <span class="s2">&quot;text/plain&quot;</span> <span class="n">then</span>
+		<span class="n">textLabel</span><span class="o">.</span><span class="n">Text</span> <span class="o">=</span> <span class="n">dragData</span><span class="o">.</span><span class="n">Data</span>
+	<span class="k">else</span>
+		<span class="n">textLabel</span><span class="o">.</span><span class="n">Text</span> <span class="o">=</span> <span class="n">dragData</span><span class="o">.</span><span class="n">MimeType</span>
+	<span class="n">end</span>
+<span class="n">end</span>
+<span class="n">dragTargetWidget</span><span class="o">.</span><span class="n">PluginDragDropped</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">onDragDrop</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>当一个拖拽动作仍在进行中时，当用户将鼠标移过一个控件时，下面三个事件会启动：</p>
+<p>— <code class="docutils literal notranslate"><span class="pre">PluginGui/PluginDragEntered|PluginDragEntered</span></code> – 当用户光标悬停于窗口上时<br />— <code class="docutils literal notranslate"><span class="pre">PluginGui/PluginDragMoved|PluginDragMoved</span></code> – 当用户光标移动到窗口上时会不断地启动，非常适合显示“就放在这里吧！”的讯息。<br />— <code class="docutils literal notranslate"><span class="pre">PluginGui/PluginDragLeft|PluginDragLeft</span></code> – 当用户的光标离开窗口后启动，非常适合隐藏“就放在这里吧！”的讯息。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/drag-and-drop-in-studio-widgets">Studio 控件中的拖放</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../tutorials/cross-platform.html" class="btn btn-neutral float-right" title="跨平台发展" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="object-world-space.html" class="btn btn-neutral float-left" title="对象空间与世界空间" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

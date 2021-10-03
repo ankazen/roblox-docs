@@ -1,0 +1,2243 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <link rel="canonical" href="https://developer.roblox.com/articles/vehicles-kit"/>
+    <link rel="alternate" hreflang="x-default" href="https://developer.roblox.com/articles/vehicles-kit"/>
+    
+      <link rel="alternate" hreflang="en-us" href="https://developer.roblox.com/en-us/"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="https://developer.roblox.com/zh-cn/"/>
+    
+      
+        
+          <title> 载具工具包</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="zh-cn">
+
+
+
+<meta name="description" content="<p>功能齐全且可以自定义的载具，能在任意游戏中使用</p>">
+
+
+
+<meta name="keywords" content="">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="载具工具包">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>功能齐全且可以自定义的载具，能在任意游戏中使用</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="游戏过程">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="false">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://dk135eecbplh9.cloudfront.net/public/images/favicon.ico" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="https://browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/prettify.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/select2.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://dk135eecbplh9.cloudfront.net/public/css/main.css" rel="stylesheet" type="text/css">
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/jquery-3.3.1.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/popper.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/jPages.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/bootstrap.min.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/bootstrap-toc.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/docs.min.js"></script> -->
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/prettify.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/lang-lua.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/select2.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/clipboard.min.js"></script>
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/autolinking.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/lightbox.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/half-sized.js"></script>
+<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/encrypt-md5.js"></script>
+<!-- <script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/gdpr.js"></script> -->
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/script.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/codesample-theme.js"></script>
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/code-highlighting.js"></script>
+<!-- <script src="https://dk135eecbplh9.cloudfront.net/public/js/local-codesamples.js"></script> -->
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/language-dropdown.js"></script>
+
+<script src="https://dk135eecbplh9.cloudfront.net/public/js/event_template_one.js"></script>
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.autocomplete.js">
+</script>
+<script type='text/javascript' src='https://dk135eecbplh9.cloudfront.net/public/js/jquery.ba-hashchange.min.js'></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.search.js"></script>
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/jquery.swiftype.livesearch.js">
+</script>
+
+<script type="text/javascript" src="https://dk135eecbplh9.cloudfront.net/public/js/st.custom.search.js"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('https://dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="/" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="/">主页</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    <div class="d-none d-lg-block bd-sidebar" data-swiftype-index='false'>
+  <span class="back-icon">
+    <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+  </span>
+  <nav class="bd-links" id="bd-docs-nav">
+    <div class="bd-toc-item-wrap">
+      <h5 class="bd-toc-heading">教程</h5>
+      <div>
+        
+          
+        
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                <span>Studio 基础知识</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/creating">
+                <span>创建</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/international">
+                <span>国际化</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                <span>声效、光照与特效</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/marketing">
+                <span>市场营销</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/optimization">
+                <span>性能优化</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                <span>所有内容</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/analytics">
+                <span>数据分析</span>
+              </a>
+            </div>
+          
+        
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                <span>用户界面</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/monetization">
+                <span>盈利</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                <span>编码与脚本</span>
+              </a>
+            </div>
+          
+        
+          
+            <div class="bd-toc-item learn-roblox-tutorial">
+              <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                <span>跨平台发展</span>
+              </a>
+            </div>
+          
+        
+      </div>
+    </div>
+  </nav>
+</div>
+
+                  
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/quick-start">
+                      <span>入门</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/learn-roblox/all-tutorials">
+                      <span>了解 Roblox</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/api-reference">
+                      <span>API 参考</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/resources">
+                      <span>资源</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com">
+                      <span>社区</span>
+                      <img class="r-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/r-arrow.svg"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="搜索">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">关闭侧边栏</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="https://dk135eecbplh9.cloudfront.net/public/images/l-arrow.svg"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">教程</h5>
+              <div>
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                      <span>Studio 基础知识</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/creating">
+                      <span>创建</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/international">
+                      <span>国际化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                      <span>声效、光照与特效</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/marketing">
+                      <span>市场营销</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/optimization">
+                      <span>性能优化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                      <span>所有内容</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/analytics">
+                      <span>数据分析</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                      <span>用户界面</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/monetization">
+                      <span>盈利</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                      <span>编码与脚本</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                      <span>跨平台发展</span>
+                    </a>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/gameplay">游戏过程</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>载具工具包</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">隐藏内容索引</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">显示内容索引</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <div class="toc-content"><a href="javascript:void(0)">内容索引</a>
+        </div>
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/gameplay">游戏过程</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>载具工具包</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">20  分钟</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <style>
+.tree-table-borderless {
+  border-collapse: separated;
+  width: 100%;
+  border: 16px solid #252525;
+  background-color: #252525;
+}
+.tree-table-borderless td {
+  border: 0px !important;
+  padding: 0px !important;
+}
+.tree-row-indent, .tree-row-indent li {
+  min-width: 40px;
+  margin: 0px 5px 0px 0px;
+  padding-left: 4px;
+  padding-right: 4px;
+  line-height: 24px;
+  min-height: 24px;
+  color: #999;
+}
+.tree-end {
+  background-image: url("/assets/blt0e5b38e8e28b4dee/Hierarchy-Tree-End.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 32px 24px;
+}
+.tree-branch {
+  background-image: url("/assets/bltd229da198d72d990/Hierarchy-Tree-Branch.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 32px 4000px;
+}
+.tree-vert {
+  background-image: url("/assets/blt9817f6f24bade38d/Hierarchy-Tree-Connect.png");
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 32px 24px;
+}
+.explorer-item-hl {
+  color: white;
+  background-color: #0b5aaf;
+  border: 3px solid #0b5aaf;
+  box-sizing: border-box;
+  line-height: 18px;
+  margin-left: -3px;
+  margin-right: 3px;
+}
+.explorer-item-hl-alt {
+  color: white;
+  background-color: #006c60;
+  border: 3px solid #006c60;
+  box-sizing: border-box;
+  line-height: 18px;
+  margin-left: -3px;
+  margin-right: 2px;
+}
+.explorer-item-hl-alt2 {
+  color: white;
+  background-color: #006c60;
+  border: 1px solid #252525;
+  box-sizing: border-box;
+  line-height: 22px;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+.tree-item-name {
+  color: #e3e3e3;
+}
+.tree-row-indent .req, ul .req {
+  color: #d3393f;
+}
+.tree-row-indent .opt, ul .opt {
+  color: #746bec;
+}
+.tree-row-indent code {
+  color: #cccccc;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0px 1px 0px 2px;
+  font-size: 13px;
+  border: 0px;
+}
+.console-button-circle {
+  background-color: #888;
+  font-size: 86%;
+  font-weight: bold;
+  min-width: 20px;
+  max-width: 20px;
+  min-height: 20px;
+  max-height: 20px;
+  line-height: 20px;
+  border-radius: 20px;
+  margin-top: 1px;
+  margin-left: -1px;
+}
+</style>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <img src="/assets/blt57fb33293bc6967e/Endorsed-Vehicles-Banner.jpg" class="img-fluid mb-4 pb-1">
+<p>为了帮开发者创建乐趣十足的驾驶、竞速以及飞行体验，在任何游戏中都会提供几个<strong>认可 载具</strong>供开发者使用，所有的载具都完全<span class="text-nowrap">基于约束</span>且使用真实的物理规则来模拟驾驶体验。</p>
+<!--
+<div class="alert alert-primary mb-4" role="alert">
+这些载具中有一些是<span class="text-nowrap"><code>大逃杀游戏模板</code></span>中的，因此开发者可以随意下载大逃杀游戏并对其进行设置从而预览这些载具在真实游戏体验中的操作情况。
+</div>
+-->
+<p>在开发者的游戏中使用认可载具的方法是：</p>
+<ol>
+<li>选择下列其中之一：</li>
+</ol>
+<div class="list-indent2">
+<div class="container mb-3">
+<!-- Row 1 -->
+<div class="row">
+<div class="col-4 mx-0 px-0">
+<figure class="figure">
+<a href="CATALOG_URL_SPORTS_CAR" target="_new"><img src="/assets/blta3452699c82eda13/Endorsed-Vehicle-Sports-Car.jpg" class="img-fluid mt-2 mb-2 list-indent">
+<figcaption class="figure-caption text-center list-indent">VEHICLE_NAME</figcaption></a>
+</figure>
+</div>
+<div class="col-4 mx-0 px-0">
+<figure class="figure">
+<a href="CATALOG_URL_SEDAN" target="_new"><img src="/assets/blt05fd5c2401db688c/Endorsed-Vehicle-Sedan.jpg" class="img-fluid mt-2 mb-2 list-indent">
+<figcaption class="figure-caption text-center list-indent">VEHICLE_NAME</figcaption></a>
+</figure>
+</div>
+<div class="col-4 mx-0 px-0">
+<figure class="figure">
+<a href="CATALOG_URL_HIGH_END_SPORTS_CAR" target="_new"><img src="/assets/blt8d658bbcc623d3e4/Endorsed-Vehicle-High-End-Sports-Car.jpg" class="img-fluid mt-2 mb-2 list-indent">
+<figcaption class="figure-caption text-center list-indent">VEHICLE_NAME</figcaption></a>
+</figure>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="row">
+<div class="col-4 mx-0 px-0">
+<figure class="figure">
+<a href="CATALOG_URL_SUV" target="_new"><img src="/assets/blt6454a961dde43855/Endorsed-Vehicle-SUV.jpg" class="img-fluid mt-2 mb-2 list-indent">
+<figcaption class="figure-caption text-center list-indent">VEHICLE_NAME</figcaption></a>
+</figure>
+</div>
+<div class="col-4 mx-0 px-0">
+<figure class="figure">
+<a href="CATALOG_URL_LIGHT_UTILITY" target="_new"><img src="/assets/bltdcadea1946008537/Endorsed-Vehicle-Light-Utility.jpg" class="img-fluid mt-2 mb-2 list-indent">
+<figcaption class="figure-caption text-center list-indent">VEHICLE_NAME</figcaption></a>
+</figure>
+</div>
+<div class="col-4 mx-0 px-0">
+<figure class="figure">
+<a href="CATALOG_URL_POLICE_CAR" target="_new"><img src="/assets/blt396c82a542974813/Endorsed-Vehicle-Police-Car.jpg" class="img-fluid mt-2 mb-2 list-indent">
+<figcaption class="figure-caption text-center list-indent">VEHICLE_NAME</figcaption></a>
+</figure>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="row">
+<div class="col-4 mx-0 px-0">
+<figure class="figure">
+<a href="CATALOG_URL_PICKUP_TRUCK" target="_new"><img src="/assets/bltbcefb6fc0b347ac0/Endorsed-Vehicle-Pickup-Truck.jpg" class="img-fluid mt-2 mb-2 list-indent">
+<figcaption class="figure-caption text-center list-indent">VEHICLE_NAME</figcaption></a>
+</figure>
+</div>
+<div class="col-4 mx-0 px-0">
+<figure class="figure">
+<a href="CATALOG_URL_DUNE_BUGGY" target="_new"><img src="/assets/bltca1fb2eb9e1b7d24/Endorsed-Vehicle-Dune-Buggy.jpg" class="img-fluid mt-2 mb-2 list-indent">
+<figcaption class="figure-caption text-center list-indent">VEHICLE_NAME</figcaption></a>
+</figure>
+</div>
+<div class="col-4 mx-0 px-0">
+<figure class="figure">
+<a href="CATALOG_URL_VAN" target="_new"><img src="/assets/blt413844ce9442d052/Endorsed-Vehicle-Van.jpg" class="img-fluid mt-2 mb-2 list-indent">
+<figcaption class="figure-caption text-center list-indent">VEHICLE_NAME</figcaption></a>
+</figure>
+</div>
+</div>
+<!-- Row 4 -->
+<div class="row">
+<div class="col-4 mx-0 px-0">
+<figure class="figure">
+<a href="CATALOG_URL_MOTORCYCLE" target="_new"><img src="/assets/bltdd09578ccf1b987b/Endorsed-Vehicle-Motorcycle.jpg" class="img-fluid mt-2 mb-2 list-indent">
+<figcaption class="figure-caption text-center list-indent">VEHICLE_NAME</figcaption></a>
+</figure>
+</div>
+<div class="col-4 mx-0 px-0">
+<figure class="figure">
+<a href="CATALOG_URL_SCOOTER" target="_new"><img src="/assets/blt3946160512b6056b/Endorsed-Vehicle-Scooter.jpg" class="img-fluid mt-2 mb-2 list-indent">
+<figcaption class="figure-caption text-center list-indent">VEHICLE_NAME</figcaption></a>
+</figure>
+</div>
+<div class="col-4 mx-0 px-0">
+<figure class="figure">
+<a href="CATALOG_URL_BICYCLE" target="_new"><img src="/assets/blt0e0094c1a812b258/Endorsed-Vehicle-Bicycle.jpg" class="img-fluid mt-2 mb-2 list-indent">
+<figcaption class="figure-caption text-center list-indent">VEHICLE_NAME</figcaption></a>
+</figure>
+</div>
+</div>
+<!-- Row 5 -->
+<div class="row">
+<div class="col-4 mx-0 px-0">
+<figure class="figure">
+<a href="CATALOG_URL_HELICOPTER" target="_new"><img src="/assets/blt3fdd188003a5519f/Endorsed-Vehicle-Helicopter.jpg" class="img-fluid mt-2 mb-2 list-indent">
+<figcaption class="figure-caption text-center list-indent">VEHICLE_NAME</figcaption></a>
+</figure>
+</div>
+<div class="col-4 mx-0 px-0">
+<figure class="figure">
+<a href="CATALOG_URL_PLANE" target="_new"><img src="/assets/blt5dc4f130267fe635/Endorsed-Vehicle-Plane.jpg" class="img-fluid mt-2 mb-2 list-indent">
+<figcaption class="figure-caption text-center list-indent">VEHICLE_NAME</figcaption></a>
+</figure>
+</div>
+<div class="col-4 mx-0 px-0">
+<figure class="figure">
+<a href="CATALOG_URL_SEMI_TRUCK" target="_new"><img src="/assets/blt41383e8d87bdc307/Endorsed-Vehicle-Semi-Truck.jpg" class="img-fluid mt-2 mb-2 list-indent">
+<figcaption class="figure-caption text-center list-indent">VEHICLE_NAME</figcaption></a>
+</figure>
+</div>
+</div>
+<!-- Row 6 -->
+<div class="row">
+<div class="col-4 mx-0 px-0">
+<figure class="figure">
+<a href="CATALOG_URL_FRONT_END_LOADER" target="_new"><img src="/assets/blte034a1594e17950f/Endorsed-Vehicle-Front-End-Loader.jpg" class="img-fluid mt-2 mb-2 list-indent">
+<figcaption class="figure-caption text-center list-indent">VEHICLE_NAME</figcaption></a>
+</figure>
+</div>
+</div>
+<!-- -->
+</div>
+</div>
+<ol start="2">
+<li>在载具的物品页面，点击绿色的 <strong>Get</strong>（获取）按钮来确认交易。</li>
+<li>在 Roblox Studio 中打开工具箱<span class="text-nowrap">（<strong>View</strong>（视图） → <strong>Toolbox</strong>（工具箱））。</span></li>
+<li>选择开发者工具箱中的 <strong>Inventory</strong>（物品栏）部分。</li>
+</ol>
+<img src="/assets/blt7d482aecd878107e/Toolbox-Select-Inventory.png" class="img-fluid half-sized list-indent">
+<ol start="5">
+<li>找到并点击载具，将其添加到场景中。</li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!---------------------- VEHICLE STRUCTURE ---------------------->
+<h2 class="mt-2">载具结构</h2>
+<p>每一个认可载具的结构如下所示，但请注意载具的模型可能不会包括所有列出对象。</p>
+<div class="container-fluid mt-0 mr-0 my-0">
+<div class="row">
+<div class="col p-0 mx-0">
+<table class="table tree-table-borderless mb-4">
+  <tbody>
+<!-- [Vehicle] (Model) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"><span class="explorer-item-hl">[Vehicle]</span> (<code>Model</code>)</div>
+</div>
+      </td>
+    </tr>
+<!-- [Vehicle] / Animations (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Animations</span> (<code>Folder</code>) &mdash; 用来存储那些坐在载具中使用的动画资源。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Configuration</span> (<code>Folder</code>) &mdash; 存储着载具的配置项，注意每辆载具并不一定包括所有这些属性。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / GROUND VEHICLES AND HELICOPTER -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent"><b><u>地面载具和直升机</u></b></div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / BrakingTorque (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">BrakingTorque</span> (<code>NumberValue</code>) &mdash; 当使用制动器或者在前进和倒退间切换时所施加的扭矩系数，这个数值越高，减速效果就越快。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / DrivingTorque (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">DrivingTorque</span> (<code>NumberValue</code>) &mdash; 在加速时施加的扭矩系数；在所有的 <code>CylindricalConstraint|CylindricalConstraint</code>上面设置 <code>CylindricalConstraint/MotorMaxTorque|MotorMaxTorque</code> 属性。数值越高，加速度越大。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / MaxSpeed (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">MaxSpeed</span> (<code>NumberValue</code>) &mdash; 载具前进时的最高速度。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / MaxSteer (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">MaxSteer</span> (<code>NumberValue</code>) &mdash; 限制<code>PrismaticConstraint</code> 由一侧到另一侧的转向距离。值越低说明急转弯能力越差。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / ReverseSpeed (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">ReverseSpeed</span> (<code>NumberValue</code>) &mdash; 载具倒退行进时的最高速度。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / StrutSpringDampingFront (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">StrutSpringDampingFront</span> (<code>NumberValue</code>) &mdash; 前支柱 <code>SpringConstraint|SpringConstraint</code> 的阻尼值。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / StrutSpringDampingRear (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">StrutSpringDampingRear</span> (<code>NumberValue</code>) &mdash; 后支柱 <code>SpringConstraint|SpringConstraint</code> 的阻尼值。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / StrutSpringStiffnessFront (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">StrutSpringStiffnessFront</span> (<code>NumberValue</code>) &mdash; 前支柱 <code>SpringConstraint|SpringConstraint</code> 的刚度值。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / StrutSpringStiffnessRear (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">StrutSpringStiffnessRear</span> (<code>NumberValue</code>) &mdash; 后支柱 <code>SpringConstraint|SpringConstraint</code> 的刚度值。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / TakeOffAccessories (BoolValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">TakeOffAccessories</span> (<code>BoolValue</code>) &mdash; 如果值为 <b>true</b>，玩家的 <b>RightFoot</b>、<b>RightLowerLeg</b>、<b>LeftFoot</b> 以及 <b>LeftLowerLeg</b> 就会在进入载具后变成全透明状态，其他那些与 <b>BodyBackAttachment</b>、 <b>WaistBackAttachment</b> 以及 <b>HatAttachment</b> 相关的饰品也会变成全透明。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / TorsionSpringDamping (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">TorsionSpringDamping</span> (<code>NumberValue</code>) &mdash; 所有的 4 个扭力杆 <code>SpringConstraint|SpringConstraint</code> 的阻尼值。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / TorsionSpringStiffness (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">TorsionSpringStiffness</span> (<code>NumberValue</code>) &mdash; 所有 4 个扭力杆 <code>SpringConstraint|SpringConstraint</code> 的刚度值。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / WheelFriction (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="tree-item-name">WheelFriction</span> (<code>NumberValue</code>) &mdash; 被包含时覆盖车轮摩擦的默认值。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / PLANE -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent"><b><u>飞机</u></b></div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / AngleOfAttack (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">AngleOfAttack</span> (<code>NumberValue</code>) &mdash; 外力的倍数因子，该外力用于帮助飞机升空且受到航向矢量、速度矢量、以及飞机速度的平方影响，然后会与此因子相乘。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / BaseThrottle (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">BaseThrottle</span> (<code>NumberValue</code>) &mdash; 施加于飞机来自引擎的外力。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / Drag (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Drag</span> (<code>NumberValue</code>) &mdash; 拖拽的系数。力与飞机速度的平方成比例。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / Lift (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Lift</span> (<code>NumberValue</code>) &mdash; 抬升的系数，力与飞机前进速度的平方成比例。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / PitchSpeed (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">PitchSpeed</span> (<code>NumberValue</code>) &mdash; 基准俯仰速度的倍数因子。基准速度由速度矢量与飞机前进矢量的相似度来决定。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / RollSpeed (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">RollSpeed</span> (<code>NumberValue</code>) &mdash; 基准翻滚速度的倍数因子，它和 <span class="tree-item-name">PitchSpeed</span> 不同，不受矢量相似度的影响。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / TakeOffAccessories (BoolValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">TakeOffAccessories</span> (<code>BoolValue</code>) &mdash; 如果值为 <b>true</b>，玩家的<b>RightFoot</b>、 <b>RightLowerLeg</b>、 <b>LeftFoot</b> 和 <b>LeftLowerLeg</b> 将会在进入飞机之后变成全透明状态，就连那些与 <b>BodyBackAttachment</b>、 <b>WaistBackAttachment</b> 和 <b>HatAttachment</b> 相关的饰品也会一并变成全透明。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / Torque (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Torque</span> (<code>NumberValue</code>) &mdash; 拖拽力的旋转倍数因子，用来设置俯仰、偏航或者翻滚的强度。值越低说明飞机越不容易因为惯性而转身，而值越高则说明更容易因为惯性而转身。如果这个值因为飞机的重量而过低，那么转身的速度可能会受到影响。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Configuration / YawSpeed (NumberValue) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="tree-item-name">YawSpeed</span> (<code>NumberValue</code>) &mdash; 基准偏航速度的倍数因子。和 <span class="tree-item-name">PitchSpeed</span> 类似，它的基准速度由速度矢量和飞机前进矢量的相似度来决定。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Constraints (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Constraints</span> (<code>Folder</code>) &mdash; 含有可以驱动载具底架的物理约束。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Effects (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Effects</span> (<code>Folder</code>) &mdash; 用来存储 <code>Sound|Sound</code>、<code>ParticleEmitter|ParticleEmitter</code>、<code>Trail|Trail</code> 以及其他效果。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Remotes (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Remotes</span> (<code>Folder</code>) &mdash; 存储用于处理<a href="#seating">座位</a>的远程事件和函数。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Scripts</span> (<code>Folder</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts / Vehicle (Script) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Vehicle</span> (<code>Script</code>) &mdash; 处理下列内容：
+<ul class="my-0">
+<li>确保在加入游戏时玩家可以得到 <span class="tree-item-name">SeatLocatorScreenGui</span> 和 <span class="tree-item-name">SeatLocator</span> 脚本的副本（位于玩家的 <code>PlayerGui</code> 中）。</li>
+<li>执行记载于上述 <span class="tree-item-name">TakeOffAccessories</span> 中的过程。</li>
+<li>当玩家进入载具时，为玩家显示用于驾驶控制的 <code>ScreenGui</code>（<span class="tree-item-name">VehicleGui</span>）。</li>
+<li>使用 <span class="tree-item-name">VehicleSeating</span> 模块脚本来登记驾驶座位和乘客座位。</li>
+</ul>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts / Driver (LocalScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Driver</span> (<code>LocalScript</code>) &mdash; 当玩家进入驾驶员座位时就会将其传递给玩家，它用于解释执行载具动作（包括驾驶、进入载具、离开载具）所需的输入。此脚本还会对镜头进行配置，并从 <span class="tree-item-name">Chassis</span> 脚本中调用函数来根据输入更新每一帧的约束。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts / Passenger (LocalScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Passenger</span> (<code>LocalScript</code>) &mdash; 当玩家进入乘客座位时就会将其传递给玩家，它只描述用于上车和下车的输入，同时为乘客配置镜头。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts / SeatLocator (LocalScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">SeatLocator</span> (<code>LocalScript</code>) &mdash; 与其他脚本一起用在<a href="#seating">座位和提示系统</a>中。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts / Chassis (ModuleScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Chassis</span> (<code>ModuleScript</code>) &mdash; 唯一的一个直接与 <span class="tree-item-name">Constraints</span> 文件夹中的约束对象进行交互的脚本。对约束值的初始化基于在 <span class="tree-item-name">Configuration</span> 文件夹中设置的配置值和当前的重力设置。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts / Effects (ModuleScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Effects</span> (<code>ModuleScript</code>) &mdash; 管理存储在 <span class="tree-item-name">Effects</span> 文件夹中的载具效果。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts / InputImageLibrary (ModuleScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">InputImageLibrary</span> (<code>ModuleScript</code>) &mdash; 和其子项一起处理<span class="text-nowrap">屏幕上的</span> GUI 图像，用于接收各种手柄输入。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts / Keymap (ModuleScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Keymap</span> (<code>ModuleScript</code>) &mdash; 用来定义各个动作对应的键位或者按钮配置。动作中的每个条目都是一个独立的字典，需要一个 <code>enum/KeyCode|KeyCode</code> 来接收按下的键或者手柄按钮，还有一个轴用于模拟输入。注意在这里定义的动作必须在 <span class="tree-item-name">Driver</span> 或者 <span class="tree-item-name">Passenger</span> 脚本中实现。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts / LocalVehicleGui (ModuleScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">LocalVehicleGui</span> (<code>ModuleScript</code>) &mdash; 包含 <span class="tree-item-name">VehicleGui</span> 的 <code>ScreenGui</code>，用于显示<span class="text-nowrap">屏幕上的</span>载具控制信息。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts / LocalVehicleSeating (LocalScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">LocalVehicleSeating</span> (<code>LocalScript</code>) &mdash; 与其他脚本一起用于<a href="#seating">座位和提示系统</a>中。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts / VehicleSeating (ModuleScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-vert"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="tree-item-name">VehicleSeating</span> (<code>ModuleScript</code>) &mdash; 与其他脚本一起用于 <a href="#seating">座位和提示系统</a>中。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Body (Model) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Body</span> (<code>Model</code>) &mdash; 包含所有的<span class="text-nowrap">非必须</span>网格和装饰部件（这些网格和装饰部件组成了载具的可视化外形），可以对它们进行移除或者自定义，但注意下面的<a href="#density-notes">密度分布</a>。</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Chassis (Model) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Chassis</span> (<code>Model</code>) &mdash; 此载具功能部件用于处理驾驶相关事宜，它含有与物理约束相连接的所有底架部件，<a href="#seating">座位部件</a>和<a href="#density-notes">权重</a>来平衡载具的前端和后端。底架经过调整，可以适用于默认的 <code>Workspace/Gravity|Gravity</code> 值（35） 、同时也适用于 “Action” 重力设置值（75），但如果游戏使用极端重力设置，要想让底架正常工作可能就需要额外再对它进行调整。</div>
+</div>
+    </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div><span id="density-notes"></span>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card- border-" role="card" style="">
+  
+
+  
+  
+    
+  
+
+  
+  
+    <h5 data-toc-skip class="card-header bg- text-white">密度分布</h5>
+  
+
+
+  
+  
+    
+    
+      
+    
+      <div class="collapse show" id="ref_card-1">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <p>Most of a vehicle’s mass is isolated in the “weight” parts and other parts of its <b>Chassis</b> model. This keeps the center of mass low and reduces the chances of the vehicle tipping or flipping. In contrast, the parts within the <b>Body</b> model are kept as light as possible so they have minimal impact on driving behavior.</p>
+
+      </div>
+    
+  
+
+
+
+
+          
+        
+        
+        </div>
+      </div>
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>座位和提示系统<span id="seating"></span></h2>
+<p>每辆载具只能有一个驾驶员座位，但可以有无数个乘客座位（具体数量由开发者决定）。</p>
+<ul>
+<li>
+<p>驾驶员座位必须是名为 <strong>VehicleSeat</strong> 的 <code>VehicleSeat</code> 对象，它应该是载具 <strong>Chassis</strong> 模型的直接子项并被准确放置在开发者想让驾驶员所坐的位置。<strong>记住驾驶员座位只能有一个</strong>。</p>
+</li>
+<li>
+<p>乘客座位必须是 <code>Seat</code> 对象，每一个乘客座位都应该是拥有唯一名称的 <strong>Chassis</strong> 模型子项。在 <samp>Scripts/Chassis</samp> <code>ModuleScript</code> 中按照下列方式将每个乘客座位添加到 <code>Chassis.passengerSeats</code> 数组中，其中 <code>[SeatName]</code> 就是 <code>Seat</code> 对象的名称：</p>
+</li>
+</ul>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme list-indent">
+
+	
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-1" role="tabpanel" aria-labelledby="nav-code-tab-1">
+			<pre class="prettyprint no-border linenums:205 lang-lua">Chassis.passengerSeats = {
+<span class='highlighted'>	Chassis.root:FindFirstChild("[SeatName]"),</span>
+	-- 额外的乘客座位，如果存在的话
+}</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-1" role="tabpanel" aria-labelledby="nav-output-tab-1">
+			<pre class="prettyprint no-border nocode"></pre>
+		</div>
+	</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <!---------------------- SEATING AND PROMPT SCRIPTS ---------------------->
+<p class="mt-2">在内部，座位和提示系统由三个高亮脚本处理：</p>
+<div class="container-fluid mt-0 mr-0 my-0">
+<div class="row">
+<div class="col p-0 mx-0">
+<table class="table tree-table-borderless mb-2">
+  <tbody>
+<!-- [Vehicle] / Scripts (Folder) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Scripts</span> (<code>Folder</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts / Vehicle (Script) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Vehicle</span> (<code>Script</code>)</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts / Driver (LocalScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Driver</span> (<code>LocalScript</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts / Passenger (LocalScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Passenger</span> (<code>LocalScript</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts / SeatLocator (LocalScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="explorer-item-hl">SeatLocator</span> (<code>LocalScript</code>)
+<ul class="my-0">
+<li>每隔给定时间间隔（0.1 秒）就去寻找距离玩家最近的座位（该时间间隔可以更改，只需要修改脚本顶部的 <code>SEAT_POLL_INTERVAL</code> 常量即可）。</li>
+<li>通知 <span class="tree-item-name">LocalVehicleSeating</span> 脚本去显示提示信息，这样每次当一个新座位成为距离玩家最近的座位时就会显示坐上座位的提示。</li>
+</ul>
+</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts / Chassis (ModuleScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Chassis</span> (<code>ModuleScript</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts / Effects (ModuleScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Effects</span> (<code>ModuleScript</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts / InputImageLibrary (ModuleScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">InputImageLibrary</span> (<code>ModuleScript</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts / Keymap (ModuleScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">Keymap</span> (<code>ModuleScript</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts / LocalVehicleGui (ModuleScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="tree-item-name">LocalVehicleGui</span> (<code>ModuleScript</code>)</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts / LocalVehicleSeating (LocalScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-branch"></div>
+<div class="tree-row-indent"><span class="explorer-item-hl">LocalVehicleSeating</span> (<code>LocalScript</code>)
+<ul class="my-0">
+<li>存有 <code>ShowPrompt()</code> 函数，该函数的作用是当玩家离身边最近的座位足够近时，函数就会显示进入驾驶员座位或者乘客座位的图标、如果载具被翻转则函数就会显示翻转图标。开发者可以在此脚本的顶端修改 <code>MIN_FLIP_ANGLE</code> 常量来更改载具需要被翻多少度才会被定义为翻转过来。</li>
+<li>监听玩家的输入并作出恰当的响应，根据最后的输入类型（键盘、游戏手柄、触摸设备）来更改在提示中该显示哪个图标来进入或者翻转载具，如果玩家通过正确输入激活当前显示的提示，此文件将会告诉服务器如何处理，并在玩家进入载具时为玩家播放相应的动画效果。</li>
+</ul>
+</div>
+</div>
+    </td>
+    </tr>
+<!-- [Vehicle] / Scripts / VehicleSeating (ModuleScript) -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent tree-end"></div>
+<div class="tree-row-indent"><span class="explorer-item-hl">VehicleSeating</span> (<code>ModuleScript</code>)
+<ul class="my-0">
+<li>当玩家进入或者离开载具时，处理将玩家放入座位或者让玩家脱离座位。</li>
+<li>让门迅速打开和关闭。</li>
+<li>登记 <span class="tree-item-name">FlipSeat</span> 远程事件的 <code>RemoteEvent/OnServerEvent|OnServerEvent</code> 回调函数，该回调函数通知底架在玩家触发它时将车翻转。</li>
+</ul>
+</div>
+</div>
+    </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2 class="mt-4">载具控制</h2>
+<!-- Pill Buttons -->
+<div class="mx-0 mt-3 mb-3">
+<nav class="nav nav-pills">
+<a class="nav-item nav-link mr-2 mb-0 px-5 border border-primary active" role="button" data-toggle="pill" href="#controls-pc">个人电脑</a>
+<a class="nav-item nav-link mr-2 mb-0 px-5 border border-primary" role="button" data-toggle="pill" href="#controls-mobile">移动设备</a>
+<a class="nav-item nav-link mr-0 mb-0 px-5 border border-primary" role="button" data-toggle="pill" href="#controls-console">主机</a>
+</nav>
+</div>
+<div class="tab-content">
+<!---------------------- PC ---------------------->
+<div id="controls-pc" class="tab-pane active">
+<div style="font-size: 20px; color: #444C56;" class="mb-2"><b>地面载具</b></div>
+<table class="table table-striped table-bordered mb-0">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" width="35%" class="text-nowrap">动作</th>
+            <th scope="col" class="text-nowrap">键 / 控制</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row">加速 / 前进</td>
+            <td scope="row"><kbd class="keyboard-key">W</kbd> 或者 <kbd class="keyboard-key">&uarr;</kbd></td>
+        </tr>
+        <tr>
+            <td scope="row">制动 / 倒行</td>
+            <td scope="row"><kbd class="keyboard-key">S</kbd> 或者 <kbd class="keyboard-key">&darr;</kbd></td>
+        </tr>
+        <tr>
+            <td scope="row">左转</td>
+            <td scope="row"><kbd class="keyboard-key">A</kbd> 或者 <kbd class="keyboard-key">&larr;</kbd></td>
+        </tr>
+        <tr>
+            <td scope="row">右转</td>
+            <td scope="row"><kbd class="keyboard-key">D</kbd> 或者 <kbd class="keyboard-key">&rarr;</kbd></td>
+        </tr>
+        <tr>
+            <td scope="row">紧急制动 / 漂移</td>
+            <td scope="row"><kbd class="keyboard-key">空格键</kbd></td>
+        </tr>
+        <tr>
+            <td scope="row">进入 / 离开 / 翻转</td>
+            <td scope="row"><kbd class="keyboard-key">E</kbd></td>
+        </tr>
+    </tbody>
+</table>
+<div style="font-size: 20px; color: #444C56;" class="mt-3 mb-2"><b>直升机</b></div>
+<table class="table table-striped table-bordered mb-0">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" width="35%" class="text-nowrap">动作</th>
+            <th scope="col" class="text-nowrap">键 / 控制</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row">驾驶操纵</td>
+            <td scope="row">移动鼠标（镜头控制）</td>
+        </tr>
+        <tr>
+            <td scope="row">加速 / 前进</td>
+            <td scope="row"><kbd class="keyboard-key">W</kbd> 或者 <kbd class="keyboard-key">&uarr;</kbd></td>
+        </tr>
+        <tr>
+            <td scope="row">减速 / 倒退</td>
+            <td scope="row"><kbd class="keyboard-key">S</kbd> 或者 <kbd class="keyboard-key">&darr;</kbd></td>
+        </tr>
+        <tr>
+            <td scope="row">向左平移</td>
+            <td scope="row"><kbd class="keyboard-key">A</kbd> 或者 <kbd class="keyboard-key">&larr;</kbd></td>
+        </tr>
+        <tr>
+            <td scope="row">向右平移</td>
+            <td scope="row"><kbd class="keyboard-key">D</kbd> 或者 <kbd class="keyboard-key">&rarr;</kbd></td>
+        </tr>
+        <tr>
+            <td scope="row">上升</td>
+            <td scope="row"><kbd class="keyboard-key">Q</kbd> 或者 <kbd class="keyboard-key">Shift</kbd></td>
+        </tr>
+        <tr>
+            <td scope="row">下降</td>
+            <td scope="row"><kbd class="keyboard-key">Z</kbd> 或者 <kbd class="keyboard-key">Ctrl</kbd></td>
+        </tr>
+        <tr>
+            <td scope="row">进入 / 离开 / 翻转</td>
+            <td scope="row"><kbd class="keyboard-key">E</kbd></td>
+        </tr>
+    </tbody>
+</table>
+<div style="font-size: 20px; color: #444C56;" class="mt-3 mb-2"><b>飞机</b></div>
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" width="35%" class="text-nowrap">动作</th>
+            <th scope="col" class="text-nowrap">键 / 控制</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row">驾驶操纵</td>
+            <td scope="row">移动鼠标（镜头控制）</td>
+        </tr>
+        <tr>
+            <td scope="row">加速 / 前进</td>
+            <td scope="row"><kbd class="keyboard-key">W</kbd> 或者 <kbd class="keyboard-key">&uarr;</kbd></td>
+        </tr>
+        <tr>
+            <td scope="row">减速 / 停止</td>
+            <td scope="row"><kbd class="keyboard-key">S</kbd> 或者 <kbd class="keyboard-key">&darr;</kbd></td>
+        </tr>
+        <tr>
+            <td scope="row">向左翻滚</td>
+            <td scope="row"><kbd class="keyboard-key">A</kbd> 或者 <kbd class="keyboard-key">&larr;</kbd></td>
+        </tr>
+        <tr>
+            <td scope="row">向右翻滚</td>
+            <td scope="row"><kbd class="keyboard-key">D</kbd> 或者 <kbd class="keyboard-key">&rarr;</kbd></td>
+        </tr>
+        <tr>
+            <td scope="row">进入 / 离开 / 翻转</td>
+            <td scope="row"><kbd class="keyboard-key">E</kbd></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<!---------------------- MOBILE ---------------------->
+<div id="controls-mobile" class="tab-pane">
+<div style="font-size: 20px; color: #444C56;" class="mb-2"><b>地面载具</b></div>
+<table class="table table-striped table-bordered mb-0">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" width="35%" class="text-nowrap">动作</th>
+            <th scope="col" class="text-nowrap">按钮 / 控制</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row">加速 / 前进</td>
+            <td scope="row">跳跃按钮 <span class="text-nowrap">（视觉变动）</span></td>
+        </tr>
+        <tr>
+            <td scope="row">制动 / 倒退</td>
+            <td scope="row"><b>加速</b> 按钮左侧的更小的按钮</td>
+        </tr>
+        <tr>
+            <td scope="row">向左转/向右转</td>
+            <td scope="row">移动摇杆</td>
+        </tr>
+        <tr>
+            <td scope="row">紧急制动 / 漂移</td>
+            <td scope="row">在最大转弯时出现</td>
+        </tr>
+        <tr>
+            <td scope="row">进入 / 翻转</td>
+            <td scope="row">载具上方的按钮提示</td>
+        </tr>
+        <tr>
+            <td scope="row">离开</td>
+            <td scope="row"><b>加速</b>按钮上方的更小按钮</td>
+        </tr>
+    </tbody>
+</table>
+<div style="font-size: 20px; color: #444C56;" class="mt-3 mb-2"><b>直升飞机</b></div>
+<table class="table table-striped table-bordered mb-0">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" width="35%" class="text-nowrap">动作</th>
+            <th scope="col" class="text-nowrap">按钮 / 控制</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row">驾驶操纵</td>
+            <td scope="row">触摸屏（镜头控制）</td>
+        </tr>
+        <tr>
+            <td scope="row">加速 / 前进</td>
+            <td scope="row">向前推摇杆</td>
+        </tr>
+        <tr>
+            <td scope="row">减速 / 后退</td>
+            <td scope="row">向后推摇杆</td>
+        </tr>
+        <tr>
+            <td scope="row">向左平移/向右平移</td>
+            <td scope="row">向左推摇杆/向右推摇杆</td>
+        </tr>
+        <tr>
+            <td scope="row">上升</td>
+            <td scope="row">跳跃按钮<span class="text-nowrap">（视觉改变）</span></td>
+        </tr>
+        <tr>
+            <td scope="row">下降</td>
+            <td scope="row"><b>上升</b>按钮左侧的更小按钮</td>
+        </tr>
+        <tr>
+            <td scope="row">进入 / 翻转</td>
+            <td scope="row">直升机上方的按钮提示</td>
+        </tr>
+        <tr>
+            <td scope="row">离开</td>
+            <td scope="row"><b>上升</b>按钮上方的更小的按钮</td>
+        </tr>
+    </tbody>
+</table>
+<div style="font-size: 20px; color: #444C56;" class="mt-3 mb-2"><b>飞机</b></div>
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" width="35%" class="text-nowrap">动作</th>
+            <th scope="col" class="text-nowrap">按钮 / 控制</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row">驾驶操纵</td>
+            <td scope="row">移动摇杆</td>
+        </tr>
+        <tr>
+            <td scope="row">加速 / 前进</td>
+            <td scope="row">跳跃按钮<span class="text-nowrap">（视觉改变）</span></td>
+        </tr>
+        <tr>
+            <td scope="row">减速 / 停止</td>
+            <td scope="row"><b>加速</b>按钮左侧的更小的按钮</td>
+        </tr>
+        <!--<tr>
+            <td scope="row">向左翻滚/向右翻滚</td>
+            <td scope="row">???</td>
+        </tr>-->
+        <tr>
+            <td scope="row">进入 / 翻转</td>
+            <td scope="row">飞机上方的按钮提示</td>
+        </tr>
+        <tr>
+            <td scope="row">离开</td>
+            <td scope="row"><b>加速</b>按钮上方的更小按钮</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<!---------------------- CONSOLE ---------------------->
+<div id="controls-console" class="tab-pane">
+<div style="font-size: 20px; color: #444C56;" class="mb-2"><b>地面载具</b></div>
+<table class="table table-striped table-bordered mb-0">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" width="35%" class="text-nowrap">动作</th>
+            <th scope="col" class="text-nowrap">按钮 / 控制</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row">加速 / 前进</td>
+            <td scope="row">RT</td>
+        </tr>
+        <tr>
+            <td scope="row">制动 / 倒行</td>
+            <td scope="row">LT</td>
+        </tr>
+        <tr>
+            <td scope="row">向左转/向右转</td>
+            <td scope="row">将左摇杆向左推/向右推</td>
+        </tr>
+        <tr>
+            <td scope="row">电子制动 / 漂移</td>
+            <td scope="row"><div class="console-button-circle text-white text-center">X</div></td>
+        </tr>
+        <tr>
+            <td scope="row">进入 / 离开 / 翻转</td>
+            <td scope="row"><div class="console-button-circle text-white text-center">Y</div></td>
+        </tr>
+    </tbody>
+</table>
+<div style="font-size: 20px; color: #444C56;" class="mt-3 mb-2"><b>直升机</b></div>
+<table class="table table-striped table-bordered mb-0">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" width="35%" class="text-nowrap">动作</th>
+            <th scope="col" class="text-nowrap">按钮 / 控制</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row">驾驶操纵</td>
+            <td scope="row">右模拟杆（镜头控制）</td>
+        </tr>
+        <tr>
+            <td scope="row">加速 / 前进</td>
+            <td scope="row">将左摇杆往前推</td>
+        </tr>
+        <tr>
+            <td scope="row">减速 / 后退</td>
+            <td scope="row">将左摇杆往后推</td>
+        </tr>
+        <tr>
+            <td scope="row">向左平移/向右平移</td>
+            <td scope="row">将左摇杆向左推/向右推</td>
+        </tr>
+        <tr>
+            <td scope="row">上升</td>
+            <td scope="row">RT</td>
+        </tr>
+        <tr>
+            <td scope="row">下降</td>
+            <td scope="row">LT</td>
+        </tr>
+        <tr>
+            <td scope="row">进入 / 离开 / 翻转</td>
+            <td scope="row"><div class="console-button-circle text-white text-center">Y</div></td>
+        </tr>
+    </tbody>
+</table>
+<div style="font-size: 20px; color: #444C56;" class="mt-3 mb-2"><b>飞机</b></div>
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" width="35%" class="text-nowrap">动作</th>
+            <th scope="col" class="text-nowrap">按钮 / 控制</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row">驾驶操纵</td>
+            <td scope="row">右摇杆（镜头控制）</td>
+        </tr>
+        <tr>
+            <td scope="row">加速 / 前进</td>
+            <td scope="row">RT</td>
+        </tr>
+        <tr>
+            <td scope="row">减速 / 停止</td>
+            <td scope="row">LT</td>
+        </tr>
+        <tr>
+            <td scope="row">向左翻滚/向右翻滚</td>
+            <td scope="row">将左摇杆向左推/向右推</td>
+        </tr>
+        <tr>
+            <td scope="row">进入 / 离开 / 翻转</td>
+            <td scope="row"><div class="console-button-circle text-white text-center">Y</div></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+            
+            
+  <div class="related-articles" data-swiftype-index='false'>
+    <h2 data-toc-skip class="text-center mbl">相关参考文章</h2>
+    <div class="row">
+      
+        <div class="col-md-4">
+          <a href="/articles/weapons-kit"><span class="related-article-img" style="background-image: url();"> </span></a>
+          <h3 data-toc-skip><a href="/articles/weapons-kit">认可武器</a></h3>
+        </div>
+      
+        <div class="col-md-4">
+          <a href="/articles/npc-kit"><span class="related-article-img" style="background-image: url();"> </span></a>
+          <h3 data-toc-skip><a href="/articles/npc-kit">NPC 套组</a></h3>
+        </div>
+      
+    </div>
+  </div>
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>此网站如何使用 Cookie</h1>
+        <div class="privacy-content">
+          <p>此平台使用 Cookie 为您提供更好的体验、对内容进行个性化、提供社交媒体功能和分析网站流量。如需详细信息（包括有关如何在此平台上防止使用 Cookie 或对其进行管理的信息），请参阅我们的<a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私和 Cookie 政策</a>。</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">确定</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">你即将离开 Roblox 网站</div>
+        <p>请按下继续按钮前往： <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="" class="btn secondary-btn" data-dismiss="modal">返回</a>
+        <a href="" class="btn primary-btn continue-link" target="_blank">继续</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com" target="_self" class="footer-logo ptxl mbl">
+              <img src="https://dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2019 Roblox Corporation. 保留所有权利。</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>公司</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">关于 Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">招贤纳士</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">技术</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">服务条款</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私政策</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">家长</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>开发人员</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="/articles/Creating-Your-First-Game" target="_self">入门</a>
+                  </li>
+                
+                  <li>
+                    <a href="/learn-roblox/all-tutorials" target="_self">了解</a>
+                  </li>
+                
+                  <li>
+                    <a href="/api-reference" target="_self">API 参考</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com" target="_blank">社区</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">开发人员公告</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">搜索</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input"
+                        placeholder="搜索">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" href="#all" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            所有结果
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" href="#api-doc" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API 文档
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" href="#tutorial" role="tab"
+                            aria-selected="false" data-name="articles">
+                            教程
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" href="#recipe" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            代码参考
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" href="#video" role="tab"
+                            aria-selected="false" data-name="videos">
+                            视频
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+</html>

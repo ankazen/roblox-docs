@@ -1,0 +1,369 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>BodyPosition &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bézier Curves" href="Bezier-curves.html" />
+    <link rel="prev" title="BodyMovers" href="BodyMover.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">BodyPosition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">起始设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">代码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">另请参阅</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>BodyPosition</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/How-To-Use-BodyPosition.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bodyposition">
+<h1>BodyPosition<a class="headerlink" href="#bodyposition" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>当实践本教程时，请处于 Roblox Studio 中。一些开发者可能并不熟悉 BodyPosition（主体位置）的定义：BodyPosition 是使用 Roblox 模拟物理移动游戏中对象的一种方法。对象将会尝试移动至主体位置所指定的点，并尝试施加既定的力。在许多特定情况下可以运用主体位置的这一特性。举例来说，通过 BodyPosition 为对象在 Y 轴（上下方向）上定义较大的力，而在 X 和 Z 轴（分别为左右方向和前后方向）上定义较小的力。这样就能将该对象转变为能够自由移动的漂浮物体。当创建悬停飞行载具或船只时，主体位置将会十分有用。在对其进行利用时需要注意：虽然部件会尝试前往指定点，但并非一定会到达该位置。如果在其路径上存在锚固的其它对象，则该部件很可能无法到达目标位置。</p>
+<div class="section" id="id1">
+<h2>起始设置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>创建砖型小型部件（示例尺寸：5 x 1 x 5）。</p></li>
+<li><p>选中该砖块，单击 <strong>Insert（插入）</strong> -&gt; <strong>Object（对象）</strong> -&gt; <strong>Script（脚本）</strong>。</p></li>
+<li><p>双击新的脚本对象。</p></li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2>代码<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>双击脚本对象后，应当会显示以下内容：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>由于本示例不需要这些文本，请将其进行删除。下面我们将会逐步解释放入该脚本的示例代码：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">onTouched</span><span class="p">(</span><span class="n">hit</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>上述代码的作用是当此对象被触碰时对触碰事件进行检测。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">character</span> <span class="o">=</span> <span class="n">hit</span><span class="o">.</span><span class="n">Parent</span>
+<span class="k">if</span> <span class="n">character</span> <span class="ow">and</span> <span class="n">character</span><span class="p">:</span><span class="n">findFirstChild</span><span class="p">(</span><span class="s2">&quot;Humanoid&quot;</span><span class="p">)</span> <span class="n">then</span>
+</pre></div>
+</div>
+<p>而这一段代码将会检测对砖块进行触碰的是否为 Humanoid（人形对象）。我们希望由人形对象触发主体位置，而非火箭炮或者弹弓弹丸等部件。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">b</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;BodyPosition&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>上述代码对 BodyPosition 对象进行了定义。但因为我们尚未定义其父项，该主体位置目前没有任何作用。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">maxForce</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">500000000</span><span class="p">,</span> <span class="mi">500000000</span><span class="p">,</span> <span class="mi">500000000</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">character</span><span class="o">.</span><span class="n">Torso</span>
+</pre></div>
+</div>
+<p>这几行代码将会定义 BodyPosition 的一部分属性。</p>
+<ul class="simple">
+<li><p>BodyPosition 的 position 属性作用：当 BodyPosition 拥有父项时，此属性将会使父项前往 BodyPosition 的 position 属性位置。此属性的用途很多。举例来说，当希望进行传送而不使用传送功能时，即可利用该属性。</p></li>
+<li><p>BodyPosition 的 maxForce 属性作用：该属性定义了向父项的每个轴上施加的力度，同时也控制了 BodyPosition 在将对象移动至其 position（位置）属性前其所能达到的最远位置。</p></li>
+<li><p>BodyPosition 的 Parent（父项）作用：BodyPosition 的父项就是其所将移动的对象。在本示例中，我们将会移动游戏角色的 Torso（躯干）。</p></li>
+</ul>
+<p>目前为止的代码应当如下所示：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">onTouched</span><span class="p">(</span><span class="n">hit</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">character</span> <span class="o">=</span> <span class="n">hit</span><span class="o">.</span><span class="n">Parent</span>
+    <span class="k">if</span> <span class="n">character</span> <span class="ow">and</span> <span class="n">character</span><span class="p">:</span><span class="n">findFirstChild</span><span class="p">(</span><span class="s2">&quot;Humanoid&quot;</span><span class="p">)</span> <span class="n">then</span>
+        <span class="n">local</span> <span class="n">b</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;BodyPosition&quot;</span><span class="p">)</span>
+        <span class="n">b</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+        <span class="n">b</span><span class="o">.</span><span class="n">maxForce</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">500000000</span><span class="p">,</span> <span class="mi">500000000</span><span class="p">,</span> <span class="mi">500000000</span><span class="p">)</span>
+        <span class="n">b</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">character</span><span class="o">.</span><span class="n">Torso</span>
+</pre></div>
+</div>
+<p>这段代码会让游戏角色飞行到 BodyPosition 的指定位置，但角色将不会落地。下面让我们来修复这一问题：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>         <span class="n">wait</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+         <span class="n">b</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">nil</span>
+</pre></div>
+</div>
+<p>加入上述代码后， BodyPosition 将在 3 秒钟后不复存在，而角色也将会随之落地。之后我们只需对函数进行清理，然后将其连接到 Touched 属性即可：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     <span class="n">end</span>
+<span class="n">end</span>
+<span class="n">script</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">Touched</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">onTouched</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>加入 end 后，即可结束 if 语句和函数。整个脚本现在应当如下所示：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">onTouched</span><span class="p">(</span><span class="n">hit</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">character</span> <span class="o">=</span> <span class="n">hit</span><span class="o">.</span><span class="n">Parent</span>
+    <span class="k">if</span> <span class="n">character</span> <span class="ow">and</span> <span class="n">character</span><span class="p">:</span><span class="n">findFirstChild</span><span class="p">(</span><span class="s2">&quot;Humanoid&quot;</span><span class="p">)</span> <span class="n">then</span>
+        <span class="n">local</span> <span class="n">b</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;BodyPosition&quot;</span><span class="p">)</span>
+        <span class="n">b</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+        <span class="n">b</span><span class="o">.</span><span class="n">maxForce</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">500000000</span><span class="p">,</span> <span class="mi">500000000</span><span class="p">,</span> <span class="mi">500000000</span><span class="p">)</span>
+        <span class="n">b</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">character</span><span class="o">.</span><span class="n">Torso</span>
+        <span class="n">wait</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+        <span class="n">b</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">nil</span>
+    <span class="n">end</span>
+<span class="n">end</span>
+<span class="n">script</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">Touched</span><span class="p">:</span><span class="n">connect</span><span class="p">(</span><span class="n">onTouched</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>若希望变更角色前往的位置，则可以更改 BodyPosition 的 position 属性。当将 wait 的时间改为 0.1 秒时（即 wait(0.1)），BodyPosition 的父项角色将会飞起来，十分有趣！</p>
+</div>
+<div class="section" id="id3">
+<h2>另请参阅<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">BodyPosition</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Datatype/Vector3</span></code></p></li>
+</ul>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/How-To-Use-BodyPosition">BodyPosition</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Bezier-curves.html" class="btn btn-neutral float-right" title="Bézier Curves" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="BodyMover.html" class="btn btn-neutral float-left" title="BodyMovers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

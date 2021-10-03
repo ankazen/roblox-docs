@@ -1,0 +1,376 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>设计多人游戏 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="合作式开发" href="Team-Create.html" />
+    <link rel="prev" title="关于 GDPR 和 CCPA" href="managing-personal-information.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/creating.html">创建</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Building-a-Campfire.html">构建篝火</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Circle-With-Code.html">使用代码创建圆环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3D-Modeling-with-Parts.html">实体建模：使用部件进行 3D 建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Content.html">内容数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importing-terrain-data.html">导入地形数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importing-custom-rigs.html">导入自定义模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-ray-casting-laser-gun-in-Roblox.html">射线投射：创建激光枪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archiving-assets-and-games.html">将资源和游戏归档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="understanding-root-parts.html">根部件：概述与理解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Copyright-Guidance.html">内容版权与知识产权</a></li>
+<li class="toctree-l2"><a class="reference internal" href="managing-personal-information.html">关于 GDPR 和 CCPA</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">设计多人游戏</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">设计选择</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">平衡世界尺寸</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">考虑游戏类型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">避免分裂玩家基数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">提供登录奖励</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">社交功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">提示好友互相加入</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Create.html">合作式开发</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/creating.html">创建</a> &raquo;</li>
+        
+      <li>设计多人游戏</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/designing-for-multiplayer.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>设计多人游戏<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p>作为社交平台，Roblox 上最成功的游戏都利用了促进玩家之间进行有意义的互动的机制。通过特定的设计选择来鼓励社交游戏，开发者将可以大幅提升玩家的参与度和留存度，以及游戏利润。</p>
+<div class="section" id="id2">
+<h2>设计选择<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>平衡世界尺寸<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>考虑游戏世界的尺寸与最大玩家数量。少数玩家在巨大的地图上会让人感觉游戏人数稀少，而拥挤的大厅则会让人觉得不适。</p>
+<p>以下是一些平衡地图尺寸与玩家数量的技巧：</p>
+<ul class="simple">
+<li><p>在较大的地图上创造关键点来聚集玩家，例如 FPS 中重要的 NPC 商店或建筑。</p></li>
+<li><p>使用头目战或假日挑战之类的社区活动将大量玩家聚集到一起。</p></li>
+<li><p>在开发过程中，以不同的玩家数量进行游戏测试，直到空间与玩家数量达到理想的比例。</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>考虑游戏类型<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>根据游戏类型，开发者可以用不同的方式设计环境。以角色扮演游戏 <a class="reference external" href="https://www.roblox.com/games/185655149">Welcome to Bloxburg（欢迎来到方块堡）</a>为例，其环境设计中包含了多种用途的玩家聚集中心，让玩家可以去上班、购车及在饭店、俱乐部或者家庭聚会中社交。大地图并不是问题，因为玩家会聚集在这些社交中心。相比之下，<a class="reference external" href="https://www.roblox.com/games/292439477">Phantom Forces（幻影力量）</a>这样的竞技类战斗游戏将地图设计得较小，以迫使玩家之间频繁交战。</p>
+<p><img alt="https://developer.roblox.com/assets/bltefce3ee46dbbbfa7/bloxburg.png" src="https://developer.roblox.com/assets/bltefce3ee46dbbbfa7/bloxburg.png" /></p>
+<p><a class="reference external" href="https://www.roblox.com/games/185655149">欢迎来到方块堡</a> 作者：<a class="reference external" href="https://www.roblox.com/users/63700903/profile">Coeptus</a></p>
+<p><img alt="https://developer.roblox.com/assets/blt7475ca5da83d057c/phantom_forces_ds.png" src="https://developer.roblox.com/assets/blt7475ca5da83d057c/phantom_forces_ds.png" /></p>
+<p><a class="reference external" href="https://www.roblox.com/games/292439477">幻影力量</a> 作者：<a class="reference external" href="https://www.roblox.com/groups/group.aspx?gid=1103278">StyLiS Studios</a></p>
+</div>
+<div class="section" id="id5">
+<h3>避免分裂玩家基数<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>以多种游戏模式发布游戏时，可能带有分裂玩家基数的风险。例如，如果游戏是大逃杀类，在玩家基数足够多之前请考虑发布一个“小队”模式。一旦开发者认为游戏已有足够多的玩家，即使分段也不会影响服务器上的玩家数量，再考虑加入单人游戏等更多模式。</p>
+</div>
+<div class="section" id="id6">
+<h3>提供登录奖励<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>维持健康而稳固的社区的方法之一，是确保玩家经常返回。在 Roblox 中一种常见的办法是提供登录奖励，例如<code class="docutils literal notranslate"><span class="pre">/articles/Developer</span> <span class="pre">Products</span> <span class="pre">In</span> <span class="pre">Game</span> <span class="pre">Purchases|游戏内物品</span></code>或<code class="docutils literal notranslate"><span class="pre">/articles/Badges</span> <span class="pre">Special</span> <span class="pre">Game</span> <span class="pre">Awards|徽章</span></code>等。只要玩家为获取奖励而返回，游戏就会成为他们日常习惯的一部分，使其维持一定的活跃玩家基数。</p>
+<p>可激励奖励的方式包括：</p>
+<ul class="simple">
+<li><p>如果玩家连续多天登陆可获得比普通奖励更好的奖励。例如，角色扮演游戏 <a class="reference external" href="https://www.roblox.com/games/920587237">Adopt Me!（领养我！）</a>为每天登录的玩家提供游戏内货币，并在连续五天后提供一份神秘礼物。</p></li>
+<li><p>提供认可玩家连续登陆的方式，例如奖励专属的外观物品。这会提醒其他玩家连续登陆奖励的价值。</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>社交功能<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>友谊和社区可提高玩家的留存度与参与度。虽然 Roblox 包含诸如游戏内聊天和好友系统这样的功能，您也可以用特定的社交功能来增强游戏。</p>
+<div class="section" id="id8">
+<h3>提示好友互相加入<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Roblox 提供 <code class="docutils literal notranslate"><span class="pre">SocialService</span></code> 函数，让玩家可以邀请好友加入其当前的游戏服务器。</p>
+<p><img alt="https://developer.roblox.com/assets/blt68abe5b46fb198c0/InviteFlow1.jpg" src="https://developer.roblox.com/assets/blt68abe5b46fb198c0/InviteFlow1.jpg" /></p>
+<p>以下代码示例演示如何使用 <code class="docutils literal notranslate"><span class="pre">SocialService</span></code> API 实现此功能：</p>
+<p>发送游戏邀请 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">SocialService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;SocialService&quot;</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">Players</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">Players</span><span class="o">.</span><span class="n">LocalPlayer</span>
+
+<span class="n">local</span> <span class="n">function</span> <span class="n">canSendGameInvite</span><span class="p">(</span><span class="n">targetPlayer</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">canSend</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">SocialService</span><span class="p">:</span><span class="n">CanSendGameInvite</span><span class="p">(</span><span class="n">targetPlayer</span><span class="p">))</span>
+	<span class="k">return</span> <span class="n">res</span> <span class="ow">and</span> <span class="n">canSend</span>
+<span class="n">end</span>
+
+<span class="n">local</span> <span class="n">function</span> <span class="n">promptGameInvite</span><span class="p">(</span><span class="n">targetPlayer</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">canInvite</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">SocialService</span><span class="p">:</span><span class="n">PromptGameInvite</span><span class="p">(</span><span class="n">targetPlayer</span><span class="p">))</span>
+	<span class="k">return</span> <span class="n">res</span> <span class="ow">and</span> <span class="n">canInvite</span>
+<span class="n">end</span>
+
+<span class="n">local</span> <span class="n">function</span> <span class="n">openGameInvitePrompt</span><span class="p">(</span><span class="n">targetPlayer</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">canInvite</span> <span class="o">=</span> <span class="n">canSendGameInvite</span><span class="p">(</span><span class="n">targetPlayer</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">canInvite</span> <span class="n">then</span>
+		<span class="n">local</span> <span class="n">promptOpened</span> <span class="o">=</span> <span class="n">promptGameInvite</span><span class="p">(</span><span class="n">targetPlayer</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">promptOpened</span>
+	<span class="n">end</span>
+	<span class="k">return</span> <span class="n">false</span>
+<span class="n">end</span>
+
+<span class="n">local</span> <span class="n">function</span> <span class="n">invitePromptClosed</span><span class="p">(</span><span class="n">senderPlayer</span><span class="p">,</span> <span class="n">recipientIds</span><span class="p">)</span>
+	<span class="o">--</span> <span class="n">处理被发送者邀请的玩家的自定义逻辑</span>
+<span class="n">end</span>
+
+<span class="n">local</span> <span class="n">function</span> <span class="n">inputBegan</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">gameProcessed</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">inputType</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">UserInputType</span>
+	<span class="n">local</span> <span class="n">touch</span> <span class="o">=</span> <span class="n">Enum</span><span class="o">.</span><span class="n">UserInputType</span><span class="o">.</span><span class="n">Touch</span>
+	<span class="n">local</span> <span class="n">mouse1</span> <span class="o">=</span> <span class="n">Enum</span><span class="o">.</span><span class="n">UserInputType</span><span class="o">.</span><span class="n">MouseButton1</span>
+
+	<span class="k">if</span> <span class="n">inputType</span> <span class="o">==</span> <span class="n">touch</span> <span class="ow">or</span> <span class="n">inputType</span> <span class="o">==</span> <span class="n">mouse1</span> <span class="n">then</span>
+		<span class="n">openGameInvitePrompt</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+	<span class="n">end</span>
+<span class="n">end</span>
+
+<span class="n">script</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">InputBegan</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">inputBegan</span><span class="p">)</span>
+<span class="n">SocialService</span><span class="o">.</span><span class="n">GameInvitePromptClosed</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">invitePromptClosed</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>要使此代码示例生效，必须将其置于 `GuiButton` 下的一个 `LocalScript` 中。当玩家激活按钮时，它将执行 `openGameInvitePrompt()` 函数，检查是否可以通过 `SocialService/CanSendGameInviteAsync|CanSendGameInviteAsync()` 发送游戏邀请。然后它将用 `SocialService/PromptGameInvite|PromptGameInvite()` 打开邀请提示。
+
+### 凝聚玩家
+
+通过添加凝聚玩家的系统来鼓励自然的社交互动。这可以是一个需要不止一位玩家参与的挑战，例如战斗游戏中的头目战，或社交游戏中的电影剧院。
+
+### 在游戏内庆祝玩家的成功
+
+认可玩家在游戏内的成就不仅奖励其个人，也会引起讨论或激励其他玩家追求该奖励。例如：
+
+  * 给获得奖励的玩家加上临时粒子效果。
+  * 向大厅里的全体玩家广播一条消息。
+  * 使用排行榜来展示玩家的成就。
+
+[Egg Farm Simulator（鸡蛋农场模拟器）](https://www.roblox.com/games/1828509885)就是一个认可玩家成就的例子。它包含一个排行榜，策略性地置于游戏区域的中央，以便展示最专注的玩家的成就。
+
+## 更多资源
+
+  * [社交游戏的社交机制](https://www.gdcvault.com/play/1014555/Social-Mechanics-for-Social-Games)
+  * [经典社交机制：多人游戏背后的引擎](https://www.gdcvault.com/play/1013827/Classic-Social-Mechanics-The-Engines)
+
+
+
+***__Roblox官方链接__:[设计多人游戏](https://developer.roblox.com/zh-cn/articles/designing-for-multiplayer)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Team-Create.html" class="btn btn-neutral float-right" title="合作式开发" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="managing-personal-information.html" class="btn btn-neutral float-left" title="关于 GDPR 和 CCPA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

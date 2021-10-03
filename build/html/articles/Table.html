@@ -1,0 +1,604 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Table（表） &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="了解 CFrame" href="Understanding-CFrame.html" />
+    <link rel="prev" title="CFrame 数学运算" href="CFrame-Math-Operations.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Table（表）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">数组</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">创建数组</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">从数组读取数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">向数组写入数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">循环访问数组</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">插入项目</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">移除项目</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">字典</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">创建字典</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">从字典中读取数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">向字典写入数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">循环访问字典</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">移除键值对</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">将表作为引用</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>Table（表）</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Table.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="table">
+<h1>Table（表）<a class="headerlink" href="#table" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10 分钟</em></p>
+<p><strong>Table</strong>（表）为可以储存多个值的 Lua 数据类型，其中包括<code class="docutils literal notranslate"><span class="pre">/articles/Numbers|数字</span></code>、<code class="docutils literal notranslate"><span class="pre">/articles/Boolean|布尔值</span></code>、<code class="docutils literal notranslate"><span class="pre">/articles/String|字符串</span></code>、<code class="docutils literal notranslate"><span class="pre">/articles/Function|函数</span></code>等多种类型。表的构造使用中括号（<code class="docutils literal notranslate"><span class="pre">{}</span></code>），如下所示：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">Construct</span> <span class="n">an</span> <span class="n">empty</span> <span class="n">table</span> <span class="n">assigned</span> <span class="n">to</span> <span class="n">variable</span> <span class="s2">&quot;t&quot;</span>
+    <span class="n">local</span> <span class="n">t</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    
+    
+    <span class="n">table</span><span class="p">:</span> <span class="mi">0035</span><span class="n">AE18</span>
+</pre></div>
+</div>
+<p>表格在构建后即可用作<strong>数组</strong>或<strong>字典</strong>，如以下各部分中所述。</p>
+<div class="section" id="id1">
+<h2>数组<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>数组是一组简单的有序值，可用于存储数据集合，例如一组拥有特殊权限的玩家。</p>
+<div class="section" id="id2">
+<h3>创建数组<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>要使用 Lua 表格创建数组，只需按顺序存储各个值，并用逗号分隔这些值即可。数组值可以是任何非 <code class="docutils literal notranslate"><span class="pre">nil</span></code> 类型（布尔值、数字、字符串、函数、用户数据，甚至是另一个表格）。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">Construct</span> <span class="n">an</span> <span class="n">array</span> <span class="k">with</span> <span class="n">three</span> <span class="n">items</span>
+    <span class="n">local</span> <span class="n">testArray</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A string&quot;</span><span class="p">,</span> <span class="mf">3.14159</span><span class="p">,</span> <span class="n">workspace</span><span class="o">.</span><span class="n">Part</span><span class="p">}</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>从数组读取数据<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>要从数组中读取数据，请在其引用后添加一对方括号，并指定其中元素的索引号 (<code class="docutils literal notranslate"><span class="pre">[pos]</span></code>)：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">Construct</span> <span class="n">an</span> <span class="n">array</span> <span class="k">with</span> <span class="n">three</span> <span class="n">items</span>
+    <span class="n">local</span> <span class="n">testArray</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A string&quot;</span><span class="p">,</span> <span class="mf">3.14159</span><span class="p">,</span> <span class="n">workspace</span><span class="o">.</span><span class="n">Part</span><span class="p">}</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="n">testArray</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">testArray</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">testArray</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+    
+    
+    <span class="n">A</span> <span class="n">string</span>
+    <span class="mf">3.14159</span>
+    <span class="n">Part</span>
+</pre></div>
+</div>
+<p>与某些语言不同，Lua 对数组使用<strong>以 1 为基数的索引</strong>，这意味着数组中的第一项是 <code class="docutils literal notranslate"><span class="pre">[1]</span></code>，而不是 <code class="docutils literal notranslate"><span class="pre">[0]</span></code>。</p>
+</div>
+<div class="section" id="id4">
+<h3>向数组写入数据<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>可以通过在方括号 (<code class="docutils literal notranslate"><span class="pre">[pos]</span></code>) 中指示索引号，并后跟 <code class="docutils literal notranslate"><span class="pre">=</span></code> 和值来定义或重写数组索引值：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">testArray</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A string&quot;</span><span class="p">,</span> <span class="mf">3.14159</span><span class="p">,</span> <span class="n">workspace</span><span class="o">.</span><span class="n">Part</span><span class="p">}</span>
+    
+    <span class="n">testArray</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12345</span>
+    <span class="n">testArray</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;New string&quot;</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="n">testArray</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">testArray</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+    
+    
+    <span class="mi">12345</span>
+    <span class="n">New</span> <span class="n">string</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>循环访问数组<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>可以通过以下两种方式循环访问（循环遍历）数组：</p>
+<ul class="simple">
+<li><p>在 <code class="docutils literal notranslate"><span class="pre">for</span></code> 循环中使用内置的 <code class="docutils literal notranslate"><span class="pre">ipairs()</span></code> 函数。</p></li>
+<li><p>使用 <code class="docutils literal notranslate"><span class="pre">#</span></code> 运算符获取数组的长度，并从 <strong>1</strong> 一直循环到该长度值。</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">testArray</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A string&quot;</span><span class="p">,</span> <span class="mf">3.14159</span><span class="p">,</span> <span class="n">workspace</span><span class="o">.</span><span class="n">Part</span><span class="p">,</span> <span class="s2">&quot;New string&quot;</span><span class="p">}</span>
+    
+    <span class="o">--</span> <span class="n">Loop</span> <span class="n">using</span> <span class="s2">&quot;ipairs()&quot;</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">ipairs</span><span class="p">(</span><span class="n">testArray</span><span class="p">)</span> <span class="n">do</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="n">end</span>
+    
+    <span class="o">--</span> <span class="n">Iterate</span> <span class="n">using</span> <span class="n">the</span> <span class="n">array</span> <span class="n">length</span> <span class="n">operator</span> <span class="p">(</span><span class="c1">#)</span>
+    <span class="k">for</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">#testArray do</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">testArray</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+    <span class="n">end</span>
+    
+    
+    <span class="mi">1</span> <span class="n">A</span> <span class="n">string</span>
+    <span class="mi">2</span> <span class="mf">3.14159</span>
+    <span class="mi">3</span> <span class="n">Part</span>
+    <span class="mi">4</span> <span class="n">New</span> <span class="n">string</span>
+    <span class="mi">1</span> <span class="n">A</span> <span class="n">string</span>
+    <span class="mi">2</span> <span class="mf">3.14159</span>
+    <span class="mi">3</span> <span class="n">Part</span>
+    <span class="mi">4</span> <span class="n">New</span> <span class="n">string</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>插入项目<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>可以通过以下两种方法之一向数组<strong>末尾</strong>插入项目：</p>
+<ul class="simple">
+<li><p>将数组引用和项目值传递给 Lua 的 <code class="docutils literal notranslate"><span class="pre">table.insert()</span></code> 函数。</p></li>
+<li><p>使用 <code class="docutils literal notranslate"><span class="pre">t[#t+1]</span></code> 语法将新项目添加到数组。</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">testArray</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A string&quot;</span><span class="p">,</span> <span class="mf">3.14159</span><span class="p">}</span>
+    
+    <span class="n">table</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">testArray</span><span class="p">,</span> <span class="s2">&quot;New string&quot;</span><span class="p">)</span>
+    <span class="n">testArray</span><span class="p">[</span><span class="c1">#testArray+1] = &quot;Another new string&quot;</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="n">testArray</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">testArray</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+    
+    
+    <span class="n">New</span> <span class="n">string</span>
+    <span class="n">Another</span> <span class="n">new</span> <span class="n">string</span>
+</pre></div>
+</div>
+<p>此外，也可以通过将位置值作为 <code class="docutils literal notranslate"><span class="pre">table.insert()</span></code> 的第二个参数，在开头和结尾之间插入项目。此方法将插入新项目，并将随后的项目上移一个索引位置。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">testArray</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;First item&quot;</span><span class="p">,</span> <span class="s2">&quot;Next item&quot;</span><span class="p">}</span>
+    
+    <span class="n">table</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">testArray</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;NEW ITEM #2&quot;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="n">testArray</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">testArray</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">testArray</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+    
+    
+    <span class="n">First</span> <span class="n">item</span>
+    <span class="n">NEW</span> <span class="n">ITEM</span> <span class="c1">#2</span>
+    <span class="n">Next</span> <span class="n">item</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>移除项目<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>可以使用 Lua 的 <code class="docutils literal notranslate"><span class="pre">table.remove()</span></code> 函数从数组中移除项目。此方法将移除指定位置处的项目，并将随后的所有项目下移一个索引位置。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">testArray</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;First item&quot;</span><span class="p">,</span> <span class="s2">&quot;Next item&quot;</span><span class="p">,</span> <span class="s2">&quot;Last item&quot;</span><span class="p">}</span>
+    
+    <span class="n">table</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">testArray</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="n">testArray</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">testArray</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    
+    
+    <span class="n">First</span> <span class="n">item</span>
+    <span class="n">Last</span> <span class="n">item</span>
+</pre></div>
+</div>
+<p>有关上述函数和其他特定于数组的方法的详细信息，请参阅 Lua <a class="reference external" href="/api-reference/lua-docs/table">表格库</a>文档。</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>字典<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>字典是对数组的扩展。数组存储一组有序的项目，而字典存储一组<strong>键值对</strong>。</p>
+<p>键 值</p>
+<p>FruitName
+Lemon</p>
+<p>FruitColor
+Yellow</p>
+<p>Sour
+true</p>
+<div class="section" id="id9">
+<h3>创建字典<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>要创建字典表，请定义每个<strong>键</strong>，并后跟 <code class="docutils literal notranslate"><span class="pre">=</span></code> 和<strong>值</strong>。请记得用逗号分隔每个键值对：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">testDictionary</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">FruitName</span> <span class="o">=</span> <span class="s2">&quot;Lemon&quot;</span><span class="p">,</span>
+      <span class="n">FruitColor</span> <span class="o">=</span> <span class="s2">&quot;Yellow&quot;</span><span class="p">,</span>
+      <span class="n">Sour</span> <span class="o">=</span> <span class="n">true</span>
+    <span class="p">}</span>
+
+</pre></div>
+</div>
+<p>在创建字典时，键不仅限于字符串名称（如 <code class="docutils literal notranslate"><span class="pre">FruitColor</span></code>）；例如，键也可以是 <code class="docutils literal notranslate"><span class="pre">Instance</span></code>。在这种情况下，必须用方括号 (<code class="docutils literal notranslate"><span class="pre">[key]</span></code>) 声明键：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">part</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Part&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">testDictionary</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">PartType</span> <span class="o">=</span> <span class="s2">&quot;Block&quot;</span><span class="p">,</span>
+      <span class="p">[</span><span class="n">part</span><span class="p">]</span> <span class="o">=</span> <span class="n">true</span>
+    <span class="p">}</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>从字典中读取数据<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>要从字典中读取数据，请在其引用后添加一对方括号并指定键名称：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">part</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Part&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">testDictionary</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">PartType</span> <span class="o">=</span> <span class="s2">&quot;Block&quot;</span><span class="p">,</span>
+      <span class="p">[</span><span class="n">part</span><span class="p">]</span> <span class="o">=</span> <span class="n">true</span>
+    <span class="p">}</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="n">testDictionary</span><span class="p">[</span><span class="s2">&quot;PartType&quot;</span><span class="p">])</span>  <span class="o">--</span> <span class="n">Include</span> <span class="n">quotes</span> <span class="k">for</span> <span class="n">string</span> <span class="n">keys</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">testDictionary</span><span class="p">[</span><span class="n">part</span><span class="p">])</span>  <span class="o">--</span> <span class="n">Omit</span> <span class="n">quotes</span> <span class="k">for</span> <span class="n">non</span><span class="o">-</span><span class="n">string</span> <span class="n">keys</span>
+    
+    
+    <span class="n">Block</span>
+    <span class="n">true</span>
+</pre></div>
+</div>
+<p>如上面的代码注释中所述，请注意以下几点：</p>
+<ul class="simple">
+<li><p>必须用引号将<strong>字符串</strong>键（例如 <code class="docutils literal notranslate"><span class="pre">PartType</span></code>）引起来，如 <code class="docutils literal notranslate"><span class="pre">testDictionary[&quot;PartType&quot;]</span></code> 中的情况。</p></li>
+<li><p><strong>不</strong>应使用引号将<strong>非字符串</strong>键（例如 <code class="docutils literal notranslate"><span class="pre">[part]</span></code>）引起来。</p></li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h3>向字典写入数据<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>可以通过在方括号 (<code class="docutils literal notranslate"><span class="pre">[key]</span></code>) 中指示键名称并后跟 <code class="docutils literal notranslate"><span class="pre">=</span></code> 和值来定义新的或现有的字典键的值：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">testDictionary</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">FruitName</span> <span class="o">=</span> <span class="s2">&quot;Lemon&quot;</span><span class="p">,</span>
+      <span class="n">Sour</span> <span class="o">=</span> <span class="n">true</span>
+    <span class="p">}</span>
+    
+    <span class="o">--</span> <span class="n">Change</span> <span class="n">value</span> <span class="n">of</span> <span class="n">existing</span> <span class="n">keys</span>
+    <span class="n">testDictionary</span><span class="p">[</span><span class="s2">&quot;FruitName&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Cherry&quot;</span>
+    <span class="n">testDictionary</span><span class="p">[</span><span class="s2">&quot;Sour&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">false</span>
+    
+    <span class="o">--</span> <span class="n">Insert</span> <span class="n">new</span> <span class="n">key</span><span class="o">-</span><span class="n">value</span> <span class="n">pair</span>
+    <span class="n">testDictionary</span><span class="p">[</span><span class="s2">&quot;FruitCount&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="n">testDictionary</span><span class="p">[</span><span class="s2">&quot;FruitName&quot;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">testDictionary</span><span class="p">[</span><span class="s2">&quot;Sour&quot;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">testDictionary</span><span class="p">[</span><span class="s2">&quot;FruitCount&quot;</span><span class="p">])</span>
+    
+    
+    <span class="n">Cherry</span>
+    <span class="n">false</span>
+    <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id12">
+<h3>循环访问字典<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>可以在 <code class="docutils literal notranslate"><span class="pre">for</span></code> 循环中使用内置的 <code class="docutils literal notranslate"><span class="pre">pairs()</span></code> 函数对字典进行循环访问：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">testDictionary</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">FruitName</span> <span class="o">=</span> <span class="s2">&quot;Lemon&quot;</span><span class="p">,</span>
+      <span class="n">FruitColor</span> <span class="o">=</span> <span class="s2">&quot;Yellow&quot;</span><span class="p">,</span>
+      <span class="n">Sour</span> <span class="o">=</span> <span class="n">true</span>
+    <span class="p">}</span>
+    
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">testDictionary</span><span class="p">)</span> <span class="n">do</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="n">end</span>
+    
+    
+    <span class="n">FruitName</span> <span class="n">Lemon</span>
+    <span class="n">Sour</span> <span class="n">true</span>
+    <span class="n">FruitColor</span> <span class="n">Yellow</span>
+</pre></div>
+</div>
+<p>与对数组使用 <code class="docutils literal notranslate"><span class="pre">ipairs()</span></code> 不同，通过 <code class="docutils literal notranslate"><span class="pre">pairs()</span></code> 循环访问字典时不一定会按照项目在字典中的相同声明顺序返回这些项目。</p>
+</div>
+<div class="section" id="id13">
+<h3>移除键值对<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>要从字典中移除键值对，只需将其值设置为 <code class="docutils literal notranslate"><span class="pre">nil</span></code> 即可，这会从字典中完全删除键值对，如下面的 <code class="docutils literal notranslate"><span class="pre">pairs()</span></code> 循环输出中所示：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">testDictionary</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">FruitName</span> <span class="o">=</span> <span class="s2">&quot;Lemon&quot;</span><span class="p">,</span>
+      <span class="n">FruitColor</span> <span class="o">=</span> <span class="s2">&quot;Yellow&quot;</span><span class="p">,</span>
+      <span class="n">Sour</span> <span class="o">=</span> <span class="n">true</span>
+    <span class="p">}</span>
+    
+    <span class="n">testDictionary</span><span class="p">[</span><span class="s2">&quot;Sour&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nil</span>
+    
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">testDictionary</span><span class="p">)</span> <span class="n">do</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="n">end</span>
+    
+    
+    <span class="n">FruitName</span> <span class="n">Lemon</span>
+    <span class="n">FruitColor</span> <span class="n">Yellow</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id14">
+<h2>将表作为引用<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<p>如果将表存储在新变量中，则不会创建该表的副本。该变量将成为原始表的<strong>引用</strong>（指针）。这意味着对原始表的任何更改都将反映在任何引用中：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">originalArray</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">}</span>
+    
+    <span class="n">local</span> <span class="n">arrayReference</span> <span class="o">=</span> <span class="n">originalArray</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original:&quot;</span><span class="p">,</span> <span class="n">originalArray</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">originalArray</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reference:&quot;</span><span class="p">,</span> <span class="n">arrayReference</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">arrayReference</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    
+    <span class="o">--</span> <span class="n">Change</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">original</span> <span class="n">array</span>
+    <span class="n">originalArray</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1000</span>
+    <span class="n">originalArray</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2000</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reference:&quot;</span><span class="p">,</span> <span class="n">arrayReference</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">arrayReference</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    
+    
+    <span class="n">Original</span><span class="p">:</span> <span class="mi">10</span> <span class="mi">20</span>
+    <span class="n">Reference</span><span class="p">:</span> <span class="mi">10</span> <span class="mi">20</span>
+    <span class="n">Reference</span><span class="p">:</span> <span class="mi">1000</span> <span class="mi">2000</span>
+</pre></div>
+</div>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Table">Table（表）</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Understanding-CFrame.html" class="btn btn-neutral float-right" title="了解 CFrame" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="CFrame-Math-Operations.html" class="btn btn-neutral float-left" title="CFrame 数学运算" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

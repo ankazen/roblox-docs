@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>对象空间与世界空间 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Studio 控件中的拖放" href="drag-and-drop-in-studio-widgets.html" />
+    <link rel="prev" title="任务计划程序" href="task-scheduler.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">对象空间与世界空间</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">世界空间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">对象空间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">位置与方向</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">转换函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">示例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>对象空间与世界空间</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/object-world-space.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>对象空间与世界空间<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p>在处理游戏几何时，您可能会遇到术语 **object space（对象空间）**和 <strong>world space（世界空间）</strong>。在 Roblox 里，您可以在 Vector3 和 CFrame 函数中找到这些术语。这些术语指的是不同类型的坐标系或定义位置的方式。本文将帮助您理解它们在 Roblox 开发中的作用。</p>
+<div class="section" id="id2">
+<h2>世界空间<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><img alt="一个 Roblox 角色站在足球场上" src="https://developer.roblox.com/assets/blt700c53125756d5fb/Football-Field.jpg" /></p>
+<p>把世界空间想象成橄榄球场上的码线。码线不会移动，它们的作用就像坐标：你可以用它们来找到运动员在球场上的位置。</p>
+<p>就像橄榄球场中一样，世界空间在每个 Roblox 游戏中都是相同的：位置 (0, 0, 0) 是游戏的中心。“前”方向始终为负 Z 方向，“右”方向始终为正 X 方向。部件的 Position 属性通常是指部件在世界空间中的位置，也称为部件的绝对位置。</p>
+<p>在代码中处理位置数据时，先将位置和方向转换为世界空间是非常有用的。把它作为解决你遇到的任何几何问题的基础吧！</p>
+</div>
+<div class="section" id="id3">
+<h2>对象空间<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><img alt="两个足球运动员面对面。后方蓝色的有一个向右的箭头，标签为“His Left”（他的左方），前方红色的有一个向右的箭头，标签为“Your Right”（你的右方）" src="https://developer.roblox.com/assets/blt4094a60cc6ca9484/Object-Space.jpg" /></p>
+<p>要理解对象空间，假设你是一名橄榄球运动员，你们队正面对着对手。如果你听到对手喊“向左跑！”，该球员肯定指的是相对于他们球队的对象空间的方向。要知道运动员所指的方向，必须将该方向转换到你们队的对象空间中。换句话说，<strong>他们的</strong>左边是<strong>你的</strong>右边。</p>
+<p>这就是说，当我们谈到一个方向（“他的左”）的“所有权”时，我们实际上是在说“对他来说，那个方向是左”。从不同的角度来看，或者在不同的对象空间中，他说“左”而你可能会说“右”，然而两者都在谈论以不同方式表达的同一个方向。</p>
+</div>
+<div class="section" id="id4">
+<h2>位置与方向<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">datatype/Vector3</span></code> 可用于存储位置数据（3D 点）和方向数据（3D 矢量），它们都使用 X、Y 和 Z 坐标，重要的是要辨识 Vector3 代表的是哪一个方向或轴。通常来说，可以从其来源进行判断：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Vector3.FromNormalId</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Vector3.FromAxis</span></code> 返回指向给定方向或轴的向量。<br />部件的 Orientation（朝向）是世界空间中的方向矢量。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CFrame:VectorToWorldSpace</span></code> 和 <code class="docutils literal notranslate"><span class="pre">CFrame:VectorToObjectSpace1</span></code> 都接受和返回 Vector3 的方向向量。</p></li>
+<li><p>减去两个 Vector3，即 <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">-</span> <span class="pre">B</span></code>，得到的 Vector3 是 B 向 A 的方向。</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>转换函数<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>用于将坐标数据从对象空间转换到世界空间的函数在 <code class="docutils literal notranslate"><span class="pre">datatype/CFrame</span></code> 数据类型中。对于每一个函数，调用时的 CFrame 都应该表示的是所求对象的 CFrame。<br />*以 “ToObjectSpace” 结尾的函数转换世界空间中定义的数据，并返回对象空间中定义的相同数据。<br />*反之，以 “ToWorldSpace” 结尾的函数转换对象空间中定义的数据，并返回世界空间中定义的相同数据。</p>
+<p><code class="docutils literal notranslate"><span class="pre">CFrame:ToObjectSpace()</span></code><br /><code class="docutils literal notranslate"><span class="pre">CFrame:ToWorldSpace()</span></code>
+这些函数接受一个 CFrame 然后返回一个 CFrame。</p>
+<p><code class="docutils literal notranslate"><span class="pre">CFrame:PointToObjectSpace()</span></code><br /><code class="docutils literal notranslate"><span class="pre">CFrame:PointToWorldSpace()</span></code>
+这些函数接受一个<strong>位置</strong> Vector3 然后返回一个位置 Vector3。</p>
+<p><code class="docutils literal notranslate"><span class="pre">CFrame:VectorToObjectSpace()</span></code><br /><code class="docutils literal notranslate"><span class="pre">CFrame:VectorToWorldSpace()</span></code>
+这些函数接受一个<strong>方向</strong> Vector3 然后返回一个方向 Vector3。</p>
+</div>
+<div class="section" id="id6">
+<h2>示例<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>在这些示例中，我们将继续橄榄球的例子：红队球员和蓝队球员在试图接住一个抛出的橄榄球。我们拥有两个队员各自的 CFrame：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">redPlayerCF</span> <span class="o">=</span> <span class="n">workspace</span><span class="o">.</span><span class="n">RedPlayer</span><span class="o">.</span><span class="n">HumanoidRootPart</span><span class="o">.</span><span class="n">CFrame</span>
+<span class="n">local</span> <span class="n">bluePlayerCF</span> <span class="o">=</span> <span class="n">workspace</span><span class="o">.</span><span class="n">BluePlayer</span><span class="o">.</span><span class="n">HumanoidRootPart</span><span class="o">.</span><span class="n">CFrame</span>
+<span class="n">local</span> <span class="n">footballCF</span> <span class="o">=</span> <span class="n">workspace</span><span class="o">.</span><span class="n">Football</span><span class="o">.</span><span class="n">CFrame</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>要找到橄榄球相对于蓝色运动员的 CFrame：<br /><code class="docutils literal notranslate"><span class="pre">footballCF:ToObjectSpace(bluePlayerCF)</span></code></p></li>
+<li><p>要确定橄榄球是否在红色运动员前方：<br /><code class="docutils literal notranslate"><span class="pre">footballCF:ToObjectSpace(redPlayerCF).Z</span> <span class="pre">&gt;</span> <span class="pre">0</span></code></p></li>
+<li><p>红色运动员说相对于他，橄榄球移动到了指定 CFrame <code class="docutils literal notranslate"><span class="pre">newCF</span></code>。若想确定橄榄球球相对于蓝色运动员的位置：<br /><code class="docutils literal notranslate"><span class="pre">redPlayerCF:ToWorldSpace(newCF):ToObjectSpace(bluePlayerCF)</span></code></p></li>
+</ul>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/object-world-space">对象空间与世界空间</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="drag-and-drop-in-studio-widgets.html" class="btn btn-neutral float-right" title="Studio 控件中的拖放" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="task-scheduler.html" class="btn btn-neutral float-left" title="任务计划程序" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

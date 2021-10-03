@@ -1,0 +1,398 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Restricted/Team Doors &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="创建 VIP 专用门" href="Creating-VIP-Doors.html" />
+    <link rel="prev" title="Badges – Special Game Awards" href="Badges-Special-Game-Awards.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Lobby.html">制作大厅</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Usage-of-dialogs.html">NPC 对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Teleporting-Between-Places.html">不同场景间的传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Spawns-and-Teams.html">角色生成与团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-an-Explosion-Course.html">制作爆炸赛道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shop-Dialogs.html">商店对话框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-to-teleport-within-a-Place.html">场景内玩家传送</a></li>
+<li class="toctree-l2"><a class="reference internal" href="in-game-solid-modeling.html">游戏内实体建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Matchmaking.html">玩家匹配系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Player-Collisions.html">玩家间的碰撞控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setting-Parts-on-Fire-with-Events.html">通过事件让部件着火</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2D-Collision-Detection.html">2D 碰撞检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Basics-on-Roblox.html">添加团队</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Badges-Special-Game-Awards.html">Badges – Special Game Awards</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Restricted/Team Doors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-the-doors">Creating the Doors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#collision-groups">Collision Groups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#character-parts">Character Parts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#collision-filtering">Collision Filtering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-VIP-Doors.html">创建 VIP 专用门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Random-Map-Chooser.html">随机地图选择器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roblox-avatars.html">Roblox 虚拟形象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Health-Pickups.html">回复用拾取物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Moving-NPCs-Between-Points.html">在点之间移动 NPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pathfinding.html">寻路</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Side-Scrolling-Camera-View.html">横向卷轴镜头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Player-Tools.html">玩家工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="detecting-collisions.html">检测碰撞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weapons-kit.html">认可武器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="npc-kit.html">NPC 套组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vehicles-kit.html">载具工具包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="team-balancing.html">平衡团队构成</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/gameplay.html">游戏制作</a> &raquo;</li>
+        
+      <li>Restricted/Team Doors</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Collision-Filtering-Team-Doors.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="restricted-team-doors">
+<h1>Restricted/Team Doors<a class="headerlink" href="#restricted-team-doors" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>articles/Collision Filtering|collision filtering</em></p>
+<p>In some games, it’s desirable to have doors or forcefields that certain players can pass through but others cannot. For instance, many team combat games will spawn players of each team in a safe area that other teams can’t access (so they aren’t attacked the moment they join or spawn).</p>
+<p>There are various ways to accomplish this, but this tutorial utilizes <code class="docutils literal notranslate"><span class="pre">articles/Collision</span> <span class="pre">Filtering|collision</span> <span class="pre">filtering</span></code> to create doors that only certain players can pass through.</p>
+<div class="section" id="creating-the-doors">
+<h2>Creating the Doors<a class="headerlink" href="#creating-the-doors" title="Permalink to this headline">¶</a></h2>
+<p>For this simple example, the doors are basic block parts in the workspace named “BlueDoor” and “RedDoor.” Their material is <code class="docutils literal notranslate"><span class="pre">enum/Material|Glass</span></code> and their <code class="docutils literal notranslate"><span class="pre">BasePart/Transparency|Transparency</span></code> is set to 0.5.</p>
+<p><img alt="https://developer.roblox.com/assets/bltceceb46774515d80/Team-Doors.jpg" src="https://developer.roblox.com/assets/bltceceb46774515d80/Team-Doors.jpg" /></p>
+<div class="section" id="collision-groups">
+<h3>Collision Groups<a class="headerlink" href="#collision-groups" title="Permalink to this headline">¶</a></h3>
+<p>Since these doors exist in the game world at the start, we can set up their collision groups immediately. In <code class="docutils literal notranslate"><span class="pre">ServerScriptService</span></code>, create a <code class="docutils literal notranslate"><span class="pre">Script</span></code> and paste the following code into it:</p>
+<p>Collision Filtering – Team Doors: Code Sample 2 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">PhysicsService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;PhysicsService&quot;</span><span class="p">)</span>
+
+<span class="n">local</span> <span class="n">blueDoors</span> <span class="o">=</span> <span class="s2">&quot;BlueDoors&quot;</span>
+<span class="n">local</span> <span class="n">redDoors</span> <span class="o">=</span> <span class="s2">&quot;RedDoors&quot;</span>
+
+<span class="o">--</span> <span class="n">Create</span> <span class="n">door</span> <span class="n">collision</span> <span class="n">groups</span>
+<span class="n">PhysicsService</span><span class="p">:</span><span class="n">CreateCollisionGroup</span><span class="p">(</span><span class="n">blueDoors</span><span class="p">)</span>
+<span class="n">PhysicsService</span><span class="p">:</span><span class="n">CreateCollisionGroup</span><span class="p">(</span><span class="n">redDoors</span><span class="p">)</span>
+
+<span class="o">--</span> <span class="n">Add</span> <span class="n">doors</span> <span class="n">to</span> <span class="n">their</span> <span class="n">proper</span> <span class="n">collision</span> <span class="n">group</span>
+<span class="n">PhysicsService</span><span class="p">:</span><span class="n">SetPartCollisionGroup</span><span class="p">(</span><span class="n">workspace</span><span class="o">.</span><span class="n">BlueDoor</span><span class="p">,</span> <span class="n">blueDoors</span><span class="p">)</span>
+<span class="n">PhysicsService</span><span class="p">:</span><span class="n">SetPartCollisionGroup</span><span class="p">(</span><span class="n">workspace</span><span class="o">.</span><span class="n">RedDoor</span><span class="p">,</span> <span class="n">redDoors</span><span class="p">)</span>
+
+
+<span class="mi">0</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>## Player Assignment
+
+Now we need to add spawning players to an appropriate collision group. There are various ways to assign individual players to a group, including:
+
+  * Assign players a “color” based on their `articles/Player Spawns and Teams|team` color.
+  * Check if the player has earned a special `articles/Badges Special Game Awards|badge` or purchased a `articles/Game Passes One Time Purchases|game pass` which lets them access a restricted area.
+
+For simplicity in this tutorial, we’ll just assign all incoming players to the “blue” team and give them access through the blue door, but not the red door.
+
+### Collision Groups
+
+As with the doors, let’s first set up player collision groups by adding these lines to the script:
+
+Collision Filtering – Team Doors: Code Sample 3 ```    
+    
+    -- Add doors to their proper collision group
+    PhysicsService:SetPartCollisionGroup(workspace.BlueDoor, blueDoors)
+    PhysicsService:SetPartCollisionGroup(workspace.RedDoor, redDoors)
+    
+    local bluePlayers = &quot;BluePlayers&quot;
+    local redPlayers = &quot;RedPlayers&quot;
+    
+    -- Create player collision groups
+    PhysicsService:CreateCollisionGroup(bluePlayers)
+    PhysicsService:CreateCollisionGroup(redPlayers)
+    
+    
+    0
+</pre></div>
+</div>
+</div>
+<div class="section" id="character-parts">
+<h3>Character Parts<a class="headerlink" href="#character-parts" title="Permalink to this headline">¶</a></h3>
+<p>When adding players to collision groups, it’s critical to remember that <strong>all parts</strong> of their character must be allowed to pass through the door — head, torso, arms, legs, feet, etc. We can do this with a function that finds all <code class="docutils literal notranslate"><span class="pre">BasePart</span></code> objects, the base class of both <code class="docutils literal notranslate"><span class="pre">Part|Parts</span></code> and <code class="docutils literal notranslate"><span class="pre">MeshPart|MeshParts</span></code> which make up the player’s avatar:</p>
+<p>Collision Filtering – Team Doors: Code Sample 4 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">Create</span> <span class="n">player</span> <span class="n">collision</span> <span class="n">groups</span>
+<span class="n">PhysicsService</span><span class="p">:</span><span class="n">CreateCollisionGroup</span><span class="p">(</span><span class="n">bluePlayers</span><span class="p">)</span>
+<span class="n">PhysicsService</span><span class="p">:</span><span class="n">CreateCollisionGroup</span><span class="p">(</span><span class="n">redPlayers</span><span class="p">)</span>
+
+<span class="n">local</span> <span class="n">function</span> <span class="n">setCollisionGroup</span><span class="p">(</span><span class="n">character</span><span class="p">,</span> <span class="n">groupName</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">ipairs</span><span class="p">(</span><span class="n">character</span><span class="p">:</span><span class="n">GetChildren</span><span class="p">())</span> <span class="n">do</span>
+		<span class="k">if</span> <span class="n">child</span><span class="p">:</span><span class="n">IsA</span><span class="p">(</span><span class="s2">&quot;BasePart&quot;</span><span class="p">)</span> <span class="n">then</span>
+			<span class="n">PhysicsService</span><span class="p">:</span><span class="n">SetPartCollisionGroup</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">groupName</span><span class="p">)</span>
+		<span class="n">end</span>
+	<span class="n">end</span>
+	<span class="n">character</span><span class="o">.</span><span class="n">DescendantAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">descendant</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">descendant</span><span class="p">:</span><span class="n">IsA</span><span class="p">(</span><span class="s2">&quot;BasePart&quot;</span><span class="p">)</span> <span class="n">then</span>
+			<span class="n">PhysicsService</span><span class="p">:</span><span class="n">SetPartCollisionGroup</span><span class="p">(</span><span class="n">descendant</span><span class="p">,</span> <span class="n">groupName</span><span class="p">)</span>
+		<span class="n">end</span>
+	<span class="n">end</span><span class="p">)</span>
+<span class="n">end</span>
+
+
+<span class="mi">0</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>When characters spawn, their body parts are &quot;assembled&quot; over the course of about one second, so this function loops through the initial children **and** uses the `Instance/DescendantAdded|DescendantAdded` event to detect when other parts are added. This ensures that all character parts receive the correct collision group assignment. 
+
+With this function in place, we can detect the `Players/PlayerAdded` event which then listens for the `Player/CharacterAdded|CharacterAdded` event and runs our `setCollisionGroup()` function with the `bluePlayers` collision group.
+
+Collision Filtering – Team Doors: Code Sample 5 ```    
+    
+    local Players = game:GetService(&quot;Players&quot;)
+    
+    local function onPlayerAdded(player)
+    	local function onCharacterAdded(character)
+    		setCollisionGroup(character, bluePlayers)
+    	end
+    	player.CharacterAdded:Connect(onCharacterAdded)
+    end
+    Players.PlayerAdded:Connect(onPlayerAdded)
+    
+    
+    0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="collision-filtering">
+<h2>Collision Filtering<a class="headerlink" href="#collision-filtering" title="Permalink to this headline">¶</a></h2>
+<p>To finish up, we just need to define the collision groups that <strong>don’t</strong> collide with each other — specifically, blue players should not collide with blue doors, and red players should not collide with red doors.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">function</span> <span class="n">onPlayerAdded</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+    	<span class="n">local</span> <span class="n">function</span> <span class="n">onCharacterAdded</span><span class="p">(</span><span class="n">character</span><span class="p">)</span>
+    		<span class="n">setCollisionGroup</span><span class="p">(</span><span class="n">character</span><span class="p">,</span> <span class="n">bluePlayers</span><span class="p">)</span>
+    	<span class="n">end</span>
+    	<span class="n">player</span><span class="o">.</span><span class="n">CharacterAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">onCharacterAdded</span><span class="p">)</span>
+    <span class="n">end</span>
+    <span class="n">Players</span><span class="o">.</span><span class="n">PlayerAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">onPlayerAdded</span><span class="p">)</span>
+    
+    <span class="n">PhysicsService</span><span class="p">:</span><span class="n">CollisionGroupSetCollidable</span><span class="p">(</span><span class="n">bluePlayers</span><span class="p">,</span> <span class="n">blueDoors</span><span class="p">,</span> <span class="n">false</span><span class="p">)</span>
+    <span class="n">PhysicsService</span><span class="p">:</span><span class="n">CollisionGroupSetCollidable</span><span class="p">(</span><span class="n">redPlayers</span><span class="p">,</span> <span class="n">redDoors</span><span class="p">,</span> <span class="n">false</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>Uh oh! Your browser doesn’t appear to support embedded videos! Here is a <a class="reference external" href="/zh-cn/assets/blt10aecbce6c561ff1/Team-Doors.mp4">direct link</a> to the video instead.</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Collision-Filtering-Team-Doors">Restricted/Team Doors</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Creating-VIP-Doors.html" class="btn btn-neutral float-right" title="创建 VIP 专用门" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Badges-Special-Game-Awards.html" class="btn btn-neutral float-left" title="Badges – Special Game Awards" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

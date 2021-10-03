@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>选择框 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="45 度镜头视角" href="Three-Quarters-Camera-View.html" />
+    <link rel="prev" title="Roblox Input Bindings" href="input-bindings.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-GUIs.html">GUI 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI-Animations.html">GUI 动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fundamentals-of-Scripting-with-GUIs.html">GUI 脚本简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Chat-System.html">Lua 聊天系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Interactive-Surface-GUI.html">交互式表面 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-GUI-Buttons.html">创建 GUI 按钮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Radial-Menu.html">创建摇杆快速菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Grid-Menu.html">创建栅格菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using-Images-in-GUIs.html">在 GUI 中使用图像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text-and-Chat-Filtering.html">文本与聊天过滤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Camera-manipulation.html">镜头操控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mouse-Icon-Appearance.html">鼠标指针控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animating-text.html">设置文本动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar-emotes.html">Avatar Emotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chat-Modules.html">Chat Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Custom-Teleport-GUI.html">创建自定义传送屏幕</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Scrolling-Frame-GUI.html">创建滚动框架 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-the-camera.html">Customizing the Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Disabling-Parts-of-Game-Interface.html">禁用游戏界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-bindings.html">Roblox Input Bindings</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">选择框</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">使用鼠标选择部件</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Three-Quarters-Camera-View.html">45 度镜头视角</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Unit-Frame.html">单元框：制作生命槽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewportframe-gui.html">ViewportFrame GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/user-interface.html">用户界面</a> &raquo;</li>
+        
+      <li>选择框</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Selection-Boxes.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>选择框<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>本教程介绍如何使用 SelectionBox 以及它的一些用例。</p>
+<p>和所有对象一样，<code class="docutils literal notranslate"><span class="pre">SelectionBox</span></code> 需要一个父对象和一个 <code class="docutils literal notranslate"><span class="pre">PVAdornment/Adornee</span></code>。你可以将 SelectionBox 放在任何需要的位置作为其父级，但必须设置其装饰对象。装饰对象将显示在部件上面，因此它基本上会覆盖该部件。下面是一个如何创建 SelectionBox 以及如何设置其装饰对象的示例：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">part</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Part&quot;</span><span class="p">,</span><span class="n">workspace</span><span class="p">)</span>
+<span class="n">part</span><span class="o">.</span><span class="n">Anchored</span> <span class="o">=</span> <span class="n">true</span>
+<span class="n">part</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">Vector3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">local</span> <span class="n">selectionBox</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;SelectionBox&quot;</span><span class="p">)</span>
+<span class="n">selectionBox</span><span class="o">.</span><span class="n">Adornee</span> <span class="o">=</span> <span class="n">part</span>
+<span class="n">selectionBox</span><span class="o">.</span><span class="n">Color3</span> <span class="o">=</span> <span class="n">Color3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">selectionBox</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">part</span>
+</pre></div>
+</div>
+<p><img alt="SelectionBoxExample.jpg" src="https://developer.roblox.com/assets/blt1ef83c85311f20db/SelectionBoxExample.jpg" /></p>
+<div class="section" id="id2">
+<h2>使用鼠标选择部件<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>为此，你只需向 StarterGui 中插入一个 LocalScript，该脚本将复制到该玩家的 PlayerGui 并且当他们将其鼠标放置在部件上时，会在其鼠标经过的部件上出现 SelectionBox。该脚本很容易作为基础脚本使用，开发者可以轻易将其转换成执行某些操作的工具，但因此其也只是一个基本脚本，可供开发者填充扩展任何想要的内容。</p>
+<p>How to Use a Selection Box: Code Sample 1 ```</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">modelMode</span> <span class="o">=</span> <span class="n">false</span>  <span class="o">--</span> <span class="k">if</span> <span class="n">true</span><span class="p">,</span> <span class="n">select</span> <span class="n">models</span> <span class="n">rather</span> <span class="n">than</span> <span class="n">parts</span>
+
+<span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">LocalPlayer</span>
+<span class="n">local</span> <span class="n">mouse</span> <span class="o">=</span> <span class="n">player</span><span class="p">:</span><span class="n">GetMouse</span><span class="p">()</span> <span class="o">--</span><span class="n">Getting</span> <span class="n">the</span> <span class="n">player</span><span class="s1">&#39;s mouse</span>
+
+<span class="n">local</span> <span class="n">selection</span> <span class="o">=</span> <span class="n">Instance</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;SelectionBox&quot;</span><span class="p">)</span>
+<span class="n">selection</span><span class="o">.</span><span class="n">Color3</span> <span class="o">=</span> <span class="n">Color3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">selection</span><span class="o">.</span><span class="n">Parent</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">PlayerGui</span>
+
+<span class="n">mouse</span><span class="o">.</span><span class="n">Move</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">function</span><span class="p">()</span> <span class="o">--</span><span class="n">When</span> <span class="n">the</span> <span class="n">mouse</span> <span class="n">moves</span>
+	<span class="n">local</span> <span class="n">target</span> <span class="o">=</span> <span class="n">mouse</span><span class="o">.</span><span class="n">Target</span>
+
+	<span class="k">if</span> <span class="ow">not</span> <span class="n">target</span> <span class="n">then</span>
+		<span class="o">--</span> <span class="n">nothing</span> <span class="n">selected</span>
+		<span class="n">selection</span><span class="o">.</span><span class="n">Adornee</span> <span class="o">=</span> <span class="n">nil</span>
+	<span class="n">elseif</span> <span class="n">modelMode</span> <span class="n">then</span>
+		<span class="o">--</span> <span class="n">when</span> <span class="ow">in</span> <span class="n">model</span> <span class="n">mode</span><span class="p">,</span> <span class="k">try</span> <span class="ow">and</span> <span class="n">select</span> <span class="n">the</span> <span class="n">parents</span> <span class="n">first</span>
+		<span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="n">Parent</span><span class="p">:</span><span class="n">IsA</span><span class="p">(</span><span class="s2">&quot;Model&quot;</span><span class="p">)</span> <span class="n">then</span>
+			<span class="n">selection</span><span class="o">.</span><span class="n">Adornee</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">Parent</span>
+		<span class="n">elseif</span> <span class="n">target</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">Parent</span><span class="p">:</span><span class="n">IsA</span><span class="p">(</span><span class="s2">&quot;Accoutrement&quot;</span><span class="p">)</span> <span class="n">then</span>
+			<span class="n">selection</span><span class="o">.</span><span class="n">Adornee</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">Parent</span>
+		<span class="n">elseif</span> <span class="n">target</span><span class="p">:</span><span class="n">IsA</span><span class="p">(</span><span class="s2">&quot;BasePart&quot;</span><span class="p">)</span> <span class="n">then</span>
+			<span class="n">selection</span><span class="o">.</span><span class="n">Adornee</span> <span class="o">=</span> <span class="n">target</span>
+		<span class="k">else</span>
+			<span class="n">selection</span><span class="o">.</span><span class="n">Adornee</span> <span class="o">=</span> <span class="n">nil</span>
+		<span class="n">end</span>
+	<span class="k">else</span>
+		<span class="k">if</span> <span class="n">target</span><span class="p">:</span><span class="n">IsA</span><span class="p">(</span><span class="s2">&quot;BasePart&quot;</span><span class="p">)</span> <span class="n">then</span>
+			<span class="n">selection</span><span class="o">.</span><span class="n">Adornee</span> <span class="o">=</span> <span class="n">target</span>
+		<span class="k">else</span>
+			<span class="n">selection</span><span class="o">.</span><span class="n">Adornee</span> <span class="o">=</span> <span class="n">nil</span>
+		<span class="n">end</span>
+	<span class="n">end</span>
+<span class="n">end</span><span class="p">)</span>
+
+
+<span class="mi">0</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+
+<span class="o">***</span><span class="n">__Roblox官方链接__</span><span class="p">:[</span><span class="n">选择框</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">developer</span><span class="o">.</span><span class="n">roblox</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">zh</span><span class="o">-</span><span class="n">cn</span><span class="o">/</span><span class="n">articles</span><span class="o">/</span><span class="n">Selection</span><span class="o">-</span><span class="n">Boxes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Three-Quarters-Camera-View.html" class="btn btn-neutral float-right" title="45 度镜头视角" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="input-bindings.html" class="btn btn-neutral float-left" title="Roblox Input Bindings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

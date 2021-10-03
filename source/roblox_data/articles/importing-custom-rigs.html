@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <link rel="canonical" href="https://developer.roblox.com/articles/importing-custom-rigs"/>
+    <link rel="alternate" hreflang="x-default" href="https://developer.roblox.com/articles/importing-custom-rigs"/>
+    
+      <link rel="alternate" hreflang="en-us" href="https://developer.roblox.com/en-us/"/>
+    
+      <link rel="alternate" hreflang="zh-cn" href="https://developer.roblox.com/zh-cn/"/>
+    
+      
+        
+          <title> 导入自定义模型</title>
+        
+      
+
+      
+        
+      
+
+      <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta class="swiftype" name="locale" data-type="string" content="zh-cn">
+
+
+
+<meta name="description" content="<p>如何从 Autodesk Maya 或 Blender 导入自定义模型</p>">
+
+
+
+<meta name="keywords" content="">
+
+
+<meta name="author" content="Roblox">
+
+
+
+	<meta class="swiftype" name="title" data-type="string" content="导入自定义模型">
+	<meta class="swiftype" name="summary" data-type="string" content="<p>如何从 Autodesk Maya 或 Blender 导入自定义模型</p>">
+	<meta class="swiftype" name="segment" data-type="string" content="articles">
+	<meta class="swiftype" name="category" data-type="string" content="创建">
+	<meta class="swiftype" name="hide_from_search" data-type="string" content="">
+
+
+
+
+
+       
+  </head>
+  <body>
+    
+
+<!-- Evidon Tag Management -->
+<script type="text/javascript" src="/static/js/evidon.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="/static/images/favicon.ico?q=1544016445575
+" type="image/x-icon">
+<link rel="icon" href="/static/images/favicon.ico?q=1544016445575
+" type="image/x-icon" />
+
+<!-- Sentry.io -->
+<script src="https://browser.sentry-cdn.com/5.12.1/bundle.min.js"
+	integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+	Sentry.init({ dsn: 'https://d22e972d03124ce6b4468bfd38f6bfde@sentry.io/2246250' });
+</script>
+
+<link href="/static/css/prettify.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+<link href="/static/css/select2.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+<link href="/static/css/font-awesome.min.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+<link href="/static/css/main.css?q=1544016445575
+" rel="stylesheet" type="text/css">
+
+<script src="/static/js/jquery-3.3.1.min.js?q=1544016445575
+"></script>
+<script src="/static/js/popper.min.js?q=1544016445575
+"></script>
+<script src="/static/js/jPages.js?q=1544016445575
+"></script>
+<script src="/static/js/bootstrap.min.js?q=1544016445575
+"></script>
+<script src="/static/js/bootstrap-toc.js?q=1544016445575
+"></script>
+<!-- <script src="/static/js/docs.min.js?q=1544016445575
+"></script> -->
+<script src="/static/js/prettify.js?q=1544016445575
+"></script>
+<script src="/static/js/lang-lua.js?q=1544016445575
+"></script>
+<script src="/static/js/select2.js?q=1544016445575
+"></script>
+<script src="/static/js/clipboard.min.js?q=1544016445575
+"></script>
+
+<script src="/static/js/autolinking.js?q=1544016445575
+"></script>
+<script src="/static/js/lightbox.js?q=1544016445575
+"></script>
+<script src="/static/js/half-sized.js?q=1544016445575
+"></script>
+<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+<script type="text/javascript" src="/static/js/jquery.cookie.js?q=1544016445575
+"></script>
+<script type="text/javascript" src="/static/js/encrypt-md5.js?q=1544016445575
+"></script>
+<!-- <script type="text/javascript" src="/static/js/gdpr.js?q=1544016445575
+"></script> -->
+
+<script src="/static/js/script.js?q=1544016445575
+"></script>
+<script src="/static/js/codesample-theme.js?q=1544016445575
+"></script>
+<script src="/static/js/code-highlighting.js?q=1544016445575
+"></script>
+<!-- <script src="/static/js/local-codesamples.js?q=1544016445575
+"></script> -->
+<script src="/static/js/language-dropdown.js?q=1544016445575
+"></script>
+
+<script src="/static/js/event_template_one.js?q=1544016445575
+"></script>
+
+<script type="text/javascript" src="/static/js/jquery.swiftype.autocomplete.js?q=1544016445575
+">
+</script>
+<script type='text/javascript' src='/static/js/jquery.ba-hashchange.min.js?q=1544016445575
+'></script>
+<script type="text/javascript" src="/static/js/jquery.swiftype.search.js?q=1544016445575
+"></script>
+<script type="text/javascript" src="/static/js/jquery.swiftype.livesearch.js?q=1544016445575
+">
+</script>
+
+<script type="text/javascript" src="/static/js/st.custom.search.js?q=1544016445575
+"
+	engineID="PcoWSkbVqDnWTu_dm2ix"></script>
+<span class="d-none swiftype-engine-id">PcoWSkbVqDnWTu_dm2ix</span>
+
+    
+  <div class="main-container learn-roblox-pages sub-pages">
+    
+  
+
+  
+
+  <div class="header-wrap clearfix no-print">
+    <nav class="header navbar navbar-expand-lg navbar-light bd-navbar" data-swiftype-index='false'>
+      <div class="d-flex">
+        <span class="d-lg-none toggler-icon">&#9776;</span>
+      </div>
+
+      <div class="logo">
+        <a style="background-image: url('https://dk135eecbplh9.cloudfront.net/assets/blta0080185413748f5/logo.png');" href="/" target="_self">
+        </a>
+      </div>
+      <div class="wrap">
+        <div class="slide-overlay"></div>
+        <div class="navbar-collapse">
+          <div class="navbar-inner">
+            <span class="d-lg-none closebtn">&times;</span>
+            <div class="nav-wrap">
+              <p class="d-lg-none home-link"><a href="/">主页</a></p>
+              <ul class="navbar-nav bd-navbar-nav">
+                <div class="relevant-sidebar">
+                  
+                    
+                </div>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/quick-start">
+                      <span>入门</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/learn-roblox/all-tutorials">
+                      <span>了解 Roblox</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/api-reference">
+                      <span>API 参考</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_self" href="/resources">
+                      <span>资源</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://devforum.roblox.com">
+                      <span>社区</span>
+                      <img class="r-arrow" src="/static/images/r-arrow.svg?q=1544016445575
+"/>
+                    </a>
+                  </li>
+                
+              </ul>
+               <a class="dwd-link d-lg-none" target="_self" href="">
+                
+              </a>
+            </div>
+          </div>
+          <div class="actions-wrap">
+            <a class="dwd-link" target="_self" href="">
+                
+            </a>
+            <span class="m-search-icon"></span>
+            <div class="search-box">
+
+                <form class="d-flex align-items-center" id="search-form">
+                   <input class="form-control" name="s" type="search" id="st-search-input" placeholder="搜索">
+                    <button class="btn-submit" type="submit"><i class="search-icon"></i></button>
+                </form>
+                <a href="javascript:void(0)" class="search-close">&times;</a>
+                <div id="searchDropdown" class="search-content">
+                  <div class="search-content-inner">
+                    <div class="inner-scroll">
+                      <div class="categories">
+                        <span class="lbl">Articles</span>
+                        <ul>
+                          <li>Animation in player script</li>
+                          <li>Animation handler</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                      <div class="categories">
+                        <span class="lbl">API Refernce</span>
+                        <ul>
+                          <li>animationController</li>
+                          <li>animationID</li>
+                          <li>Bubbly Animation Package</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+
+ 		<div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        
+
+  <div class="d-none d-lg-block bd-sidebar-wrap" data-swiftype-index='false'>
+    <div class="flex-wrapper">
+      <span class="toggle-sidebar sm-toggle collapse-slide">
+        <a href="javascript:void(0)" class="arrow-right">
+          <i class="arrow arrow-r"></i>
+        </a>
+      </span>
+      <div class="slide-sidebar">
+       <span class="toggle-sidebar expanded-slide">
+          <a href="javascript:void(0)" class="">
+            <i class="arrow arrow-l"></i>
+            <span class="txt">关闭侧边栏</span>
+          </a>
+       </span>
+        <div class="bd-sidebar" data-swiftype-index='false'>
+          <span class="back-icon">
+            <span><img class="l-arrow" src="/static/images/l-arrow.svg?q=1544016445575
+"/></span>
+          </span>
+          <nav class="bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item-wrap">
+              <h5 class="bd-toc-heading">教程</h5>
+              <div>
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/monetization">
+                      <span>Monetization</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/studio-basics">
+                      <span>Studio 基础知识</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/creating">
+                      <span>创建</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/international">
+                      <span>国际化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/sound-lighting-fx">
+                      <span>声效、光照与特效</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/marketing">
+                      <span>市场营销</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/optimization">
+                      <span>性能优化</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/all-tutorials">
+                      <span>所有内容</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/analytics">
+                      <span>数据分析</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/user-interface">
+                      <span>用户界面</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/coding-scripts">
+                      <span>编码与脚本</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                  <div class="bd-toc-item learn-roblox-tutorial">
+                    <a class="bd-toc-link" href="/learn-roblox/cross-platform">
+                      <span>跨平台发展</span>
+                    </a>
+                  </div>
+                  
+                
+                  
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="w-100 d-md-none d-lg-none d-xl-none">
+          <div class="m-heading">
+            
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/creating">创建</a>
+    </li>
+    
+  
+</ol>
+
+            <h1 data-toc-skip>导入自定义模型</h1>
+          </div>
+        </div>
+        
+        
+
+<div class="d-xl-block bd-toc-wrap">
+  <div class="bd-toc">
+    <a href="javascript:void(0)" class="toggle-toc hide-toc">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">隐藏内容索引</span>
+    </a>
+    <a href="javascript:void(0)" class="toggle-toc show-toc invisible">
+      <i class="fa fa-angle-down"></i>
+      <span class="toggle-txt">显示内容索引</span>
+    </a>
+    <div class="toc-nav">
+      <div class="inner-toc-nav">
+        <div class="toc-content"><a href="javascript:void(0)">内容索引</a>
+        </div>
+        <nav id="toc">
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <main class="bd-content" data-swiftype-name="body" data-swiftype-type="text" data-swiftype-index='true'>
+          <div class="l-content toc-scope">
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+              
+<ol class="breadcrumb" data-swiftype-index='false'>
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/all-tutorials">学习 ROBLOX</a>
+    </li>
+    
+  
+    
+    <li class="breadcrumb-item">
+      <a href="/learn-roblox/creating">创建</a>
+    </li>
+    
+  
+</ol>
+
+              <h1 data-toc-skip data-swiftype-index='false'>导入自定义模型</h1>
+            </div>
+            <p class="timestamp-wrap" data-swiftype-index='false'>
+              
+                <span class="time">10  分钟</span>
+              
+            </p>
+
+            
+            <div class="article-details">
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <style>
+.tree-table-borderless {
+  border-collapse: separated;
+  width: 100%;
+  border: 16px solid #252525;
+  background-color: #252525;
+  color: #aaaaaa;
+}
+.tree-table-borderless td {
+  border: 0px !important;
+  padding: 0px !important;
+}
+.tree-row-indent {
+  min-width: 40px;
+  margin: 0px 5px 0px 0px;
+  padding-left: 4px;
+  padding-right: 4px;
+  line-height: 24px;
+  height: 24px;
+}
+</style>
+<p>本文概述了 Roblox 从 Autodesk Maya 或 Blender 导入自定义模型的流程（包括带有动画的模型），可作为<span class="text-nowrap">非玩家</span>角色与机械对象等使用。</p>
+<h2>关于模型的指导原则</h2>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>常规准则</h3>
+<p>在 Maya 或 Blender 中构建角色模型时，请遵循以下常规准则：</p>
+<ul>
+<li>确保将单位设置为 <strong>Centimeter（厘米）</strong>。</li>
+<li>几何体网格应仅具有转换值。这些值应相对于其父关节。举例来说，如果从其关节取消网格的父项，则应将转换值清零 <span class="text-nowrap">(<strong>0</strong>, <strong>0</strong>, <strong>0</strong>)</span>。</li>
+</ul>
+<div class="alert alert-primary list-indent" role="alert">
+如果没有看到此情况，请取消几何体网格的父项，冻结其变换，然后将其父项设置回各自关节。现在，它们应该具有本地转换值，并且如果取消父项，则将它们清零。
+</div>
+<ul>
+<li>所有关节均应正确放置且任何轴均不得旋转，它们应该都为 <span class="text-nowrap">(<strong>0</strong>, <strong>0</strong>, <strong>0</strong>)</span>。同样，每个关节的比例应保持默认值，并设置为 <span class="text-nowrap">(<strong>1</strong>, <strong>1</strong>, <strong>1</strong>)</span>。</li>
+</ul>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>模型层次结构</h3>
+<p>对于总体上的模型层次结构，请确保：</p>
+<ul>
+<li>具有名为 <strong>Root</strong><span class="text-nowrap">（区分大小写）</span>的<span class="text-nowrap">最高级</span>关节。</li>
+<li><strong>Root</strong> 的每个子代关节都有一个名称相同、或名称带有 <strong>_Geo</strong> 后缀的匹配的几何体。比如，如果关节名为 <strong>Torso</strong>，那几何体的名称应为 <strong>Torso</strong> 或 <strong>Torso_Geo</strong>。</li>
+</ul>
+<div class="container-fluid mt-4 ml-4 mr-0 my-0">
+<div class="row">
+<div class="col-sm-12 col-md-12 col-lg-12 col-xl-8 pl-0 mx-0">
+<table class="table tree-table-borderless mb-4">
+  <tbody>
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0 text-nowrap">
+<div class="tree-row-indent text-white" style="background-color: #006c60; border: 1px solid #252525; box-sizing: border-box; line-height: 22px; padding-left: 3px; padding-right: 3px;">Root</div>
+</div>
+      </td>
+    </tr>
+<!-- Torso -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0 text-nowrap">
+<div class="tree-row-indent"><img src="/assets/blt0e5b38e8e28b4dee/Hierarchy-Tree-End.png" class="m-0 half-sized"></div>
+<div class="tree-row-indent studio-property-hl" style="border: 1px solid #252525; box-sizing: border-box; line-height: 22px; padding-left: 3px; padding-right: 3px;">Torso</div>
+</div>
+    </td>
+    </tr>
+<!-- Torso_Geo -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0 text-nowrap">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"><img src="/assets/blt070fe939a497b781/Hierarchy-Tree-Split.png" class="m-0 half-sized"></div>
+<div class="tree-row-indent studio-property-hl" style="border: 1px solid #252525; box-sizing: border-box; line-height: 22px; padding-left: 3px; padding-right: 3px;">Torso_Geo</div>
+</div>
+    </td>
+    </tr>
+<!-- RightUpperLeg -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0 text-nowrap">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"><img src="/assets/blt070fe939a497b781/Hierarchy-Tree-Split.png" class="m-0 half-sized"></div>
+<div class="tree-row-indent">RightUpperLeg</div>
+</div>
+    </td>
+    </tr>
+<!-- RightUpperLeg_Geo -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0 text-nowrap">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"><img src="/assets/blt9817f6f24bade38d/Hierarchy-Tree-Connect.png" class="m-0 half-sized"></div>
+<div class="tree-row-indent"><img src="/assets/blt070fe939a497b781/Hierarchy-Tree-Split.png" class="m-0 half-sized"></div>
+<div class="tree-row-indent">RightUpperLeg_Geo</div>
+</div>
+    </td>
+    </tr>
+<!-- RightLowerLeg -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0 text-nowrap">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"><img src="/assets/blt9817f6f24bade38d/Hierarchy-Tree-Connect.png" class="m-0 half-sized"></div>
+<div class="tree-row-indent"><img src="/assets/blt0e5b38e8e28b4dee/Hierarchy-Tree-End.png" class="m-0 half-sized"></div>
+<div class="tree-row-indent">RightLowerLeg</div>
+</div>
+    </td>
+    </tr>
+<!-- RightLowerLeg_Geo -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0 text-nowrap">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"><img src="/assets/blt9817f6f24bade38d/Hierarchy-Tree-Connect.png" class="m-0 half-sized"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"><img src="/assets/blt0e5b38e8e28b4dee/Hierarchy-Tree-End.png" class="m-0 half-sized"></div>
+<div class="tree-row-indent">RightLowerLeg_Geo</div>
+</div>
+    </td>
+    </tr>
+<!-- LeftUpperLeg -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0 text-nowrap">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"><img src="/assets/blt0e5b38e8e28b4dee/Hierarchy-Tree-End.png" class="m-0 half-sized"></div>
+<div class="tree-row-indent">LeftUpperLeg</div>
+</div>
+    </td>
+    </tr>
+<!-- LeftUpperLeg_Geo -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0 text-nowrap">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"><img src="/assets/blt070fe939a497b781/Hierarchy-Tree-Split.png" class="m-0 half-sized"></div>
+<div class="tree-row-indent">LeftUpperLeg_Geo</div>
+</div>
+    </td>
+    </tr>
+<!-- LeftLowerLeg -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0 text-nowrap">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"><img src="/assets/blt0e5b38e8e28b4dee/Hierarchy-Tree-End.png" class="m-0 half-sized"></div>
+<div class="tree-row-indent">LeftLowerLeg</div>
+</div>
+    </td>
+    </tr>
+<!-- LeftLowerLeg_Geo -->
+    <tr>
+      <td scope="row">
+<div class="d-flex flex-row mb-0 text-nowrap">
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"></div>
+<div class="tree-row-indent"><img src="/assets/blt0e5b38e8e28b4dee/Hierarchy-Tree-End.png" class="m-0 half-sized"></div>
+<div class="tree-row-indent">LeftLowerLeg_Geo</div>
+</div>
+    </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<h2>导出模型</h2>
+<p>请参阅下列指导，具体取决于您正在从哪一软件导出（Maya 或 Blender）。</p>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card- border-" role="card" style="">
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+      <h5 data-toc-skip class="card-header bg- text-white collapsed" data-toggle="collapse" href="#ref_card-1" role="button" aria-expanded="false" aria-controls="card-1">从 Maya 导出 »</h5>
+    
+  
+
+
+  
+  
+    
+    
+      <div class="collapse" id="ref_card-1">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+  
+     
+      <div class="markdown-field-data">
+        <p>从 Maya 导出角色之前，确保将单位设置为 <strong>Centimeters（厘米）</strong>。然后使用 <span class="text-nowrap"><strong>File（文件）</strong> → <strong>Export All（全部导出）</strong></span>并对默认设置进行以下更改：</p>
+<table class="table table-bordered mt-2 w-75">
+<thead class="thead-dark">
+<tr>
+<th scope="col">设置</th>
+<th scope="col">值</th>
+</tr>
+</thead>
+<thead class="bg-secondary">
+<tr>
+<th scope="col" colspan=2 class="text-white pt-2 pb-1" style="border-color: #777d84;">几何体</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row" class="text-nowrap"><b>平滑网格</b></td>
+<td>已启用</td>
+</tr>
+<tr>
+<td scope="row" class="text-nowrap"><b>参考资产内容</b></td>
+<td>已启用</td>
+</tr>
+</tbody>
+<!--<thead class="bg-secondary">
+<tr>
+<th scope="col" colspan=2 class="text-white pt-2 pb-1" style="border-color: #777d84;">动画</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row" class="text-nowrap"><b>动画</b></td>
+<td>已禁用</td>
+</tr>-->
+<thead class="bg-secondary">
+<tr>
+<th scope="col" colspan=2 class="text-white pt-2 pb-1" style="border-color: #777d84;">单位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row" class="text-nowrap"><b>自动</b></td>
+<td>已启用</td>
+</tr>
+</tbody>
+<thead class="bg-secondary">
+<tr>
+<th scope="col" colspan=2 class="text-white pt-2 pb-1" style="border-color: #777d84;">轴转换</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row" class="text-nowrap"><b>上轴</b></td>
+<td>Y</td>
+</tr>
+</tbody>
+<thead class="bg-secondary">
+<tr>
+<th scope="col" colspan=2 class="text-white pt-2 pb-1" style="border-color: #777d84;">FBX 文件格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row" class="text-nowrap"><b>类型</b></td>
+<td>二进制</td>
+</tr>
+<tr>
+<td scope="row" class="text-nowrap"><b>版本</b></td>
+<td>FBX&nbsp;2014/2015</td>
+</tr>
+</tbody>
+</table>
+<div class="alert alert-danger mb-0" role="alert">
+如果还要导出纹理，请打开 <b>Embed&nbsp;Media（嵌入媒体）</b>部分并确保选中 <b>Embed&nbsp;Media（嵌入媒体）</b>。
+</div>
+      </div>
+    
+  
+
+
+
+          
+        </div>
+      </div>
+    
+  
+
+  
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card- border-" role="card" style="">
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+      <h5 data-toc-skip class="card-header bg- text-white collapsed" data-toggle="collapse" href="#ref_card-2" role="button" aria-expanded="false" aria-controls="card-2">从 Blender 导出 »</h5>
+    
+  
+
+
+  
+  
+    
+    
+      <div class="collapse" id="ref_card-2">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+  
+     
+      <div class="markdown-field-data">
+        <p>从 Blender 导出角色之前，请确保将单位设置为 <strong>Centimeters（厘米）</strong>。然后在 <b class="text-nowrap">Export FBX（导出 FBX）</b>面板中，对默认设置进行以下更改：</p>
+<table class="table table-bordered mt-2 w-75">
+<thead class="thead-dark">
+<tr>
+<th scope="col">设置</th>
+<th scope="col">值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row" class="text-nowrap"><b>Camera（镜头）</b>按钮</td>
+<td>已禁用</td>
+</tr>
+<tr>
+<td scope="row" class="text-nowrap"><b>Lamp（灯具）</b>按钮</td>
+<td>已禁用</td>
+</tr>
+</tbody>
+</table>
+<div class="alert alert-danger mb-0" role="alert">
+如果要将纹理导出为嵌入媒体，请将 <b class="text-nowrap">Path Mode（路径模式）</b>设置为 <b>Copy（复制）</b>并单击其右侧的框，这样看来好像正在弹出纸张。请注意，这只适用于<b>二进制</b> FBX 导出，而不适用于 ASCII。
+</div>
+      </div>
+    
+  
+
+
+
+          
+        </div>
+      </div>
+    
+  
+
+  
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h2>导入至 Roblox Studio</h2>
+<p>想要了解导入自定义模型的流程，可下载<a href="?disposition=attachment">本示例</a>（<samp>SimpleDog.fbx</samp>）。</p>
+<p><a href="?disposition=attachment" role="button" class="btn btn-lg mb-3">下载</a></p>
+<p>下载好 FBX 文件后，请按如下步骤操作：</p>
+<ol>
+<li>从 Studio 的 <strong>Plugins</strong> 选项卡中，点击 <strong>Avatar Importer</strong>（角色导入）按钮。</li>
+<li>点击四个选项中的 <strong>Custom</strong>（自定义）选项。</li>
+</ol>
+<img src="/assets/bltf5f0388ec7393a4b/Avatar-Importer-Choices-Custom.png" class="img-fluid half-sized list-indent">
+<ol start="3">
+<li>浏览下载好的文件（<samp>SimpleDog.fbx</samp>）。导入 Studio 中后应为此模型。</li>
+</ol>
+<p>(<em>IMAGE</em>)</p>
+<img src="" class="img-fluid half-sized list-indent">
+<h2>导入/导出动画</h2>
+<p>如果您使用 Maya 或 Blender 直接进行了模型的动画制作，您可以通过 Roblox 的<span class="text-nowrap">内置</span> <span class="text-nowrap"><code>/articles/using animation editor|动画编辑器</code></span>来导入及上传动画。</p>
+<h3>导入动画</h3>
+<p>若想从 FBX 文件中导入动画：</p>
+<ol>
+<li>在 <strong>Plugins</strong> 选项卡中，点击 <strong>Animation Editor</strong>（动画编辑器） 。</li>
+<li>选择模型（<strong>ImportedCustomRig</strong>）并点击 <strong>Create</strong> （如果可以的话）。如有关于 R15 虚拟角色的警告信息，直接忽略即可。</li>
+<li>从动画编辑器的 <strong>File</strong> 菜单中（非 Studio 的 File 文件菜单）选择 <b class="text-nowrap">Import FBX Animation</b>（导入 FBX 动画）。</li>
+<li>浏览并选择同一 FBX 文件（<samp>SimpleDog.fbx</samp>）。<span id="hip-height"></span></li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+    <div class="card card- border-" role="card" style="">
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+      <h5 data-toc-skip class="card-header bg- text-white collapsed" data-toggle="collapse" href="#ref_card-3" role="button" aria-expanded="false" aria-controls="card-3">计算髋高 »</h5>
+    
+  
+
+
+  
+  
+    
+    
+      <div class="collapse" id="ref_card-3">
+        <div class="card card-body border-none">
+          
+            
+
+
+
+
+  
+     
+      <div class="markdown-field-data">
+        <p>任何通过 Avatar Importer 虚拟角色导入器导入的模型都会被分配为 <code>Humanoid</code> 人型生物对象，即使他们看上去并非如此。人型生物包括有若干随模型设计和高度而变化的属性，如 <code>Humanoid/HipHeight|HipHeight</code> 。</p>
+<p>确定大致的 <code>Humanoid/HipHeight|HipHeight</code> 值的方式如下：</p>
+<ol class="mb-3">
+<li>移动模型以使其脚部/底座的 <b>Y</b> 位置为 <b>0</b> ，如待在默认的 <b>Baseplate</b> 上的对象。</li>
+<li>在 Studio 的命令栏<span class="text-nowrap">（<b>View</b> &rarr; <b>Command Bar</b>）</span>中，粘贴下面的代码。</li>
+<li>从 Output 输出窗口中<span class="text-nowrap">（<b>View</b> &rarr; <b>Output</b>）</span>复制或记录下显示的值；后面测试自定义模型时会用到。</li>
+</ol>
+<pre><code class="language-lua">local hrp = workspace.ImportedCustomRig.HumanoidRootPart
+print(hrp.Position.Y - (0.5 * hrp.Size.Y))
+</code></pre>
+
+      </div>
+    
+  
+
+
+
+          
+        </div>
+      </div>
+    
+  
+
+  
+  
+
+  </div> 
+  <br>
+
+
+
+
+  
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <h3>导出动画<span id="exporting-animations"></span></h3>
+<p>当您将动画顺利导入之后，还需要将其上传到 Roblox 。</p>
+<ol>
+<li>动画编辑器的 <strong>File</strong> 菜单中（而不是 Studio 的 File 文件菜单）选择 <strong>Export</strong>（导出） 。</li>
+<li>选择新栏位或者已有栏位。</li>
+<li>上传完成后，<strong>复制或记录动画的 ID</strong>，随后在测试自定义模型时会用到。</li>
+</ol>
+<div class="alert alert-primary list-indent" role="alert">
+<div class="alert alert-light text-dark border-secondary py-2 mt-3" role="alert">https://www.roblox.com/catalog/<mark>2350495664</mark></div>
+</div>
+<ol start="4">
+<li>从对话窗口退出；此时，您可以把动画编辑器窗口也一并关闭。</li>
+</ol>
+<h2>在 Studio 中进行测试</h2>
+<p>最后一个环节：您可以按如下方式来测试模型：</p>
+<ol>
+<li>在管理器窗口中，将 <strong>ImportedCustomRig</strong> 移动到 <strong>ServerStorage</strong> 中。</li>
+</ol>
+<img src="/assets/bltf70acefa9a82c0bc/Avatar-Importer-Custom-Testing-1.png" class="img-fluid half-sized list-indent">
+<ol start="2">
+<li>将鼠标放在 <strong>ServerScriptService</strong> 上，点击 <img src="/assets/blt0dd97240c2a0db2a/Explorer-Plus-Icon.png" class="d-inline my-0 align-text-bottom" width=22> 按钮，并插入一个新的 <strong>Script</strong> 。</li>
+</ol>
+<img src="/assets/blta9c6e12716caec27/Avatar-Importer-Custom-Testing-2.png" class="img-fluid half-sized list-indent">
+<ol start="3">
+<li>将刚才创建的新脚本重命名为 <em>CreateObjectFromRig</em>。</li>
+<li>将下列代码粘贴到该脚本中。</li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+		<div class="top-panel">
+			<div class="nav nav-tabs" id="code-nav-1" role="tablist" style="border-bottom: 0px;">
+				
+				<a class="nav-item nav-link hidden-elem" id="nav-output-tab-1" data-toggle="tab" href="#nav-output-1" role="tab" aria-controls="nav-output-1" aria-selected="false">
+					<span class="txt">预期输出</span>
+				</a>
+				<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+					<span class="txt">展开</span>
+					<i class="expand-collapse-icon inline-icon"></i>
+				</a>
+			</div>
+		</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-1" role="tabpanel" aria-labelledby="nav-code-tab-1">
+			<pre class="prettyprint  linenums:01 lang-lua">local ServerStorage = game:GetService("ServerStorage")
+
+local animationID = 0000000000
+
+-- 将模型复制到 workspace 工作区并设置各属性
+local template = ServerStorage.ImportedCustomRig
+local object = template:Clone()
+local humanoidObject = object.Humanoid
+humanoidObject.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
+humanoidObject.HipHeight = 2.45
+object.Parent = workspace
+
+-- 设置模型位置
+object:MoveTo(Vector3.new(20, 4, 0))
+
+-- 创建自定义动画
+local animation = Instance.new("Animation")
+animation.AnimationId = "rbxassetid://" .. animationID
+animation.Parent = ServerStorage
+
+-- 播放自定义动画
+local animationTrack = object.Humanoid:LoadAnimation(animation)
+animationTrack:Play()</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-1" role="tabpanel" aria-labelledby="nav-output-tab-1">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">复制代码</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">亮色模式</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="亮色模式"></i>
+					<i class="dark-theme-icon icon" caption="深色模式"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <ol start="5">
+<li>在第 3 行，将 <code>animationID</code> 值改为您之前在<a href="#exporting-animations">导出动画</a>部分记下的 ID。</li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+		<div class="top-panel">
+			<div class="nav nav-tabs" id="code-nav-2" role="tablist" style="border-bottom: 0px;">
+				
+				<a class="nav-item nav-link hidden-elem" id="nav-output-tab-2" data-toggle="tab" href="#nav-output-2" role="tab" aria-controls="nav-output-2" aria-selected="false">
+					<span class="txt">预期输出</span>
+				</a>
+				<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+					<span class="txt">展开</span>
+					<i class="expand-collapse-icon inline-icon"></i>
+				</a>
+			</div>
+		</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-2" role="tabpanel" aria-labelledby="nav-code-tab-2">
+			<pre class="prettyprint  linenums:01 lang-lua">local ServerStorage = game:GetService("ServerStorage")
+
+<span class='highlighted'>local animationID = 2350495664</span>
+
+-- 将模型复制到 workspace 工作区并设置各属性</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-2" role="tabpanel" aria-labelledby="nav-output-tab-2">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">复制代码</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">亮色模式</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="亮色模式"></i>
+					<i class="dark-theme-icon icon" caption="深色模式"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <ol start="6">
+<li>在第 10 行，将 <code>humanoidObject.HipHeight</code> 值改为您在 <a href="#hip-height">Hip Height</a> 部分计算所得的数字。</li>
+</ol>
+
+      </div>
+    
+  
+
+
+
+              
+                
+
+
+
+
+    
+    
+    
+      
+    
+    
+    
+	
+	
+
+
+
+	
+
+
+
+<div class="code-block light-theme">
+
+	
+	
+		<div class="top-panel">
+			<div class="nav nav-tabs" id="code-nav-3" role="tablist" style="border-bottom: 0px;">
+				
+				<a class="nav-item nav-link hidden-elem" id="nav-output-tab-3" data-toggle="tab" href="#nav-output-3" role="tab" aria-controls="nav-output-3" aria-selected="false">
+					<span class="txt">预期输出</span>
+				</a>
+				<a href="javascript:void(0)" class="view" style="margin:7px 7px 0 auto; float: right">
+					<span class="txt">展开</span>
+					<i class="expand-collapse-icon inline-icon"></i>
+				</a>
+			</div>
+		</div>
+	
+	<div class="tab-content" id="nav-tabContent" style="border: 0px">
+		<div class="tab-pane active" id="nav-code-3" role="tabpanel" aria-labelledby="nav-code-tab-3">
+			<pre class="prettyprint  linenums:5 lang-lua">-- 将模型复制到 workspace 工作区中并设置各属性
+local template = ServerStorage.ImportedCustomRig
+local object = template:Clone()
+local humanoidObject = object.Humanoid
+humanoidObject.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
+<span class='highlighted'>humanoidObject.HipHeight = 2.9460468292236</span>
+object.Parent = workspace</pre>
+		</div>
+		<div class="tab-pane" id="nav-output-3" role="tabpanel" aria-labelledby="nav-output-tab-3">
+			<pre class="prettyprint  nocode"></pre>
+		</div>
+	</div>
+	
+		<div class="actions-panel">
+			<a class="copy">
+				<i class="copy-icon inline-icon"></i>
+				<span class="txt">复制代码</span>
+			</a>
+			<a href="javascript:void(0)" class="theme-wrap">
+				<span class="theme-name">亮色模式</span>
+				<span class="theme-icons">
+					<i class="light-theme-icon icon" caption="亮色模式"></i>
+					<i class="dark-theme-icon icon" caption="深色模式"></i>
+				</span>
+			</a>
+		</div>
+	
+</div>
+
+
+
+
+
+              
+                
+
+
+
+
+   
+    
+      <div class="markdown-field-data">
+        <ol start="7">
+<li>进行游戏，您应该会在游戏中看到狗了。它会以在 FBX 文件中事先配置的简单动作来进行移动。</li>
+</ol>
+<p>(<em>VIDEO</em>)</p>
+
+      </div>
+    
+  
+
+
+
+              
+            </div>
+
+            
+            
+            
+
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+
+  
+  
+
+
+<!-- Modal -->
+<div class="modal gdpr-modal custom-modal" id="gdpr-modal" tabindex="-1" role="dialog" data-swiftype-index='false'>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1>此网站如何使用 Cookie</h1>
+        <div class="privacy-content">
+          <p>此平台使用 Cookie 为您提供更好的体验、对内容进行个性化、提供社交媒体功能和分析网站流量。如需详细信息（包括有关如何在此平台上防止使用 Cookie 或对其进行管理的信息），请参阅我们的<a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私和 Cookie 政策</a>。</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn" data-dismiss="modal">确定</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal external-page-modal custom-modal" id="external-page-modal" tabindex="-1" role="dialog" data-swiftype-index=false>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-text">你即将离开 Roblox 网站</div>
+        <p>请按下继续按钮前往： <span class="link"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="" class="btn secondary-btn" data-dismiss="modal">返回</a>
+        <a href="" class="btn primary-btn continue-link" target="_blank">继续</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="footer no-print" data-swiftype-index='false'>
+    <div class="footer-info">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-xl-7">
+          <div class="info">
+            <a href="https://www.roblox.com" target="_self" class="footer-logo ptxl mbl">
+              <img src="https://dk135eecbplh9.cloudfront.net/assets/blt045a822d589ff524/roblox.png" alt="Roblox" title="Roblox">
+            </a>
+            <p>© 2019 Roblox Corporation. 保留所有权利。</p>
+            <p class="mtxl mbl">
+              
+            </p>
+            <ul class="social-links pbxl">
+              
+                <li>
+                  <a href="https://twitter.com/robloxdevrel" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt9999b06df576d2a8/twitter.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.facebook.com/Roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltb204a8ba683501db/facebook.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt17f9ce2758f959da/linkedin.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.instagram.com/Roblox/" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/bltd4faf9ad9e4b5923/instagram.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.twitch.tv/roblox" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt96661fab5f032a0f/twitch.svg"/>
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://www.youtube.com/channel/UCjiPEaapiHbJMoAdi_L8fNA" target="_blank" class="social-icon">
+                    <img src="https://dk135eecbplh9.cloudfront.net/assets/blt7f204f65c7c3c1dd/youtube.svg"/>
+                  </a>
+                </li>
+              
+            </ul>
+
+            
+
+<div class="language-dropdown">
+  <div class="input-group-btn" id="input-group-btn">
+    <button type="button" class="input-dropdown-btn" data-toggle="dropdown" id="input-dropdown-btn">
+      <span class="icon-globe" id="icon-globe"></span>
+      <span class="rbx-selection-label" data-bind="label" id="rbx-selection-label">English</span>
+      <span class="icon-down-16x16"></span>
+    </button>
+    <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+      
+      <li><a class="locale-option" data-locale="en-us">English</a></li>
+      
+      <li><a class="locale-option" data-locale="zh-cn">中文(简体)</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-2 company">
+          
+              <h5 data-toc-skip>公司</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="https://corp.roblox.com/" target="_blank">关于 Roblox</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">招贤纳士</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/technology/" target="_self">技术</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_self">服务条款</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-and-Cookie-Policy" target="_blank">隐私政策</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://corp.roblox.com/parents/" target="_self">家长</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+          
+            <div class="col-6 col-sm-6 col-md-3 col-xl-3 developers">
+          
+              <h5 data-toc-skip>开发人员</h5>
+              <ul class="links-list">
+                
+                  <li>
+                    <a href="/articles/Creating-Your-First-Game" target="_self">入门</a>
+                  </li>
+                
+                  <li>
+                    <a href="/learn-roblox/all-tutorials" target="_self">了解</a>
+                  </li>
+                
+                  <li>
+                    <a href="/api-reference" target="_self">API 参考</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com" target="_blank">社区</a>
+                  </li>
+                
+                  <li>
+                    <a href="https://devforum.roblox.com/c/public/public-updates-announcements" target="_self">开发人员公告</a>
+                  </li>
+                
+              </ul>
+            </div>
+        
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  </div>
+
+    <div class="modal fade" id="live-search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex align-items-stretch">
+                <label class="sr-only" for="st-live-search-input">搜索</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0 rounded-0"><i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input class="form-control border-0 rounded-0" name="q" type="search" id="st-live-search-input"
+                        placeholder="搜索">
+                </div>
+                <button type="button" class="btn btn-primary ml-3" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs" id="live-search-result-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-results-tab" data-toggle="tab" href="#all" role="tab"
+                            aria-selected="true" data-name="all_results">
+                            所有结果
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="api-doc-results-tab" data-toggle="tab" href="#api-doc" role="tab"
+                            aria-selected="false" data-name="api_reference">
+                            API 文档
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tutorial-results-tab" data-toggle="tab" href="#tutorial" role="tab"
+                            aria-selected="false" data-name="articles">
+                            教程
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recipe-results-tab" data-toggle="tab" href="#recipe" role="tab"
+                            aria-selected="false" data-name="recipes">
+                            代码参考
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="video-results-tab" data-toggle="tab" href="#video" role="tab"
+                            aria-selected="false" data-name="videos">
+                            视频
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="live-search-result-tab-content">
+                    <div class="search-container live-search-result mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+    </script>
+    <style>
+      
+    </style>
+  </body>
+</html>

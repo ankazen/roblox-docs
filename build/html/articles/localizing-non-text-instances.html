@@ -1,0 +1,567 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>本地化非文本实例 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="使用本地化 API" href="utilizing-localization-apis.html" />
+    <link rel="prev" title="本地化常见问题和错误排查" href="Localization-Support-and-Troubleshooting.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/international.html">国际化</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Introduction-to-Localization-on-Roblox.html">本地化简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization-format-strings.html">本地化格式字符串</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization-portal-additional-features.html">本地化门户：扩展功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Localization-Support-and-Troubleshooting.html">本地化常见问题和错误排查</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">本地化非文本实例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">翻译模块</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">语言代码参考 »</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id">收集资源 ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">键和翻译</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">脚本实现</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utilizing-localization-apis.html">使用本地化 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Format-Strings.html">格式字符串</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/international.html">国际化</a> &raquo;</li>
+        
+      <li>本地化非文本实例</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/localizing-non-text-instances.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>本地化非文本实例<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>在特殊情况下，可能需要将<strong>非文本实例</strong>（例如，用于商店招牌的图片或语音剪辑）本地化。在这种情况下，可以使用每种受支持语言的独特资源。</p>
+<p><img alt="https://developer.roblox.com/assets/blt4b9d240f8abb0b44/Localized-Image-en.png" src="https://developer.roblox.com/assets/blt4b9d240f8abb0b44/Localized-Image-en.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt3e240e0d7aac3e0b/Localized-Image-es.png" src="https://developer.roblox.com/assets/blt3e240e0d7aac3e0b/Localized-Image-es.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt3ef00a5b2b44a665/Localized-Image-pt.png" src="https://developer.roblox.com/assets/blt3ef00a5b2b44a665/Localized-Image-pt.png" /></p>
+<div class="section" id="id2">
+<h2>翻译模块<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>以下模块从本地化门户获取所有翻译，并使用错误处理从基于 web 的 <code class="docutils literal notranslate"><span class="pre">Translator</span></code> API 捕获潜在故障。若要在游戏中使用：</p>
+<ol class="simple">
+<li><p>在 <code class="docutils literal notranslate"><span class="pre">ReplicatedStorage</span></code> 中创建一个新的 <code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code>。</p></li>
+<li><p>将该脚本重命名为 <em>TranslationHelper</em>。</p></li>
+<li><p>将以下代码复制到该脚本中。</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    local TranslationHelper = {}
+    
+    -- Roblox 服务
+    local LocalizationService = game:GetService(&quot;LocalizationService&quot;)
+    local Players = game:GetService(&quot;Players&quot;)
+    
+    -- 本地变量
+    local player = Players.LocalPlayer
+    local sourceLanguageCode = &quot;en&quot;
+    
+    -- 获取 Translator
+    local playerTranslator, fallbackTranslator
+    local foundPlayerTranslator = pcall(function()
+    	playerTranslator = LocalizationService:GetTranslatorForPlayerAsync(player)
+    end)
+    local foundFallbackTranslator = pcall(function()
+    	fallbackTranslator = LocalizationService:GetTranslatorForLocaleAsync(sourceLanguageCode)
+    end)
+    
+    TranslationHelper.setSourceLanguage = function(languageCode)
+    	if sourceLanguageCode ~= languageCode then
+    		foundFallbackTranslator = pcall(function()
+    			fallbackTranslator = LocalizationService:GetTranslatorForLocaleAsync(sourceLanguageCode)
+    			sourceLanguageCode = languageCode
+    			return true
+    		end)	
+    	end
+    	return false
+    end
+    
+    -- 翻译函数
+    TranslationHelper.translate = function(text, object)
+    	if not object then
+    		object = game
+    	end
+    	local translation = &quot;&quot;
+    	local foundTranslation = false
+    	if foundPlayerTranslator then
+    		return playerTranslator:Translate(object, text)
+    	end
+    	if foundFallbackTranslator then
+    		return fallbackTranslator:Translate(object, text)
+    	end
+    	return false
+    end
+    
+    -- 按键函数进行翻译 
+    TranslationHelper.translateByKey = function(key, arguments)
+    	local translation = &quot;&quot;
+    	local foundTranslation = false
+    	
+    	-- 首先试图翻译至玩家语言（如果发现 Translator）
+    	if foundPlayerTranslator then
+    		foundTranslation = pcall(function()
+    			translation = playerTranslator:FormatByKey(key, arguments)
+    		end)
+    	end
+    	if foundFallbackTranslator and not foundTranslation then
+    		foundTranslation = pcall(function()
+    			translation = fallbackTranslator:FormatByKey(key, arguments)
+    		end)
+    	end
+    	if foundTranslation then
+    		return translation
+    	else
+    		return false
+    	end
+    end
+    
+    return TranslationHelper
+
+</pre></div>
+</div>
+<p>如果你的游戏源语言不是英语，请将第 9 行的 <code class="docutils literal notranslate"><span class="pre">sourceLanguageCode</span></code> 值更改为<strong>完全支持的</strong>语言代码，该语言代码与本地化门户中的游戏<strong>源语言</strong>设置相匹配（请参阅下面的参考表）。</p>
+<div class="section" id="id3">
+<h3>语言代码参考 »<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>下表概述了本地化门户中当前支持的语言。用黄色高亮显示的语言完全受 Roblox 平台/应用程序支持。</p>
+<p>语言代码 语言</p>
+<p><strong>de</strong>
+German
+Deutsch</p>
+<p><strong>en</strong>
+English
+English</p>
+<p><strong>es</strong>
+Spanish
+Español</p>
+<p><strong>fr</strong>
+French
+Français</p>
+<p><strong>jp</strong>
+Japanese
+日本語</p>
+<p><strong>ko</strong>
+Korean
+한국어</p>
+<p><strong>pt</strong>
+Portuguese
+Português</p>
+<p><strong>zh-hans</strong>
+Chinese (Simplified)
+中文(简体)</p>
+<p><strong>zh-hant</strong>
+Chinese (Traditional)
+中文(繁體)</p>
+<p><strong>bg</strong>
+Bulgarian
+български</p>
+<p><strong>bn</strong>
+Bengali
+বাংলা</p>
+<p><strong>bs</strong>
+Bosnian
+босански</p>
+<p><strong>cs</strong>
+Czech
+Čeština</p>
+<p><strong>da</strong>
+Danish
+Dansk</p>
+<p><strong>el</strong>
+Greek
+ελληνικά</p>
+<p><strong>et</strong>
+Estonian
+Eesti</p>
+<p><strong>fi</strong>
+Finnish
+Suomi</p>
+<p><strong>hi</strong>
+Hindi
+हिन्दी</p>
+<p><strong>hr</strong>
+Croatian
+Hrvatski</p>
+<p><strong>hu</strong>
+Hungarian
+Magyar</p>
+<p><strong>id</strong>
+Indonesian
+Bahasa Indonesia</p>
+<p><strong>it</strong>
+Italian
+Italiano</p>
+<p><strong>ka</strong>
+Georgian
+ქართული</p>
+<p><strong>kk</strong>
+Kazakh
+қазақ тілі</p>
+<p><strong>km</strong>
+Khmer
+ភាសាខ្មែរ</p>
+<p><strong>lt</strong>
+Lithuanian
+Lietuvių</p>
+<p><strong>lv</strong>
+Latvian
+Latviešu</p>
+<p><strong>ms</strong>
+Malay
+Bahasa Melayu</p>
+<p><strong>my</strong>
+Burmese
+ဗမာစာ</p>
+<p><strong>nb</strong>
+Bokmal
+Bokmål</p>
+<p><strong>nl</strong>
+Dutch
+Nederlands</p>
+<p><strong>fil</strong>
+Filipino
+Filipino</p>
+<p><strong>pl</strong>
+Polish
+Polski</p>
+<p><strong>ro</strong>
+Romanian
+Română</p>
+<p><strong>ru</strong>
+Russian
+русский</p>
+<p><strong>si</strong>
+Sinhala
+සිංහල</p>
+<p><strong>sk</strong>
+Slovak
+Slovenčina</p>
+<p><strong>sl</strong>
+Slovenian
+Slovenski</p>
+<p><strong>sq</strong>
+Albanian
+Shqipe</p>
+<p><strong>sr</strong>
+Serbian
+српски</p>
+<p><strong>sv</strong>
+Swedish
+Svenska</p>
+<p><strong>th</strong>
+Thai
+ภาษาไทย</p>
+<p><strong>tr</strong>
+Turkish
+Türkçe</p>
+<p><strong>uk</strong>
+Ukrainian
+україньска</p>
+<p><strong>vi</strong>
+Vietnamese
+Tiểng Việt</p>
+</div>
+</div>
+<div class="section" id="id">
+<h2>收集资源 ID<a class="headerlink" href="#id" title="Permalink to this headline">¶</a></h2>
+<p>若要实现本地化的资源，你应该首先收集每个版本的<strong>资源 ID</strong>，例如：</p>
+<p>英语（源） 西班牙语 （es） 葡萄牙语 （pt）</p>
+<p>rbxassetid://2957093606
+rbxassetid://2957093671
+rbxassetid://2957093727</p>
+<p><img alt="https://developer.roblox.com/assets/blt4b9d240f8abb0b44/Localized-Image-en.png" src="https://developer.roblox.com/assets/blt4b9d240f8abb0b44/Localized-Image-en.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt3e240e0d7aac3e0b/Localized-Image-es.png" src="https://developer.roblox.com/assets/blt3e240e0d7aac3e0b/Localized-Image-es.png" /></p>
+<p><img alt="https://developer.roblox.com/assets/blt3ef00a5b2b44a665/Localized-Image-pt.png" src="https://developer.roblox.com/assets/blt3ef00a5b2b44a665/Localized-Image-pt.png" /></p>
+</div>
+<div class="section" id="id4">
+<h2>键和翻译<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>不要在 .csv 电子表格或本地化门户中提供字符串转换，而是输入相应资源的资源 ID。请记住，还要在 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 中提供用于查找的 <strong>Key</strong> （键）值，如以下部分所述。</p>
+<p>A
+B
+C
+D
+E
+F
+G</p>
+<p><strong>键</strong>
+上下文
+<strong>源</strong>
+示例
+<strong>es</strong>
+<strong>pt</strong></p>
+<p>Key_JewelsImage
+2957093606
+2957093671
+2957093727</p>
+</div>
+<div class="section" id="id5">
+<h2>脚本实现<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>在继续之前，请确认：</p>
+<ul class="simple">
+<li><p><strong>TranslationHelper</strong> 脚本位于 <code class="docutils literal notranslate"><span class="pre">ReplicatedStorage</span></code> 中。</p></li>
+<li><p>.csv 电子表格已上传到本地化门户，其中包含 “Key_JewelsImage” 键和与每个本地化图片关联的有效资源 ID。</p></li>
+</ul>
+<p>为了进行测试，你可以 <a class="reference external" href="https://developer.roblox.com/assets/bltcac7145ef2354164/LocalizedImageTest.csv?disposition=attachment">下载</a>包含西班牙语 (<strong>es</strong>) 和葡萄牙语 (<strong>pt</strong>) 的有效 ID 的测试电子表格，并将其上载到本地化门户，如<code class="docutils literal notranslate"><span class="pre">articles/localization</span> <span class="pre">portal</span> <span class="pre">additional</span> <span class="pre">features#upload-csv-file|此处</span></code>所述。</p>
+<p>现在将以下代码复制到一个新的 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 中。由于本教程涉及 GUI 图片，因此可以将脚本放在 <code class="docutils literal notranslate"><span class="pre">StarterGui</span></code> 中。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    -- 静态变量
+    local FALLBACK_IMAGE_ID = &quot;924320031&quot;
+    
+    -- Roblox 服务
+    local ReplicatedStorage = game:GetService(&quot;ReplicatedStorage&quot;)
+    local Players = game:GetService(&quot;Players&quot;)
+    
+    -- 对翻译模块进行 Require
+    local TranslationHelper = require(ReplicatedStorage:WaitForChild(&quot;TranslationHelper&quot;))
+    
+    -- 创建新的屏幕 GUI
+    local player = Players.LocalPlayer
+    local playerGUI = player:WaitForChild(&quot;PlayerGui&quot;)
+    local screenGUI = Instance.new(&quot;ScreenGui&quot;)
+    screenGUI.Parent = playerGUI
+    
+    -- 创建新的图像标签
+    local localizedImage = Instance.new(&quot;ImageLabel&quot;)
+    localizedImage.Size = UDim2.new(0, 185, 0, 170)
+    localizedImage.Position = UDim2.new(0, 40, 0, 40)
+    localizedImage.BackgroundTransparency = 1
+    localizedImage.Parent = screenGUI
+    
+    -- 从翻译模块处获取（Get）资源 ID
+    local localizedImageID = TranslationHelper.translateByKey(&quot;Key_JewelsImage&quot;)
+    
+    -- 将资源 ID（或备用 ID）应用至图像标签
+    local success, errorMessage = pcall(function()
+    	localizedImage.Image = &quot;rbxassetid://&quot; .. localizedImageID
+    end)
+    if not success then
+    	localizedImage.Image = &quot;rbxassetid://&quot; .. FALLBACK_IMAGE_ID
+    	warn(errorMessage)
+    end
+
+</pre></div>
+</div>
+<p>在 Studio 中对你的游戏进行测试，如<code class="docutils literal notranslate"><span class="pre">articles/game</span> <span class="pre">testing#player-emulator|此处</span></code>所述，并为配置的语言/图片显示正确的图片。</p>
+<p><img alt="https://developer.roblox.com/assets/blt186c6cc463a5a5b4/Localized-Image-Result-es.png" src="https://developer.roblox.com/assets/blt186c6cc463a5a5b4/Localized-Image-Result-es.png" /></p>
+<p>西班牙语</p>
+<p><img alt="https://developer.roblox.com/assets/bltc448fd3075cd409e/Localized-Image-Result-pt.png" src="https://developer.roblox.com/assets/bltc448fd3075cd409e/Localized-Image-Result-pt.png" /></p>
+<p>葡萄牙语</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/localizing-non-text-instances">本地化非文本实例</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="utilizing-localization-apis.html" class="btn btn-neutral float-right" title="使用本地化 API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Localization-Support-and-Troubleshooting.html" class="btn btn-neutral float-left" title="本地化常见问题和错误排查" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

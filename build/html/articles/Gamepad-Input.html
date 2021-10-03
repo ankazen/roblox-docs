@@ -1,0 +1,410 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>游戏手柄输入 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="自定义游戏控制" href="customizing-game-controls.html" />
+    <link rel="prev" title="创建移动端按钮" href="ContextActionService-Creating-Mobile-Buttons.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cross-platform-development.html">跨平台开发</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Developing-for-Mobile-Devices-on-Roblox.html">针对移动设备进行开发</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Device-Orientation-for-Mobile-Roblox-Games.html">设备方向</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gamepad-Haptic-Feedback.html">游戏手柄触觉反馈</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Virtual-Reality-Best-Practices.html">Virtual Reality – Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ContextActionService-Creating-Mobile-Buttons.html">创建移动端按钮</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">游戏手柄输入</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">检测游戏手柄</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">获取输入</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#contextactionservice">ContextActionService</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#userinputservice">UserInputService</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">游戏手柄输入状态</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">支持的输入</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">最佳做法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-game-controls.html">自定义游戏控制</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/cross-platform.html">跨平台发展</a> &raquo;</li>
+        
+      <li>游戏手柄输入</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Gamepad-Input.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>游戏手柄输入<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>Roblox 接受来自 USB 游戏手柄（例如 Xbox 和 Playstation 手柄）的输入。一个游戏可以支持每个客户端最多 8 个本地手柄。</p>
+<div class="section" id="id2">
+<h2>检测游戏手柄<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>可以使用 <code class="docutils literal notranslate"><span class="pre">UserInputService/GamepadEnabled|UserInputService.GamepadEnabled</span></code> 属性来检测玩家设备当前是否有有效的游戏手柄。请注意，此属性仅显示是否连接了任何游戏手柄，而不显示插入多少游戏手柄或它们在哪个插槽中。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">UserInputService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;UserInputService&quot;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">UserInputService</span><span class="o">.</span><span class="n">GamepadEnabled</span> <span class="n">then</span>
+    	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;玩家已启用手柄...&quot;</span><span class="p">)</span>
+    <span class="n">end</span>
+
+</pre></div>
+</div>
+<p>由于一次最多可以将八个游戏手柄连接到一个客户端，所以了解哪些是有效的游戏手柄很重要。一种方法是监听 <code class="docutils literal notranslate"><span class="pre">UserInputService/GamepadConnected|GamepadConnected</span></code> 和 <code class="docutils literal notranslate"><span class="pre">UserInputService/GamepadDisconnected|GamepadDisconnected</span></code> 事件，这些事件分别在设备启用或禁用时触发。两者都将向连接的函数传递一个 <code class="docutils literal notranslate"><span class="pre">Enum/UserInputType</span></code> 枚举值，指示是哪个游戏手柄导致了事件（在大多数情况下，它将是 <code class="docutils literal notranslate"><span class="pre">Enum.UserInputType.Gamepad1</span></code>，但如果开发者的游戏支持本地多人游戏，则应确认这一点）。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">UserInputService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;UserInputService&quot;</span><span class="p">)</span>
+    
+    <span class="n">UserInputService</span><span class="o">.</span><span class="n">GamepadConnected</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">gamepad</span><span class="p">)</span>
+    	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;玩家已连接游戏手柄：&quot;</span> <span class="o">..</span> <span class="n">tostring</span><span class="p">(</span><span class="n">gamepad</span><span class="p">))</span>
+    <span class="n">end</span><span class="p">)</span>
+    
+    <span class="n">UserInputService</span><span class="o">.</span><span class="n">GamepadDisconnected</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">gamepad</span><span class="p">)</span>
+    	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;玩家已断连游戏手柄：&quot;</span> <span class="o">..</span> <span class="n">tostring</span><span class="p">(</span><span class="n">gamepad</span><span class="p">))</span>
+    <span class="n">end</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>开发者也可以使用 <code class="docutils literal notranslate"><span class="pre">UserInputService/GetGamepadConnected|UserInputService:GetGamepadConnected()</span></code> 函数主动查询特定控制器是否已连接。此函数以 <code class="docutils literal notranslate"><span class="pre">Enum/UserInputType</span></code> 枚举值作为参数，并且只接受 <code class="docutils literal notranslate"><span class="pre">Enum.UserInputType.Gamepad1</span></code> 至 <code class="docutils literal notranslate"><span class="pre">Enum.UserInputType.Gamepad8</span></code> 的值。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">UserInputService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;UserInputService&quot;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">UserInputService</span><span class="p">:</span><span class="n">GetGamepadConnected</span><span class="p">(</span><span class="n">Enum</span><span class="o">.</span><span class="n">UserInputType</span><span class="o">.</span><span class="n">Gamepad1</span><span class="p">)</span> <span class="n">then</span>
+    	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gamepad1 已连接&quot;</span><span class="p">)</span>
+    <span class="n">elseif</span> <span class="n">UserInputService</span><span class="p">:</span><span class="n">GetGamepadConnected</span><span class="p">(</span><span class="n">Enum</span><span class="o">.</span><span class="n">UserInputType</span><span class="o">.</span><span class="n">Gamepad2</span><span class="p">)</span> <span class="n">then</span>
+    	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gamepad2 已连接&quot;</span><span class="p">)</span>
+    <span class="n">end</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>获取输入<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>有三种方法可以从游戏手柄获取输入：</p>
+<ul class="simple">
+<li><p>如果要将自定义游戏控件绑定到游戏手柄和其他输入源（如键盘或移动触摸控件），请使用 <code class="docutils literal notranslate"><span class="pre">ContextActionService</span></code>。</p></li>
+<li><p>直接使用 <code class="docutils literal notranslate"><span class="pre">UserInputService</span></code> 监听游戏手柄事件。</p></li>
+<li><p>使用 <code class="docutils literal notranslate"><span class="pre">UserInputService/GetGamepadState|UserInputService:GetGamepadState()</span></code> 函数查询游戏手柄输入的状态。</p></li>
+</ul>
+<div class="section" id="contextactionservice">
+<h3>ContextActionService<a class="headerlink" href="#contextactionservice" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">ContextActionService</span></code> 对于将控件绑定到游戏手柄和其他输入源特别有用。例如，如果要将自定义的“打开法术书”操作绑定到游戏手柄上的右触发器（<strong>R2</strong>）<strong>和</strong>键盘上的 B 键，<code class="docutils literal notranslate"><span class="pre">ContextActionService</span></code> 可以在一个函数中处理这两种情况：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">ContextActionService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ContextActionService&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">function</span> <span class="n">openSpellBook</span><span class="p">(</span><span class="n">actionName</span><span class="p">,</span> <span class="n">inputState</span><span class="p">,</span> <span class="n">inputObject</span><span class="p">)</span>
+    	<span class="k">if</span> <span class="n">inputState</span> <span class="o">==</span> <span class="n">Enum</span><span class="o">.</span><span class="n">UserInputState</span><span class="o">.</span><span class="n">Begin</span> <span class="n">then</span>
+    		<span class="o">--</span> <span class="n">打开法术书</span>
+    	<span class="n">end</span>
+    <span class="n">end</span>
+    
+    <span class="n">ContextActionService</span><span class="p">:</span><span class="n">BindAction</span><span class="p">(</span><span class="s2">&quot;OpenSpellBook&quot;</span><span class="p">,</span> <span class="n">openSpellBook</span><span class="p">,</span> <span class="n">false</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">KeyCode</span><span class="o">.</span><span class="n">ButtonR2</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">KeyCode</span><span class="o">.</span><span class="n">B</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>绑定到 <code class="docutils literal notranslate"><span class="pre">ContextActionService</span></code> 的函数将在<strong>所有</strong>输入状态（<code class="docutils literal notranslate"><span class="pre">enum/UserInputState|Begin</span></code>、<code class="docutils literal notranslate"><span class="pre">enum/UserInputState|Change</span></code> 和 <code class="docutils literal notranslate"><span class="pre">enum/UserInputState|End</span></code>）上触发，因此强烈建议检查第 4 行的 <code class="docutils literal notranslate"><span class="pre">InputObject/UserInputState|UserInputState</span></code>，以确保所需操作仅在开发者希望的状态上发生。</p>
+</div>
+<div class="section" id="userinputservice">
+<h3>UserInputService<a class="headerlink" href="#userinputservice" title="Permalink to this headline">¶</a></h3>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">UserInputService</span></code> 检测游戏手柄事件时，所有控件都将触发 <code class="docutils literal notranslate"><span class="pre">UserInputService/InputBegan|InputBegan</span></code> 和 <code class="docutils literal notranslate"><span class="pre">UserInputService/InputEnded|InputEnded</span></code> 事件。在处理函数中，<code class="docutils literal notranslate"><span class="pre">InputObject/UserInputType</span></code> 属性指出哪个游戏手柄触发了事件，<code class="docutils literal notranslate"><span class="pre">InputObject/KeyCode</span></code> 指出触发事件的特定按钮或摇杆。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">UserInputService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;UserInputService&quot;</span><span class="p">)</span>
+    
+    <span class="n">UserInputService</span><span class="o">.</span><span class="n">InputBegan</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+    	<span class="k">if</span> <span class="nb">input</span><span class="o">.</span><span class="n">UserInputType</span> <span class="o">==</span> <span class="n">Enum</span><span class="o">.</span><span class="n">UserInputType</span><span class="o">.</span><span class="n">Gamepad1</span> <span class="n">then</span>
+    		<span class="k">if</span> <span class="nb">input</span><span class="o">.</span><span class="n">KeyCode</span> <span class="o">==</span> <span class="n">Enum</span><span class="o">.</span><span class="n">KeyCode</span><span class="o">.</span><span class="n">ButtonA</span> <span class="n">then</span>
+    			<span class="o">--</span> <span class="n">按下了</span> <span class="n">A</span> <span class="n">按钮</span>
+    		<span class="n">end</span>
+    	<span class="n">end</span>
+    <span class="n">end</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>大多数游戏手柄也支持模拟控制。要检测这些控制的输入，使用 <code class="docutils literal notranslate"><span class="pre">UserInputService/InputChanged|InputChanged</span></code> 事件并通过 <code class="docutils literal notranslate"><span class="pre">InputObject/Position</span></code> 检测输入轴的位置。摇杆的位置将始终位于 <strong>X</strong> 和 <strong>Y</strong> 轴上介于 -1 和 1 的值之间，而触发按钮将只在 <strong>Z</strong> 轴上拥有 0 和 1 之间的值（0 表示其起始位置，1 表示完全按下的情况）。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">UserInputService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;UserInputService&quot;</span><span class="p">)</span>
+    
+    <span class="n">UserInputService</span><span class="o">.</span><span class="n">InputChanged</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">processed</span><span class="p">)</span>
+    	<span class="k">if</span> <span class="nb">input</span><span class="o">.</span><span class="n">UserInputType</span> <span class="o">==</span> <span class="n">Enum</span><span class="o">.</span><span class="n">UserInputType</span><span class="o">.</span><span class="n">Gamepad1</span> <span class="n">then</span>
+    		<span class="k">if</span> <span class="nb">input</span><span class="o">.</span><span class="n">KeyCode</span> <span class="o">==</span> <span class="n">Enum</span><span class="o">.</span><span class="n">KeyCode</span><span class="o">.</span><span class="n">Thumbstick1</span> <span class="n">then</span>
+    			<span class="nb">print</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">Position</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="nb">input</span><span class="o">.</span><span class="n">Position</span><span class="o">.</span><span class="n">Y</span><span class="p">)</span>
+    		<span class="n">end</span>
+    	<span class="n">end</span>
+    <span class="n">end</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>游戏手柄输入状态<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>可以随时使用 <code class="docutils literal notranslate"><span class="pre">UserInputService/GetGamepadState|UserInputService:GetGamepadState()</span></code> 函数检测游戏手柄上所有按钮和摇杆的状态。如果需要在发生非手柄事件时检测游戏手柄输入，这将非常有用。例如，当玩家按下 RT 手柄按钮时，以下代码检测角色的左脚是否接触到某些东西：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">UserInputService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;UserInputService&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">player</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">LocalPlayer</span>
+    <span class="n">local</span> <span class="n">character</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">Character</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">character</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">character</span><span class="o">.</span><span class="n">Parent</span> <span class="n">then</span>
+    	<span class="n">character</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">CharacterAdded</span><span class="p">:</span><span class="n">Wait</span><span class="p">()</span>
+    <span class="n">end</span>
+    
+    <span class="n">local</span> <span class="n">leftFoot</span> <span class="o">=</span> <span class="n">character</span><span class="p">:</span><span class="n">WaitForChild</span><span class="p">(</span><span class="s2">&quot;LeftFoot&quot;</span><span class="p">)</span>
+    <span class="n">leftFoot</span><span class="o">.</span><span class="n">Touched</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">hit</span><span class="p">)</span>
+    	<span class="n">local</span> <span class="n">state</span> <span class="o">=</span> <span class="n">UserInputService</span><span class="p">:</span><span class="n">GetGamepadState</span><span class="p">(</span><span class="n">Enum</span><span class="o">.</span><span class="n">UserInputType</span><span class="o">.</span><span class="n">Gamepad1</span><span class="p">)</span>
+    	<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="nb">input</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">state</span><span class="p">)</span> <span class="n">do</span>
+    		<span class="k">if</span> <span class="nb">input</span><span class="o">.</span><span class="n">KeyCode</span> <span class="o">==</span> <span class="n">Enum</span><span class="o">.</span><span class="n">KeyCode</span><span class="o">.</span><span class="n">ButtonR2</span> <span class="ow">and</span> <span class="nb">input</span><span class="o">.</span><span class="n">UserInputState</span> <span class="o">==</span> <span class="n">Enum</span><span class="o">.</span><span class="n">UserInputState</span><span class="o">.</span><span class="n">Begin</span> <span class="n">then</span>
+    			<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;按住 RT 按钮时时角色的左脚碰到了物体&quot;</span><span class="p">)</span>
+    		<span class="n">end</span>
+    	<span class="n">end</span>
+    <span class="n">end</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>支持的输入<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>并不是所有的游戏手柄都有相同数量或类型的输入，所以检查连接的游戏手柄有哪些输入是很重要的。也可以使用 <code class="docutils literal notranslate"><span class="pre">UserInputService/GetSupportedGamepadKeyCodes|UserInputService:GetSupportedGamepadKeyCodes()</span></code> 函数执行此操作，该函数接受 <code class="docutils literal notranslate"><span class="pre">Enum/UserInputType</span></code> 枚举值作为参数，并返回一个表，其中包含指定手柄的所有可用输入的列表。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">UserInputService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;UserInputService&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">availableInputs</span> <span class="o">=</span> <span class="n">UserInputService</span><span class="p">:</span><span class="n">GetSupportedGamepadKeyCodes</span><span class="p">(</span><span class="n">Enum</span><span class="o">.</span><span class="n">UserInputType</span><span class="o">.</span><span class="n">Gamepad2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This controller supports the following controls:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">control</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">availableInputs</span><span class="p">)</span> <span class="n">do</span>
+    	<span class="nb">print</span><span class="p">(</span><span class="n">control</span><span class="p">)</span>
+    <span class="n">end</span>
+
+</pre></div>
+</div>
+<p>开发者也可以通过 <code class="docutils literal notranslate"><span class="pre">UserInputService/GamepadSupports|UserInputService:GamepadSupports()</span></code> 检查游戏手柄是否支持特定按钮。</p>
+</div>
+<div class="section" id="id6">
+<h2>最佳做法<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>与任何用户输入方法一样，最好在不同的游戏和应用之间建立一定的一致性。这有助于玩家立即对开发者的控制方案感到熟悉和舒适。以下是在实装游戏手柄控件时的一些建议做法：</p>
+<ul class="simple">
+<li><p>如果实装了任何用户提示或 GUI 选择，则 <strong>A</strong> 按钮应表示“接受”。</p></li>
+<li><p>对于任何 GUI 或任何模式状态，<strong>B</strong>按钮应表示“取消”。</p></li>
+<li><p>屏幕提示哪些按钮可以做什么非常有帮助，特别是对于像物品栏系统、升级系统这样复杂的 GUI。</p></li>
+<li><p>角色移动应该关联左摇杆。</p></li>
+<li><p>镜头移动应该关联右摇杆。</p></li>
+<li><p>主要动作通常是通过右扳机（<strong>R2</strong>）或 <strong>A</strong> 按钮进行的。</p></li>
+<li><p>辅助动作通常是通过左扳机（<strong>L2</strong>）或 <strong>R1</strong> 和 <strong>L1</strong> 按钮进行的。如果开发者将辅助动作与正面按钮关联，那么 <strong>X</strong> 和 <strong>Y</strong> 是不错的选择。</p></li>
+<li><p>允许玩家重新映射按钮可以让开发者的游戏更容易操作。</p></li>
+</ul>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Gamepad-Input">游戏手柄输入</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="customizing-game-controls.html" class="btn btn-neutral float-right" title="自定义游戏控制" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ContextActionService-Creating-Mobile-Buttons.html" class="btn btn-neutral float-left" title="创建移动端按钮" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

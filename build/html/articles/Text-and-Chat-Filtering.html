@@ -1,0 +1,682 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>文本与聊天过滤 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="镜头操控" href="Camera-manipulation.html" />
+    <link rel="prev" title="在 GUI 中使用图像" href="Using-Images-in-GUIs.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-GUIs.html">GUI 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI-Animations.html">GUI 动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fundamentals-of-Scripting-with-GUIs.html">GUI 脚本简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Chat-System.html">Lua 聊天系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Interactive-Surface-GUI.html">交互式表面 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-GUI-Buttons.html">创建 GUI 按钮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Radial-Menu.html">创建摇杆快速菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Grid-Menu.html">创建栅格菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using-Images-in-GUIs.html">在 GUI 中使用图像</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">文本与聊天过滤</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">如何过滤文本</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">示例 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">示例 2</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">需要过滤的文本</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">玩家输入信息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">随机字词</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">外部源</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">已储存文本</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">例外情况</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Camera-manipulation.html">镜头操控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mouse-Icon-Appearance.html">鼠标指针控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animating-text.html">设置文本动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar-emotes.html">Avatar Emotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chat-Modules.html">Chat Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Custom-Teleport-GUI.html">创建自定义传送屏幕</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Scrolling-Frame-GUI.html">创建滚动框架 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-the-camera.html">Customizing the Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Disabling-Parts-of-Game-Interface.html">禁用游戏界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-bindings.html">Roblox Input Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selection-Boxes.html">选择框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Three-Quarters-Camera-View.html">45 度镜头视角</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Unit-Frame.html">单元框：制作生命槽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewportframe-gui.html">ViewportFrame GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/user-interface.html">用户界面</a> &raquo;</li>
+        
+      <li>文本与聊天过滤</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Text-and-Chat-Filtering.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>文本与聊天过滤<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>20  分钟</em></p>
+<p>保证玩家与游戏环境安全的重要方法之一就是使用恰当的<strong>文本过滤</strong>功能。Roblox 内置的文本过滤功能不仅可以防止用户看到污言秽语等不当消息，还可以屏蔽相关个人信息，防止身份泄露。由于 Roblox 拥有大量年轻用户群，防止其分享或阅读不当内容是极有必要的。</p>
+<p>由于关键词过滤对于营造安全环境极为重要，Roblox 会对游戏内容进行主动监控，确保其符合特定标准。如果游戏被举报或自动检测到未应用过滤功能，我们将会暂时对其进行关闭，直至开发人员采取适当措施应用过滤功能。</p>
+<div class="section" id="id2">
+<h2>如何过滤文本<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>通过 <code class="docutils literal notranslate"><span class="pre">TextService</span></code> 的 <code class="docutils literal notranslate"><span class="pre">TextService/FilterStringAsync|FilterStringAsync()</span></code> 函数可以对文本进行过滤。此函数会提取文本字符串（作为输入）及文本创建玩家的 ID，然后返回可用于发布过滤后字符串的 <code class="docutils literal notranslate"><span class="pre">TextFilterResult</span></code> 对象。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">TextService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;TextService&quot;</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">filteredTextResult</span> <span class="o">=</span> <span class="n">TextService</span><span class="p">:</span><span class="n">FilterStringAsync</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">fromPlayerId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">TextService/FilterStringAsync|FilterStringAsync()</span></code> 应在服务器上调用。在客户端上对其调用时会失败。</p>
+<p>此函数可用于过滤聊天和非聊天情景中特定用户或全部用户的字符串。此函数所返回的对象 <code class="docutils literal notranslate"><span class="pre">TextFilterResult</span></code> 有三种调用方法：<code class="docutils literal notranslate"><span class="pre">TextFilterResult/GetChatForUserAsync|GetChatForUserAsync()</span></code>、<code class="docutils literal notranslate"><span class="pre">TextFilterResult/GetNonChatStringForBroadcastAsync|GetNonChatStringForBroadcastAsync()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">TextFilterResult/GetNonChatStringForUserAsync|GetNonChatStringForUserAsync()</span></code>。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">TextService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;TextService&quot;</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">filteredText</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">errorMessage</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+	<span class="n">filteredTextResult</span> <span class="o">=</span> <span class="n">TextService</span><span class="p">:</span><span class="n">FilterStringAsync</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">fromPlayerId</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">success</span> <span class="n">then</span>
+	<span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Error filtering text:&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">errorMessage</span><span class="p">)</span>
+	<span class="o">--</span> <span class="n">在此处放置代码以处理过滤失败</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>请注意，<code class="docutils literal notranslate"><span class="pre">TextService/FilterStringAsync|FilterStringAsync()</span></code> 和所有 <code class="docutils literal notranslate"><span class="pre">TextFilterResult</span></code> 函数都会进行内部 web 调用，因此偶尔会发生调用失败的情况。所以，上述函数应当始终被封装在 <code class="docutils literal notranslate"><span class="pre">pcall</span></code> 中。如果包含过滤器函数的 <code class="docutils literal notranslate"><span class="pre">pcall</span></code> 调用失败，请<strong>切勿</strong>按预期继续使用此文本（即使发布空文本字段也不要发布未过滤文本）。</p>
+<div class="section" id="id3">
+<h3>示例 1<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>此示例设置了一个小组件，可让玩家向其他玩家发送消息。此类小组件需要至少两个脚本：一个用于处理输入信息和显示消息的 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code> 和一个用于过滤服务器上消息的 <code class="docutils literal notranslate"><span class="pre">Script</span></code> 。由于示例模拟了一名玩家向另一名特定玩家发送消息的情景，应使用函数 <code class="docutils literal notranslate"><span class="pre">TextFilterResult/GetChatForUserAsync|GetChatForUserAsync()</span></code>。可沿用此<a class="reference external" href="https://www.roblox.com/games/3618543227/Message-Passing-WIth-Filtering">实用示例</a>。</p>
+<div class="section" id="localscript">
+<h4>LocalScript<a class="headerlink" href="#localscript" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-- LocalScript
+
+local Players = game:GetService(&quot;Players&quot;)
+local ReplicatedStorage = game:GetService(&quot;ReplicatedStorage&quot;)
+
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild(&quot;PlayerGui&quot;)
+local screen = playerGui:WaitForChild(&quot;MessageScreen&quot;)
+local sendMessageEvent = ReplicatedStorage:WaitForChild(&quot;SendPrivateMessage&quot;)
+
+-- sendFrame（发送框）的 GUI 元素
+local sendFrame = screen:WaitForChild(&quot;SendFrame&quot;)
+local recipientField = sendFrame:WaitForChild(&quot;Recipient&quot;)
+local writeMessageField = sendFrame:WaitForChild(&quot;Message&quot;)
+local sendButton = sendFrame:WaitForChild(&quot;Send&quot;)
+
+-- receiveFrame（接收框）的 GUI 元素
+local receiveFrame = screen:WaitForChild(&quot;ReceiveFrame&quot;)
+local senderField = receiveFrame:WaitForChild(&quot;From&quot;)
+local readMessageField = receiveFrame:WaitForChild(&quot;Message&quot;)
+
+-- 点击发送按钮时将会调用
+local function onSendClicked()
+	-- 尝试寻找接收消息的玩家，如果该玩家存在才会发送消息
+	local recipient = Players:FindFirstChild(recipientField.Text)
+	local message = writeMessageField.Text
+	if recipient and message ~= &quot;&quot; then
+		-- 发送消息
+		sendMessageEvent:FireServer(recipient, message)
+		-- 清理 send frame（发送框）
+		recipientField.Text = &quot;&quot;
+		writeMessageField.Text = &quot;&quot;
+	end 
+end
+
+-- 当发送信息事件触发时被调用，也就是说此客户端收到了消息
+local function onReceiveMessage(sender, message)
+	-- 将发送者和消息本身填写至接收框的字段中
+	senderField.Text = sender.Name
+	readMessageField.Text = message
+end
+
+-- 绑定事件函数
+sendButton.MouseButton1Click:Connect(onSendClicked)
+sendMessageEvent.OnClientEvent:Connect(onReceiveMessage)
+</pre></div>
+</div>
+</div>
+<div class="section" id="script">
+<h4>Script<a class="headerlink" href="#script" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">脚本</span>
+
+<span class="n">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">TextService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;TextService&quot;</span><span class="p">)</span>
+
+<span class="n">local</span> <span class="n">sendMessageEvent</span> <span class="o">=</span> <span class="n">ReplicatedStorage</span><span class="o">.</span><span class="n">SendPrivateMessage</span>
+
+<span class="n">local</span> <span class="n">function</span> <span class="n">getTextObject</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">fromPlayerId</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">textObject</span>
+	<span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">errorMessage</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+		<span class="n">textObject</span> <span class="o">=</span> <span class="n">TextService</span><span class="p">:</span><span class="n">FilterStringAsync</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">fromPlayerId</span><span class="p">)</span>
+	<span class="n">end</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">success</span> <span class="n">then</span>
+		<span class="k">return</span> <span class="n">textObject</span>
+	<span class="n">end</span>
+	<span class="k">return</span> <span class="n">false</span>
+<span class="n">end</span>
+
+<span class="n">local</span> <span class="n">function</span> <span class="n">getFilteredMessage</span><span class="p">(</span><span class="n">textObject</span><span class="p">,</span> <span class="n">toPlayerId</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">filteredMessage</span>
+	<span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">errorMessage</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+		<span class="n">filteredMessage</span> <span class="o">=</span> <span class="n">textObject</span><span class="p">:</span><span class="n">GetChatForUserAsync</span><span class="p">(</span><span class="n">toPlayerId</span><span class="p">)</span>
+	<span class="n">end</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">success</span> <span class="n">then</span>
+		<span class="k">return</span> <span class="n">filteredMessage</span>
+	<span class="n">end</span>
+	<span class="k">return</span> <span class="n">false</span>
+<span class="n">end</span>
+
+<span class="o">--</span> <span class="n">当客户端发送消息时进行调用</span>
+<span class="n">local</span> <span class="n">function</span> <span class="n">onSendMessage</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">recipient</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">message</span> <span class="o">~=</span> <span class="s2">&quot;&quot;</span> <span class="n">then</span>
+		<span class="o">--</span> <span class="n">对输入的消息进行过滤并发送过滤后的消息</span>
+		<span class="n">local</span> <span class="n">messageObject</span> <span class="o">=</span> <span class="n">getTextObject</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">sender</span><span class="o">.</span><span class="n">UserId</span><span class="p">)</span>
+
+		<span class="k">if</span> <span class="n">messageObject</span> <span class="n">then</span>
+			<span class="n">local</span> <span class="n">filteredMessage</span> <span class="o">=</span> <span class="n">getFilteredMessage</span><span class="p">(</span><span class="n">messageObject</span><span class="p">,</span> <span class="n">recipient</span><span class="o">.</span><span class="n">UserId</span><span class="p">)</span>
+			<span class="n">sendMessageEvent</span><span class="p">:</span><span class="n">FireClient</span><span class="p">(</span><span class="n">recipient</span><span class="p">,</span> <span class="n">sender</span><span class="p">,</span> <span class="n">filteredMessage</span><span class="p">)</span>
+		<span class="n">end</span>
+	<span class="n">end</span>
+<span class="n">end</span>
+
+<span class="n">sendMessageEvent</span><span class="o">.</span><span class="n">OnServerEvent</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">onSendMessage</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>示例 2<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>本示例设置了一个对话框，可让玩家在标牌上撰写消息。由于服务器中的所有人（包括在撰写消息玩家离开后加入游戏的玩家）都可查阅此消息，因此必须使用 <code class="docutils literal notranslate"><span class="pre">TextFilterResult/GetNonChatStringForBroadcastAsync|GetNonChatStringForBroadcastAsync()</span></code> 对消息文本进行过滤。可沿用此<a class="reference external" href="https://www.roblox.com/games/3618537258/Broadcast-Text-Filtering">实用示例</a>。</p>
+<div class="section" id="id5">
+<h4>LocalScript<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-- LocalScript
+local Players = game:GetService(&quot;Players&quot;)
+local ReplicatedStorage = game:GetService(&quot;ReplicatedStorage&quot;)
+
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild(&quot;PlayerGui&quot;)
+local screen = playerGui:WaitForChild(&quot;MessageScreen&quot;)
+
+-- 对话框的 GUI 元素
+local frame = screen:WaitForChild(&quot;Frame&quot;)
+local messageInput = frame:WaitForChild(&quot;Message&quot;)
+local sendButton = frame:WaitForChild(&quot;Send&quot;)
+
+-- RemoteEvent，用于向服务器发送需要过滤与显示的文本 
+local setSignText = ReplicatedStorage:WaitForChild(&quot;SetSignText&quot;)
+
+-- 按下按钮后进行调用
+local function onClick()
+	local message = messageInput.Text
+	if message ~= &quot;&quot; then
+		setSignText:FireServer(message)
+		frame.Visible = false
+	end
+end
+
+sendButton.MouseButton1Click:Connect(onClick)
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h4>Script<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">脚本</span>
+
+<span class="n">local</span> <span class="n">TextService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;TextService&quot;</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
+
+<span class="n">local</span> <span class="n">sign</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">Workspace</span><span class="o">.</span><span class="n">Sign</span>
+<span class="n">local</span> <span class="n">signTop</span> <span class="o">=</span> <span class="n">sign</span><span class="o">.</span><span class="n">Top</span>
+<span class="n">local</span> <span class="n">signSurfaceGui</span> <span class="o">=</span> <span class="n">signTop</span><span class="o">.</span><span class="n">SurfaceGui</span>
+<span class="n">local</span> <span class="n">signLabel</span> <span class="o">=</span> <span class="n">signSurfaceGui</span><span class="o">.</span><span class="n">SignLabel</span>
+
+<span class="n">local</span> <span class="n">setSignText</span> <span class="o">=</span> <span class="n">ReplicatedStorage</span><span class="o">.</span><span class="n">SetSignText</span>
+
+<span class="n">local</span> <span class="n">function</span> <span class="n">getTextObject</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">fromPlayerId</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">textObject</span>
+	<span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">errorMessage</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+		<span class="n">textObject</span> <span class="o">=</span> <span class="n">TextService</span><span class="p">:</span><span class="n">FilterStringAsync</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">fromPlayerId</span><span class="p">)</span>
+	<span class="n">end</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">success</span> <span class="n">then</span>
+		<span class="k">return</span> <span class="n">textObject</span>
+	<span class="n">elseif</span> <span class="n">errorMessage</span> <span class="n">then</span>
+		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;生成 TextFilterResult 时出现错误&quot;</span><span class="p">,</span> <span class="n">errorMessage</span><span class="p">)</span>
+	<span class="n">end</span>
+	<span class="k">return</span> <span class="n">false</span>
+<span class="n">end</span>
+
+<span class="n">local</span> <span class="n">function</span> <span class="n">getFilteredMessage</span><span class="p">(</span><span class="n">textObject</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">filteredMessage</span>
+	<span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">errorMessage</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+		<span class="n">filteredMessage</span> <span class="o">=</span> <span class="n">textObject</span><span class="p">:</span><span class="n">GetNonChatStringForBroadcastAsync</span><span class="p">()</span>
+	<span class="n">end</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">success</span> <span class="n">then</span>
+		<span class="k">return</span> <span class="n">filteredMessage</span>
+	<span class="n">elseif</span> <span class="n">errorMessage</span> <span class="n">then</span>
+		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;过滤消息时出现错误：&quot;</span><span class="p">,</span> <span class="n">errorMessage</span><span class="p">)</span>
+	<span class="n">end</span>
+	<span class="k">return</span> <span class="n">false</span>
+<span class="n">end</span>
+
+<span class="o">--</span> <span class="n">当客户端发送撰写标牌的请求时触发</span>
+<span class="n">local</span> <span class="n">function</span> <span class="n">onSetSignText</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">text</span> <span class="o">~=</span> <span class="s2">&quot;&quot;</span> <span class="n">then</span>
+		<span class="o">--</span> <span class="n">过滤输入消息并发送过滤后的消息</span>
+		<span class="n">local</span> <span class="n">messageObject</span> <span class="o">=</span> <span class="n">getTextObject</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">player</span><span class="o">.</span><span class="n">UserId</span><span class="p">)</span>
+		<span class="n">local</span> <span class="n">filteredText</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+		<span class="n">filteredText</span> <span class="o">=</span> <span class="n">getFilteredMessage</span><span class="p">(</span><span class="n">messageObject</span><span class="p">)</span>
+		<span class="n">signLabel</span><span class="o">.</span><span class="n">Text</span> <span class="o">=</span> <span class="n">filteredText</span>
+	<span class="n">end</span>
+<span class="n">end</span>
+
+<span class="n">setSignText</span><span class="o">.</span><span class="n">OnServerEvent</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">onSetSignText</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>需要过滤的文本<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>任何开发人员无法专门控制且将会在屏幕上显示的文本都应当被过滤。这通常涵盖了玩家所控制的各种文本，但如果想要确保游戏符合 Roblox 的过滤规则，请务必考虑下述其它几种情况：</p>
+<div class="section" id="id8">
+<h3>玩家输入信息<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>无论文本的输入与显示方法，任何玩家撰写的拟显示文本都必须经过过滤。最常见的输入文本方式是通过 <code class="docutils literal notranslate"><span class="pre">TextBox</span></code>，但获取玩家文本输入的方式并不仅限于此，例如带有角色按钮的自定义 GUI 和 3D 空间中的交互式键盘模型等。</p>
+<p><img alt="AlternateInput0.png" src="https://developer.roblox.com/assets/blt1b2d106c5fad5144/AlternateInput0.png" /></p>
+<p><img alt="AlternateInput1.png" src="https://developer.roblox.com/assets/bltc124255c68413f55/AlternateInput1.png" /></p>
+<p>除了非传统的新颖输入方法之外，还有许多显示文本的方法。例如，单词可以用 3D 部件拼写，<code class="docutils literal notranslate"><span class="pre">Humanoid|Humanoid</span></code> （人形对象）的 <code class="docutils literal notranslate"><span class="pre">Model|Model</span></code> （模型）可以显示其名称。如果此类显示内容可以被除作者外的其他玩家看到，则该文本在过滤后方可显示。</p>
+<p><img alt="AlternateDisplay0.png" src="https://developer.roblox.com/assets/bltcdd21b59162f5a68/AlternateDisplay0.png" /></p>
+<p><img alt="AlternateDisplay1.png" src="https://developer.roblox.com/assets/bltd84c4c4e43b806d7/AlternateDisplay1.png" /></p>
+</div>
+<div class="section" id="id9">
+<h3>随机字词<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>某些游戏可能会用到以随机字符生成字词后显示给玩家的机制，但也有可能在过程中生成不当用语。在此类情况下，随机文字的显示结果应通过服务器中的过滤器发送，并可在 <code class="docutils literal notranslate"><span class="pre">TextService/FilterStringAsync|FilterStringAsync()</span></code> 中使用将查看这些字词的玩家用户 ID。</p>
+<p>举例来说，下列代码会在玩家加入游戏时向其发送一个稍后会进行显示的随机字词。代码将在循环中生成随机字词，直至发现没有被过滤器更改的字词为止。可沿用此<a class="reference external" href="https://www.roblox.com/games/3618540254/Random-Text-Filtering">实用示例</a>。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>local TextService = game:GetService(&quot;TextService&quot;)
+local ReplicatedStorage = game:GetService(&quot;ReplicatedStorage&quot;)
+
+local sendRandomWordEvent = ReplicatedStorage.RandomWordEvent
+local ALPHABET= &quot;abcdefghijklmnopqrstuvwxyz&quot;
+local MIN_LENGTH = 3
+local MAX_LENGTH = 8
+-- 生成随机词的函数
+local function generateRandomWord()
+	local length = math.random(MIN_LENGTH, MAX_LENGTH)
+	local text = &quot;&quot;
+	for index = 1, length do
+		local randomLetterIndex = math.random(1, string.len(alphabet))
+		text = text .. string.sub(ALPHABET, randomLetterIndex, randomLetterIndex)
+	end
+	return text
+end
+
+local function getTextObject(message, fromPlayerId)
+	local textObject
+	local success, errorMessage = pcall(function()
+		textObject = TextService:FilterStringAsync(message, fromPlayerId)
+	end)
+	if success then
+		return textObject
+	elseif errorMessage then
+		print(&quot;生成文本对象时出现错误&quot;)
+	end
+	return false
+end
+
+local function getFilteredMessage(textObject, toPlayerId)
+	local filteredMessage
+	local success, errorMessage = pcall(function()
+		filteredMessage = textObject:GetNonChatStringForUserAsync(toPlayerId)
+	end)
+	if success then
+		return filteredMessage
+	elseif errorMessage then
+		print(&quot;过滤消息时出现错误：&quot;, errorMessage)
+	end
+	return false
+end
+
+-- 当玩家加入游戏时进行调用
+local function onPlayerJoined(player)
+	local text = &quot;&quot;
+	local filteredText = &quot;&quot;
+	-- 生成随机词，直到生成的词能够通过过滤为止
+	repeat
+		filteredText = &quot;&quot;
+		text = generateRandomWord()
+		-- 过滤输出消息并发送过滤后的消息
+		local messageObject = getTextObject(text, player.UserId)
+		filteredText = getFilteredMessage(messageObject, player.UserId)
+	until text == filteredText
+	if text == filteredText then
+		print(&quot;消息为&quot;, text, &quot;过滤消息为&quot;, filteredText)
+	end
+	-- 将生成的随机词发送至客户端
+	sendRandomWordEvent:FireClient(player, text)
+end
+game.Players.PlayerAdded:Connect(onPlayerJoined)
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>外部源<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>一些游戏会与外部 Web 服务器相连。在某些情况下，这种连接将用于获取游戏中显示的信息内容。如果外部站点的内容不在开发人员完全控制之下，且第三方可能会对站点内容进行修改，则在显示此内容前应对其进行过滤。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">TextService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;TextService&quot;</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">HttpService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;HttpService&quot;</span><span class="p">)</span>
+
+<span class="n">local</span> <span class="n">sendRandomName</span> <span class="o">=</span> <span class="n">ReplicatedStorage</span><span class="o">.</span><span class="n">SendRandomName</span>
+<span class="n">local</span> <span class="n">randomNameWebsiteAddress</span> <span class="o">=</span> <span class="s2">&quot;http://www.roblox.com/randomname&quot;</span>
+<span class="n">local</span> <span class="n">nameTable</span> <span class="o">=</span> <span class="n">nil</span>
+
+<span class="n">local</span> <span class="n">function</span> <span class="n">initializeNameTable</span><span class="p">()</span>
+	<span class="n">local</span> <span class="n">nameTableJSON</span> <span class="o">=</span> <span class="n">nil</span>
+	<span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+		<span class="n">nameTableJSON</span> <span class="o">=</span> <span class="n">HttpService</span><span class="p">:</span><span class="n">GetAsync</span><span class="p">(</span><span class="n">randomNameWebsiteAddress</span><span class="p">)</span>
+	<span class="n">end</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">success</span> <span class="n">then</span>
+		<span class="n">nameTable</span> <span class="o">=</span> <span class="n">HttpService</span><span class="p">:</span><span class="n">JSONDecode</span><span class="p">(</span><span class="n">nameTableJSON</span><span class="p">)</span>
+		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;nameTable 为：&quot;</span><span class="p">,</span> <span class="n">nameTable</span><span class="p">)</span>
+	<span class="n">end</span>
+<span class="n">end</span>
+
+<span class="n">local</span> <span class="n">function</span> <span class="n">onPlayerJoin</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">nameTable</span> <span class="n">then</span>
+		<span class="n">local</span> <span class="n">randomName</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+		<span class="n">local</span> <span class="n">filteredName</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+		<span class="n">local</span> <span class="n">filteredNameObject</span>
+		<span class="n">repeat</span>
+			<span class="n">randomName</span> <span class="o">=</span> <span class="n">nameTable</span><span class="p">[</span><span class="n">math</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="c1">#nameTable)]</span>
+			<span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">errorMessage</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+				<span class="n">filteredNameObject</span> <span class="o">=</span> <span class="n">TextService</span><span class="p">:</span><span class="n">FilterStringAsync</span><span class="p">(</span><span class="n">randomName</span><span class="p">,</span> <span class="n">player</span><span class="o">.</span><span class="n">UserId</span><span class="p">)</span>
+			<span class="n">end</span><span class="p">)</span>
+			<span class="k">if</span> <span class="n">success</span> <span class="n">then</span>
+				<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;过滤对象创建成功&quot;</span><span class="p">)</span>
+			<span class="n">elseif</span> <span class="n">errorMessage</span> <span class="n">then</span>
+				<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;创建过滤对象时发生错误&quot;</span><span class="p">)</span>
+			<span class="n">end</span>
+			<span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">errorMessage</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+				<span class="n">filteredName</span> <span class="o">=</span> <span class="n">filteredNameObject</span><span class="o">.</span><span class="n">GetNonChatStringForUserAsync</span><span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">UserId</span><span class="p">)</span>
+			<span class="n">end</span><span class="p">)</span>
+			<span class="k">if</span> <span class="n">success</span> <span class="n">then</span>
+				<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;过滤名称创建成功&quot;</span><span class="p">)</span>
+			<span class="n">elseif</span> <span class="n">errorMessage</span> <span class="n">then</span>
+				<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;创建过滤名称时发生错误&quot;</span><span class="p">)</span>
+			<span class="n">end</span>
+		<span class="n">until</span> <span class="n">randomName</span> <span class="o">==</span> <span class="n">filteredName</span>
+		<span class="n">sendRandomName</span><span class="p">:</span><span class="n">FireClient</span><span class="p">(</span><span class="n">sendRandomName</span><span class="p">)</span>
+	<span class="n">end</span>
+<span class="n">end</span>
+
+<span class="n">initializeNameTable</span><span class="p">()</span>
+<span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">PlayerAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">onPlayerJoin</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>已储存文本<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>很多游戏都会使用<code class="docutils literal notranslate"><span class="pre">articles/Data</span> <span class="pre">store|数据储存</span></code>来存储文本。例如，游戏可能会存储聊天日志或玩家昵称等。在这些情况下，如果需要过滤储存内的文本，建议在检索文本时对其进行过滤。可籍此确保文本将会使用最新版本的过滤器。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">TextService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;TextService&quot;</span><span class="p">)</span>
+<span class="n">local</span> <span class="n">DataStoreService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;DataStoreService&quot;</span><span class="p">)</span>
+
+<span class="n">local</span> <span class="n">petData</span> <span class="o">=</span> <span class="n">nil</span>
+<span class="n">local</span> <span class="n">petCreator</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">ServerStorage</span><span class="o">.</span><span class="n">PetCreator</span><span class="p">)</span>
+
+<span class="n">local</span> <span class="n">function</span> <span class="n">onPlayerJoin</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+	<span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+		<span class="n">data</span> <span class="o">=</span> <span class="n">petData</span><span class="p">:</span><span class="n">GetAsync</span><span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">UserId</span><span class="p">)</span>
+	<span class="n">end</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">success</span> <span class="n">then</span>
+		<span class="n">local</span> <span class="n">petName</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">Name</span>
+		<span class="n">local</span> <span class="n">petType</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">PetType</span>
+		<span class="n">local</span> <span class="n">filteredName</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+		<span class="n">local</span> <span class="n">filteredNameObject</span>
+		<span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+			<span class="n">filteredNameObject</span> <span class="o">=</span> <span class="n">TextService</span><span class="p">:</span><span class="n">FilterStringAsync</span><span class="p">(</span><span class="n">petName</span><span class="p">,</span> <span class="n">player</span><span class="o">.</span><span class="n">UserId</span><span class="p">)</span>
+		<span class="n">end</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">success</span> <span class="n">then</span>
+			<span class="n">local</span> <span class="n">worked</span><span class="p">,</span> <span class="n">errorMessage</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+				<span class="n">filteredName</span> <span class="o">=</span> <span class="n">filteredNameObject</span><span class="p">:</span><span class="n">GetNonChatStringForBroadcastAsync</span><span class="p">()</span>
+			<span class="n">end</span><span class="p">)</span>
+			<span class="k">if</span> <span class="n">worked</span> <span class="n">then</span>
+				<span class="n">petCreator</span><span class="p">:</span><span class="n">MakePet</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">petType</span><span class="p">,</span> <span class="n">filteredName</span><span class="p">)</span>
+			<span class="n">end</span>
+		<span class="n">end</span>
+	<span class="n">end</span>
+<span class="n">end</span>
+
+<span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+	<span class="n">petData</span> <span class="o">=</span> <span class="n">DataStoreService</span><span class="p">:</span><span class="n">GetDataStore</span><span class="p">(</span><span class="s2">&quot;PetData&quot;</span><span class="p">)</span>
+<span class="n">end</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">success</span> <span class="n">then</span>
+	<span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">PlayerAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">onPlayerJoin</span><span class="p">)</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id12">
+<h3>例外情况<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>文本过滤中的一个例外情况是在向玩家显示他们自己编写的文本时无需对其进行过滤，但对此类情况仍然需要加以考虑。</p>
+<p>使用聊天过滤器功能过滤文本需耗费少量时间。举例来说，假设玩家输入了想要显示的消息。该文本必须发送到服务器，经过滤后发送回客户端，其中每个阶段都需要一定量的时间。当使用此过程时，输入消息与返回过滤消息之间可能会出现明显延迟。</p>
+<p><img alt="FilterPath0.png" src="https://developer.roblox.com/assets/blt55058062a35b5ff0/FilterPath0.png" /></p>
+<p>向其他玩家发送消息时，这一流程是必要的（由于其他玩家所看到的文本需要经过过滤）。但撰写消息的玩家应可在聊天记录中即刻看到自己的消息。为了便于聊天进行，Roblox 对此特殊情况内置了特别的处理办法：如果玩家仅使用 <code class="docutils literal notranslate"><span class="pre">TextBox</span></code> 输入文本，则生成的文本不必针对该玩家进行过滤，且将会在此玩家屏幕上立即显示。</p>
+<p><img alt="FilterPath1.png" src="https://developer.roblox.com/assets/blt867454c593a298d8/FilterPath1.png" /></p>
+<p>重要提醒：此除外情况在检索已存储的消息时不适用。Roblox 用于检测过滤是否正确进行的自动检查会忽略键入 <code class="docutils literal notranslate"><span class="pre">TextBox</span></code> 中的文本，但仅限于使用 <code class="docutils literal notranslate"><span class="pre">TextBox</span></code> 的同一会话中。如果玩家的文本已被保存，之后在玩家重新加入游戏时被进行检索，则需要在过滤后才会进行显示（其对象包括撰写该文本的玩家）。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Text-and-Chat-Filtering">文本与聊天过滤</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Camera-manipulation.html" class="btn btn-neutral float-right" title="镜头操控" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Using-Images-in-GUIs.html" class="btn btn-neutral float-left" title="在 GUI 中使用图像" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

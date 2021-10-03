@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>游戏和场景 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Roblox 游戏设置" href="game-settings.html" />
+    <link rel="prev" title="用部件构建城市" href="Building-a-City-with-Parts.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Studio-Setup.html">Studio 设置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-Your-First-Game.html">创建基本的障碍跑游戏</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-Your-Obby-Colorful.html">部件颜色与材质</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Building-a-City-with-Parts.html">用部件构建城市</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">游戏和场景</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">制作游戏和场景</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">创建其他场景</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">项目的结构</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#roblox">Roblox 游戏</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Roblox 场景</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">高级用法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">在场景之间移动玩家</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">自定义加载屏幕</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="game-settings.html">Roblox 游戏设置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-assets.html">Roblox 中的游戏资源</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/studio-basics.html">STUDIO 基础知识</a> &raquo;</li>
+        
+      <li>游戏和场景</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/games-and-places.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>游戏和场景<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>Roblox <strong>游戏</strong>由各种不同的<strong>场景</strong>组成。场景的概念就像游戏中的关卡。你可以直接对比 Unity 的场景和 Unreal Engine（虚幻引擎）的地图。场景包含环境、模型、UI、游戏逻辑以及构成关卡的所有其他内容。虽然游戏可以由多个场景组成，但每个游戏只有一个<strong>起始场景</strong>，玩家在开始玩游戏时将加载到这个场景。</p>
+<div class="section" id="id2">
+<h2>制作游戏和场景<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>若要制作一个新游戏，首先需要创建一个新的场景并将其发布到云端。</p>
+<ol class="simple">
+<li><p>通过 <strong>File</strong> （文件）→ <strong>New</strong> （新建）创建一个新场景。</p></li>
+<li><p>在 <strong>File</strong> （文件）→ <strong>Publish to Roblox</strong> （发布到 Roblox）下将其发布为新游戏。</p></li>
+<li><p>游戏发布到 Roblox 服务器之后，它的当前场景将在 <strong>Game Explorer</strong> （游戏管理器）窗口（可以通过屏幕顶部的 <strong>View</strong> （视图）选项卡访问）的 <strong>Places</strong> （场景）下列出。
+<img alt="https://developer.roblox.com/assets/blt920c84884e646d5b/Toggle-Game-Explorer.png" src="https://developer.roblox.com/assets/blt920c84884e646d5b/Toggle-Game-Explorer.png" /></p></li>
+</ol>
+<p><img alt="https://developer.roblox.com/assets/bltac05e2228f55a807/Game-Explorer-Places.png" src="https://developer.roblox.com/assets/bltac05e2228f55a807/Game-Explorer-Places.png" /></p>
+<div class="section" id="id3">
+<h3>创建其他场景<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>首次创建游戏时，会指定<strong>起始场景</strong>。该场景将在“Game Explore（游戏管理器）”中标记有 <img alt="https://developer.roblox.com/assets/bltaa05466e4937afd2/Start-Place-Icon.png" src="https://developer.roblox.com/assets/bltaa05466e4937afd2/Start-Place-Icon.png" /></p>
+<p>符号。</p>
+<p>若要向游戏中添加多个场景，请右键单击 <strong>Places</strong> 文件夹并选择 <strong>Add New Place（添加新场景）</strong>。创建一个新场景之后，你便可以在“Game Explore（游戏管理器）”窗口中直接对其重命名。也可以双击场景，然后便开始在 Roblox Studio 中编辑。</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>项目的结构<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="roblox">
+<h3>Roblox 游戏<a class="headerlink" href="#roblox" title="Permalink to this headline">¶</a></h3>
+<p>Roblox 游戏的基本结构可以在“Game Explore（游戏管理器）”中找到。游戏包括名称和唯一标识符，以及属于游戏的其他资源，如徽章、开发者产品、图像、网格和套装。若要了解有关导入资源的更多信息，请参见 <code class="docutils literal notranslate"><span class="pre">articles/game</span> <span class="pre">assets|Roblox</span> <span class="pre">中的游戏资源</span></code>。</p>
+</div>
+<div class="section" id="id5">
+<h3>Roblox 场景<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>你的大部分工作都会在专门的场景中完成。在 Roblox Studio 中，可以使用<a class="reference external" href="/resources/studio/Explorer">“Explorer（管理器）”</a>窗口管理脚本、UI、声音、环境以及玩家将与之交互的大多数其他游戏元素。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>高级用法<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h3>在场景之间移动玩家<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>你可以在一个已发布的游戏中将玩家移动到不同的场景来作为单独的关卡。按照<code class="docutils literal notranslate"><span class="pre">articles/Teleporting</span> <span class="pre">Between</span> <span class="pre">Places|在场景之间传送</span></code>一文中的说明，了解如何在场景之间转换。</p>
+</div>
+<div class="section" id="id8">
+<h3>自定义加载屏幕<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>除了能够在不同场景之间传送玩家外，还可以为任何项目创建自定义加载屏幕。按照<code class="docutils literal notranslate"><span class="pre">articles/Custom</span> <span class="pre">Loading</span> <span class="pre">Screens|自定义加载屏幕</span></code>一文中的说明实现此功能。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/games-and-places">游戏和场景</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="game-settings.html" class="btn btn-neutral float-right" title="Roblox 游戏设置" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Building-a-City-with-Parts.html" class="btn btn-neutral float-left" title="用部件构建城市" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

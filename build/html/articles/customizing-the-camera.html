@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Customizing the Camera &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="禁用游戏界面" href="Disabling-Parts-of-Game-Interface.html" />
+    <link rel="prev" title="创建滚动框架 GUI" href="Creating-a-Scrolling-Frame-GUI.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-GUIs.html">GUI 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI-Animations.html">GUI 动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fundamentals-of-Scripting-with-GUIs.html">GUI 脚本简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Chat-System.html">Lua 聊天系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Interactive-Surface-GUI.html">交互式表面 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-GUI-Buttons.html">创建 GUI 按钮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Radial-Menu.html">创建摇杆快速菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Grid-Menu.html">创建栅格菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using-Images-in-GUIs.html">在 GUI 中使用图像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text-and-Chat-Filtering.html">文本与聊天过滤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Camera-manipulation.html">镜头操控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mouse-Icon-Appearance.html">鼠标指针控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animating-text.html">设置文本动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar-emotes.html">Avatar Emotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chat-Modules.html">Chat Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Custom-Teleport-GUI.html">创建自定义传送屏幕</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Scrolling-Frame-GUI.html">创建滚动框架 GUI</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Customizing the Camera</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#built-in-settings">Built-In Settings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#zoom-distance">Zoom Distance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#camera-mode">Camera Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#occlusion-mode">Occlusion Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#movement-mode">Movement Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#full-customization">Full Customization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Disabling-Parts-of-Game-Interface.html">禁用游戏界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-bindings.html">Roblox Input Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selection-Boxes.html">选择框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Three-Quarters-Camera-View.html">45 度镜头视角</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Unit-Frame.html">单元框：制作生命槽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewportframe-gui.html">ViewportFrame GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/user-interface.html">用户界面</a> &raquo;</li>
+        
+      <li>Customizing the Camera</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/customizing-the-camera.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="customizing-the-camera">
+<h1>Customizing the Camera<a class="headerlink" href="#customizing-the-camera" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>built-in</em></p>
+<p>Roblox offers several built-in options for configuring the game’s camera, along with the ability to script a more <code class="docutils literal notranslate"><span class="pre">/articles/Camera</span> <span class="pre">manipulation|customized</span> <span class="pre">camera</span> <span class="pre">system</span></code>.</p>
+<div class="section" id="built-in-settings">
+<h2>Built-In Settings<a class="headerlink" href="#built-in-settings" title="Permalink to this headline">¶</a></h2>
+<p>Common camera settings can be configured directly within Roblox Studio:</p>
+<ol class="simple">
+<li><p>In the <strong>Explorer</strong> window, select the <strong>StarterPlayer</strong> object.
+<img alt="https://developer.roblox.com/assets/blt07d7b5344faf62e3/Explorer-StarterPlayer.png" src="https://developer.roblox.com/assets/blt07d7b5344faf62e3/Explorer-StarterPlayer.png" /></p></li>
+<li><p>In the <strong>Properties</strong> window, scroll down to locate the <strong>Camera</strong> section. Using these options, you can easily configure your game’s camera.
+<img alt="https://developer.roblox.com/assets/bltd3366ce3170b487b/Properties-Camera.png" src="https://developer.roblox.com/assets/bltd3366ce3170b487b/Properties-Camera.png" /></p></li>
+</ol>
+<div class="section" id="zoom-distance">
+<h3>Zoom Distance<a class="headerlink" href="#zoom-distance" title="Permalink to this headline">¶</a></h3>
+<p>Together, <strong>CameraMaxZoomDistance</strong> and <strong>CameraMinZoomDistance</strong> set the span in which players can zoom the camera in respect to their player character. Setting a very high maximum like 500 will let players zoom the camera far out in space.</p>
+<p><img alt="https://developer.roblox.com/assets/blt88811648a16aa3e0/Camera-Zoom-Range.svg" src="https://developer.roblox.com/assets/blt88811648a16aa3e0/Camera-Zoom-Range.svg" /></p>
+<p>If you want to lock the camera to a specific distance away from the player, set both of these properties to the same value.</p>
+</div>
+<div class="section" id="camera-mode">
+<h3>Camera Mode<a class="headerlink" href="#camera-mode" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>CameraMode</strong> property sets the overall behavior of the camera:</p>
+<p>Setting Description</p>
+<p><strong>Classic</strong>
+The classic Roblox camera which allows players to zoom in and out (unless zoom is locked) and rotate the camera around the player.</p>
+<p><strong>LockFirstPerson</strong>
+Locks the camera to first-person mode. When in this mode, all parts/elements of the player’s character are invisible to them, except for equipped <code class="docutils literal notranslate"><span class="pre">articles/intro</span> <span class="pre">to</span> <span class="pre">player</span> <span class="pre">tools|tools</span></code>.</p>
+</div>
+<div class="section" id="occlusion-mode">
+<h3>Occlusion Mode<a class="headerlink" href="#occlusion-mode" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>DevCameraOcclusionMode</strong> property controls camera behavior when the player cannot see their character:</p>
+<p>Setting Description</p>
+<p><strong>Zoom</strong>
+If the player’s character moves behind an object with <code class="docutils literal notranslate"><span class="pre">BasePart/Transparency|Transparency</span></code> lower than <strong>0.25</strong>, the camera zooms in very close to the character so that he/she can be seen. Once the character moves back into a viewable position, the camera zooms back out.</p>
+<p><strong>Invisicam</strong>
+If the character moves behind an object (opaque or transparent), the camera remains in position but the object becomes semi-transparent so that the character can be seen. Once the character moves back into a viewable position, the object returns to its normal opacity.</p>
+<p>Uh oh! Your browser doesn’t appear to support embedded videos! Here is a <a class="reference external" href="#">direct link</a> to the video instead.</p>
+</div>
+<div class="section" id="movement-mode">
+<h3>Movement Mode<a class="headerlink" href="#movement-mode" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>DevComputerCameraMovementMode</strong> (computer) and <strong>DevTouchCameraMovementMode</strong> (phone/tablet) determine how the player can move the camera around.</p>
+<p>Setting Description</p>
+<p><strong>Classic</strong>
+The camera remains at its zoom distance between the player’s view and their character, tracking the character as it moves around the world. The camera can also be pitched up/down and rotated in an orbit around the character.</p>
+<p><strong>Follow</strong>
+Similar to “Classic” but the camera will rotate to face the player’s character if it’s moving in any direction that isn’t parallel to the direction the camera is facing.</p>
+<p><strong>Orbital</strong>
+The camera remains at its zoom distance and tracks the character as it moves around the world. It can be rotated in an orbit around the character, but it can <strong>not</strong> be pitched up/down.</p>
+<p><strong>UserChoice</strong>
+Allows players to choose their desired camera movement mode from the in-game <strong>Settings</strong> menu. Note that “Orbital” is not an option through the menu.</p>
+</div>
+</div>
+<div class="section" id="full-customization">
+<h2>Full Customization<a class="headerlink" href="#full-customization" title="Permalink to this headline">¶</a></h2>
+<p>If you prefer to script your own camera system, see the related articles below for guidance.</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/customizing-the-camera">Customizing the Camera</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Disabling-Parts-of-Game-Interface.html" class="btn btn-neutral float-right" title="禁用游戏界面" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Creating-a-Scrolling-Frame-GUI.html" class="btn btn-neutral float-left" title="创建滚动框架 GUI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

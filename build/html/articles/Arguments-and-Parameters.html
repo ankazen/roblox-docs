@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>实参和形参 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="布尔值" href="Boolean.html" />
+    <link rel="prev" title="字符串模式" href="string-patterns-reference.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Saving-Player-Data.html">保存玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">实参和形参</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">定义含有形参的函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">调用含有实参的函数</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">可变实参</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>实参和形参</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Arguments-and-Parameters.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>实参和形参<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p>在函数的定义中，形参的正式名称是变量。而实参的正式名称则是调用函数时出现在函数中的值。让我们看看下面这段代码：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>local function printStuff(x) -- 这是一个函数，含有一个形参 x。
+	print(x)
+end
+
+printStuff(&quot;Hello world.&quot;) -- &quot;Hello world.” 是一个实参
+</pre></div>
+</div>
+<p>在本例中，<em>x</em> 是函数 <em>printStuff</em> 的一个形参。形参始终会以这种格式来声明，即位于函数声明的括号内。</p>
+<p>在这个函数中，有一个语句 <code class="docutils literal notranslate"><span class="pre">print(x)</span></code>。该语句会将 <em>x</em> 包含的任何值打印到输出结果中。即便 <em>x</em> 未定义且为空，编译器也不会提示错误，因为该函数尚未被调用。</p>
+<div class="section" id="id2">
+<h2>定义含有形参的函数<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>以下是定义函数的基本语法：</p>
+<p><code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">name(argument1,</span> <span class="pre">arg2,</span> <span class="pre">arg3,</span> <span class="pre">...)</span></code> – 只有在需要的情况下才插入实参</p>
+<p>定义函数时，你可以使用形参。因为函数可针对多个值执行任务，所以形参十分实用。例如：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">function</span> <span class="n">addNumbers</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+	<span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span> <span class="o">--</span> <span class="n">你可能希望了解</span> <span class="k">return</span> <span class="n">语句</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>上一段代码包含两个形参，因此当调用该函数时，由于 <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">(x</span> <span class="pre">+</span> <span class="pre">y)</span></code> 语句，我们可以向形参 <strong>x</strong> 和 <strong>y</strong> 插入<strong>任意</strong>两个值并返回其和。当前 <em>x</em> 和 <em>y</em> 没有值，但在调用函数时，将会赋予形参 <em>x</em> 和 <em>y</em> 值。请注意，由于函数在声明后会存储于计算机内存中，因此在调用前不会提示错误（除非一开始就存在语法错误）。若情况并非如此，就会像包含以下脚本一样报错：<code class="docutils literal notranslate"><span class="pre">print(x</span> <span class="pre">+</span> <span class="pre">y)</span></code> --&gt; <code class="docutils literal notranslate"><span class="pre">attempt</span> <span class="pre">to</span> <span class="pre">perform</span> <span class="pre">arithmetic</span> <span class="pre">on</span> <span class="pre">global</span> <span class="pre">x</span> <span class="pre">(a</span> <span class="pre">nil</span> <span class="pre">value)</span></code>。</p>
+<p>形参非常有助于构成能够执行多重任务的函数。</p>
+<p>请注意，对于函数及其递减区间来说，所有形参都属于本地参数。</p>
+</div>
+<div class="section" id="id3">
+<h2>调用含有实参的函数<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>调用含有实参的函数十分简单，与调用不含实参的函数十分相似。以下是调用含有实参的函数的基本语法：</p>
+<p><code class="docutils literal notranslate"><span class="pre">functionName(value1,</span> <span class="pre">value2,</span> <span class="pre">value3,</span> <span class="pre">...)</span></code> – 调用任意数量的实参</p>
+<p>请注意，在上述语法中，你在函数声明中创建的第一个形参会变为与 <em>value1</em> 相等，而第二个形参则与 <em>value2</em> 相等，以此类推。</p>
+<p>让我们用上一个示例来进行本次演示。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>local function addNumbers(x, y)
+	return (x + y)
+end
+
+local sum = addNumbers(2, 5) -- 注意我是如何调用函数的（请注意，返回值时，函数会包含返回的值）
+print(sum) -- 7
+</pre></div>
+</div>
+<p>**注意：**当调用含有实参的函数时，可以使用任意所需数量的实参。调用的实参过多时，代码将忽略过量的实参；而调用的实参过少时，未表现的形参将返回为空。</p>
+<div class="section" id="id4">
+<h3>可变实参<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>你可能已发现，诸如 <code class="docutils literal notranslate"><span class="pre">print()</span></code> 等全局函数可能采用数量不限的实参。无论有多少个实参，它都会将其所有实参打印到输出结果中（每个打印值之间都有一个空格）。例如：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LOL&quot;</span><span class="p">,</span> <span class="s2">&quot;OMG&quot;</span><span class="p">,</span> <span class="s2">&quot;C++ IS PRETTY NEAT IF YOU ASK ME&quot;</span><span class="p">,</span> <span class="mi">1241425717231</span><span class="p">)</span> <span class="o">--</span> <span class="mi">4</span> <span class="n">个实参</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">122</span><span class="p">,</span> <span class="s2">&quot;Hi!&quot;</span><span class="p">,</span> <span class="s2">&quot;Roblox&quot;</span><span class="p">,</span> <span class="s2">&quot;Give it your best shot!&quot;</span><span class="p">,</span> <span class="s2">&quot;C++&quot;</span><span class="p">,</span> <span class="s2">&quot;Interesting&quot;</span><span class="p">)</span> <span class="o">--</span> <span class="mi">7</span> <span class="n">个实参</span>
+</pre></div>
+</div>
+<p>看一下输出结果，你将再次看到所有实参都打印在输出结果中。在自定义函数中，你同样可以加入任意数量的实参！字符组 “…” 代表可变实参。请观察以下代码：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local</span> <span class="n">table1</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">local</span> <span class="n">function</span> <span class="n">appendToTable</span><span class="p">(</span><span class="n">tab</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+	<span class="n">local</span> <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span> <span class="o">--</span> <span class="n">你可能希望了解该示例的表格</span>
+	<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="n">do</span>
+		<span class="n">table</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">tab</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+	<span class="n">end</span>
+<span class="n">end</span>
+
+<span class="n">appendToTable</span><span class="p">(</span><span class="n">table1</span><span class="p">,</span> <span class="s2">&quot;xD&quot;</span><span class="p">,</span> <span class="s2">&quot;:D&quot;</span><span class="p">,</span> <span class="s2">&quot;lol&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>含有实参的函数能够实现非常强大的功能，因为它们可以在脚本的开头声明，并能以各种方式用于整个代码中。存储经常用作函数的代码可以让脚本制作变得格外轻松。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Arguments-and-Parameters">实参和形参</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Boolean.html" class="btn btn-neutral float-right" title="布尔值" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="string-patterns-reference.html" class="btn btn-neutral float-left" title="字符串模式" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

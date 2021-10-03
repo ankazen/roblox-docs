@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>实体建模：使用部件进行 3D 建模 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="内容数据类型" href="Content.html" />
+    <link rel="prev" title="使用代码创建圆环" href="Creating-a-Circle-With-Code.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/creating.html">创建</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Building-a-Campfire.html">构建篝火</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Circle-With-Code.html">使用代码创建圆环</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">实体建模：使用部件进行 3D 建模</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">建模操作</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#union">Union（联合）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#negate">Negate（抵消）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#separate">Separate（分离）</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">模型属性</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">细节等级</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">平滑操作</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Content.html">内容数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importing-terrain-data.html">导入地形数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="importing-custom-rigs.html">导入自定义模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-ray-casting-laser-gun-in-Roblox.html">射线投射：创建激光枪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archiving-assets-and-games.html">将资源和游戏归档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="understanding-root-parts.html">根部件：概述与理解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Copyright-Guidance.html">内容版权与知识产权</a></li>
+<li class="toctree-l2"><a class="reference internal" href="managing-personal-information.html">关于 GDPR 和 CCPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="designing-for-multiplayer.html">设计多人游戏</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Team-Create.html">合作式开发</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/creating.html">创建</a> &raquo;</li>
+        
+      <li>实体建模：使用部件进行 3D 建模</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/3D-Modeling-with-Parts.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="d">
+<h1>实体建模：使用部件进行 3D 建模<a class="headerlink" href="#d" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p>通过实体建模，开发者可以使用最为简单的部件（例如块状体、球体、楔状体及柱状体等）来创建十分复杂的游戏模型。对模型进行联合操作后，也可以大大减少游戏中的总部件数目，从而间接提升游戏性能。</p>
+<p><img alt="https://developer.roblox.com/assets/blt7f953d87b4d85cb3/CSG-Door.jpg" src="https://developer.roblox.com/assets/blt7f953d87b4d85cb3/CSG-Door.jpg" /></p>
+<p><img alt="https://developer.roblox.com/assets/bltf6aa49515b1c492d/CSG-Potion.jpg" src="https://developer.roblox.com/assets/bltf6aa49515b1c492d/CSG-Potion.jpg" /></p>
+<p><img alt="https://developer.roblox.com/assets/bltbc68386edd12aa09/CSG-Gear.jpg" src="https://developer.roblox.com/assets/bltbc68386edd12aa09/CSG-Gear.jpg" /></p>
+<div class="section" id="id1">
+<h2>建模操作<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="union">
+<h3>Union（联合）<a class="headerlink" href="#union" title="Permalink to this headline">¶</a></h3>
+<p><strong>Union</strong>（联合）为实体建模中的主要操作。选中希望组合的部件后，单击 <strong>Model</strong>（模型）选项卡中的 <strong>Union</strong>（联合）选项，即可执行这一操作。组合完毕的部件将被转化为名为 <strong>Union</strong> 的新部件。</p>
+<p><img alt="https://developer.roblox.com/assets/blt12f1f9b92d9773ec/CSG-Union-Button.png" src="https://developer.roblox.com/assets/blt12f1f9b92d9773ec/CSG-Union-Button.png" /></p>
+<p><strong>联合</strong>只能用于基础部件（块状体、球体、楔状体及柱状体），且这些部件下<strong>不能</strong>含有任何子项（如脚本或表面 GUI 等）。当试图对拥有子项的部件进行结合时，其子项将会从 <code class="docutils literal notranslate"><span class="pre">DataModel</span></code> 中隐藏。</p>
+</div>
+<div class="section" id="negate">
+<h3>Negate（抵消）<a class="headerlink" href="#negate" title="Permalink to this headline">¶</a></h3>
+<p>实体建模的功能不仅是组合连接部件。通过 **Negate（抵消）**按钮可以将部件的一部分进行去除。若要使用该按钮，请选中一个部件，然后单击 **Model（模型）**选项卡中的 **Negate（抵消）**按钮。</p>
+<p><img alt="https://developer.roblox.com/assets/blt7dc16d2d629426a6/CSG-Negate-Button.png" src="https://developer.roblox.com/assets/blt7dc16d2d629426a6/CSG-Negate-Button.png" /></p>
+<p>此操作会将该部件转化为“抵消部件”（negative part），其外观将呈红色半透明状，以便区分。当使用<strong>联合</strong>工具组合抵消部件与正常部件时，抵消部件与正常部件重叠的部分将被切除。</p>
+<p>注意：选中抵消部件后再次单击 **Negate（抵消）**即可回撤部件切除操作。</p>
+</div>
+<div class="section" id="separate">
+<h3>Separate（分离）<a class="headerlink" href="#separate" title="Permalink to this headline">¶</a></h3>
+<p>当希望对联合模型进行回撤（撤销操作）时，选中该模型并单击 **Separate（分离）**即可达到此目标。该操作将会分解已形成的联合，以便开发者对联合的大小和构造进行调整。</p>
+<p><img alt="https://developer.roblox.com/assets/bltfcba9af76703c621/CSG-Separate-Button.png" src="https://developer.roblox.com/assets/bltfcba9af76703c621/CSG-Separate-Button.png" /></p>
+<div class="section" id="id2">
+<h4>实体建模的限制<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>If a union operation would result in a part with more than 5000 triangles, it will fail and Studio will alert you to the error in the <strong>Output</strong> window.</p></li>
+<li><p>A unioned or negated part can only be scaled uniformly (all of the dimensions must be scaled at the same proportion). If you need to change just one part in a solid model, separate the model, transform the specific part, and redo the union process.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>模型属性<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>细节等级<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>默认情况下，不管实体建模部件离镜头有多远，都将始终以精确保真度显示。虽然此特性可以改善从任何距离观察时的部件外观，但当场景中具有大量高细节实体建模部件时，可能会降低整体<code class="docutils literal notranslate"><span class="pre">articles/Improving</span> <span class="pre">Performance|游戏性能</span></code>。</p>
+<p>若需要对实体建模部件的显示细节等级进行动态控制，请将其 <code class="docutils literal notranslate"><span class="pre">enum/RenderFidelity|RenderFidelity</span></code> 属性更改为 <strong>Automatic</strong>（自动）。此操作将导致部件根据其与镜头的距离以不同的细节等级进行渲染：</p>
+<p>与镜头的距离 渲染保真度</p>
+<p>低于 250 格
+最高</p>
+<p>250 至 500 格
+中等</p>
+<p>500 格或以上
+最低</p>
+</div>
+<div class="section" id="id5">
+<h3>平滑操作<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">PartOperation/SmoothingAngle|SmoothingAngle</span></code> 属性代表了实体建模部件上各面法线之间阈值的一个角度（单位为度）。当法线差异值小于此属性的值时将对相关法线进行调整，也就是对差异值进行平滑。通常来说，如果想要获取较好的结果，应当将此属性设为 30 至 70 度之间的一个值。将其设为 0 度时，模型边缘将会极为锐利；而将其设为 90 至 180 度时会在拥有锐利边缘的联合模型上产生一种“阴影”效果（虽然可以将属性设于此区间，但并不推荐其所产生的效果）。</p>
+<p><img alt="https://developer.roblox.com/assets/blt53ff07ce0d5f1cf7/CSG-SmoothingAngle-0.png" src="https://developer.roblox.com/assets/blt53ff07ce0d5f1cf7/CSG-SmoothingAngle-0.png" /></p>
+<p>SmoothingAngle : <strong>0</strong></p>
+<p><img alt="https://developer.roblox.com/assets/bltc1f5f51600953267/CSG-SmoothingAngle-50.png" src="https://developer.roblox.com/assets/bltc1f5f51600953267/CSG-SmoothingAngle-50.png" /></p>
+<p>SmoothingAngle : <strong>50</strong></p>
+<p>注意：当法线拥有不同材质或颜色时，将不会受到表面平滑的影响。</p>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/3D-Modeling-with-Parts">实体建模：使用部件进行 3D 建模</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Content.html" class="btn btn-neutral float-right" title="内容数据类型" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Creating-a-Circle-With-Code.html" class="btn btn-neutral float-left" title="使用代码创建圆环" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

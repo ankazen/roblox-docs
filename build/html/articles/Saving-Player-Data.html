@@ -1,0 +1,538 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>保存玩家数据 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="字符串模式" href="string-patterns-reference.html" />
+    <link rel="prev" title="了解 CFrame" href="Understanding-CFrame.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Roblox-Client-Server-Model.html">Roblox 主从架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beginners-Guide-to-Coroutines.html">协同程序初学者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFrame-Math-Operations.html">CFrame 数学运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Table.html">Table（表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Understanding-CFrame.html">了解 CFrame</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">保存玩家数据</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">创建数据模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">保存玩家数据</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">初始化数据存储</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">读取/写入初始数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">退出时保存数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">自动保存</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">处理数据存储失败</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">数据存储重试</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="string-patterns-reference.html">字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arguments-and-Parameters.html">实参和形参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Boolean.html">布尔值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-Plugins.html">插件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Game-Security.html">游戏安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debounce.html">防抖动：使用时机及原因说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Anonymous-Functions.html">匿名函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BodyMover.html">BodyMovers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="How-To-Use-BodyPosition.html">BodyPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bezier-curves.html">Bézier Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conditional-Statements-in-Lua.html">条件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumeration.html">枚举值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="For-Loops.html">For 循环</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="humanoiddescription-system.html">HumanoidDescription 系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON-Storage-Format.html">JSON 格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua-csharp-comparison.html">Lua / C# Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Style-Guide.html">Lua Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Type-Coercion-in-Lua.html">Lua 中的类型强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-debugger.html">使用 Lua 调试器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Method.html">Method（方法）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Nil.html">Nil 值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scope.html">Scope（作用域）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Writing-Clean-Code.html">代码编写简洁化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variadic-Functions.html">可变参函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-string-patterns.html">基础字符串模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object-browser.html">对象浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loops.html">循环（Loop）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data-store.html">数据储存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keeping-time.html">游戏计时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Converting-From-Experimental-Mode.html">试验模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving-data-introduction.html">保存数据：简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task-scheduler.html">任务计划程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-world-space.html">对象空间与世界空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag-and-drop-in-studio-widgets.html">Studio 控件中的拖放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/coding-scripts.html">编码与脚本</a> &raquo;</li>
+        
+      <li>保存玩家数据</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Saving-Player-Data.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>保存玩家数据<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>15  分钟</em></p>
+<p>Roblox 支持将数据保存到其服务器上。此功能主要用于存储上次会话的玩家数据，可完整保存其统计数据、道具和其他数据。在本教程中，我们将创建一个系统，该系统自动存储玩家的资金和体验数据，以便在他们再次加入游戏时可取回这些数据。</p>
+<p>如果你想在开始本教程前更深入地了解 Roblox 数据存储系统，请参见<code class="docutils literal notranslate"><span class="pre">Articles/Data</span> <span class="pre">store|数据存储</span></code>文章。</p>
+<p>API 访问权限必须处于有效状态，以便能访问和测试 Roblox Studio 中的数据存储。请参见<code class="docutils literal notranslate"><span class="pre">Articles/Data</span> <span class="pre">store|数据存储</span></code>文章了解有关启用 API 访问权限的说明。</p>
+<div class="section" id="id2">
+<h2>创建数据模块<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在深入了解数据存储前，我们将设置一个系统，用于在游戏过程中记录玩家的资金和体验数据。首先，我们将创建 <code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code>，这是一种可在其他脚本中引用的特殊脚本。此 <code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code> 的理想位置是放在 <strong>ServerStorage</strong> 中。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">Set</span> <span class="n">up</span> <span class="n">table</span> <span class="n">to</span> <span class="k">return</span> <span class="n">to</span> <span class="nb">any</span> <span class="n">script</span> <span class="n">that</span> <span class="n">requires</span> <span class="n">this</span> <span class="n">module</span> <span class="n">script</span>
+    <span class="n">local</span> <span class="n">PlayerStatManager</span> <span class="o">=</span> <span class="p">{}</span>
+    
+    <span class="o">--</span> <span class="n">Table</span> <span class="n">to</span> <span class="n">hold</span> <span class="n">player</span> <span class="n">information</span> <span class="k">for</span> <span class="n">the</span> <span class="n">current</span> <span class="n">session</span>
+    <span class="n">local</span> <span class="n">sessionData</span> <span class="o">=</span> <span class="p">{}</span>
+    
+    <span class="n">local</span> <span class="n">AUTOSAVE_INTERVAL</span> <span class="o">=</span> <span class="mi">60</span>
+    
+    <span class="o">--</span> <span class="n">Function</span> <span class="n">that</span> <span class="n">other</span> <span class="n">scripts</span> <span class="n">can</span> <span class="n">call</span> <span class="n">to</span> <span class="n">change</span> <span class="n">a</span> <span class="n">player</span><span class="s1">&#39;s stats</span>
+    <span class="n">function</span> <span class="n">PlayerStatManager</span><span class="p">:</span><span class="n">ChangeStat</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">statName</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    	<span class="n">local</span> <span class="n">playerUserId</span> <span class="o">=</span> <span class="s2">&quot;Player_&quot;</span> <span class="o">..</span> <span class="n">player</span><span class="o">.</span><span class="n">UserId</span>
+    	<span class="k">assert</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">sessionData</span><span class="p">[</span><span class="n">playerUserId</span><span class="p">][</span><span class="n">statName</span><span class="p">])</span> <span class="o">==</span> <span class="n">typeof</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="s2">&quot;ChangeStat error: types do not match&quot;</span><span class="p">)</span>
+    	<span class="k">if</span> <span class="n">typeof</span><span class="p">(</span><span class="n">sessionData</span><span class="p">[</span><span class="n">playerUserId</span><span class="p">][</span><span class="n">statName</span><span class="p">])</span> <span class="o">==</span> <span class="s2">&quot;number&quot;</span> <span class="n">then</span>
+    		<span class="n">sessionData</span><span class="p">[</span><span class="n">playerUserId</span><span class="p">][</span><span class="n">statName</span><span class="p">]</span> <span class="o">=</span> <span class="n">sessionData</span><span class="p">[</span><span class="n">playerUserId</span><span class="p">][</span><span class="n">statName</span><span class="p">]</span> <span class="o">+</span> <span class="n">value</span>
+    	<span class="k">else</span>
+    		<span class="n">sessionData</span><span class="p">[</span><span class="n">playerUserId</span><span class="p">][</span><span class="n">statName</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    	<span class="n">end</span>
+    <span class="n">end</span>
+    
+    <span class="o">--</span> <span class="n">Function</span> <span class="n">to</span> <span class="n">add</span> <span class="n">player</span> <span class="n">to</span> <span class="n">the</span> <span class="s2">&quot;sessionData&quot;</span> <span class="n">table</span>
+    <span class="n">local</span> <span class="n">function</span> <span class="n">setupPlayerData</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+    	<span class="n">local</span> <span class="n">playerUserId</span> <span class="o">=</span> <span class="s2">&quot;Player_&quot;</span> <span class="o">..</span> <span class="n">player</span><span class="o">.</span><span class="n">UserId</span>
+    	<span class="n">sessionData</span><span class="p">[</span><span class="n">playerUserId</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">Money</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">Experience</span><span class="o">=</span><span class="mi">0</span><span class="p">}</span>
+    <span class="n">end</span>
+    
+    <span class="o">--</span> <span class="n">Connect</span> <span class="s2">&quot;setupPlayerData()&quot;</span> <span class="n">function</span> <span class="n">to</span> <span class="s2">&quot;PlayerAdded&quot;</span> <span class="n">event</span>
+    <span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">PlayerAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">setupPlayerData</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">PlayerStatManager</span>
+
+</pre></div>
+</div>
+<p>请注意，<code class="docutils literal notranslate"><span class="pre">PlayerStatManager:ChangeStat()</span></code> 函数可处理<strong>数值</strong>或<strong>非数值</strong>变更。这意味着你可以安全地使用数值（正值或负值）或字符串值作为 <code class="docutils literal notranslate"><span class="pre">value</span></code> 参数来调用此函数。</p>
+</div>
+<div class="section" id="id3">
+<h2>保存玩家数据<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>现在，我们开始使用数据存储来存储实际信息。</p>
+<div class="section" id="id4">
+<h3>初始化数据存储<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>首先，我们将在同一 <code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code> 中为数据存储添加一个新变量，并调用 <code class="docutils literal notranslate"><span class="pre">DataStoreService/GetDataStore|GetDataStore()</span></code> 以打开新的 <strong>PlayerData</strong> 数据存储。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">Set</span> <span class="n">up</span> <span class="n">table</span> <span class="n">to</span> <span class="k">return</span> <span class="n">to</span> <span class="nb">any</span> <span class="n">script</span> <span class="n">that</span> <span class="n">requires</span> <span class="n">this</span> <span class="n">module</span> <span class="n">script</span>
+    <span class="n">local</span> <span class="n">PlayerStatManager</span> <span class="o">=</span> <span class="p">{}</span>
+    
+    <span class="n">local</span> <span class="n">DataStoreService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;DataStoreService&quot;</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">playerData</span> <span class="o">=</span> <span class="n">DataStoreService</span><span class="p">:</span><span class="n">GetDataStore</span><span class="p">(</span><span class="s2">&quot;PlayerData&quot;</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">Table</span> <span class="n">to</span> <span class="n">hold</span> <span class="n">player</span> <span class="n">information</span> <span class="k">for</span> <span class="n">the</span> <span class="n">current</span> <span class="n">session</span>
+    <span class="n">local</span> <span class="n">sessionData</span> <span class="o">=</span> <span class="p">{}</span>
+    
+    <span class="n">local</span> <span class="n">AUTOSAVE_INTERVAL</span> <span class="o">=</span> <span class="mi">60</span>
+
+</pre></div>
+</div>
+<p>你可以方便地命名数据存储。数据存储将在游戏中的所有场景之间共享，因此，如果你的游戏中有多个场景，则这些场景都可以通过名称访问同一个数据存储。</p>
+</div>
+<div class="section" id="id5">
+<h3>读取/写入初始数据<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>就下来，让我们更改 <code class="docutils literal notranslate"><span class="pre">setupPlayerData()</span></code> 函数的工作方式。目前，此函数只在玩家加入游戏时为玩家创建新数据，但此数据不会保存在任何位置！现在，通过访问 <code class="docutils literal notranslate"><span class="pre">playerData</span></code> 数据存储，我们可以调用 <code class="docutils literal notranslate"><span class="pre">GlobalDataStore/GetAsync|GetAsync()</span></code> 来检查它是否保存玩家的任何信息。如果此调用返回有效数据，我们会将此数据保存到 <code class="docutils literal notranslate"><span class="pre">sessionData</span></code> 表，否则会将<strong>新</strong>玩家数据保存到 <code class="docutils literal notranslate"><span class="pre">sessionData</span></code> 表中。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">Function</span> <span class="n">to</span> <span class="n">add</span> <span class="n">player</span> <span class="n">to</span> <span class="n">the</span> <span class="s2">&quot;sessionData&quot;</span> <span class="n">table</span>
+    <span class="n">local</span> <span class="n">function</span> <span class="n">setupPlayerData</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+    	<span class="n">local</span> <span class="n">playerUserId</span> <span class="o">=</span> <span class="s2">&quot;Player_&quot;</span> <span class="o">..</span> <span class="n">player</span><span class="o">.</span><span class="n">UserId</span>
+    	<span class="n">local</span> <span class="n">data</span> <span class="o">=</span> <span class="n">playerData</span><span class="p">:</span><span class="n">GetAsync</span><span class="p">(</span><span class="n">playerUserId</span><span class="p">)</span>
+    	<span class="k">if</span> <span class="n">data</span> <span class="n">then</span>
+    		<span class="o">--</span> <span class="n">Data</span> <span class="n">exists</span> <span class="k">for</span> <span class="n">this</span> <span class="n">player</span>
+    		<span class="n">sessionData</span><span class="p">[</span><span class="n">playerUserId</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
+    	<span class="k">else</span>
+    		<span class="o">--</span> <span class="n">Data</span> <span class="n">store</span> <span class="ow">is</span> <span class="n">working</span><span class="p">,</span> <span class="n">but</span> <span class="n">no</span> <span class="n">current</span> <span class="n">data</span> <span class="k">for</span> <span class="n">this</span> <span class="n">player</span>
+    		<span class="n">sessionData</span><span class="p">[</span><span class="n">playerUserId</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">Money</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">Experience</span><span class="o">=</span><span class="mi">0</span><span class="p">}</span>
+    	<span class="n">end</span>
+    <span class="n">end</span>
+    
+    <span class="o">--</span> <span class="n">Connect</span> <span class="s2">&quot;setupPlayerData()&quot;</span> <span class="n">function</span> <span class="n">to</span> <span class="s2">&quot;PlayerAdded&quot;</span> <span class="n">event</span>
+    <span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">PlayerAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">setupPlayerData</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>退出时保存数据<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>建议在玩家退出游戏时保存玩家数据。可以通过绑定到 <code class="docutils literal notranslate"><span class="pre">Players/PlayerRemoving|PlayerRemoving</span></code> 事件的新 <code class="docutils literal notranslate"><span class="pre">savePlayerData()</span></code> 函数来实现此功能。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">Function</span> <span class="n">to</span> <span class="n">save</span> <span class="n">player</span><span class="s1">&#39;s data</span>
+    <span class="n">local</span> <span class="n">function</span> <span class="n">savePlayerData</span><span class="p">(</span><span class="n">playerUserId</span><span class="p">)</span>
+    	<span class="k">if</span> <span class="n">sessionData</span><span class="p">[</span><span class="n">playerUserId</span><span class="p">]</span> <span class="n">then</span>
+    		<span class="n">playerData</span><span class="p">:</span><span class="n">SetAsync</span><span class="p">(</span><span class="n">playerUserId</span><span class="p">,</span> <span class="n">sessionData</span><span class="p">[</span><span class="n">playerUserId</span><span class="p">])</span>
+    	<span class="n">end</span>
+    <span class="n">end</span>
+    
+    <span class="o">--</span> <span class="n">Function</span> <span class="n">to</span> <span class="n">save</span> <span class="n">player</span> <span class="n">data</span> <span class="n">on</span> <span class="n">exit</span>
+    <span class="n">local</span> <span class="n">function</span> <span class="n">saveOnExit</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+    	<span class="n">local</span> <span class="n">playerUserId</span> <span class="o">=</span> <span class="s2">&quot;Player_&quot;</span> <span class="o">..</span> <span class="n">player</span><span class="o">.</span><span class="n">UserId</span>
+    	<span class="n">savePlayerData</span><span class="p">(</span><span class="n">playerUserId</span><span class="p">)</span>
+    <span class="n">end</span>
+    
+    <span class="o">--</span> <span class="n">Connect</span> <span class="s2">&quot;setupPlayerData()&quot;</span> <span class="n">function</span> <span class="n">to</span> <span class="s2">&quot;PlayerAdded&quot;</span> <span class="n">event</span>
+    <span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">PlayerAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">setupPlayerData</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">Connect</span> <span class="s2">&quot;saveOnExit()&quot;</span> <span class="n">function</span> <span class="n">to</span> <span class="s2">&quot;PlayerRemoving&quot;</span> <span class="n">event</span>
+    <span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">PlayerRemoving</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">saveOnExit</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>自动保存<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>最后，有必要让系统处理游戏崩溃等意外事件。为此，可以使用将等待<code class="docutils literal notranslate"><span class="pre">AUTOSAVE_INTERVAL</span></code> 秒（60）的函数，此函数循环遍历 <code class="docutils literal notranslate"><span class="pre">sessionData</span></code> 表中的所有玩家，并使用 <code class="docutils literal notranslate"><span class="pre">savePlayerData()</span></code> 函数保存当前信息。请注意，此函数最初会通过使用 <code class="docutils literal notranslate"><span class="pre">spawn()</span></code> 函数在协同程序中运行。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">Function</span> <span class="n">to</span> <span class="n">periodically</span> <span class="n">save</span> <span class="n">player</span> <span class="n">data</span>
+    <span class="n">local</span> <span class="n">function</span> <span class="n">autoSave</span><span class="p">()</span>
+    	<span class="k">while</span> <span class="n">wait</span><span class="p">(</span><span class="n">AUTOSAVE_INTERVAL</span><span class="p">)</span> <span class="n">do</span>
+    		<span class="k">for</span> <span class="n">playerUserId</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">sessionData</span><span class="p">)</span> <span class="n">do</span>
+    			<span class="n">savePlayerData</span><span class="p">(</span><span class="n">playerUserId</span><span class="p">)</span>
+    		<span class="n">end</span>
+    	<span class="n">end</span>
+    <span class="n">end</span>
+    
+    <span class="o">--</span> <span class="n">Start</span> <span class="n">running</span> <span class="s2">&quot;autoSave()&quot;</span> <span class="n">function</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">background</span>
+    <span class="n">spawn</span><span class="p">(</span><span class="n">autoSave</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">Connect</span> <span class="s2">&quot;setupPlayerData()&quot;</span> <span class="n">function</span> <span class="n">to</span> <span class="s2">&quot;PlayerAdded&quot;</span> <span class="n">event</span>
+    <span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">PlayerAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">setupPlayerData</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>实现以上所有函数后，我们将得到一个简单的统计数据保存系统，可用于自动保存玩家数据。</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>处理数据存储失败<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>对数据存储的请求（如所有网络调用）可能偶尔会因连接不良或其他问题而失败。正如你在<code class="docutils literal notranslate"><span class="pre">Articles/Data</span> <span class="pre">store|数据存储</span></code>文章中所了解的，应将这些调用打包在 <code class="docutils literal notranslate"><span class="pre">pcall()</span></code> 中以捕获和处理错误。下面我们将此做法应用于当前脚本：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">Set</span> <span class="n">up</span> <span class="n">table</span> <span class="n">to</span> <span class="k">return</span> <span class="n">to</span> <span class="nb">any</span> <span class="n">script</span> <span class="n">that</span> <span class="n">requires</span> <span class="n">this</span> <span class="n">module</span> <span class="n">script</span>
+    <span class="n">local</span> <span class="n">PlayerStatManager</span> <span class="o">=</span> <span class="p">{}</span>
+    
+    <span class="n">local</span> <span class="n">DataStoreService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;DataStoreService&quot;</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">playerData</span> <span class="o">=</span> <span class="n">DataStoreService</span><span class="p">:</span><span class="n">GetDataStore</span><span class="p">(</span><span class="s2">&quot;PlayerData&quot;</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">Table</span> <span class="n">to</span> <span class="n">hold</span> <span class="n">player</span> <span class="n">information</span> <span class="k">for</span> <span class="n">the</span> <span class="n">current</span> <span class="n">session</span>
+    <span class="n">local</span> <span class="n">sessionData</span> <span class="o">=</span> <span class="p">{}</span>
+    
+    <span class="n">local</span> <span class="n">AUTOSAVE_INTERVAL</span> <span class="o">=</span> <span class="mi">60</span>
+    
+    <span class="o">--</span> <span class="n">Function</span> <span class="n">that</span> <span class="n">other</span> <span class="n">scripts</span> <span class="n">can</span> <span class="n">call</span> <span class="n">to</span> <span class="n">change</span> <span class="n">a</span> <span class="n">player</span><span class="s1">&#39;s stats</span>
+    <span class="n">function</span> <span class="n">PlayerStatManager</span><span class="p">:</span><span class="n">ChangeStat</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">statName</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    	<span class="n">local</span> <span class="n">playerUserId</span> <span class="o">=</span> <span class="s2">&quot;Player_&quot;</span> <span class="o">..</span> <span class="n">player</span><span class="o">.</span><span class="n">UserId</span>
+    	<span class="k">assert</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">sessionData</span><span class="p">[</span><span class="n">playerUserId</span><span class="p">][</span><span class="n">statName</span><span class="p">])</span> <span class="o">==</span> <span class="n">typeof</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="s2">&quot;ChangeStat error: types do not match&quot;</span><span class="p">)</span>
+    	<span class="k">if</span> <span class="n">typeof</span><span class="p">(</span><span class="n">sessionData</span><span class="p">[</span><span class="n">playerUserId</span><span class="p">][</span><span class="n">statName</span><span class="p">])</span> <span class="o">==</span> <span class="s2">&quot;number&quot;</span> <span class="n">then</span>
+    		<span class="n">sessionData</span><span class="p">[</span><span class="n">playerUserId</span><span class="p">][</span><span class="n">statName</span><span class="p">]</span> <span class="o">=</span> <span class="n">sessionData</span><span class="p">[</span><span class="n">playerUserId</span><span class="p">][</span><span class="n">statName</span><span class="p">]</span> <span class="o">+</span> <span class="n">value</span>
+    	<span class="k">else</span>
+    		<span class="n">sessionData</span><span class="p">[</span><span class="n">playerUserId</span><span class="p">][</span><span class="n">statName</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    	<span class="n">end</span>
+    <span class="n">end</span>
+    
+    <span class="o">--</span> <span class="n">Function</span> <span class="n">to</span> <span class="n">add</span> <span class="n">player</span> <span class="n">to</span> <span class="n">the</span> <span class="s2">&quot;sessionData&quot;</span> <span class="n">table</span>
+    <span class="n">local</span> <span class="n">function</span> <span class="n">setupPlayerData</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+    	<span class="n">local</span> <span class="n">playerUserId</span> <span class="o">=</span> <span class="s2">&quot;Player_&quot;</span> <span class="o">..</span> <span class="n">player</span><span class="o">.</span><span class="n">UserId</span>
+    	<span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    		<span class="k">return</span> <span class="n">playerData</span><span class="p">:</span><span class="n">GetAsync</span><span class="p">(</span><span class="n">playerUserId</span><span class="p">)</span>
+    	<span class="n">end</span><span class="p">)</span>
+    	<span class="k">if</span> <span class="n">success</span> <span class="n">then</span>
+    		<span class="k">if</span> <span class="n">data</span> <span class="n">then</span>
+    			<span class="o">--</span> <span class="n">Data</span> <span class="n">exists</span> <span class="k">for</span> <span class="n">this</span> <span class="n">player</span>
+    			<span class="n">sessionData</span><span class="p">[</span><span class="n">playerUserId</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
+    		<span class="k">else</span>
+    			<span class="o">--</span> <span class="n">Data</span> <span class="n">store</span> <span class="ow">is</span> <span class="n">working</span><span class="p">,</span> <span class="n">but</span> <span class="n">no</span> <span class="n">current</span> <span class="n">data</span> <span class="k">for</span> <span class="n">this</span> <span class="n">player</span>
+    			<span class="n">sessionData</span><span class="p">[</span><span class="n">playerUserId</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">Money</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">Experience</span><span class="o">=</span><span class="mi">0</span><span class="p">}</span>
+    		<span class="n">end</span>
+    	<span class="k">else</span>
+    		<span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Cannot access data store for player!&quot;</span><span class="p">)</span>
+    	<span class="n">end</span>
+    <span class="n">end</span>
+    
+    <span class="o">--</span> <span class="n">Function</span> <span class="n">to</span> <span class="n">save</span> <span class="n">player</span><span class="s1">&#39;s data</span>
+    <span class="n">local</span> <span class="n">function</span> <span class="n">savePlayerData</span><span class="p">(</span><span class="n">playerUserId</span><span class="p">)</span>
+    	<span class="k">if</span> <span class="n">sessionData</span><span class="p">[</span><span class="n">playerUserId</span><span class="p">]</span> <span class="n">then</span>
+    		<span class="n">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    			<span class="n">playerData</span><span class="p">:</span><span class="n">SetAsync</span><span class="p">(</span><span class="n">playerUserId</span><span class="p">,</span> <span class="n">sessionData</span><span class="p">[</span><span class="n">playerUserId</span><span class="p">])</span>
+    		<span class="n">end</span><span class="p">)</span>
+    		<span class="k">if</span> <span class="ow">not</span> <span class="n">success</span> <span class="n">then</span>
+    			<span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Cannot save data for player!&quot;</span><span class="p">)</span>
+    		<span class="n">end</span>
+    	<span class="n">end</span>
+    <span class="n">end</span>
+    
+    <span class="o">--</span> <span class="n">Function</span> <span class="n">to</span> <span class="n">save</span> <span class="n">player</span> <span class="n">data</span> <span class="n">on</span> <span class="n">exit</span>
+    <span class="n">local</span> <span class="n">function</span> <span class="n">saveOnExit</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+    	<span class="n">local</span> <span class="n">playerUserId</span> <span class="o">=</span> <span class="s2">&quot;Player_&quot;</span> <span class="o">..</span> <span class="n">player</span><span class="o">.</span><span class="n">UserId</span>
+    	<span class="n">savePlayerData</span><span class="p">(</span><span class="n">playerUserId</span><span class="p">)</span>
+    <span class="n">end</span>
+    
+    <span class="o">--</span> <span class="n">Function</span> <span class="n">to</span> <span class="n">periodically</span> <span class="n">save</span> <span class="n">player</span> <span class="n">data</span>
+    <span class="n">local</span> <span class="n">function</span> <span class="n">autoSave</span><span class="p">()</span>
+    	<span class="k">while</span> <span class="n">wait</span><span class="p">(</span><span class="n">AUTOSAVE_INTERVAL</span><span class="p">)</span> <span class="n">do</span>
+    		<span class="k">for</span> <span class="n">playerUserId</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">sessionData</span><span class="p">)</span> <span class="n">do</span>
+    			<span class="n">savePlayerData</span><span class="p">(</span><span class="n">playerUserId</span><span class="p">)</span>
+    		<span class="n">end</span>
+    	<span class="n">end</span>
+    <span class="n">end</span>
+    
+    <span class="o">--</span> <span class="n">Start</span> <span class="n">running</span> <span class="s2">&quot;autoSave()&quot;</span> <span class="n">function</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">background</span>
+    <span class="n">spawn</span><span class="p">(</span><span class="n">autoSave</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">Connect</span> <span class="s2">&quot;setupPlayerData()&quot;</span> <span class="n">function</span> <span class="n">to</span> <span class="s2">&quot;PlayerAdded&quot;</span> <span class="n">event</span>
+    <span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">PlayerAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">setupPlayerData</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">Connect</span> <span class="s2">&quot;saveOnExit()&quot;</span> <span class="n">function</span> <span class="n">to</span> <span class="s2">&quot;PlayerRemoving&quot;</span> <span class="n">event</span>
+    <span class="n">game</span><span class="o">.</span><span class="n">Players</span><span class="o">.</span><span class="n">PlayerRemoving</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">saveOnExit</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">PlayerStatManager</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>数据存储重试<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>作为最后一项可靠性措施，有必要在第一次尝试失败后重新尝试保存数据。可以使用 <code class="docutils literal notranslate"><span class="pre">savePlayerData()</span></code> 函数中简单的 <code class="docutils literal notranslate"><span class="pre">repeat</span></code> 循环将此功能添加到现有脚本中：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="o">--</span> <span class="n">Function</span> <span class="n">to</span> <span class="n">save</span> <span class="n">player</span><span class="s1">&#39;s data</span>
+    <span class="n">local</span> <span class="n">function</span> <span class="n">savePlayerData</span><span class="p">(</span><span class="n">playerUserId</span><span class="p">)</span>
+    	<span class="k">if</span> <span class="n">sessionData</span><span class="p">[</span><span class="n">playerUserId</span><span class="p">]</span> <span class="n">then</span>
+    		<span class="n">local</span> <span class="n">tries</span> <span class="o">=</span> <span class="mi">0</span>	
+    		<span class="n">local</span> <span class="n">success</span>
+    		<span class="n">repeat</span>
+    			<span class="n">tries</span> <span class="o">=</span> <span class="n">tries</span> <span class="o">+</span> <span class="mi">1</span>
+    			<span class="n">success</span> <span class="o">=</span> <span class="n">pcall</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    				<span class="n">playerData</span><span class="p">:</span><span class="n">SetAsync</span><span class="p">(</span><span class="n">playerUserId</span><span class="p">,</span> <span class="n">sessionData</span><span class="p">[</span><span class="n">playerUserId</span><span class="p">])</span>
+    			<span class="n">end</span><span class="p">)</span>
+    			<span class="k">if</span> <span class="ow">not</span> <span class="n">success</span> <span class="n">then</span> <span class="n">wait</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">end</span>
+    		<span class="n">until</span> <span class="n">tries</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">or</span> <span class="n">success</span>
+    		<span class="k">if</span> <span class="ow">not</span> <span class="n">success</span> <span class="n">then</span>
+    			<span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Cannot save data for player!&quot;</span><span class="p">)</span>
+    		<span class="n">end</span>
+    	<span class="n">end</span>
+    <span class="n">end</span>
+
+</pre></div>
+</div>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Saving-Player-Data">保存玩家数据</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="string-patterns-reference.html" class="btn btn-neutral float-right" title="字符串模式" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Understanding-CFrame.html" class="btn btn-neutral float-left" title="了解 CFrame" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

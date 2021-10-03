@@ -1,0 +1,513 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GUI 动画 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="GUI 脚本简介" href="Fundamentals-of-Scripting-with-GUIs.html" />
+    <link rel="prev" title="GUI 简介" href="Intro-to-GUIs.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-GUIs.html">GUI 简介</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">GUI 动画</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">基本的渐变</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">位置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">尺寸</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">位置和尺寸</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">额外选项</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">动画过渡</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">时间</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">高级渐变</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">颜色渐变</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">连续渐变</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Fundamentals-of-Scripting-with-GUIs.html">GUI 脚本简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Chat-System.html">Lua 聊天系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Interactive-Surface-GUI.html">交互式表面 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-GUI-Buttons.html">创建 GUI 按钮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Radial-Menu.html">创建摇杆快速菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Grid-Menu.html">创建栅格菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using-Images-in-GUIs.html">在 GUI 中使用图像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Text-and-Chat-Filtering.html">文本与聊天过滤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Camera-manipulation.html">镜头操控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mouse-Icon-Appearance.html">鼠标指针控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animating-text.html">设置文本动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar-emotes.html">Avatar Emotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chat-Modules.html">Chat Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Custom-Teleport-GUI.html">创建自定义传送屏幕</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Scrolling-Frame-GUI.html">创建滚动框架 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-the-camera.html">Customizing the Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Disabling-Parts-of-Game-Interface.html">禁用游戏界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-bindings.html">Roblox Input Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selection-Boxes.html">选择框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Three-Quarters-Camera-View.html">45 度镜头视角</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Unit-Frame.html">单元框：制作生命槽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewportframe-gui.html">ViewportFrame GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/user-interface.html">用户界面</a> &raquo;</li>
+        
+      <li>GUI 动画</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/GUI-Animations.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gui">
+<h1>GUI 动画<a class="headerlink" href="#gui" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>5  分钟</em></p>
+<p>在动画中，<strong>Tweening</strong> （渐变）是 “in-betweening（中间过渡动画）”的缩写，指的是在一组镜头序列的两个关键点之间生成中间帧的过程。在设计用户界面时，渐变可以使 GUI 流畅地从一个位置/状态平滑过渡到另一个位置/状态，例如：</p>
+<ul class="simple">
+<li><p>流畅地增大一系列相关选项按钮中“已选定”按钮的尺寸。</p></li>
+<li><p>让 GUI 菜单滑入和滑出屏幕边缘。</p></li>
+<li><p>获得生命值提升效果时，以动画的形式让生命值栏在两种宽度间逐渐变化。</p></li>
+</ul>
+<div class="section" id="id1">
+<h2>基本的渐变<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>在<code class="docutils literal notranslate"><span class="pre">articles/Intro</span> <span class="pre">to</span> <span class="pre">GUIs|GUI</span> <span class="pre">简介</span></code>和<code class="docutils literal notranslate"><span class="pre">articles/Creating</span> <span class="pre">GUI</span> <span class="pre">Buttons|创建</span> <span class="pre">GUI</span> <span class="pre">按钮</span></code>两篇文章中，开发者已经学习了如何创建基本的文本标签和交互式按钮。这些内容和诸如 <code class="docutils literal notranslate"><span class="pre">Frame</span></code> 和 <code class="docutils literal notranslate"><span class="pre">ScrollingFrame</span></code> 等 GUI 均可通过直接附加到对象上的脚本来实现渐变。</p>
+<ol class="simple">
+<li><p>在 “Explorer（管理器）”窗口当中，将鼠标悬停在 <strong>StarterGui</strong> 对象上，单击圆形 <img alt="https://developer.roblox.com/assets/blt0dd97240c2a0db2a/Explorer-Plus-Icon.png" src="https://developer.roblox.com/assets/blt0dd97240c2a0db2a/Explorer-Plus-Icon.png" /></p></li>
+</ol>
+<p>按钮，插入一个 <strong>ScreenGui</strong> 对象。
+2. 选择新的 <strong>ScreenGui</strong> 对象，然后用相同的方法插入一个 <strong>TextButton</strong>。
+3. 选择新的 <strong>TextButton</strong> 并插入一个新的 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code>。
+<img alt="https://developer.roblox.com/assets/blta51533314e36660b/TextButton-LocalScript.png" src="https://developer.roblox.com/assets/blta51533314e36660b/TextButton-LocalScript.png" /></p>
+<ol class="simple">
+<li><p>复制以下代码并粘贴到脚本中：</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="nb">object</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+    <span class="nb">object</span><span class="o">.</span><span class="n">AnchorPoint</span> <span class="o">=</span> <span class="n">Vector2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>这些变量就位之后，就可以用 GUI 基础 <code class="docutils literal notranslate"><span class="pre">GuiObject</span></code> 类的内置方法来实现 GUI 的渐变。</p>
+<div class="section" id="id2">
+<h3>位置<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>GUI 的位置可以用 <code class="docutils literal notranslate"><span class="pre">GuiObject/TweenPosition|GuiObject:TweenPosition()</span></code> 方法来实现渐变。在最基本的形态下，这个方法需要一个<strong>结束位置</strong>（<code class="docutils literal notranslate"><span class="pre">datatype/UDim2</span></code>）来代表对象的目的地：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="nb">object</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+    <span class="nb">object</span><span class="o">.</span><span class="n">AnchorPoint</span> <span class="o">=</span> <span class="n">Vector2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="nb">object</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    
+    <span class="n">wait</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="nb">object</span><span class="p">:</span><span class="n">TweenPosition</span><span class="p">(</span><span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+</pre></div>
+</div>
+<p><img alt="https://developer.roblox.com/assets/blt3e594936e6e71a36/GUI-Animation-Position.png" src="https://developer.roblox.com/assets/blt3e594936e6e71a36/GUI-Animation-Position.png" /></p>
+<p>请注意，这种渐变会使用 <code class="docutils literal notranslate"><span class="pre">datatype/UDim2</span></code> 的 <strong>Scale</strong> 参数来对比位置偏移值。这样无论屏幕的大小和方向如何，都能保证 GUI 会向屏幕的中心渐变。</p>
+<p>除此之外，还能通过偏偏移对象的起始位置宽度，从而让 GUI 从屏幕的左侧边缘开始渐变：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="nb">object</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+    <span class="nb">object</span><span class="o">.</span><span class="n">AnchorPoint</span> <span class="o">=</span> <span class="n">Vector2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="nb">object</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="nb">object</span><span class="o">.</span><span class="n">Size</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">Offset</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    
+    <span class="n">wait</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="nb">object</span><span class="p">:</span><span class="n">TweenPosition</span><span class="p">(</span><span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>尺寸<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>一个 GUI 的尺寸可以用 <code class="docutils literal notranslate"><span class="pre">GuiObject/TweenSize|GuiObject:TweenSize()</span></code> 方法来实现渐变，该方法能使 <code class="docutils literal notranslate"><span class="pre">datatype/UDim2</span></code> 来代表对象的最终尺寸：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="nb">object</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+    <span class="nb">object</span><span class="o">.</span><span class="n">AnchorPoint</span> <span class="o">=</span> <span class="n">Vector2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="nb">object</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    
+    <span class="n">wait</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="nb">object</span><span class="p">:</span><span class="n">TweenSize</span><span class="p">(</span><span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+</pre></div>
+</div>
+<p><img alt="https://developer.roblox.com/assets/blt8ecdd717b0909821/GUI-Animation-Size.png" src="https://developer.roblox.com/assets/blt8ecdd717b0909821/GUI-Animation-Size.png" /></p>
+<p>上述示例使用了 <code class="docutils literal notranslate"><span class="pre">datatype/UDim2</span></code> 的 Scale（缩放）参数，但开发者也可通过使用显式 Size（尺寸）参数来调整 GUI 的大小：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="nb">object</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+    <span class="nb">object</span><span class="o">.</span><span class="n">AnchorPoint</span> <span class="o">=</span> <span class="n">Vector2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="nb">object</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    
+    <span class="n">wait</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="nb">object</span><span class="p">:</span><span class="n">TweenSize</span><span class="p">(</span><span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>位置和尺寸<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>要用一条命令同时实现 GUI 位置和尺寸的渐变，请使用 <code class="docutils literal notranslate"><span class="pre">GuiObject/TweenSizeAndPosition|GuiObject:TweenSizeAndPosition()</span></code> 。该方法需要使用一个 <code class="docutils literal notranslate"><span class="pre">datatype/UDim2</span></code> 来代表 GUI 的最终尺寸和位置：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="nb">object</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+    <span class="nb">object</span><span class="o">.</span><span class="n">AnchorPoint</span> <span class="o">=</span> <span class="n">Vector2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="nb">object</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="nb">object</span><span class="o">.</span><span class="n">Size</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">Offset</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    
+    <span class="n">wait</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="nb">object</span><span class="p">:</span><span class="n">TweenSizeAndPosition</span><span class="p">(</span><span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>额外选项<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>上述所有方法都接受其他能够对 GUI 动画进行微调或对 GUI 动画加强控制能力的选项。</p>
+<div class="section" id="id6">
+<h3>动画过渡<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>动画<strong>过渡</strong>定义渐变将出现在哪个“方向”以及渐变是什么样的风格。</p>
+<p>方向 描述</p>
+<p><strong>In（渐入）</strong>
+渐变开始时速度较慢，越接近结束时速度越快。</p>
+<p><strong>Out（渐出）</strong>
+渐变开始时速度较快，越接近结束时速度越慢。</p>
+<p><strong>InOut（渐入渐出）</strong>
+<strong>渐入</strong>和<strong>渐出</strong>存在于同一个渐变过程中，最开始是<strong>渐入</strong>，从中间开始<strong>渐出</strong>效果开始生效。</p>
+<p>风格 描述</p>
+<p><strong>线性</strong>
+以恒定速度移动。</p>
+<p><strong>正弦</strong>
+移动速度由一个正弦波来决定。</p>
+<p><strong>返回</strong>
+渐变移动返回某个地方或者退出某个地方。</p>
+<p><strong>Quad（二阶）</strong>
+以二阶插值的方式渐入或者渐出。</p>
+<p><strong>Quart（四阶）</strong>
+和 **Quad（二阶）**类似，但更强调开始位置和（或）结束位置。</p>
+<p><strong>Quint（五阶）</strong>
+和 **Quad（二阶）**类似，但对开始位置和（或）结束位置的强调程度更深了。</p>
+<p><strong>跳动感</strong>
+移动时给人的感觉就好像渐变的起始位置和结束位置在跳动一样。</p>
+<p><strong>弹性</strong>
+移动时给人的感觉就好像是对象连着一根橡皮筋一样。</p>
+<p>过渡选项可以被定义为位于尺寸和（或者）位置 <code class="docutils literal notranslate"><span class="pre">datatype/UDim2</span></code> 值后面的 <code class="docutils literal notranslate"><span class="pre">Enum/EasingDirection</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Enum/EasingStyle</span></code> 枚举值。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="nb">object</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+    <span class="nb">object</span><span class="o">.</span><span class="n">AnchorPoint</span> <span class="o">=</span> <span class="n">Vector2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="nb">object</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+     
+    <span class="n">wait</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+     
+    <span class="nb">object</span><span class="p">:</span><span class="n">TweenPosition</span><span class="p">(</span><span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">Enum</span><span class="o">.</span><span class="n">EasingDirection</span><span class="o">.</span><span class="n">Out</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">EasingStyle</span><span class="o">.</span><span class="n">Quint</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>时间<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>默认情况下，渐变将在 1 秒后发生，但也可以在下列过渡选项中指定具体秒数来进行调整：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="nb">object</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+    <span class="nb">object</span><span class="o">.</span><span class="n">AnchorPoint</span> <span class="o">=</span> <span class="n">Vector2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="nb">object</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+     
+    <span class="n">wait</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+     
+    <span class="nb">object</span><span class="p">:</span><span class="n">TweenPosition</span><span class="p">(</span><span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">nil</span><span class="p">,</span> <span class="n">nil</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>注意，如果开发者不需要更改 **Out（渐出）**的 <code class="docutils literal notranslate"><span class="pre">Enum/EasingDirection</span></code> 默认值或者 **Quad（二阶）**的 <code class="docutils literal notranslate"><span class="pre">Enum/EasingStyle</span></code> 默认值，则可使用 <code class="docutils literal notranslate"><span class="pre">nil</span></code> 可进行代替。</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>高级渐变<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>上述方法都是实现 GUI 位置和尺寸的渐变方式，但这些方法无法实现旋转、颜色或透明度等层面的渐变，若要实现这些渐变，开发者就得使用一种名为 <code class="docutils literal notranslate"><span class="pre">TweenService</span></code> 的工具，该工具功能十分强大，能实现几乎所有属性或属性组合的渐变。</p>
+<div class="section" id="id9">
+<h3>颜色渐变<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>某些动画需要 <code class="docutils literal notranslate"><span class="pre">datatype/Color3</span></code> 属性的渐变，例如当玩家的生命值降到特定百分比以下时，生命值栏的颜色会从绿色变为黄色。</p>
+<ol class="simple">
+<li><p>在 Explorer（管理器）窗口中，将鼠标悬停在之前创建的 <strong>ScreenGui</strong> 对象上，然后插入一个 <strong>Frame（框架）</strong>。</p></li>
+<li><p>选择新的框架对象，然后插入一个新的 <code class="docutils literal notranslate"><span class="pre">LocalScript</span></code>。</p></li>
+<li><p>复制下列编码并将其粘贴到脚本中：</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">TweenService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;TweenService&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+    <span class="n">frame</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+    <span class="n">frame</span><span class="o">.</span><span class="n">BorderSizePixel</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">frame</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+    <span class="n">frame</span><span class="o">.</span><span class="n">BackgroundColor3</span> <span class="o">=</span> <span class="n">Color3</span><span class="o">.</span><span class="n">fromRGB</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">75</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">声明目标尺寸和颜色值</span>
+    <span class="n">local</span> <span class="n">newSize</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">frame</span><span class="o">.</span><span class="n">Size</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">Offset</span><span class="o">*</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">frame</span><span class="o">.</span><span class="n">Size</span><span class="o">.</span><span class="n">Y</span><span class="o">.</span><span class="n">Offset</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">newColor</span> <span class="o">=</span> <span class="n">Color3</span><span class="o">.</span><span class="n">fromRGB</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">设置渐变</span>
+    <span class="n">local</span> <span class="n">tweenInfo</span> <span class="o">=</span> <span class="n">TweenInfo</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">EasingStyle</span><span class="o">.</span><span class="n">Quart</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">EasingDirection</span><span class="o">.</span><span class="n">Out</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">tween</span> <span class="o">=</span> <span class="n">TweenService</span><span class="p">:</span><span class="n">Create</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">tweenInfo</span><span class="p">,</span> <span class="p">{</span><span class="n">Size</span><span class="o">=</span><span class="n">newSize</span><span class="p">,</span> <span class="n">BackgroundColor3</span><span class="o">=</span><span class="n">newColor</span><span class="p">})</span>
+    
+    <span class="n">wait</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="n">tween</span><span class="p">:</span><span class="n">Play</span><span class="p">()</span>
+
+</pre></div>
+</div>
+<p>此代码作用如下：</p>
+<ul class="simple">
+<li><p>在 4 至 7 行中设置框架的位置、边界、尺寸和背景颜色（绿色）。</p></li>
+<li><p>在 10 至 11 行显示目标的尺寸和背景颜色。</p></li>
+<li><p>在 14 行声明一个新的 <code class="docutils literal notranslate"><span class="pre">datatype/TweenInfo</span></code> 对象，令其以 **Out（渐出）**过渡的方式存在 1.5 秒。</p></li>
+<li><p>在 15 行创建一个新的 <code class="docutils literal notranslate"><span class="pre">Tween</span></code>，该渐变将框架的 <code class="docutils literal notranslate"><span class="pre">GuiObject/Size|Size</span></code> （尺寸）插补为 <code class="docutils literal notranslate"><span class="pre">newSize</span></code>、将框架的 <code class="docutils literal notranslate"><span class="pre">GuiObject/BackgroundColor3|Backgroundolor3</span></code> 插补为 <code class="docutils literal notranslate"><span class="pre">newColor</span></code>。</p></li>
+<li><p>在 19 行播放渐变。</p></li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3>连续渐变<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>连续性的设置对某些动画效果有利，例如在移动渐变后的旋转渐变。要实现这一效果，可以在第一个渐变事件 <code class="docutils literal notranslate"><span class="pre">TweenBase/Completed|Completed</span></code> （完成后）立马开始第二个渐变：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+    <span class="n">local</span> <span class="n">TweenService</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;TweenService&quot;</span><span class="p">)</span>
+    
+    <span class="n">local</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">Parent</span>
+    <span class="n">frame</span><span class="o">.</span><span class="n">AnchorPoint</span> <span class="o">=</span> <span class="n">Vector2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">frame</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
+    <span class="n">frame</span><span class="o">.</span><span class="n">BorderSizePixel</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">frame</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">frame</span><span class="o">.</span><span class="n">BackgroundColor3</span> <span class="o">=</span> <span class="n">Color3</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    
+    <span class="o">--</span> <span class="n">设置渐变</span>
+    <span class="n">local</span> <span class="n">tweenInfo1</span> <span class="o">=</span> <span class="n">TweenInfo</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">EasingStyle</span><span class="o">.</span><span class="n">Sine</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">EasingDirection</span><span class="o">.</span><span class="n">Out</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">tween1</span> <span class="o">=</span> <span class="n">TweenService</span><span class="p">:</span><span class="n">Create</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">tweenInfo1</span><span class="p">,</span> <span class="p">{</span><span class="n">Position</span><span class="o">=</span><span class="n">UDim2</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)})</span>
+    <span class="n">local</span> <span class="n">tweenInfo2</span> <span class="o">=</span> <span class="n">TweenInfo</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">EasingStyle</span><span class="o">.</span><span class="n">Quart</span><span class="p">,</span> <span class="n">Enum</span><span class="o">.</span><span class="n">EasingDirection</span><span class="o">.</span><span class="n">InOut</span><span class="p">)</span>
+    <span class="n">local</span> <span class="n">tween2</span> <span class="o">=</span> <span class="n">TweenService</span><span class="p">:</span><span class="n">Create</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">tweenInfo2</span><span class="p">,</span> <span class="p">{</span><span class="n">Rotation</span><span class="o">=</span><span class="mi">180</span><span class="p">})</span>
+    
+    <span class="n">tween1</span><span class="o">.</span><span class="n">Completed</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">function</span><span class="p">()</span>
+    	<span class="n">tween2</span><span class="p">:</span><span class="n">Play</span><span class="p">()</span>
+    <span class="n">end</span><span class="p">)</span>
+    
+    <span class="n">wait</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="n">tween1</span><span class="p">:</span><span class="n">Play</span><span class="p">()</span>
+
+</pre></div>
+</div>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/GUI-Animations">GUI 动画</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Fundamentals-of-Scripting-with-GUIs.html" class="btn btn-neutral float-right" title="GUI 脚本简介" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Intro-to-GUIs.html" class="btn btn-neutral float-left" title="GUI 简介" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

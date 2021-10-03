@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>在 GUI 中使用图像 &mdash; roblox-docs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="文本与聊天过滤" href="Text-and-Chat-Filtering.html" />
+    <link rel="prev" title="创建栅格菜单" href="Creating-a-Grid-Menu.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> roblox-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Roblox-Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">learn-roblox</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/studio-basics.html">STUDIO 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/creating.html">创建</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/international.html">国际化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/sound-lighting-fx.html">声效、光照与特效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/marketing.html">市场营销</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/optimization.html">性能优化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/analytics.html">数据分析</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials/user-interface.html">用户界面</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Intro-to-GUIs.html">GUI 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI-Animations.html">GUI 动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fundamentals-of-Scripting-with-GUIs.html">GUI 脚本简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Lua-Chat-System.html">Lua 聊天系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Interactive-Surface-GUI.html">交互式表面 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-GUI-Buttons.html">创建 GUI 按钮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Radial-Menu.html">创建摇杆快速菜单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Grid-Menu.html">创建栅格菜单</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">在 GUI 中使用图像</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#screen-gui">向一个 Screen GUI 中添加图像</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">上传一张图像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">更改标签属性</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">在 Screen GUI 中进行图像分层</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">创建第二个图像标签</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Text-and-Chat-Filtering.html">文本与聊天过滤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Camera-manipulation.html">镜头操控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mouse-Icon-Appearance.html">鼠标指针控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animating-text.html">设置文本动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar-emotes.html">Avatar Emotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chat-Modules.html">Chat Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Custom-Teleport-GUI.html">创建自定义传送屏幕</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Creating-a-Scrolling-Frame-GUI.html">创建滚动框架 GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-the-camera.html">Customizing the Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Disabling-Parts-of-Game-Interface.html">禁用游戏界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-bindings.html">Roblox Input Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selection-Boxes.html">选择框</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Three-Quarters-Camera-View.html">45 度镜头视角</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Making-a-Unit-Frame.html">单元框：制作生命槽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewportframe-gui.html">ViewportFrame GUI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/monetization.html">盈利</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/coding-scripts.html">编码与脚本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/cross-platform.html">跨平台发展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gameplay.html">游戏制作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">api-reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/avatar.html">AVATAR</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">roblox-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials/user-interface.html">用户界面</a> &raquo;</li>
+        
+      <li>在 GUI 中使用图像</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/articles/Using-Images-in-GUIs.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gui">
+<h1>在 GUI 中使用图像<a class="headerlink" href="#gui" title="Permalink to this headline">¶</a></h1>
+<p>Time:<em>10  分钟</em></p>
+<p>在 <code class="docutils literal notranslate"><span class="pre">Articles/Intro</span> <span class="pre">to</span> <span class="pre">GUIs</span></code> 指南中，开发者学习了GUI 的基础知识、如何为所有进入自己游戏的玩家创建 Screen GUI 画布，以及如何在屏幕上放置一个 <code class="docutils literal notranslate"><span class="pre">TextLabel</span></code> GUI 对象并对其大小进行调整。如果开发者还没有完整阅读过 <code class="docutils literal notranslate"><span class="pre">Articles/Intro</span> <span class="pre">to</span> <span class="pre">GUIs</span></code> 指南，请先阅读该指南！</p>
+<p>接下来我们将详细展开这些概念并探索如何在 Screen GUI 区域插入<strong>图像</strong>。这对于在屏幕上展示图标、标识、背景图像以及其他酷炫的设计是一个绝佳途径！</p>
+<div class="section" id="screen-gui">
+<h2>向一个 Screen GUI 中添加图像<a class="headerlink" href="#screen-gui" title="Permalink to this headline">¶</a></h2>
+<p>将一张图像添加到 Screen GUI 的过程与添加一个文本标签非常相似。</p>
+<ol class="simple">
+<li><p>在管理器窗口中找到 <strong>ScreenGui</strong> 对象（开发者可以使用在 <code class="docutils literal notranslate"><span class="pre">Articles/Intro</span> <span class="pre">to</span> <span class="pre">GUIs</span></code> 指南中创建的对象）</p></li>
+<li><p>插入一个 <code class="docutils literal notranslate"><span class="pre">ImageLabel</span></code> 对象。记住，开发者可以通过在搜索字段中输入对象名称的前几个字母来快速查找。
+<img alt="https://developer.roblox.com/assets/blt7cee6a4552533a46/Add-ImageLabel-2.png" src="https://developer.roblox.com/assets/blt7cee6a4552533a46/Add-ImageLabel-2.png" /></p></li>
+</ol>
+<p>这一操作会在游戏视图的左上角添加一个空白的图像标签。</p>
+<p><img alt="https://developer.roblox.com/assets/blt7bf6f81219465500/Add-ImageLabel-3.png" src="https://developer.roblox.com/assets/blt7bf6f81219465500/Add-ImageLabel-3.png" /></p>
+<div class="section" id="id1">
+<h3>上传一张图像<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>有了这个空白图像标签，事情就基本上搞定了一半。但我们还需要在屏幕上放置一个真实的图像，现在就开始上传吧。</p>
+<p>游戏必须被<strong>发布到 Roblox</strong> ，然后才能上传图像。如果开发者需要关于游戏发布的相关帮助，请 点击 这里。</p>
+<ol class="simple">
+<li><p>在 Roblox Studio 中，选择 <strong>文件</strong> → <strong>发布到 Roblox</strong>。</p></li>
+<li><p>点击<strong>新场景</strong>。</p></li>
+<li><p>键入名称和描述。</p></li>
+<li><p>点击<strong>创建场景</strong>。</p></li>
+<li><p>当进度条满格且为“100% 完成”时，点击蓝色的<strong>下一步</strong>按钮。</p></li>
+<li><p>下一个屏幕界面上会显示游戏附加功能的有关信息。开发者可以选择跳过这些步骤 — 只需要点击<strong>完成</strong>按钮即可。</p></li>
+<li><p>在管理器窗口中选择新的 <strong>ImageLabel</strong> 对象。
+<img alt="https://developer.roblox.com/assets/blt9afe50926c654b85/Select-ImageLabel.png" src="https://developer.roblox.com/assets/blt9afe50926c654b85/Select-ImageLabel.png" /></p></li>
+<li><p>在属性窗口的 <strong>图像</strong>区域内，点击 <strong>图像</strong>属性。
+<img alt="https://developer.roblox.com/assets/blt1480ab6345145332/Click-Image-Field.png" src="https://developer.roblox.com/assets/blt1480ab6345145332/Click-Image-Field.png" /></p></li>
+<li><p>在弹出窗口中点击<strong>添加图像…</strong>。
+<img alt="https://developer.roblox.com/assets/blt53925f335a7f8e2e/Click-Add-Image.png" src="https://developer.roblox.com/assets/blt53925f335a7f8e2e/Click-Add-Image.png" /></p></li>
+</ol>
+<p>如果开发者没有看到窗口弹出，那么就说明游戏可能还未<strong>发布</strong>。记住，必须要先确认游戏已 发布后才能上传图像。</p>
+<ol class="simple">
+<li><p>在下一对话框中单击 <strong>选择文件</strong>按钮。在电脑上找到并选中一张自己想要上传的图像。</p></li>
+</ol>
+<p><img alt="https://developer.roblox.com/assets/blt79e4a8e82857168a/PlayIcon.png" src="https://developer.roblox.com/assets/blt79e4a8e82857168a/PlayIcon.png" /></p>
+<p>开发者可以使用这个小图标 “play” 来进行测试 — 只需要右键点击这个小图标然后选择<strong>将图像另存为…</strong>，将它保存至一个便捷的位置，然后根据指示导航至此图像。</p>
+<p>如果想在菜单界面或类似的彩色背景界面上放置图像，开发者可以在图像编辑程序中对图像可见部分周围的像素进行<strong>透明化</strong>处理，这样背景或后面其他的游戏对象就能显示出来。</p>
+<ol class="simple">
+<li><p>开发者还可以在较小的 <strong>名称</strong>输入字段中键入另一个不同的名称。输入完毕后点击 <strong>创建</strong>按钮。</p></li>
+<li><p>上传完成后，就能看到 <strong>ImageLabel</strong> 对象已更新为所选图像啦！
+<img alt="https://developer.roblox.com/assets/bltc4918e0967c903e4/ImageLabel-Image.png" src="https://developer.roblox.com/assets/bltc4918e0967c903e4/ImageLabel-Image.png" /></p></li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h3>更改标签属性<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>目前图像已经上传并应用于 <strong>ImageLabel</strong> 对象，但我们还可以更改一些属性让它看起来更好！</p>
+<ol class="simple">
+<li><p>如果属性窗口中的 <strong>数据</strong>区域没有展开的话，则将其展开。</p></li>
+<li><p>在 <strong>BackgroundTransparency</strong> 值中输入 <strong>1</strong>，这样图像标签的背景就会完全透明化，图像背景后的所有内容都会显示出来。
+<img alt="https://developer.roblox.com/assets/blt0b74f4dd9bfee77c/Images-GUI-BackgroundTransparency-Changed.png" src="https://developer.roblox.com/assets/blt0b74f4dd9bfee77c/Images-GUI-BackgroundTransparency-Changed.png" /></p></li>
+<li><p>开发者可以通过 <strong>Size</strong>属性设置图像标签的大小。首先，将 <strong>Size</strong> → <strong>X</strong> → **Offset（偏移）**更改为 <strong>80</strong>。
+<img alt="https://developer.roblox.com/assets/blt7da291e7e73568ec/Images-GUI-ImageLabel-X-Offset-Size-Changed.png" src="https://developer.roblox.com/assets/blt7da291e7e73568ec/Images-GUI-ImageLabel-X-Offset-Size-Changed.png" /></p></li>
+<li><p>同样地，将 <strong>Size</strong> → <strong>Y</strong> → **Offset（偏移）**也更改为 <strong>80</strong>，以保持图像比例不变。
+<img alt="https://developer.roblox.com/assets/blt2541e6f0b11e386d/Images-GUI-ImageLabel-Y-Offset-Size-Changed.png" src="https://developer.roblox.com/assets/blt2541e6f0b11e386d/Images-GUI-ImageLabel-Y-Offset-Size-Changed.png" /></p></li>
+<li><p>开发者还可以通过 **Position（位置）**属性来设置图像标签的位置。首先，将 <strong>Position（位置）</strong> → <strong>X</strong> → **Offset（偏移）**更改为 <strong>40</strong>。
+<img alt="https://developer.roblox.com/assets/bltf4bd36e9347c9c70/Images-GUI-ImageLabel-X-Offset-Position-Changed.png" src="https://developer.roblox.com/assets/bltf4bd36e9347c9c70/Images-GUI-ImageLabel-X-Offset-Position-Changed.png" /></p></li>
+<li><p>再将 <strong>Position（位置）</strong> → <strong>Y</strong> → **Offset（偏移）**更改至 <strong>20</strong>来使标签略微下移。
+<img alt="https://developer.roblox.com/assets/blt5723e66f752bab31/Images-GUI-ImageLabel-Y-Offset-Position-Changed.png" src="https://developer.roblox.com/assets/blt5723e66f752bab31/Images-GUI-ImageLabel-Y-Offset-Position-Changed.png" /></p></li>
+<li><p>最后，将 **Rotation（旋转）**值设置为 <strong>-8</strong>，使标签向逆时针方向稍微旋转一些。
+<img alt="https://developer.roblox.com/assets/bltb08bf69df1cb3102/Images-GUI-ImageLabel-Rotation-Changed.png" src="https://developer.roblox.com/assets/bltb08bf69df1cb3102/Images-GUI-ImageLabel-Rotation-Changed.png" /></p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>在 Screen GUI 中进行图像分层<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>太棒了！现在开发者已经知道了如何将图像上传至 Roblox 并将它们放置到屏幕上。不过当开发者想要添加多个图像时，可能就需要考虑<strong>分层</strong>了。</p>
+<p>在 Screen GUI 区域进行对象分层就像是在一张纸上贴多个贴纸。如果开发者将一个贴纸贴在另一个贴纸上，那该贴纸将会遮住后面的贴纸。但有时开发者可能会想以不同的方式来排列这些贴纸，比如把后面的贴纸移到最前面。</p>
+<div class="section" id="id4">
+<h3>创建第二个图像标签<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>让我们将另一个图像放置到屏幕上以便展示如何进行分层操作。</p>
+<ol class="simple">
+<li><p>向 <strong>ScreenGui</strong> 添加一个新的 <strong>ImageLabel</strong> 对象。</p></li>
+</ol>
+<p>***<strong>Roblox官方链接</strong>:<a class="reference external" href="https://developer.roblox.com/zh-cn/articles/Using-Images-in-GUIs">在 GUI 中使用图像</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Text-and-Chat-Filtering.html" class="btn btn-neutral float-right" title="文本与聊天过滤" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Creating-a-Grid-Menu.html" class="btn btn-neutral float-left" title="创建栅格菜单" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, ankazen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
